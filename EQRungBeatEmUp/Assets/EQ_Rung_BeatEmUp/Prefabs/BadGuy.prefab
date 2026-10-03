@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 3097709223451824227}
   - component: {fileID: 6895632525944499346}
   - component: {fileID: 901000000000000002}
+  - component: {fileID: 902000000000000002}
   m_Layer: 0
   m_Name: BadGuy
   m_TagString: Untagged
@@ -346,3 +347,20 @@ MonoBehaviour:
   motor: {fileID: 758395558412021657}
   hitbox: {fileID: 5478996337478078675}
   animationDriver: {fileID: 2796102424388242218}
+--- !u!114 &902000000000000002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535860552286473514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1d22d256bf4b389efa811ee8f52cb1, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.HitBlinkEffect
+  hitBlinkDuration: 0.35
+  hitBlinkInterval: 0.06
+  blinkRenderers:
+  - {fileID: 8769554622510565974}
+  blinkOnHit: 1

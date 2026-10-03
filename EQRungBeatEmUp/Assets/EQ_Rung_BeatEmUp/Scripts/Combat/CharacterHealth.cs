@@ -8,15 +8,19 @@ namespace BeatEmUp
         [Min(1)] public float maximumHealth = 200;
         public float Current { get; private set; }
         public bool IsDead => Current <= 0;
+        public event Action Damaged;
         public event Action Died;
+        public event Action Restored;
         private void Awake() { Current = maximumHealth; }
         public bool Damage(float amount)
         {
             if (IsDead) return false;
+            float previous = Current;
             Current = Mathf.Max(0, Current - Mathf.Max(0, amount));
+            if (Current < previous) Damaged?.Invoke();
             if (IsDead) Died?.Invoke();
             return true;
         }
-        public void Restore() { Current = maximumHealth; }
+        public void Restore() { Current = maximumHealth; Restored?.Invoke(); }
     }
 }

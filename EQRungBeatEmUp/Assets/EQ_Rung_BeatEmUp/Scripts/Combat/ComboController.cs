@@ -15,7 +15,7 @@ namespace BeatEmUp
         public AttackData[] airCombo = new AttackData[3];
         [Min(1)] public int launcherAfterGroundHit = 2;
         [Header("Combat frames")]
-        [Min(1)] public int inputBufferFrames = 21;
+        [Min(1)] public int inputBufferFrames = 6;
         [Min(1)] public int jumpBufferFrames = 36;
         [Min(0)] public int comboResetFrames = 21;
         [Min(0)] public int finisherRecoveryFrames = 7;
@@ -123,8 +123,11 @@ namespace BeatEmUp
         {
             bool terminal = finished.isLauncher || ComboIndex >= (routeAir ? airCombo.Length : groundCombo.Length);
             cooldown = finished.cooldownFrames + (terminal ? finisherRecoveryFrames : 0);
-            nextIndex = terminal ? 0 : ComboIndex; idleFrames = 0;
-            if (terminal) { bufferFrames = 0; buffered = CombatInput.None; ComboIndex = 0; }
+            // Ground chains continue only through authored cancel windows.
+            // Preserve the existing between-attack continuation for air routes.
+            bool resetRoute = terminal || (!routeAir && !finished.isLauncher);
+            nextIndex = resetRoute ? 0 : ComboIndex; idleFrames = 0;
+            if (resetRoute) { bufferFrames = 0; buffered = CombatInput.None; ComboIndex = 0; }
         }
     }
 }

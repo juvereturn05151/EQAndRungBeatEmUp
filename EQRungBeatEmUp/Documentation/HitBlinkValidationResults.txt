@@ -1,0 +1,26 @@
+PASS: Player prefab exposes enabled blink with duration 0.35 and interval 0.06 seconds
+PASS: Only the existing Visual/body renderer is configured to blink
+PASS: Existing CombatHurtbox accepts a player hit during an attack
+PASS: Damage still interrupts AttackData and selects the existing GroundHit reaction
+PASS: Accepted damage starts visible with one active blink timer
+PASS: Blink hides only selected visuals; gameplay, colliders and unrelated effects remain enabled
+PASS: Reaction animation advances while its renderer is hidden
+PASS: Repeated damage is accepted during blink and restarts from visible
+PASS: Another repeated hit refreshes the same timer cleanly
+PASS: Blink finishes with original renderer states restored
+PASS: Existing logical hitstop still expires normally
+PASS: Unscaled blink flickers and completes even with timeScale zero
+PASS: Original hitstun duration still recovers through the combat clock
+PASS: AttackData sprite progression works independently of hidden visibility
+PASS: Existing frame invulnerability rejects damage without blinking
+PASS: Super armor still takes damage and blinks without interrupting its attack
+PASS: Zero damage does not trigger blink
+PASS: Death during the invisible phase restores visibility immediately
+PASS: Existing player death state and movement lock are preserved
+PASS: Health restoration clears old blink timing
+PASS: Direct restoration while alive also cancels an invisible blink
+PASS: Disabling the player restores its body and clears the timer
+PASS: Re-enabled player has no stale blink timer
+PASS: Disabling the effect component restores renderer state
+PASS: Recovered player can attack with normal visible AttackData sprites
+PASS: Destroying the effect restores the surviving renderer

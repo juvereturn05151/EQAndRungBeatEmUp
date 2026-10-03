@@ -1,0 +1,5 @@
+APEX player=1.947668 enemy=2.085166 ratio=1.070596
+PURSUIT MATRIX 288/288 stationary=144/144 moving=144/144
+PASS: Whiff launcher allows only the requested normal jump and never moves the enemy
+PASS: Normal jump keeps its height and movement; standalone air attack moves, recovers and lands
+LAUNCHER PURSUIT VALIDATION PASSED

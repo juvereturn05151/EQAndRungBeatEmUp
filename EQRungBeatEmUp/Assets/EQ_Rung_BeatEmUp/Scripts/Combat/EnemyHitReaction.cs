@@ -40,11 +40,18 @@ namespace BeatEmUp
             }
             else if (!motor.IsGrounded)
             {
+                motor.AddKnockback(facing * hit.knockback);
                 if (JuggleOpen && !health.IsDead)
                 {
                     JuggleHits++;
                     if (hit.hitType == HitType.AirFinisher || JuggleHits >= maximumJuggleHits) CloseJuggle(true);
                     else motor.JuggleLift(juggleHitLift);
+                }
+                // Finishers also drive down enemies whose juggle window has closed.
+                if (hit.hitType == HitType.AirFinisher && !health.IsDead)
+                {
+                    CloseJuggle(true);
+                    if (hit.launchVelocity.y < 0) motor.Fall(-hit.launchVelocity.y);
                 }
                 State = juggleClosed ? EnemyReaction.Falling : EnemyReaction.AirHit;
             }

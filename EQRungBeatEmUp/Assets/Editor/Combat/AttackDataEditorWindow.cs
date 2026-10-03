@@ -266,7 +266,7 @@ public sealed class AttackDataEditorWindow : EditorWindow
                         }
                 }
                 EditorGUILayout.Space(); EditorGUILayout.LabelField("Movement / velocity", EditorStyles.boldLabel);
-                foreach (string property in new[] { "movement", "setHorizontalVelocity", "horizontalVelocity", "setVerticalVelocity", "verticalVelocity", "verticalVelocityModifier", "gravityScale", "suspendFalling" }) EditorGUILayout.PropertyField(frame.FindPropertyRelative(property));
+                foreach (string property in new[] { "movement", "movementInputScale", "setHorizontalVelocity", "horizontalVelocity", "setVerticalVelocity", "verticalVelocity", "verticalVelocityModifier", "gravityScale", "suspendFalling" }) EditorGUILayout.PropertyField(frame.FindPropertyRelative(property));
                 EditorGUILayout.Space(); EditorGUILayout.LabelField("Cancels / defense", EditorStyles.boldLabel);
                 foreach (string property in new[] { "canCancelIntoAttack", "canCancelIntoLauncher", "canCancelIntoJump", "invulnerable", "superArmor", "events" }) EditorGUILayout.PropertyField(frame.FindPropertyRelative(property), true);
             }

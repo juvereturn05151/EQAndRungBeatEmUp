@@ -74,6 +74,8 @@ namespace BeatEmUp
         public void Simulate(float dt)
         {
             Vector2 movement = MovementLocked ? Vector2.zero : Vector2.ClampMagnitude(MoveInput, 1);
+            var frame = attackPlayer ? attackPlayer.Frame : null;
+            if (frame != null) movement *= Mathf.Clamp01(frame.movementInputScale);
             if (movement.x != 0 && (!attackPlayer || !attackPlayer.CurrentAttack)) Face(movement.x);
             Vector3 position = transform.position + (Vector3)((movement * moveSpeed + recoil + new Vector2(AttackHorizontalVelocity, 0)) * dt);
             position.x = Mathf.Clamp(position.x, arenaMin.x, arenaMax.x);

@@ -23,6 +23,7 @@ namespace BeatEmUp
         [Min(0)] public int hitstunFrames = 18;
         [Min(0)] public int hitstopFrames = 5;
         public float knockback = .25f;
+        [Tooltip("Launcher: X horizontal, Y upward. AirFinisher: negative Y sets downward speed; 0 uses the enemy's fallback fall speed.")]
         public Vector2 launchVelocity = new Vector2(.7f, 8);
         public HitType hitType;
         public bool canHitGrounded = true;
@@ -36,6 +37,8 @@ namespace BeatEmUp
         public List<AttackHitboxData> hitboxes = new List<AttackHitboxData>();
         [Tooltip("Displacement once on entry: X forward, Y walking lane. Mirrored by facing.")]
         public Vector2 movement;
+        [Range(0, 1), Tooltip("Scale voluntary movement input during this frame. 1 preserves full movement; does not change recoil or authored velocity.")]
+        public float movementInputScale = 1;
         public bool setHorizontalVelocity;
         public float horizontalVelocity;
         public bool setVerticalVelocity;

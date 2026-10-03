@@ -1,0 +1,256 @@
+PASS: All three existing air assets load
+PASS: AirPunch1 total, startup, active and recovery match the requested air timing
+PASS: AirPunch1 frame 0 sprite and active-only hitbox
+PASS: AirPunch1 frame 0 cancel permissions
+PASS: AirPunch1 frame 0 preserves momentum and permits gravity
+PASS: AirPunch1 frame 1 sprite and active-only hitbox
+PASS: AirPunch1 frame 1 cancel permissions
+PASS: AirPunch1 frame 1 preserves momentum and permits gravity
+PASS: AirPunch1 frame 2 sprite and active-only hitbox
+PASS: AirPunch1 frame 2 cancel permissions
+PASS: AirPunch1 frame 2 preserves momentum and permits gravity
+PASS: AirPunch1 frame 3 sprite and active-only hitbox
+PASS: AirPunch1 frame 3 cancel permissions
+PASS: AirPunch1 frame 3 preserves momentum and permits gravity
+PASS: AirPunch1 frame 3 airborne impact and finisher settings
+PASS: AirPunch1 frame 4 sprite and active-only hitbox
+PASS: AirPunch1 frame 4 cancel permissions
+PASS: AirPunch1 frame 4 preserves momentum and permits gravity
+PASS: AirPunch1 frame 4 airborne impact and finisher settings
+PASS: AirPunch1 frame 5 sprite and active-only hitbox
+PASS: AirPunch1 frame 5 cancel permissions
+PASS: AirPunch1 frame 5 preserves momentum and permits gravity
+PASS: AirPunch1 frame 5 airborne impact and finisher settings
+PASS: AirPunch1 frame 6 sprite and active-only hitbox
+PASS: AirPunch1 frame 6 cancel permissions
+PASS: AirPunch1 frame 6 preserves momentum and permits gravity
+PASS: AirPunch1 frame 7 sprite and active-only hitbox
+PASS: AirPunch1 frame 7 cancel permissions
+PASS: AirPunch1 frame 7 preserves momentum and permits gravity
+PASS: AirPunch1 frame 8 sprite and active-only hitbox
+PASS: AirPunch1 frame 8 cancel permissions
+PASS: AirPunch1 frame 8 preserves momentum and permits gravity
+PASS: AirPunch1 frame 9 sprite and active-only hitbox
+PASS: AirPunch1 frame 9 cancel permissions
+PASS: AirPunch1 frame 9 preserves momentum and permits gravity
+PASS: AirPunch1 frame 10 sprite and active-only hitbox
+PASS: AirPunch1 frame 10 cancel permissions
+PASS: AirPunch1 frame 10 preserves momentum and permits gravity
+PASS: AirPunch1 frame 11 sprite and active-only hitbox
+PASS: AirPunch1 frame 11 cancel permissions
+PASS: AirPunch1 frame 11 preserves momentum and permits gravity
+PASS: AirPunch1 frame 12 sprite and active-only hitbox
+PASS: AirPunch1 frame 12 cancel permissions
+PASS: AirPunch1 frame 12 preserves momentum and permits gravity
+PASS: AirPunch2 total, startup, active and recovery match the requested air timing
+PASS: AirPunch2 frame 0 sprite and active-only hitbox
+PASS: AirPunch2 frame 0 cancel permissions
+PASS: AirPunch2 frame 0 preserves momentum and permits gravity
+PASS: AirPunch2 frame 1 sprite and active-only hitbox
+PASS: AirPunch2 frame 1 cancel permissions
+PASS: AirPunch2 frame 1 preserves momentum and permits gravity
+PASS: AirPunch2 frame 2 sprite and active-only hitbox
+PASS: AirPunch2 frame 2 cancel permissions
+PASS: AirPunch2 frame 2 preserves momentum and permits gravity
+PASS: AirPunch2 frame 3 sprite and active-only hitbox
+PASS: AirPunch2 frame 3 cancel permissions
+PASS: AirPunch2 frame 3 preserves momentum and permits gravity
+PASS: AirPunch2 frame 3 airborne impact and finisher settings
+PASS: AirPunch2 frame 4 sprite and active-only hitbox
+PASS: AirPunch2 frame 4 cancel permissions
+PASS: AirPunch2 frame 4 preserves momentum and permits gravity
+PASS: AirPunch2 frame 4 airborne impact and finisher settings
+PASS: AirPunch2 frame 5 sprite and active-only hitbox
+PASS: AirPunch2 frame 5 cancel permissions
+PASS: AirPunch2 frame 5 preserves momentum and permits gravity
+PASS: AirPunch2 frame 5 airborne impact and finisher settings
+PASS: AirPunch2 frame 6 sprite and active-only hitbox
+PASS: AirPunch2 frame 6 cancel permissions
+PASS: AirPunch2 frame 6 preserves momentum and permits gravity
+PASS: AirPunch2 frame 7 sprite and active-only hitbox
+PASS: AirPunch2 frame 7 cancel permissions
+PASS: AirPunch2 frame 7 preserves momentum and permits gravity
+PASS: AirPunch2 frame 8 sprite and active-only hitbox
+PASS: AirPunch2 frame 8 cancel permissions
+PASS: AirPunch2 frame 8 preserves momentum and permits gravity
+PASS: AirPunch2 frame 9 sprite and active-only hitbox
+PASS: AirPunch2 frame 9 cancel permissions
+PASS: AirPunch2 frame 9 preserves momentum and permits gravity
+PASS: AirPunch2 frame 10 sprite and active-only hitbox
+PASS: AirPunch2 frame 10 cancel permissions
+PASS: AirPunch2 frame 10 preserves momentum and permits gravity
+PASS: AirPunch2 frame 11 sprite and active-only hitbox
+PASS: AirPunch2 frame 11 cancel permissions
+PASS: AirPunch2 frame 11 preserves momentum and permits gravity
+PASS: AirPunch2 frame 12 sprite and active-only hitbox
+PASS: AirPunch2 frame 12 cancel permissions
+PASS: AirPunch2 frame 12 preserves momentum and permits gravity
+PASS: AirPunch2 frame 13 sprite and active-only hitbox
+PASS: AirPunch2 frame 13 cancel permissions
+PASS: AirPunch2 frame 13 preserves momentum and permits gravity
+PASS: AirPunch3 total, startup, active and recovery match the requested air timing
+PASS: AirPunch3 frame 0 sprite and active-only hitbox
+PASS: AirPunch3 frame 0 cancel permissions
+PASS: AirPunch3 frame 0 preserves momentum and permits gravity
+PASS: AirPunch3 frame 1 sprite and active-only hitbox
+PASS: AirPunch3 frame 1 cancel permissions
+PASS: AirPunch3 frame 1 preserves momentum and permits gravity
+PASS: AirPunch3 frame 2 sprite and active-only hitbox
+PASS: AirPunch3 frame 2 cancel permissions
+PASS: AirPunch3 frame 2 preserves momentum and permits gravity
+PASS: AirPunch3 frame 3 sprite and active-only hitbox
+PASS: AirPunch3 frame 3 cancel permissions
+PASS: AirPunch3 frame 3 preserves momentum and permits gravity
+PASS: AirPunch3 frame 4 sprite and active-only hitbox
+PASS: AirPunch3 frame 4 cancel permissions
+PASS: AirPunch3 frame 4 preserves momentum and permits gravity
+PASS: AirPunch3 frame 5 sprite and active-only hitbox
+PASS: AirPunch3 frame 5 cancel permissions
+PASS: AirPunch3 frame 5 preserves momentum and permits gravity
+PASS: AirPunch3 frame 5 airborne impact and finisher settings
+PASS: AirPunch3 frame 6 sprite and active-only hitbox
+PASS: AirPunch3 frame 6 cancel permissions
+PASS: AirPunch3 frame 6 preserves momentum and permits gravity
+PASS: AirPunch3 frame 6 airborne impact and finisher settings
+PASS: AirPunch3 frame 7 sprite and active-only hitbox
+PASS: AirPunch3 frame 7 cancel permissions
+PASS: AirPunch3 frame 7 preserves momentum and permits gravity
+PASS: AirPunch3 frame 7 airborne impact and finisher settings
+PASS: AirPunch3 frame 8 sprite and active-only hitbox
+PASS: AirPunch3 frame 8 cancel permissions
+PASS: AirPunch3 frame 8 preserves momentum and permits gravity
+PASS: AirPunch3 frame 8 airborne impact and finisher settings
+PASS: AirPunch3 frame 9 sprite and active-only hitbox
+PASS: AirPunch3 frame 9 cancel permissions
+PASS: AirPunch3 frame 9 preserves momentum and permits gravity
+PASS: AirPunch3 frame 10 sprite and active-only hitbox
+PASS: AirPunch3 frame 10 cancel permissions
+PASS: AirPunch3 frame 10 preserves momentum and permits gravity
+PASS: AirPunch3 frame 11 sprite and active-only hitbox
+PASS: AirPunch3 frame 11 cancel permissions
+PASS: AirPunch3 frame 11 preserves momentum and permits gravity
+PASS: AirPunch3 frame 12 sprite and active-only hitbox
+PASS: AirPunch3 frame 12 cancel permissions
+PASS: AirPunch3 frame 12 preserves momentum and permits gravity
+PASS: AirPunch3 frame 13 sprite and active-only hitbox
+PASS: AirPunch3 frame 13 cancel permissions
+PASS: AirPunch3 frame 13 preserves momentum and permits gravity
+PASS: AirPunch3 frame 14 sprite and active-only hitbox
+PASS: AirPunch3 frame 14 cancel permissions
+PASS: AirPunch3 frame 14 preserves momentum and permits gravity
+PASS: AirPunch3 frame 15 sprite and active-only hitbox
+PASS: AirPunch3 frame 15 cancel permissions
+PASS: AirPunch3 frame 15 preserves momentum and permits gravity
+PASS: AirPunch3 frame 16 sprite and active-only hitbox
+PASS: AirPunch3 frame 16 cancel permissions
+PASS: AirPunch3 frame 16 preserves momentum and permits gravity
+PASS: AirPunch3 frame 17 sprite and active-only hitbox
+PASS: AirPunch3 frame 17 cancel permissions
+PASS: AirPunch3 frame 17 preserves momentum and permits gravity
+PASS: AirPunch3 frame 18 sprite and active-only hitbox
+PASS: AirPunch3 frame 18 cancel permissions
+PASS: AirPunch3 frame 18 preserves momentum and permits gravity
+PASS: AirPunch3 frame 19 sprite and active-only hitbox
+PASS: AirPunch3 frame 19 cancel permissions
+PASS: AirPunch3 frame 19 preserves momentum and permits gravity
+PASS: Finisher uses a taller downward hitbox
+PASS: Real player prefab references the authored air combo
+PASS: AirPunch1 whiff retains every recovery frame
+PASS: AirPunch1 whiff finishes without automatic next attack
+PASS: AirPunch1 gravity eventually lands the player
+PASS: AirPunch1 landing resets the air state
+PASS: Real player prefab references the authored air combo
+PASS: AirPunch2 whiff retains every recovery frame
+PASS: AirPunch2 whiff finishes without automatic next attack
+PASS: AirPunch2 gravity eventually lands the player
+PASS: AirPunch2 landing resets the air state
+PASS: Real player prefab references the authored air combo
+PASS: AirPunch3 whiff retains every recovery frame
+PASS: AirPunch3 whiff finishes without automatic next attack
+PASS: AirPunch3 gravity eventually lands the player
+PASS: AirPunch3 landing resets the air state
+PASS: Real player prefab references the authored air combo
+PASS: Landing during recovery occurs safely
+PASS: Landing clears attack override, route and movement lock
+PASS: Attack after landing selects ground Punch1
+PASS: Real player prefab references the authored air combo
+PASS: Forward jump retains horizontal motion while air attack gravity reduces upward velocity
+PASS: Descending AirPunch1 continues falling instead of hovering
+PASS: Real player prefab references the authored air combo
+PASS: Early air input uses the existing six-frame buffer
+PASS: AirPunch1 cancels directly into AirPunch2 on final active frame 5
+PASS: AirPunch2 cancels directly into AirPunch3 on frame 5
+PASS: Finisher cannot restart AirPunch1 during the same jump
+PASS: Real player prefab references the authored air combo
+PASS: AirPunch1 cancel includes its final legal frame
+PASS: Real player prefab references the authored air combo
+PASS: AirPunch2 cancel includes its final legal frame
+PASS: Real player prefab references the authored air combo
+PASS: Full route: Punch1 -> Punch2
+PASS: Full route: Punch2 -> Launcher
+PASS: Full route: launcher connects and makes enemy airborne
+PASS: Full route: buffered manual Jump uses launcher jump cancel
+PASS: Full route: Jump -> AirPunch1
+PASS: Full route: AirPunch1 hits the airborne opponent
+PASS: AirPunch1 maintains existing AirHit/juggle state
+PASS: Full route: AirPunch1 -> AirPunch2
+PASS: Full route: AirPunch2 stays in range and connects
+PASS: AirPunch2 maintains the juggle without forcing a fall
+PASS: Full route: AirPunch2 -> AirPunch3
+PASS: Full route: AirPunch3 connects
+PASS: Finisher deals 13, applies six-frame impact and drives enemy downward
+PASS: Full route lands and recovers both actors (facing 1, slow rendering False)
+PASS: Real player prefab references the authored air combo
+PASS: Full route: Punch1 -> Punch2
+PASS: Full route: Punch2 -> Launcher
+PASS: Full route: launcher connects and makes enemy airborne
+PASS: Full route: buffered manual Jump uses launcher jump cancel
+PASS: Full route: Jump -> AirPunch1
+PASS: Full route: AirPunch1 hits the airborne opponent
+PASS: AirPunch1 maintains existing AirHit/juggle state
+PASS: Full route: AirPunch1 -> AirPunch2
+PASS: Full route: AirPunch2 stays in range and connects
+PASS: AirPunch2 maintains the juggle without forcing a fall
+PASS: Full route: AirPunch2 -> AirPunch3
+PASS: Full route: AirPunch3 connects
+PASS: Finisher deals 13, applies six-frame impact and drives enemy downward
+PASS: Full route lands and recovers both actors (facing -1, slow rendering False)
+PASS: Real player prefab references the authored air combo
+PASS: Full route: Punch1 -> Punch2
+PASS: Full route: Punch2 -> Launcher
+PASS: Full route: launcher connects and makes enemy airborne
+PASS: Full route: buffered manual Jump uses launcher jump cancel
+PASS: Full route: Jump -> AirPunch1
+PASS: Full route: AirPunch1 hits the airborne opponent
+PASS: AirPunch1 maintains existing AirHit/juggle state
+PASS: Full route: AirPunch1 -> AirPunch2
+PASS: Full route: AirPunch2 stays in range and connects
+PASS: AirPunch2 maintains the juggle without forcing a fall
+PASS: Full route: AirPunch2 -> AirPunch3
+PASS: Full route: AirPunch3 connects
+PASS: Finisher deals 13, applies six-frame impact and drives enemy downward
+PASS: Full route lands and recovers both actors (facing 1, slow rendering True)
+PASS: Real player prefab references the authored air combo
+PASS: AirPunch1 startup has no hitbox
+PASS: AirPunch1 applies correct first-active damage, hitstun and hitstop
+PASS: AirPunch1 hitstop preserves airborne height, timeline and hitstun
+PASS: AirPunch1 shared Hit ID prevents duplicate damage
+PASS: Real player prefab references the authored air combo
+PASS: AirPunch2 startup has no hitbox
+PASS: AirPunch2 applies correct first-active damage, hitstun and hitstop
+PASS: AirPunch2 hitstop preserves airborne height, timeline and hitstun
+PASS: AirPunch2 shared Hit ID prevents duplicate damage
+PASS: Real player prefab references the authored air combo
+PASS: AirPunch3 startup has no hitbox
+PASS: AirPunch3 applies correct first-active damage, hitstun and hitstop
+PASS: AirPunch3 hitstop preserves airborne height, timeline and hitstun
+PASS: AirPunch3 shared Hit ID prevents duplicate damage
+PASS: Real player prefab references the authored air combo
+PASS: Editing finisher Launch Velocity Y directly changes downward enemy speed
+PASS: Finisher downward velocity still applies after juggle is already closed
+PASS: AirPunch1 remains editable with existing frame, sprite, hitbox, damage, movement, velocity, gravity and cancel tools
+PASS: Attack Data Editor opens AirPunch1
+PASS: AirPunch2 remains editable with existing frame, sprite, hitbox, damage, movement, velocity, gravity and cancel tools
+PASS: Attack Data Editor opens AirPunch2
+PASS: AirPunch3 remains editable with existing frame, sprite, hitbox, damage, movement, velocity, gravity and cancel tools
+PASS: Attack Data Editor opens AirPunch3

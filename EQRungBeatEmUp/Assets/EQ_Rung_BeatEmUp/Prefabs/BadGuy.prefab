@@ -303,7 +303,7 @@ MonoBehaviour:
   motor: {fileID: 758395558412021657}
   health: {fileID: 657175969686026637}
   animationDriver: {fileID: 2796102424388242218}
-  juggleHitLift: 2.2
+  juggleHitLift: 0.6
   juggleGravity: 9
   maximumJuggleFrames: 168
   maximumJuggleHits: 3

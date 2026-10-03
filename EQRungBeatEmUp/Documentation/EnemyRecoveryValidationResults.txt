@@ -1,0 +1,160 @@
+PASS: Prefab has all existing recovery references
+PASS: Configured downed delay is 45 frames and existing GetUp is 48 frames
+PASS: Existing recovery clips do not loop
+PASS: Existing controller contains Idle
+PASS: Existing controller contains Walk
+PASS: Existing controller contains GroundHit
+PASS: Existing controller contains Launched
+PASS: Existing controller contains AirHit
+PASS: Existing controller contains Falling
+PASS: Existing controller contains Landing
+PASS: Existing controller contains Defeated
+PASS: Existing controller contains Knockdown
+PASS: Existing controller contains Downed
+PASS: Existing controller contains GetUp
+PASS: ThaiBadBoy_Knockdown references only existing Thai bad guy sprites
+PASS: ThaiBadBoy_Knockdown references only existing Thai bad guy sprites
+PASS: ThaiBadBoy_Knockdown references only existing Thai bad guy sprites
+PASS: ThaiBadBoy_Knockdown references only existing Thai bad guy sprites
+PASS: ThaiBadBoy_Knockdown references only existing Thai bad guy sprites
+PASS: ThaiBadBoy_Knockdown references only existing Thai bad guy sprites
+PASS: ThaiBadBoy_Knockdown references only existing Thai bad guy sprites
+PASS: ThaiBadBoy_GetUp references only existing Thai bad guy sprites
+PASS: ThaiBadBoy_GetUp references only existing Thai bad guy sprites
+PASS: ThaiBadBoy_GetUp references only existing Thai bad guy sprites
+PASS: ThaiBadBoy_GetUp references only existing Thai bad guy sprites
+PASS: ThaiBadBoy_GetUp references only existing Thai bad guy sprites
+PASS: ThaiBadBoy_GetUp references only existing Thai bad guy sprites
+PASS: Airborne and downed poses reuse existing Knockdown sprites
+PASS: Existing launcher damage path accepts grounded enemy
+PASS: Launch enters existing Launched state and blocks AI
+PASS: Launched enemy begins falling naturally
+PASS: Negative velocity never returns enemy to Idle/AI
+PASS: Airborne holds the existing airborne Knockdown pose
+PASS: Existing motor reaches floor after launch
+PASS: Landed event immediately enters full Knockdown phase
+PASS: Floor contact clamps height, velocity and visual to ground
+PASS: Full Knockdown duration blocks movement and attacks
+PASS: Knockdown completes into exact final lying pose with 45-frame hold
+PASS: Downed holds pose/ground/position through frame 44
+PASS: Frame 45 starts existing GetUp
+PASS: GetUp plays kneeling pose at authored timing without early AI
+PASS: GetUp retains its final recovery frame
+PASS: Completed GetUp restores Normal and normal Animator playback
+PASS: Active AI resumes its existing attack after recovery
+PASS: Punch1 cancel timing
+PASS: Punch2 cancel timing
+PASS: Full combo launcher hits
+PASS: Manual launcher jump cancel succeeds
+PASS: AirPunch1 connects
+PASS: AirPunch1 cancel window
+PASS: AirPunch2 connects
+PASS: AirPunch2 cancel window
+PASS: AirPunch3 connects
+PASS: Existing AirPunch3 drives fall without rebound
+PASS: Existing motor reaches floor after launch
+PASS: Landed event immediately enters full Knockdown phase
+PASS: Floor contact clamps height, velocity and visual to ground
+PASS: Full combo completes Knockdown/Downed/GetUp and resets juggle budget
+PASS: Recovered enemy resumes chase
+PASS: Existing launcher damage path accepts grounded enemy
+PASS: Launch enters existing Launched state and blocks AI
+PASS: Recovered enemy can be launched/juggled again
+PASS: Punch1 cancel timing
+PASS: Punch2 cancel timing
+PASS: Full combo launcher hits
+PASS: Manual launcher jump cancel succeeds
+PASS: AirPunch1 connects
+PASS: AirPunch1 cancel window
+PASS: AirPunch2 connects
+PASS: AirPunch2 cancel window
+PASS: AirPunch3 connects
+PASS: Existing AirPunch3 drives fall without rebound
+PASS: Existing motor reaches floor after launch
+PASS: Landed event immediately enters full Knockdown phase
+PASS: Floor contact clamps height, velocity and visual to ground
+PASS: Full combo completes Knockdown/Downed/GetUp and resets juggle budget
+PASS: Recovered enemy resumes chase
+PASS: Existing launcher damage path accepts grounded enemy
+PASS: Launch enters existing Launched state and blocks AI
+PASS: Recovered enemy can be launched/juggled again
+PASS: Existing launcher damage path accepts grounded enemy
+PASS: Launch enters existing Launched state and blocks AI
+PASS: Existing motor reaches floor after launch
+PASS: Landed event immediately enters full Knockdown phase
+PASS: Floor contact clamps height, velocity and visual to ground
+PASS: Hitstop freezes downed timer and held pose
+PASS: Grounded damage cannot wake, shove or restart a downed enemy
+PASS: Downed timer continues after hitstop
+PASS: Hitstop also freezes GetUp progression
+PASS: Grounded hit cannot cancel GetUp into normal AI
+PASS: Existing launcher damage path accepts grounded enemy
+PASS: Launch enters existing Launched state and blocks AI
+PASS: Existing motor reaches floor after launch
+PASS: Landed event immediately enters full Knockdown phase
+PASS: Floor contact clamps height, velocity and visual to ground
+PASS: Configurable zero downed delay transitions directly to GetUp
+PASS: Existing launcher damage path accepts grounded enemy
+PASS: Launch enters existing Launched state and blocks AI
+PASS: Existing motor reaches floor after launch
+PASS: Landed event immediately enters full Knockdown phase
+PASS: Floor contact clamps height, velocity and visual to ground
+PASS: Custom downed delay uses each enemy's configuration
+PASS: Custom delay completes at frame 12
+PASS: Existing launcher damage path accepts grounded enemy
+PASS: Launch enters existing Launched state and blocks AI
+PASS: Death test reaches Launched
+PASS: Direct damage immediately overrides Launched even during hitstop
+PASS: Dead enemy never stands up from Launched
+PASS: Explicit training respawn clears stale recovery/death state
+PASS: Existing launcher damage path accepts grounded enemy
+PASS: Launch enters existing Launched state and blocks AI
+PASS: Existing motor reaches floor after launch
+PASS: Landed event immediately enters full Knockdown phase
+PASS: Floor contact clamps height, velocity and visual to ground
+PASS: Death test reaches Knockdown
+PASS: Direct damage immediately overrides Knockdown even during hitstop
+PASS: Dead enemy never stands up from Knockdown
+PASS: Explicit training respawn clears stale recovery/death state
+PASS: Existing launcher damage path accepts grounded enemy
+PASS: Launch enters existing Launched state and blocks AI
+PASS: Existing motor reaches floor after launch
+PASS: Landed event immediately enters full Knockdown phase
+PASS: Floor contact clamps height, velocity and visual to ground
+PASS: Death test reaches Downed
+PASS: Direct damage immediately overrides Downed even during hitstop
+PASS: Dead enemy never stands up from Downed
+PASS: Explicit training respawn clears stale recovery/death state
+PASS: Existing launcher damage path accepts grounded enemy
+PASS: Launch enters existing Launched state and blocks AI
+PASS: Existing motor reaches floor after launch
+PASS: Landed event immediately enters full Knockdown phase
+PASS: Floor contact clamps height, velocity and visual to ground
+PASS: Death test reaches GetUp
+PASS: Direct damage immediately overrides GetUp even during hitstop
+PASS: Dead enemy never stands up from GetUp
+PASS: Explicit training respawn clears stale recovery/death state
+PASS: Existing launcher damage path accepts grounded enemy
+PASS: Launch enters existing Launched state and blocks AI
+PASS: Existing motor reaches floor after launch
+PASS: Landed event immediately enters full Knockdown phase
+PASS: Floor contact clamps height, velocity and visual to ground
+PASS: Lethal normal hurtbox damage during Downed also prevents recovery
+PASS: Existing launcher damage path accepts grounded enemy
+PASS: Launch enters existing Launched state and blocks AI
+PASS: Existing motor reaches floor after launch
+PASS: Landed event immediately enters full Knockdown phase
+PASS: Floor contact clamps height, velocity and visual to ground
+PASS: Enemy A downed timer continues independently while B is airborne
+PASS: Simultaneously launched enemy C completes its own shorter recovery
+PASS: Enemy C's shorter delay never releases B early or resurrects A
+PASS: Enemy B completes its own longer recovery
+PASS: Three enemies keep independent recovery/death state
+PASS: Existing launcher damage path accepts grounded enemy
+PASS: Launch enters existing Launched state and blocks AI
+PASS: Existing motor reaches floor after launch
+PASS: Landed event immediately enters full Knockdown phase
+PASS: Floor contact clamps height, velocity and visual to ground
+PASS: Slow rendered frame advances every recovery tick without early AI
+PASS: Slow rendered clock finishes at the same recovery tick
+PASS: Ordinary ground hit preserves existing stagger recovery without knockdown

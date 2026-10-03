@@ -199,6 +199,8 @@ PASS: AirPunch2 maintains the juggle without forcing a fall
 PASS: Full route: AirPunch2 -> AirPunch3
 PASS: Full route: AirPunch3 connects
 PASS: Finisher deals 13, applies six-frame impact and drives enemy downward
+PASS: Full route: enemy contacts floor
+PASS: Full route: floor contact starts Knockdown instead of normal AI
 PASS: Full route lands and recovers both actors (facing 1, slow rendering False)
 PASS: Real player prefab references the authored air combo
 PASS: Full route: Punch1 -> Punch2
@@ -214,6 +216,8 @@ PASS: AirPunch2 maintains the juggle without forcing a fall
 PASS: Full route: AirPunch2 -> AirPunch3
 PASS: Full route: AirPunch3 connects
 PASS: Finisher deals 13, applies six-frame impact and drives enemy downward
+PASS: Full route: enemy contacts floor
+PASS: Full route: floor contact starts Knockdown instead of normal AI
 PASS: Full route lands and recovers both actors (facing -1, slow rendering False)
 PASS: Real player prefab references the authored air combo
 PASS: Full route: Punch1 -> Punch2
@@ -229,6 +233,8 @@ PASS: AirPunch2 maintains the juggle without forcing a fall
 PASS: Full route: AirPunch2 -> AirPunch3
 PASS: Full route: AirPunch3 connects
 PASS: Finisher deals 13, applies six-frame impact and drives enemy downward
+PASS: Full route: enemy contacts floor
+PASS: Full route: floor contact starts Knockdown instead of normal AI
 PASS: Full route lands and recovers both actors (facing 1, slow rendering True)
 PASS: Real player prefab references the authored air combo
 PASS: AirPunch1 startup has no hitbox

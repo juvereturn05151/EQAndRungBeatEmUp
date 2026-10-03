@@ -1,0 +1,85 @@
+{
+  "canvas": [
+    160,
+    128
+  ],
+  "pivot": [
+    0.5,
+    0.0625
+  ],
+  "pixelsPerUnit": 100,
+  "durationsMs": [
+    120,
+    180,
+    180,
+    160,
+    160
+  ],
+  "clipDurationSeconds": 0.8,
+  "loop": false,
+  "referencePaletteColors": 46,
+  "firstFrameExactKnockdown": true,
+  "lastFrameExactIdle": true,
+  "frames": [
+    {
+      "frame": "ThaiBadBoy_GetUp_01.png",
+      "bounds": {
+        "left": 25,
+        "top": 93,
+        "width": 111,
+        "height": 27,
+        "bottom": 119
+      },
+      "colors": 38,
+      "sha256": "718425789d8e0234c80dbef442a81f38065537512a5cc6a89f24f0ef7dbe2155"
+    },
+    {
+      "frame": "ThaiBadBoy_GetUp_02.png",
+      "bounds": {
+        "left": 24,
+        "top": 59,
+        "width": 113,
+        "height": 61,
+        "bottom": 119
+      },
+      "colors": 43,
+      "sha256": "abe5cffac86221f0f878be1911f26ddc13d5d4885a4271667de4ce70152dd9c1"
+    },
+    {
+      "frame": "ThaiBadBoy_GetUp_03.png",
+      "bounds": {
+        "left": 39,
+        "top": 44,
+        "width": 83,
+        "height": 76,
+        "bottom": 119
+      },
+      "colors": 40,
+      "sha256": "cb62462bb08fdb075a314b084f120b9da35e564e62f0416d07000e6f9387d85f"
+    },
+    {
+      "frame": "ThaiBadBoy_GetUp_04.png",
+      "bounds": {
+        "left": 45,
+        "top": 28,
+        "width": 71,
+        "height": 92,
+        "bottom": 119
+      },
+      "colors": 40,
+      "sha256": "60d158cca987726848b2438180569acf886e0f8daea725b44fb2f2b4925bb7d2"
+    },
+    {
+      "frame": "ThaiBadBoy_GetUp_05.png",
+      "bounds": {
+        "left": 54,
+        "top": 14,
+        "width": 53,
+        "height": 106,
+        "bottom": 119
+      },
+      "colors": 39,
+      "sha256": "c23775340589f7060cfa92e7e895c992ebeee2dec8923fdb0bb2070938bceae5"
+    }
+  ]
+}

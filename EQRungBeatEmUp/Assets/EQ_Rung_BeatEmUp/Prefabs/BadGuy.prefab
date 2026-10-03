@@ -308,6 +308,11 @@ MonoBehaviour:
   maximumJuggleFrames: 168
   maximumJuggleHits: 3
   landingRecoveryFrames: 21
+  knockdownClip: {fileID: 7400000, guid: f7438d68357e1282942b868781a82ad9, type: 2}
+  getUpClip: {fileID: 7400000, guid: 26e6cc44f3b3926831ed8372ada64986, type: 2}
+  airborneSprite: {fileID: 21300000, guid: d26cafa6f8354d82bbb83e5dca832e4b, type: 3}
+  downedSprite: {fileID: 21300000, guid: 937557ae1471abd01d89c7cb43eede8e, type: 3}
+  knockdownRecoveryDelayFrames: 45
   finisherFallSpeed: 3
 --- !u!114 &6895632525944499346
 MonoBehaviour:

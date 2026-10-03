@@ -1,0 +1,2 @@
+PASS: five sprites import at 160x128, 100 PPU, pivot (80,8), point filtering, no mipmaps/compression.
+PASS: non-looping clip imports, lasts 0.8 seconds, resolves all five sprites and samples each pose plus the final standing hold.

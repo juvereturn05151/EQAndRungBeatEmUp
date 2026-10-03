@@ -54,6 +54,13 @@ namespace BeatEmUp
             airControlUsed = 0;
         }
         public void AddKnockback(float horizontal) { recoil.x = horizontal; }
+        // End airborne recoil at floor contact without changing lane/collider setup.
+        public void StopGroundedMotion()
+        {
+            if (!IsGrounded) return;
+            recoil = Vector2.zero; MoveInput = Vector2.zero;
+            AttackHorizontalVelocity = 0; VerticalVelocity = 0;
+        }
         public void JuggleLift(float lift) { VerticalVelocity = Mathf.Max(VerticalVelocity, lift); }
         public void Fall(float speed) { VerticalVelocity = -Mathf.Abs(speed); }
         private void OnEnable() => CombatClock.Register(this);

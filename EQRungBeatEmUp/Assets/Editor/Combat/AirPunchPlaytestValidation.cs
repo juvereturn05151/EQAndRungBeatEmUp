@@ -154,7 +154,9 @@ public static class AirPunchPlaytestValidation
         player.RequestAttack(); Until(() => player.CurrentAttack == air[2], "Full route: AirPunch2 -> AirPunch3", slow);
         Until(() => enemy.health.Current < expected, "Full route: AirPunch3 connects", slow); expected -= 13;
         Check(enemy.health.Current == expected && enemy.State == EnemyReaction.Falling && !enemy.JuggleOpen && enemy.motor.VerticalVelocity <= -8 && player.attackPlayer.HitstopRemaining > 0, "Finisher deals 13, applies six-frame impact and drives enemy downward");
-        Step(120);
+        Until(() => enemy.motor.IsGrounded, "Full route: enemy contacts floor", slow);
+        Check(enemy.State == EnemyReaction.Knockdown && !enemy.CanAct, "Full route: floor contact starts Knockdown instead of normal AI");
+        Step(enemy.KnockdownFrames + enemy.knockdownRecoveryDelayFrames + enemy.GetUpFrames);
         Check(player.motor.IsGrounded && !player.CurrentAttack && player.State == CombatState.Idle && enemy.motor.IsGrounded && enemy.CanAct, "Full route lands and recovers both actors (facing " + facing + ", slow rendering " + slow + ")");
     }
     private static void Impacts()

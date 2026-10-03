@@ -1,0 +1,18 @@
+Tool mode: built-in image_gen (transparent_background=true).
+Reference images: Source/Idle.png and Source/Knockdown.png.
+Generated source retained at Assets/ArtAssets/Characters/NPCs/ThaiBadBoy/Source/GetUp.png.
+Final endpoints reuse exact Knockdown_06 and Idle_01 pixels.
+Middle poses exported with nearest sampling at 0.225 scale, binary alpha,
+the existing 46-color Idle/Knockdown palette and the shared 160x128 canvas.
+
+Use case: stylized-concept / identity-preserve
+Asset type: pixel-art beat-em-up GetUp animation sprite sheet.
+Input images: image 1 (Idle source sheet) is the exact visual source of truth for character identity and pixel rendering; image 2 (Knockdown source sheet) is the exact source of truth for the starting supine pose. Do not redesign this man.
+Create ONE coherent recovery animation sheet containing FIVE poses, left to right across the first row (3 poses), then left to right on second row (2 poses). Blank bottom-right cell. Canvas 1536x1024, six equal 512x512 cells. Truly transparent background, no checkerboard drawing, floor, shadow, labels, borders or effects.
+All poses depict the SAME Thai bad guy from the references facing right. Same swept messy black hair, recognizable angular face, thin mustache and small chin goatee, neck and forearm tattoos, oversized black/charcoal graphic shirt with grey demon face motif, black sling bag and strap, silver pendant, bracelets, dark cargo pants, silver hip chain and gold keys, patterned black/white hip bandana, black/off-white sneakers. Preserve exact wardrobe colors, face, head size, body proportions and outline/shading. No new colors or accessories.
+Pose 1: lying flat on back, head at left, feet right, as final Knockdown reference.
+Pose 2: pushing upper body up from lying on back; tattooed near arm planted behind hip, elbow pushing, torso lifted diagonally, knees bending toward chest, head at left and feet right; seated push-up transition, hips remain near floor.
+Pose 3: half kneeling facing right, one knee on floor, other foot planted ahead, torso tilted forward, one hand still supporting on floor, hips lifted, preparing to stand.
+Pose 4: rising to stand facing right, both feet planted, knees partly bent, torso leaning forward, hand braced on thigh, head below final standing height.
+Pose 5: standing recovery pose facing right matching the original Idle sprite.
+Same orthographic side / three-quarter game view as Idle. Consistent anatomical scale across poses; heads and hands MUST stay the same sizes. Approximately 4x upscaled pixel art: each hard pixel cluster represents native game pixels, no smooth painting, anti-aliased gradients or photorealistic textures. Standing pose height ~424 px inside 512-px-high cell (106 px native), head about 64 px across. Ground contact at y=476 within EVERY cell, character centered x=256. All limbs inside cell with padding, no clipping or overlap. The animation is in place. The intermediate poses must visibly progress upward with readable separate silhouettes.

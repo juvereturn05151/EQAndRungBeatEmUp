@@ -1,0 +1,8 @@
+PASS: EnemyRecoveryValidation - 160 checks.
+PASS: PunchPlaytestValidation - 205 assertions.
+PASS: AirPunchPlaytestValidation - 262 assertions.
+
+Executed in Unity 6000.4.6f1, Play Mode, in an isolated validation project
+with the current production combat scripts, AttackData, controller, Thai bad
+guy art references and actual BlueShirtGuy/BadGuy prefab copies.
+The production scene was not saved or rebuilt by these checks.

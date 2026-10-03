@@ -9,15 +9,20 @@ namespace BeatEmUp
         public CharacterHealth health;
         public EnemyHitReaction enemy;
         public ComboController player;
-        [Tooltip("Different teams can damage one another.")]
         public int team;
         public bool debugDraw;
-        public bool Receive(AttackData attack, int facing)
+        public bool Receive(AttackHitboxData hit, int facing)
         {
-            if (!health || health.IsDead || !motor || (!motor.IsGrounded && !attack.canHitAirborne)) return false;
-            if (!health.Damage(attack.damage)) return false;
-            if (enemy) enemy.Receive(attack, facing);
-            if (player) { player.Interrupt(attack.hitstun); motor.AddKnockback(facing * attack.knockback); }
+            if (!health || health.IsDead || !motor) return false;
+            if (motor.IsGrounded ? !hit.canHitGrounded : !hit.canHitAirborne) return false;
+            var frame = motor.attackPlayer ? motor.attackPlayer.Frame : null;
+            if (frame != null && frame.invulnerable) return false;
+            if (!health.Damage(hit.damage)) return false;
+            if (frame == null || !frame.superArmor || health.IsDead)
+            {
+                if (enemy) enemy.Receive(hit, facing);
+                if (player) { player.Interrupt(hit.hitstunFrames); motor.AddKnockback(facing * hit.knockback); }
+            }
             return true;
         }
         private void OnDrawGizmos()

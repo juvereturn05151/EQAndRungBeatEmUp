@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 5478996337478078675}
   - component: {fileID: 3097709223451824227}
   - component: {fileID: 6895632525944499346}
+  - component: {fileID: 901000000000000002}
   m_Layer: 0
   m_Name: BadGuy
   m_TagString: Untagged
@@ -240,6 +241,7 @@ MonoBehaviour:
   airAttackGravityScale: 0.2
   airAttackMaxFallSpeed: 1.2
   maximumAirControlTime: 1.1
+  attackPlayer: {fileID: 901000000000000002}
 --- !u!114 &2796102424388242218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.AttackHitbox
   motor: {fileID: 758395558412021657}
+  owner: {fileID: 901000000000000002}
   team: 1
   hurtboxLayers:
     serializedVersion: 2
@@ -299,13 +302,11 @@ MonoBehaviour:
   motor: {fileID: 758395558412021657}
   health: {fileID: 657175969686026637}
   animationDriver: {fileID: 2796102424388242218}
-  launchForce: 8
-  launchHorizontalForce: 0.7
   juggleHitLift: 2.2
   juggleGravity: 9
-  maximumJuggleTime: 2.8
+  maximumJuggleFrames: 168
   maximumJuggleHits: 3
-  landingRecovery: 0.35
+  landingRecoveryFrames: 21
   finisherFallSpeed: 3
 --- !u!114 &6895632525944499346
 MonoBehaviour:
@@ -323,8 +324,25 @@ MonoBehaviour:
   reaction: {fileID: 3097709223451824227}
   animationDriver: {fileID: 2796102424388242218}
   hitbox: {fileID: 5478996337478078675}
+  attackPlayer: {fileID: 901000000000000002}
   target: {fileID: 0}
   attack: {fileID: 11400000, guid: 16bf0fb1a3b66504ab58e0937cbab527, type: 2}
   passiveTrainingDummy: 1
   attackRange: 1
-  attackCooldown: 1
+  laneRange: 0.55
+  attackCooldownFrames: 60
+--- !u!114 &901000000000000002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535860552286473514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db98cb8da0d4eacbc9a5d850e75a2a3, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.AttackPlayer
+  motor: {fileID: 758395558412021657}
+  hitbox: {fileID: 5478996337478078675}
+  animationDriver: {fileID: 2796102424388242218}

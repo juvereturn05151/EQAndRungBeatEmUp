@@ -1,0 +1,32 @@
+PASS: Clone preserves sprite references and events
+PASS: Clone creates independent hitbox data
+PASS: Range edits affect exactly the selected frames
+PASS: Undo restores complete range edit
+PASS: Redo restores range edit
+PASS: Hold sprite explicitly assigns every selected combat frame
+PASS: Bulk cancel permissions remain per-frame data
+PASS: Bulk disable removes selected frame hitboxes
+PASS: Bulk enable creates independent boxes using the chosen prototype
+PASS: Enabling existing hitboxes preserves authored geometry and avoids duplicate boxes
+PASS: Duplicate range inserts complete frames after the range
+PASS: Duplicated frame nested lists are independent
+PASS: Range copy creates a recognized combat-frame clipboard
+PASS: Paste inserts a range and resolves sprites by asset GUID/local ID
+PASS: Pasted hitboxes remain independent
+PASS: Range delete removes complete frames
+PASS: Moving frames later preserves every property and ordering
+PASS: Moving frames earlier restores the complete units
+PASS: Dropping a range inside itself is a safe no-op
+PASS: Insert creates a clean runtime frame with proper defaults
+PASS: Duplicate Previous copies the actual preceding frame
+PASS: Add appends an empty frame
+PASS: Timeline exposes ten extensible combat tracks
+PASS: Hitbox track markers derive from the actual frame boxes
+PASS: Preview mirrors canonical hitbox offsets
+PASS: Mirrored move/resize converts back to canonical saved data
+PASS: Preview resizing enforces positive minimum box sizes
+PASS: Movement path mirrors only forward X
+PASS: Editor window uses the actual AttackData and selects ranges
+PASS: Window attack and playhead survive Unity serialization/recompile state
+PASS: Save writes the runtime frame/hitbox schema to the real ScriptableObject asset
+PASS: Validation leaves all existing attack assets unchanged

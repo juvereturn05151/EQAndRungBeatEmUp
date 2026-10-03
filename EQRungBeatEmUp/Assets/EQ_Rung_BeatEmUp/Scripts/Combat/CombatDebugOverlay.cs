@@ -14,7 +14,7 @@ namespace BeatEmUp
             GUI.Box(new Rect(10, 10, 550, 180), "Combat debug");
             GUI.Label(new Rect(20, 35, 530, 150),
                 $"Player: {player.State} | grounded {player.motor.IsGrounded} | height {player.motor.Height:F2}\n" +
-                $"Combo: {player.ComboIndex} | attack: {(player.CurrentAttack ? player.CurrentAttack.name : "None")}\n" +
+                $"Combo: {player.ComboIndex} | attack: {(player.CurrentAttack ? player.CurrentAttack.name : "None")} | frame {player.attackPlayer.CurrentFrame} | hitstop {player.attackPlayer.HitstopRemaining}f\n" +
                 $"Buffered: {player.BufferedInput} | jump: {player.JumpBuffered} | Input Action: {input.LastAction}\n" +
                 $"Enemy: {enemy.State} | height: {enemy.motor.Height:F2} | juggle hits: {enemy.JuggleHits}\n" +
                 $"HP: player {player.health.Current:F0} | enemy {enemy.health.Current:F0}\n" +

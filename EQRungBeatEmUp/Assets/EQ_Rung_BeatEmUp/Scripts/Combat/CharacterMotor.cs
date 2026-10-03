@@ -4,7 +4,7 @@ using UnityEngine;
 namespace BeatEmUp
 {
     // Ground XY is the walking lane; height is separate so jumping never changes lane.
-    public sealed class CharacterMotor : MonoBehaviour
+    public sealed class CharacterMotor : MonoBehaviour, ICombatFrameListener
     {
         [Header("References")]
         public Transform visual;
@@ -27,6 +27,11 @@ namespace BeatEmUp
         public bool MovementLocked { get; set; }
         public bool AirAttackControl { get; set; }
         public float GravityOverride { get; set; }
+        public AttackPlayer attackPlayer;
+        public float FrameGravityScale { get; set; } = 1;
+        public bool SuspendFalling { get; set; }
+        public float AttackHorizontalVelocity { get; set; }
+        public int FrameOrder => 50;
         public event Action Landed;
         private float airControlUsed;
         private Vector2 recoil;
@@ -51,12 +56,26 @@ namespace BeatEmUp
         public void AddKnockback(float horizontal) { recoil.x = horizontal; }
         public void JuggleLift(float lift) { VerticalVelocity = Mathf.Max(VerticalVelocity, lift); }
         public void Fall(float speed) { VerticalVelocity = -Mathf.Abs(speed); }
-        private void Update() { Simulate(Time.deltaTime); }
+        private void OnEnable() => CombatClock.Register(this);
+        private void OnDisable() => CombatClock.Unregister(this);
+        public void CombatFrame() { if (!attackPlayer || !attackPlayer.IsFrozen) Simulate(CombatClock.FrameSeconds); }
+        public void MoveAttack(Vector2 displacement, int facing)
+        {
+            var position = transform.position;
+            position.x = Mathf.Clamp(position.x + displacement.x * facing, arenaMin.x, arenaMax.x);
+            position.y = Mathf.Clamp(position.y + displacement.y, arenaMin.y, arenaMax.y);
+            transform.position = position;
+        }
+        public void SetVerticalVelocity(float velocity)
+        {
+            VerticalVelocity = velocity;
+            if (velocity > 0) Height = Mathf.Max(.001f, Height);
+        }
         public void Simulate(float dt)
         {
             Vector2 movement = MovementLocked ? Vector2.zero : Vector2.ClampMagnitude(MoveInput, 1);
-            if (movement.x != 0) Face(movement.x);
-            Vector3 position = transform.position + (Vector3)((movement * moveSpeed + recoil) * dt);
+            if (movement.x != 0 && (!attackPlayer || !attackPlayer.CurrentAttack)) Face(movement.x);
+            Vector3 position = transform.position + (Vector3)((movement * moveSpeed + recoil + new Vector2(AttackHorizontalVelocity, 0)) * dt);
             position.x = Mathf.Clamp(position.x, arenaMin.x, arenaMax.x);
             position.y = Mathf.Clamp(position.y, arenaMin.y, arenaMax.y);
             transform.position = position;
@@ -66,7 +85,9 @@ namespace BeatEmUp
                 float g = GravityOverride > 0 ? GravityOverride : gravity;
                 bool controlled = AirAttackControl && airControlUsed < maximumAirControlTime;
                 if (controlled) { g *= airAttackGravityScale; airControlUsed += dt; }
+                g *= FrameGravityScale;
                 VerticalVelocity -= g * dt;
+                if (SuspendFalling && VerticalVelocity < 0) VerticalVelocity = 0;
                 if (controlled) VerticalVelocity = Mathf.Max(VerticalVelocity, -airAttackMaxFallSpeed);
                 Height += VerticalVelocity * dt;
                 if (Height <= 0)

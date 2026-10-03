@@ -1,0 +1,64 @@
+PASS: Frame 0 starts on manual input False
+PASS: Attack buffers before cancel
+PASS: Buffered input starts Punch2 at frame 0
+PASS: Punch1 -> Punch2 -> Punch3 deals exactly three grounded hits False
+PASS: Terminal ground route clears
+PASS: Launcher buffers before cancel
+PASS: Launcher launches enemy without auto jump
+PASS: Launcher does not auto attack or jump
+PASS: Manual jump then AirPunch1
+PASS: Three manual air punches hit launched enemy and end juggle False
+PASS: Enemy lands and recovers; player lands
+PASS: Frame 0 starts on manual input True
+PASS: Attack buffers before cancel
+PASS: Buffered input starts Punch2 at frame 0
+PASS: Punch1 -> Punch2 -> Punch3 deals exactly three grounded hits True
+PASS: Terminal ground route clears
+PASS: Launcher buffers before cancel
+PASS: Launcher launches enemy without auto jump
+PASS: Launcher does not auto attack or jump
+PASS: Manual jump then AirPunch1
+PASS: Three manual air punches hit launched enemy and end juggle True
+PASS: Enemy lands and recovers; player lands
+PASS: First active frame deals one hit
+PASS: Five hitstop frames freeze timeline, sprite, victim movement and hitstun
+PASS: Shared hit ID prevents repeated damage across active frames
+PASS: Holding Attack produces only one manual attack
+PASS: Rapid mashing settles without an unbounded input queue
+PASS: Interruption clears attack hitboxes and input
+PASS: Recovery restarts at Punch1
+PASS: Missing combo continuation timeout resets route
+PASS: Expired Launcher request cannot trigger later
+PASS: Lane depth rejects a different walking lane
+PASS: Facing left mirrors sprite, hitbox and knockback
+PASS: Per-frame displacement applies once and mirrors left
+PASS: Variable rendered delta advances exactly 12 combat frames in 0.2 seconds
+PASS: Input on frame 3 consumes precisely on legal frame 4
+PASS: Input after final cancel window expires without chaining
+PASS: Two explicit hit IDs deal two hits, never one hit per frame
+PASS: Frame invulnerability rejects damage
+PASS: Super armor receives damage without interruption
+PASS: Enemy uses frame AttackPlayer and interrupts player once
+PASS: Attack states removed from both runtime Animator Controllers
+PASS: One slow rendered frame still executes an intermediate one-frame hitbox
+PASS: Configurable 30 FPS clock advances 30 frames per second
+PASS: Frame events fire once and authored velocity/gravity drive movement
+PASS: AttackPlayer owns the exact frame sprite while Animator is disabled
+PASS: Input buffers during hitstop without aging or advancing the frame
+PASS: Hitstop-buffered attack consumes at the next legal cancel
+PASS: Explicit repeat interval allows intentional hits at frames 0, 2 and 4
+PASS: Juggle cap prevents unlimited lift
+PASS: Capped juggle lands and recovers
+PASS: Editor duplicates sprites and deeply copies per-frame hitboxes
+PASS: Editor deletes selected frame
+PASS: Editor inserts an empty frame at selection
+PASS: Editor duplicates previous frame at selection
+PASS: Editor adds frame at end
+PASS: Frame and hitbox authoring saves to the Unity asset
+PASS: Every frame has existing artwork: Punch1
+PASS: Every frame has existing artwork: Punch2
+PASS: Every frame has existing artwork: Punch3
+PASS: Every frame has existing artwork: AirPunch1
+PASS: Every frame has existing artwork: AirPunch2
+PASS: Every frame has existing artwork: AirPunch3
+PASS: Every frame has existing artwork: Launcher

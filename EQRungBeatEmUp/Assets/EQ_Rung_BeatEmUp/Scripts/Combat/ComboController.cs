@@ -1,0 +1,130 @@
+using UnityEngine;
+
+namespace BeatEmUp
+{
+    [RequireComponent(typeof(AttackPlayer))]
+    public sealed class ComboController : MonoBehaviour, ICombatFrameListener
+    {
+        public CharacterMotor motor;
+        public CharacterHealth health;
+        public CharacterAnimation animationDriver;
+        public AttackHitbox hitbox;
+        public AttackPlayer attackPlayer;
+        public AttackData[] groundCombo = new AttackData[3];
+        public AttackData launcher;
+        public AttackData[] airCombo = new AttackData[3];
+        [Min(1)] public int launcherAfterGroundHit = 2;
+        [Header("Combat frames")]
+        [Min(1)] public int inputBufferFrames = 21;
+        [Min(1)] public int jumpBufferFrames = 36;
+        [Min(0)] public int comboResetFrames = 21;
+        [Min(0)] public int finisherRecoveryFrames = 7;
+        public CombatState State { get; private set; }
+        public AttackData CurrentAttack => attackPlayer ? attackPlayer.CurrentAttack : null;
+        public int ComboIndex { get; private set; }
+        public CombatInput BufferedInput => bufferFrames > 0 ? buffered : CombatInput.None;
+        public bool JumpBuffered => jumpBuffer > 0;
+        public int FrameOrder => 30;
+        private CombatInput buffered;
+        private int bufferFrames, jumpBuffer, idleFrames, cooldown, stun, nextIndex, airAttacksUsed;
+        private bool routeAir;
+        private void Awake() { if (!attackPlayer) attackPlayer = GetComponent<AttackPlayer>(); }
+        private void OnEnable()
+        {
+            if (motor) motor.Landed += OnLanding;
+            if (!attackPlayer) attackPlayer = GetComponent<AttackPlayer>();
+            attackPlayer.Finished += Finish;
+            CombatClock.Register(this);
+        }
+        private void OnDisable()
+        {
+            CombatClock.Unregister(this);
+            if (motor) { motor.Landed -= OnLanding; motor.MovementLocked = false; }
+            if (attackPlayer) attackPlayer.Finished -= Finish;
+            ResetCombo();
+        }
+        public void RequestAttack() => Buffer(CombatInput.Attack);
+        public void RequestLauncher() => Buffer(CombatInput.Launcher);
+        public void RequestJump()
+        {
+            if (!health || health.IsDead || stun > 0 || !motor.IsGrounded) return;
+            jumpBuffer = jumpBufferFrames; TryJump();
+        }
+        private void Buffer(CombatInput input)
+        {
+            if (!health || health.IsDead || stun > 0) return;
+            buffered = input; bufferFrames = inputBufferFrames; TryConsume();
+        }
+        public void Interrupt(int frames)
+        {
+            ResetCombo(); stun = Mathf.Max(stun, frames); State = CombatState.Hitstun;
+            motor.MovementLocked = true; animationDriver.Play("GroundHit", true);
+        }
+        public void ResetCombo()
+        {
+            if (attackPlayer) attackPlayer.Stop();
+            ComboIndex = 0; nextIndex = 0; idleFrames = 0;
+            buffered = CombatInput.None; bufferFrames = 0; jumpBuffer = 0;
+            if (motor) { motor.AirAttackControl = false; motor.MovementLocked = stun > 0; }
+        }
+        private void OnLanding() { ResetCombo(); airAttacksUsed = 0; State = stun > 0 ? CombatState.Hitstun : CombatState.Idle; }
+        public void CombatFrame()
+        {
+            if (!motor || !health || attackPlayer.IsFrozen) return;
+            if (health.IsDead) { ResetCombo(); motor.MovementLocked = true; State = CombatState.Hitstun; animationDriver.Play("GroundHit"); return; }
+            if (stun > 0) { stun--; motor.MovementLocked = true; State = CombatState.Hitstun; return; }
+            if (cooldown > 0) cooldown--;
+            if (!CurrentAttack && ++idleFrames > comboResetFrames) { nextIndex = 0; ComboIndex = 0; }
+            TryJump(); TryConsume();
+            if (bufferFrames > 0) bufferFrames--;
+            if (jumpBuffer > 0) jumpBuffer--;
+            motor.MovementLocked = CurrentAttack && motor.IsGrounded;
+            if (!CurrentAttack)
+            {
+                State = motor.IsGrounded ? CombatState.Idle : CombatState.Jumping;
+                animationDriver.Play(!motor.IsGrounded ? "Jumping" : motor.MoveInput.sqrMagnitude > .01f ? "Walk" : "Idle");
+            }
+        }
+        private void TryJump()
+        {
+            if (jumpBuffer <= 0 || !motor.IsGrounded || stun > 0 || cooldown > 0 || attackPlayer.IsFrozen) return;
+            if (CurrentAttack && !attackPlayer.Frame.canCancelIntoJump) return;
+            ResetCombo(); motor.MovementLocked = false; motor.Jump(); State = CombatState.Jumping;
+            animationDriver.Play("Jumping", true);
+        }
+        private void TryConsume()
+        {
+            if (bufferFrames <= 0 || stun > 0 || cooldown > 0 || attackPlayer.IsFrozen) return;
+            bool air = !motor.IsGrounded;
+            if (air && (buffered == CombatInput.Launcher || airAttacksUsed >= airCombo.Length)) { bufferFrames = 0; return; }
+            int index = CurrentAttack ? ComboIndex : nextIndex;
+            if (CurrentAttack)
+            {
+                if (CurrentAttack.isLauncher || air != routeAir) return;
+                var frame = attackPlayer.Frame;
+                if (frame == null || (buffered == CombatInput.Attack ? !frame.canCancelIntoAttack : !frame.canCancelIntoLauncher)) return;
+            }
+            else if (air != routeAir) index = 0;
+            AttackData attack = null;
+            if (buffered == CombatInput.Launcher) { if (!air && index == launcherAfterGroundHit) attack = launcher; }
+            else
+            {
+                var route = air ? airCombo : groundCombo;
+                if (index >= 0 && index < route.Length) attack = route[index];
+            }
+            if (!attack || (attack.domain == AttackDomain.Air) != air || !attackPlayer.Play(attack)) return;
+            buffered = CombatInput.None; bufferFrames = 0;
+            ComboIndex = index + 1; routeAir = air; idleFrames = 0;
+            if (air) airAttacksUsed++;
+            State = attack.isLauncher ? CombatState.Launcher : air ? CombatState.AirAttack : CombatState.GroundAttack;
+            motor.MovementLocked = motor.IsGrounded;
+        }
+        private void Finish(AttackData finished)
+        {
+            bool terminal = finished.isLauncher || ComboIndex >= (routeAir ? airCombo.Length : groundCombo.Length);
+            cooldown = finished.cooldownFrames + (terminal ? finisherRecoveryFrames : 0);
+            nextIndex = terminal ? 0 : ComboIndex; idleFrames = 0;
+            if (terminal) { bufferFrames = 0; buffered = CombatInput.None; ComboIndex = 0; }
+        }
+    }
+}

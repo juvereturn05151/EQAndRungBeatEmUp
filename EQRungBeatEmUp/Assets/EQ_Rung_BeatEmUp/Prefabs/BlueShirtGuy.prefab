@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 3702797543408599627}
   - component: {fileID: 1833199203678208527}
   - component: {fileID: 3303221594857940001}
+  - component: {fileID: 901000000000000001}
   m_Layer: 0
   m_Name: BlueShirtGuy
   m_TagString: Untagged
@@ -241,6 +242,7 @@ MonoBehaviour:
   airAttackGravityScale: 0.2
   airAttackMaxFallSpeed: 1.2
   maximumAirControlTime: 1.1
+  attackPlayer: {fileID: 901000000000000001}
 --- !u!114 &8388164633507383413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.AttackHitbox
   motor: {fileID: 9174150093885729727}
+  owner: {fileID: 901000000000000001}
   team: 0
   hurtboxLayers:
     serializedVersion: 2
@@ -301,20 +304,21 @@ MonoBehaviour:
   health: {fileID: 5121596340363852530}
   animationDriver: {fileID: 8388164633507383413}
   hitbox: {fileID: 5183794480254226806}
+  attackPlayer: {fileID: 901000000000000001}
   groundCombo:
   - {fileID: 11400000, guid: 1132a47bbbbc24441be15c1fd1ba8e0b, type: 2}
-  - {fileID: 11400000, guid: c0835b92594aaaf44b20fdd607856ef9, type: 2}
-  - {fileID: 11400000, guid: 642f4510c49926e43a07b6c0995b72dc, type: 2}
+  - {fileID: 11400000, guid: 93fb91909bfb4de4caedb037eeee9092, type: 2}
+  - {fileID: 11400000, guid: 398834ab68c3b28419f4c30cd4389f44, type: 2}
   launcher: {fileID: 11400000, guid: fe61615f0b7122d4bb118837743387cf, type: 2}
   airCombo:
   - {fileID: 11400000, guid: 2bf3babe77d3e5448b46d10d2a24f9a0, type: 2}
   - {fileID: 11400000, guid: b0548e3878f2cb04eb15ba55dcdd204c, type: 2}
   - {fileID: 11400000, guid: 5ccf16847eaaf0048a47fb3496dd291a, type: 2}
   launcherAfterGroundHit: 2
-  inputBufferDuration: 0.35
-  jumpBufferDuration: 0.6
-  comboResetTime: 0.35
-  finisherRecovery: 0.12
+  inputBufferFrames: 21
+  jumpBufferFrames: 36
+  comboResetFrames: 21
+  finisherRecoveryFrames: 7
 --- !u!114 &1833199203678208527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,3 +362,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.PlayerCombatInput
   combat: {fileID: 3702797543408599627}
   motor: {fileID: 9174150093885729727}
+--- !u!114 &901000000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6799408650324901922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db98cb8da0d4eacbc9a5d850e75a2a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.AttackPlayer
+  motor: {fileID: 9174150093885729727}
+  hitbox: {fileID: 5183794480254226806}
+  animationDriver: {fileID: 8388164633507383413}

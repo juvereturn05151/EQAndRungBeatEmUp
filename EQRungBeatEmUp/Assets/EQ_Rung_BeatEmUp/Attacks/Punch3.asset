@@ -12,22 +12,131 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38811695b942eef468e3bfb76502b6db, type: 3}
   m_Name: Punch3
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.AttackData
-  animationState: Punch3
+  attackName: Punch2
   domain: 0
-  canLaunch: 0
-  canHitAirborne: 0
-  endsJuggle: 0
-  damage: 10
-  hitstun: 0.3
-  knockback: 0.25
-  launchForce: 0
-  launchHorizontalForce: 0
-  hitboxPosition: {x: 0.55, y: 0.55}
-  hitboxSize: {x: 1, y: 1.1}
-  laneTolerance: 0.55
-  startup: 0.09
-  activeDuration: 0.12
-  recovery: 0.22
-  comboWindowOpen: 0.18
-  comboInputWindow: 0.27
-  cooldown: 0
+  isLauncher: 0
+  cooldownFrames: 0
+  artworkNotes: Reuses existing Attack1 artwork across all three ground combo steps.
+  frames:
+  - sprite: {fileID: 21300000, guid: 0ca741071d0f67543b00e32fc7c3cbca, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: b0b8784af20c38146a1744876663d26d, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 5f4f56aa3a985af4d81012fd6c748526, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.55, y: 0.55}
+      size: {x: 1, y: 1.1}
+      laneTolerance: 0.55
+      damage: 10
+      hitstunFrames: 18
+      hitstopFrames: 5
+      knockback: 5
+      launchVelocity: {x: 0.7, y: 8}
+      hitType: 0
+      canHitGrounded: 1
+      canHitAirborne: 0
+    movement: {x: 0, y: 0}
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 5f4f56aa3a985af4d81012fd6c748526, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.55, y: 0.55}
+      size: {x: 1, y: 1.1}
+      laneTolerance: 0.55
+      damage: 10
+      hitstunFrames: 18
+      hitstopFrames: 5
+      knockback: 5
+      launchVelocity: {x: 0.7, y: 8}
+      hitType: 0
+      canHitGrounded: 1
+      canHitAirborne: 0
+    movement: {x: 0, y: 0}
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 294a90f58c6a60f42b416a4f641cc928, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: c39baa6834149b4429ae636d9f4e8793, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []

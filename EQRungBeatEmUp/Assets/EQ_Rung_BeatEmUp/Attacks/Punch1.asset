@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38811695b942eef468e3bfb76502b6db, type: 3}
+  m_Name: Punch1
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.AttackData
+  animationState: Punch1
+  domain: 0
+  canLaunch: 0
+  canHitAirborne: 0
+  endsJuggle: 0
+  damage: 10
+  hitstun: 0.3
+  knockback: 0.25
+  launchForce: 0
+  launchHorizontalForce: 0
+  hitboxPosition: {x: 0.55, y: 0.55}
+  hitboxSize: {x: 1, y: 1.1}
+  laneTolerance: 0.55
+  startup: 0.09
+  activeDuration: 0.12
+  recovery: 0.22
+  comboWindowOpen: 0.18
+  comboInputWindow: 0.27
+  cooldown: 0

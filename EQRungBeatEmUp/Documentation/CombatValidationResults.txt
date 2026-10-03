@@ -1,0 +1,85 @@
+PASS: Scene renderers have assigned sprites
+PASS: Existing Player map extended with Launcher
+PASS: Keyboard movement
+PASS: Normal keyboard jump
+PASS: Normal jump lands
+PASS: Gamepad movement
+PASS: Normal gamepad jump
+PASS: Normal gamepad jump lands
+PASS: Repeated active-frame sampling damages once per swing
+PASS: Ground route reaches Punch3
+PASS: Three ground hits stay grounded
+PASS: Terminal ground combo resets
+PASS: Punch1 starts via keyboard
+PASS: Punch1 deals one hit
+PASS: Early Attack buffered
+PASS: Buffered Punch2 starts in window
+PASS: Punch2 damage
+PASS: Early Launcher buffered
+PASS: Punch2 transitions to Launcher
+PASS: Launcher sends enemy upward
+PASS: Launcher does not automatically jump
+PASS: Manual jump buffered during launcher active frames
+PASS: Manual launcher jump cancel
+PASS: No automatic air attack
+PASS: AirPunch1 starts
+PASS: AirPunch1 hits launched enemy
+PASS: AirPunch2 buffered transition
+PASS: AirPunch2 hits
+PASS: AirPunch3 buffered transition
+PASS: AirPunch3 hits
+PASS: Air finisher closes juggle and falls
+PASS: Air mashing cannot start ground attacks or relaunch
+PASS: Both land and enemy recovers
+PASS: Landing resets juggle count and gravity
+PASS: Punch1 starts via gamepad
+PASS: Punch1 deals one hit
+PASS: Early Attack buffered
+PASS: Buffered Punch2 starts in window
+PASS: Punch2 damage
+PASS: Early Launcher buffered
+PASS: Punch2 transitions to Launcher
+PASS: Launcher sends enemy upward
+PASS: Launcher does not automatically jump
+PASS: Manual jump buffered during launcher active frames
+PASS: Manual launcher jump cancel
+PASS: No automatic air attack
+PASS: AirPunch1 starts
+PASS: AirPunch1 hits launched enemy
+PASS: AirPunch2 buffered transition
+PASS: AirPunch2 hits
+PASS: AirPunch3 buffered transition
+PASS: AirPunch3 hits
+PASS: Air finisher closes juggle and falls
+PASS: Air mashing cannot start ground attacks or relaunch
+PASS: Both land and enemy recovers
+PASS: Landing resets juggle count and gravity
+PASS: Hitstun clears combo and rejects input
+PASS: Interrupted combo restarts at Punch1
+PASS: Timeout resets combo
+PASS: Expired Launcher buffer never launches later
+PASS: Separate lane rejects visually overlapping targets
+PASS: Maximum juggle hit count prevents infinite lift
+PASS: Capped juggle lands and recovers
+PASS: Maximum juggle time restores gravity and rejects lift
+PASS: Timed-out juggle lands
+PASS: Air route cannot restart before landing, even on misses
+PASS: Landing permits next ground route
+PASS: Rapid mixed input settles without stuck attacks
+PASS: Defeated enemy cannot resume AI
+PASS: Active enemy AI chases player
+PASS: Enemy AI pauses while launched
+PASS: Enemy attack damages player once and interrupts combat
+PASS: Player recovers after enemy hitstun
+PASS: Enemy Animator hook GroundHit
+PASS: Enemy Animator hook Launched
+PASS: Enemy Animator hook AirHit
+PASS: Enemy Animator hook Falling
+PASS: Enemy Animator hook Landing
+PASS: Animator hook Punch1
+PASS: Animator hook Punch2
+PASS: Animator hook Punch3
+PASS: Animator hook Launcher
+PASS: Animator hook AirPunch1
+PASS: Animator hook AirPunch2
+PASS: Animator hook AirPunch3

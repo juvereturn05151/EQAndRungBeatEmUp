@@ -320,6 +320,7 @@ MonoBehaviour:
   jumpBufferFrames: 36
   comboResetFrames: 21
   finisherRecoveryFrames: 0
+  defenseData: {fileID: 11400000, guid: 538d475d1eb06a443914598c91305c2c, type: 2}
 --- !u!114 &1833199203678208527
 MonoBehaviour:
   m_ObjectHideFlags: 0

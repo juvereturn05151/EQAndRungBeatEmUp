@@ -1,0 +1,188 @@
+PASS: Actual player prefab has defense frame data
+PASS: Neutral dodge accepts one press
+PASS: Repeated request cannot restart active dodge
+PASS: Dodge logical frame 0
+PASS: Dodge immunity frame 0
+PASS: Conflicting inputs cannot change Dodge frame 0
+PASS: Dodge logical frame 1
+PASS: Dodge immunity frame 1
+PASS: Conflicting inputs cannot change Dodge frame 1
+PASS: Dodge logical frame 2
+PASS: Dodge immunity frame 2
+PASS: Conflicting inputs cannot change Dodge frame 2
+PASS: Dodge logical frame 3
+PASS: Dodge immunity frame 3
+PASS: Conflicting inputs cannot change Dodge frame 3
+PASS: Dodge logical frame 4
+PASS: Dodge immunity frame 4
+PASS: Conflicting inputs cannot change Dodge frame 4
+PASS: Dodge logical frame 5
+PASS: Dodge immunity frame 5
+PASS: Conflicting inputs cannot change Dodge frame 5
+PASS: Dodge logical frame 6
+PASS: Dodge immunity frame 6
+PASS: Conflicting inputs cannot change Dodge frame 6
+PASS: Dodge logical frame 7
+PASS: Dodge immunity frame 7
+PASS: Conflicting inputs cannot change Dodge frame 7
+PASS: Dodge logical frame 8
+PASS: Dodge immunity frame 8
+PASS: Conflicting inputs cannot change Dodge frame 8
+PASS: Dodge logical frame 9
+PASS: Dodge immunity frame 9
+PASS: Conflicting inputs cannot change Dodge frame 9
+PASS: Dodge logical frame 10
+PASS: Dodge immunity frame 10
+PASS: Conflicting inputs cannot change Dodge frame 10
+PASS: Dodge logical frame 11
+PASS: Dodge immunity frame 11
+PASS: Conflicting inputs cannot change Dodge frame 11
+PASS: Dodge logical frame 12
+PASS: Dodge immunity frame 12
+PASS: Conflicting inputs cannot change Dodge frame 12
+PASS: Dodge logical frame 13
+PASS: Dodge immunity frame 13
+PASS: Conflicting inputs cannot change Dodge frame 13
+PASS: Dodge logical frame 14
+PASS: Dodge immunity frame 14
+PASS: Conflicting inputs cannot change Dodge frame 14
+PASS: Dodge logical frame 15
+PASS: Dodge immunity frame 15
+PASS: Conflicting inputs cannot change Dodge frame 15
+PASS: Dodge logical frame 16
+PASS: Dodge immunity frame 16
+PASS: Conflicting inputs cannot change Dodge frame 16
+PASS: Dodge logical frame 17
+PASS: Dodge immunity frame 17
+PASS: Conflicting inputs cannot change Dodge frame 17
+PASS: Dodge logical frame 18
+PASS: Dodge immunity frame 18
+PASS: Conflicting inputs cannot change Dodge frame 18
+PASS: Dodge logical frame 19
+PASS: Dodge immunity frame 19
+PASS: Conflicting inputs cannot change Dodge frame 19
+PASS: Default dodge moves backward 1.2 units across eight movement frames and ends at 20
+PASS: Actual player prefab has defense frame data
+PASS: Directional dodge uses normalized intended lane movement
+PASS: Actual player prefab has defense frame data
+PASS: Incoming hit honors dodge vulnerability at frame 0
+PASS: Vulnerable dodge hit aborts its movement
+PASS: Actual player prefab has defense frame data
+PASS: Incoming hit honors dodge vulnerability at frame 3
+PASS: Vulnerable dodge hit aborts its movement
+PASS: Actual player prefab has defense frame data
+PASS: Incoming hit honors dodge vulnerability at frame 4
+PASS: Actual player prefab has defense frame data
+PASS: Incoming hit honors dodge vulnerability at frame 9
+PASS: Actual player prefab has defense frame data
+PASS: Incoming hit honors dodge vulnerability at frame 10
+PASS: Vulnerable dodge hit aborts its movement
+PASS: Actual player prefab has defense frame data
+PASS: Incoming hit honors dodge vulnerability at frame 19
+PASS: Vulnerable dodge hit aborts its movement
+PASS: Actual player prefab has defense frame data
+PASS: Hitstop freezes dodge timing and velocity integration
+PASS: Actual player prefab has defense frame data
+PASS: Fresh Guard press opens guard/parry window
+PASS: Parry includes frame 4 and negates damage/blockstun
+PASS: Parry interrupts attacker for existing 18-frame hitstun
+PASS: Parry displays intentional contact/deflection sprite holds
+PASS: Released parry recovers in eight logical frames
+PASS: Actual player prefab has defense frame data
+PASS: Frame 5 yields normal zero-damage guard and ten-frame blockstun
+PASS: Repress during blockstun cannot rearm parry
+PASS: Release during blockstun cannot escape early
+PASS: Guard release returns neutral after blockstun
+PASS: Actual player prefab has defense frame data
+PASS: Long-held or repeated Guard never restarts parry
+PASS: Early Guard is a block, never a parry
+PASS: Actual player prefab has defense frame data
+PASS: Rear attack bypasses fresh guard/parry using attacker position
+PASS: Actual player prefab has defense frame data
+PASS: Left-facing front parry mirrors correctly
+PASS: Actual player prefab has defense frame data
+PASS: Attack-authored unblockable bypasses defense
+PASS: Actual player prefab has defense frame data
+PASS: Late guard cannot erase an already accepted hit
+PASS: Actual player prefab has defense frame data
+PASS: Attack data controls chip damage and blockstun
+PASS: Actual player prefab has defense frame data
+PASS: Marked knockdown or launcher enters player KnockDown
+PASS: KnockDown rejects guard/dodge/attack/jump
+PASS: KnockDown impact/fall lasts all 18 frames
+PASS: KnockDown transitions to downed hold
+PASS: Downed holds final sprite and ground position through frame 44
+PASS: Downed recovery starts at frame 45
+PASS: Existing knockdown poses reverse for full 24-frame GetUp without input conflicts
+PASS: GetUp returns to neutral
+PASS: Actual player prefab has defense frame data
+PASS: Marked knockdown or launcher enters player KnockDown
+PASS: Actual floor contact begins grounded knockdown timing
+PASS: KnockDown rejects guard/dodge/attack/jump
+PASS: KnockDown impact/fall lasts all 18 frames
+PASS: KnockDown transitions to downed hold
+PASS: Downed holds final sprite and ground position through frame 44
+PASS: Downed recovery starts at frame 45
+PASS: Existing knockdown poses reverse for full 24-frame GetUp without input conflicts
+PASS: GetUp returns to neutral
+PASS: Actual player prefab has defense frame data
+PASS: Death immediately overrides state case 0 including hitstop
+PASS: Dead player cannot act, recover or GetUp in case 0
+PASS: Death final pose holds indefinitely in case 0
+PASS: Only explicit existing health restore respawns player
+PASS: Actual player prefab has defense frame data
+PASS: Death immediately overrides state case 1 including hitstop
+PASS: Dead player cannot act, recover or GetUp in case 1
+PASS: Death final pose holds indefinitely in case 1
+PASS: Only explicit existing health restore respawns player
+PASS: Actual player prefab has defense frame data
+PASS: Death immediately overrides state case 2 including hitstop
+PASS: Dead player cannot act, recover or GetUp in case 2
+PASS: Death final pose holds indefinitely in case 2
+PASS: Only explicit existing health restore respawns player
+PASS: Actual player prefab has defense frame data
+PASS: Death immediately overrides state case 3 including hitstop
+PASS: Dead player cannot act, recover or GetUp in case 3
+PASS: Death final pose holds indefinitely in case 3
+PASS: Only explicit existing health restore respawns player
+PASS: Actual player prefab has defense frame data
+PASS: Death immediately overrides state case 4 including hitstop
+PASS: Dead player cannot act, recover or GetUp in case 4
+PASS: Death final pose holds indefinitely in case 4
+PASS: Only explicit existing health restore respawns player
+PASS: Actual player prefab has defense frame data
+PASS: Death immediately overrides state case 5 including hitstop
+PASS: Dead player cannot act, recover or GetUp in case 5
+PASS: Death final pose holds indefinitely in case 5
+PASS: Only explicit existing health restore respawns player
+PASS: Actual player prefab has defense frame data
+PASS: Death immediately overrides state case 6 including hitstop
+PASS: Dead player cannot act, recover or GetUp in case 6
+PASS: Death final pose holds indefinitely in case 6
+PASS: Only explicit existing health restore respawns player
+PASS: Actual player prefab has defense frame data
+PASS: Death immediately overrides state case 7 including hitstop
+PASS: Dead player cannot act, recover or GetUp in case 7
+PASS: Death final pose holds indefinitely in case 7
+PASS: Only explicit existing health restore respawns player
+PASS: Actual player prefab has defense frame data
+PASS: Airborne death falls to floor and never recovers
+PASS: Actual player prefab has defense frame data
+PASS: Actual enemy attack hitbox produces Parry
+PASS: Both actors receive stronger parry / smaller guard hitstop
+PASS: Parry safely aborts the currently sampling enemy attack
+PASS: Actual player prefab has defense frame data
+PASS: Actual enemy attack hitbox produces Guard
+PASS: Both actors receive stronger parry / smaller guard hitstop
+PASS: Actual player prefab has defense frame data
+PASS: PlayerInput prefab resolves the updated actions asset
+PASS: Guard and parry use one action; no separate Parry binding exists
+PASS: Actual Guard action press invokes guard/parry without attack
+PASS: Held Guard input does not repeatedly fire or reopen parry
+PASS: Guard action canceled releases the held guard
+PASS: Actual separate Dodge action starts a dodge
+PASS: Holding Dodge after completion cannot automatically repeat it
+PASS: A new Dodge button press starts the next dodge
+PASS: Gamepad left shoulder invokes the shared Guard / Parry action
+PASS: Gamepad shoulder release cancels Guard
+PASS: Gamepad right shoulder invokes Dodge independently of attacks

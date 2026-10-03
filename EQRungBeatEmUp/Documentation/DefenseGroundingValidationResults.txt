@@ -1,0 +1,936 @@
+PASS: Gameplay Idle opaque sole edge is grounded at root Y
+PASS: Idle has no transform/root-motion curves
+PASS: Idle BlueShirtGuy_Idle2_01 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_02 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_03 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_04 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_05 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_06 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_07 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_08 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_08 baseline unchanged
+PASS: Walk has no transform/root-motion curves
+PASS: Walk BlueShirtGuy_Walk2_01 baseline unchanged
+PASS: Walk BlueShirtGuy_Walk2_02 baseline unchanged
+PASS: Walk BlueShirtGuy_Walk2_03 baseline unchanged
+PASS: Walk BlueShirtGuy_Walk2_04 baseline unchanged
+PASS: Walk BlueShirtGuy_Walk2_05 baseline unchanged
+PASS: Walk BlueShirtGuy_Walk2_06 baseline unchanged
+PASS: Walk BlueShirtGuy_Walk2_07 baseline unchanged
+PASS: Walk BlueShirtGuy_Walk2_08 baseline unchanged
+PASS: Walk BlueShirtGuy_Walk2_08 baseline unchanged
+PASS: Idle has no transform/root-motion curves
+PASS: Idle BlueShirtGuy_Idle2_01 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_02 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_03 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_04 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_05 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_06 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_07 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_08 baseline unchanged
+PASS: Idle BlueShirtGuy_Idle2_08 baseline unchanged
+PASS: Player root motion remains disabled
+PASS: BlueShirtGuy_Attack1_02 authored hold uses the Idle baseline and 100 PPU
+PASS: BlueShirtGuy_Attack1_04 authored hold uses the Idle baseline and 100 PPU
+PASS: BlueShirtGuy_Attack1_09 authored hold uses the Idle baseline and 100 PPU
+PASS: BlueShirtGuy_Attack1_10 authored hold uses the Idle baseline and 100 PPU
+PASS: BlueShirtGuy_Attack1_10 authored hold uses the Idle baseline and 100 PPU
+PASS: BlueShirtGuy_Attack1_11 authored hold uses the Idle baseline and 100 PPU
+PASS: BlueShirtGuy_Idle2_01 authored hold uses the Idle baseline and 100 PPU
+PASS: BlueShirtGuy_Attack1_02 authored hold uses the Idle baseline and 100 PPU
+PASS: BlueShirtGuy_Parry_01 authored hold uses the Idle baseline and 100 PPU
+PASS: BlueShirtGuy_Parry_02 authored hold uses the Idle baseline and 100 PPU
+PASS: BlueShirtGuy_Attack1_07 authored hold uses the Idle baseline and 100 PPU
+PASS: Guard block recoil baseline matches Idle
+PASS: Idle feet match Idle; root and visual Y unchanged
+PREVIEW panel 1: Idle
+PASS: Walk feet match Idle; root and visual Y unchanged
+PREVIEW panel 2: Walk
+PASS: Idle before Guard feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 0 feet match Idle; root and visual Y unchanged
+PREVIEW panel 3: Guard frame 0
+PASS: Idle -> Guard facing 1 repeat 0 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 2 feet match Idle; root and visual Y unchanged
+PREVIEW panel 4: Guard frame 2
+PASS: Idle -> Guard facing 1 repeat 0 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 8 feet match Idle; root and visual Y unchanged
+PREVIEW panel 5: Guard frame 8
+PASS: Idle -> Guard facing 1 repeat 0 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 18 feet match Idle; root and visual Y unchanged
+PREVIEW panel 6: Guard frame 18
+PASS: Idle -> Guard facing 1 repeat 0 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 20 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 21 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 22 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 23 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 24 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 25 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 26 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 27 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 28 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 29 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 30 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 31 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 32 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 33 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 0 frame 34 feet match Idle; root and visual Y unchanged
+PASS: Guard returns to Idle
+PASS: Guard -> Idle feet match Idle; root and visual Y unchanged
+PASS: Idle before Parry feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 0 frame 0 feet match Idle; root and visual Y unchanged
+PREVIEW panel 7: Parry frame 0
+PASS: Idle -> Parry facing 1 repeat 0 frame 1 feet match Idle; root and visual Y unchanged
+PREVIEW panel 8: Parry frame 1
+PASS: Idle -> Parry facing 1 repeat 0 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 0 frame 3 feet match Idle; root and visual Y unchanged
+PREVIEW panel 9: Parry frame 3
+PASS: Idle -> Parry facing 1 repeat 0 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 0 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 0 frame 6 feet match Idle; root and visual Y unchanged
+PREVIEW panel 10: Parry frame 6
+PASS: Idle -> Parry facing 1 repeat 0 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Parry returns to Idle
+PASS: Parry -> Idle feet match Idle; root and visual Y unchanged
+PASS: Idle before Dodge feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 0 feet match Idle; root and visual Y unchanged
+PREVIEW panel 11: Dodge frame 0
+PASS: Idle -> Dodge facing 1 repeat 0 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 3 feet match Idle; root and visual Y unchanged
+PREVIEW panel 12: Dodge frame 3
+PASS: Idle -> Dodge facing 1 repeat 0 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 10 feet match Idle; root and visual Y unchanged
+PREVIEW panel 13: Dodge frame 10
+PASS: Idle -> Dodge facing 1 repeat 0 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 14 feet match Idle; root and visual Y unchanged
+PREVIEW panel 14: Dodge frame 14
+PASS: Idle -> Dodge facing 1 repeat 0 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 0 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Dodge returns to Idle
+PASS: Dodge -> Idle feet match Idle; root and visual Y unchanged
+PASS: Dodge retains its existing 1.2-unit horizontal travel
+PASS: Idle before Guard feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 20 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 21 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 22 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 23 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 24 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 25 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 26 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 27 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 28 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 29 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 30 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 31 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 32 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 33 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 1 frame 34 feet match Idle; root and visual Y unchanged
+PASS: Guard returns to Idle
+PASS: Guard -> Idle feet match Idle; root and visual Y unchanged
+PASS: Idle before Parry feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 1 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 1 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 1 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 1 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 1 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 1 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 1 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 1 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Parry returns to Idle
+PASS: Parry -> Idle feet match Idle; root and visual Y unchanged
+PASS: Idle before Dodge feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 1 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Dodge returns to Idle
+PASS: Dodge -> Idle feet match Idle; root and visual Y unchanged
+PASS: Dodge retains its existing 1.2-unit horizontal travel
+PASS: Idle before Guard feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 20 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 21 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 22 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 23 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 24 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 25 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 26 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 27 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 28 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 29 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 30 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 31 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 32 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 33 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing 1 repeat 2 frame 34 feet match Idle; root and visual Y unchanged
+PASS: Guard returns to Idle
+PASS: Guard -> Idle feet match Idle; root and visual Y unchanged
+PASS: Idle before Parry feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 2 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 2 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 2 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 2 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 2 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 2 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 2 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing 1 repeat 2 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Parry returns to Idle
+PASS: Parry -> Idle feet match Idle; root and visual Y unchanged
+PASS: Idle before Dodge feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing 1 repeat 2 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Dodge returns to Idle
+PASS: Dodge -> Idle feet match Idle; root and visual Y unchanged
+PASS: Dodge retains its existing 1.2-unit horizontal travel
+PASS: Walk before Guard feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 20 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 21 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 22 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 23 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 24 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 25 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 26 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 27 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 28 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 29 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 30 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 31 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 32 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 33 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 0 frame 34 feet match Idle; root and visual Y unchanged
+PASS: Guard returns to Idle
+PASS: Guard -> Idle feet match Idle; root and visual Y unchanged
+PASS: Walk before Parry feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 0 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 0 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 0 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 0 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 0 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 0 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 0 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 0 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Parry returns to Idle
+PASS: Parry -> Idle feet match Idle; root and visual Y unchanged
+PASS: Walk before Dodge feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 0 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Dodge returns to Idle
+PASS: Dodge -> Idle feet match Idle; root and visual Y unchanged
+PASS: Dodge retains its existing 1.2-unit horizontal travel
+PASS: Walk before Guard feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 20 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 21 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 22 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 23 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 24 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 25 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 26 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 27 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 28 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 29 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 30 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 31 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 32 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 33 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 1 frame 34 feet match Idle; root and visual Y unchanged
+PASS: Guard returns to Idle
+PASS: Guard -> Idle feet match Idle; root and visual Y unchanged
+PASS: Walk before Parry feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 1 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 1 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 1 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 1 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 1 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 1 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 1 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 1 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Parry returns to Idle
+PASS: Parry -> Idle feet match Idle; root and visual Y unchanged
+PASS: Walk before Dodge feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 1 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Dodge returns to Idle
+PASS: Dodge -> Idle feet match Idle; root and visual Y unchanged
+PASS: Dodge retains its existing 1.2-unit horizontal travel
+PASS: Walk before Guard feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 20 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 21 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 22 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 23 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 24 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 25 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 26 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 27 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 28 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 29 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 30 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 31 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 32 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 33 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing 1 repeat 2 frame 34 feet match Idle; root and visual Y unchanged
+PASS: Guard returns to Idle
+PASS: Guard -> Idle feet match Idle; root and visual Y unchanged
+PASS: Walk before Parry feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 2 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 2 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 2 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 2 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 2 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 2 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 2 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing 1 repeat 2 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Parry returns to Idle
+PASS: Parry -> Idle feet match Idle; root and visual Y unchanged
+PASS: Walk before Dodge feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing 1 repeat 2 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Dodge returns to Idle
+PASS: Dodge -> Idle feet match Idle; root and visual Y unchanged
+PASS: Dodge retains its existing 1.2-unit horizontal travel
+PASS: Idle before Guard feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 20 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 21 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 22 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 23 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 24 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 25 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 26 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 27 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 28 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 29 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 30 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 31 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 32 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 33 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 0 frame 34 feet match Idle; root and visual Y unchanged
+PASS: Guard returns to Idle
+PASS: Guard -> Idle feet match Idle; root and visual Y unchanged
+PASS: Idle before Parry feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 0 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 0 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 0 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 0 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 0 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 0 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 0 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 0 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Parry returns to Idle
+PASS: Parry -> Idle feet match Idle; root and visual Y unchanged
+PASS: Idle before Dodge feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 0 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Dodge returns to Idle
+PASS: Dodge -> Idle feet match Idle; root and visual Y unchanged
+PASS: Dodge retains its existing 1.2-unit horizontal travel
+PASS: Idle before Guard feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 20 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 21 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 22 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 23 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 24 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 25 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 26 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 27 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 28 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 29 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 30 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 31 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 32 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 33 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 1 frame 34 feet match Idle; root and visual Y unchanged
+PASS: Guard returns to Idle
+PASS: Guard -> Idle feet match Idle; root and visual Y unchanged
+PASS: Idle before Parry feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 1 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 1 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 1 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 1 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 1 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 1 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 1 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 1 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Parry returns to Idle
+PASS: Parry -> Idle feet match Idle; root and visual Y unchanged
+PASS: Idle before Dodge feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 1 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Dodge returns to Idle
+PASS: Dodge -> Idle feet match Idle; root and visual Y unchanged
+PASS: Dodge retains its existing 1.2-unit horizontal travel
+PASS: Idle before Guard feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 20 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 21 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 22 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 23 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 24 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 25 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 26 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 27 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 28 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 29 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 30 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 31 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 32 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 33 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Guard facing -1 repeat 2 frame 34 feet match Idle; root and visual Y unchanged
+PASS: Guard returns to Idle
+PASS: Guard -> Idle feet match Idle; root and visual Y unchanged
+PASS: Idle before Parry feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 2 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 2 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 2 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 2 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 2 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 2 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 2 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Parry facing -1 repeat 2 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Parry returns to Idle
+PASS: Parry -> Idle feet match Idle; root and visual Y unchanged
+PASS: Idle before Dodge feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Idle -> Dodge facing -1 repeat 2 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Dodge returns to Idle
+PASS: Dodge -> Idle feet match Idle; root and visual Y unchanged
+PASS: Dodge retains its existing 1.2-unit horizontal travel
+PASS: Walk before Guard feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 20 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 21 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 22 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 23 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 24 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 25 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 26 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 27 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 28 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 29 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 30 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 31 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 32 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 33 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 0 frame 34 feet match Idle; root and visual Y unchanged
+PASS: Guard returns to Idle
+PASS: Guard -> Idle feet match Idle; root and visual Y unchanged
+PASS: Walk before Parry feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 0 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 0 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 0 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 0 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 0 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 0 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 0 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 0 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Parry returns to Idle
+PASS: Parry -> Idle feet match Idle; root and visual Y unchanged
+PASS: Walk before Dodge feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 0 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Dodge returns to Idle
+PASS: Dodge -> Idle feet match Idle; root and visual Y unchanged
+PASS: Dodge retains its existing 1.2-unit horizontal travel
+PASS: Walk before Guard feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 20 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 21 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 22 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 23 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 24 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 25 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 26 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 27 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 28 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 29 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 30 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 31 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 32 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 33 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 1 frame 34 feet match Idle; root and visual Y unchanged
+PASS: Guard returns to Idle
+PASS: Guard -> Idle feet match Idle; root and visual Y unchanged
+PASS: Walk before Parry feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 1 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 1 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 1 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 1 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 1 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 1 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 1 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 1 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Parry returns to Idle
+PASS: Parry -> Idle feet match Idle; root and visual Y unchanged
+PASS: Walk before Dodge feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 1 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Dodge returns to Idle
+PASS: Dodge -> Idle feet match Idle; root and visual Y unchanged
+PASS: Dodge retains its existing 1.2-unit horizontal travel
+PASS: Walk before Guard feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 20 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 21 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 22 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 23 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 24 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 25 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 26 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 27 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 28 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 29 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 30 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 31 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 32 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 33 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Guard facing -1 repeat 2 frame 34 feet match Idle; root and visual Y unchanged
+PASS: Guard returns to Idle
+PASS: Guard -> Idle feet match Idle; root and visual Y unchanged
+PASS: Walk before Parry feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 2 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 2 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 2 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 2 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 2 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 2 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 2 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Parry facing -1 repeat 2 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Parry returns to Idle
+PASS: Parry -> Idle feet match Idle; root and visual Y unchanged
+PASS: Walk before Dodge feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 0 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 1 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 2 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 3 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 4 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 5 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 6 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 7 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 8 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 9 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 10 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 11 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 12 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 13 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 14 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 15 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 16 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 17 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 18 feet match Idle; root and visual Y unchanged
+PASS: Walk -> Dodge facing -1 repeat 2 frame 19 feet match Idle; root and visual Y unchanged
+PASS: Dodge returns to Idle
+PASS: Dodge -> Idle feet match Idle; root and visual Y unchanged
+PASS: Dodge retains its existing 1.2-unit horizontal travel

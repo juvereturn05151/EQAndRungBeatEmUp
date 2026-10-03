@@ -249,7 +249,7 @@ public sealed class AttackDataEditorWindow : EditorWindow
                     string[] names = new string[boxes.arraySize]; for (int b = 0; b < names.Length; b++) names[b] = "Hitbox " + b;
                     selectedBox = EditorGUILayout.Popup("Selected hitbox", Mathf.Clamp(selectedBox, 0, names.Length - 1), names);
                     var box = boxes.GetArrayElementAtIndex(selectedBox);
-                    foreach (string property in new[] { "offset", "size", "damage", "hitstunFrames", "hitstopFrames", "knockback", "launchVelocity", "hitType", "laneTolerance", "canHitGrounded", "canHitAirborne", "hitId", "repeatAfterFrames" }) EditorGUILayout.PropertyField(box.FindPropertyRelative(property));
+                    foreach (string property in new[] { "offset", "size", "damage", "hitstunFrames", "hitstopFrames", "knockback", "launchVelocity", "hitType", "unblockable", "blockDamage", "blockstunFrames", "laneTolerance", "canHitGrounded", "canHitAirborne", "hitId", "repeatAfterFrames" }) EditorGUILayout.PropertyField(box.FindPropertyRelative(property));
                 }
                 using (new EditorGUILayout.HorizontalScope())
                 {

@@ -89,6 +89,14 @@ namespace BeatEmUp
             LockMotion(); ShowReaction(true);
         }
         private string AnimationState() => State == EnemyReaction.Defeated ? "Defeated" : State.ToString();
+        public void InterruptFromParry(int frames)
+        {
+            if (health.IsDead || IsRecovering) return;
+            attackPlayer.Stop(); animationDriver.ReleaseReactionControl();
+            recovery = Mathf.Max(recovery, frames);
+            State = motor.IsGrounded ? EnemyReaction.GroundHit : juggleClosed ? EnemyReaction.Falling : EnemyReaction.AirHit;
+            LockMotion(); ShowReaction(true);
+        }
         private void CloseJuggle(bool forceFall)
         {
             juggleClosed = true; motor.GravityOverride = 0;

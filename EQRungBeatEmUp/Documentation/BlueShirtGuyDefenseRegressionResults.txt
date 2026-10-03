@@ -1,0 +1,19 @@
+Unity 6000.4.6f1; logical combat rate 60 FPS.
+Isolated Play Mode project: C:/Users/drago/AppData/Local/Temp/EQRungKnockback-3c9ea195806942188306e67bd5d50bfb
+Runtime, prefab, input and art copied from the working project; Input System uses its installed package.
+
+PASS: PlayerDefenseValidation.Run — 188 checks
+PASS: PunchPlaytestValidation.Run — 205 assertions
+PASS: AirPunchPlaytestValidation.Run — 262 assertions
+PASS: EnemyRecoveryValidation.Run — 160 checks
+TOTAL: 815 passed
+
+Logs in the isolated project:
+defense-validation-final.log
+defense-regression-ground.log
+defense-regression-air.log
+defense-regression-enemy.log
+
+Final runs: no script compile errors or runtime exceptions.
+Gameplay checks include actual enemy AttackPlayer/AttackHitbox collision sampling and paired synthetic keyboard/gamepad input events.
+Subjective controller feel still needs human playtesting; mock-up GetUp reverses KnockDown poses.

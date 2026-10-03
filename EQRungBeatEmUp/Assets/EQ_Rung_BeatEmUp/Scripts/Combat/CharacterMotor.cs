@@ -31,6 +31,7 @@ namespace BeatEmUp
         public float FrameGravityScale { get; set; } = 1;
         public bool SuspendFalling { get; set; }
         public float AttackHorizontalVelocity { get; set; }
+        public Vector2 DefenseVelocity { get; set; }
         public int FrameOrder => 50;
         public event Action Landed;
         private float airControlUsed;
@@ -63,7 +64,11 @@ namespace BeatEmUp
         }
         public void JuggleLift(float lift) { VerticalVelocity = Mathf.Max(VerticalVelocity, lift); }
         public void Fall(float speed) { VerticalVelocity = -Mathf.Abs(speed); }
-        private void OnEnable() => CombatClock.Register(this);
+        private void OnEnable()
+        {
+            CombatClock.Register(this);
+            if (StageFraming.Active) StageFraming.Active.Register(this);
+        }
         private void OnDisable() => CombatClock.Unregister(this);
         public void CombatFrame() { if (!attackPlayer || !attackPlayer.IsFrozen) Simulate(CombatClock.FrameSeconds); }
         public void MoveAttack(Vector2 displacement, int facing)
@@ -84,7 +89,7 @@ namespace BeatEmUp
             var frame = attackPlayer ? attackPlayer.Frame : null;
             if (frame != null) movement *= Mathf.Clamp01(frame.movementInputScale);
             if (movement.x != 0 && (!attackPlayer || !attackPlayer.CurrentAttack)) Face(movement.x);
-            Vector3 position = transform.position + (Vector3)((movement * moveSpeed + recoil + new Vector2(AttackHorizontalVelocity, 0)) * dt);
+            Vector3 position = transform.position + (Vector3)((movement * moveSpeed + recoil + new Vector2(AttackHorizontalVelocity, 0) + DefenseVelocity) * dt);
             position.x = Mathf.Clamp(position.x, arenaMin.x, arenaMax.x);
             position.y = Mathf.Clamp(position.y, arenaMin.y, arenaMax.y);
             transform.position = position;

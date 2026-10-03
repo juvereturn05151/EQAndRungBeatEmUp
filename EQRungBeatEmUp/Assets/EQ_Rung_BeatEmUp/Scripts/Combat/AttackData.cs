@@ -5,9 +5,9 @@ using UnityEngine;
 namespace BeatEmUp
 {
     public enum AttackDomain { Ground, Air }
-    public enum CombatState { Idle, GroundAttack, Launcher, Jumping, AirAttack, Hitstun }
+    public enum CombatState { Idle, GroundAttack, Launcher, Jumping, AirAttack, Hitstun, Dodge, GuardEnter, GuardHold, Parry, KnockDown, Downed, GetUp, Die }
     public enum CombatInput { None, Attack, Launcher, Jump }
-    public enum HitType { Normal, Launcher, AirFinisher }
+    public enum HitType { Normal, Launcher, AirFinisher, KnockDown }
 
     [Serializable]
     public sealed class AttackHitboxData
@@ -28,6 +28,10 @@ namespace BeatEmUp
         public HitType hitType;
         public bool canHitGrounded = true;
         public bool canHitAirborne;
+        [Header("Guard response")]
+        public bool unblockable;
+        [Min(0)] public float blockDamage;
+        [Min(0)] public int blockstunFrames = 10;
     }
 
     [Serializable]

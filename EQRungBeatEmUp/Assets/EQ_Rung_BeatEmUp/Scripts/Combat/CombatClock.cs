@@ -56,6 +56,8 @@ namespace BeatEmUp
             foreach (var listener in snapshot)
                 if (listener is AttackPlayer attack && attack && attack.isActiveAndEnabled) attack.PrepareFrame();
             foreach (var listener in snapshot)
+                if (listener is ComboController player && player && player.isActiveAndEnabled) player.PrepareDefenseFrame();
+            foreach (var listener in snapshot)
                 if (listener is MonoBehaviour component && component && component.isActiveAndEnabled) listener.CombatFrame();
             foreach (var listener in snapshot)
                 if (listener is AttackPlayer attack && attack && attack.isActiveAndEnabled) attack.EndClockFrame();

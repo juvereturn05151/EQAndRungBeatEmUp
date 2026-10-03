@@ -33,6 +33,8 @@ namespace BeatEmUp
         public bool Play(AttackData attack)
         {
             if (!attack || attack.frames.Count == 0 || attack.frames[0] == null || IsFrozen) return false;
+            var player = GetComponent<ComboController>();
+            if (player && (player.IsDefenseState || (player.health && player.health.IsDead))) return false;
             Stop(); CurrentAttack = attack; CurrentFrame = 0; Facing = motor.Facing;
             startedOnTick = CombatClock.IsStepping ? CombatClock.CurrentTick : -1;
             hitbox.Begin(attack); animationDriver.SetAttackOverride(true);

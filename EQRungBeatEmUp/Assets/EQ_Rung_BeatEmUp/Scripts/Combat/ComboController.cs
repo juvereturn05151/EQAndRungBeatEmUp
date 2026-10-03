@@ -3,13 +3,14 @@ using UnityEngine;
 namespace BeatEmUp
 {
     [RequireComponent(typeof(AttackPlayer))]
-    public sealed class ComboController : MonoBehaviour, ICombatFrameListener
+    public sealed partial class ComboController : MonoBehaviour, ICombatFrameListener
     {
         public CharacterMotor motor;
         public CharacterHealth health;
         public CharacterAnimation animationDriver;
         public AttackHitbox hitbox;
         public AttackPlayer attackPlayer;
+        public PlayerDefenseData defenseData;
         public AttackData[] groundCombo = new AttackData[3];
         public AttackData launcher;
         public AttackData[] airCombo = new AttackData[3];
@@ -34,6 +35,7 @@ namespace BeatEmUp
             if (motor) motor.Landed += OnLanding;
             if (!attackPlayer) attackPlayer = GetComponent<AttackPlayer>();
             attackPlayer.Finished += Finish;
+            if (health) { health.Died += EnterDie; health.Restored += RestorePlayer; }
             CombatClock.Register(this);
         }
         private void OnDisable()
@@ -41,22 +43,27 @@ namespace BeatEmUp
             CombatClock.Unregister(this);
             if (motor) { motor.Landed -= OnLanding; motor.MovementLocked = false; }
             if (attackPlayer) attackPlayer.Finished -= Finish;
+            if (health) { health.Died -= EnterDie; health.Restored -= RestorePlayer; }
+            ClearDefenseControl();
             ResetCombo();
         }
         public void RequestAttack() => Buffer(CombatInput.Attack);
         public void RequestLauncher() => Buffer(CombatInput.Launcher);
         public void RequestJump()
         {
-            if (!health || health.IsDead || stun > 0 || !motor.IsGrounded) return;
+            if (!health || health.IsDead || stun > 0 || IsDefenseState || !motor.IsGrounded) return;
             jumpBuffer = jumpBufferFrames; TryJump();
         }
         private void Buffer(CombatInput input)
         {
-            if (!health || health.IsDead || stun > 0) return;
+            if (!health || health.IsDead || stun > 0 || IsDefenseState) return;
             buffered = input; bufferFrames = inputBufferFrames; TryConsume();
         }
         public void Interrupt(int frames)
         {
+            if (health.IsDead) { EnterDie(); return; }
+            if (IsKnockdownState) return;
+            ClearDefenseControl(); guardHeld = false;
             ResetCombo(); stun = Mathf.Max(stun, frames); State = CombatState.Hitstun;
             motor.MovementLocked = true; animationDriver.Play("GroundHit", true);
         }
@@ -67,11 +74,19 @@ namespace BeatEmUp
             buffered = CombatInput.None; bufferFrames = 0; jumpBuffer = 0;
             if (motor) { motor.AirAttackControl = false; motor.MovementLocked = stun > 0; }
         }
-        private void OnLanding() { ResetCombo(); airAttacksUsed = 0; State = stun > 0 ? CombatState.Hitstun : CombatState.Idle; }
+        private void OnLanding()
+        {
+            airAttacksUsed = 0;
+            if (health.IsDead || State == CombatState.Die) { DefenseLanded(); return; }
+            if (IsKnockdownState) { DefenseLanded(); return; }
+            ResetCombo(); State = stun > 0 ? CombatState.Hitstun : CombatState.Idle;
+        }
         public void CombatFrame()
         {
-            if (!motor || !health || attackPlayer.IsFrozen) return;
-            if (health.IsDead) { ResetCombo(); motor.MovementLocked = true; State = CombatState.Hitstun; animationDriver.Play("GroundHit"); return; }
+            if (!motor || !health) return;
+            if (health.IsDead && State != CombatState.Die) EnterDie();
+            if (attackPlayer.IsFrozen) return;
+            if (UpdateDefense()) return;
             if (stun > 0) { stun--; motor.MovementLocked = true; State = CombatState.Hitstun; return; }
             if (cooldown > 0) cooldown--;
             if (!CurrentAttack && ++idleFrames > comboResetFrames) { nextIndex = 0; ComboIndex = 0; }
@@ -87,14 +102,14 @@ namespace BeatEmUp
         }
         private void TryJump()
         {
-            if (jumpBuffer <= 0 || !motor.IsGrounded || stun > 0 || cooldown > 0 || attackPlayer.IsFrozen) return;
+            if (jumpBuffer <= 0 || !motor.IsGrounded || stun > 0 || IsDefenseState || cooldown > 0 || attackPlayer.IsFrozen) return;
             if (CurrentAttack && !attackPlayer.Frame.canCancelIntoJump) return;
             ResetCombo(); motor.MovementLocked = false; motor.Jump(); State = CombatState.Jumping;
             animationDriver.Play("Jumping", true);
         }
         private void TryConsume()
         {
-            if (bufferFrames <= 0 || stun > 0 || cooldown > 0 || attackPlayer.IsFrozen) return;
+            if (bufferFrames <= 0 || stun > 0 || IsDefenseState || cooldown > 0 || attackPlayer.IsFrozen) return;
             bool air = !motor.IsGrounded;
             if (air && (buffered == CombatInput.Launcher || airAttacksUsed >= airCombo.Length)) { bufferFrames = 0; return; }
             int index = CurrentAttack ? ComboIndex : nextIndex;

@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b7d612602d4777880fcee720d86424, type: 3}
+  m_Name: PlayerDefense
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.PlayerDefenseData
+  dodgeTotalFrames: 20
+  dodgeMoveFirstFrame: 3
+  dodgeMoveLastFrame: 10
+  dodgeInvulnerableFirstFrame: 4
+  dodgeInvulnerableLastFrame: 9
+  dodgeSpeed: 9
+  parryWindowFrames: 5
+  parryRecoveryFrames: 8
+  parryAttackerStunFrames: 18
+  parryHitstopFrames: 5
+  guardHitstopFrames: 2
+  knockdownFrames: 18
+  downedFrames: 45
+  getUpFrames: 24
+  dieFrames: 18
+  dodge:
+  - sprite: {fileID: 21300000, guid: b0b8784af20c38146a1744876663d26d, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: 5f4f56aa3a985af4d81012fd6c748526, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: 5f4f56aa3a985af4d81012fd6c748526, type: 3}
+    frames: 4
+  - sprite: {fileID: 21300000, guid: 294a90f58c6a60f42b416a4f641cc928, type: 3}
+    frames: 4
+  - sprite: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+    frames: 6
+  guard:
+  - sprite: {fileID: 21300000, guid: 3c90b19bb2ca8d54badd53d48c8e8038, type: 3}
+    frames: 2
+  - sprite: {fileID: 21300000, guid: 3cad1b5b0e2e9bf4087c291f37b1551d, type: 3}
+    frames: 3
+  parry:
+  - sprite: {fileID: 21300000, guid: 3c90b19bb2ca8d54badd53d48c8e8038, type: 3}
+    frames: 1
+  - sprite: {fileID: 21300000, guid: ff906086ef9bd9906fd967e783d29147, type: 3}
+    frames: 2
+  - sprite: {fileID: 21300000, guid: 2d0a706ed8dbb2c24e3dfe8c1b4c3554, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: e63961f9ca3febd43b41bb78c538ef08, type: 3}
+    frames: 2
+  knockdown:
+  - sprite: {fileID: 21300000, guid: b5e2e8ad75843b28f355941429647f2b, type: 3}
+    frames: 4
+  - sprite: {fileID: 21300000, guid: 04e11bfc10636bb3fa09e3c276b88839, type: 3}
+    frames: 5
+  - sprite: {fileID: 21300000, guid: 8798d5c8d507a3f409992804fced0b25, type: 3}
+    frames: 4
+  - sprite: {fileID: 21300000, guid: 982bf17a6197552f8fdb7a60619d7139, type: 3}
+    frames: 5
+  getUp:
+  - sprite: {fileID: 21300000, guid: 982bf17a6197552f8fdb7a60619d7139, type: 3}
+    frames: 6
+  - sprite: {fileID: 21300000, guid: 8798d5c8d507a3f409992804fced0b25, type: 3}
+    frames: 6
+  - sprite: {fileID: 21300000, guid: 04e11bfc10636bb3fa09e3c276b88839, type: 3}
+    frames: 6
+  - sprite: {fileID: 21300000, guid: b5e2e8ad75843b28f355941429647f2b, type: 3}
+    frames: 5
+  - sprite: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+    frames: 1
+  die:
+  - sprite: {fileID: 21300000, guid: b5e2e8ad75843b28f355941429647f2b, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: 04e11bfc10636bb3fa09e3c276b88839, type: 3}
+    frames: 5
+  - sprite: {fileID: 21300000, guid: 8798d5c8d507a3f409992804fced0b25, type: 3}
+    frames: 4
+  - sprite: {fileID: 21300000, guid: 982bf17a6197552f8fdb7a60619d7139, type: 3}
+    frames: 6
+  blockPose: {fileID: 21300000, guid: af8b4517ecc2c5944a73e2251767300a, type: 3}

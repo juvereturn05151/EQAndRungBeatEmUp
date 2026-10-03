@@ -1,0 +1,19 @@
+Built-in image_gen mode; transparent_background=true.
+References: current BlueShirtGuy Idle2 and Attack1 sheets.
+Only Parry contact/deflection and KnockDown were drawn. Dodge/Guard use existing poses; Die/GetUp reuse KnockDown references.
+Final native frames are under Assets/ArtAssets/Characters/BlueShirtGuy/Animations/Parry and KnockDown.
+
+PARRY PROMPT:
+Create a missing TWO-POSE PARRY sprite sheet for the EXACT BlueShirtGuy from the attached Idle and Attack sprites. Reference 1 and 2 are visual source of truth. DO NOT redesign. Same tan face, short cropped dark hair, NO beard/no mustache, same bright blue short-sleeve button shirt with white printed patterns and white highlights, dark navy pants, black/grey sneakers with white soles, same proportions and chunky outlined pixel shading. Actual native 128x128 pixel-art game style; the output represents 4x nearest enlarged native pixels, not smooth detailed painting.
+Transparent background. Sheet 1024x512 with TWO equal512x512 cells left to right. Character facing right, same 106-native-pixel standing height (424 enlargedpixels), consistent head ~64-76 enlargedpixels, bottom foot contact row476 percell. No text floor shadows VFX borders. 
+LEFT: deliberate guard interception: knees bent slightly, one open forearm/palm raised across front of face to catch a strike, other hand near chest; upright defensive silhouette.
+RIGHT: strong parry deflection: torso turns, lead open palm/forearm sweeps a blow outwards to right, rear fist near chin, feet grounded, visible intentional deflection instead of a punching/hurt pose. Keep face/hair/clothing pattern/shoes identical to references, no glow. Only two new drawings, separated cells with padding. Native hard pixel clusters, limited exact reference palette, no anti-alias or smooth gradients.
+
+KNOCKDOWN PROMPT:
+Create ONE FOUR-POSE KNOCKDOWN animation sprite sheet for the EXACT BlueShirtGuy from attached existing Idle and Attack sprites. These two sheets are visual source of truth. Same tan face, short cropped dark hair, no beard/mustache, blue short sleeve button shirt with white printed pattern, navy loose pants, dark sneakers with white soles. Do NOT change identity, clothing colors/design, head size, proportions, silhouette proportions, outlines, shading or pixel density. Existing native character stands106pixels tall. Draw in the SAME coarse game pixel art, not detailed illustration. Render like 4x nearest enlarged native pixels, no smoothing.
+Genuinely transparent background, no floor shadow, checker pattern, text, effects or borders. Sheet 1280x1024: two columns, two rows; FOUR equal640x512cells; one pose in each cell. Every pose ground row476 within its cell, fixed center x320. Keep same anatomical scale/head size across all poses (head around72 enlarged pixels). Initial body height around400pixels, lying body width around440pixels. Limbs inside each cell with padding. Right-facing character.
+Top-left pose1: fatal/strong hit recoil, torso leaning backward, knees buckling, arms reflexively raising; still standing but losing balance.
+Top-right pose2: falling backward, head to left and feet to right, body diagonal approaching ground, arms flailing slightly, feet lowering toward floor.
+Bottom-left pose3: ground impact, lying on back head left feet right, one knee bent, shoulders/head near floor, one elbow down. Not standing.
+Bottom-right pose4: fully settled defeated/knocked-down pose, lying flat on back head left feet right, arms relaxed on floor, legs mostly extended, face readable turned up/right.
+Make readable consecutive game animation key poses, all same character, flat chunky limited-palette pixel shading matching reference exactly, no added detail.

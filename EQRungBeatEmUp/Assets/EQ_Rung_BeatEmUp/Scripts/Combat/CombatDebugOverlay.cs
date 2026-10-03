@@ -18,7 +18,8 @@ namespace BeatEmUp
                 $"Buffered: {player.BufferedInput} | jump: {player.JumpBuffered} | Input Action: {input.LastAction}\n" +
                 $"Enemy: {enemy.State} | height: {enemy.motor.Height:F2} | juggle hits: {enemy.JuggleHits}\n" +
                 $"HP: player {player.health.Current:F0} | enemy {enemy.health.Current:F0}\n" +
-                "Move WASD / stick | Attack J / West | Launcher K / North | Jump Space / South");
+                "Move WASD / stick | Attack Enter / West | Launcher K / North | Jump Space / South\n" +
+                "Guard / Parry L / Left shoulder | Dodge Left Alt / Right shoulder");
         }
     }
 }

@@ -31,10 +31,12 @@ namespace BeatEmUp
                     if (!hurtbox || !hurtbox.motor || !hurtbox.health || hurtbox.team == team) continue;
                     if (history.TryGetValue(hurtbox.health, out int last) && (box.repeatAfterFrames == 0 || frameNumber - last < box.repeatAfterFrames)) continue;
                     if (Mathf.Abs(hurtbox.motor.transform.position.y - motor.transform.position.y) > box.laneTolerance) continue;
-                    if (!hurtbox.Receive(box, facing)) continue;
+                    if (!hurtbox.Receive(box, facing, motor)) continue;
                     history[hurtbox.health] = frameNumber;
-                    if (owner) owner.Freeze(box.hitstopFrames);
-                    if (hurtbox.motor.attackPlayer) hurtbox.motor.attackPlayer.Freeze(box.hitstopFrames);
+                    if (owner) owner.Freeze(hurtbox.LastHitstopFrames);
+                    if (hurtbox.motor.attackPlayer) hurtbox.motor.attackPlayer.Freeze(hurtbox.LastHitstopFrames);
+                    // A parry can stop the attacker during this very sample.
+                    if (owner && !owner.CurrentAttack) return;
                 }
             }
         }

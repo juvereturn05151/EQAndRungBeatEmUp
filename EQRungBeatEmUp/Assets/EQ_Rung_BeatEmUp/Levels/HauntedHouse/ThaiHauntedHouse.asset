@@ -22,11 +22,11 @@ MonoBehaviour:
     floorSprite: {fileID: 21300000, guid: 4b27a12ff4262b81dc54735db15187e9, type: 3}
     artWidth: 12.8
     backgroundHeight: 3.2
-    backgroundCenterY: 3.3
+    backgroundCenterY: 3.16
     floorHeight: 2.4
-    floorCenterY: 0.56
+    floorCenterY: 0.36
     movementMin: {x: -6.11, y: -0.4}
-    movementMax: {x: 5.73, y: 1.69}
+    movementMax: {x: 5.73, y: 1.49}
     playerEntryPoint: {x: -5, y: 0.35}
     playerExitPoint: {x: 2.7, y: 0}
     exitRadius: 0.35
@@ -649,10 +649,10 @@ MonoBehaviour:
     artWidth: 7.6
     backgroundHeight: 2.75
     backgroundCenterY: 3.34
-    floorHeight: 2.4
-    floorCenterY: 0.56
+    floorHeight: 2
+    floorCenterY: 3.34
     movementMin: {x: -3.05, y: -0.4}
-    movementMax: {x: 3.05, y: 0.65}
+    movementMax: {x: 3.05, y: 0.71}
     playerEntryPoint: {x: -5.443332, y: 0.35}
     playerExitPoint: {x: 2.7, y: 0}
     exitRadius: 0.35

@@ -39,6 +39,8 @@ public static class HauntedStageFlowValidation
             // Scheduling/exit regression stays independent of randomized rewards.
             // RunUpgradeValidation exercises the authored reward flow separately.
             flow.level = UnityEngine.Object.Instantiate(flow.level);
+            // This encounter fixture expects the original room sequence; sort only its disposable copy.
+            flow.level.stages = flow.level.stages.OrderBy(s => s.stageId, StringComparer.Ordinal).ToList();
             foreach (var stage in flow.level.stages) stage.rewardAfterClear = StageReward.None;
             flow.enabled = false; flow.player.GetComponent<PlayerCombatInput>().enabled = false;
             punch = AssetDatabase.LoadAssetAtPath<AttackData>("Assets/EQ_Rung_BeatEmUp/Attacks/Punch1.asset");

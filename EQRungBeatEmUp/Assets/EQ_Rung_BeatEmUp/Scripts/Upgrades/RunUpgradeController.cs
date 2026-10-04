@@ -15,6 +15,7 @@ namespace BeatEmUp
         public bool showBuildButton = true;
         public RunBuildState Build { get; private set; }
         public bool IsChoosing { get; private set; }
+        public bool IsWorldChoosing { get; private set; }
         public IReadOnlyList<UpgradeDefinition> Choices => choices;
         public string ChoiceMessage { get; private set; }
         private readonly List<UpgradeDefinition> choices = new List<UpgradeDefinition>();
@@ -37,20 +38,24 @@ namespace BeatEmUp
             Initialize(); CloseChoice(); Build?.ResetRun();
             random = seed == 0 ? new System.Random() : new System.Random(seed);
         }
-        public bool Offer(Action onSelected = null)
+        public bool Offer(Action onSelected = null, bool worldSelection = false)
         {
             Initialize(); if (IsChoosing || !Build || !pool) return false;
             choices.Clear(); choices.AddRange(pool.Generate(Build, random));
             if (choices.Count == 0) { ChoiceMessage = "All available upgrades are exhausted."; return false; }
+            if (worldSelection) { int available = choices.Count; while (choices.Count < 3) choices.Add(choices[choices.Count % available]); }
             selected = onSelected; focused = 0; buildVisible = debugVisible = false; IsChoosing = true;
+            IsWorldChoosing = worldSelection;
             ChoiceMessage = choices.Count == 3 ? "Choose one upgrade for this run" : "Choose one — remaining eligible upgrades";
-            previousTimeScale = Time.timeScale; Time.timeScale = 0; CombatClock.SetPaused(this, true);
+            if (!IsWorldChoosing) { previousTimeScale = Time.timeScale; Time.timeScale = 0; CombatClock.SetPaused(this, true); }
             flow.player.GetComponent<ComboController>()?.ResetCombo(); Build.ClearTransient();
-            flow.player.MoveInput = Vector2.zero; flow.player.GetComponent<ComboController>()?.RequestGuard(false);
+            if (!IsWorldChoosing) flow.player.MoveInput = Vector2.zero;
+            flow.player.GetComponent<ComboController>()?.RequestGuard(false);
             return true;
         }
         public bool Choose(int index)
         {
+            if (IsWorldChoosing && (!flow.WorldRewards || !flow.WorldRewards.CanChoose(index))) return false;
             if (!IsChoosing || index < 0 || index >= choices.Count || !Build.Acquire(choices[index])) return false;
             var callback = selected; CloseChoice(); callback?.Invoke(); return true;
         }
@@ -58,7 +63,8 @@ namespace BeatEmUp
         {
             selected = null; choices.Clear();
             if (!IsChoosing) return;
-            IsChoosing = false; Time.timeScale = previousTimeScale; CombatClock.SetPaused(this, false);
+            if (!IsWorldChoosing) { Time.timeScale = previousTimeScale; CombatClock.SetPaused(this, false); }
+            IsChoosing = IsWorldChoosing = false;
         }
         private void OnDisable() => CloseChoice();
         public void DebugForceChoice() { if (!Application.isEditor && !Debug.isDebugBuild) return; Offer(); }
@@ -69,6 +75,7 @@ namespace BeatEmUp
             if (!IsChoosing || (!Application.isEditor && !Debug.isDebugBuild)) return;
             choices.Clear(); choices.AddRange(pool.Generate(Build, random)); focused = 0;
             if (choices.Count == 0) { var callback = selected; CloseChoice(); callback?.Invoke(); }
+            else if (IsWorldChoosing && flow.WorldRewards) flow.WorldRewards.RefreshChoices();
         }
         public void DebugJumpToReward(int index)
         {
@@ -82,7 +89,7 @@ namespace BeatEmUp
             if (key != null && key.tabKey.wasPressedThisFrame) buildVisible = !buildVisible;
             if (pad != null && pad.startButton.wasPressedThisFrame && !IsChoosing) buildVisible = !buildVisible;
             if ((Application.isEditor || Debug.isDebugBuild) && key != null && key.f9Key.wasPressedThisFrame) debugVisible = !debugVisible;
-            if (!IsChoosing) return;
+            if (!IsChoosing || IsWorldChoosing) return;
             if (key != null)
             {
                 if (key.digit1Key.wasPressedThisFrame) { Choose(0); return; }
@@ -114,7 +121,7 @@ namespace BeatEmUp
             try
             {
                 if (showBuildButton && !IsChoosing && GUI.Button(new Rect(1050, 12, 218, 36), "Current build  [Tab]")) buildVisible = !buildVisible;
-                if (IsChoosing)
+                if (IsChoosing && !IsWorldChoosing)
                 {
                     var old = GUI.color; GUI.color = new Color(.025f, .035f, .055f, .97f); GUI.DrawTexture(new Rect(0, 0, 1280, 720), Texture2D.whiteTexture); GUI.color = old;
                     GUI.Label(new Rect(60, 50, 1160, 54), "STAGE CLEARED", title);

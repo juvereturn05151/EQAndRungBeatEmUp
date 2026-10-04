@@ -49,6 +49,10 @@ public sealed class LevelDefinitionEditor : Editor
             if (stage.IsSafeStage && (stage.encounters.Count > 0 || stage.destructibles.Count > 0)) EditorGUILayout.HelpBox($"Stage {i + 1}: Safe stages ignore encounters and destructibles. Remove these unused placements.", MessageType.Warning);
             if (stage.IsSafeStage && stage.completionMode == StageCompletion.BossDefeated) EditorGUILayout.HelpBox($"Stage {i + 1}: Safe stages cannot spawn a boss. Use ReachExit or Event completion.", MessageType.Error);
             if (!stage.backgroundSprite || !stage.floorSprite) EditorGUILayout.HelpBox($"Stage {i + 1}: assign both art sprites.", MessageType.Error);
+            if (stage.movementMin.x < -stage.artWidth * .5f || stage.movementMax.x > stage.artWidth * .5f)
+                EditorGUILayout.HelpBox($"Stage {i + 1}: horizontal movement bounds extend beyond the art. Increase Art Width to cover the bounds plus character sprite padding; camera clamping cannot display a player outside the artwork.", MessageType.Warning);
+            if (stage.movementMax.y > Mathf.Max(stage.backgroundCenterY + stage.backgroundHeight * .5f, stage.floorCenterY + stage.floorHeight * .5f))
+                EditorGUILayout.HelpBox($"Stage {i + 1}: Movement Max Y extends above the artwork. Horizontal camera follow does not change this lane bound or vertically track grounded movement.", MessageType.Warning);
             if (stage.movementMax.x <= stage.movementMin.x || stage.movementMax.y <= stage.movementMin.y) EditorGUILayout.HelpBox($"Stage {i + 1}: movement bounds are reversed/empty.", MessageType.Error);
             var bounds = new Rect(stage.movementMin, stage.movementMax - stage.movementMin);
             if (!bounds.Contains(stage.playerEntryPoint) || !bounds.Contains(stage.playerExitPoint)) EditorGUILayout.HelpBox($"Stage {i + 1}: entry/exit must be inside movement bounds.", MessageType.Warning);

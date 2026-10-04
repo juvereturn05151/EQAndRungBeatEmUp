@@ -6,7 +6,7 @@ Select **1. Player Hub**, expand **Selected stage**, and find **Stage Art Layout
 
 | Field | Default | Effect |
 |---|---:|---|
-| Art Width | 7.2 | Shared horizontal width of this stage's two art sprites |
+| Art Width | 7.6 | Shared horizontal width of this stage's two art sprites; Entrance Gate uses 12.8 to cover its extended movement bounds |
 | Background Height | 1.6 | Rendered upper sprite height in world units |
 | Background Center Y | 2.56 | Upper sprite center position in world space |
 | Floor Height | 2.4 | Rendered lower sprite height in world units |

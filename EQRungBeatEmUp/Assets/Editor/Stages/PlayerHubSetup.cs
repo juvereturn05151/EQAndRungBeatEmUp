@@ -20,7 +20,7 @@ public static class PlayerHubSetup
             level.stages.Insert(0, new StageSegmentDefinition {
                 stageId = HubId, stageName = "Player Hub", stageType = StageType.Safe,
                 backgroundSprite = Pose("PlayerHub_Background"), floorSprite = Pose("PlayerHub_Floor"),
-                artWidth = 7.2f, movementMin = new Vector2(-3.05f, -.4f), movementMax = new Vector2(3.05f, .65f),
+                artWidth = 7.6f, movementMin = new Vector2(-3.05f, -.4f), movementMax = new Vector2(3.05f, .65f),
                 playerEntryPoint = new Vector2(-2.5f, 0), playerExitPoint = new Vector2(2.7f, 0),
                 completionMode = StageCompletion.ReachExit, rewardAfterClear = StageReward.None,
                 notes = "Warm outdoor camper hub. No encounters, damage, hazards or combat props. Walk right to enter Entrance Gate. DecorativeProps can host future camp/NPC interactions; safeRoom can enable the existing recovery interaction later. No run-build selection here."
@@ -66,7 +66,7 @@ public static class PlayerHubSetup
         EditorUtility.SetDirty(flow.background); EditorUtility.SetDirty(flow.floor);
         flow.player.transform.position = hub.playerEntryPoint;
         flow.player.arenaMin = hub.movementMin; flow.player.arenaMax = hub.movementMax; EditorUtility.SetDirty(flow.player);
-        if (flow.framing) { flow.framing.bottomLane = hub.movementMin.y; flow.framing.topLane = hub.movementMax.y; flow.framing.horizontalDeadZone = hub.artWidth; flow.framing.ApplyFraming(0, true); EditorUtility.SetDirty(flow.framing); }
+        if (flow.framing) { flow.framing.bottomLane = hub.movementMin.y; flow.framing.topLane = hub.movementMax.y; flow.framing.SetStageBounds(-hub.artWidth * .5f, hub.artWidth * .5f); flow.framing.ApplyFraming(0, true); EditorUtility.SetDirty(flow.framing); }
         EditorSceneManager.SaveScene(scene); AssetDatabase.SaveAssets();
         Debug.Log("PLAYER HUB SETUP COMPLETE: safe outdoor hub first, followed by all eight haunted-house stages.");
     }

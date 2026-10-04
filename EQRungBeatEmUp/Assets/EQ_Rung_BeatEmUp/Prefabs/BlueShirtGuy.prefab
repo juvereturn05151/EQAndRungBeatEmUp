@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -50
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -180,6 +180,7 @@ MonoBehaviour:
   player: {fileID: 3702797543408599627}
   team: 0
   debugDraw: 0
+  externalInvulnerable: 0
 --- !u!1 &6799408650324901922
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,11 +236,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.CharacterMotor
   visual: {fileID: 2967371500428580992}
   sprite: {fileID: 8300029509646884933}
-  moveSpeed: 3.5
+  moveSpeed: 2
   jumpForce: 7.5
   gravity: 14
   arenaMin: {x: -6, y: -2}
   arenaMax: {x: 6, y: 1}
+  wallCollisionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  wallCollisionSize: {x: 0.5, y: 0.3}
+  wallCollisionOffset: {x: 0, y: 0}
   airAttackGravityScale: 0.2
   airAttackMaxFallSpeed: 1.2
   maximumAirControlTime: 1.1
@@ -306,6 +312,7 @@ MonoBehaviour:
   animationDriver: {fileID: 8388164633507383413}
   hitbox: {fileID: 5183794480254226806}
   attackPlayer: {fileID: 901000000000000001}
+  defenseData: {fileID: 11400000, guid: 538d475d1eb06a443914598c91305c2c, type: 2}
   groundCombo:
   - {fileID: 11400000, guid: 1132a47bbbbc24441be15c1fd1ba8e0b, type: 2}
   - {fileID: 11400000, guid: 93fb91909bfb4de4caedb037eeee9092, type: 2}
@@ -321,7 +328,6 @@ MonoBehaviour:
   jumpBufferFrames: 36
   comboResetFrames: 21
   finisherRecoveryFrames: 0
-  defenseData: {fileID: 11400000, guid: 538d475d1eb06a443914598c91305c2c, type: 2}
 --- !u!114 &1833199203678208527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +396,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f1d22d256bf4b389efa811ee8f52cb1, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.HitBlinkEffect
   hitBlinkDuration: 0.35
   hitBlinkInterval: 0.06

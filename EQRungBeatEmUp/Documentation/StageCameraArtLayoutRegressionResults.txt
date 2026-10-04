@@ -1,0 +1,16 @@
+PASS: Scene starts in first hub
+PASS: All nine existing stages retain baseline layout
+PASS: New stages receive baseline defaults
+PASS: Legacy assets with missing layout fields load baseline defaults
+PASS: Hub uses authored background dimensions at entry
+PASS: Hub uses authored floor dimensions at entry
+PASS: 50/50 layout meets at seam
+PASS: Art changes preserve movement bounds and hub safety
+PASS: Fields available to Unity stage Inspector
+PASS: Live asset edits update background without restarting stage
+PASS: Live asset edits update floor without restarting stage
+PASS: Live preview does not advance stage or spawn enemies
+PASS: Next stage independently retains default background
+PASS: Next stage independently retains default floor
+PASS: Returning to hub reapplies its custom layout
+PASS: Custom per-stage values survive asset save/reimport

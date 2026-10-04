@@ -206,8 +206,15 @@ namespace BeatEmUp
             TryJump(); 
             TryConsume();
 
-            if (bufferFrames > 0) bufferFrames--;
-            if (jumpBuffer > 0) jumpBuffer--;
+            if (bufferFrames > 0) 
+            { 
+                bufferFrames--; 
+            }
+
+            if (jumpBuffer > 0) 
+            { 
+                jumpBuffer--; 
+            }
 
             motor.MovementLocked = IsAirDiving || (CurrentAttack && motor.IsGrounded);
 
@@ -244,7 +251,14 @@ namespace BeatEmUp
             
             bool air = !motor.IsGrounded;
 
-            if (bufferedAirDive && !air) { bufferFrames = 0; buffered = CombatInput.None; bufferedAirDive = false; return; }
+            if (bufferedAirDive && !air) 
+            { 
+                bufferFrames = 0; 
+                buffered = CombatInput.None; 
+                bufferedAirDive = false; 
+                return; 
+            }
+
             if (air && buffered == CombatInput.Launcher)
             {
                 if (!airDive || AirDiveUsed) 

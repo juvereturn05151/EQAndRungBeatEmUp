@@ -1,24 +1,24 @@
 # Stage rewards and current-run upgrades
 
-Open `Assets/EQ_Rung_BeatEmUp/Scenes/HauntedHouse.unity` and press Play. The player starts in the outdoor Player Hub with an empty build. Walk to the right exit to enter Entrance Gate. Clearing the five haunted combat rooms (stage indices1–5, displayed rooms2–6) opens three upgrade cards. Pick one; it applies immediately and loads the next room. Recovery Shrine (index6, displayed room7) keeps the optional E / gamepad Select shrine interaction and grants a 50%-maximum-HP heal at its exit. The boss and Escape Lane grant no cards by default. The acquired build stays active through both rooms.
+Open `Assets/EQ_Rung_BeatEmUp/Scenes/HauntedHouse.unity` and press Play. The current authored order starts with Entrance Gate, then Player Hub. Clearing an UpgradeChoice combat room spawns a chapel instead of a popup. Walk to it and press **E / gamepad Select**, then walk to one of three physical world cards and press Interact again. The upgrade applies immediately and the exit unlocks; walk to the exit to proceed. Recovery Shrine retains its optional recovery interaction and configured exit heal. The boss and Escape Lane grant no upgrades by default. See [WorldChapelRewards.md](WorldChapelRewards.md) for placement controls and prefabs.
 
 ## Playing and authoring
 
-Choose with the mouse, **1 / 2 / 3**, or **Left / Right + Enter**. On gamepad, use **D-pad Left / Right + South (A / Cross)**. Cards show a placeholder icon or an assigned sprite, name, description, rarity and current → next stack count. **Tab** or the **Current build** button opens the acquired-upgrade list; gamepad **Start** toggles that panel outside card selection.
+Normal rewards use **E / gamepad Select** at the chapel and nearby world card. Cards display name, description, rarity and build tags. **Tab** or **Current build** opens the acquired-upgrade list; gamepad **Start** toggles it outside choice selection. The old mouse/number-key/gamepad South paused-card controls remain only in explicitly forced debug/test offers.
 
-While choosing, an owned CombatClock pause stops attacks, movement, hitstop, enemy AI, boss warps, stage scheduling and frame stepping. Time scale also pauses Animator/physics updates. Player combat requests are rejected and buffered inputs cleared. The pause releases when a valid selection applies, on run/room reset, or if the reward component is disabled. Invalid selection indices cannot dismiss the cards.
+Physical rewards do not pause the clock or time scale. The player can walk throughout the sequence. Only stage encounter scheduling/progression waits; reward-area damage protection removes combat pressure. World selections validate physical proximity, grounded/idle state, and one-time acquisition. Legacy explicit debug offers retain their owned pause and cleanup behavior.
 
 Select `Assets/EQ_Rung_BeatEmUp/Levels/HauntedHouse/ThaiHauntedHouse.asset`, click a stage, expand **Selected stage**, and change **Reward After Clear**:
 
 - **None**: retain normal clear-and-walk-to-exit progression.
-- **UpgradeChoice**: pause at clear, select one card, then advance immediately. A ReachExit stage triggers this at its exit.
+- **UpgradeChoice**: clear spawns a chapel; interact, then physically choose one card to unlock the exit. A ReachExit stage begins this at its exit.
 - **Heal**: heal by **Reward Heal Fraction × Effective Maximum HP**, then follow normal exit progression. On the shrine's ReachExit stage this happens at the exit, not on entry.
 
 Required encounters and the boss/totem completion rules still decide when a stage is clear. Each stage ID grants its reward once per run; retrying or jumping back to a rewarded room cannot farm extra cards. Use unique stage IDs. The reward enum can be extended for future reward types.
 
 Definitions live under `Assets/EQ_Rung_BeatEmUp/Upgrades/`. Each UpgradeDefinition exposes ID, name, description, icon, rarity, tags, max stacks, weight, prerequisite definitions, incompatible definitions, and reusable modifier effects. Create another with **Create → Beat Em Up → Run Upgrade**, and add it to `HauntedUpgradePool.asset`. Fractions such as `0.2` mean +20% damage; frame/HP values use their literal units.
 
-The pool defaults to **70 Common / 25 Rare / 5 Epic** tier weights. A tier is drawn first, then a weighted valid definition within that tier, so adding many Common assets does not distort the configured tier odds. Each draw excludes duplicate IDs, capped stacks, missing prerequisites and incompatibilities in either direction. Matching acquired tags gives a configurable 15% selection-weight bias; other builds remain available. If an authored pool has fewer than three eligible definitions, show only those valid cards. If it is fully exhausted, stage rewards fall back to a 25%-maximum-HP heal and do not lock progression. A missing pool produces a visible configuration error.
+The pool defaults to **70 Common / 25 Rare / 5 Epic** tier weights. Generation excludes capped stacks, missing prerequisites and incompatibilities, with a 15% matching-tag bias. Normal draws have three distinct IDs. With fewer than three eligible definitions, world slots repeat valid options; only one upgrade is acquired. A fully exhausted pool still requires chapel interaction before the existing 25%-maximum-HP heal fallback resolves the reward. A missing pool produces a configuration error.
 
 ## First-pass upgrades
 

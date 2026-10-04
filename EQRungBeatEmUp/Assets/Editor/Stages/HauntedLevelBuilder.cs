@@ -132,11 +132,12 @@ public static class HauntedLevelBuilder
         view.transform.position = new Vector3(0, 1.36f, -10); var framing = view.AddComponent<StageFraming>(); framing.showGizmos = true;
         var player = (GameObject)PrefabUtility.InstantiatePrefab(Load<GameObject>("Assets/EQ_Rung_BeatEmUp/Prefabs/BlueShirtGuy.prefab")); player.name = "Player";
         var flowObject = new GameObject("Haunted House Stage Flow"); var flow = flowObject.AddComponent<StageFlowController>(); flow.level = level; flow.player = player.GetComponent<CharacterMotor>(); flow.framing = framing;
-        framing.player = flow.player; framing.floor = null; framing.horizontalDeadZone = 7.2f;
+        framing.player = flow.player; framing.floor = null;
         var bg = new GameObject("Stage Background"); var floor = new GameObject("Stage Floor");
         flow.background = bg.AddComponent<SpriteRenderer>(); flow.floor = floor.AddComponent<SpriteRenderer>(); flow.ambience = flowObject.AddComponent<AudioSource>(); flow.ambience.playOnAwake = false;
         var stage = level.stages[0]; player.transform.position = stage.playerEntryPoint; flow.player.arenaMin = stage.movementMin; flow.player.arenaMax = stage.movementMax;
         flow.ApplyStageArt(stage);
+        WorldRewardSetup.Attach(flow);
         EditorSceneManager.SaveScene(scene, ScenePath);
     }
 }

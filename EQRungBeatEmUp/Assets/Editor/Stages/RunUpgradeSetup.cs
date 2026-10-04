@@ -58,6 +58,7 @@ public static class RunUpgradeSetup
         var flow = UnityEngine.Object.FindFirstObjectByType<StageFlowController>();
         var controller = flow.GetComponent<RunUpgradeController>(); if (!controller) controller = flow.gameObject.AddComponent<RunUpgradeController>();
         if (!controller.pool) controller.pool = pool;
+        WorldRewardSetup.Attach(flow);
         EditorUtility.SetDirty(controller); EditorSceneManager.SaveScene(scene); AssetDatabase.SaveAssets();
         Debug.Log("RUN UPGRADE SETUP COMPLETE: 18 editable definitions; choices after stages1-5; shrine heal; current run only.");
     }

@@ -1,0 +1,39 @@
+PASS: Playable scene assigns chapel and world choice prefabs
+PASS: Generated chapel art has alpha-capable texture
+PASS: Stage entry does not force a reward chapel
+PASS: Optional hub preserves its authored next-stage route
+PASS: Combat clear enters RewardPending
+PASS: TEST1/2: clear spawns chapel without opening upgrade popup or cards
+PASS: Reward pending preserves game time and player controls
+PASS: Chapel does not spawn on player
+PASS: Chapel stays inside stage walking bounds
+PASS: Unresolved reward locks progression
+PASS: TEST7: waiting does not auto-activate, duplicate chapel, or skip reward
+PASS: Out-of-range chapel interaction rejected
+PASS: Standing at chapel never auto-triggers selection
+PASS: Cleared reward area protects player from damage
+PASS: TEST3: Interact on chapel begins world choice selection
+PASS: Chapel activation preserves a held movement input
+PASS: Three physical choices appear
+PASS: World choices do not pause movement or time
+PASS: All cards display name, description, rarity and build tags
+PASS: Cards have distinct non-overlapping positions
+PASS: Remote and invalid selections cannot bypass physical interaction
+PASS: Player can walk during world selection
+PASS: TEST4: nearby Interact applies selected upgrade to existing run build
+PASS: TEST5: chosen and unchosen reward objects are removed cleanly
+PASS: One reward only; duplicate selection rejected
+PASS: TEST6: selection unlocks exit without an unsolicited transition
+PASS: Walking to exit continues progression and retains upgrade
+PASS: Safe stages support explicitly authored chapel rewards
+PASS: Keyboard E activates chapel through actual input routing
+PASS: Number-key menu selection does not bypass world interaction
+PASS: Gamepad Select chooses nearby physical reward through actual input routing
+PASS: Room retry removes pending reward objects and does not leak pause
+PASS: Retry cannot farm an already selected stage reward
+PASS: New run can spawn and activate a fresh chapel
+PASS: Stage change cancels unresolved world reward safely
+PASS: Blocked chapel anchor relocates onto player's reachable side of wall
+PASS: Relocated chapel does not overlap solid wall geometry
+PASS: Exhausted pool still waits for chapel interaction
+PASS: Exhausted pool's chapel interaction grants fallback and unlocks progression

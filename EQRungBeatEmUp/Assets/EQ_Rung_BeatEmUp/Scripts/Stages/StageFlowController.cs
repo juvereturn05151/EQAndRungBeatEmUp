@@ -17,6 +17,7 @@ namespace BeatEmUp
         public bool showHud = true;
         public UnityEvent onLevelCompleted = new UnityEvent();
         public RunUpgradeController RunUpgrades => GetComponent<RunUpgradeController>();
+        public RewardSelectionController WorldRewards => GetComponent<RewardSelectionController>();
         public int StageIndex { get; private set; } = -1;
         public StageSegmentDefinition CurrentStage => level && StageIndex >= 0 && StageIndex < level.stages.Count ? level.stages[StageIndex] : !Application.isPlaying && level && level.stages.Count > 0 ? level.stages[0] : null;
         public float StageElapsed { get; private set; }
@@ -24,10 +25,11 @@ namespace BeatEmUp
         public string Failure { get; private set; }
         public int FrameOrder => 90;
         public IReadOnlyList<DestructibleObject> Destructibles => destructibles;
-        public IEnumerable<CharacterHealth> LivingEnemies => encounters.SelectMany(e => e.waves).SelectMany(w => w.enemies).Where(h => h && !h.IsDead);
+        public IEnumerable<CharacterHealth> StageEnemies => encounters.SelectMany(e => e.waves).SelectMany(w => w.enemies).Where(h => h);
+        public IEnumerable<CharacterHealth> LivingEnemies => StageEnemies.Where(h => h.gameObject.activeInHierarchy && !h.IsDead);
         public int RemainingTotems => destructibles.Count(p => p && p.kind == PropKind.CursedTotem && !p.IsBroken);
         public bool EncountersComplete => encounters.All(e => !e.definition.requiredForCompletion || e.completed);
-        public bool ExitUnlocked => CompletionSatisfied && !(RunUpgrades && RunUpgrades.IsChoosing);
+        public bool ExitUnlocked => CompletionSatisfied && !(RunUpgrades && RunUpgrades.IsChoosing) && !(WorldRewards && WorldRewards.IsPending);
         public bool CompletionSatisfied => CurrentStage != null && !LevelCompleted && string.IsNullOrEmpty(Failure) &&
             !encounters.Any(e => e.started && !e.completed && e.definition.lockStageUntilClear) &&
             (CurrentStage.completionMode == StageCompletion.ReachExit ||
@@ -47,64 +49,143 @@ namespace BeatEmUp
         private string RewardKey => string.IsNullOrEmpty(CurrentStage.stageId) ? StageIndex.ToString() : CurrentStage.stageId;
         private void OnEnable() => CombatClock.Register(this);
         private void OnDisable() { CombatClock.Unregister(this); if (player) player.GetComponent<CharacterHealth>().SafeStageProtection = false; }
-        private void Start() { if (level && player) Restart(true); else Failure = "Assign a LevelDefinition and player."; }
+        private void Start() 
+        { if (level && player) Restart(true); else Failure = "Assign a LevelDefinition and player."; }
         // Stage asset edits during Play update the artwork without restarting encounters.
-        private void LateUpdate() { if (CurrentStage != null) ApplyStageArt(CurrentStage); }
+        private void LateUpdate() 
+        {
+            if (CurrentStage != null) 
+            {
+                ApplyStageArt(CurrentStage);
+            } 
+        }
         public void EnterStage(int index)
         {
-            if (!level || !player || index < 0 || index >= level.stages.Count) return;
-            if (room) { room.SetActive(false); Destroy(room); }
+            if (!level || !player || index < 0 || index >= level.stages.Count) 
+            { 
+                return;
+            }
+            
+            if (room) 
+            { 
+                room.SetActive(false); 
+                Destroy(room); 
+            }
+
+            WorldRewards?.Cancel(); RunUpgrades?.CloseChoice();
             StageIndex = index; StageElapsed = 0; LevelCompleted = false; Failure = null;
             stageEventComplete = bossSpawned = false; encounters.Clear(); destructibles.Clear();
             rewardStarted = false;
             RunUpgrades?.Initialize(); RunUpgrades?.Build?.ClearTransient();
             var stage = CurrentStage;
             player.GetComponent<CharacterHealth>().SafeStageProtection = stage.IsSafeStage;
-            room = new GameObject("Stage runtime — " + stage.stageName); room.transform.SetParent(transform, false);
-            player.GetComponent<ComboController>()?.ResetCombo(); player.ResetForStage(stage.playerEntryPoint); player.Face(1);
-            player.arenaMin = stage.movementMin; player.arenaMax = stage.movementMax;
+            room = new GameObject("Stage runtime — " + stage.stageName); 
+            room.transform.SetParent(transform, false);
+            player.GetComponent<ComboController>()?.ResetCombo(); 
+            player.ResetForStage(stage.playerEntryPoint); 
+            player.Face(1);
+            player.arenaMin = stage.movementMin; 
+            player.arenaMax = stage.movementMax;
+            
             if (framing)
             {
                 framing.floor = null; framing.player = player; framing.bottomLane = stage.movementMin.y; framing.topLane = stage.movementMax.y;
-                framing.horizontalDeadZone = stage.artWidth; framing.transform.position = new Vector3(0, framing.verticalCenter, -10); framing.ApplyFraming(0, true);
+                framing.SetStageBounds(-stage.artWidth * .5f, stage.artWidth * .5f);
+                framing.transform.position = new Vector3(0, framing.verticalCenter, -10); framing.ApplyFraming(0, true);
             }
+
             ApplyStageArt(stage);
-            if (!stage.backgroundSprite || !stage.floorSprite) Failure = "Stage art is missing: " + stage.stageName;
-            if (ambience) { ambience.Stop(); ambience.clip = stage.ambience; ambience.loop = true; if (stage.ambience) ambience.Play(); }
+            if (!stage.backgroundSprite || !stage.floorSprite) 
+            { 
+                Failure = "Stage art is missing: " + stage.stageName; 
+            }
+            
+            if (ambience) 
+            { 
+                ambience.Stop(); 
+                ambience.clip = stage.ambience; 
+                ambience.loop = true;
+                if (stage.ambience) 
+                {
+                    ambience.Play();
+                } 
+            }
+
             foreach (var p in stage.decorativeProps)
+            {
                 if (p.prefab && (!stage.IsSafeStage || (!p.prefab.GetComponentInChildren<EnemyCombat>(true) && !p.prefab.GetComponentInChildren<EnemyHitReaction>(true) && !p.prefab.GetComponentInChildren<DestructibleObject>(true))))
+                {
                     Instantiate(p.prefab, p.position, Quaternion.identity, room.transform);
+                }
+            }
+
             foreach (var p in stage.IsSafeStage ? Enumerable.Empty<DestructiblePlacement>() : stage.destructibles)
             {
                 var go = p.prefab ? Instantiate(p.prefab, p.position, Quaternion.identity, room.transform) : new GameObject(p.label);
-                go.transform.SetParent(room.transform); go.transform.position = p.position;
-                var prop = go.GetComponent<DestructibleObject>(); if (!prop) prop = go.AddComponent<DestructibleObject>();
+                go.transform.SetParent(room.transform); 
+                go.transform.position = p.position;
+                var prop = go.GetComponent<DestructibleObject>();
+                if (!prop) 
+                { 
+                    prop = go.AddComponent<DestructibleObject>(); 
+                }
                 prop.Configure(p); destructibles.Add(prop);
             }
             foreach (var e in stage.IsSafeStage ? Enumerable.Empty<EncounterDefinition>() : stage.encounters)
             {
                 var state = new EncounterState { definition = e };
-                foreach (var w in e.waves) state.waves.Add(new WaveState { definition = w });
+                foreach (var w in e.waves) 
+                { 
+                    state.waves.Add(new WaveState { definition = w }); 
+                }
                 encounters.Add(state);
             }
             transitionFlash = .2f;
         }
         public void ApplyStageArt(StageSegmentDefinition stage)
         {
-            if (stage == null) return;
-            ApplyPlate(background, stage.backgroundSprite, stage.artWidth, stage.backgroundHeight, stage.backgroundCenterY, -100);
-            ApplyPlate(floor, stage.floorSprite, stage.artWidth, stage.floorHeight, stage.floorCenterY, -90);
+            if (stage == null) 
+            { 
+                return; 
+            }
+
+            ApplyPlate(background, stage.backgroundSprite, stage.artWidth, stage.backgroundHeight, stage.backgroundCenterY, -1000);
+            ApplyPlate(floor, stage.floorSprite, stage.artWidth, stage.floorHeight, stage.floorCenterY, -900);
+            
+            if (framing && stage == CurrentStage)
+            {
+                // Use actual renderer edges (including any authored pivot offset).
+                float left = background && background.sprite ? background.bounds.min.x : -stage.artWidth * .5f;
+                float right = background && background.sprite ? background.bounds.max.x : stage.artWidth * .5f;
+
+                if (floor && floor.sprite) 
+                { 
+                    left = Mathf.Max(left, floor.bounds.min.x); 
+                    right = Mathf.Min(right, floor.bounds.max.x); 
+                }
+
+                framing.SetStageBounds(left, right);
+            }
         }
         private static void ApplyPlate(SpriteRenderer renderer, Sprite sprite, float width, float height, float y, int order)
         {
-            if (!renderer) return; renderer.sprite = sprite; renderer.sortingOrder = order;
+            if (!renderer) 
+            { 
+                return; 
+            }
+
+            renderer.sprite = sprite; 
+            renderer.sortingOrder = order;
             renderer.transform.position = new Vector3(0, y, 0);
             if (sprite) renderer.transform.localScale = new Vector3(Mathf.Max(.01f, width) / Mathf.Max(.0001f, sprite.bounds.size.x), Mathf.Max(.01f, height) / Mathf.Max(.0001f, sprite.bounds.size.y), 1);
         }
+        
         public void CombatFrame() => Tick(CombatClock.FrameSeconds);
+        
         public void Tick(float dt)
         {
             if (CombatClock.IsPaused || CurrentStage == null || LevelCompleted || !player || player.GetComponent<CharacterHealth>().IsDead || !string.IsNullOrEmpty(Failure)) return;
+            if (WorldRewards && WorldRewards.IsPending) return;
             dt = Mathf.Max(0, dt); StageElapsed += dt;
             for (int i = 0; i < encounters.Count; i++)
             {
@@ -122,7 +203,9 @@ namespace BeatEmUp
                     if (StageElapsed - e.eligibleAt + .0001f < e.definition.triggerDelay) continue;
                     e.started = true;
                 }
+
                 e.elapsed += dt;
+
                 for (int w = 0; w < e.waves.Count; w++)
                 {
                     var wave = e.waves[w]; if (wave.completed) continue;
@@ -132,17 +215,33 @@ namespace BeatEmUp
                         float from = wave.definition.trigger == WaveTrigger.PreviousWaveClear && clear ? e.waves[w - 1].clearedAt : 0;
                         bool eligible = wave.definition.trigger == WaveTrigger.EncounterStart || wave.definition.trigger == WaveTrigger.Time ||
                             wave.definition.trigger == WaveTrigger.Manual && wave.signalled || wave.definition.trigger == WaveTrigger.PreviousWaveClear && clear;
-                        if (!eligible || e.elapsed - from + .0001f < wave.definition.spawnDelay) continue;
+
+                        if (!eligible || e.elapsed - from + .0001f < wave.definition.spawnDelay)
+                        {
+                            continue;
+                        }
+
                         wave.started = true;
-                        foreach (var spawn in wave.definition.enemySpawns) wave.plans.Add(new Plan { definition = spawn });
+                        foreach (var spawn in wave.definition.enemySpawns) 
+                        { 
+                            wave.plans.Add(new Plan { definition = spawn }); 
+                        }
                     }
+
                     wave.elapsed += dt;
-                    foreach (var plan in wave.plans)
+
+                    foreach (var plan in wave.plans) 
+                    { 
                         while (plan.spawned < Mathf.Max(1, plan.definition.count) && wave.elapsed + .0001f >= plan.due)
                         {
                             Spawn(plan, wave); plan.spawned++; plan.due += Mathf.Max(0, plan.definition.interval);
                         }
-                    if (wave.plans.All(p => p.spawned >= Mathf.Max(1, p.definition.count)) && wave.enemies.All(h => !h || h.IsDead)) { wave.completed = true; wave.clearedAt = e.elapsed; }
+                    }
+                    if (wave.plans.All(p => p.spawned >= Mathf.Max(1, p.definition.count)) && wave.enemies.All(h => !h || h.IsDead)) 
+                    { 
+                        wave.completed = true; 
+                        wave.clearedAt = e.elapsed; 
+                    }
                 }
                 e.completed = e.waves.All(w => w.completed);
             }
@@ -153,7 +252,13 @@ namespace BeatEmUp
         private void Spawn(Plan plan, WaveState wave)
         {
             var definition = plan.definition;
-            if (!definition.prefab || !definition.prefab.GetComponent<CharacterHealth>() || !definition.prefab.GetComponent<CharacterMotor>()) { Failure = "Wave needs a combat enemy prefab."; return; }
+
+            if (!definition.prefab || !definition.prefab.GetComponent<CharacterHealth>() || !definition.prefab.GetComponent<CharacterMotor>()) 
+            { 
+                Failure = "Wave needs a combat enemy prefab.";
+                return; 
+            }
+
             var points = definition.spawnPoints;
             Vector2 point = points.Count > 0 ? points[plan.spawned % points.Count] : CurrentStage.movementMax;
             point = new Vector2(Mathf.Clamp(point.x, CurrentStage.movementMin.x, CurrentStage.movementMax.x), Mathf.Clamp(point.y, CurrentStage.movementMin.y, CurrentStage.movementMax.y));
@@ -161,17 +266,43 @@ namespace BeatEmUp
             var motor = go.GetComponent<CharacterMotor>(); motor.arenaMin = CurrentStage.movementMin; motor.arenaMax = CurrentStage.movementMax;
             var combat = go.GetComponent<EnemyCombat>(); if (combat) { combat.target = player.transform; combat.passiveTrainingDummy = false; }
             var boss = go.GetComponent<TotemBossController>();
-            if (definition.isBoss && !boss) boss = go.AddComponent<TotemBossController>();
-            if (boss) { boss.flow = this; bossSpawned = true; }
+
+            if (definition.isBoss && !boss) 
+            { 
+                boss = go.AddComponent<TotemBossController>(); 
+            }
+            if (boss) 
+            { 
+                boss.flow = this; 
+                bossSpawned = true; 
+            }
+
             wave.enemies.Add(go.GetComponent<CharacterHealth>());
         }
         public bool TryAdvance()
         {
-            if (!ExitUnlocked || !player || player.GetComponent<CharacterHealth>().IsDead) return false;
-            if (!GrantStageReward()) return false;
+            if (!ExitUnlocked || !player || player.GetComponent<CharacterHealth>().IsDead) 
+            { 
+                return false; 
+            }
+            
+            if (!GrantStageReward()) 
+            { 
+                return false; 
+            }
+
             int next = CurrentStage.nextStageIndex < 0 ? StageIndex + 1 : CurrentStage.nextStageIndex;
-            if (next >= level.stages.Count) { LevelCompleted = true; player.MoveInput = Vector2.zero; onLevelCompleted.Invoke(); }
-            else EnterStage(next);
+
+            if (next >= level.stages.Count)
+            {
+                LevelCompleted = true;
+                player.MoveInput = Vector2.zero;
+                onLevelCompleted.Invoke();
+            }
+            else 
+            { 
+                EnterStage(next); 
+            }
             return true;
         }
         public bool GrantStageReward()
@@ -180,19 +311,28 @@ namespace BeatEmUp
             if (rewardedStages.Contains(RewardKey)) return true;
             if (rewardStarted) return false;
             rewardStarted = true; RunUpgrades?.Build?.Notify(RunCombatEvent.StageClear);
-            string key = RewardKey; int stageIndex = StageIndex;
+            string key = RewardKey;
             if (CurrentStage.rewardAfterClear == StageReward.UpgradeChoice)
             {
                 if (!RunUpgrades || !RunUpgrades.pool) { Failure = "UpgradeChoice reward needs a RunUpgradeController with an UpgradePool."; return false; }
-                if (RunUpgrades.Offer(() => { rewardedStages.Add(key); if (StageIndex == stageIndex) TryAdvance(); })) return false;
-                // A fully exhausted eligible pool cannot stall a run; grant a small heal.
-                player.GetComponent<CharacterHealth>().Heal(player.GetComponent<CharacterHealth>().EffectiveMaximum * .25f);
+                var world = WorldRewards ? WorldRewards : gameObject.AddComponent<RewardSelectionController>();
+                if (!world.BeginReward(() => rewardedStages.Add(key))) Failure = "No reachable chapel reward placement. Adjust reward points / geometry or assign the chapel prefab.";
+                return false;
             }
             else if (CurrentStage.rewardAfterClear == StageReward.Heal)
                 player.GetComponent<CharacterHealth>().Heal(player.GetComponent<CharacterHealth>().EffectiveMaximum * CurrentStage.rewardHealFraction);
             rewardedStages.Add(key); return true;
         }
-        public void SignalEncounter(string id) { foreach (var e in encounters) if (e.definition.encounterId == id) e.signalled = true; }
+        public void SignalEncounter(string id) 
+        {
+            foreach (var e in encounters) 
+            {
+                if (e.definition.encounterId == id)
+                {
+                    e.signalled = true;
+                }        
+            }
+        }
         public void SignalWave(string encounter, string wave) { foreach (var e in encounters) if (e.definition.encounterId == encounter) foreach (var w in e.waves) if (w.definition.waveId == wave) w.signalled = true; }
         public void CompleteStageEvent() => stageEventComplete = true;
         public bool Recover()
@@ -213,16 +353,17 @@ namespace BeatEmUp
             if (CombatClock.IsPaused) return;
             if (Keyboard.current != null)
             {
-                if (Keyboard.current.eKey.wasPressedThisFrame) Recover();
+                if (Keyboard.current.eKey.wasPressedThisFrame) Interact();
                 if (Keyboard.current.rKey.wasPressedThisFrame && (LevelCompleted || player && player.GetComponent<CharacterHealth>().IsDead)) Restart(LevelCompleted);
                 if (Keyboard.current.f8Key.wasPressedThisFrame) debugVisible = !debugVisible;
             }
-            if (Gamepad.current != null && Gamepad.current.selectButton.wasPressedThisFrame) Recover();
+            if (Gamepad.current != null && Gamepad.current.selectButton.wasPressedThisFrame) Interact();
         }
+        public bool Interact() => WorldRewards && WorldRewards.IsPending ? WorldRewards.Interact() : Recover();
         private void OnGUI()
         {
             if (!showHud || CurrentStage == null) return;
-            string status = RunUpgrades && RunUpgrades.IsChoosing ? "Stage clear — choose an upgrade" : LevelCompleted ? "You escaped! R: restart level" : player.GetComponent<CharacterHealth>().IsDead ? "Defeated — R: retry room" : !string.IsNullOrEmpty(Failure) ? Failure : ExitUnlocked ? "Exit open — walk to the right-hand exit" : "Exit locked — finish the encounter";
+            string status = WorldRewards && WorldRewards.IsPending ? WorldRewards.State == WorldRewardState.RewardPending ? "Stage clear — approach the chapel and press E / Select" : "Walk to a blessing and press E / Select to choose" : RunUpgrades && RunUpgrades.IsChoosing ? "Choose an upgrade" : LevelCompleted ? "You escaped! R: restart level" : player.GetComponent<CharacterHealth>().IsDead ? "Defeated — R: retry room" : !string.IsNullOrEmpty(Failure) ? Failure : ExitUnlocked ? "Exit open — walk to the right-hand exit" : "Exit locked — finish the encounter";
             GUI.Box(new Rect(12, 12, 470, 80), $"{StageIndex + 1}/{level.stages.Count}  {CurrentStage.stageName}\nHP {player.GetComponent<CharacterHealth>().Current:0}  Enemies {LivingEnemies.Count()}  Totems {RemainingTotems}\n{status}");
             if (CurrentStage.safeRoom) GUI.Box(new Rect(12, 98, 470, 30), "Stand near the shrine: E / gamepad Select to recover");
             if (debugVisible)
@@ -248,7 +389,12 @@ namespace BeatEmUp
         public void RestartAt(int index) { RunUpgrades?.CloseChoice(); player.ResetForStage(Vector2.zero); player.GetComponent<CharacterHealth>().Restore(); EnterStage(index); }
         private void OnDrawGizmosSelected()
         {
-            if (CurrentStage == null) return; var s = CurrentStage;
+            if (CurrentStage == null) 
+            { 
+                return; 
+            }
+
+            var s = CurrentStage;
             Gizmos.color = Color.green; Gizmos.DrawWireCube((s.movementMin + s.movementMax) * .5f, s.movementMax - s.movementMin);
             Gizmos.color = Color.cyan; Gizmos.DrawWireSphere(s.playerEntryPoint, .2f); Gizmos.color = Color.yellow; Gizmos.DrawWireSphere(s.playerExitPoint, s.exitRadius);
             foreach (var e in s.encounters) foreach (var w in e.waves) foreach (var spawn in w.enemySpawns) foreach (var point in spawn.spawnPoints) { Gizmos.color = Color.red; Gizmos.DrawWireSphere(point, .15f); }

@@ -55,7 +55,7 @@ public static class RunUpgradeValidation
         return build.ModifyHit(BaseHit(attack), motor).damage;
     }
     static int Stage(string id) => flow.level.stages.FindIndex(s => s.stageId == id);
-    static void LeaveHub() { player.motor.ResetForStage(flow.CurrentStage.playerExitPoint); Step(); Check(flow.CurrentStage.stageId == "Stage01_EntranceGate", "Hub exits into Entrance Gate without cards"); }
+    static void LeaveHub() { if (flow.CurrentStage.IsSafeStage) { player.motor.ResetForStage(flow.CurrentStage.playerExitPoint); Step(); } Check(flow.CurrentStage.stageId == "Stage01_EntranceGate", "Run reaches first combat stage without forced cards"); }
     static void ClearCombatRoom()
     {
         int guard = 0;
@@ -64,7 +64,9 @@ public static class RunUpgradeValidation
             foreach (var h in flow.LivingEnemies.ToArray()) { h.GetComponent<EnemyCombat>().enabled = false; h.Damage(10000); }
             Step();
         }
-        Check(guard < 700 && rewards.IsChoosing, "Stage " + (flow.StageIndex + 1) + " clear opens current-run cards");
+        Check(guard < 700 && flow.WorldRewards && flow.WorldRewards.State == WorldRewardState.RewardPending && !rewards.IsChoosing, "Stage " + (flow.StageIndex + 1) + " clear spawns chapel without cards; failure: " + flow.Failure);
+        player.motor.ResetForStage(flow.WorldRewards.Chapel.transform.position);
+        Check(flow.Interact() && rewards.IsWorldChoosing, "Chapel interaction opens physical current-run choices");
     }
     static void Pick(string preferred)
     {
@@ -73,7 +75,10 @@ public static class RunUpgradeValidation
         int guard = 0; while (!rewards.Choices.Any(u => u.id == preferred) && guard++ < 1000) rewards.DebugReroll();
         Check(guard < 1000, "Named test card becomes available: " + preferred);
         int index = rewards.Choices.ToList().FindIndex(u => u.id == preferred);
-        Check(rewards.Choose(index), "Choice applies immediately: " + preferred);
+        player.motor.ResetForStage(flow.WorldRewards.ChoiceObjects[index].transform.position);
+        Check(flow.Interact(), "World choice applies immediately: " + preferred);
+        player.motor.ResetForStage(flow.CurrentStage.playerExitPoint); Step();
+        while (flow.CurrentStage.IsSafeStage && flow.CurrentStage.rewardAfterClear == StageReward.None && !flow.LevelCompleted) { player.motor.ResetForStage(flow.CurrentStage.playerExitPoint); Step(); }
     }
     static void Poll()
     {
@@ -97,9 +102,9 @@ public static class RunUpgradeValidation
             var snapshots = attackPaths.ToDictionary(path => path, File.ReadAllText);
             LeaveHub(); ClearCombatRoom(); Check(rewards.Choices.Count == 3 && rewards.Choices.Distinct().Count() == 3 && !flow.ExitUnlocked && !flow.TryAdvance(), "TEST2: three unique cards block progression until selection");
             long tick = clock.FrameNumber; float elapsed = flow.StageElapsed; var position = player.transform.position;
-            player.RequestAttack(); player.RequestLauncher(); player.RequestJump(); player.RequestDodge(); player.RequestGuard(true); player.motor.MoveInput = Vector2.right; Step(20);
-            Check(clock.FrameNumber == tick && flow.StageElapsed == elapsed && player.transform.position == position && !player.CurrentAttack, "Reward pause stops clock, player, enemies, stage timer and combat input");
-            Pick("HeavyHands"); Check(flow.StageIndex == Stage("Stage02_BloodSheetCorridor") && !rewards.IsChoosing && !CombatClock.IsPaused && Time.timeScale == 1, "Selection advances immediately to Stage2 and resumes gameplay");
+            player.ResetCombo(); player.motor.MoveInput = Vector2.right; Step(20); player.motor.MoveInput = Vector2.zero;
+            Check(clock.FrameNumber > tick && flow.StageElapsed == elapsed && player.transform.position.x > position.x && !CombatClock.IsPaused, "World reward preserves player movement and frame clock while stopping stage encounter scheduling");
+            Pick("HeavyHands"); Check(flow.StageIndex == Stage("Stage02_BloodSheetCorridor") && !rewards.IsChoosing && !CombatClock.IsPaused && Time.timeScale == 1, "Physical selection unlocks exit and walking there advances to Stage2");
             Neutral(); Give("HeavyHands"); var enemyHealth = target.GetComponent<CharacterHealth>(); float hp = enemyHealth.Current;
             player.RequestAttack(); Step(player.groundCombo[0].FirstActiveFrame + 1);
             Near(hp - enemyHealth.Current, BaseHit(player.groundCombo[0]).damage * 1.2f, "TEST3: actual Stage2 punch hit receives runtime +20% ground damage");

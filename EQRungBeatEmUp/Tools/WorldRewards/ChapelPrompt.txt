@@ -1,0 +1,5 @@
+Built-in image_gen; transparent_background=true.
+Reference: user-supplied Thai chapel / spirit-house image.
+Output: Assets/ArtAssets/Props/RewardChapel/RewardChapel.png
+
+Use case: stylized-concept. Asset type: single 2D game reward chapel sprite for a Thai haunted-house beat-em-up. Reference image is a visual reference only: borrow its white stone pedestal, gold ornament, red layered Thai roof, small blessing chapel opening and front steps. Create one clean complete freestanding spirit-house chapel, front view with a little top surface visible matching belt-scrolling stage props, pixel-art-like crisp illustration with dark outlines, warm golden glow inside doorway, white marble, ornate gold trim, red roof. Transparent background with actual alpha. Chapel fills most of a square canvas, centered, feet/base clearly visible. No lettering, no watermark, no logo, no background, no other props, no characters. Ceremonial inviting non-hostile shrine, readable at small scale.

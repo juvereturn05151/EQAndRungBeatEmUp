@@ -202,7 +202,14 @@ MonoBehaviour:
   bottomLane: -0.4
   topLane: 0.65
   player: {fileID: 2086899384}
-  horizontalDeadZone: 7.2
+  followEnabled: 1
+  followSmoothTime: 0.12
+  leftSafeMargin: 0.25
+  rightSafeMargin: 0.25
+  horizontalDeadZone: 1
+  clampToStageBounds: 1
+  stageLeft: -3.8
+  stageRight: 3.8
   airborneTopMargin: 0.12
   nearbyActorDistance: 3
   zoomReturnSpeed: 0.8
@@ -346,7 +353,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -1000
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1160340735777781435, guid: 854da9651aa5440419daebcdf074938c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -368,7 +375,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.56, z: 0}
-  m_LocalScale: {x: 0.430622, y: 0.42553192, z: 1}
+  m_LocalScale: {x: 0.45454544, y: 0.42553192, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -385,6 +392,7 @@ GameObject:
   - component: {fileID: 1345293989}
   - component: {fileID: 1345293988}
   - component: {fileID: 1345293991}
+  - component: {fileID: 1345293992}
   m_Layer: 0
   m_Name: Haunted House Stage Flow
   m_TagString: Untagged
@@ -541,6 +549,20 @@ MonoBehaviour:
   pool: {fileID: 11400000, guid: eaaeee4dfd470694c9b4d8a099bcb164, type: 2}
   seed: 0
   showBuildButton: 1
+--- !u!114 &1345293992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345293987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0137dd9bf530ac94cb0cf66c190fda3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.RewardSelectionController
+  chapelPrefab: {fileID: 6822114117223727886, guid: 412cab221bb66d24187483c9105813c3, type: 3}
+  choicePrefab: {fileID: 8969539965158904181, guid: 84b4671d2fc70b34db1c4949e8d084d2, type: 3}
 --- !u!1 &1758400826
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +627,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -90
+  m_SortingOrder: -900
   m_MaskInteraction: 0
   m_Sprite: {fileID: 181364130211492052, guid: 854da9651aa5440419daebcdf074938c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -627,7 +649,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.56, z: 0}
-  m_LocalScale: {x: 0.430622, y: 0.42477876, z: 1}
+  m_LocalScale: {x: 0.45454544, y: 0.42477876, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

@@ -15,53 +15,27 @@ MonoBehaviour:
   levelId: ThaiHauntedHouse
   levelName: Thai Haunted House
   stages:
-  - stageId: Stage00_PlayerHub
-    stageName: Player Hub
-    stageType: 1
-    backgroundSprite: {fileID: -1160340735777781435, guid: 854da9651aa5440419daebcdf074938c, type: 3}
-    floorSprite: {fileID: 181364130211492052, guid: 854da9651aa5440419daebcdf074938c, type: 3}
-    artWidth: 7.2
-    backgroundHeight: 1.6
-    backgroundCenterY: 2.56
-    floorHeight: 2.4
-    floorCenterY: 0.56
-    movementMin: {x: -3.05, y: -0.4}
-    movementMax: {x: 3.05, y: 0.65}
-    playerEntryPoint: {x: -2.5, y: 0}
-    playerExitPoint: {x: 2.7, y: 0}
-    exitRadius: 0.35
-    completionMode: 0
-    rewardAfterClear: 0
-    rewardHealFraction: 0.5
-    nextStageIndex: -1
-    encounters: []
-    destructibles: []
-    decorativeProps: []
-    safeRoom: 0
-    recoveryPoint: {x: 0, y: 0.1}
-    recoveryRadius: 1
-    ambience: {fileID: 0}
-    notes: Warm outdoor camper hub. No encounters, damage, hazards or combat props.
-      Walk right to enter Entrance Gate. DecorativeProps can host future camp/NPC
-      interactions; safeRoom can enable the existing recovery interaction later.
-      No run-build selection here.
   - stageId: Stage01_EntranceGate
     stageName: Entrance Gate
     stageType: 0
     backgroundSprite: {fileID: 21300000, guid: bea7167b9e70234a60b3c3388d3f5813, type: 3}
     floorSprite: {fileID: 21300000, guid: 4b27a12ff4262b81dc54735db15187e9, type: 3}
-    artWidth: 7.2
-    backgroundHeight: 1.6
-    backgroundCenterY: 2.56
+    artWidth: 12.8
+    backgroundHeight: 3.2
+    backgroundCenterY: 3.3
     floorHeight: 2.4
     floorCenterY: 0.56
-    movementMin: {x: -3.05, y: -0.4}
-    movementMax: {x: 5.73, y: 4.75}
-    playerEntryPoint: {x: -2.5, y: 0}
+    movementMin: {x: -6.11, y: -0.4}
+    movementMax: {x: 5.73, y: 1.69}
+    playerEntryPoint: {x: -6, y: 0}
     playerExitPoint: {x: 2.7, y: 0}
     exitRadius: 0.35
     completionMode: 1
     rewardAfterClear: 1
+    chapelSpawnPoint: {x: 0.9, y: 0.1}
+    rewardChoiceCenter: {x: 0, y: -0.1}
+    rewardChoiceSpacing: 1.8
+    rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
     encounters:
@@ -129,12 +103,46 @@ MonoBehaviour:
     recoveryRadius: 1
     ambience: {fileID: 0}
     notes: 
+  - stageId: Stage00_PlayerHub
+    stageName: Player Hub
+    stageType: 1
+    backgroundSprite: {fileID: -1160340735777781435, guid: 854da9651aa5440419daebcdf074938c, type: 3}
+    floorSprite: {fileID: 181364130211492052, guid: 854da9651aa5440419daebcdf074938c, type: 3}
+    artWidth: 7.6
+    backgroundHeight: 1.6
+    backgroundCenterY: 2.56
+    floorHeight: 2.4
+    floorCenterY: 0.56
+    movementMin: {x: -3.05, y: -0.4}
+    movementMax: {x: 3.05, y: 0.65}
+    playerEntryPoint: {x: -2.5, y: 0}
+    playerExitPoint: {x: 2.7, y: 0}
+    exitRadius: 0.35
+    completionMode: 0
+    rewardAfterClear: 0
+    chapelSpawnPoint: {x: 0.9, y: 0.1}
+    rewardChoiceCenter: {x: 0, y: -0.1}
+    rewardChoiceSpacing: 1.8
+    rewardInteractRadius: 0.65
+    rewardHealFraction: 0.5
+    nextStageIndex: -1
+    encounters: []
+    destructibles: []
+    decorativeProps: []
+    safeRoom: 0
+    recoveryPoint: {x: 0, y: 0.1}
+    recoveryRadius: 1
+    ambience: {fileID: 0}
+    notes: Warm outdoor camper hub. No encounters, damage, hazards or combat props.
+      Walk right to enter Entrance Gate. DecorativeProps can host future camp/NPC
+      interactions; safeRoom can enable the existing recovery interaction later.
+      No run-build selection here.
   - stageId: Stage02_BloodSheetCorridor
     stageName: Blood Sheet Corridor
     stageType: 0
     backgroundSprite: {fileID: 21300000, guid: 7897464285278ff83fe596c835646a4d, type: 3}
     floorSprite: {fileID: 21300000, guid: 49cc7fa7bcee8ef2c8774e312b50468f, type: 3}
-    artWidth: 7.2
+    artWidth: 7.6
     backgroundHeight: 1.6
     backgroundCenterY: 2.56
     floorHeight: 2.4
@@ -146,6 +154,10 @@ MonoBehaviour:
     exitRadius: 0.35
     completionMode: 1
     rewardAfterClear: 1
+    chapelSpawnPoint: {x: 0.9, y: 0.1}
+    rewardChoiceCenter: {x: 0, y: -0.1}
+    rewardChoiceSpacing: 1.8
+    rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
     encounters:
@@ -218,7 +230,7 @@ MonoBehaviour:
     stageType: 0
     backgroundSprite: {fileID: 21300000, guid: 946f755c5caf89a15419dc05f6b3c717, type: 3}
     floorSprite: {fileID: 21300000, guid: 59141aad2eeb43f280de14a3b26f31fd, type: 3}
-    artWidth: 7.2
+    artWidth: 7.6
     backgroundHeight: 1.6
     backgroundCenterY: 2.56
     floorHeight: 2.4
@@ -230,6 +242,10 @@ MonoBehaviour:
     exitRadius: 0.35
     completionMode: 1
     rewardAfterClear: 1
+    chapelSpawnPoint: {x: 0.9, y: 0.1}
+    rewardChoiceCenter: {x: 0, y: -0.1}
+    rewardChoiceSpacing: 1.8
+    rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
     encounters:
@@ -305,7 +321,7 @@ MonoBehaviour:
     stageType: 0
     backgroundSprite: {fileID: 21300000, guid: fd97a644901e440852add083211a975b, type: 3}
     floorSprite: {fileID: 21300000, guid: a8b04b660eaff870d6f8e52f03605e24, type: 3}
-    artWidth: 7.2
+    artWidth: 7.6
     backgroundHeight: 1.6
     backgroundCenterY: 2.56
     floorHeight: 2.4
@@ -317,6 +333,10 @@ MonoBehaviour:
     exitRadius: 0.35
     completionMode: 1
     rewardAfterClear: 1
+    chapelSpawnPoint: {x: 0.9, y: 0.1}
+    rewardChoiceCenter: {x: 0, y: -0.1}
+    rewardChoiceSpacing: 1.8
+    rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
     encounters:
@@ -385,7 +405,7 @@ MonoBehaviour:
     stageType: 0
     backgroundSprite: {fileID: 21300000, guid: 7d531ba6cd1ba679744e006fbfbea6ab, type: 3}
     floorSprite: {fileID: 21300000, guid: dedc18889b4b6293d336bdc392a2b502, type: 3}
-    artWidth: 7.2
+    artWidth: 7.6
     backgroundHeight: 1.6
     backgroundCenterY: 2.56
     floorHeight: 2.4
@@ -397,6 +417,10 @@ MonoBehaviour:
     exitRadius: 0.35
     completionMode: 1
     rewardAfterClear: 1
+    chapelSpawnPoint: {x: 0.9, y: 0.1}
+    rewardChoiceCenter: {x: 0, y: -0.1}
+    rewardChoiceSpacing: 1.8
+    rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
     encounters:
@@ -490,7 +514,7 @@ MonoBehaviour:
     stageType: 1
     backgroundSprite: {fileID: 21300000, guid: dd2a641960e081f088ae853428f3ef91, type: 3}
     floorSprite: {fileID: 21300000, guid: a1c3dd839fcd540c040fec46c668a2d9, type: 3}
-    artWidth: 7.2
+    artWidth: 7.6
     backgroundHeight: 1.6
     backgroundCenterY: 2.56
     floorHeight: 2.4
@@ -502,6 +526,10 @@ MonoBehaviour:
     exitRadius: 0.35
     completionMode: 0
     rewardAfterClear: 2
+    chapelSpawnPoint: {x: 0.9, y: 0.1}
+    rewardChoiceCenter: {x: 0, y: -0.1}
+    rewardChoiceSpacing: 1.8
+    rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
     encounters: []
@@ -518,7 +546,7 @@ MonoBehaviour:
     stageType: 2
     backgroundSprite: {fileID: 21300000, guid: 35feb2cd5570cd6aacb094e7bef38829, type: 3}
     floorSprite: {fileID: 21300000, guid: bccf2a9dd101ad790b4dab5289997332, type: 3}
-    artWidth: 7.2
+    artWidth: 7.6
     backgroundHeight: 1.6
     backgroundCenterY: 2.56
     floorHeight: 2.4
@@ -530,6 +558,10 @@ MonoBehaviour:
     exitRadius: 0.35
     completionMode: 2
     rewardAfterClear: 0
+    chapelSpawnPoint: {x: 0.9, y: 0.1}
+    rewardChoiceCenter: {x: 0, y: -0.1}
+    rewardChoiceSpacing: 1.8
+    rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
     encounters:
@@ -614,9 +646,9 @@ MonoBehaviour:
     stageType: 3
     backgroundSprite: {fileID: 21300000, guid: 49c79ecb9874bd6449f117036705125e, type: 3}
     floorSprite: {fileID: 21300000, guid: 59eb646ae3c78c44ca9e26e5a170ce2c, type: 3}
-    artWidth: 7.2
-    backgroundHeight: 1.6
-    backgroundCenterY: 2.56
+    artWidth: 7.6
+    backgroundHeight: 2.75
+    backgroundCenterY: 5
     floorHeight: 2.4
     floorCenterY: 0.56
     movementMin: {x: -3.05, y: -0.4}
@@ -626,6 +658,10 @@ MonoBehaviour:
     exitRadius: 0.35
     completionMode: 0
     rewardAfterClear: 0
+    chapelSpawnPoint: {x: 0.9, y: 0.1}
+    rewardChoiceCenter: {x: 0, y: -0.1}
+    rewardChoiceSpacing: 1.8
+    rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
     encounters: []

@@ -1,0 +1,35 @@
+PASS: Actual scene enables smooth safe-frame follow
+PASS: TEST3: centered player does not cause camera drift
+PASS: TEST6: hub right boundary keeps player sprite visible (sprite X 2.41..3.69, camera X 0.244, half width 3.556)
+PASS: Hub right boundary keeps viewport inside art
+PASS: Hub left boundary keeps player sprite visible (sprite X -3.69..-2.41, camera X -0.244, half width 3.556)
+PASS: Hub left boundary keeps viewport inside art
+PASS: Hub protection remains enabled
+PASS: Small motion inside safe frame stays stationary
+PASS: TEST1: right follow starts smoothly before leaving screen
+PASS: Fast right movement stays visible during damping (sprite X 3.36..4.64, camera X 1.084, half width 3.556)
+PASS: Right follow settles with player visible (sprite X 3.36..4.64, camera X 2.862, half width 3.556)
+PASS: Follow settles without drift
+PASS: TEST2: left follow responds immediately
+PASS: Left teleport cannot escape viewport (sprite X -4.64..-3.36, camera X -1.084, half width 3.556)
+PASS: Left follow settles with player visible (sprite X -4.64..-3.36, camera X -2.862, half width 3.556)
+PASS: Actual motor movement stays visible throughout run to boundary
+PASS: TEST4: camera stops at stage right art limit
+PASS: Right art edge still includes complete player sprite (sprite X 7.66..8.94, camera X 5.444, half width 3.556)
+PASS: Camera stops at stage left art limit
+PASS: Left art edge still includes complete player sprite (sprite X -8.94..-7.66, camera X -5.444, half width 3.556)
+PASS: Follow toggle disables player tracking
+PASS: Entrance Gate's existing extended X bounds remain visible (sprite X 5.09..6.37, camera X 2.844, half width 3.556)
+PASS: Entrance Gate follows without exposing empty sides
+PASS: TEST5: following in combat does not unlock encounter exit
+PASS: Stage transition installs new art bounds
+PASS: Boss stage supports bounded follow (sprite X 2.41..3.69, camera X 0.244, half width 3.556)
+PASS: Boss exit lock remains intact
+PASS: Small lane motion preserves vertical composition
+PASS: (1024, 768) respects art bounds
+PASS: (1024, 768) keeps player visible (sprite X 2.41..3.69, camera X 1.133, half width 2.667)
+PASS: (2560, 1080) respects art bounds
+PASS: (2560, 1080) keeps player visible (sprite X 2.41..3.69, camera X 0, half width 3.8)
+PASS: Ultrawide pillarboxing avoids blank art edges while preserving vertical size
+PASS: Existing airborne zoom remains active
+PASS: Airborne zoom keeps horizontal viewport inside stage

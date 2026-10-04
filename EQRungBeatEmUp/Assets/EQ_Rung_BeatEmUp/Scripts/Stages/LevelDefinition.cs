@@ -28,7 +28,7 @@ namespace BeatEmUp
         public bool IsSafeStage => stageType == StageType.Safe || safeRoom;
         [Header("Stage Art Layout")]
         public Sprite backgroundSprite, floorSprite;
-        [Min(1)] public float artWidth = 7.2f;
+        [Min(1)] public float artWidth = 7.6f;
         [Min(.01f), Tooltip("Rendered background height in world units. Does not change movement bounds.")]
         public float backgroundHeight = 1.6f;
         [Tooltip("World Y of the background's centered sprite pivot.")]
@@ -45,6 +45,11 @@ namespace BeatEmUp
         [Min(.1f)] public float exitRadius = .35f;
         public StageCompletion completionMode = StageCompletion.ClearEncounters;
         public StageReward rewardAfterClear;
+        [Header("World Upgrade Reward")]
+        public Vector2 chapelSpawnPoint = new Vector2(.9f, .1f);
+        public Vector2 rewardChoiceCenter = new Vector2(0, -.1f);
+        [Min(1.5f)] public float rewardChoiceSpacing = 1.8f;
+        [Min(.2f)] public float rewardInteractRadius = .65f;
         [Range(0, 1), Tooltip("Fraction of effective maximum HP restored by a Heal reward.")]
         public float rewardHealFraction = .5f;
         [Tooltip("-1 uses the next ordered stage. A value equal to stage count ends the level.")]

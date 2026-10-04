@@ -16,9 +16,9 @@ MonoBehaviour:
   domain: 1
   isLauncher: 0
   cooldownFrames: 0
-  artworkNotes: Slower readability timing at 60 FPS; existing air poses held about 50 percent longer. Damage, hitstop, gravity, bounce and total authored movement preserved.
+  artworkNotes: Redrawn six-pose two-handed overhead air smash. 30-frame readability timing, active frames 8-13, hitbox and bounce settings preserved.
   frames:
-  - sprite: {fileID: 21300000, guid: 6245c2fcbd32c0b48b3289cf2da938ab, type: 3}
+  - sprite: {fileID: 21300000, guid: 63593fec13abc87af7a79a7671f24968, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -35,7 +35,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: 6245c2fcbd32c0b48b3289cf2da938ab, type: 3}
+  - sprite: {fileID: 21300000, guid: 63593fec13abc87af7a79a7671f24968, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -52,7 +52,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: 6245c2fcbd32c0b48b3289cf2da938ab, type: 3}
+  - sprite: {fileID: 21300000, guid: 63593fec13abc87af7a79a7671f24968, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -69,7 +69,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: 6245c2fcbd32c0b48b3289cf2da938ab, type: 3}
+  - sprite: {fileID: 21300000, guid: 7c89dc9b7529f70afc2ad97aa517492d, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -86,7 +86,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: 6245c2fcbd32c0b48b3289cf2da938ab, type: 3}
+  - sprite: {fileID: 21300000, guid: 7c89dc9b7529f70afc2ad97aa517492d, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -103,7 +103,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: c9f935c0b52b26b4085a4e92c7d15dd2, type: 3}
+  - sprite: {fileID: 21300000, guid: a3bd343ac3e48881b5dfe61208f51901, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -120,7 +120,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: c9f935c0b52b26b4085a4e92c7d15dd2, type: 3}
+  - sprite: {fileID: 21300000, guid: a3bd343ac3e48881b5dfe61208f51901, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -137,7 +137,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: c9f935c0b52b26b4085a4e92c7d15dd2, type: 3}
+  - sprite: {fileID: 21300000, guid: a3bd343ac3e48881b5dfe61208f51901, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -154,7 +154,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: 5ef9aaf896f770346b1d549a456ed3bf, type: 3}
+  - sprite: {fileID: 21300000, guid: ae86649020337c202e7420ee0d8822e3, type: 3}
     hitboxes:
     - hitId: 0
       repeatAfterFrames: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: 5ef9aaf896f770346b1d549a456ed3bf, type: 3}
+  - sprite: {fileID: 21300000, guid: ae86649020337c202e7420ee0d8822e3, type: 3}
     hitboxes:
     - hitId: 0
       repeatAfterFrames: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: 5ef9aaf896f770346b1d549a456ed3bf, type: 3}
+  - sprite: {fileID: 21300000, guid: ae86649020337c202e7420ee0d8822e3, type: 3}
     hitboxes:
     - hitId: 0
       repeatAfterFrames: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: f7d88712c46c40544b58157a05f77af3, type: 3}
+  - sprite: {fileID: 21300000, guid: 1e184db571fc9189d1a845e7edd128c6, type: 3}
     hitboxes:
     - hitId: 0
       repeatAfterFrames: 0
@@ -330,7 +330,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: f7d88712c46c40544b58157a05f77af3, type: 3}
+  - sprite: {fileID: 21300000, guid: 1e184db571fc9189d1a845e7edd128c6, type: 3}
     hitboxes:
     - hitId: 0
       repeatAfterFrames: 0
@@ -374,7 +374,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: f7d88712c46c40544b58157a05f77af3, type: 3}
+  - sprite: {fileID: 21300000, guid: 1e184db571fc9189d1a845e7edd128c6, type: 3}
     hitboxes:
     - hitId: 0
       repeatAfterFrames: 0
@@ -418,7 +418,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: f47d14050d672454d90ee4eef0b220d9, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -435,7 +435,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: f47d14050d672454d90ee4eef0b220d9, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -452,7 +452,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: f47d14050d672454d90ee4eef0b220d9, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -469,7 +469,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: f47d14050d672454d90ee4eef0b220d9, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -486,7 +486,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: f47d14050d672454d90ee4eef0b220d9, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -503,7 +503,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: f47d14050d672454d90ee4eef0b220d9, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -520,7 +520,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: f47d14050d672454d90ee4eef0b220d9, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -537,7 +537,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: eac142d2f1cf22d43b55c5e51342e003, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -554,7 +554,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: eac142d2f1cf22d43b55c5e51342e003, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -571,7 +571,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: eac142d2f1cf22d43b55c5e51342e003, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -588,7 +588,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: eac142d2f1cf22d43b55c5e51342e003, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -605,7 +605,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: eac142d2f1cf22d43b55c5e51342e003, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -622,7 +622,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: eac142d2f1cf22d43b55c5e51342e003, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -639,7 +639,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: eac142d2f1cf22d43b55c5e51342e003, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -656,7 +656,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: eac142d2f1cf22d43b55c5e51342e003, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
@@ -673,7 +673,7 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
-  - sprite: {fileID: 21300000, guid: eac142d2f1cf22d43b55c5e51342e003, type: 3}
+  - sprite: {fileID: 21300000, guid: cd8fe8a1cd9cf72cfed47db9a7bdd6db, type: 3}
     hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3

@@ -32,6 +32,8 @@ Existing AirAttack1 drawings are held across logical frames:
 | AirPunch2 | 0–2 → 05; 3–4 → 06; 5–8 → 08; 9–20 → 09 |
 | AirPunch3 | 0–4 → 10; 5–7 → 11; 8–10 → 12; 11–13 → 13; 14–20 → 14; 21–29 → 09 |
 
+AirPunch3 now uses a dedicated six-pose redraw instead of the legacy AirAttack1 drawings listed in that row: AirReady 0–2, HandsTogether 3–4, OverheadWindup 5–7, SmashStart 8–10, Impact 11–13, Recovery 14–29. See `AirCombo3Redraw.md` and the new AirCombo3 asset folder. Its 30-frame duration and hitbox timing are unchanged.
+
 | Attack | Hitbox offset (X, Y) | Hitbox size (X, Y) |
 | --- | --- | --- |
 | AirPunch1 | (0.42, 0.82) | (0.65, 0.42) |

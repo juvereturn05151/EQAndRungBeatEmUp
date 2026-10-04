@@ -1,0 +1,51 @@
+{
+  "mode": "built-in image_gen edit",
+  "source": "C:/Users/drago/.codex/generated_images/01a10480-a875-7d42-ab99-73b31b30c835/exec-65d530a9-b255-475a-8e28-06a589cc8cb6.png",
+  "canvas": [
+    128,
+    128
+  ],
+  "pixelsPerUnit": 100,
+  "pivot": [
+    0.5,
+    0.0625
+  ],
+  "poses": [
+    {
+      "name": "AirReady",
+      "start": 0,
+      "length": 3,
+      "guid": "63593fec13abc87af7a79a7671f24968"
+    },
+    {
+      "name": "HandsTogether",
+      "start": 3,
+      "length": 2,
+      "guid": "7c89dc9b7529f70afc2ad97aa517492d"
+    },
+    {
+      "name": "OverheadWindup",
+      "start": 5,
+      "length": 3,
+      "guid": "a3bd343ac3e48881b5dfe61208f51901"
+    },
+    {
+      "name": "SmashStart",
+      "start": 8,
+      "length": 3,
+      "guid": "ae86649020337c202e7420ee0d8822e3"
+    },
+    {
+      "name": "Impact",
+      "start": 11,
+      "length": 3,
+      "guid": "1e184db571fc9189d1a845e7edd128c6"
+    },
+    {
+      "name": "Recovery",
+      "start": 14,
+      "length": 16,
+      "guid": "cd8fe8a1cd9cf72cfed47db9a7bdd6db"
+    }
+  ]
+}

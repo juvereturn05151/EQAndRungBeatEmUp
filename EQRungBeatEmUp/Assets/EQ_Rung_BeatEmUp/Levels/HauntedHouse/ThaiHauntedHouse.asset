@@ -40,12 +40,12 @@ MonoBehaviour:
     nextStageIndex: -1
     encounters:
     - encounterId: Stage01_EntranceGate_Encounter
-      trigger: 0
+      trigger: 3
       triggerDelay: 0
       requiredPreviousEncounter: -1
       triggerZone:
         serializedVersion: 2
-        x: -1
+        x: -3.5
         y: -0.4
         width: 2
         height: 1.05
@@ -57,10 +57,11 @@ MonoBehaviour:
         spawnDelay: 0
         enemySpawns:
         - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
-          count: 2
+          count: 3
           spawnPoints:
           - {x: 1.6, y: -0.1}
           - {x: 2.5, y: 0.4}
+          - {x: 3, y: -0.4}
           interval: 0.25
           isBoss: 0
       - waveId: Wave2
@@ -70,8 +71,17 @@ MonoBehaviour:
         - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
           count: 1
           spawnPoints:
-          - {x: 1.6, y: -0.1}
-          - {x: 2.5, y: 0.4}
+          - {x: -5, y: 0}
+          interval: 0.25
+          isBoss: 0
+      - waveId: Wave3
+        trigger: 2
+        spawnDelay: 0
+        enemySpawns:
+        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 5, y: 0}
           interval: 0.25
           isBoss: 0
     destructibles: []

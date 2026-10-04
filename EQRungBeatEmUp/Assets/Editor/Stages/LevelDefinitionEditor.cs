@@ -43,6 +43,7 @@ public sealed class LevelDefinitionEditor : Editor
         serializedObject.ApplyModifiedProperties();
         EditorGUILayout.HelpBox("Select a stage above. Expand encounters → waves → enemy spawns to set prefab, count, positions and interval. Destructibles support a prefab or sprites plus HP and hitbox. -1 nextStageIndex follows list order. PreviousEncounterClear references an earlier index. IDs are used by manual/event signals.", MessageType.Info);
         var level = (LevelDefinition)target;
+        EncounterPreview.DrawInspector(level, stages.index);
         for (int i = 0; i < level.stages.Count; i++)
         {
             var stage = level.stages[i];

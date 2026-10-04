@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf00405fba87e54eb9f954012ea682b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.CharacterHealth
-  maximumHealth: 25
+  maximumHealth: 100
 --- !u!114 &4104344147869938568
 MonoBehaviour:
   m_ObjectHideFlags: 0

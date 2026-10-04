@@ -23,49 +23,87 @@ namespace BeatEmUp
 
         public bool RequestDodge()
         {
-            if (!CanStartDefense || IsDefenseState) return false;
+            if (!CanStartDefense || IsDefenseState) 
+            { 
+                return false; 
+            }
+
             dodgeDirection = motor.MoveInput.sqrMagnitude > .01f ? motor.MoveInput.normalized : new Vector2(-motor.Facing, 0);
-            guardHeld = false; BeginDefense(CombatState.Dodge); motor.StopGroundedMotion(); Build?.DodgeStarted();
-            ShowDefense(); return true;
+            guardHeld = false; 
+            BeginDefense(CombatState.Dodge); 
+            motor.StopGroundedMotion(); 
+            Build?.DodgeStarted();
+            ShowDefense(); 
+
+            return true;
         }
         public void RequestGuard(bool held)
         {
             if (!held)
             {
                 guardHeld = false; parryArmed = false;
-                if ((State == CombatState.GuardEnter || State == CombatState.GuardHold) && blockstun <= 0) EndDefense();
+
+                if ((State == CombatState.GuardEnter || State == CombatState.GuardHold) && blockstun <= 0) 
+                { 
+                    EndDefense(); 
+                }
+
                 return;
             }
-            if (guardHeld || !CanStartDefense || (IsDefenseState && State != CombatState.GuardEnter && State != CombatState.GuardHold)) return;
+
+            if (guardHeld || !CanStartDefense || (IsDefenseState && State != CombatState.GuardEnter && State != CombatState.GuardHold)) 
+            { 
+                return; 
+            }
+            
             guardHeld = true;
-            if (blockstun > 0) return;
+
+            if (blockstun > 0) 
+            { 
+                return; 
+            }
+
             BeginGuard(true);
         }
         private void BeginGuard(bool freshPress)
         {
             BeginDefense(freshPress ? CombatState.GuardEnter : CombatState.GuardHold);
             parryArmed = freshPress;
-            if (!freshPress) DefenseFrame = EffectiveParryWindow;
+
+            if (!freshPress) 
+            { 
+                DefenseFrame = EffectiveParryWindow; 
+            }
+
             motor.StopGroundedMotion(); ShowDefense();
         }
         private void BeginDefense(CombatState state)
         {
-            ResetCombo(); ClearDefenseControl(); stun = cooldown = blockstun = 0;
-            State = state; DefenseFrame = 0;
+            ResetCombo(); 
+            ClearDefenseControl(); 
+            stun = cooldown = blockstun = 0;
+            State = state; 
+            DefenseFrame = 0;
             defenseStartedTick = CombatClock.IsStepping ? CombatClock.CurrentTick : -1;
             motor.MovementLocked = true;
         }
+
         private void ClearDefenseControl()
         {
             if (motor) motor.DefenseVelocity = Vector2.zero;
             if (animationDriver) animationDriver.ReleaseReactionControl();
         }
+
         private void EndDefense()
         {
-            ClearDefenseControl(); State = motor.IsGrounded ? CombatState.Idle : CombatState.Jumping;
-            motor.MovementLocked = false; DefenseFrame = blockstun = 0; parryArmed = false;
+            ClearDefenseControl(); 
+            State = motor.IsGrounded ? CombatState.Idle : CombatState.Jumping;
+            motor.MovementLocked = false; 
+            DefenseFrame = blockstun = 0; 
+            parryArmed = false;
             animationDriver.Play(motor.IsGrounded ? "Idle" : "Jumping", true);
         }
+
         public void PrepareDefenseFrame()
         {
             if (!IsDefenseState || !defenseData || attackPlayer.IsFrozen || defenseStartedTick == CombatClock.CurrentTick) return;
@@ -185,7 +223,12 @@ namespace BeatEmUp
                 default: poses = defenseData.knockdown; break;
             }
             int frame = State == CombatState.Downed ? int.MaxValue : DefenseFrame;
-            if ((State == CombatState.KnockDown || State == CombatState.Die) && !motor.IsGrounded) frame = 5;
+            
+            if ((State == CombatState.KnockDown || State == CombatState.Die) && !motor.IsGrounded) 
+            { 
+                frame = 5;
+            }
+
             var pose = blockstun > 0 && State == CombatState.GuardHold ? defenseData.blockPose : PlayerDefenseData.Pose(poses, frame);
             animationDriver.HoldSprite(motor.sprite, pose);
         }

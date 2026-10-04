@@ -1,0 +1,10 @@
+Mode: built-in image_gen, edit existing floor with background lighting reference.
+
+Use case: precise-object-edit.
+Asset type: Unity 2D beat-em-up stage floor plate.
+Input images: Image 1 is the floor EDIT TARGET; Image 2 is the existing Entrance Gate BACKGROUND, a supporting lighting and palette reference only. Output ONLY the revised floor.
+Primary request: Redraw the floor into a cleaner, more distant-looking broad wet fairground pavement surface for a haunted Thai fair at night. Remove most tiny gritty flecks, fine cracks, overly sharp texture artifacts, and strong oversized pavement seam grid. It must feel like a much larger ground plane, not a close-up photograph.
+Composition: preserve the exact full-width rectangular 3:1 floor plate framing, ideally 720 by 240 pixels, matching the first input. Surface extends through all edges; no horizon, buildings, gate, characters, props, lettering, margins or borders. Maintain the original upper-edge dark warm palette so it connects to the background. A shallow perspective ground plane seen from the side in a beat-em-up.
+Style: restrained illustrated game environment compatible with the background's pixel-art appearance. Clean value grouping with large quiet charcoal brown-gray pavement areas. Subtle sparse material variation, no dense dithering or photographic grain. Broad softly broken puddle reflection shapes with small-scale restrained accents, dark gaps between reflections, no big foreground slabs or dominant objects.
+Lighting: retain warm gold/orange reflections on the left and right, red reflections beneath the central haunted entrance, extremely subtle green/blue accents. Reflections should be cleaner and lower contrast than the original, not bright distracting streaks. Wet reflective pavement still clearly readable.
+Constraints: revise ONLY floor artwork. Keep haunted nighttime Thai fair atmosphere and original general palette. Keep a quiet central fighting area for clear character readability when enlarged horizontally. Opaque image. No text, watermark or signature.

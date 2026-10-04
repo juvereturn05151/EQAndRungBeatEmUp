@@ -44,7 +44,8 @@ namespace BeatEmUp
 
         private void OnEnable()
         {
-            if (motor) { 
+            if (motor) 
+            { 
                 motor.Landed += OnLanding; 
             }
 
@@ -73,9 +74,17 @@ namespace BeatEmUp
                 motor.Landed -= OnLanding; 
                 motor.MovementLocked = false; 
             }
+
+            if (attackPlayer) 
+            { 
+                attackPlayer.Finished -= Finish; 
+            }
             
-            if (attackPlayer) attackPlayer.Finished -= Finish;
-            if (health) { health.Died -= EnterDie; health.Restored -= RestorePlayer; }
+            if (health) 
+            { 
+                health.Died -= EnterDie; 
+                health.Restored -= RestorePlayer; 
+            }
             ClearDefenseControl();
             ResetCombo();
         }
@@ -127,11 +136,20 @@ namespace BeatEmUp
         }
         public void ResetCombo()
         {
-            if (attackPlayer) attackPlayer.Stop();
+            if (attackPlayer) 
+            { 
+                attackPlayer.Stop(); 
+            }
+            
             ComboIndex = 0; nextIndex = 0; idleFrames = 0;
             buffered = CombatInput.None; bufferFrames = 0; jumpBuffer = 0;
             bufferedAirDive = false;
-            if (motor) { motor.AirAttackControl = false; motor.MovementLocked = stun > 0; }
+            
+            if (motor) 
+            { 
+                motor.AirAttackControl = false; 
+                motor.MovementLocked = stun > 0; 
+            }
         }
         private void OnLanding()
         {
@@ -163,7 +181,8 @@ namespace BeatEmUp
                 return; 
             }
 
-            ResetCombo(); State = stun > 0 ? CombatState.Hitstun : CombatState.Idle;
+            ResetCombo(); 
+            State = stun > 0 ? CombatState.Hitstun : CombatState.Idle;
         }
         public void CombatFrame()
         {

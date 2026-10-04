@@ -78,7 +78,7 @@ public static class AirPunchPlaytestValidation
     }
     private static void Data()
     {
-        int[] total = { 13, 14, 20 }, first = { 3, 3, 5 }, last = { 5, 5, 8 }, stop = { 3, 4, 6 }, stun = { 17, 19, 24 };
+        int[] total = { 20, 21, 30 }, first = { 5, 5, 8 }, last = { 8, 8, 13 }, stop = { 3, 4, 6 }, stun = { 17, 19, 24 };
         float[] damage = { 7, 8, 13 };
         for (int p = 0; p < 3; p++)
         {
@@ -88,7 +88,7 @@ public static class AirPunchPlaytestValidation
             {
                 var frame = data.frames[i]; bool active = i >= first[p] && i <= last[p];
                 Check(frame.sprite && frame.hitboxes.Count == (active ? 1 : 0), data.name + " frame " + i + " sprite and active-only hitbox");
-                Check(frame.canCancelIntoAttack == (p < 2 && i >= 5 && i <= (p == 0 ? 10 : 11)) && !frame.canCancelIntoLauncher && !frame.canCancelIntoJump, data.name + " frame " + i + " cancel permissions");
+                Check(frame.canCancelIntoAttack == (p < 2 && i >= 8 && i <= (p == 0 ? 16 : 17)) && !frame.canCancelIntoLauncher && !frame.canCancelIntoJump, data.name + " frame " + i + " cancel permissions");
                 Check(frame.gravityScale == (p < 2 ? .85f : 1) && frame.movementInputScale == .3f && !frame.suspendFalling && !frame.setHorizontalVelocity && !frame.setVerticalVelocity, data.name + " frame " + i + " preserves momentum and permits gravity");
                 if (active)
                 {
@@ -97,7 +97,7 @@ public static class AirPunchPlaytestValidation
                 }
             }
         }
-        Check(air[2].frames[5].hitboxes[0].size.y > air[1].frames[3].hitboxes[0].size.y, "Finisher uses a taller downward hitbox");
+        Check(air[2].frames[first[2]].hitboxes[0].size.y > air[1].frames[first[1]].hitboxes[0].size.y, "Finisher uses a taller downward hitbox");
     }
     private static void RecoveryAndLanding()
     {
@@ -109,7 +109,7 @@ public static class AirPunchPlaytestValidation
             Until(() => player.motor.IsGrounded, air[p].name + " gravity eventually lands the player");
             Check(!player.CurrentAttack && player.State == CombatState.Idle, air[p].name + " landing resets the air state");
         }
-        Fixture(); player.RequestJump(); player.RequestAttack(); Step(6); player.motor.SetVerticalVelocity(-20);
+        Fixture(); player.RequestJump(); player.RequestAttack(); Step(9); player.motor.SetVerticalVelocity(-20);
         Until(() => player.motor.IsGrounded, "Landing during recovery occurs safely");
         Check(!player.CurrentAttack && player.ComboIndex == 0 && player.State == CombatState.Idle && !player.motor.MovementLocked, "Landing clears attack override, route and movement lock");
         player.RequestAttack(); Check(player.CurrentAttack == player.groundCombo[0], "Attack after landing selects ground Punch1");
@@ -120,32 +120,32 @@ public static class AirPunchPlaytestValidation
     }
     private static void Cancels()
     {
-        Fixture(); player.RequestJump(); player.RequestAttack(); Step(2); player.RequestAttack(); Step(2);
+        Fixture(); player.RequestJump(); player.RequestAttack(); Step(5); player.RequestAttack(); Step(2);
         Check(player.CurrentAttack == air[0] && player.BufferedInput == CombatInput.Attack, "Early air input uses the existing six-frame buffer"); Step(1);
-        Check(player.CurrentAttack == air[1] && player.attackPlayer.CurrentFrame == 0, "AirPunch1 cancels directly into AirPunch2 on final active frame 5");
-        Step(5); player.RequestAttack(); Check(player.CurrentAttack == air[2], "AirPunch2 cancels directly into AirPunch3 on frame 5");
-        Step(20); player.RequestAttack(); Step(2);
+        Check(player.CurrentAttack == air[1] && player.attackPlayer.CurrentFrame == 0, "AirPunch1 cancels directly into AirPunch2 on final active frame 8");
+        Step(8); player.RequestAttack(); Check(player.CurrentAttack == air[2], "AirPunch2 cancels directly into AirPunch3 on frame 8");
+        Step(30); player.RequestAttack(); Step(2);
         Check(!player.CurrentAttack && !player.motor.IsGrounded, "Finisher cannot restart AirPunch1 during the same jump");
         foreach (int p in new[] { 0, 1 })
         {
-            Fixture(); player.RequestJump(); player.RequestAttack(); if (p == 1) { Step(5); player.RequestAttack(); }
-            Step(p == 0 ? 10 : 11); player.RequestAttack();
+            Fixture(); player.RequestJump(); player.RequestAttack(); if (p == 1) { Step(8); player.RequestAttack(); }
+            Step(p == 0 ? 16 : 17); player.RequestAttack();
             Check(player.CurrentAttack == air[p + 1], air[p].name + " cancel includes its final legal frame");
         }
     }
     private static void FullRoute(int facing, bool slow)
     {
         Fixture(true, facing); float initial = enemy.health.Current;
-        player.RequestAttack(); Step(3); player.RequestAttack();
+        player.RequestAttack(); Step(player.groundCombo[0].FirstActiveFrame); player.RequestAttack();
         Until(() => player.CurrentAttack == player.groundCombo[1], "Full route: Punch1 -> Punch2", slow);
-        Step(2); player.RequestLauncher();
+        Step(player.groundCombo[1].FirstActiveFrame); player.RequestLauncher();
         Until(() => player.CurrentAttack == player.launcher, "Full route: Punch2 -> Launcher", slow);
         player.RequestJump();
         Until(() => !enemy.motor.IsGrounded, "Full route: launcher connects and makes enemy airborne", slow);
         Until(() => !player.motor.IsGrounded, "Full route: buffered manual Jump uses launcher jump cancel", slow);
         player.RequestAttack();
         Check(player.CurrentAttack == air[0], "Full route: Jump -> AirPunch1");
-        float expected = initial - player.groundCombo[0].frames[4].hitboxes[0].damage - player.groundCombo[1].frames[4].hitboxes[0].damage - player.launcher.frames[player.launcher.FirstActiveFrame].hitboxes[0].damage;
+        float expected = initial - player.groundCombo[0].frames[player.groundCombo[0].FirstActiveFrame].hitboxes[0].damage - player.groundCombo[1].frames[player.groundCombo[1].FirstActiveFrame].hitboxes[0].damage - player.launcher.frames[player.launcher.FirstActiveFrame].hitboxes[0].damage;
         Until(() => enemy.health.Current < expected, "Full route: AirPunch1 hits the airborne opponent", slow); expected -= 7;
         Check(enemy.State == EnemyReaction.AirHit && enemy.JuggleHits == 1, "AirPunch1 maintains existing AirHit/juggle state");
         player.RequestAttack(); Until(() => player.CurrentAttack == air[1], "Full route: AirPunch1 -> AirPunch2", slow);
@@ -175,7 +175,7 @@ public static class AirPunchPlaytestValidation
             Check(enemy.motor.Height == height && player.attackPlayer.CurrentFrame == frame && enemy.RecoveryFrames == hit.hitstunFrames, data.name + " hitstop preserves airborne height, timeline and hitstun");
             Step(40); Check(enemy.health.Current == 500 - hit.damage, data.name + " shared Hit ID prevents duplicate damage");
         }
-        Fixture(); enemy.motor.Launch(1, 0); var finisher = AttackFrameAuthoring.CloneBox(air[2].frames[5].hitboxes[0]); finisher.launchVelocity.y = -11;
+        Fixture(); enemy.motor.Launch(1, 0); var finisher = AttackFrameAuthoring.CloneBox(air[2].frames[air[2].FirstActiveFrame].hitboxes[0]); finisher.launchVelocity.y = -11;
         enemy.Receive(finisher, 1); Check(enemy.motor.VerticalVelocity == -11, "Editing finisher Launch Velocity Y directly changes downward enemy speed");
         finisher.launchVelocity.y = -6; enemy.Receive(finisher, 1);
         Check(enemy.motor.VerticalVelocity == -6, "Finisher downward velocity still applies after juggle is already closed");

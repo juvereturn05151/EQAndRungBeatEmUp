@@ -32,7 +32,7 @@ MonoBehaviour:
     exitRadius: 0.35
     completionMode: 1
     rewardAfterClear: 1
-    chapelSpawnPoint: {x: 0.9, y: 0.1}
+    chapelSpawnPoint: {x: 4, y: 0.1}
     rewardChoiceCenter: {x: 0, y: -0.1}
     rewardChoiceSpacing: 1.8
     rewardInteractRadius: 0.65
@@ -104,9 +104,9 @@ MonoBehaviour:
         - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
           count: 3
           spawnPoints:
-          - {x: 1.6, y: -0.1}
-          - {x: 2.5, y: 0.4}
-          - {x: 3, y: -0.4}
+          - {x: -1.6, y: -0.1}
+          - {x: -2.5, y: 0.4}
+          - {x: -3, y: -0.4}
           interval: 0.25
           isBoss: 0
       - waveId: Wave2
@@ -116,7 +116,7 @@ MonoBehaviour:
         - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
           count: 1
           spawnPoints:
-          - {x: -5, y: 0}
+          - {x: 6, y: 0}
           interval: 0.25
           isBoss: 0
       - waveId: Wave3
@@ -126,7 +126,7 @@ MonoBehaviour:
         - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
           count: 1
           spawnPoints:
-          - {x: 5, y: 0}
+          - {x: -3, y: 0}
           interval: 0.25
           isBoss: 0
     destructibles: []

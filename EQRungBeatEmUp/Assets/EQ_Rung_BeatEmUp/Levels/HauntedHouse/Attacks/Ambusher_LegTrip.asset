@@ -1,0 +1,1175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38811695b942eef468e3bfb76502b6db, type: 3}
+  m_Name: Ambusher_LegTrip
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.AttackData
+  attackName: Ambusher LegTrip
+  domain: 0
+  isLauncher: 0
+  cooldownFrames: 30
+  artworkNotes: Prototype primary move built from the supplied animation timing.
+    Edit hitboxes/timing in Frame Attack editor; existing player frame data is unchanged.
+  frames:
+  - sprite: {fileID: 21300000, guid: 4cc7921238de2aa5c8e376b220e1d1ca, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 4cc7921238de2aa5c8e376b220e1d1ca, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 4cc7921238de2aa5c8e376b220e1d1ca, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 4cc7921238de2aa5c8e376b220e1d1ca, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 4cc7921238de2aa5c8e376b220e1d1ca, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 4cc7921238de2aa5c8e376b220e1d1ca, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 2207ad62367dbc503c1b094887342592, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 2207ad62367dbc503c1b094887342592, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 2207ad62367dbc503c1b094887342592, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 2207ad62367dbc503c1b094887342592, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 2207ad62367dbc503c1b094887342592, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 2207ad62367dbc503c1b094887342592, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: bcce9d28dfa78aaf09a45010bbe6ab75, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: bcce9d28dfa78aaf09a45010bbe6ab75, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: bcce9d28dfa78aaf09a45010bbe6ab75, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: bcce9d28dfa78aaf09a45010bbe6ab75, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: bcce9d28dfa78aaf09a45010bbe6ab75, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: bcce9d28dfa78aaf09a45010bbe6ab75, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 95affd330a056c7cfcca2c101633d030, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 95affd330a056c7cfcca2c101633d030, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.55, y: 0.5}
+      size: {x: 1, y: 1}
+      laneTolerance: 0.3
+      damage: 4
+      hitstunFrames: 14
+      hitstopFrames: 3
+      knockback: 0.3
+      launchVelocity: {x: 0.7, y: 8}
+      hitType: 0
+      forceAirborneTargetDownward: 0
+      groundBounce: 0
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
+      canHitGrounded: 1
+      canHitAirborne: 1
+      unblockable: 0
+      blockDamage: 0
+      blockstunFrames: 10
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 95affd330a056c7cfcca2c101633d030, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.55, y: 0.5}
+      size: {x: 1, y: 1}
+      laneTolerance: 0.3
+      damage: 4
+      hitstunFrames: 14
+      hitstopFrames: 3
+      knockback: 0.3
+      launchVelocity: {x: 0.7, y: 8}
+      hitType: 0
+      forceAirborneTargetDownward: 0
+      groundBounce: 0
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
+      canHitGrounded: 1
+      canHitAirborne: 1
+      unblockable: 0
+      blockDamage: 0
+      blockstunFrames: 10
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 95affd330a056c7cfcca2c101633d030, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.55, y: 0.5}
+      size: {x: 1, y: 1}
+      laneTolerance: 0.3
+      damage: 4
+      hitstunFrames: 14
+      hitstopFrames: 3
+      knockback: 0.3
+      launchVelocity: {x: 0.7, y: 8}
+      hitType: 0
+      forceAirborneTargetDownward: 0
+      groundBounce: 0
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
+      canHitGrounded: 1
+      canHitAirborne: 1
+      unblockable: 0
+      blockDamage: 0
+      blockstunFrames: 10
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 95affd330a056c7cfcca2c101633d030, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.55, y: 0.5}
+      size: {x: 1, y: 1}
+      laneTolerance: 0.3
+      damage: 4
+      hitstunFrames: 14
+      hitstopFrames: 3
+      knockback: 0.3
+      launchVelocity: {x: 0.7, y: 8}
+      hitType: 0
+      forceAirborneTargetDownward: 0
+      groundBounce: 0
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
+      canHitGrounded: 1
+      canHitAirborne: 1
+      unblockable: 0
+      blockDamage: 0
+      blockstunFrames: 10
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 95affd330a056c7cfcca2c101633d030, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.55, y: 0.5}
+      size: {x: 1, y: 1}
+      laneTolerance: 0.3
+      damage: 4
+      hitstunFrames: 14
+      hitstopFrames: 3
+      knockback: 0.3
+      launchVelocity: {x: 0.7, y: 8}
+      hitType: 0
+      forceAirborneTargetDownward: 0
+      groundBounce: 0
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
+      canHitGrounded: 1
+      canHitAirborne: 1
+      unblockable: 0
+      blockDamage: 0
+      blockstunFrames: 10
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 235ca864afcc8078914a2d05c3c68f21, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.55, y: 0.5}
+      size: {x: 1, y: 1}
+      laneTolerance: 0.3
+      damage: 4
+      hitstunFrames: 14
+      hitstopFrames: 3
+      knockback: 0.3
+      launchVelocity: {x: 0.7, y: 8}
+      hitType: 0
+      forceAirborneTargetDownward: 0
+      groundBounce: 0
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
+      canHitGrounded: 1
+      canHitAirborne: 1
+      unblockable: 0
+      blockDamage: 0
+      blockstunFrames: 10
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 235ca864afcc8078914a2d05c3c68f21, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.55, y: 0.5}
+      size: {x: 1, y: 1}
+      laneTolerance: 0.3
+      damage: 4
+      hitstunFrames: 14
+      hitstopFrames: 3
+      knockback: 0.3
+      launchVelocity: {x: 0.7, y: 8}
+      hitType: 0
+      forceAirborneTargetDownward: 0
+      groundBounce: 0
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
+      canHitGrounded: 1
+      canHitAirborne: 1
+      unblockable: 0
+      blockDamage: 0
+      blockstunFrames: 10
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 235ca864afcc8078914a2d05c3c68f21, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.55, y: 0.5}
+      size: {x: 1, y: 1}
+      laneTolerance: 0.3
+      damage: 4
+      hitstunFrames: 14
+      hitstopFrames: 3
+      knockback: 0.3
+      launchVelocity: {x: 0.7, y: 8}
+      hitType: 0
+      forceAirborneTargetDownward: 0
+      groundBounce: 0
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
+      canHitGrounded: 1
+      canHitAirborne: 1
+      unblockable: 0
+      blockDamage: 0
+      blockstunFrames: 10
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 235ca864afcc8078914a2d05c3c68f21, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.55, y: 0.5}
+      size: {x: 1, y: 1}
+      laneTolerance: 0.3
+      damage: 4
+      hitstunFrames: 14
+      hitstopFrames: 3
+      knockback: 0.3
+      launchVelocity: {x: 0.7, y: 8}
+      hitType: 0
+      forceAirborneTargetDownward: 0
+      groundBounce: 0
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
+      canHitGrounded: 1
+      canHitAirborne: 1
+      unblockable: 0
+      blockDamage: 0
+      blockstunFrames: 10
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 235ca864afcc8078914a2d05c3c68f21, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.55, y: 0.5}
+      size: {x: 1, y: 1}
+      laneTolerance: 0.3
+      damage: 4
+      hitstunFrames: 14
+      hitstopFrames: 3
+      knockback: 0.3
+      launchVelocity: {x: 0.7, y: 8}
+      hitType: 0
+      forceAirborneTargetDownward: 0
+      groundBounce: 0
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
+      canHitGrounded: 1
+      canHitAirborne: 1
+      unblockable: 0
+      blockDamage: 0
+      blockstunFrames: 10
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 235ca864afcc8078914a2d05c3c68f21, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: d94e452ac3798eb9659273e894515fe0, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: d94e452ac3798eb9659273e894515fe0, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: d94e452ac3798eb9659273e894515fe0, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: d94e452ac3798eb9659273e894515fe0, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: d94e452ac3798eb9659273e894515fe0, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: d94e452ac3798eb9659273e894515fe0, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: a6b4102c789f5a9327c465672cd567bc, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: a6b4102c789f5a9327c465672cd567bc, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: a6b4102c789f5a9327c465672cd567bc, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: a6b4102c789f5a9327c465672cd567bc, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: a6b4102c789f5a9327c465672cd567bc, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: a6b4102c789f5a9327c465672cd567bc, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: c10c8237b30bea65a69bec55ee41100f, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: c10c8237b30bea65a69bec55ee41100f, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: c10c8237b30bea65a69bec55ee41100f, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: c10c8237b30bea65a69bec55ee41100f, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: c10c8237b30bea65a69bec55ee41100f, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: c10c8237b30bea65a69bec55ee41100f, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: c10c8237b30bea65a69bec55ee41100f, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: c10c8237b30bea65a69bec55ee41100f, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: c10c8237b30bea65a69bec55ee41100f, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: c10c8237b30bea65a69bec55ee41100f, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []

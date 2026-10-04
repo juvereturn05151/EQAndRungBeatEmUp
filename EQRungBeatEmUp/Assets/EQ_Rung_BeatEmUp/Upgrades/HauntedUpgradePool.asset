@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0cf819088279f498dd878e4aa82c67, type: 3}
+  m_Name: HauntedUpgradePool
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.UpgradePool
+  upgrades:
+  - {fileID: 11400000, guid: b8bf2f793c7cd9743ad87871bafbc480, type: 2}
+  - {fileID: 11400000, guid: 324a7afa4cbcb10419cbb59cce8c8012, type: 2}
+  - {fileID: 11400000, guid: 6ca603bb5c9a296419cc29b7462fad71, type: 2}
+  - {fileID: 11400000, guid: d1b5fc86a5f875549881e989ef8bfb66, type: 2}
+  - {fileID: 11400000, guid: 5471e14ca292d194c9d4472cbee1e82b, type: 2}
+  - {fileID: 11400000, guid: 7b9afb0e2408e554eb2a2d54d1fa0206, type: 2}
+  - {fileID: 11400000, guid: c7b03e98a4ebe4945b7ce3f911445d12, type: 2}
+  - {fileID: 11400000, guid: 08b002a7b42c44d40b1cabf2a23f58fa, type: 2}
+  - {fileID: 11400000, guid: 67608fc3fc882e34c8dd4b7e7e12afdf, type: 2}
+  - {fileID: 11400000, guid: 64740a6891620dc4aa5cf19a5946dc1a, type: 2}
+  - {fileID: 11400000, guid: d70061003025efc49af846c66e31dfe7, type: 2}
+  - {fileID: 11400000, guid: 4446bb6176a1f2542bea22de7162ca5d, type: 2}
+  - {fileID: 11400000, guid: c6cff7bda58200841a274ce98d9deb53, type: 2}
+  - {fileID: 11400000, guid: 487f14cee0a0c68439a6e7ac78bf5911, type: 2}
+  - {fileID: 11400000, guid: 88597818f6a79da4c82bbb33e568c2ad, type: 2}
+  - {fileID: 11400000, guid: ef32737d12ea82549ab8e479d8f5e574, type: 2}
+  - {fileID: 11400000, guid: b755b619a00ae0a43ace98919f75f82e, type: 2}
+  - {fileID: 11400000, guid: 56a801b8600d54f41906b36c80bbc276, type: 2}
+  commonWeight: 70
+  rareWeight: 25
+  epicWeight: 5
+  synergyBias: 0.15

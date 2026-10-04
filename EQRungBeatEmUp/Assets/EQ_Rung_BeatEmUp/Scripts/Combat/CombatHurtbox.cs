@@ -11,16 +11,18 @@ namespace BeatEmUp
         public ComboController player;
         public int team;
         public bool debugDraw;
+        // Optional encounter-owned gate (for example, a boss protected by totems).
+        public bool externalInvulnerable;
         public CombatHitOutcome LastHitOutcome { get; private set; }
         public int LastHitstopFrames { get; private set; }
         public bool Receive(AttackHitboxData hit, int facing, CharacterMotor attacker = null)
         {
             LastHitOutcome = CombatHitOutcome.None; LastHitstopFrames = hit.hitstopFrames;
-            if (!health || health.IsDead || !motor) return false;
+            if (CombatClock.IsPaused || !health || health.IsDead || health.SafeStageProtection || !motor || externalInvulnerable) return false;
             if (motor.IsGrounded ? !hit.canHitGrounded : !hit.canHitAirborne) return false;
             var frame = motor.attackPlayer ? motor.attackPlayer.Frame : null;
             if (frame != null && frame.invulnerable) return false;
-            if (player && player.DodgeInvulnerable) return false;
+            if (player && player.DodgeInvulnerable) { player.Build?.DodgeSucceeded(); return false; }
             if (player)
             {
                 var defense = player.TryDefense(hit, facing, attacker);

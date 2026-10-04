@@ -155,14 +155,16 @@ public static class CombatValidation
     private static void Run()
     {
         Route(false); Route(true);
-        Reset(); Key(UnityEngine.InputSystem.Key.J); Step(6);
-        Check(enemy.health.Current == 490 && player.attackPlayer.CurrentFrame == 6, "First active frame deals one hit");
+        Reset(); var punch = player.groundCombo[0]; int punchActive = punch.FirstActiveFrame;
+        var punchHit = punch.frames[punchActive].hitboxes[0]; float punchHealth = enemy.health.maximumHealth - punchHit.damage;
+        Key(UnityEngine.InputSystem.Key.J); Step(punchActive);
+        Check(enemy.health.Current == punchHealth && player.attackPlayer.CurrentFrame == punchActive, "First authored active frame deals one hit");
         int frozenFrame = player.attackPlayer.CurrentFrame, stun = enemy.RecoveryFrames;
         var sprite = player.motor.sprite.sprite; var position = enemy.motor.transform.position;
-        Step(5); Check(player.attackPlayer.CurrentFrame == frozenFrame && player.motor.sprite.sprite == sprite && enemy.RecoveryFrames == stun && enemy.motor.transform.position == position, "Five hitstop frames freeze timeline, sprite, victim movement and hitstun");
-        Step(8); Check(enemy.health.Current == 490, "Shared hit ID prevents repeated damage across active frames");
+        Step(punchHit.hitstopFrames); Check(player.attackPlayer.CurrentFrame == frozenFrame && player.motor.sprite.sprite == sprite && enemy.RecoveryFrames == stun && enemy.motor.transform.position == position, "Authored hitstop freezes timeline, sprite, victim movement and hitstun");
+        Step(8); Check(enemy.health.Current == punchHealth, "Shared hit ID prevents repeated damage across active frames");
         Reset(); InputSystem.QueueStateEvent(keyboard, new KeyboardState(UnityEngine.InputSystem.Key.J)); InputSystem.Update(); Step(120);
-        Check(enemy.health.Current == 490 && !player.CurrentAttack, "Holding Attack produces only one manual attack");
+        Check(enemy.health.Current == punchHealth && !player.CurrentAttack, "Holding Attack produces only one manual attack");
         Reset(); for (int i = 0; i < 100; i++) { Key(UnityEngine.InputSystem.Key.J); Step(1); } Step(120);
         Check(!player.CurrentAttack && player.motor.IsGrounded, "Rapid mashing settles without an unbounded input queue");
         Reset(); Key(UnityEngine.InputSystem.Key.J); Step(2); player.Interrupt(14); Key(UnityEngine.InputSystem.Key.J);
@@ -170,12 +172,14 @@ public static class CombatValidation
         Step(15); Key(UnityEngine.InputSystem.Key.J); Check(player.CurrentAttack == player.groundCombo[0], "Recovery restarts at Punch1");
         Reset(); Key(UnityEngine.InputSystem.Key.J); Step(100); Key(UnityEngine.InputSystem.Key.J);
         Check(player.CurrentAttack == player.groundCombo[0], "Missing combo continuation timeout resets route");
-        Reset(); Key(UnityEngine.InputSystem.Key.K); Step(30); Key(UnityEngine.InputSystem.Key.J); Step(40);
+        Reset(); var launcherLock = TestAttack(40); player.attackPlayer.Play(launcherLock);
+        Key(UnityEngine.InputSystem.Key.K); Step(45); Key(UnityEngine.InputSystem.Key.J); Step(40);
         Check(enemy.motor.IsGrounded, "Expired Launcher request cannot trigger later");
+        UnityEngine.Object.DestroyImmediate(launcherLock);
         Reset(); enemyObject.transform.position = new Vector3(.15f, 1, 0); Key(UnityEngine.InputSystem.Key.J); Step(40);
         Check(enemy.health.Current == 500, "Lane depth rejects a different walking lane");
         Reset(); player.motor.Face(-1); enemyObject.transform.position = new Vector3(-1.55f, 0, 0); Key(UnityEngine.InputSystem.Key.J); Step(15);
-        Check(enemy.health.Current == 490 && player.motor.sprite.flipX && enemy.motor.transform.position.x < -1.55f, "Facing left mirrors sprite, hitbox and knockback");
+        Check(enemy.health.Current == punchHealth && player.motor.sprite.flipX && enemy.motor.transform.position.x < -1.55f, "Facing left mirrors sprite, hitbox and knockback");
         Reset(); var move = TestAttack(5, (f, i) => f.movement = new Vector2(.1f, 0));
         player.motor.Face(-1); float x = playerObject.transform.position.x; player.attackPlayer.Play(move); Step(4);
         Check(Mathf.Abs(playerObject.transform.position.x - x + .5f) < .001f, "Per-frame displacement applies once and mirrors left");
@@ -219,14 +223,14 @@ public static class CombatValidation
         Check(count == 4 && player.motor.Height > 0 && player.motor.VerticalVelocity == 3, "Frame events fire once and authored velocity/gravity drive movement");
         Check(!player.animationDriver.animator.enabled && player.motor.sprite.sprite == signals.frames[3].sprite, "AttackPlayer owns the exact frame sprite while Animator is disabled");
         player.attackPlayer.Stop(); player.attackPlayer.FrameEvent -= callback; UnityEngine.Object.DestroyImmediate(signals);
-        Reset(); Key(UnityEngine.InputSystem.Key.J); Step(6); Key(UnityEngine.InputSystem.Key.J); Step(5);
-        Check(player.BufferedInput == CombatInput.Attack && player.attackPlayer.CurrentFrame == 6, "Input buffers during hitstop without aging or advancing the frame");
+        Reset(); Key(UnityEngine.InputSystem.Key.J); Step(punchActive); Key(UnityEngine.InputSystem.Key.J); Step(punchHit.hitstopFrames);
+        Check(player.BufferedInput == CombatInput.Attack && player.attackPlayer.CurrentFrame == punchActive, "Input buffers during hitstop without aging or advancing the frame");
         Until(() => player.CurrentAttack == player.groundCombo[1]); Check(player.ComboIndex == 2, "Hitstop-buffered attack consumes at the next legal cancel");
         Reset(); var repeat = TestAttack(6, (f, i) => f.hitboxes.Add(new AttackHitboxData { hitstopFrames = 0, repeatAfterFrames = 2 }));
         player.attackPlayer.Play(repeat); Step(5); Check(enemy.health.Current == 470, "Explicit repeat interval allows intentional hits at frames 0, 2 and 4");
         player.attackPlayer.Stop(); UnityEngine.Object.DestroyImmediate(repeat);
-        Reset(); enemy.Receive(player.launcher.frames[6].hitboxes[0], 1);
-        for (int i = 0; i < 10; i++) enemy.Receive(player.airCombo[0].frames[6].hitboxes[0], 1);
+        Reset(); enemy.Receive(player.launcher.frames[player.launcher.FirstActiveFrame].hitboxes[0], 1);
+        for (int i = 0; i < 10; i++) enemy.Receive(player.airCombo[0].frames[player.airCombo[0].FirstActiveFrame].hitboxes[0], 1);
         Check(enemy.JuggleHits == enemy.maximumJuggleHits && !enemy.JuggleOpen && enemy.motor.VerticalVelocity < 0, "Juggle cap prevents unlimited lift");
         Step(180); Check(enemy.CanAct, "Capped juggle lands and recovers");
         ValidateBounces();

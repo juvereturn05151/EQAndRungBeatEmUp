@@ -1,0 +1,161 @@
+PASS: TEST1: new run starts with base stats and no upgrades
+PASS: 18 data-driven upgrade assets load with effects
+PASS: Hub exits into Entrance Gate without cards
+PASS: Stage 2 clear opens current-run cards
+PASS: TEST2: three unique cards block progression until selection
+PASS: Reward pause stops clock, player, enemies, stage timer and combat input
+PASS: Named test card becomes available: HeavyHands
+PASS: Choice applies immediately: HeavyHands
+PASS: Selection advances immediately to Stage2 and resumes gameplay
+PASS: Acquire HeavyHands
+PASS: TEST3: actual Stage2 punch hit receives runtime +20% ground damage (9.600006)
+PASS: Hub exits into Entrance Gate without cards
+PASS: Stage 2 clear opens current-run cards
+PASS: Named test card becomes available: HeavyHands
+PASS: Choice applies immediately: HeavyHands
+PASS: Stage 3 clear opens current-run cards
+PASS: Named test card becomes available: HardHead
+PASS: Choice applies immediately: HardHead
+PASS: TEST4/5: consecutive stages add persistent brawler and dive upgrades
+PASS: TEST5: Hard Head immediately raises14 base dive damage to17.5 (17.5)
+PASS: Stage 4 clear opens current-run cards
+PASS: Named test card becomes available: PerfectTiming
+PASS: Choice applies immediately: PerfectTiming
+PASS: TEST6: selected parry upgrade immediately extends window
+PASS: Stage 5 clear opens current-run cards
+PASS: Named test card becomes available: IronBody
+PASS: Choice applies immediately: IronBody
+PASS: Stage 6 clear opens current-run cards
+PASS: Named test card becomes available: LongStep
+PASS: Choice applies immediately: LongStep
+PASS: TEST7: shrine has no enemies and no forced cards
+PASS: Heal reward advances shrine to boss without upgrade UI
+PASS: Shrine exit Heal uses configured fraction of upgraded maximum HP (180)
+PASS: TEST8: all five acquired upgrades persist into boss
+PASS: Upgraded headbutt cannot bypass cursed-totem boss protection
+PASS: Upgraded hit works after all totems are destroyed
+PASS: Boss clear waits for exit without offering cards
+PASS: Boss clear preserves build into Escape Lane
+PASS: Run finishes with its acquired build
+PASS: TEST9: new run clears upgrades and restores base max HP
+PASS: Acquire Finisher
+PASS: Play attack for runtime calculation: Punch3
+PASS: Ground finisher modifier (18.2)
+PASS: Acquire HigherLauncherDamage
+PASS: Play attack for runtime calculation: Launcher
+PASS: Launcher modifier (12.5)
+PASS: Acquire JuggleMaster
+PASS: Play attack for runtime calculation: Punch1
+PASS: Airborne-target modifier (9.6)
+PASS: Acquire AirFinisher
+PASS: Play attack for runtime calculation: AirPunch3
+PASS: Air finisher damage modifier (16.25)
+PASS: Air finisher strengthens downward slam
+PASS: Acquire ComboMomentum
+PASS: Combo momentum fixture reaches second punch
+PASS: Combo momentum adds damage per authored combo step (9.900001)
+PASS: Acquire PerfectTiming
+PASS: Acquire GhostBreaker
+PASS: Acquire Counterattack
+PASS: Extended parry accepts a hit outside the base window
+PASS: Ghost Breaker extends attacker punish stun
+PASS: Parry recovery permits next punch: GroundAttack / frozen:False
+PASS: Counterattack buffs the next attack after actual parry (12)
+PASS: Counterattack bonus is consumed once, not every following attack (8)
+PASS: Acquire QuickStep
+PASS: Acquire LongStep
+PASS: Acquire Afterimage
+PASS: Upgraded dodge starts
+PASS: Dodge through hit is detected without damage
+PASS: Quick Step shortens only dodge recovery
+PASS: Long Step increases motor dodge distance25% (1.5)
+PASS: Afterimage buffs next attack after actual dodge-through (10.8)
+PASS: Acquire StrongGuard
+PASS: Strong Guard reduces incoming blockstun25%
+PASS: Acquire IronBody
+PASS: Iron Body adds runtime max HP (240)
+PASS: Iron Body immediately grants added HP (240)
+PASS: Acquire SecondWind
+PASS: Second Wind prevents first lethal hit
+PASS: Second Wind does not refresh on shrine/retry health restoration
+PASS: Acquire DiveReset
+PASS: Dive Reset still retains punishable grounded recovery
+PASS: Dive Reset shortens landing recovery by exactly3 frames
+PASS: Acquire DiveShockwave
+PASS: Connected dive shockwave uses normal hurtbox damage gates (8)
+PASS: Shockwave cannot repeat without another connected dive (492)
+PASS: Acquire DiveShockwave
+PASS: Actual connected dive automatically triggers14-damage head hit plus8-damage landing shockwave (22)
+PASS: Effect fixtures do not leak stacks between resets
+PASS: Acquire HeavyHands
+PASS: Acquire HeavyHands
+PASS: Acquire HeavyHands
+PASS: Max stack count blocks extra acquisition
+PASS: Draw0 respects stacks and unique card IDs
+PASS: Draw1 respects stacks and unique card IDs
+PASS: Draw2 respects stacks and unique card IDs
+PASS: Draw3 respects stacks and unique card IDs
+PASS: Draw4 respects stacks and unique card IDs
+PASS: Draw5 respects stacks and unique card IDs
+PASS: Draw6 respects stacks and unique card IDs
+PASS: Draw7 respects stacks and unique card IDs
+PASS: Draw8 respects stacks and unique card IDs
+PASS: Draw9 respects stacks and unique card IDs
+PASS: Draw10 respects stacks and unique card IDs
+PASS: Draw11 respects stacks and unique card IDs
+PASS: Draw12 respects stacks and unique card IDs
+PASS: Draw13 respects stacks and unique card IDs
+PASS: Draw14 respects stacks and unique card IDs
+PASS: Draw15 respects stacks and unique card IDs
+PASS: Draw16 respects stacks and unique card IDs
+PASS: Draw17 respects stacks and unique card IDs
+PASS: Draw18 respects stacks and unique card IDs
+PASS: Draw19 respects stacks and unique card IDs
+PASS: Draw20 respects stacks and unique card IDs
+PASS: Draw21 respects stacks and unique card IDs
+PASS: Draw22 respects stacks and unique card IDs
+PASS: Draw23 respects stacks and unique card IDs
+PASS: Draw24 respects stacks and unique card IDs
+PASS: Draw25 respects stacks and unique card IDs
+PASS: Draw26 respects stacks and unique card IDs
+PASS: Draw27 respects stacks and unique card IDs
+PASS: Draw28 respects stacks and unique card IDs
+PASS: Draw29 respects stacks and unique card IDs
+PASS: Draw30 respects stacks and unique card IDs
+PASS: Draw31 respects stacks and unique card IDs
+PASS: Draw32 respects stacks and unique card IDs
+PASS: Draw33 respects stacks and unique card IDs
+PASS: Draw34 respects stacks and unique card IDs
+PASS: Draw35 respects stacks and unique card IDs
+PASS: Draw36 respects stacks and unique card IDs
+PASS: Draw37 respects stacks and unique card IDs
+PASS: Draw38 respects stacks and unique card IDs
+PASS: Draw39 respects stacks and unique card IDs
+PASS: Draw40 respects stacks and unique card IDs
+PASS: Draw41 respects stacks and unique card IDs
+PASS: Draw42 respects stacks and unique card IDs
+PASS: Draw43 respects stacks and unique card IDs
+PASS: Draw44 respects stacks and unique card IDs
+PASS: Draw45 respects stacks and unique card IDs
+PASS: Draw46 respects stacks and unique card IDs
+PASS: Draw47 respects stacks and unique card IDs
+PASS: Draw48 respects stacks and unique card IDs
+PASS: Draw49 respects stacks and unique card IDs
+PASS: Prerequisites exclude unavailable upgrade
+PASS: Acquisition unlocks prerequisite and excludes incompatible card
+PASS: Incompatibility is enforced in both directions
+PASS: Configured70/25/5 rarity tiers produce expected weighted distribution
+PASS: Exhausted pool returns no invalid/maxed cards and cannot lock pause
+PASS: Room retry preserves current run build
+PASS: Keyboard2 selects second visible card through UI input
+PASS: Gamepad South selects focused card through UI input
+PASS: Invalid/double selections cannot skip pause or acquire a card
+PASS: Base AttackData file unchanged: AirHeadbuttDive.asset
+PASS: Base AttackData file unchanged: AirPunch1.asset
+PASS: Base AttackData file unchanged: AirPunch2.asset
+PASS: Base AttackData file unchanged: AirPunch3.asset
+PASS: Base AttackData file unchanged: EnemyPunch.asset
+PASS: Base AttackData file unchanged: Launcher.asset
+PASS: Base AttackData file unchanged: Punch1.asset
+PASS: Base AttackData file unchanged: Punch2.asset
+PASS: Base AttackData file unchanged: Punch3.asset

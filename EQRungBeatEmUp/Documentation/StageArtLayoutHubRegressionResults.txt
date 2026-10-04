@@ -1,0 +1,21 @@
+PASS: TEST1: actual scene Start spawns in Player Hub at index0
+PASS: Nine stages retain haunted-house order after the hub
+PASS: Hub authored as Safe / ReachExit / no reward / no encounters or destructibles
+PASS: TEST2: correct imported hub background and floor are assigned
+PASS: Source artwork sections meet exactly without duplicated or missing rows
+PASS: Player spawns at authored hub entry with correct movement bounds
+PASS: Hub reuses authored lane/camera framing
+PASS: TEST3: player walks normally in the safe hub
+PASS: TEST4: no enemy waves, combat locks, rewards or failures after waiting
+PASS: TEST5: direct environmental/lethal damage cannot harm a safe-stage player
+PASS: Safe stage rejects enemy hit before guard, knockback, launch or hitstop
+PASS: Safe-stage protection does not consume Second Wind
+PASS: Optional practice attacks still work without enemies or damage pressure
+PASS: TEST8: hub and editable stage type are present in the authoring list
+PASS: Safe flag suppresses mistakenly authored encounters, enemy decorations and destructibles
+PASS: TEST6: walking to hub exit enters Entrance Gate without a reward choice
+PASS: Damage protection is removed immediately upon entering combat
+PASS: TEST7: Entrance Gate retains its normal first wave, lock and upgrade reward
+PASS: Hub insertion remaps explicit next-stage and end-of-level indices
+PASS: Setup is idempotent and preserves existing authored settings
+PASS: New run returns to the protected hub with an empty build

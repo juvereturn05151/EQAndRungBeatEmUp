@@ -32,16 +32,19 @@ namespace BeatEmUp
         private void OnDisable() { Stop(); HitstopRemaining = 0; CombatClock.Unregister(this); if (animationDriver) animationDriver.SetFrozen(false); }
         public bool Play(AttackData attack)
         {
-            if (!attack || attack.frames.Count == 0 || attack.frames[0] == null || IsFrozen) return false;
+            if (CombatClock.IsPaused || !attack || attack.frames.Count == 0 || attack.frames[0] == null || IsFrozen) return false;
+            if (attack.requiresAirborne && motor.IsGrounded) return false;
             var player = GetComponent<ComboController>();
             if (player && (player.IsDefenseState || (player.health && player.health.IsDead))) return false;
             Stop(); CurrentAttack = attack; CurrentFrame = 0; Facing = motor.Facing;
             startedOnTick = CombatClock.IsStepping ? CombatClock.CurrentTick : -1;
             hitbox.Begin(attack); animationDriver.SetAttackOverride(true);
+            player?.Build?.AttackStarted(attack);
             ApplyFrame(); return true;
         }
         public void Stop()
         {
+            GetComponent<RunBuildState>()?.AttackStopped();
             CurrentAttack = null; CurrentFrame = -1;
             if (hitbox) hitbox.End();
             if (motor) { motor.FrameGravityScale = 1; motor.SuspendFalling = false; motor.AttackHorizontalVelocity = 0; motor.AirAttackControl = false; }
@@ -62,12 +65,34 @@ namespace BeatEmUp
         public void CombatFrame()
         {
             if (IsFrozen || !CurrentAttack || startedOnTick == CombatClock.CurrentTick) return;
-            CurrentFrame++;
+            if (!motor.IsGrounded && CurrentAttack.landingFrame > 0 && CurrentFrame + 1 >= CurrentAttack.landingFrame &&
+                CurrentAttack.airborneHoldFrame >= 0 && CurrentAttack.airborneHoldFrame < CurrentAttack.landingFrame)
+            {
+                // A hold must not replay frame-entry movement, velocity or events.
+                if (CurrentFrame != CurrentAttack.airborneHoldFrame) { CurrentFrame = CurrentAttack.airborneHoldFrame; ApplyFrame(); }
+                else hitbox.Sample();
+                return;
+            }
+            int increment = 1;
+            var combo = GetComponent<ComboController>();
+            if (combo && combo.IsAirDiving && motor.IsGrounded && CurrentFrame >= CurrentAttack.landingFrame + 2)
+            {
+                int reduction = Mathf.Clamp(Mathf.RoundToInt(combo.Build?.Value(RunModifier.DiveRecoveryReduction) ?? 0), 0, Mathf.Max(0, CurrentAttack.TotalFrames - CurrentAttack.landingFrame - 5));
+                // Skip only the tail of recovery, preserving impact poses and at least two recovery frames.
+                if (CurrentFrame + 1 >= CurrentAttack.TotalFrames - reduction) increment += reduction;
+            }
+            CurrentFrame += increment;
             if (CurrentFrame >= CurrentAttack.frames.Count)
             {
                 var finished = CurrentAttack; Stop(); Finished?.Invoke(finished); return;
             }
             ApplyFrame();
+        }
+        public bool BeginLanding()
+        {
+            if (!CurrentAttack || !motor.IsGrounded || CurrentAttack.landingFrame < 0 || CurrentAttack.landingFrame >= CurrentAttack.frames.Count) return false;
+            CurrentFrame = CurrentAttack.landingFrame; startedOnTick = CombatClock.IsStepping ? CombatClock.CurrentTick : -1;
+            motor.StopGroundedMotion(); ApplyFrame(); return true;
         }
         private void ApplyFrame()
         {

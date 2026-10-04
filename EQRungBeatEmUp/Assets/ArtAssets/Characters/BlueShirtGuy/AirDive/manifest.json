@@ -1,0 +1,23 @@
+{
+  "poses": [
+    "AirReady",
+    "Windup",
+    "DiveStart",
+    "ActiveDive",
+    "Impact",
+    "LandingRecovery"
+  ],
+  "canvas": [
+    160,
+    128
+  ],
+  "pixelsPerUnit": 100,
+  "pivot": [
+    0.5,
+    0.0625
+  ],
+  "baseline": 120,
+  "source": "C:/Users/drago/.codex/generated_images/01a10480-a875-7d42-ab99-73b31b30c835/exec-4c49ccbf-6db9-4d27-b1fc-44c874f1119d.png",
+  "standingReadyHeight": 100,
+  "scale": 0.2724795640326976
+}

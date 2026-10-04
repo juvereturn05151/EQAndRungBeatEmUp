@@ -1,0 +1,56 @@
+PASS: Authored24-frame attack with seven active frames
+PASS: TEST5: direct grounded Play cannot activate airborne-only dive
+PASS: Grounded Launcher keeps existing launcher behavior
+PASS: Normal jump is airborne
+PASS: TEST1: airborne Launcher starts headbutt dive
+PASS: Committed travel moves forward and down through motor velocity
+PASS: TEST7: repeated Launcher presses do not restart dive timeline
+PASS: Ground contact enters grounded impact/recovery at the landing frame
+PASS: Landing recovery rejects attack, launcher and jump cancels
+PASS: Recovery ends in neutral with normal physics restored
+PASS: Landing replenishes per-airborne-sequence dive use
+PASS: Normal jump is airborne
+PASS: TEST2: grounded enemy takes one14-damage head hit with hitstop
+PASS: Ground contact enters grounded impact/recovery at the landing frame
+PASS: Landing recovery rejects attack, launcher and jump cancels
+PASS: Recovery ends in neutral with normal physics restored
+PASS: Normal jump is airborne
+PASS: TEST3: airborne enemy receives finisher hit and descends toward knockdown
+PASS: Normal jump is airborne
+PASS: Facing left mirrors diagonal travel and pose
+PASS: Ground contact enters grounded impact/recovery at the landing frame
+PASS: Landing recovery rejects attack, launcher and jump cancels
+PASS: Recovery ends in neutral with normal physics restored
+PASS: High dive holds active travel pose instead of showing midair impact/recovery
+PASS: Ground contact enters grounded impact/recovery at the landing frame
+PASS: Landing recovery rejects attack, launcher and jump cancels
+PASS: Recovery ends in neutral with normal physics restored
+PASS: Normal jump is airborne
+PASS: Interruption clears dive physics but does not refresh airborne use
+PASS: Interrupted dive cannot repeat before floor contact
+PASS: Normal jump is airborne
+PASS: Air punch can choose dive at an authored attack-cancel window
+PASS: Ground contact enters grounded impact/recovery at the landing frame
+PASS: Landing recovery rejects attack, launcher and jump cancels
+PASS: Recovery ends in neutral with normal physics restored
+PASS: Manual jump out of grounded Launcher can choose the airborne headbutt
+PASS: Ground contact enters grounded impact/recovery at the landing frame
+PASS: Landing recovery rejects attack, launcher and jump cancels
+PASS: Recovery ends in neutral with normal physics restored
+PASS: TEST8: compact active box stays on low front/head, not trailing legs
+PASS: TEST8: compact active box stays on low front/head, not trailing legs
+PASS: TEST8: compact active box stays on low front/head, not trailing legs
+PASS: TEST8: compact active box stays on low front/head, not trailing legs
+PASS: TEST8: compact active box stays on low front/head, not trailing legs
+PASS: TEST8: compact active box stays on low front/head, not trailing legs
+PASS: TEST8: compact active box stays on low front/head, not trailing legs
+PASS: TEST9: pose canvas, scale and ground pivot match existing sprites
+PASS: TEST9: pose canvas, scale and ground pivot match existing sprites
+PASS: TEST9: pose canvas, scale and ground pivot match existing sprites
+PASS: TEST9: pose canvas, scale and ground pivot match existing sprites
+PASS: TEST9: pose canvas, scale and ground pivot match existing sprites
+PASS: TEST9: pose canvas, scale and ground pivot match existing sprites
+PASS: Normal jump is airborne
+PASS: Actual keyboard Launcher action invokes dive in air
+PASS: Normal jump is airborne
+PASS: Actual gamepad north Launcher action invokes dive in air

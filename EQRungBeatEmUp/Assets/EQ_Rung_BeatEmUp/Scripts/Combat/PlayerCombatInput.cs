@@ -58,14 +58,14 @@ namespace BeatEmUp
 
         private void OnMove(InputAction.CallbackContext context)
         { 
-            motor.MoveInput = context.ReadValue<Vector2>(); 
+            motor.MoveInput = CombatClock.IsPaused ? Vector2.zero : context.ReadValue<Vector2>(); 
             LastAction = "Move"; 
         }
         private void Update()
         {
             // Preserve intended movement after a recovery clears motor input.
             // Buttons remain edge-triggered through action callbacks.
-            if (move != null && motor) motor.MoveInput = move.ReadValue<Vector2>();
+            if (move != null && motor) motor.MoveInput = CombatClock.IsPaused ? Vector2.zero : move.ReadValue<Vector2>();
         }
         private void OnGuard(InputAction.CallbackContext context) { LastAction = "Guard / Parry"; combat.RequestGuard(true); }
         private void OnGuardReleased(InputAction.CallbackContext context) { combat.RequestGuard(false); }

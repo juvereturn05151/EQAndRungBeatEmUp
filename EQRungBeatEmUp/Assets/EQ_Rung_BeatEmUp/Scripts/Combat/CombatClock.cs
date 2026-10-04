@@ -19,9 +19,12 @@ namespace BeatEmUp
         private double accumulator;
         private static CombatClock instance;
         private static readonly List<ICombatFrameListener> listeners = new List<ICombatFrameListener>();
+        private static readonly HashSet<Object> pauseOwners = new HashSet<Object>();
+        public static bool IsPaused { get { pauseOwners.RemoveWhere(owner => !owner); return pauseOwners.Count > 0; } }
+        public static void SetPaused(Object owner, bool paused) { if (!owner) return; if (paused) pauseOwners.Add(owner); else pauseOwners.Remove(owner); }
         public static float FrameSeconds => 1f / (instance ? Mathf.Max(1, instance.combatFPS) : 60);
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-        private static void ResetStatics() { instance = null; listeners.Clear(); IsStepping = false; }
+        private static void ResetStatics() { instance = null; listeners.Clear(); pauseOwners.Clear(); IsStepping = false; }
         public static void Register(ICombatFrameListener listener)
         {
             if (!Application.isPlaying) return;
@@ -43,13 +46,15 @@ namespace BeatEmUp
         private void Update() => Advance(Time.deltaTime);
         public void Advance(float seconds)
         {
+            if (IsPaused) return;
             accumulator += Mathf.Max(0, seconds);
             double step = 1.0 / Mathf.Max(1, combatFPS);
             // Never discard accumulated combat frames during slow rendered frames.
-            while (accumulator + 1e-9 >= step) { accumulator -= step; StepFrame(); }
+            while (!IsPaused && accumulator + 1e-9 >= step) { accumulator -= step; StepFrame(); }
         }
         public void StepFrame()
         {
+            if (IsPaused) return;
             FrameNumber++;
             IsStepping = true;
             var snapshot = listeners.ToArray();

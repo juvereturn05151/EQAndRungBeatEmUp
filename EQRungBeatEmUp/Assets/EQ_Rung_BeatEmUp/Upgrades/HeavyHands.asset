@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9318d33d63f4b154881433c243732954, type: 3}
+  m_Name: HeavyHands
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.UpgradeDefinition
+  id: HeavyHands
+  displayName: Heavy Hands
+  description: Ground punch damage +20% per stack.
+  icon: {fileID: 0}
+  rarity: 0
+  tags:
+  - Brawler
+  maxStacks: 3
+  weight: 1
+  prerequisites: []
+  incompatibleUpgrades: []
+  effects:
+  - modifier: 0
+    amount: 0.2

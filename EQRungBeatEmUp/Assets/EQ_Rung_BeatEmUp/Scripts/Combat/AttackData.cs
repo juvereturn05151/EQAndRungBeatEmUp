@@ -12,6 +12,7 @@ namespace BeatEmUp
     [Serializable]
     public sealed class AttackHitboxData
     {
+        public AttackHitboxData RuntimeCopy() => (AttackHitboxData)MemberwiseClone();
         [Tooltip("Same ID across frames shares hit history. Different IDs allow intentional multiple hits.")]
         public int hitId;
         [Min(0), Tooltip("0 = once per attack and hit ID. Otherwise minimum combat frames between hits.")]
@@ -82,6 +83,12 @@ namespace BeatEmUp
         public AttackDomain domain;
         public bool isLauncher;
         [Min(0)] public int cooldownFrames;
+        [Header("Optional airborne landing transition")]
+        public bool requiresAirborne;
+        [Tooltip("-1 disables landing branching. Ground contact jumps here; the remaining frames are landing recovery.")]
+        public int landingFrame = -1;
+        [Tooltip("Hold this earlier travel frame while airborne at Landing Frame. -1 disables the hold.")]
+        public int airborneHoldFrame = -1;
         [TextArea] public string artworkNotes;
         public List<AttackFrameData> frames = new List<AttackFrameData>();
         public int TotalFrames => frames.Count;

@@ -315,6 +315,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2bf3babe77d3e5448b46d10d2a24f9a0, type: 2}
   - {fileID: 11400000, guid: b0548e3878f2cb04eb15ba55dcdd204c, type: 2}
   - {fileID: 11400000, guid: 5ccf16847eaaf0048a47fb3496dd291a, type: 2}
+  airDive: {fileID: 11400000, guid: 8f30728f5c2515e43a4106869845eb97, type: 2}
   launcherAfterGroundHit: 2
   inputBufferFrames: 6
   jumpBufferFrames: 36

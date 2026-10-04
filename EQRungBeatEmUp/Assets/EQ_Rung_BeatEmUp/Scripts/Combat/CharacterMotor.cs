@@ -42,6 +42,15 @@ namespace BeatEmUp
         public float HorizontalRecoil => recoil.x;
         private float airControlUsed;
         private Vector2 recoil;
+        public void ResetForStage(Vector2 position)
+        {
+            if (attackPlayer) attackPlayer.Stop();
+            Height = VerticalVelocity = airControlUsed = 0; recoil = MoveInput = DefenseVelocity = Vector2.zero;
+            AttackHorizontalVelocity = GravityOverride = 0; FrameGravityScale = 1;
+            MovementLocked = AirAttackControl = SuspendFalling = false;
+            transform.position = new Vector3(position.x, position.y, 0);
+            if (visual) visual.localPosition = Vector3.zero;
+        }
         public void Face(float direction)
         {
             if (Mathf.Abs(direction) > .01f) Facing = direction < 0 ? -1 : 1;

@@ -1,0 +1,79 @@
+PASS: TEST1: stage1 loads correct separated art
+PASS: TEST5: encounter locks exit while required enemies live
+PASS: Player punch starts for repeated-hit validation
+PASS: TEST6: real player attack damages prop and shows damaged sprite
+PASS: Prop cannot be hit twice by repeated samples of the same hit ID
+PASS: Player punch starts for environmental object
+PASS: TEST6: prop breaks with disabled hurtbox and broken visual
+PASS: Real player attacks defeat Rusher(Clone)
+PASS: Real player attacks defeat Rusher(Clone)
+PASS: TEST4: clear-based wave spawns only after previous enemies AND queued spawns clear
+PASS: Real player attacks defeat Rusher(Clone)
+PASS: All required waves clear and exit unlocks in room 1
+PASS: TEST2: stage1 completion and exit move to stage2
+PASS: Transition sets entry, bounds, grounded player and facing
+PASS: TEST3: timed wave remains pending before three seconds, exit stays locked
+PASS: TEST3: timed wave spawns three Rushers after delay plus interval
+PASS: Spawned AI targets player and receives lane bounds
+PASS: New enemy prefab can run its authored frame attack
+PASS: New enemy attack damages existing player through combat hurtbox
+PASS: Real player attacks defeat Rusher(Clone)
+PASS: Real player attacks defeat Rusher(Clone)
+PASS: Real player attacks defeat Rusher(Clone)
+PASS: Real player attacks defeat Thrower(Clone)
+PASS: All required waves clear and exit unlocks in room 2
+PASS: Ordered combat room 3
+PASS: Correct art in room 3
+PASS: Real player attacks defeat Rusher(Clone)
+PASS: Real player attacks defeat Thrower(Clone)
+PASS: Real player attacks defeat Screamer(Clone)
+PASS: Real player attacks defeat Rusher(Clone)
+PASS: All required waves clear and exit unlocks in room 3
+PASS: Ordered combat room 4
+PASS: Correct art in room 4
+PASS: Real player attacks defeat Rusher(Clone)
+PASS: Real player attacks defeat GrapplerBruiser(Clone)
+PASS: Real player attacks defeat Rusher(Clone)
+PASS: All required waves clear and exit unlocks in room 4
+PASS: Ordered combat room 5
+PASS: Correct art in room 5
+PASS: Real player attacks defeat Ambusher(Clone)
+PASS: Real player attacks defeat Prefect(Clone)
+PASS: Real player attacks defeat Rusher(Clone)
+PASS: Real player attacks defeat Rusher(Clone)
+PASS: Real player attacks defeat Thrower(Clone)
+PASS: Real player attacks defeat Screamer(Clone)
+PASS: All required waves clear and exit unlocks in room 5
+PASS: TEST7: shrine room has no enemies
+PASS: TEST7: nearby shrine interaction restores health
+PASS: TEST8: boss spawns protected by four cursed totems
+PASS: TEST8: protected boss rejects combat damage and room cannot complete
+PASS: Player punch starts for environmental object
+PASS: Player punch starts for environmental object
+PASS: Player punch starts for environmental object
+PASS: Player punch starts for environmental object
+PASS: Player punch starts for environmental object
+PASS: Player punch starts for environmental object
+PASS: Player punch starts for environmental object
+PASS: Player punch starts for environmental object
+PASS: Player punch starts for environmental object
+PASS: Player punch starts for environmental object
+PASS: Player punch starts for environmental object
+PASS: Player punch starts for environmental object
+PASS: TEST8: last totem break opens vulnerable boss phase
+PASS: Boss telegraphs and performs an arena warp during the totem phase
+PASS: Real player attacks defeat WhiteGhostBoss(Clone)
+PASS: Boss defeat unlocks exit only after required encounter completes
+PASS: TEST9: boss clear leads to Escape Lane
+PASS: TEST10: full eight-stage progression reaches level completion using actual attacks and exit movement
+PASS: Completed level can restart without stale waves or totems
+PASS: Manual encounters wait for named signal and event stage waits for event
+PASS: Manual wave independently waits for wave signal
+PASS: Manual wave starts first interval spawn
+PASS: Pending interval spawn prevents premature wave completion
+PASS: Second interval enemy spawns even if first enemy died early
+PASS: Zone trigger respects its authored delay
+PASS: Zone and phase encounters complete, explicit stage event still required
+PASS: Explicit event unlocks authored event stage
+PASS: Dead player cannot progress
+PASS: Death retry reloads current room with restored player

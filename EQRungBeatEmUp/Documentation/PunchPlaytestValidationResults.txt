@@ -16,7 +16,6 @@ PASS: Punch1 frame 5 hitbox timing
 PASS: Punch1 frame 5 separate cancel permissions
 PASS: Punch1 frame 6 hitbox timing
 PASS: Punch1 frame 6 separate cancel permissions
-PASS: Punch1 frame 6 impact settings and shared hit history
 PASS: Punch1 frame 7 hitbox timing
 PASS: Punch1 frame 7 separate cancel permissions
 PASS: Punch1 frame 7 impact settings and shared hit history
@@ -31,8 +30,10 @@ PASS: Punch1 frame 10 separate cancel permissions
 PASS: Punch1 frame 10 impact settings and shared hit history
 PASS: Punch1 frame 11 hitbox timing
 PASS: Punch1 frame 11 separate cancel permissions
+PASS: Punch1 frame 11 impact settings and shared hit history
 PASS: Punch1 frame 12 hitbox timing
 PASS: Punch1 frame 12 separate cancel permissions
+PASS: Punch1 frame 12 impact settings and shared hit history
 PASS: Punch1 frame 13 hitbox timing
 PASS: Punch1 frame 13 separate cancel permissions
 PASS: Punch1 frame 14 hitbox timing
@@ -53,6 +54,12 @@ PASS: Punch1 frame 21 hitbox timing
 PASS: Punch1 frame 21 separate cancel permissions
 PASS: Punch1 frame 22 hitbox timing
 PASS: Punch1 frame 22 separate cancel permissions
+PASS: Punch1 frame 23 hitbox timing
+PASS: Punch1 frame 23 separate cancel permissions
+PASS: Punch1 frame 24 hitbox timing
+PASS: Punch1 frame 24 separate cancel permissions
+PASS: Punch1 frame 25 hitbox timing
+PASS: Punch1 frame 25 separate cancel permissions
 PASS: Punch1 has subtle authored forward movement
 PASS: Punch2 uses the existing normal ground attack schema
 PASS: Punch2 has the requested startup, active and complete recovery frames
@@ -71,7 +78,6 @@ PASS: Punch2 frame 5 hitbox timing
 PASS: Punch2 frame 5 separate cancel permissions
 PASS: Punch2 frame 6 hitbox timing
 PASS: Punch2 frame 6 separate cancel permissions
-PASS: Punch2 frame 6 impact settings and shared hit history
 PASS: Punch2 frame 7 hitbox timing
 PASS: Punch2 frame 7 separate cancel permissions
 PASS: Punch2 frame 7 impact settings and shared hit history
@@ -86,8 +92,10 @@ PASS: Punch2 frame 10 separate cancel permissions
 PASS: Punch2 frame 10 impact settings and shared hit history
 PASS: Punch2 frame 11 hitbox timing
 PASS: Punch2 frame 11 separate cancel permissions
+PASS: Punch2 frame 11 impact settings and shared hit history
 PASS: Punch2 frame 12 hitbox timing
 PASS: Punch2 frame 12 separate cancel permissions
+PASS: Punch2 frame 12 impact settings and shared hit history
 PASS: Punch2 frame 13 hitbox timing
 PASS: Punch2 frame 13 separate cancel permissions
 PASS: Punch2 frame 14 hitbox timing
@@ -110,6 +118,12 @@ PASS: Punch2 frame 22 hitbox timing
 PASS: Punch2 frame 22 separate cancel permissions
 PASS: Punch2 frame 23 hitbox timing
 PASS: Punch2 frame 23 separate cancel permissions
+PASS: Punch2 frame 24 hitbox timing
+PASS: Punch2 frame 24 separate cancel permissions
+PASS: Punch2 frame 25 hitbox timing
+PASS: Punch2 frame 25 separate cancel permissions
+PASS: Punch2 frame 26 hitbox timing
+PASS: Punch2 frame 26 separate cancel permissions
 PASS: Punch2 has subtle authored forward movement
 PASS: Punch3 uses the existing normal ground attack schema
 PASS: Punch3 has the requested startup, active and complete recovery frames
@@ -134,10 +148,8 @@ PASS: Punch3 frame 8 hitbox timing
 PASS: Punch3 frame 8 separate cancel permissions
 PASS: Punch3 frame 9 hitbox timing
 PASS: Punch3 frame 9 separate cancel permissions
-PASS: Punch3 frame 9 impact settings and shared hit history
 PASS: Punch3 frame 10 hitbox timing
 PASS: Punch3 frame 10 separate cancel permissions
-PASS: Punch3 frame 10 impact settings and shared hit history
 PASS: Punch3 frame 11 hitbox timing
 PASS: Punch3 frame 11 separate cancel permissions
 PASS: Punch3 frame 11 impact settings and shared hit history
@@ -152,12 +164,16 @@ PASS: Punch3 frame 14 separate cancel permissions
 PASS: Punch3 frame 14 impact settings and shared hit history
 PASS: Punch3 frame 15 hitbox timing
 PASS: Punch3 frame 15 separate cancel permissions
+PASS: Punch3 frame 15 impact settings and shared hit history
 PASS: Punch3 frame 16 hitbox timing
 PASS: Punch3 frame 16 separate cancel permissions
+PASS: Punch3 frame 16 impact settings and shared hit history
 PASS: Punch3 frame 17 hitbox timing
 PASS: Punch3 frame 17 separate cancel permissions
+PASS: Punch3 frame 17 impact settings and shared hit history
 PASS: Punch3 frame 18 hitbox timing
 PASS: Punch3 frame 18 separate cancel permissions
+PASS: Punch3 frame 18 impact settings and shared hit history
 PASS: Punch3 frame 19 hitbox timing
 PASS: Punch3 frame 19 separate cancel permissions
 PASS: Punch3 frame 20 hitbox timing
@@ -186,6 +202,16 @@ PASS: Punch3 frame 31 hitbox timing
 PASS: Punch3 frame 31 separate cancel permissions
 PASS: Punch3 frame 32 hitbox timing
 PASS: Punch3 frame 32 separate cancel permissions
+PASS: Punch3 frame 33 hitbox timing
+PASS: Punch3 frame 33 separate cancel permissions
+PASS: Punch3 frame 34 hitbox timing
+PASS: Punch3 frame 34 separate cancel permissions
+PASS: Punch3 frame 35 hitbox timing
+PASS: Punch3 frame 35 separate cancel permissions
+PASS: Punch3 frame 36 hitbox timing
+PASS: Punch3 frame 36 separate cancel permissions
+PASS: Punch3 frame 37 hitbox timing
+PASS: Punch3 frame 37 separate cancel permissions
 PASS: Punch3 has subtle authored forward movement
 PASS: Horizontal hitbox reach increases through the ground string
 PASS: Player prefab uses these assets, a six-frame buffer and authored recovery without extra finisher cooldown
@@ -201,22 +227,22 @@ PASS: Attack after Punch3 recovery starts a fresh Punch1
 PASS: Late Punch1 input cannot use a closed cancel window
 PASS: Late chain input expires at recovery completion without auto restarting Punch1
 PASS: Late Punch2 input cannot chain or auto restart after its cancel window closes
-PASS: Punch1 cancels immediately into Punch2 on frame 11
+PASS: Punch1 cancels immediately into Punch2 on frame 13
 PASS: Punch2 retains all recovery without continuation input
 PASS: Punch1 -> Punch2 -> neutral
 PASS: Early chain input waits in the existing buffer
-PASS: Buffered Attack consumes at the first legal frame 11
-PASS: Punch2 cancels immediately into Punch3 on frame 11
+PASS: Buffered Attack consumes at the first legal frame 13
+PASS: Punch2 cancels immediately into Punch3 on frame 13
 PASS: Finisher cannot chain back into Punch1
 PASS: Punch1 -> Punch2 -> Punch3 -> neutral
 PASS: Six-frame buffer accepts input six logical frames before cancel
 PASS: Input earlier than six frames before cancel expires
-PASS: Separate Launcher Cancel opens from Punch2 on frame 11
-PASS: Separate Launcher Cancel opens from Punch2 on frame 19
-PASS: Launcher cannot activate after Punch2's frame 19 cancel boundary
+PASS: Separate Launcher Cancel opens from Punch2 on frame 13
+PASS: Separate Launcher Cancel opens from Punch2 on frame 22
+PASS: Launcher cannot activate after Punch2's frame 22 cancel boundary
 PASS: Repeated Attack produces one intended string without restarting Punch1 during recovery
-PASS: Punch1 Attack Cancel includes its final frame 17
-PASS: Punch2 Attack Cancel includes its final frame 19
+PASS: Punch1 Attack Cancel includes its final frame 20
+PASS: Punch2 Attack Cancel includes its final frame 22
 PASS: Early Launcher input buffers into Punch2's separate launcher window
 PASS: Nonterminal air attack keeps the existing air route after completion
 PASS: Ground neutral reset preserves manual air-combo continuation
@@ -257,7 +283,7 @@ PASS: Punch3 hitstop freezes timeline, motion and hitstun
 PASS: Punch3 horizontal knockback mirrors facing and begins after hitstop
 PASS: Punch3 hits once across its active frames and recovers without launching
 PASS: Attack input remains buffered throughout hitstop
-PASS: Hitstop-buffered input consumes at Punch1 frame 11
+PASS: Hitstop-buffered input consumes at Punch1 frame 13
 PASS: Connected three-punch string deals 8 + 9 + 14 damage and never launches
 PASS: A slow rendered frame still processes active frames, hitstop and recovery at logical 60 FPS
 PASS: Existing editor authoring commands still edit sprites, hitboxes, frame count, motion, damage, hitstop, hitstun and cancel windows

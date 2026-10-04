@@ -236,6 +236,7 @@ public sealed class AttackDataEditorWindow : EditorWindow
             showIdentity = EditorGUILayout.Foldout(showIdentity, "Attack properties", true);
             if (showIdentity)
                 foreach (string property in new[] { "attackName", "domain", "isLauncher", "cooldownFrames", "requiresAirborne", "landingFrame", "airborneHoldFrame", "artworkNotes" }) EditorGUILayout.PropertyField(serializedAttack.FindProperty(property));
+                EditorGUILayout.PropertyField(serializedAttack.FindProperty("feedback"), true);
             if (attack.TotalFrames == 0) EditorGUILayout.HelpBox("Add a frame to begin authoring.", MessageType.Info);
             else
             {

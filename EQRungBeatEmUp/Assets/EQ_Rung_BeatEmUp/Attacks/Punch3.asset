@@ -16,7 +16,15 @@ MonoBehaviour:
   domain: 0
   isLauncher: 0
   cooldownFrames: 0
-  artworkNotes: Slower readability timing at 60 FPS; poses held about 50 percent longer. Damage, hitstop, knockback and total authored movement preserved.
+  artworkNotes: Readable anticipation/contact/follow-through holds at 60 FPS. Existing damage, hitstop, movement, sprites and routes preserved. Swing event on first active; impact cues only on confirmed hits.
+  feedback:
+    swingSound: {fileID: 8300000, guid: 0e9bca6dd55d7e541a865752da6415f5, type: 3}
+    impactSound: {fileID: 8300000, guid: 5174415e9879415498f7b0dd794d19c5, type: 3}
+    swingVolume: 0.42
+    impactVolume: 0.65
+    impactPrefab: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
+    impactScale: 0.2
+    impactLifetime: 0.5
   frames:
   - sprite: {fileID: 21300000, guid: 0ca741071d0f67543b00e32fc7c3cbca, type: 3}
     hitboxes: []
@@ -162,6 +170,38 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
+  - sprite: {fileID: 21300000, guid: b0b8784af20c38146a1744876663d26d, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: b0b8784af20c38146a1744876663d26d, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
   - sprite: {fileID: 21300000, guid: 5f4f56aa3a985af4d81012fd6c748526, type: 3}
     hitboxes:
     - hitId: 0
@@ -195,7 +235,8 @@ MonoBehaviour:
     canCancelIntoJump: 0
     invulnerable: 0
     superArmor: 0
-    events: []
+    events:
+    - Swing
   - sprite: {fileID: 21300000, guid: 5f4f56aa3a985af4d81012fd6c748526, type: 3}
     hitboxes:
     - hitId: 0
@@ -352,6 +393,90 @@ MonoBehaviour:
       maximumWallBounces: 1
       canHitGrounded: 1
       canHitAirborne: 0
+    movement: {x: 0, y: 0}
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 5f4f56aa3a985af4d81012fd6c748526, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.52, y: 0.68}
+      size: {x: 0.9, y: 0.54}
+      laneTolerance: 0.55
+      damage: 14
+      hitstunFrames: 24
+      hitstopFrames: 6
+      knockback: 5
+      launchVelocity: {x: 0, y: 0}
+      hitType: 0
+      wallBounce: 1
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
+      canHitGrounded: 1
+      canHitAirborne: 0
+    movement: {x: 0, y: 0}
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 5f4f56aa3a985af4d81012fd6c748526, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.52, y: 0.68}
+      size: {x: 0.9, y: 0.54}
+      laneTolerance: 0.55
+      damage: 14
+      hitstunFrames: 24
+      hitstopFrames: 6
+      knockback: 5
+      launchVelocity: {x: 0, y: 0}
+      hitType: 0
+      wallBounce: 1
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
+      canHitGrounded: 1
+      canHitAirborne: 0
+    movement: {x: 0, y: 0}
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 294a90f58c6a60f42b416a4f641cc928, type: 3}
+    hitboxes: []
     movement: {x: 0, y: 0}
     setHorizontalVelocity: 0
     horizontalVelocity: 0

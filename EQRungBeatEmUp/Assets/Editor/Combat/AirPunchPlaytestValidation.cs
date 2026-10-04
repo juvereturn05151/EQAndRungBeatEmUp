@@ -78,7 +78,7 @@ public static class AirPunchPlaytestValidation
     }
     private static void Data()
     {
-        int[] total = { 20, 21, 30 }, first = { 5, 5, 8 }, last = { 8, 8, 13 }, stop = { 3, 4, 6 }, stun = { 17, 19, 24 };
+        int[] total = { 23, 24, 36 }, first = { 6, 6, 10 }, last = { 10, 10, 17 }, stop = { 3, 4, 6 }, stun = { 17, 19, 24 };
         float[] damage = { 7, 8, 13 };
         for (int p = 0; p < 3; p++)
         {
@@ -88,7 +88,7 @@ public static class AirPunchPlaytestValidation
             {
                 var frame = data.frames[i]; bool active = i >= first[p] && i <= last[p];
                 Check(frame.sprite && frame.hitboxes.Count == (active ? 1 : 0), data.name + " frame " + i + " sprite and active-only hitbox");
-                Check(frame.canCancelIntoAttack == (p < 2 && i >= 8 && i <= (p == 0 ? 16 : 17)) && !frame.canCancelIntoLauncher && !frame.canCancelIntoJump, data.name + " frame " + i + " cancel permissions");
+                Check(frame.canCancelIntoAttack == (p < 2 && i >= 10 && i <= (p == 0 ? 19 : 20)) && !frame.canCancelIntoLauncher && !frame.canCancelIntoJump, data.name + " frame " + i + " cancel permissions");
                 Check(frame.gravityScale == (p < 2 ? .85f : 1) && frame.movementInputScale == .3f && !frame.suspendFalling && !frame.setHorizontalVelocity && !frame.setVerticalVelocity, data.name + " frame " + i + " preserves momentum and permits gravity");
                 if (active)
                 {
@@ -120,16 +120,16 @@ public static class AirPunchPlaytestValidation
     }
     private static void Cancels()
     {
-        Fixture(); player.RequestJump(); player.RequestAttack(); Step(5); player.RequestAttack(); Step(2);
+        Fixture(); player.RequestJump(); player.RequestAttack(); Step(7); player.RequestAttack(); Step(2);
         Check(player.CurrentAttack == air[0] && player.BufferedInput == CombatInput.Attack, "Early air input uses the existing six-frame buffer"); Step(1);
-        Check(player.CurrentAttack == air[1] && player.attackPlayer.CurrentFrame == 0, "AirPunch1 cancels directly into AirPunch2 on final active frame 8");
-        Step(8); player.RequestAttack(); Check(player.CurrentAttack == air[2], "AirPunch2 cancels directly into AirPunch3 on frame 8");
-        Step(30); player.RequestAttack(); Step(2);
+        Check(player.CurrentAttack == air[1] && player.attackPlayer.CurrentFrame == 0, "AirPunch1 cancels directly into AirPunch2 on final active frame 10");
+        Step(10); player.RequestAttack(); Check(player.CurrentAttack == air[2], "AirPunch2 cancels directly into AirPunch3 on frame 10");
+        Step(36); player.RequestAttack(); Step(2);
         Check(!player.CurrentAttack && !player.motor.IsGrounded, "Finisher cannot restart AirPunch1 during the same jump");
         foreach (int p in new[] { 0, 1 })
         {
-            Fixture(); player.RequestJump(); player.RequestAttack(); if (p == 1) { Step(8); player.RequestAttack(); }
-            Step(p == 0 ? 16 : 17); player.RequestAttack();
+            Fixture(); player.RequestJump(); player.RequestAttack(); if (p == 1) { Step(10); player.RequestAttack(); }
+            Step(p == 0 ? 19 : 20); player.RequestAttack();
             Check(player.CurrentAttack == air[p + 1], air[p].name + " cancel includes its final legal frame");
         }
     }

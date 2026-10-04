@@ -39,6 +39,7 @@ public sealed class AttackDataEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("landingFrame"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("airborneHoldFrame"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("artworkNotes"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("feedback"), true);
         var clock = FindFirstObjectByType<CombatClock>();
         EditorGUILayout.LabelField("Combat FPS: " + (clock ? clock.combatFPS.ToString() : "60 (automatic clock)"));
         int first = Data.FirstActiveFrame, last = Data.LastActiveFrame;

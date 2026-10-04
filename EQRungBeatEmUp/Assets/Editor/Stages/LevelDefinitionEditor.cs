@@ -11,15 +11,28 @@ public sealed class LevelDefinitionEditor : Editor
     private void OnEnable()
     {
         stages = new ReorderableList(serializedObject, serializedObject.FindProperty("stages"), true, true, true, true);
+        stages.index = StageEditorSelection.GetIndex((LevelDefinition)target);
+        stages.onSelectCallback = list => {
+            serializedObject.ApplyModifiedProperties();
+            StageEditorSelection.Select((LevelDefinition)target, list.index);
+        };
+        stages.onReorderCallback = list => {
+            serializedObject.ApplyModifiedProperties();
+            var level = (LevelDefinition)target;
+            StageEditorSelection.Select(level, StageEditorSelection.GetIndex(level));
+        };
+        EditorApplication.delayCall += StartPreview;
         stages.drawHeaderCallback = rect => EditorGUI.LabelField(rect, "Stages — drag to reorder");
         stages.drawElementCallback = (rect, index, active, focused) => {
             var item = stages.serializedProperty.GetArrayElementAtIndex(index);
             EditorGUI.LabelField(rect, (index + 1) + ". " + item.FindPropertyRelative("stageName").stringValue);
         };
     }
+    private void StartPreview() { if (this && target) StageEditorSelection.EnsurePreview((LevelDefinition)target); }
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
+        stages.index = StageEditorSelection.GetIndex((LevelDefinition)target);
         EditorGUILayout.PropertyField(serializedObject.FindProperty("levelId"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("levelName"));
         stages.DoLayoutList();
@@ -39,11 +52,17 @@ public sealed class LevelDefinitionEditor : Editor
                 - (selected.FindPropertyRelative("floorCenterY").floatValue + selected.FindPropertyRelative("floorHeight").floatValue * .5f);
             if (Mathf.Abs(seamGap) > .01f)
                 EditorGUILayout.HelpBox($"Art seam: {Mathf.Abs(seamGap):0.###} world units of {(seamGap > 0 ? "gap" : "overlap")}. Match Background Center Y − Background Height / 2 to Floor Center Y + Floor Height / 2. This assumes centered sprite pivots.", MessageType.Warning);
-            EditorGUILayout.HelpBox("Art heights and center Y values affect visuals only. Camera framing and movement bounds are separate. Edit the stage asset during Play for a live preview; asset edits persist, whereas renderer Transform edits do not. Reset restores only the four height/center values.", MessageType.Info);
+            EditorGUILayout.HelpBox("Art heights and center Y values affect visuals only. Changes refresh the selected stage immediately in Edit Mode. Asset edits persist; temporary preview transforms do not. Reset restores only the four height/center values.", MessageType.Info);
         }
-        serializedObject.ApplyModifiedProperties();
+        if (serializedObject.ApplyModifiedProperties() && !Application.isPlaying)
+        {
+            StageEditorSelection.EnsurePreview((LevelDefinition)target);
+            EncounterPreview.RefreshNow();
+        }
         EditorGUILayout.HelpBox("Select a stage above. Expand encounters → waves → enemy spawns to set prefab, count, positions and interval. Destructibles support a prefab or sprites plus HP and hitbox. -1 nextStageIndex follows list order. PreviousEncounterClear references an earlier index. IDs are used by manual/event signals.", MessageType.Info);
         var level = (LevelDefinition)target;
+        StageEditorSelection.DrawControls(level);
+        stages.index = StageEditorSelection.GetIndex(level);
         EncounterPreview.DrawInspector(level, stages.index, previewSelection);
         for (int i = 0; i < level.stages.Count; i++)
         {

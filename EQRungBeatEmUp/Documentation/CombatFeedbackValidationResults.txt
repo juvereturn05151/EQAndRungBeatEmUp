@@ -1,0 +1,130 @@
+PASS: Punch1 resolves both library sounds and VFX prefab
+PASS: Punch1 swing is authored exactly once on first active frame
+PASS: Punch1 begins
+PASS: Punch1 anticipation has no early cues
+PASS: Punch1 confirmed hit and swing occur on actual first active frame, facing 1
+PASS: Punch1 audio sources use selected clips and volumes
+PASS: Punch1 library particles are finite and scale with effect
+PASS: Punch1 instance disables lighting and camera shake
+PASS: Punch1 VFX render just above player sprite
+PASS: Punch1 repeated samples and hitstop do not duplicate feedback
+PASS: Punch1 begins
+PASS: Punch1 anticipation has no early cues
+PASS: Punch1 confirmed hit and swing occur on actual first active frame, facing -1
+PASS: Punch1 audio sources use selected clips and volumes
+PASS: Punch1 library particles are finite and scale with effect
+PASS: Punch1 instance disables lighting and camera shake
+PASS: Punch1 VFX render just above player sprite
+PASS: Punch1 repeated samples and hitstop do not duplicate feedback
+PASS: Punch1 whiff has swing but no false impact
+PASS: Punch1 interrupted same-asset restart resets feedback history
+PASS: Punch1 paused combat emits no extra feedback
+PASS: Punch2 resolves both library sounds and VFX prefab
+PASS: Punch2 swing is authored exactly once on first active frame
+PASS: Punch2 begins
+PASS: Punch2 anticipation has no early cues
+PASS: Punch2 confirmed hit and swing occur on actual first active frame, facing 1
+PASS: Punch2 audio sources use selected clips and volumes
+PASS: Punch2 library particles are finite and scale with effect
+PASS: Punch2 instance disables lighting and camera shake
+PASS: Punch2 VFX render just above player sprite
+PASS: Punch2 repeated samples and hitstop do not duplicate feedback
+PASS: Punch2 begins
+PASS: Punch2 anticipation has no early cues
+PASS: Punch2 confirmed hit and swing occur on actual first active frame, facing -1
+PASS: Punch2 audio sources use selected clips and volumes
+PASS: Punch2 library particles are finite and scale with effect
+PASS: Punch2 instance disables lighting and camera shake
+PASS: Punch2 VFX render just above player sprite
+PASS: Punch2 repeated samples and hitstop do not duplicate feedback
+PASS: Punch2 whiff has swing but no false impact
+PASS: Punch2 interrupted same-asset restart resets feedback history
+PASS: Punch2 paused combat emits no extra feedback
+PASS: Punch3 resolves both library sounds and VFX prefab
+PASS: Punch3 swing is authored exactly once on first active frame
+PASS: Punch3 begins
+PASS: Punch3 anticipation has no early cues
+PASS: Punch3 confirmed hit and swing occur on actual first active frame, facing 1
+PASS: Punch3 audio sources use selected clips and volumes
+PASS: Punch3 library particles are finite and scale with effect
+PASS: Punch3 instance disables lighting and camera shake
+PASS: Punch3 VFX render just above player sprite
+PASS: Punch3 repeated samples and hitstop do not duplicate feedback
+INFO: Punch3 sampled VFX bounds: (2.04, 2.04, 2.04)
+PASS: Punch3 begins
+PASS: Punch3 anticipation has no early cues
+PASS: Punch3 confirmed hit and swing occur on actual first active frame, facing -1
+PASS: Punch3 audio sources use selected clips and volumes
+PASS: Punch3 library particles are finite and scale with effect
+PASS: Punch3 instance disables lighting and camera shake
+PASS: Punch3 VFX render just above player sprite
+PASS: Punch3 repeated samples and hitstop do not duplicate feedback
+PASS: Punch3 whiff has swing but no false impact
+PASS: Punch3 interrupted same-asset restart resets feedback history
+PASS: Punch3 paused combat emits no extra feedback
+PASS: AirPunch1 resolves both library sounds and VFX prefab
+PASS: AirPunch1 swing is authored exactly once on first active frame
+PASS: AirPunch1 begins
+PASS: AirPunch1 anticipation has no early cues
+PASS: AirPunch1 confirmed hit and swing occur on actual first active frame, facing 1
+PASS: AirPunch1 audio sources use selected clips and volumes
+PASS: AirPunch1 library particles are finite and scale with effect
+PASS: AirPunch1 instance disables lighting and camera shake
+PASS: AirPunch1 VFX render just above player sprite
+PASS: AirPunch1 repeated samples and hitstop do not duplicate feedback
+PASS: AirPunch1 begins
+PASS: AirPunch1 anticipation has no early cues
+PASS: AirPunch1 confirmed hit and swing occur on actual first active frame, facing -1
+PASS: AirPunch1 audio sources use selected clips and volumes
+PASS: AirPunch1 library particles are finite and scale with effect
+PASS: AirPunch1 instance disables lighting and camera shake
+PASS: AirPunch1 VFX render just above player sprite
+PASS: AirPunch1 repeated samples and hitstop do not duplicate feedback
+PASS: AirPunch1 whiff has swing but no false impact
+PASS: AirPunch1 interrupted same-asset restart resets feedback history
+PASS: AirPunch1 paused combat emits no extra feedback
+PASS: AirPunch2 resolves both library sounds and VFX prefab
+PASS: AirPunch2 swing is authored exactly once on first active frame
+PASS: AirPunch2 begins
+PASS: AirPunch2 anticipation has no early cues
+PASS: AirPunch2 confirmed hit and swing occur on actual first active frame, facing 1
+PASS: AirPunch2 audio sources use selected clips and volumes
+PASS: AirPunch2 library particles are finite and scale with effect
+PASS: AirPunch2 instance disables lighting and camera shake
+PASS: AirPunch2 VFX render just above player sprite
+PASS: AirPunch2 repeated samples and hitstop do not duplicate feedback
+PASS: AirPunch2 begins
+PASS: AirPunch2 anticipation has no early cues
+PASS: AirPunch2 confirmed hit and swing occur on actual first active frame, facing -1
+PASS: AirPunch2 audio sources use selected clips and volumes
+PASS: AirPunch2 library particles are finite and scale with effect
+PASS: AirPunch2 instance disables lighting and camera shake
+PASS: AirPunch2 VFX render just above player sprite
+PASS: AirPunch2 repeated samples and hitstop do not duplicate feedback
+PASS: AirPunch2 whiff has swing but no false impact
+PASS: AirPunch2 interrupted same-asset restart resets feedback history
+PASS: AirPunch2 paused combat emits no extra feedback
+PASS: AirPunch3 resolves both library sounds and VFX prefab
+PASS: AirPunch3 swing is authored exactly once on first active frame
+PASS: AirPunch3 begins
+PASS: AirPunch3 anticipation has no early cues
+PASS: AirPunch3 confirmed hit and swing occur on actual first active frame, facing 1
+PASS: AirPunch3 audio sources use selected clips and volumes
+PASS: AirPunch3 library particles are finite and scale with effect
+PASS: AirPunch3 instance disables lighting and camera shake
+PASS: AirPunch3 VFX render just above player sprite
+PASS: AirPunch3 repeated samples and hitstop do not duplicate feedback
+INFO: AirPunch3 sampled VFX bounds: (3.83, 3.83, 3.83)
+PASS: AirPunch3 begins
+PASS: AirPunch3 anticipation has no early cues
+PASS: AirPunch3 confirmed hit and swing occur on actual first active frame, facing -1
+PASS: AirPunch3 audio sources use selected clips and volumes
+PASS: AirPunch3 library particles are finite and scale with effect
+PASS: AirPunch3 instance disables lighting and camera shake
+PASS: AirPunch3 VFX render just above player sprite
+PASS: AirPunch3 repeated samples and hitstop do not duplicate feedback
+PASS: AirPunch3 whiff has swing but no false impact
+PASS: AirPunch3 interrupted same-asset restart resets feedback history
+PASS: AirPunch3 paused combat emits no extra feedback
+PASS: Invulnerable/rejected hits do not create impact cues
+PASS: Two targets on one frame share one impact without losing damage

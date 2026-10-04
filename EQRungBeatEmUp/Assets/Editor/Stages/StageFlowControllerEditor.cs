@@ -5,8 +5,9 @@ using UnityEngine;
 [CustomEditor(typeof(StageFlowController))]
 public sealed class StageFlowControllerEditor : Editor
 {
-    private int previewStage;
     private readonly EncounterPreview.InspectorSelection previewSelection = new EncounterPreview.InspectorSelection();
+    private void OnEnable() { EditorApplication.delayCall += StartPreview; }
+    private void StartPreview() { if (this && target) StageEditorSelection.EnsurePreview(((StageFlowController)target).level); }
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector(); var flow = (StageFlowController)target;
@@ -14,8 +15,12 @@ public sealed class StageFlowControllerEditor : Editor
         if (flow.level && flow.level.stages.Count > 0)
         {
             var names = flow.level.stages.ConvertAll(s => s.stageName).ToArray();
-            previewStage = Mathf.Clamp(previewStage, 0, names.Length - 1);
-            previewStage = EditorGUILayout.Popup("Preview Stage", previewStage, names);
+            int previewStage = StageEditorSelection.GetIndex(flow.level);
+            EditorGUI.BeginChangeCheck();
+            int selected = EditorGUILayout.Popup("Editor Stage", previewStage, names);
+            if (EditorGUI.EndChangeCheck()) StageEditorSelection.Select(flow.level, selected);
+            StageEditorSelection.DrawControls(flow.level);
+            previewStage = StageEditorSelection.GetIndex(flow.level);
             EncounterPreview.DrawInspector(flow.level, previewStage, previewSelection);
         }
         EditorGUILayout.HelpBox("Play HauntedHouse.unity. Walk to the right exit after clearing required waves. E near the shrine heals. R retries after death. F8 opens stage/wave debug controls. Select this object for bounds, spawn, entry/exit and prop gizmos.", MessageType.Info);

@@ -1,5 +1,7 @@
 # AirCombo3 two-handed hammer-smash redraw
 
+This report records the original redraw's 30-frame timing. The later [combat readability revision](CombatReadability.md) retains these drawings and extends the attack to 36 frames (active 10–17), with sound/VFX hooks. Use that guide for current timings.
+
 AirCombo3 uses the existing `AirPunch3.asset` finisher. Its new dedicated sprites are under `Assets/ArtAssets/Characters/BlueShirtGuy/AirCombo3`. They replace the previous one-arm-looking attack drawings only in this finisher's frame data; shared AirAttack1 sprites, AirPunch1 and AirPunch2 remain intact.
 
 The redraw follows the existing BlueShirtGuy references: short brown hair, blue patterned shirt, navy trousers, gray/white sneakers, dark pixel outlines and compact airborne proportions. Joined hands, the overhead silhouette, forward/downward shoulder drive and restrained blue-white motion accents make the finisher easier to read. The impact remains airborne; it has no baked floor contact or debris. Its feet trail the strike rather than delivering a kick.

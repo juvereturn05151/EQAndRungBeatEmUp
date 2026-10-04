@@ -16,7 +16,15 @@ MonoBehaviour:
   domain: 1
   isLauncher: 0
   cooldownFrames: 0
-  artworkNotes: Slower readability timing at 60 FPS; existing air poses held about 50 percent longer. Damage, hitstop, gravity, bounce and total authored movement preserved.
+  artworkNotes: Readable anticipation/contact/follow-through holds at 60 FPS. Existing damage, hitstop, movement, sprites and routes preserved. Swing event on first active; impact cues only on confirmed hits.
+  feedback:
+    swingSound: {fileID: 8300000, guid: 90fb91c5d9f18df4183363d36d921429, type: 3}
+    impactSound: {fileID: 8300000, guid: d0f166575306db84091dc03fce0eff69, type: 3}
+    swingVolume: 0.32
+    impactVolume: 0.5
+    impactPrefab: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
+    impactScale: 0.14
+    impactLifetime: 0.4
   frames:
   - sprite: {fileID: 21300000, guid: a31e98fe893ae4d4dad0abed9b4a3890, type: 3}
     hitboxes: []
@@ -103,6 +111,54 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
+  - sprite: {fileID: 21300000, guid: 1a256f6e5bf388043b0f8207ec4c267c, type: 3}
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0.3
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 0.85
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 6a3507793de6895419e43c66400298d8, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.46, y: 0.79}
+      size: {x: 0.74, y: 0.46}
+      laneTolerance: 0.55
+      damage: 8
+      hitstunFrames: 19
+      hitstopFrames: 4
+      knockback: 0.25
+      launchVelocity: {x: 0, y: 0}
+      hitType: 0
+      canHitGrounded: 0
+      canHitAirborne: 1
+    movement: {x: 0, y: 0}
+    movementInputScale: 0.3
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 0.85
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events:
+    - Swing
   - sprite: {fileID: 21300000, guid: 6a3507793de6895419e43c66400298d8, type: 3}
     hitboxes:
     - hitId: 0
@@ -208,6 +264,23 @@ MonoBehaviour:
       hitType: 0
       canHitGrounded: 0
       canHitAirborne: 1
+    movement: {x: 0, y: 0}
+    movementInputScale: 0.3
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 0.85
+    suspendFalling: 0
+    canCancelIntoAttack: 1
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: eac142d2f1cf22d43b55c5e51342e003, type: 3}
+    hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
     setHorizontalVelocity: 0

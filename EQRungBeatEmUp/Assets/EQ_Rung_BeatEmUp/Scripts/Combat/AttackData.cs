@@ -52,6 +52,16 @@ namespace BeatEmUp
     }
 
     [Serializable]
+    public sealed class AttackFeedbackData
+    {
+        public AudioClip swingSound, impactSound;
+        [Range(0, 1)] public float swingVolume = .35f, impactVolume = .55f;
+        public GameObject impactPrefab;
+        [Min(.01f)] public float impactScale = .15f;
+        [Min(.05f)] public float impactLifetime = .45f;
+    }
+
+    [Serializable]
     public sealed class AttackFrameData
     {
         public Sprite sprite;
@@ -90,6 +100,8 @@ namespace BeatEmUp
         [Tooltip("Hold this earlier travel frame while airborne at Landing Frame. -1 disables the hold.")]
         public int airborneHoldFrame = -1;
         [TextArea] public string artworkNotes;
+        [Header("Combat feedback (Swing frame event + confirmed hits)")]
+        public AttackFeedbackData feedback = new AttackFeedbackData();
         public List<AttackFrameData> frames = new List<AttackFrameData>();
         public int TotalFrames => frames.Count;
         public int FirstActiveFrame => frames.FindIndex(f => f != null && f.hitboxes.Count > 0);

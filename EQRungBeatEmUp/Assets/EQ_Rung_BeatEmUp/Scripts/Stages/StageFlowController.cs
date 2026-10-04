@@ -389,6 +389,8 @@ namespace BeatEmUp
         public void RestartAt(int index) { RunUpgrades?.CloseChoice(); player.ResetForStage(Vector2.zero); player.GetComponent<CharacterHealth>().Restore(); EnterStage(index); }
         private void OnDrawGizmosSelected()
         {
+            // Edit-time gizmos come from the authoring preview's selected stage, not CurrentStage.
+            if (!Application.isPlaying) return;
             if (CurrentStage == null) 
             { 
                 return; 

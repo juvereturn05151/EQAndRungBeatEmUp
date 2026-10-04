@@ -10,6 +10,7 @@ namespace BeatEmUp
         public int team;
         public LayerMask hurtboxLayers = ~0;
         public bool debugDraw;
+        public event System.Action<Vector2, CombatHitOutcome> HitConfirmed;
         private readonly Dictionary<int, Dictionary<CharacterHealth, int>> victims = new Dictionary<int, Dictionary<CharacterHealth, int>>();
         private readonly Dictionary<int, Dictionary<DestructibleObject, int>> props = new Dictionary<int, Dictionary<DestructibleObject, int>>();
         private AttackFrameData current;
@@ -34,7 +35,12 @@ namespace BeatEmUp
                         if (!props.TryGetValue(box.hitId, out var propHistory)) { propHistory = new Dictionary<DestructibleObject, int>(); props.Add(box.hitId, propHistory); }
                         if (propHistory.TryGetValue(prop, out int lastProp) && (box.repeatAfterFrames == 0 || frameNumber - lastProp < box.repeatAfterFrames)) continue;
                         var propHit = motor.GetComponent<RunBuildState>()?.ModifyHit(box, null) ?? box;
-                        if (prop.Receive(propHit, facing, motor)) { propHistory[prop] = frameNumber; if (owner) owner.Freeze(propHit.hitstopFrames); }
+                        if (prop.Receive(propHit, facing, motor))
+                        {
+                            propHistory[prop] = frameNumber;
+                            HitConfirmed?.Invoke(Center(box), CombatHitOutcome.Hit);
+                            if (owner) owner.Freeze(propHit.hitstopFrames);
+                        }
                         continue;
                     }
                     var hurtbox = collider.GetComponent<CombatHurtbox>();
@@ -45,6 +51,7 @@ namespace BeatEmUp
                     var runtimeHit = build ? build.ModifyHit(box, hurtbox.motor) : box;
                     if (!hurtbox.Receive(runtimeHit, facing, motor)) continue;
                     history[hurtbox.health] = frameNumber;
+                    HitConfirmed?.Invoke(collider.ClosestPoint(Center(box)), hurtbox.LastHitOutcome);
                     build?.AttackHit(hurtbox.health, hurtbox.LastHitOutcome);
                     if (owner) owner.Freeze(hurtbox.LastHitstopFrames);
                     if (hurtbox.motor.attackPlayer) hurtbox.motor.attackPlayer.Freeze(hurtbox.LastHitstopFrames);

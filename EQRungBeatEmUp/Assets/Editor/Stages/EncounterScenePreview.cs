@@ -13,7 +13,7 @@ public static class EncounterScenePreview
     static Scene scene;
     public static bool IsActive => root;
 
-    public static void Show(LevelDefinition level, StageSegmentDefinition stage, IEnumerable<WaveDefinition> waves)
+    public static void Show(LevelDefinition level, StageSegmentDefinition stage, IEnumerable<WaveDefinition> waves, bool showRewards = false)
     {
         if (Application.isPlaying) return;
         Clear();
@@ -35,7 +35,7 @@ public static class EncounterScenePreview
             Plate("Floor", stage.floorSprite, stage.artWidth, stage.floorHeight, stage.floorCenterY, -900);
             foreach (var prop in stage.decorativeProps)
                 if (prop.prefab) Visual(prop.prefab, prop.position, prop.prefab.name);
-            foreach (var prop in stage.destructibles)
+            foreach (var prop in stage.IsSafeStage ? Enumerable.Empty<DestructiblePlacement>() : stage.destructibles)
             {
                 if (prop.prefab) Visual(prop.prefab, prop.position, prop.label);
                 else if (prop.intactSprite)
@@ -48,6 +48,11 @@ public static class EncounterScenePreview
             var flow = Object.FindObjectsByType<StageFlowController>(FindObjectsInactive.Include, FindObjectsSortMode.None)
                 .FirstOrDefault(f => f.gameObject.scene == scene && f.level == level);
             if (flow && flow.player) Visual(flow.player.gameObject, stage.playerEntryPoint, "Player entry preview");
+            if (showRewards && stage.rewardAfterClear == StageReward.UpgradeChoice)
+            {
+                var chapel = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/EQ_Rung_BeatEmUp/Prefabs/Rewards/RewardChapel.prefab");
+                if (chapel) Visual(chapel, stage.chapelSpawnPoint, "Reward chapel (after clear)");
+            }
             foreach (var wave in waves) foreach (var spawn in wave.enemySpawns)
                 if (spawn.prefab) for (int i = 0; i < Mathf.Max(1, spawn.count); i++)
                     Visual(spawn.prefab, EncounterPreview.SpawnPosition(stage, spawn, i), $"{wave.waveId} / {spawn.prefab.name} #{i + 1}");

@@ -16,6 +16,8 @@ public static class EncounterPreview
     static LevelDefinition previewLevel;
     static int previewStage, encounterIndex, waveIndex;
     static bool editHandles;
+    static bool stageMode;
+    static LevelDefinition resumeLevel;
     static string previewFingerprint;
     static double nextRefresh;
     static readonly Color TriggerColor = new Color(1, .7f, .15f);
@@ -23,9 +25,14 @@ public static class EncounterPreview
     static EncounterPreview()
     {
         SceneView.duringSceneGui += DrawScene;
-        EditorApplication.playModeStateChanged += _ => Clear();
+        EditorApplication.playModeStateChanged += state => {
+            if (previewLevel) resumeLevel = previewLevel;
+            Clear();
+            if (state == PlayModeStateChange.EnteredEditMode && resumeLevel)
+                EditorApplication.delayCall += () => { if (resumeLevel) StageEditorSelection.EnsurePreview(resumeLevel); };
+        };
         UnityEditor.SceneManagement.EditorSceneManager.activeSceneChangedInEditMode += (_, __) => Clear();
-        Undo.undoRedoPerformed += SceneView.RepaintAll;
+        Undo.undoRedoPerformed += RefreshNow;
         AssemblyReloadEvents.beforeAssemblyReload += Clear;
         EditorApplication.quitting += Clear;
         UnityEditor.SceneManagement.EditorSceneManager.sceneClosing += (_, __) => Clear();
@@ -42,13 +49,11 @@ public static class EncounterPreview
         if (stage.IsSafeStage)
         {
             EditorGUILayout.HelpBox("Safe stages ignore encounters at runtime. No trigger preview is available.", MessageType.Info);
-            if (previewLevel == level && GUILayout.Button("Clear Preview")) Clear();
             return;
         }
         if (stage.encounters.Count == 0)
         {
             EditorGUILayout.HelpBox("Add an encounter to this stage to preview its trigger and waves.", MessageType.Info);
-            if (previewLevel == level && GUILayout.Button("Clear Preview")) Clear();
             return;
         }
         EditorGUI.BeginChangeCheck();
@@ -79,9 +84,9 @@ public static class EncounterPreview
             Begin(level, stageIndex, selection.encounter, selection.wave);
             editHandles = keepHandles; Focus();
         }
-        bool active = previewLevel == level && previewStage == stageIndex && encounterIndex == selection.encounter && waveIndex == selection.wave;
+        bool active = !stageMode && previewLevel == level && previewStage == stageIndex && encounterIndex == selection.encounter && waveIndex == selection.wave;
         if (TryGet(out var showingStage, out var showingEncounter))
-            EditorGUILayout.LabelField("Showing", $"{showingStage.stageName} / {encounterIndex + 1}. {showingEncounter.encounterId}", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Showing", stageMode ? showingStage.stageName + " / Whole stage" : $"{showingStage.stageName} / {encounterIndex + 1}. {showingEncounter.encounterId}", EditorStyles.boldLabel);
         using (new EditorGUILayout.HorizontalScope())
         {
             using (new EditorGUI.DisabledScope(Application.isPlaying))
@@ -115,9 +120,7 @@ public static class EncounterPreview
         if (!level || stageIndex < 0 || stageIndex >= level.stages.Count) return;
         if (selection.level != level || selection.stage != stageIndex)
         {
-            // Only an intentional context change in this inspector clears its previous preview.
-            // A second/locked inspector repaint must never clamp or replace the active selection.
-            if (selection.level == previewLevel && selection.stage == previewStage) Clear();
+            // Reset only this inspector's encounter controls; keep the shared stage preview intact.
             selection.level = level; selection.stage = stageIndex; selection.encounter = selection.wave = 0;
         }
         var stage = level.stages[stageIndex];
@@ -172,11 +175,28 @@ public static class EncounterPreview
         previewLevel = null; editHandles = false; SceneView.RepaintAll();
     }
 
+    public static bool IsPreviewing(LevelDefinition level, int stage) => previewLevel == level && previewStage == stage && EncounterScenePreview.IsActive;
+    public static void BeginStage(LevelDefinition level, int index)
+    {
+        Clear();
+        if (Application.isPlaying || !level || index < 0 || index >= level.stages.Count) return;
+        StageEditorSelection.Remember(level, index);
+        previewLevel = level; previewStage = index; stageMode = true;
+        RefreshScene(true);
+    }
+    public static void RefreshNow()
+    {
+        if (!Application.isPlaying) RefreshScene(true);
+        SceneView.RepaintAll();
+    }
+    public static void FocusPreview() => Focus();
+
     public static void Begin(LevelDefinition level, int stageIndex, int encounter, int wave = 0)
     {
         Clear();
         if (Application.isPlaying || !level || stageIndex < 0 || stageIndex >= level.stages.Count) return;
-        previewLevel = level; previewStage = stageIndex; encounterIndex = encounter; waveIndex = wave;
+        StageEditorSelection.Remember(level, stageIndex);
+        previewLevel = level; previewStage = stageIndex; encounterIndex = encounter; waveIndex = wave; stageMode = false;
         RefreshScene(true);
     }
 
@@ -184,21 +204,26 @@ public static class EncounterPreview
     static void RefreshScene(bool force)
     {
         if (!previewLevel) return;
+        previewStage = StageEditorSelection.GetIndex(previewLevel);
         if (!TryGet(out var stage, out var encounter)) { Clear(); return; }
         if (!force && EditorApplication.timeSinceStartup < nextRefresh) return;
         nextRefresh = EditorApplication.timeSinceStartup + .2;
-        string fingerprint = EditorJsonUtility.ToJson(previewLevel) + ":" + encounterIndex + ":" + waveIndex;
+        string fingerprint = EditorJsonUtility.ToJson(previewLevel) + ":" + previewStage + ":" + stageMode + ":" + encounterIndex + ":" + waveIndex;
         if (!force && fingerprint == previewFingerprint) return;
         previewFingerprint = fingerprint;
-        try { EncounterScenePreview.Show(previewLevel, stage, SelectedWaves(encounter)); }
+        try { EncounterScenePreview.Show(previewLevel, stage, stageMode ? StageWaves(stage) : SelectedWaves(encounter), stageMode); }
         catch (System.Exception error) { Clear(); Debug.LogException(error); }
     }
+
+    static IEnumerable<WaveDefinition> StageWaves(StageSegmentDefinition stage) => stage.IsSafeStage
+        ? Enumerable.Empty<WaveDefinition>() : stage.encounters.SelectMany(e => e.waves);
 
     static bool TryGet(out StageSegmentDefinition stage, out EncounterDefinition encounter)
     {
         stage = null; encounter = null;
         if (!previewLevel || previewStage < 0 || previewStage >= previewLevel.stages.Count) return false;
         stage = previewLevel.stages[previewStage];
+        if (stageMode) return true;
         if (stage.IsSafeStage || encounterIndex < 0 || encounterIndex >= stage.encounters.Count) return false;
         encounter = stage.encounters[encounterIndex]; return true;
     }
@@ -206,16 +231,22 @@ public static class EncounterPreview
     static void Focus()
     {
         if (!TryGet(out var stage, out var encounter)) return;
-        var bounds = encounter.trigger == EncounterTrigger.PlayerZone
+        var bounds = !stageMode && encounter.trigger == EncounterTrigger.PlayerZone
             ? new Bounds(encounter.triggerZone.center, new Vector3(Mathf.Abs(encounter.triggerZone.width), Mathf.Abs(encounter.triggerZone.height), .1f))
             : new Bounds((stage.movementMin + stage.movementMax) * .5f, stage.movementMax - stage.movementMin);
-        foreach (var wave in SelectedWaves(encounter)) foreach (var spawn in wave.enemySpawns)
+        foreach (var wave in stageMode ? StageWaves(stage) : SelectedWaves(encounter)) foreach (var spawn in wave.enemySpawns)
             for (int i = 0; i < Mathf.Max(1, spawn.count); i++) bounds.Encapsulate(SpawnPosition(stage, spawn, i));
         if (EncounterScenePreview.IsActive)
         {
             bounds.Encapsulate(new Vector3(-stage.artWidth * .5f, stage.floorCenterY - stage.floorHeight * .5f));
             bounds.Encapsulate(new Vector3(stage.artWidth * .5f, stage.backgroundCenterY + stage.backgroundHeight * .5f));
         }
+        if (stageMode && !stage.IsSafeStage)
+            foreach (var e in stage.encounters) if (e.trigger == EncounterTrigger.PlayerZone)
+            {
+                bounds.Encapsulate(new Vector3(e.triggerZone.xMin, e.triggerZone.yMin));
+                bounds.Encapsulate(new Vector3(e.triggerZone.xMax, e.triggerZone.yMax));
+            }
         bounds.Expand(.8f);
         var view = SceneView.lastActiveSceneView ? SceneView.lastActiveSceneView : EditorWindow.GetWindow<SceneView>();
         view.Frame(bounds, false); view.Repaint();
@@ -229,7 +260,7 @@ public static class EncounterPreview
 
     static void FocusZone()
     {
-        if (!TryGet(out _, out var encounter)) return;
+        if (!TryGet(out _, out var encounter) || stageMode) return;
         var zone = encounter.triggerZone;
         var bounds = new Bounds(zone.center, new Vector3(Mathf.Abs(zone.width), Mathf.Abs(zone.height), .1f));
         bounds.Expand(.8f);
@@ -251,20 +282,58 @@ public static class EncounterPreview
             ? (active ? new Color(1, .8f, .35f) : Color.white)
             : (active ? new Color(.55f, .24f, .02f) : new Color(.2f, .2f, .2f));
         Handles.Label(zone.center, active
-            ? $"TRIGGER ZONE\nWalk inside to activate\nDelay: {encounter.triggerDelay:0.##}s"
-            : $"UNUSED TRIGGER ZONE\nCurrent trigger: {encounter.trigger}\nPlayer entry here does not activate it", style);
+            ? $"{encounter.encounterId}\nTRIGGER ZONE — walk inside\nDelay: {encounter.triggerDelay:0.##}s"
+            : $"{encounter.encounterId}\nUNUSED ZONE — {encounter.trigger}", style);
     }
 
     static void DrawScene(SceneView view)
     {
         if (!TryGet(out var stage, out var encounter)) return;
         Handles.BeginGUI();
-        GUI.Label(new Rect(12, 42, Mathf.Min(560, view.position.width - 24), 48), $"PREVIEW: {stage.stageName}\nEncounter {encounterIndex + 1}: {encounter.encounterId}", EditorStyles.helpBox);
+        GUI.Label(new Rect(12, 42, Mathf.Min(560, view.position.width - 24), 48), stageMode
+            ? $"LIVE STAGE PREVIEW: {previewStage + 1}. {stage.stageName}\nEntry, exit, movement, encounters, spawns and reward markers"
+            : $"PREVIEW: {stage.stageName}\nEncounter {encounterIndex + 1}: {encounter.encounterId}", EditorStyles.helpBox);
         Handles.EndGUI();
         var oldColor = Handles.color;
         var oldDepth = Handles.zTest;
         Handles.zTest = UnityEngine.Rendering.CompareFunction.Always;
         DrawRect(new Rect(stage.movementMin, stage.movementMax - stage.movementMin), Color.green);
+        DrawStageMarkers(stage);
+        if (stageMode)
+        {
+            var stacked = new Dictionary<Vector2, int>();
+            if (!stage.IsSafeStage)
+                for (int i = 0; i < stage.encounters.Count; i++) DrawEncounter(stage, stage.encounters[i], i, true, stacked);
+        }
+        else DrawEncounter(stage, encounter, encounterIndex, false);
+        Handles.color = oldColor;
+        Handles.zTest = oldDepth;
+    }
+
+    static void DrawStageMarkers(StageSegmentDefinition stage)
+    {
+        Handles.color = Color.cyan; Handles.DrawWireDisc(stage.playerEntryPoint, Vector3.forward, .2f);
+        Handles.Label(stage.playerEntryPoint, "PLAYER ENTRY");
+        Handles.color = Color.yellow; Handles.DrawWireDisc(stage.playerExitPoint, Vector3.forward, stage.exitRadius);
+        Handles.Label(stage.playerExitPoint, "STAGE EXIT");
+        if (stage.IsSafeStage || stage.rewardAfterClear == StageReward.Heal)
+        {
+            Handles.color = Color.green; Handles.DrawWireDisc(stage.recoveryPoint, Vector3.forward, stage.recoveryRadius);
+            Handles.Label(stage.recoveryPoint, "RECOVERY POINT");
+        }
+        if (stage.rewardAfterClear != StageReward.UpgradeChoice) return;
+        Handles.color = Color.magenta; Handles.DrawWireDisc(stage.chapelSpawnPoint, Vector3.forward, stage.rewardInteractRadius);
+        Handles.Label(stage.chapelSpawnPoint, "REWARD CHAPEL (after clear)");
+        for (int i = 0; i < 3; i++)
+        {
+            var p = stage.rewardChoiceCenter + Vector2.right * ((i - 1) * stage.rewardChoiceSpacing);
+            Handles.DrawWireDisc(p, Vector3.forward, stage.rewardInteractRadius);
+            Handles.Label(p, $"UPGRADE CHOICE {i + 1} (after chapel)");
+        }
+    }
+
+    static void DrawEncounter(StageSegmentDefinition stage, EncounterDefinition encounter, int index, bool allWaves, Dictionary<Vector2, int> stacked = null)
+    {
         DrawTriggerZone(encounter);
         Vector2 labelPoint = stage.playerEntryPoint;
         if (encounter.trigger == EncounterTrigger.PlayerZone)
@@ -272,9 +341,9 @@ public static class EncounterPreview
             labelPoint = new Vector2(encounter.triggerZone.xMin, encounter.triggerZone.yMax);
             if (editHandles && !Application.isPlaying) EditZone(encounter);
         }
-        Handles.Label((Vector3)labelPoint + Vector3.up * .25f, $"{stage.stageName} / {encounter.encounterId}\n{Activation(stage, encounterIndex)}");
-        var stacked = new Dictionary<Vector2, int>();
-        foreach (var wave in SelectedWaves(encounter)) foreach (var spawn in wave.enemySpawns)
+        Handles.Label((Vector3)labelPoint + Vector3.up * .25f, $"{stage.stageName} / {encounter.encounterId}\n{Activation(stage, index)}");
+        if (stacked == null) stacked = new Dictionary<Vector2, int>();
+        foreach (var wave in allWaves ? encounter.waves : SelectedWaves(encounter)) foreach (var spawn in wave.enemySpawns)
         {
             if (editHandles && !Application.isPlaying) EditSpawns(spawn);
             for (int i = 0; i < Mathf.Max(1, spawn.count); i++)
@@ -290,11 +359,9 @@ public static class EncounterPreview
                 }
                 stacked.TryGetValue(p, out int row); stacked[p] = row + 1;
                 Handles.Label((Vector3)p + Vector3.up * (.2f + row * .22f),
-                    $"{wave.waveId}: {(spawn.prefab ? spawn.prefab.name : "MISSING PREFAB")} #{i + 1} (+{i * Mathf.Max(0, spawn.interval):0.##}s from wave start)" + (raw != p ? " [CLAMPED]" : "") + (spawn.isBoss ? " [Boss]" : ""));
+                    $"{encounter.encounterId} / {wave.waveId}: {(spawn.prefab ? spawn.prefab.name : "MISSING PREFAB")} #{i + 1} (+{i * Mathf.Max(0, spawn.interval):0.##}s from wave start)" + (raw != p ? " [CLAMPED]" : "") + (spawn.isBoss ? " [Boss]" : ""));
             }
         }
-        Handles.color = oldColor;
-        Handles.zTest = oldDepth;
     }
 
     static void EditZone(EncounterDefinition encounter)
@@ -307,6 +374,7 @@ public static class EncounterPreview
         {
             Undo.RecordObject(previewLevel, "Move encounter trigger zone");
             zone.center = center; encounter.triggerZone = zone; EditorUtility.SetDirty(previewLevel);
+            EditorApplication.delayCall += RefreshNow;
         }
         EditorGUI.BeginChangeCheck();
         Vector3 corner = Handles.PositionHandle(new Vector3(zone.xMax, zone.yMax, 0), Quaternion.identity);
@@ -315,6 +383,7 @@ public static class EncounterPreview
             Undo.RecordObject(previewLevel, "Resize encounter trigger zone");
             zone.width = Mathf.Max(.01f, corner.x - zone.xMin); zone.height = Mathf.Max(.01f, corner.y - zone.yMin);
             encounter.triggerZone = zone; EditorUtility.SetDirty(previewLevel);
+            EditorApplication.delayCall += RefreshNow;
         }
     }
 
@@ -328,6 +397,7 @@ public static class EncounterPreview
             if (!EditorGUI.EndChangeCheck()) continue;
             Undo.RecordObject(previewLevel, "Move encounter enemy spawn point");
             spawn.spawnPoints[i] = position; EditorUtility.SetDirty(previewLevel);
+            EditorApplication.delayCall += RefreshNow;
         }
     }
 }

@@ -19,6 +19,7 @@ namespace BeatEmUp
         public bool IsFrozen => FrozenThisFrame || HitstopRemaining > 0;
         public int FrameOrder => 20;
         public event Action<AttackData> Finished;
+        public event Action<AttackData> Started;
         public event Action<string> FrameEvent;
         private long startedOnTick = -1;
         private void Awake()
@@ -40,6 +41,10 @@ namespace BeatEmUp
             startedOnTick = CombatClock.IsStepping ? CombatClock.CurrentTick : -1;
             hitbox.Begin(attack); animationDriver.SetAttackOverride(true);
             player?.Build?.AttackStarted(attack);
+            // Attach only for configured attacks; existing scene/prefab actors need no rebuild.
+            if (attack.feedback != null && (attack.feedback.swingSound || attack.feedback.impactSound || attack.feedback.impactPrefab)
+                && !GetComponent<AttackFeedback>()) gameObject.AddComponent<AttackFeedback>();
+            Started?.Invoke(attack);
             ApplyFrame(); return true;
         }
         public void Stop()

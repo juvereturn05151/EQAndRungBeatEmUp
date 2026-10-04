@@ -18,7 +18,6 @@ PASS: AirPunch1 frame 4 preserves momentum and permits gravity
 PASS: AirPunch1 frame 5 sprite and active-only hitbox
 PASS: AirPunch1 frame 5 cancel permissions
 PASS: AirPunch1 frame 5 preserves momentum and permits gravity
-PASS: AirPunch1 frame 5 airborne impact and finisher settings
 PASS: AirPunch1 frame 6 sprite and active-only hitbox
 PASS: AirPunch1 frame 6 cancel permissions
 PASS: AirPunch1 frame 6 preserves momentum and permits gravity
@@ -34,9 +33,11 @@ PASS: AirPunch1 frame 8 airborne impact and finisher settings
 PASS: AirPunch1 frame 9 sprite and active-only hitbox
 PASS: AirPunch1 frame 9 cancel permissions
 PASS: AirPunch1 frame 9 preserves momentum and permits gravity
+PASS: AirPunch1 frame 9 airborne impact and finisher settings
 PASS: AirPunch1 frame 10 sprite and active-only hitbox
 PASS: AirPunch1 frame 10 cancel permissions
 PASS: AirPunch1 frame 10 preserves momentum and permits gravity
+PASS: AirPunch1 frame 10 airborne impact and finisher settings
 PASS: AirPunch1 frame 11 sprite and active-only hitbox
 PASS: AirPunch1 frame 11 cancel permissions
 PASS: AirPunch1 frame 11 preserves momentum and permits gravity
@@ -64,6 +65,15 @@ PASS: AirPunch1 frame 18 preserves momentum and permits gravity
 PASS: AirPunch1 frame 19 sprite and active-only hitbox
 PASS: AirPunch1 frame 19 cancel permissions
 PASS: AirPunch1 frame 19 preserves momentum and permits gravity
+PASS: AirPunch1 frame 20 sprite and active-only hitbox
+PASS: AirPunch1 frame 20 cancel permissions
+PASS: AirPunch1 frame 20 preserves momentum and permits gravity
+PASS: AirPunch1 frame 21 sprite and active-only hitbox
+PASS: AirPunch1 frame 21 cancel permissions
+PASS: AirPunch1 frame 21 preserves momentum and permits gravity
+PASS: AirPunch1 frame 22 sprite and active-only hitbox
+PASS: AirPunch1 frame 22 cancel permissions
+PASS: AirPunch1 frame 22 preserves momentum and permits gravity
 PASS: AirPunch2 total, startup, active and recovery match the requested air timing
 PASS: AirPunch2 frame 0 sprite and active-only hitbox
 PASS: AirPunch2 frame 0 cancel permissions
@@ -83,7 +93,6 @@ PASS: AirPunch2 frame 4 preserves momentum and permits gravity
 PASS: AirPunch2 frame 5 sprite and active-only hitbox
 PASS: AirPunch2 frame 5 cancel permissions
 PASS: AirPunch2 frame 5 preserves momentum and permits gravity
-PASS: AirPunch2 frame 5 airborne impact and finisher settings
 PASS: AirPunch2 frame 6 sprite and active-only hitbox
 PASS: AirPunch2 frame 6 cancel permissions
 PASS: AirPunch2 frame 6 preserves momentum and permits gravity
@@ -99,9 +108,11 @@ PASS: AirPunch2 frame 8 airborne impact and finisher settings
 PASS: AirPunch2 frame 9 sprite and active-only hitbox
 PASS: AirPunch2 frame 9 cancel permissions
 PASS: AirPunch2 frame 9 preserves momentum and permits gravity
+PASS: AirPunch2 frame 9 airborne impact and finisher settings
 PASS: AirPunch2 frame 10 sprite and active-only hitbox
 PASS: AirPunch2 frame 10 cancel permissions
 PASS: AirPunch2 frame 10 preserves momentum and permits gravity
+PASS: AirPunch2 frame 10 airborne impact and finisher settings
 PASS: AirPunch2 frame 11 sprite and active-only hitbox
 PASS: AirPunch2 frame 11 cancel permissions
 PASS: AirPunch2 frame 11 preserves momentum and permits gravity
@@ -132,6 +143,15 @@ PASS: AirPunch2 frame 19 preserves momentum and permits gravity
 PASS: AirPunch2 frame 20 sprite and active-only hitbox
 PASS: AirPunch2 frame 20 cancel permissions
 PASS: AirPunch2 frame 20 preserves momentum and permits gravity
+PASS: AirPunch2 frame 21 sprite and active-only hitbox
+PASS: AirPunch2 frame 21 cancel permissions
+PASS: AirPunch2 frame 21 preserves momentum and permits gravity
+PASS: AirPunch2 frame 22 sprite and active-only hitbox
+PASS: AirPunch2 frame 22 cancel permissions
+PASS: AirPunch2 frame 22 preserves momentum and permits gravity
+PASS: AirPunch2 frame 23 sprite and active-only hitbox
+PASS: AirPunch2 frame 23 cancel permissions
+PASS: AirPunch2 frame 23 preserves momentum and permits gravity
 PASS: AirPunch3 total, startup, active and recovery match the requested air timing
 PASS: AirPunch3 frame 0 sprite and active-only hitbox
 PASS: AirPunch3 frame 0 cancel permissions
@@ -160,11 +180,9 @@ PASS: AirPunch3 frame 7 preserves momentum and permits gravity
 PASS: AirPunch3 frame 8 sprite and active-only hitbox
 PASS: AirPunch3 frame 8 cancel permissions
 PASS: AirPunch3 frame 8 preserves momentum and permits gravity
-PASS: AirPunch3 frame 8 airborne impact and finisher settings
 PASS: AirPunch3 frame 9 sprite and active-only hitbox
 PASS: AirPunch3 frame 9 cancel permissions
 PASS: AirPunch3 frame 9 preserves momentum and permits gravity
-PASS: AirPunch3 frame 9 airborne impact and finisher settings
 PASS: AirPunch3 frame 10 sprite and active-only hitbox
 PASS: AirPunch3 frame 10 cancel permissions
 PASS: AirPunch3 frame 10 preserves momentum and permits gravity
@@ -184,15 +202,19 @@ PASS: AirPunch3 frame 13 airborne impact and finisher settings
 PASS: AirPunch3 frame 14 sprite and active-only hitbox
 PASS: AirPunch3 frame 14 cancel permissions
 PASS: AirPunch3 frame 14 preserves momentum and permits gravity
+PASS: AirPunch3 frame 14 airborne impact and finisher settings
 PASS: AirPunch3 frame 15 sprite and active-only hitbox
 PASS: AirPunch3 frame 15 cancel permissions
 PASS: AirPunch3 frame 15 preserves momentum and permits gravity
+PASS: AirPunch3 frame 15 airborne impact and finisher settings
 PASS: AirPunch3 frame 16 sprite and active-only hitbox
 PASS: AirPunch3 frame 16 cancel permissions
 PASS: AirPunch3 frame 16 preserves momentum and permits gravity
+PASS: AirPunch3 frame 16 airborne impact and finisher settings
 PASS: AirPunch3 frame 17 sprite and active-only hitbox
 PASS: AirPunch3 frame 17 cancel permissions
 PASS: AirPunch3 frame 17 preserves momentum and permits gravity
+PASS: AirPunch3 frame 17 airborne impact and finisher settings
 PASS: AirPunch3 frame 18 sprite and active-only hitbox
 PASS: AirPunch3 frame 18 cancel permissions
 PASS: AirPunch3 frame 18 preserves momentum and permits gravity
@@ -229,6 +251,24 @@ PASS: AirPunch3 frame 28 preserves momentum and permits gravity
 PASS: AirPunch3 frame 29 sprite and active-only hitbox
 PASS: AirPunch3 frame 29 cancel permissions
 PASS: AirPunch3 frame 29 preserves momentum and permits gravity
+PASS: AirPunch3 frame 30 sprite and active-only hitbox
+PASS: AirPunch3 frame 30 cancel permissions
+PASS: AirPunch3 frame 30 preserves momentum and permits gravity
+PASS: AirPunch3 frame 31 sprite and active-only hitbox
+PASS: AirPunch3 frame 31 cancel permissions
+PASS: AirPunch3 frame 31 preserves momentum and permits gravity
+PASS: AirPunch3 frame 32 sprite and active-only hitbox
+PASS: AirPunch3 frame 32 cancel permissions
+PASS: AirPunch3 frame 32 preserves momentum and permits gravity
+PASS: AirPunch3 frame 33 sprite and active-only hitbox
+PASS: AirPunch3 frame 33 cancel permissions
+PASS: AirPunch3 frame 33 preserves momentum and permits gravity
+PASS: AirPunch3 frame 34 sprite and active-only hitbox
+PASS: AirPunch3 frame 34 cancel permissions
+PASS: AirPunch3 frame 34 preserves momentum and permits gravity
+PASS: AirPunch3 frame 35 sprite and active-only hitbox
+PASS: AirPunch3 frame 35 cancel permissions
+PASS: AirPunch3 frame 35 preserves momentum and permits gravity
 PASS: Finisher uses a taller downward hitbox
 PASS: Real player prefab references the authored air combo
 PASS: AirPunch1 whiff retains every recovery frame
@@ -254,8 +294,8 @@ PASS: Forward jump retains horizontal motion while air attack gravity reduces up
 PASS: Descending AirPunch1 continues falling instead of hovering
 PASS: Real player prefab references the authored air combo
 PASS: Early air input uses the existing six-frame buffer
-PASS: AirPunch1 cancels directly into AirPunch2 on final active frame 8
-PASS: AirPunch2 cancels directly into AirPunch3 on frame 8
+PASS: AirPunch1 cancels directly into AirPunch2 on final active frame 10
+PASS: AirPunch2 cancels directly into AirPunch3 on frame 10
 PASS: Finisher cannot restart AirPunch1 during the same jump
 PASS: Real player prefab references the authored air combo
 PASS: AirPunch1 cancel includes its final legal frame

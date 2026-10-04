@@ -1,0 +1,21 @@
+PASS: TEST1: Stage 1 replaces Stage 8 immediately
+PASS: TEST1: Selected stage artwork renders
+PASS: TEST1: Actual Inspector list callback switches from Stage 8 to Stage 1
+PASS: TEST2: Serialized sprite edits refresh both plates
+PASS: TEST3: Floor height and vertical placement update
+PASS: TEST3: Background height and shared art width update
+PASS: TEST4: Repeated refreshes after edits retain Stage 1
+PASS: TEST4: Inspector reconstruction restores Stage 1
+PASS: TEST5: Stage 3 selects correctly
+PASS: TEST5: Stage 5 stays selected
+PASS: TEST6: Enemy count and spawn positions refresh
+PASS: TEST6: Scene overlay reads edited trigger rectangle directly
+PASS: Reward chapel preview follows authored placement
+PASS: Safe stages preview art and rewards without ignored encounter enemies
+PASS: Undo refreshes art immediately without changing stage selection
+PASS: Reordering retains selected stage identity
+PASS: Preview selection and refresh never dirty saved scene
+PASS: Editor Stage 1 remains independent of runtime StageIndex 8
+PASS: Safe stage with no encounters supports automatic art preview
+PASS: Clear restores original Scene visibility
+20 live stage checks passed; plus 24 existing preview safety/encounter checks.

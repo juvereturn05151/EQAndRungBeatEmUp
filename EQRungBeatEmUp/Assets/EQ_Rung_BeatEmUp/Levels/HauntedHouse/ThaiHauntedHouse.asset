@@ -22,11 +22,11 @@ MonoBehaviour:
     floorSprite: {fileID: 21300000, guid: 4b27a12ff4262b81dc54735db15187e9, type: 3}
     artWidth: 12.8
     backgroundHeight: 3.2
-    backgroundCenterY: 3.16
-    floorHeight: 2.4
-    floorCenterY: 0.36
-    movementMin: {x: -6.11, y: -0.4}
-    movementMax: {x: 5.73, y: 1.49}
+    backgroundCenterY: 2.5418
+    floorHeight: 1.8379375
+    floorCenterY: 0.0189
+    movementMin: {x: -6.11, y: -0.6}
+    movementMax: {x: 5.73, y: 0.8}
     playerEntryPoint: {x: -5, y: 0.35}
     playerExitPoint: {x: 2.7, y: 0}
     exitRadius: 0.35
@@ -74,29 +74,7 @@ MonoBehaviour:
           - {x: 2.5, y: 0.4}
           interval: 0.25
           isBoss: 0
-    destructibles:
-    - label: Breakable haunted prop
-      prefab: {fileID: 0}
-      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
-      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
-      position: {x: -1.45, y: -0.25}
-      health: 15
-      hitboxSize: {x: 0.65, y: 0.9}
-      hitboxOffset: {x: 0, y: 0.4}
-      kind: 0
-      dropPrefab: {fileID: 0}
-    - label: Breakable haunted prop
-      prefab: {fileID: 0}
-      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
-      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
-      position: {x: 1.45, y: 0.4}
-      health: 15
-      hitboxSize: {x: 0.65, y: 0.9}
-      hitboxOffset: {x: 0, y: 0.4}
-      kind: 0
-      dropPrefab: {fileID: 0}
+    destructibles: []
     decorativeProps: []
     safeRoom: 0
     recoveryPoint: {x: 0, y: 0.1}
@@ -112,7 +90,7 @@ MonoBehaviour:
     backgroundHeight: 1.6
     backgroundCenterY: 2.56
     floorHeight: 2.4
-    floorCenterY: 0.56
+    floorCenterY: 0.0765
     movementMin: {x: -3.05, y: -0.4}
     movementMax: {x: 3.05, y: 0.65}
     playerEntryPoint: {x: -2.5, y: 0}
@@ -647,12 +625,12 @@ MonoBehaviour:
     backgroundSprite: {fileID: 21300000, guid: 49c79ecb9874bd6449f117036705125e, type: 3}
     floorSprite: {fileID: 21300000, guid: 59eb646ae3c78c44ca9e26e5a170ce2c, type: 3}
     artWidth: 7.6
-    backgroundHeight: 2.75
+    backgroundHeight: 10
     backgroundCenterY: 3.34
     floorHeight: 2
     floorCenterY: 3.34
-    movementMin: {x: -3.05, y: -0.4}
-    movementMax: {x: 3.05, y: 0.71}
+    movementMin: {x: -3.05, y: -0.6}
+    movementMax: {x: 3.05, y: 1.2}
     playerEntryPoint: {x: -5.443332, y: 0.35}
     playerExitPoint: {x: 2.7, y: 0}
     exitRadius: 0.35

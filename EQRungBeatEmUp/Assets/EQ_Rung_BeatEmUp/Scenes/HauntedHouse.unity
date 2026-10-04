@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.RewardSelectionController
   chapelPrefab: {fileID: 6822114117223727886, guid: 412cab221bb66d24187483c9105813c3, type: 3}
-  choicePrefab: {fileID: 8969539965158904181, guid: 84b4671d2fc70b34db1c4949e8d084d2, type: 3}
+  choicePrefab: {fileID: 0}
 --- !u!1 &1758400826
 GameObject:
   m_ObjectHideFlags: 0

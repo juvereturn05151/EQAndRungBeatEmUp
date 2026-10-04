@@ -51,11 +51,13 @@ PASS: AirPunch1 cancel window
 PASS: AirPunch2 connects
 PASS: AirPunch2 cancel window
 PASS: AirPunch3 connects
-PASS: Existing AirPunch3 drives fall without rebound
-PASS: Existing motor reaches floor after launch
-PASS: Landed event immediately enters full Knockdown phase
-PASS: Floor contact clamps height, velocity and visual to ground
-PASS: Full combo completes Knockdown/Downed/GetUp and resets juggle budget
+PASS: AirPunch3 arms ground bounce and drives downward slam
+PASS: Full combo consumes one ground bounce at floor contact
+PASS: Ground bounce adds a short airborne reaction
+PASS: Full combo lands after bounce
+PASS: Bounce landing enters Knockdown and blocks AI during recovery
+PASS: Full combo completes bounce landing recovery
+PASS: Neutral resets juggle and ground bounce budgets
 PASS: Recovered enemy resumes chase
 PASS: Existing launcher damage path accepts grounded enemy
 PASS: Launch enters existing Launched state and blocks AI
@@ -69,11 +71,13 @@ PASS: AirPunch1 cancel window
 PASS: AirPunch2 connects
 PASS: AirPunch2 cancel window
 PASS: AirPunch3 connects
-PASS: Existing AirPunch3 drives fall without rebound
-PASS: Existing motor reaches floor after launch
-PASS: Landed event immediately enters full Knockdown phase
-PASS: Floor contact clamps height, velocity and visual to ground
-PASS: Full combo completes Knockdown/Downed/GetUp and resets juggle budget
+PASS: AirPunch3 arms ground bounce and drives downward slam
+PASS: Full combo consumes one ground bounce at floor contact
+PASS: Ground bounce adds a short airborne reaction
+PASS: Full combo lands after bounce
+PASS: Bounce landing enters Knockdown and blocks AI during recovery
+PASS: Full combo completes bounce landing recovery
+PASS: Neutral resets juggle and ground bounce budgets
 PASS: Recovered enemy resumes chase
 PASS: Existing launcher damage path accepts grounded enemy
 PASS: Launch enters existing Launched state and blocks AI

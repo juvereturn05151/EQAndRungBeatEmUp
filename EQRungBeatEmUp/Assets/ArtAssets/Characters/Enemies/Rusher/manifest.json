@@ -1,0 +1,999 @@
+{
+  "id": "Rusher",
+  "canvas": [
+    160,
+    128
+  ],
+  "ground": 120,
+  "pivot": [
+    0.5,
+    0.0625
+  ],
+  "standingOrCrouchedIdleHeight": 100,
+  "animations": [
+    {
+      "name": "Idle",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "rusher_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Rusher/Animations/Idle",
+      "frames": [
+        {
+          "file": "Rusher_Idle_01.png",
+          "bounds": {
+            "left": 44,
+            "top": 20,
+            "width": 71,
+            "height": 100
+          },
+          "sha256": "8cfd8645dea2f4092a12b12a395f561992d12d71d2ca88992e5bcfa779660fe7"
+        },
+        {
+          "file": "Rusher_Idle_02.png",
+          "bounds": {
+            "left": 42,
+            "top": 21,
+            "width": 75,
+            "height": 99
+          },
+          "sha256": "e2a4a45bf59b5f87752301dbaae7644d5ff807bb34e35347a706e13935d9e669"
+        },
+        {
+          "file": "Rusher_Idle_03.png",
+          "bounds": {
+            "left": 42,
+            "top": 20,
+            "width": 76,
+            "height": 100
+          },
+          "sha256": "3fbc43b31ecb00bf92757df172bb3bb1e3c9b0ae1b22978fe21b0812ac74af21"
+        },
+        {
+          "file": "Rusher_Idle_04.png",
+          "bounds": {
+            "left": 42,
+            "top": 20,
+            "width": 75,
+            "height": 100
+          },
+          "sha256": "9631de25dab7a2a7eaf7e65d7de378b5a8ab559aaa7a9506432c63043dbcf5f8"
+        },
+        {
+          "file": "Rusher_Idle_05.png",
+          "bounds": {
+            "left": 42,
+            "top": 19,
+            "width": 75,
+            "height": 101
+          },
+          "sha256": "91bc94ace08b6df47cabf1c599dc11dc623fdd84fe8aba4e901b87520fee075c"
+        },
+        {
+          "file": "Rusher_Idle_06.png",
+          "bounds": {
+            "left": 44,
+            "top": 19,
+            "width": 71,
+            "height": 101
+          },
+          "sha256": "21d6467423b5fa7dd644c065abcf4effc0e673928c33453143bc2db2c861d5ce"
+        }
+      ]
+    },
+    {
+      "name": "Walk",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": true,
+      "source": "rusher_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Rusher/Animations/Walk",
+      "frames": [
+        {
+          "file": "Rusher_Walk_01.png",
+          "bounds": {
+            "left": 39,
+            "top": 18,
+            "width": 82,
+            "height": 102
+          },
+          "sha256": "efc65baaa760c3f8a059ff452ed38568f7fca066e721351b73965e37f94b09fd"
+        },
+        {
+          "file": "Rusher_Walk_02.png",
+          "bounds": {
+            "left": 43,
+            "top": 14,
+            "width": 73,
+            "height": 106
+          },
+          "sha256": "9441a5c34efb6eb8597c6fa047ca22340ee54ae5943e56b10a2cc52691104db0"
+        },
+        {
+          "file": "Rusher_Walk_03.png",
+          "bounds": {
+            "left": 39,
+            "top": 14,
+            "width": 81,
+            "height": 105
+          },
+          "sha256": "6bae9bfdeffbb586006ab6f2d6affc833b91117cf61444e18ebcf596c474f592"
+        },
+        {
+          "file": "Rusher_Walk_04.png",
+          "bounds": {
+            "left": 40,
+            "top": 16,
+            "width": 80,
+            "height": 104
+          },
+          "sha256": "392ee4adc84a05f37a87730a5935a4915d6a8a8c8253b87369a2d3882d170a85"
+        },
+        {
+          "file": "Rusher_Walk_05.png",
+          "bounds": {
+            "left": 36,
+            "top": 14,
+            "width": 87,
+            "height": 106
+          },
+          "sha256": "40e95e7915bbc3ebf2c01b41fe8e35589a19c64e0d8786fe69ce94b7e80254d4"
+        },
+        {
+          "file": "Rusher_Walk_06.png",
+          "bounds": {
+            "left": 40,
+            "top": 16,
+            "width": 80,
+            "height": 104
+          },
+          "sha256": "18e4a511820d642ce2b8a919e107eb51faf8d397b95c6ef48fd84a7df918590b"
+        }
+      ]
+    },
+    {
+      "name": "Sprint",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.45,
+      "loop": true,
+      "source": "rusher_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Rusher/Animations/Sprint",
+      "frames": [
+        {
+          "file": "Rusher_Sprint_01.png",
+          "bounds": {
+            "left": 33,
+            "top": 25,
+            "width": 94,
+            "height": 95
+          },
+          "sha256": "5ee46d358c4fb4189390467d4e0f222ffaca74de1a2c79f9d83688f74d20d0d0"
+        },
+        {
+          "file": "Rusher_Sprint_02.png",
+          "bounds": {
+            "left": 23,
+            "top": 26,
+            "width": 113,
+            "height": 94
+          },
+          "sha256": "2f5e1364c9bd43ad07f3cc5256acb9dcc9515e0f30cb3aeab0cbfb71cd77ead0"
+        },
+        {
+          "file": "Rusher_Sprint_03.png",
+          "bounds": {
+            "left": 21,
+            "top": 25,
+            "width": 117,
+            "height": 95
+          },
+          "sha256": "6d18a6652e3b9c37ce7eae168e91a749bc51e82113d041bb575ae4846ab9343b"
+        },
+        {
+          "file": "Rusher_Sprint_04.png",
+          "bounds": {
+            "left": 25,
+            "top": 22,
+            "width": 110,
+            "height": 98
+          },
+          "sha256": "561f89d913e9ebec017728a5a14e1069a5912e7f3275c09a5e846b6bd543be56"
+        },
+        {
+          "file": "Rusher_Sprint_05.png",
+          "bounds": {
+            "left": 21,
+            "top": 21,
+            "width": 117,
+            "height": 99
+          },
+          "sha256": "493d504154e00ac38032050efd273b4cb75583bd8ebf3b53b3128666332f1132"
+        },
+        {
+          "file": "Rusher_Sprint_06.png",
+          "bounds": {
+            "left": 30,
+            "top": 22,
+            "width": 99,
+            "height": 98
+          },
+          "sha256": "f345c91be631fb53e96a310246e7d90a0a1c1364e771668f7b9840a6ff8aa992"
+        }
+      ]
+    },
+    {
+      "name": "Attack_Slash1",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "rusher_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Rusher/Animations/Attack_Slash1",
+      "frames": [
+        {
+          "file": "Rusher_Attack_Slash1_01.png",
+          "bounds": {
+            "left": 37,
+            "top": 7,
+            "width": 85,
+            "height": 113
+          },
+          "sha256": "d82e90a799191ef82825055776099f4383f0a383a569f4ce3d4b7a87e4b6b6da"
+        },
+        {
+          "file": "Rusher_Attack_Slash1_02.png",
+          "bounds": {
+            "left": 33,
+            "top": 26,
+            "width": 93,
+            "height": 94
+          },
+          "sha256": "e25399ed0c289c5025b2be36e0e4db1e28c2f8a172f9a8af33c7d7a4ecfe978f"
+        },
+        {
+          "file": "Rusher_Attack_Slash1_03.png",
+          "bounds": {
+            "left": 25,
+            "top": 27,
+            "width": 109,
+            "height": 93
+          },
+          "sha256": "cd2a979de307d0465eba4679fcf42b8207581b1108b60f0c57374a22c646198d"
+        },
+        {
+          "file": "Rusher_Attack_Slash1_04.png",
+          "bounds": {
+            "left": 10,
+            "top": 31,
+            "width": 140,
+            "height": 89
+          },
+          "sha256": "77462ae784de657fb107e91302ac2d716e654bbfe1e9a9f05cb0bc848f94c421"
+        },
+        {
+          "file": "Rusher_Attack_Slash1_05.png",
+          "bounds": {
+            "left": 21,
+            "top": 24,
+            "width": 117,
+            "height": 96
+          },
+          "sha256": "32f0462c2832a288b3282805d1457ff97ee2f7b0d8075c2a46742ae0669c259f"
+        },
+        {
+          "file": "Rusher_Attack_Slash1_06.png",
+          "bounds": {
+            "left": 39,
+            "top": 24,
+            "width": 81,
+            "height": 96
+          },
+          "sha256": "83c8b4626926961fd9bf8424d6826189a3b8f133232a065e504edd7893814149"
+        }
+      ]
+    },
+    {
+      "name": "Attack_Slash2",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "rusher_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Rusher/Animations/Attack_Slash2",
+      "frames": [
+        {
+          "file": "Rusher_Attack_Slash2_01.png",
+          "bounds": {
+            "left": 33,
+            "top": 38,
+            "width": 94,
+            "height": 82
+          },
+          "sha256": "fa20d7c9458bc78d3deb96701bcc506455ba5a121690d88aceff0a3ea1af474a"
+        },
+        {
+          "file": "Rusher_Attack_Slash2_02.png",
+          "bounds": {
+            "left": 25,
+            "top": 15,
+            "width": 110,
+            "height": 105
+          },
+          "sha256": "4d7b097a8d4b98cdb1c4e106955431e25795527aff164fe6f7ad5241573417ca"
+        },
+        {
+          "file": "Rusher_Attack_Slash2_03.png",
+          "bounds": {
+            "left": 27,
+            "top": 3,
+            "width": 105,
+            "height": 117
+          },
+          "sha256": "12748a32194be1832af7d3d216596cb949beef9546ef2da43049f66bc3206bf7"
+        },
+        {
+          "file": "Rusher_Attack_Slash2_04.png",
+          "bounds": {
+            "left": 26,
+            "top": 6,
+            "width": 106,
+            "height": 114
+          },
+          "sha256": "3bfa8221a92d2d286c2d0db2f4081e67eb07d53bf3d7069d0853c443bf120a77"
+        },
+        {
+          "file": "Rusher_Attack_Slash2_05.png",
+          "bounds": {
+            "left": 34,
+            "top": 30,
+            "width": 92,
+            "height": 90
+          },
+          "sha256": "ca5f25a958f32664e15fe7734e2cf9160820c75a78c60096d49d0a8be2616b25"
+        },
+        {
+          "file": "Rusher_Attack_Slash2_06.png",
+          "bounds": {
+            "left": 36,
+            "top": 28,
+            "width": 87,
+            "height": 92
+          },
+          "sha256": "c43623352e40281c7acd0170b27242daa0bf1f689938a155c8e50f32b0bbf367"
+        }
+      ]
+    },
+    {
+      "name": "Attack_Lunge",
+      "frameCount": 5,
+      "uniqueFrames": 5,
+      "durationSeconds": 0.56,
+      "loop": false,
+      "source": "rusher_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Rusher/Animations/Attack_Lunge",
+      "frames": [
+        {
+          "file": "Rusher_Attack_Lunge_01.png",
+          "bounds": {
+            "left": 38,
+            "top": 33,
+            "width": 84,
+            "height": 87
+          },
+          "sha256": "eb7b15d0ca5bafe1ce6d2001eaa481af39842070e79126e8af91c613f84a42a4"
+        },
+        {
+          "file": "Rusher_Attack_Lunge_02.png",
+          "bounds": {
+            "left": 19,
+            "top": 52,
+            "width": 122,
+            "height": 68
+          },
+          "sha256": "7e1e31e17963e2ce24a16fc76c8c270f8e20e5d6a0a1489844e8be03e52b4e94"
+        },
+        {
+          "file": "Rusher_Attack_Lunge_03.png",
+          "bounds": {
+            "left": 4,
+            "top": 54,
+            "width": 152,
+            "height": 66
+          },
+          "sha256": "d30d31874e5bc6d04f15ad9a92669d30245c3ae164d0380a67ab13ae112da409"
+        },
+        {
+          "file": "Rusher_Attack_Lunge_04.png",
+          "bounds": {
+            "left": 23,
+            "top": 39,
+            "width": 114,
+            "height": 81
+          },
+          "sha256": "089f0d9798e63b2dd02fc8cb43494bd915319dd5885f0c402c0554f5f61b1abe"
+        },
+        {
+          "file": "Rusher_Attack_Lunge_05.png",
+          "bounds": {
+            "left": 35,
+            "top": 32,
+            "width": 90,
+            "height": 88
+          },
+          "sha256": "7c4246249d77c5ef0a5c2186a2f21cd90ca8245b43c77fecda3ef9fda8351002"
+        }
+      ]
+    },
+    {
+      "name": "Recovery",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "rusher_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Rusher/Animations/Recovery",
+      "frames": [
+        {
+          "file": "Rusher_Recovery_01.png",
+          "bounds": {
+            "left": 41,
+            "top": 33,
+            "width": 78,
+            "height": 87
+          },
+          "sha256": "611e815590c74fbec153b2fcb68c842ede99b6ff7b7647e54b46ad1a5ea0d6d6"
+        },
+        {
+          "file": "Rusher_Recovery_02.png",
+          "bounds": {
+            "left": 39,
+            "top": 40,
+            "width": 82,
+            "height": 80
+          },
+          "sha256": "a9a12f69d8fec0543e37630ca9305bb73ea0fd61aeb39df34e91427aecacf395"
+        },
+        {
+          "file": "Rusher_Recovery_03.png",
+          "bounds": {
+            "left": 43,
+            "top": 30,
+            "width": 74,
+            "height": 90
+          },
+          "sha256": "edf3bfd5547d512c204a97817ed5839be592acb3f60b1a5b7a24588d63e1d8ce"
+        },
+        {
+          "file": "Rusher_Recovery_04.png",
+          "bounds": {
+            "left": 44,
+            "top": 19,
+            "width": 71,
+            "height": 101
+          },
+          "sha256": "60e666891a8c5c30d75177c19a3a400e051789ee3319066fbe54e45eff7e8811"
+        },
+        {
+          "file": "Rusher_Recovery_05.png",
+          "bounds": {
+            "left": 42,
+            "top": 19,
+            "width": 75,
+            "height": 101
+          },
+          "sha256": "8fcdcd97ad18db472d30035b2a35947bfe5342dde04d96f00768d09ba5355add"
+        },
+        {
+          "file": "Rusher_Recovery_06.png",
+          "bounds": {
+            "left": 41,
+            "top": 24,
+            "width": 78,
+            "height": 96
+          },
+          "sha256": "6df7f50b3fba10bcc9a044b5ab783f03c31d7236532103fae5e84a61adf71724"
+        }
+      ]
+    },
+    {
+      "name": "Hurt_Light",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "rusher_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Rusher/Animations/Hurt_Light",
+      "frames": [
+        {
+          "file": "Rusher_Hurt_Light_01.png",
+          "bounds": {
+            "left": 38,
+            "top": 11,
+            "width": 83,
+            "height": 109
+          },
+          "sha256": "8819b2f12d3278c0ae3959a64cadeb9490e17ff1f149da45e371a19e7d122cf5"
+        },
+        {
+          "file": "Rusher_Hurt_Light_02.png",
+          "bounds": {
+            "left": 40,
+            "top": 13,
+            "width": 80,
+            "height": 107
+          },
+          "sha256": "4495b3cf645ce4516afb5d7526a0c4b937acd7df548c52594b51e77e6ea86bfb"
+        },
+        {
+          "file": "Rusher_Hurt_Light_03.png",
+          "bounds": {
+            "left": 39,
+            "top": 21,
+            "width": 81,
+            "height": 99
+          },
+          "sha256": "73fb32139ea0438cf3c22500e14dd53112f81fad07dca44288e228e126a33b8f"
+        },
+        {
+          "file": "Rusher_Hurt_Light_04.png",
+          "bounds": {
+            "left": 44,
+            "top": 16,
+            "width": 72,
+            "height": 104
+          },
+          "sha256": "d95d053358ce80a4534ce0211988ef4948597d13d948f9c0b30557f8a250301d"
+        },
+        {
+          "file": "Rusher_Hurt_Light_05.png",
+          "bounds": {
+            "left": 39,
+            "top": 14,
+            "width": 82,
+            "height": 106
+          },
+          "sha256": "6ad3ebbeff30da5005773a0b64911c372e1581b1d4a050ac486cc673bd75d45b"
+        },
+        {
+          "file": "Rusher_Hurt_Light_06.png",
+          "bounds": {
+            "left": 41,
+            "top": 18,
+            "width": 77,
+            "height": 102
+          },
+          "sha256": "59ce01bdc3c1917dac6081e4ac8df5a2beef628fc854f0c9d42faf1e5f029c91"
+        }
+      ]
+    },
+    {
+      "name": "Hurt_Heavy",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "rusher_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Rusher/Animations/Hurt_Heavy",
+      "frames": [
+        {
+          "file": "Rusher_Hurt_Heavy_01.png",
+          "bounds": {
+            "left": 36,
+            "top": 10,
+            "width": 88,
+            "height": 110
+          },
+          "sha256": "d061a7e731f268bcc573ce41bd4f019648e2ccfe937488e409aa44d86dc64d82"
+        },
+        {
+          "file": "Rusher_Hurt_Heavy_02.png",
+          "bounds": {
+            "left": 26,
+            "top": 14,
+            "width": 108,
+            "height": 106
+          },
+          "sha256": "982cbd1e82d6dcb4b78ac292d79297a95df917a0aa823a7f9863b31799564b48"
+        },
+        {
+          "file": "Rusher_Hurt_Heavy_03.png",
+          "bounds": {
+            "left": 25,
+            "top": 21,
+            "width": 110,
+            "height": 99
+          },
+          "sha256": "d39e9a55c2f18f0502597d66c30ee6bfff41dfb4c3ff6a27dc7985386513129a"
+        },
+        {
+          "file": "Rusher_Hurt_Heavy_04.png",
+          "bounds": {
+            "left": 35,
+            "top": 16,
+            "width": 90,
+            "height": 104
+          },
+          "sha256": "3b5271688d51e1101c65fd815b1027a743e495221d51a3cce2660a39672551f1"
+        },
+        {
+          "file": "Rusher_Hurt_Heavy_05.png",
+          "bounds": {
+            "left": 35,
+            "top": 19,
+            "width": 89,
+            "height": 101
+          },
+          "sha256": "0eede8605ff5932d49dec626cbd740fc623973d122932dc6a22be64823018151"
+        },
+        {
+          "file": "Rusher_Hurt_Heavy_06.png",
+          "bounds": {
+            "left": 40,
+            "top": 17,
+            "width": 80,
+            "height": 103
+          },
+          "sha256": "7f2953246eced3e20a17ac4f5d92d985bcf013da698c8d498fceb87dd494eaed"
+        }
+      ]
+    },
+    {
+      "name": "Air_Hit",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "rusher_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Rusher/Animations/Air_Hit",
+      "frames": [
+        {
+          "file": "Rusher_Air_Hit_01.png",
+          "bounds": {
+            "left": 42,
+            "top": 4,
+            "width": 75,
+            "height": 116
+          },
+          "sha256": "ce52418ede8dc241c69b990036146ff07ef639a44df3b73865c8700e8a670d7e"
+        },
+        {
+          "file": "Rusher_Air_Hit_02.png",
+          "bounds": {
+            "left": 39,
+            "top": 16,
+            "width": 81,
+            "height": 104
+          },
+          "sha256": "62e01eb0b80daeaec28b505c323294e673bda16aa1e68a5ca841e064c589d8dc"
+        },
+        {
+          "file": "Rusher_Air_Hit_03.png",
+          "bounds": {
+            "left": 39,
+            "top": 48,
+            "width": 82,
+            "height": 72
+          },
+          "sha256": "35102ac29c7f86d60459c9fe58219c1ad4486f7d77fc0aba6634a4c6b44278d9"
+        },
+        {
+          "file": "Rusher_Air_Hit_04.png",
+          "bounds": {
+            "left": 35,
+            "top": 50,
+            "width": 90,
+            "height": 70
+          },
+          "sha256": "c4b8b5b64cc52167e48a6f705c0b48d611f3fc82540c7f25aa4e4f95f0bd45c9"
+        },
+        {
+          "file": "Rusher_Air_Hit_05.png",
+          "bounds": {
+            "left": 26,
+            "top": 38,
+            "width": 107,
+            "height": 82
+          },
+          "sha256": "553eee5e7e1f08df0fdd563eb18b4d21d16a803d290c26018d7dcd3af4a98b8e"
+        },
+        {
+          "file": "Rusher_Air_Hit_06.png",
+          "bounds": {
+            "left": 30,
+            "top": 56,
+            "width": 99,
+            "height": 64
+          },
+          "sha256": "fbad2ce3fb8671f9cfd6770b4e36396e3e67c8211d60136dafb4773b41e78250"
+        }
+      ]
+    },
+    {
+      "name": "Knockdown",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "rusher_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Rusher/Animations/Knockdown",
+      "frames": [
+        {
+          "file": "Rusher_Knockdown_01.png",
+          "bounds": {
+            "left": 27,
+            "top": 3,
+            "width": 107,
+            "height": 117
+          },
+          "sha256": "d9406488cfa30d47d0e3a4b1a31dd0a63bf18fe46e062bcef5987cc616a18ec2"
+        },
+        {
+          "file": "Rusher_Knockdown_02.png",
+          "bounds": {
+            "left": 31,
+            "top": 39,
+            "width": 98,
+            "height": 81
+          },
+          "sha256": "4cdf521bbe26eaad03a73eb9582ed5322623d061be3d8077ceaa3df1c3fa59f9"
+        },
+        {
+          "file": "Rusher_Knockdown_03.png",
+          "bounds": {
+            "left": 22,
+            "top": 58,
+            "width": 115,
+            "height": 62
+          },
+          "sha256": "0bfe75ba09689b7a7e98e6cefd5c4efc7aafc0b5b627c8e9793ef381be110d91"
+        },
+        {
+          "file": "Rusher_Knockdown_04.png",
+          "bounds": {
+            "left": 20,
+            "top": 71,
+            "width": 120,
+            "height": 49
+          },
+          "sha256": "01d1f62f975722f6ea63a7e938e715a3a65a98b6fc9dd5c1f8f14e6dedd3e939"
+        },
+        {
+          "file": "Rusher_Knockdown_05.png",
+          "bounds": {
+            "left": 32,
+            "top": 78,
+            "width": 96,
+            "height": 42
+          },
+          "sha256": "33c57e970e45ec23f7c141ea69fbf5cc39d85a4a15f88a68730a4f3457407bb7"
+        },
+        {
+          "file": "Rusher_Knockdown_06.png",
+          "bounds": {
+            "left": 17,
+            "top": 83,
+            "width": 125,
+            "height": 37
+          },
+          "sha256": "70e614fd854d169e498a2a35194d132ed5251b8afa5baf7b076609dc1fd168e2"
+        }
+      ]
+    },
+    {
+      "name": "Downed",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "rusher_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Rusher/Animations/Downed",
+      "frames": [
+        {
+          "file": "Rusher_Downed_01.png",
+          "bounds": {
+            "left": 17,
+            "top": 83,
+            "width": 125,
+            "height": 37
+          },
+          "sha256": "70e614fd854d169e498a2a35194d132ed5251b8afa5baf7b076609dc1fd168e2"
+        },
+        {
+          "file": "Rusher_Downed_02.png",
+          "bounds": {
+            "left": 25,
+            "top": 80,
+            "width": 109,
+            "height": 40
+          },
+          "sha256": "bf858744d820583ac8a9de9a1654f52776471cdf808bb55d859801ede548b162"
+        },
+        {
+          "file": "Rusher_Downed_03.png",
+          "bounds": {
+            "left": 20,
+            "top": 83,
+            "width": 120,
+            "height": 37
+          },
+          "sha256": "39458ed11605adb306aa5f3c567cc14e041bfc7f7b5eee49a74ff3712e903c47"
+        },
+        {
+          "file": "Rusher_Downed_04.png",
+          "bounds": {
+            "left": 25,
+            "top": 81,
+            "width": 109,
+            "height": 39
+          },
+          "sha256": "b4309d10271d4c1fb10f4dcc8d83f3ae57a2eba0ff03e0b4f5db9dfafa4b5640"
+        },
+        {
+          "file": "Rusher_Downed_05.png",
+          "bounds": {
+            "left": 22,
+            "top": 83,
+            "width": 116,
+            "height": 37
+          },
+          "sha256": "58d0f3963e094a4135bf79e3d31a11e5f944b55370b3c08383938390f60a28dc"
+        },
+        {
+          "file": "Rusher_Downed_06.png",
+          "bounds": {
+            "left": 26,
+            "top": 83,
+            "width": 107,
+            "height": 37
+          },
+          "sha256": "74d097ba54b0ad00d838c96315631e335e6e64bde4dcaf7e8516a5819a7d20e7"
+        }
+      ]
+    },
+    {
+      "name": "GetUp",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "rusher_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Rusher/Animations/GetUp",
+      "frames": [
+        {
+          "file": "Rusher_GetUp_01.png",
+          "bounds": {
+            "left": 17,
+            "top": 83,
+            "width": 125,
+            "height": 37
+          },
+          "sha256": "70e614fd854d169e498a2a35194d132ed5251b8afa5baf7b076609dc1fd168e2"
+        },
+        {
+          "file": "Rusher_GetUp_02.png",
+          "bounds": {
+            "left": 20,
+            "top": 57,
+            "width": 119,
+            "height": 63
+          },
+          "sha256": "845336f4a86a9ab51d652a6e19daf84389e583a512d5590c0ae962504b228c02"
+        },
+        {
+          "file": "Rusher_GetUp_03.png",
+          "bounds": {
+            "left": 26,
+            "top": 43,
+            "width": 107,
+            "height": 77
+          },
+          "sha256": "c7f710a0d6f44877e7b42018bcba4ac1892dd8323860b3727959388a5c70375f"
+        },
+        {
+          "file": "Rusher_GetUp_04.png",
+          "bounds": {
+            "left": 36,
+            "top": 25,
+            "width": 87,
+            "height": 95
+          },
+          "sha256": "c1b8c80678e35b1eda4cf3ba212795780a0d6f293c4494f1c47209f2ee24a1a4"
+        },
+        {
+          "file": "Rusher_GetUp_05.png",
+          "bounds": {
+            "left": 29,
+            "top": 11,
+            "width": 102,
+            "height": 109
+          },
+          "sha256": "fd241e754546c5be03cab718ec6121fb9a93d13c29b6d43cee5d2fd38cfdd0d1"
+        },
+        {
+          "file": "Rusher_GetUp_06.png",
+          "bounds": {
+            "left": 44,
+            "top": 20,
+            "width": 71,
+            "height": 100
+          },
+          "sha256": "8cfd8645dea2f4092a12b12a395f561992d12d71d2ca88992e5bcfa779660fe7"
+        }
+      ]
+    },
+    {
+      "name": "Defeated",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "rusher_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Rusher/Animations/Defeated",
+      "frames": [
+        {
+          "file": "Rusher_Defeated_01.png",
+          "bounds": {
+            "left": 37,
+            "top": 37,
+            "width": 85,
+            "height": 83
+          },
+          "sha256": "3836265ea66267f178b294d950cf66f78e3c4cc87ac2000b70916d744ba25942"
+        },
+        {
+          "file": "Rusher_Defeated_02.png",
+          "bounds": {
+            "left": 25,
+            "top": 63,
+            "width": 109,
+            "height": 57
+          },
+          "sha256": "660676d00bbb2fbd3c39efb491076887cfe608236b1eb2707a92183678b16fc4"
+        },
+        {
+          "file": "Rusher_Defeated_03.png",
+          "bounds": {
+            "left": 20,
+            "top": 79,
+            "width": 120,
+            "height": 41
+          },
+          "sha256": "976d638e3d054516a7fecc369ba45e5ac3a2428f5f5e08e4a8937fcc62e4f51d"
+        },
+        {
+          "file": "Rusher_Defeated_04.png",
+          "bounds": {
+            "left": 16,
+            "top": 82,
+            "width": 128,
+            "height": 38
+          },
+          "sha256": "65e75a376129d9aad85ad949e8fd83b5b873259a8e2ec3b4dc2131f231c24bbe"
+        },
+        {
+          "file": "Rusher_Defeated_05.png",
+          "bounds": {
+            "left": 23,
+            "top": 84,
+            "width": 113,
+            "height": 36
+          },
+          "sha256": "ee1ce4d698df27dfc7fde78489077d4c9cdd4b7d2cd0d4d81698974d50c25d43"
+        },
+        {
+          "file": "Rusher_Defeated_06.png",
+          "bounds": {
+            "left": 22,
+            "top": 86,
+            "width": 116,
+            "height": 34
+          },
+          "sha256": "7326bb72451e24661cbbfb2af50cc8501b6050a083a189821fe42f4d661b5a53"
+        }
+      ]
+    }
+  ]
+}

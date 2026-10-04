@@ -129,6 +129,11 @@ MonoBehaviour:
       knockback: 5
       launchVelocity: {x: 0, y: 0}
       hitType: 0
+      wallBounce: 1
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
       canHitGrounded: 1
       canHitAirborne: 0
     movement: {x: 0.08, y: 0}
@@ -158,6 +163,11 @@ MonoBehaviour:
       knockback: 5
       launchVelocity: {x: 0, y: 0}
       hitType: 0
+      wallBounce: 1
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
       canHitGrounded: 1
       canHitAirborne: 0
     movement: {x: 0, y: 0}
@@ -187,6 +197,11 @@ MonoBehaviour:
       knockback: 5
       launchVelocity: {x: 0, y: 0}
       hitType: 0
+      wallBounce: 1
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
       canHitGrounded: 1
       canHitAirborne: 0
     movement: {x: 0, y: 0}
@@ -216,6 +231,11 @@ MonoBehaviour:
       knockback: 5
       launchVelocity: {x: 0, y: 0}
       hitType: 0
+      wallBounce: 1
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
       canHitGrounded: 1
       canHitAirborne: 0
     movement: {x: 0, y: 0}

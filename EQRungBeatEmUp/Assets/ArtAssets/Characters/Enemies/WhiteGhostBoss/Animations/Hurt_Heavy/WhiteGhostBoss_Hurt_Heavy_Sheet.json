@@ -1,0 +1,154 @@
+{
+  "frames": [
+    {
+      "filename": "WhiteGhostBoss_Hurt_Heavy_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 192
+      },
+      "duration": 90
+    },
+    {
+      "filename": "WhiteGhostBoss_Hurt_Heavy_02.png",
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 192
+      },
+      "duration": 90
+    },
+    {
+      "filename": "WhiteGhostBoss_Hurt_Heavy_03.png",
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 192
+      },
+      "duration": 90
+    },
+    {
+      "filename": "WhiteGhostBoss_Hurt_Heavy_04.png",
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 192
+      },
+      "duration": 90
+    },
+    {
+      "filename": "WhiteGhostBoss_Hurt_Heavy_05.png",
+      "frame": {
+        "x": 768,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 192
+      },
+      "duration": 90
+    },
+    {
+      "filename": "WhiteGhostBoss_Hurt_Heavy_06.png",
+      "frame": {
+        "x": 960,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 192
+      },
+      "duration": 160
+    }
+  ],
+  "meta": {
+    "app": "Haunted Enemies export",
+    "image": "WhiteGhostBoss_Hurt_Heavy_Sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1152,
+      "h": 192
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "Hurt_Heavy",
+        "from": 0,
+        "to": 5,
+        "direction": "forward"
+      }
+    ]
+  }
+}

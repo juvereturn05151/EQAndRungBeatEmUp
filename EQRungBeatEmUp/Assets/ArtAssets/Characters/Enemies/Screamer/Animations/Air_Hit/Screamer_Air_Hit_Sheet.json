@@ -1,0 +1,110 @@
+{
+  "frames": [
+    {
+      "filename": "Screamer_Air_Hit_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 90
+    },
+    {
+      "filename": "Screamer_Air_Hit_02.png",
+      "frame": {
+        "x": 160,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 90
+    },
+    {
+      "filename": "Screamer_Air_Hit_03.png",
+      "frame": {
+        "x": 320,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 90
+    },
+    {
+      "filename": "Screamer_Air_Hit_04.png",
+      "frame": {
+        "x": 480,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 160
+    }
+  ],
+  "meta": {
+    "app": "Haunted Enemies export",
+    "image": "Screamer_Air_Hit_Sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 960,
+      "h": 128
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "Air_Hit",
+        "from": 0,
+        "to": 3,
+        "direction": "forward"
+      }
+    ]
+  }
+}

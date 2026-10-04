@@ -1,0 +1,154 @@
+{
+  "frames": [
+    {
+      "filename": "Ambusher_Defeated_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 130
+    },
+    {
+      "filename": "Ambusher_Defeated_02.png",
+      "frame": {
+        "x": 160,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 130
+    },
+    {
+      "filename": "Ambusher_Defeated_03.png",
+      "frame": {
+        "x": 320,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 130
+    },
+    {
+      "filename": "Ambusher_Defeated_04.png",
+      "frame": {
+        "x": 480,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 130
+    },
+    {
+      "filename": "Ambusher_Defeated_05.png",
+      "frame": {
+        "x": 640,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 130
+    },
+    {
+      "filename": "Ambusher_Defeated_06.png",
+      "frame": {
+        "x": 800,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 160
+    }
+  ],
+  "meta": {
+    "app": "Haunted Enemies export",
+    "image": "Ambusher_Defeated_Sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 960,
+      "h": 128
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "Defeated",
+        "from": 0,
+        "to": 5,
+        "direction": "forward"
+      }
+    ]
+  }
+}

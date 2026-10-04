@@ -1,0 +1,999 @@
+{
+  "id": "Prefect",
+  "canvas": [
+    160,
+    128
+  ],
+  "ground": 120,
+  "pivot": [
+    0.5,
+    0.0625
+  ],
+  "standingOrCrouchedIdleHeight": 106,
+  "animations": [
+    {
+      "name": "Idle",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "prefect_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Prefect/Animations/Idle",
+      "frames": [
+        {
+          "file": "Prefect_Idle_01.png",
+          "bounds": {
+            "left": 51,
+            "top": 14,
+            "width": 57,
+            "height": 106
+          },
+          "sha256": "8f07c2adb52923d270ad8720fa5243e56d829b2de47656783fa852c31f9b0c36"
+        },
+        {
+          "file": "Prefect_Idle_02.png",
+          "bounds": {
+            "left": 51,
+            "top": 14,
+            "width": 57,
+            "height": 106
+          },
+          "sha256": "e5475805991564d001414b079c47467a5244a788265f58b6dc6dae1842bf4d38"
+        },
+        {
+          "file": "Prefect_Idle_03.png",
+          "bounds": {
+            "left": 53,
+            "top": 15,
+            "width": 53,
+            "height": 105
+          },
+          "sha256": "018bb86aabfdb3fff920028dd98a752a0410880f767e5ad7ed91839df19ff7c1"
+        },
+        {
+          "file": "Prefect_Idle_04.png",
+          "bounds": {
+            "left": 52,
+            "top": 15,
+            "width": 55,
+            "height": 105
+          },
+          "sha256": "39d0ce45b854a81eb05d0e1b89e9fd10c67e8e7be2a65d432ee78f391a43a805"
+        },
+        {
+          "file": "Prefect_Idle_05.png",
+          "bounds": {
+            "left": 50,
+            "top": 15,
+            "width": 59,
+            "height": 105
+          },
+          "sha256": "55d53736de4b35d27c654f37f9cdb2d1f8ef4bf972d8722cf7292091f1a8e6e8"
+        },
+        {
+          "file": "Prefect_Idle_06.png",
+          "bounds": {
+            "left": 51,
+            "top": 13,
+            "width": 57,
+            "height": 107
+          },
+          "sha256": "6547db276818a5da6b3912059e198187a24352609a958fca884459a823c03895"
+        }
+      ]
+    },
+    {
+      "name": "Walk",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": true,
+      "source": "prefect_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Prefect/Animations/Walk",
+      "frames": [
+        {
+          "file": "Prefect_Walk_01.png",
+          "bounds": {
+            "left": 43,
+            "top": 13,
+            "width": 73,
+            "height": 107
+          },
+          "sha256": "0b8fa5f105a140baf655453b9199a504886007440dbf1b298ba2136936eb2f9a"
+        },
+        {
+          "file": "Prefect_Walk_02.png",
+          "bounds": {
+            "left": 43,
+            "top": 14,
+            "width": 73,
+            "height": 106
+          },
+          "sha256": "eef60ad4308134e9c7373e369d4295cb2d23324ba0b1b01324bb3f5bb2879d10"
+        },
+        {
+          "file": "Prefect_Walk_03.png",
+          "bounds": {
+            "left": 42,
+            "top": 13,
+            "width": 76,
+            "height": 107
+          },
+          "sha256": "647ddf549367b4c1ea2033f84e7bbce8ca5e50d0d2b31816c728c7e4ccabaf08"
+        },
+        {
+          "file": "Prefect_Walk_04.png",
+          "bounds": {
+            "left": 40,
+            "top": 14,
+            "width": 79,
+            "height": 106
+          },
+          "sha256": "3e9a038ccca7b4933360d159b8184406ba7072a969cb98b2d41ba83f4695512f"
+        },
+        {
+          "file": "Prefect_Walk_05.png",
+          "bounds": {
+            "left": 40,
+            "top": 11,
+            "width": 79,
+            "height": 109
+          },
+          "sha256": "3de08817c7810fabd3a9e25cce2fa5f117d48d0d02d38d8c821d3e2c85155643"
+        },
+        {
+          "file": "Prefect_Walk_06.png",
+          "bounds": {
+            "left": 45,
+            "top": 13,
+            "width": 70,
+            "height": 107
+          },
+          "sha256": "ef0f86aa03b9d5e0b2081e88a2e6ff41ad799bf7d35dd9716fe1f77fd3ae4845"
+        }
+      ]
+    },
+    {
+      "name": "Whistle_Call",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "prefect_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Prefect/Animations/Whistle_Call",
+      "frames": [
+        {
+          "file": "Prefect_Whistle_Call_01.png",
+          "bounds": {
+            "left": 50,
+            "top": 12,
+            "width": 59,
+            "height": 108
+          },
+          "sha256": "0ad74b383bfbb2f5a8882799875d78be0f5d657c16d3bf82afcd8120d793f93d"
+        },
+        {
+          "file": "Prefect_Whistle_Call_02.png",
+          "bounds": {
+            "left": 51,
+            "top": 12,
+            "width": 58,
+            "height": 108
+          },
+          "sha256": "7834638440add7c8325516f071dacc68bcc4afdf20e692fdbd7d89a8128cd79b"
+        },
+        {
+          "file": "Prefect_Whistle_Call_03.png",
+          "bounds": {
+            "left": 53,
+            "top": 12,
+            "width": 54,
+            "height": 108
+          },
+          "sha256": "0fe24ff22c1d1ca91ce1bfddc8754aa4a2761b8b911c4763f0b91a2ac6300f03"
+        },
+        {
+          "file": "Prefect_Whistle_Call_04.png",
+          "bounds": {
+            "left": 47,
+            "top": 10,
+            "width": 66,
+            "height": 110
+          },
+          "sha256": "1406b6392f1ca68af625f4991ecc4fbaabc3be9ede9275e2724689f6237bd05a"
+        },
+        {
+          "file": "Prefect_Whistle_Call_05.png",
+          "bounds": {
+            "left": 45,
+            "top": 12,
+            "width": 70,
+            "height": 108
+          },
+          "sha256": "c3006cc7a6cddffba70a94c1834207734aa6ea9ad69e31f5d1f55bc9eadff8b2"
+        },
+        {
+          "file": "Prefect_Whistle_Call_06.png",
+          "bounds": {
+            "left": 51,
+            "top": 11,
+            "width": 57,
+            "height": 109
+          },
+          "sha256": "8db556bca7fdb0ca0df43cba0b82a63c58c7402cbb23060c7e4e2f871fe28299"
+        }
+      ]
+    },
+    {
+      "name": "Talisman_Cast",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "prefect_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Prefect/Animations/Talisman_Cast",
+      "frames": [
+        {
+          "file": "Prefect_Talisman_Cast_01.png",
+          "bounds": {
+            "left": 45,
+            "top": 12,
+            "width": 70,
+            "height": 108
+          },
+          "sha256": "7495099d8d01d127408263a4c951d62302576dba219999e08e3106412e66baf2"
+        },
+        {
+          "file": "Prefect_Talisman_Cast_02.png",
+          "bounds": {
+            "left": 44,
+            "top": 9,
+            "width": 72,
+            "height": 111
+          },
+          "sha256": "f2d9bfa22d5ff8b42789176a85ed2b734a115d7a8b7dfbbce6054c83e85c45d8"
+        },
+        {
+          "file": "Prefect_Talisman_Cast_03.png",
+          "bounds": {
+            "left": 32,
+            "top": 11,
+            "width": 96,
+            "height": 109
+          },
+          "sha256": "fdeaba5b2684bff5f2da78b0db031109b067192977885914731b5a5de1b37324"
+        },
+        {
+          "file": "Prefect_Talisman_Cast_04.png",
+          "bounds": {
+            "left": 17,
+            "top": 18,
+            "width": 125,
+            "height": 102
+          },
+          "sha256": "82f7e4d25894caef71682aa697270c3f39b6d9bbcc0ef0633a051e930654c723"
+        },
+        {
+          "file": "Prefect_Talisman_Cast_05.png",
+          "bounds": {
+            "left": 26,
+            "top": 15,
+            "width": 108,
+            "height": 105
+          },
+          "sha256": "6cf4c8f90cb74c6a7db6a4b3660379942a9009ad3971eb28eefd7752bc74488e"
+        },
+        {
+          "file": "Prefect_Talisman_Cast_06.png",
+          "bounds": {
+            "left": 50,
+            "top": 12,
+            "width": 60,
+            "height": 108
+          },
+          "sha256": "c4244083e0f9010dd403f32ae94d2dc07d464fabb074493604a0f02d654cdc6b"
+        }
+      ]
+    },
+    {
+      "name": "BatonAttack",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "prefect_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Prefect/Animations/BatonAttack",
+      "frames": [
+        {
+          "file": "Prefect_BatonAttack_01.png",
+          "bounds": {
+            "left": 41,
+            "top": 15,
+            "width": 77,
+            "height": 105
+          },
+          "sha256": "954e75cb0cfb02e508cc10b268269b42629c6040f7d09a4178e4b385b3dd17a3"
+        },
+        {
+          "file": "Prefect_BatonAttack_02.png",
+          "bounds": {
+            "left": 33,
+            "top": 6,
+            "width": 94,
+            "height": 114
+          },
+          "sha256": "074e4e1fbbd7867a750718305395144f32661b6c04003d2c3cdb47bdc63b910e"
+        },
+        {
+          "file": "Prefect_BatonAttack_03.png",
+          "bounds": {
+            "left": 23,
+            "top": 15,
+            "width": 113,
+            "height": 105
+          },
+          "sha256": "4beb66b71e17afe0b2dcc648020b0e5b931ec5af29b98f6394d39d4f24d7cc1b"
+        },
+        {
+          "file": "Prefect_BatonAttack_04.png",
+          "bounds": {
+            "left": 24,
+            "top": 19,
+            "width": 112,
+            "height": 101
+          },
+          "sha256": "f61f1fa9ff92d3563a950f087418731bb8a414800d429a2eaf5bc2c123ff523b"
+        },
+        {
+          "file": "Prefect_BatonAttack_05.png",
+          "bounds": {
+            "left": 27,
+            "top": 14,
+            "width": 106,
+            "height": 106
+          },
+          "sha256": "77e9b2b6ac72e1910915da1df7002fc297c84d28916f42ad892314af04ea003f"
+        },
+        {
+          "file": "Prefect_BatonAttack_06.png",
+          "bounds": {
+            "left": 45,
+            "top": 15,
+            "width": 69,
+            "height": 105
+          },
+          "sha256": "273aeb85078abf88a5110b4f2384adacaad4e2ac0cb8df87e1497f4aea29184c"
+        }
+      ]
+    },
+    {
+      "name": "Command",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "prefect_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Prefect/Animations/Command",
+      "frames": [
+        {
+          "file": "Prefect_Command_01.png",
+          "bounds": {
+            "left": 35,
+            "top": 20,
+            "width": 89,
+            "height": 100
+          },
+          "sha256": "d8dbf9c918f1e1d9c57084c60c1a370aa07becb17a8b1f62a2cb34b53c3671b5"
+        },
+        {
+          "file": "Prefect_Command_02.png",
+          "bounds": {
+            "left": 25,
+            "top": 23,
+            "width": 109,
+            "height": 97
+          },
+          "sha256": "8f763973f7e134fff31352666fa96ece63267253afd048e500ee497f158810f7"
+        },
+        {
+          "file": "Prefect_Command_03.png",
+          "bounds": {
+            "left": 25,
+            "top": 25,
+            "width": 110,
+            "height": 95
+          },
+          "sha256": "68546ed38c4eae4ad7063ed91d313b7a09f864f286f4196ab822c0a185b2df7a"
+        },
+        {
+          "file": "Prefect_Command_04.png",
+          "bounds": {
+            "left": 50,
+            "top": 15,
+            "width": 60,
+            "height": 105
+          },
+          "sha256": "3da18a96981627bd3abd544a217c8801bfaf2e5e3eed416072954f462247f4a5"
+        },
+        {
+          "file": "Prefect_Command_05.png",
+          "bounds": {
+            "left": 49,
+            "top": 6,
+            "width": 61,
+            "height": 114
+          },
+          "sha256": "35bbea07e2803b01907dc8c3060629dd6ce7e01bddaf0720aa011227038a9972"
+        },
+        {
+          "file": "Prefect_Command_06.png",
+          "bounds": {
+            "left": 40,
+            "top": 18,
+            "width": 79,
+            "height": 102
+          },
+          "sha256": "4bf62213299b76f4382a23faa39e3c287542da59bb9a55a3fe96774000c53674"
+        }
+      ]
+    },
+    {
+      "name": "Recovery",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "prefect_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Prefect/Animations/Recovery",
+      "frames": [
+        {
+          "file": "Prefect_Recovery_01.png",
+          "bounds": {
+            "left": 50,
+            "top": 30,
+            "width": 60,
+            "height": 90
+          },
+          "sha256": "4341479df38b456cde29652a506b58d0c5c17294561546c0c0be18f0d3badad6"
+        },
+        {
+          "file": "Prefect_Recovery_02.png",
+          "bounds": {
+            "left": 42,
+            "top": 37,
+            "width": 76,
+            "height": 83
+          },
+          "sha256": "41aab52595edb3d28e03d684b542b8f5987d2166a784d0ef871eac7b1da76904"
+        },
+        {
+          "file": "Prefect_Recovery_03.png",
+          "bounds": {
+            "left": 44,
+            "top": 37,
+            "width": 71,
+            "height": 83
+          },
+          "sha256": "80d36be3609a1bbe89fa13906b377889104f64b68af926b2246b06d31fc27d90"
+        },
+        {
+          "file": "Prefect_Recovery_04.png",
+          "bounds": {
+            "left": 52,
+            "top": 27,
+            "width": 56,
+            "height": 93
+          },
+          "sha256": "6344ecbcf0ddc53d8a9c6d95d7fb8edbf65d18db5f69ebdae45f1b234cdb9d6f"
+        },
+        {
+          "file": "Prefect_Recovery_05.png",
+          "bounds": {
+            "left": 51,
+            "top": 30,
+            "width": 58,
+            "height": 90
+          },
+          "sha256": "06b8c2077fa02f943c22b13db6c21cad7c0b99954dc1d79a6753ff8c61ffe7f6"
+        },
+        {
+          "file": "Prefect_Recovery_06.png",
+          "bounds": {
+            "left": 53,
+            "top": 22,
+            "width": 54,
+            "height": 98
+          },
+          "sha256": "61b58ee26aca208a793f309427e8fbc384a6e5a4b451703c1f24e38c938a054b"
+        }
+      ]
+    },
+    {
+      "name": "Hurt_Light",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "prefect_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Prefect/Animations/Hurt_Light",
+      "frames": [
+        {
+          "file": "Prefect_Hurt_Light_01.png",
+          "bounds": {
+            "left": 46,
+            "top": 5,
+            "width": 67,
+            "height": 115
+          },
+          "sha256": "8b333e5aed258aa9c5bac75c6fb6a143ed04842f03a19f310e437311b324313e"
+        },
+        {
+          "file": "Prefect_Hurt_Light_02.png",
+          "bounds": {
+            "left": 50,
+            "top": 15,
+            "width": 60,
+            "height": 105
+          },
+          "sha256": "3d1cbe2c90c5fbc206dc4e35ba4ff81bf5ca307d070fce69124f653ee63221ac"
+        },
+        {
+          "file": "Prefect_Hurt_Light_03.png",
+          "bounds": {
+            "left": 46,
+            "top": 22,
+            "width": 67,
+            "height": 98
+          },
+          "sha256": "0b26b8cfa1470fc45fb82724e912fb926deb555ff98392fb41c9add7c4f3d4c9"
+        },
+        {
+          "file": "Prefect_Hurt_Light_04.png",
+          "bounds": {
+            "left": 50,
+            "top": 17,
+            "width": 60,
+            "height": 103
+          },
+          "sha256": "7d5fece83fe98501de9aff196c8429527f55a747eea0855c1f9c7ae1bd130a7d"
+        },
+        {
+          "file": "Prefect_Hurt_Light_05.png",
+          "bounds": {
+            "left": 48,
+            "top": 11,
+            "width": 64,
+            "height": 109
+          },
+          "sha256": "7948836daea19f5d1ba326b0ab84548ae9865e1d3f7ea4a32562828446390771"
+        },
+        {
+          "file": "Prefect_Hurt_Light_06.png",
+          "bounds": {
+            "left": 48,
+            "top": 6,
+            "width": 64,
+            "height": 114
+          },
+          "sha256": "714018120caaff0d728273f58069acd4103ca69cf98dc42c81d6e00e2e8b3e51"
+        }
+      ]
+    },
+    {
+      "name": "Hurt_Heavy",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "prefect_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Prefect/Animations/Hurt_Heavy",
+      "frames": [
+        {
+          "file": "Prefect_Hurt_Heavy_01.png",
+          "bounds": {
+            "left": 24,
+            "top": 14,
+            "width": 111,
+            "height": 106
+          },
+          "sha256": "7805e9a422c534d02bc5d17455c391a49b4d512b1a215b20c01b6eb3eccf2f1b"
+        },
+        {
+          "file": "Prefect_Hurt_Heavy_02.png",
+          "bounds": {
+            "left": 43,
+            "top": 12,
+            "width": 73,
+            "height": 108
+          },
+          "sha256": "ff3133e8e5945a9b7c3bffa0d8223de59673217712ec4c482a6f45f71398fce4"
+        },
+        {
+          "file": "Prefect_Hurt_Heavy_03.png",
+          "bounds": {
+            "left": 38,
+            "top": 26,
+            "width": 84,
+            "height": 94
+          },
+          "sha256": "d42b826cb30ce7664cdb5d9dc7ea80c9e576c1db455c20cfc98c31e7afecc857"
+        },
+        {
+          "file": "Prefect_Hurt_Heavy_04.png",
+          "bounds": {
+            "left": 41,
+            "top": 17,
+            "width": 78,
+            "height": 103
+          },
+          "sha256": "e57ab54023f9eb99271e9c371094bf95093a748d93aeaa8e72f707b31e841d08"
+        },
+        {
+          "file": "Prefect_Hurt_Heavy_05.png",
+          "bounds": {
+            "left": 40,
+            "top": 15,
+            "width": 80,
+            "height": 105
+          },
+          "sha256": "e3e91567ec0456227b9ffb1824baa8130b808545326125e68a5b64326cde4f3d"
+        },
+        {
+          "file": "Prefect_Hurt_Heavy_06.png",
+          "bounds": {
+            "left": 47,
+            "top": 5,
+            "width": 65,
+            "height": 115
+          },
+          "sha256": "a3e8c9081f85eb06dbc20e72fb2221709847e097dfdd79a64fc32e32b91bf51f"
+        }
+      ]
+    },
+    {
+      "name": "Air_Hit",
+      "frameCount": 5,
+      "uniqueFrames": 5,
+      "durationSeconds": 0.52,
+      "loop": false,
+      "source": "prefect_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Prefect/Animations/Air_Hit",
+      "frames": [
+        {
+          "file": "Prefect_Air_Hit_01.png",
+          "bounds": {
+            "left": 23,
+            "top": 22,
+            "width": 114,
+            "height": 98
+          },
+          "sha256": "a8d1f6c9650c2febd3f3a7918ed1271b19c87631a209925a430a32e3fb5b18b9"
+        },
+        {
+          "file": "Prefect_Air_Hit_02.png",
+          "bounds": {
+            "left": 31,
+            "top": 11,
+            "width": 97,
+            "height": 109
+          },
+          "sha256": "e66cc322a69cdc0a19757c00a85fa0ccdbfe3b8e8fa542cbbcbbcc69c572d9ad"
+        },
+        {
+          "file": "Prefect_Air_Hit_03.png",
+          "bounds": {
+            "left": 24,
+            "top": 34,
+            "width": 112,
+            "height": 86
+          },
+          "sha256": "1621b18979ea8b4bccc408d4854140e7a4553584f8a57467e49e7f9ae9a97fe0"
+        },
+        {
+          "file": "Prefect_Air_Hit_04.png",
+          "bounds": {
+            "left": 31,
+            "top": 33,
+            "width": 98,
+            "height": 87
+          },
+          "sha256": "3e71ee5922c3724834c85ff643334bdd37115d85a6cf4bcb038410b1454365e5"
+        },
+        {
+          "file": "Prefect_Air_Hit_05.png",
+          "bounds": {
+            "left": 13,
+            "top": 36,
+            "width": 134,
+            "height": 84
+          },
+          "sha256": "327d5bea297016393c46d687771b50a13b8bf7e2b0bec0679df1b0ac4c4e206f"
+        }
+      ]
+    },
+    {
+      "name": "Knockdown",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "prefect_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Prefect/Animations/Knockdown",
+      "frames": [
+        {
+          "file": "Prefect_Knockdown_01.png",
+          "bounds": {
+            "left": 30,
+            "top": 23,
+            "width": 100,
+            "height": 97
+          },
+          "sha256": "2570ca8c2a808cdcae4fc31f3560c2004786d10f57f591af113dd159923196d3"
+        },
+        {
+          "file": "Prefect_Knockdown_02.png",
+          "bounds": {
+            "left": 32,
+            "top": 41,
+            "width": 95,
+            "height": 79
+          },
+          "sha256": "5789f69f69a0fc22830b2f699fa276e4ded50a667aa2b02810e4f79e283995c3"
+        },
+        {
+          "file": "Prefect_Knockdown_03.png",
+          "bounds": {
+            "left": 28,
+            "top": 60,
+            "width": 104,
+            "height": 60
+          },
+          "sha256": "9208883f1c187ad70b7e87e671541d91dd7bf17021b9a2a7f9b58cfd9d1b44a9"
+        },
+        {
+          "file": "Prefect_Knockdown_04.png",
+          "bounds": {
+            "left": 22,
+            "top": 71,
+            "width": 115,
+            "height": 49
+          },
+          "sha256": "56ee6f7d645ac619dbcf50888c7761afa232ebfb4d1ca5d4929f30c7be7bc924"
+        },
+        {
+          "file": "Prefect_Knockdown_05.png",
+          "bounds": {
+            "left": 22,
+            "top": 77,
+            "width": 115,
+            "height": 43
+          },
+          "sha256": "e79e09fbd1b71d8d38358d792dfb221f9badf9510ef9076b5a6a6f35e7fc5851"
+        },
+        {
+          "file": "Prefect_Knockdown_06.png",
+          "bounds": {
+            "left": 27,
+            "top": 78,
+            "width": 105,
+            "height": 42
+          },
+          "sha256": "a8f66e03e52efe74fba76c4959dda8609f48d085fb890e27560e020053cb647c"
+        }
+      ]
+    },
+    {
+      "name": "Downed",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "prefect_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Prefect/Animations/Downed",
+      "frames": [
+        {
+          "file": "Prefect_Downed_01.png",
+          "bounds": {
+            "left": 27,
+            "top": 78,
+            "width": 105,
+            "height": 42
+          },
+          "sha256": "a8f66e03e52efe74fba76c4959dda8609f48d085fb890e27560e020053cb647c"
+        },
+        {
+          "file": "Prefect_Downed_02.png",
+          "bounds": {
+            "left": 29,
+            "top": 67,
+            "width": 102,
+            "height": 53
+          },
+          "sha256": "976b90edaaa4b198c33bb200ba0e94d32d7aa0d7bc485a863ebc112fe6e798ba"
+        },
+        {
+          "file": "Prefect_Downed_03.png",
+          "bounds": {
+            "left": 21,
+            "top": 68,
+            "width": 118,
+            "height": 52
+          },
+          "sha256": "47bcf57df57d4c35261c9788847ca3499d6e36d188efd7360c35c1fbb2cdcedb"
+        },
+        {
+          "file": "Prefect_Downed_04.png",
+          "bounds": {
+            "left": 27,
+            "top": 73,
+            "width": 105,
+            "height": 47
+          },
+          "sha256": "15d7cd1438daa28a9340c06f565bd2918a1d88e12cd901c8426cd1143ece9c68"
+        },
+        {
+          "file": "Prefect_Downed_05.png",
+          "bounds": {
+            "left": 22,
+            "top": 73,
+            "width": 116,
+            "height": 47
+          },
+          "sha256": "c282c91174aec13c382132d39d04317c476ac8f691aba000052789d4acf54408"
+        },
+        {
+          "file": "Prefect_Downed_06.png",
+          "bounds": {
+            "left": 29,
+            "top": 75,
+            "width": 101,
+            "height": 45
+          },
+          "sha256": "2edeb9455745c87c71bbe6b3d0f5eb694814f9508d1cff2ccd65ed44b13298a7"
+        }
+      ]
+    },
+    {
+      "name": "GetUp",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "prefect_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Prefect/Animations/GetUp",
+      "frames": [
+        {
+          "file": "Prefect_GetUp_01.png",
+          "bounds": {
+            "left": 27,
+            "top": 78,
+            "width": 105,
+            "height": 42
+          },
+          "sha256": "a8f66e03e52efe74fba76c4959dda8609f48d085fb890e27560e020053cb647c"
+        },
+        {
+          "file": "Prefect_GetUp_02.png",
+          "bounds": {
+            "left": 30,
+            "top": 49,
+            "width": 99,
+            "height": 71
+          },
+          "sha256": "a66a319f50d877db27e79807d4b021190f7cc9c885c07704ae19fb57ff443838"
+        },
+        {
+          "file": "Prefect_GetUp_03.png",
+          "bounds": {
+            "left": 38,
+            "top": 20,
+            "width": 83,
+            "height": 100
+          },
+          "sha256": "e4bf0fb18f2fefc2cd64afd00a3cc00fdb0306eb6e7b1b3a907a3b997fe2542c"
+        },
+        {
+          "file": "Prefect_GetUp_04.png",
+          "bounds": {
+            "left": 45,
+            "top": 11,
+            "width": 69,
+            "height": 109
+          },
+          "sha256": "469821dd4d6c70b9560362a16793ce678a9e4024295943369f3360882d36d090"
+        },
+        {
+          "file": "Prefect_GetUp_05.png",
+          "bounds": {
+            "left": 47,
+            "top": 6,
+            "width": 66,
+            "height": 114
+          },
+          "sha256": "0ab9298bf3db6ea3421ca62ed12e835e23a56177aa4774d9f31dfed23624e98a"
+        },
+        {
+          "file": "Prefect_GetUp_06.png",
+          "bounds": {
+            "left": 51,
+            "top": 14,
+            "width": 57,
+            "height": 106
+          },
+          "sha256": "8f07c2adb52923d270ad8720fa5243e56d829b2de47656783fa852c31f9b0c36"
+        }
+      ]
+    },
+    {
+      "name": "Defeated",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "prefect_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Prefect/Animations/Defeated",
+      "frames": [
+        {
+          "file": "Prefect_Defeated_01.png",
+          "bounds": {
+            "left": 47,
+            "top": 3,
+            "width": 66,
+            "height": 117
+          },
+          "sha256": "aa0532d365c0f6b87510742a61b49c36a0c2052370f0219bb52565dfc03c201c"
+        },
+        {
+          "file": "Prefect_Defeated_02.png",
+          "bounds": {
+            "left": 38,
+            "top": 29,
+            "width": 84,
+            "height": 91
+          },
+          "sha256": "ab9aa981db70e083f9f742c2f99e87c8bf393a2a7e41e08e61bd501302144a81"
+        },
+        {
+          "file": "Prefect_Defeated_03.png",
+          "bounds": {
+            "left": 36,
+            "top": 39,
+            "width": 88,
+            "height": 81
+          },
+          "sha256": "703fc5e7bcdf7654663702f0a8617539697df4f7963fba266f3886a5309ab772"
+        },
+        {
+          "file": "Prefect_Defeated_04.png",
+          "bounds": {
+            "left": 21,
+            "top": 67,
+            "width": 117,
+            "height": 53
+          },
+          "sha256": "140fbc0dba49163547b1584b74398001d764a86aa8344546518f705ce366c399"
+        },
+        {
+          "file": "Prefect_Defeated_05.png",
+          "bounds": {
+            "left": 21,
+            "top": 77,
+            "width": 117,
+            "height": 43
+          },
+          "sha256": "dc7f5144dc68b80decbd73f07157ba2e7d96629805dbccbc2ebba1134a998f4c"
+        },
+        {
+          "file": "Prefect_Defeated_06.png",
+          "bounds": {
+            "left": 23,
+            "top": 75,
+            "width": 113,
+            "height": 45
+          },
+          "sha256": "ec39b583dee5b0b87b6aeec1ea20d6356415695fae248c105830144a1dbb2ab3"
+        }
+      ]
+    }
+  ]
+}

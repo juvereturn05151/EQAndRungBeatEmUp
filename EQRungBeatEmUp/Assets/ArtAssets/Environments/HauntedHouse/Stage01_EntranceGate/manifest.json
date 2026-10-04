@@ -1,0 +1,42 @@
+{
+  "id": "Stage01_EntranceGate",
+  "name": "Entrance Gate",
+  "sourceSplit": 0.467,
+  "canvas": [
+    720,
+    400
+  ],
+  "pixelsPerUnit": 100,
+  "backgroundFraction": 0.4,
+  "floorFraction": 0.6,
+  "plates": [
+    {
+      "layer": "Background",
+      "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage01_EntranceGate/Background/Stage01_EntranceGate_Background.png",
+      "canvas": [
+        720,
+        160
+      ],
+      "position": [
+        0,
+        2.56,
+        0
+      ],
+      "sortingOrder": -100
+    },
+    {
+      "layer": "Floor",
+      "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage01_EntranceGate/Floor/Stage01_EntranceGate_Floor.png",
+      "canvas": [
+        720,
+        240
+      ],
+      "position": [
+        0,
+        0.56,
+        0
+      ],
+      "sortingOrder": -90
+    }
+  ]
+}

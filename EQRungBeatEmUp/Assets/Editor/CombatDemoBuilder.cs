@@ -8,7 +8,7 @@ using UnityEngine;
 public static class CombatDemoBuilder
 {
     public const string Output = "Assets/EQ_Rung_BeatEmUp";
-    public const string ScenePath = "Assets/Scenes/ComboDemo.unity";
+    public const string ScenePath = Output + "/Scenes/ComboDemo.unity";
     [MenuItem("Beat Em Up/Edit Punch1 frame data")]
     public static void EditPunch()
     {

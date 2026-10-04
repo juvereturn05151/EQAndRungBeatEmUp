@@ -1,0 +1,1009 @@
+{
+  "id": "Thrower",
+  "canvas": [
+    160,
+    128
+  ],
+  "ground": 120,
+  "pivot": [
+    0.5,
+    0.0625
+  ],
+  "standingOrCrouchedIdleHeight": 100,
+  "animations": [
+    {
+      "name": "Idle",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "thrower_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Thrower/Animations/Idle",
+      "frames": [
+        {
+          "file": "Thrower_Idle_01.png",
+          "bounds": {
+            "left": 53,
+            "top": 20,
+            "width": 54,
+            "height": 100
+          },
+          "sha256": "118eae480c844de41cc5f01f6190ad21f0983c3fdad04b65e890a0186482716d"
+        },
+        {
+          "file": "Thrower_Idle_02.png",
+          "bounds": {
+            "left": 51,
+            "top": 20,
+            "width": 58,
+            "height": 100
+          },
+          "sha256": "19bac162d9c5d033d7ac3afb16713cc31304ffd86b1a79a45d8a23b62d369e49"
+        },
+        {
+          "file": "Thrower_Idle_03.png",
+          "bounds": {
+            "left": 50,
+            "top": 20,
+            "width": 59,
+            "height": 100
+          },
+          "sha256": "5574941079af9c6c2fda5cec1f51af63de44caf6ea4032ca7b5fa5e514f90659"
+        },
+        {
+          "file": "Thrower_Idle_04.png",
+          "bounds": {
+            "left": 53,
+            "top": 20,
+            "width": 53,
+            "height": 100
+          },
+          "sha256": "6933a3578845b79d037c8951e867c3fb14529bf83aae8a0fc05f650165de55d9"
+        },
+        {
+          "file": "Thrower_Idle_05.png",
+          "bounds": {
+            "left": 51,
+            "top": 19,
+            "width": 58,
+            "height": 101
+          },
+          "sha256": "287e428a56026c549cb2f43a2e1f0e93117d24cc52c38fb3c3216a198199be17"
+        },
+        {
+          "file": "Thrower_Idle_06.png",
+          "bounds": {
+            "left": 51,
+            "top": 20,
+            "width": 57,
+            "height": 100
+          },
+          "sha256": "32ec833b5226c3178696cd081cd0093e8f295ae636b7dec0463e9c25301fa757"
+        }
+      ]
+    },
+    {
+      "name": "Walk",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": true,
+      "source": "thrower_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Thrower/Animations/Walk",
+      "frames": [
+        {
+          "file": "Thrower_Walk_01.png",
+          "bounds": {
+            "left": 41,
+            "top": 19,
+            "width": 78,
+            "height": 101
+          },
+          "sha256": "651e004f5447729ef68aa34bfcc5179b6f2a231496f6211ac5f11fe0305dc1ec"
+        },
+        {
+          "file": "Thrower_Walk_02.png",
+          "bounds": {
+            "left": 44,
+            "top": 19,
+            "width": 71,
+            "height": 101
+          },
+          "sha256": "57577ebf23b9655dbbe6314a80757d48a051e41e4935281d7b09aa75f64d5a5d"
+        },
+        {
+          "file": "Thrower_Walk_03.png",
+          "bounds": {
+            "left": 40,
+            "top": 20,
+            "width": 80,
+            "height": 100
+          },
+          "sha256": "c6854fbda6fe9235613b4533595e0b908657fbd8f927db7d64dae5ae54ad09a9"
+        },
+        {
+          "file": "Thrower_Walk_04.png",
+          "bounds": {
+            "left": 43,
+            "top": 19,
+            "width": 74,
+            "height": 101
+          },
+          "sha256": "4b2a4c109208140dfe8935d99c57e321629fc3109ed385181191c6b0454787d4"
+        },
+        {
+          "file": "Thrower_Walk_05.png",
+          "bounds": {
+            "left": 41,
+            "top": 20,
+            "width": 77,
+            "height": 100
+          },
+          "sha256": "dc319f81a507d4ae14d09bc26e361588898f745b6eba35ea7cd22a63836b1d24"
+        },
+        {
+          "file": "Thrower_Walk_06.png",
+          "bounds": {
+            "left": 45,
+            "top": 19,
+            "width": 70,
+            "height": 101
+          },
+          "sha256": "3fd84f6e8a1e551511609424479f87b71b92af78c6e4074adfe19eb1f53d82d6"
+        }
+      ]
+    },
+    {
+      "name": "Throw_Notebook",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "thrower_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Thrower/Animations/Throw_Notebook",
+      "frames": [
+        {
+          "file": "Thrower_Throw_Notebook_01.png",
+          "bounds": {
+            "left": 41,
+            "top": 23,
+            "width": 77,
+            "height": 97
+          },
+          "sha256": "6876da669ca5ca5646374f75ade373ede52a0f488db07a579e1f6fab6f106b19"
+        },
+        {
+          "file": "Thrower_Throw_Notebook_02.png",
+          "bounds": {
+            "left": 42,
+            "top": 23,
+            "width": 76,
+            "height": 97
+          },
+          "sha256": "384a4ab1be60687bbabc0afda315e9116cd206a962e8e75c440d6ad4c384d440"
+        },
+        {
+          "file": "Thrower_Throw_Notebook_03.png",
+          "bounds": {
+            "left": 33,
+            "top": 22,
+            "width": 93,
+            "height": 98
+          },
+          "sha256": "8018749c3ab8a280186088bd11cb0b9da6c11183791273be3bf48de9a738dc11"
+        },
+        {
+          "file": "Thrower_Throw_Notebook_04.png",
+          "bounds": {
+            "left": 28,
+            "top": 23,
+            "width": 103,
+            "height": 97
+          },
+          "sha256": "034088ba464c98550d13204b3ef63b65f160d3d144539b6a628af59992a6a651"
+        },
+        {
+          "file": "Thrower_Throw_Notebook_05.png",
+          "bounds": {
+            "left": 28,
+            "top": 23,
+            "width": 103,
+            "height": 97
+          },
+          "sha256": "9ae561cb84c77054bc747364b17ecac57f6cf8b0af927c6afe4acdde6e8b56e4"
+        },
+        {
+          "file": "Thrower_Throw_Notebook_06.png",
+          "bounds": {
+            "left": 43,
+            "top": 23,
+            "width": 74,
+            "height": 97
+          },
+          "sha256": "1e74ac922ce8741e09c2d8afd28ab6bcea168f540f63c517cfa3b9599fa5cb1a"
+        }
+      ]
+    },
+    {
+      "name": "Throw_Pens",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "thrower_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Thrower/Animations/Throw_Pens",
+      "frames": [
+        {
+          "file": "Thrower_Throw_Pens_01.png",
+          "bounds": {
+            "left": 46,
+            "top": 19,
+            "width": 67,
+            "height": 101
+          },
+          "sha256": "2a3c9420ea55fd3c9bbb70340257102f414b7e068651187f13961fcbb05e436e"
+        },
+        {
+          "file": "Thrower_Throw_Pens_02.png",
+          "bounds": {
+            "left": 46,
+            "top": 17,
+            "width": 67,
+            "height": 103
+          },
+          "sha256": "6679152ceb9ac8628c16c8767168b7646984b564a29f577f44b9411607bf1439"
+        },
+        {
+          "file": "Thrower_Throw_Pens_03.png",
+          "bounds": {
+            "left": 41,
+            "top": 20,
+            "width": 78,
+            "height": 100
+          },
+          "sha256": "1128256833a2442949502074bed55b73500243fafaee57ff6d728ce9fb1a3f3f"
+        },
+        {
+          "file": "Thrower_Throw_Pens_04.png",
+          "bounds": {
+            "left": 36,
+            "top": 19,
+            "width": 87,
+            "height": 101
+          },
+          "sha256": "8cd4355fcfe2d648eacee0fadb74e91efd3203c0eb50782aa3fff5bc346a9f5c"
+        },
+        {
+          "file": "Thrower_Throw_Pens_05.png",
+          "bounds": {
+            "left": 28,
+            "top": 19,
+            "width": 104,
+            "height": 101
+          },
+          "sha256": "99ef6fe2c4a62b5e218f21b9148ec96b3756cc80d3152629c36aa6e1cdec8aff"
+        },
+        {
+          "file": "Thrower_Throw_Pens_06.png",
+          "bounds": {
+            "left": 44,
+            "top": 18,
+            "width": 72,
+            "height": 102
+          },
+          "sha256": "65f8eb3e918fc1b7a46f73924b9745722a4834c50a776c91a36154e975eabeaf"
+        }
+      ]
+    },
+    {
+      "name": "Throw_Papers",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "thrower_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Thrower/Animations/Throw_Papers",
+      "frames": [
+        {
+          "file": "Thrower_Throw_Papers_01.png",
+          "bounds": {
+            "left": 39,
+            "top": 23,
+            "width": 81,
+            "height": 97
+          },
+          "sha256": "30c0a46755003d669625c26422430c597996d6fe909bb38b17455d01cc31aff4"
+        },
+        {
+          "file": "Thrower_Throw_Papers_02.png",
+          "bounds": {
+            "left": 32,
+            "top": 17,
+            "width": 96,
+            "height": 103
+          },
+          "sha256": "90b6a2d8ef2de651c4e22ef56c8fced8af4aa2566d1b0c4c0310e1c63f801270"
+        },
+        {
+          "file": "Thrower_Throw_Papers_03.png",
+          "bounds": {
+            "left": 35,
+            "top": 20,
+            "width": 90,
+            "height": 100
+          },
+          "sha256": "3dea9dfb46a5d3b9f1509b6cfba154cf4a1f6b290a13f24d55e87e795f1c1011"
+        },
+        {
+          "file": "Thrower_Throw_Papers_04.png",
+          "bounds": {
+            "left": 34,
+            "top": 23,
+            "width": 91,
+            "height": 97
+          },
+          "sha256": "64299ca7d5f907f65a0c164d36b1c52fe7eb044f50c2a61fba254309ef306936"
+        },
+        {
+          "file": "Thrower_Throw_Papers_05.png",
+          "bounds": {
+            "left": 25,
+            "top": 22,
+            "width": 109,
+            "height": 98
+          },
+          "sha256": "40da8d57d5b0580fa7275de39d7a4a417f15c8f6fc50be47b38f883b67ca5001"
+        },
+        {
+          "file": "Thrower_Throw_Papers_06.png",
+          "bounds": {
+            "left": 44,
+            "top": 22,
+            "width": 72,
+            "height": 98
+          },
+          "sha256": "b92edbe41c7555807690c53d7bd962c5c7db5a4efcef9e555204b4d2e17f2c8e"
+        }
+      ]
+    },
+    {
+      "name": "Recovery",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "thrower_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Thrower/Animations/Recovery",
+      "frames": [
+        {
+          "file": "Thrower_Recovery_01.png",
+          "bounds": {
+            "left": 45,
+            "top": 35,
+            "width": 70,
+            "height": 85
+          },
+          "sha256": "9cc6c2e97f50268e6fb0abe046548af45626e9138b42efa1e7b27a89f26178fb"
+        },
+        {
+          "file": "Thrower_Recovery_02.png",
+          "bounds": {
+            "left": 44,
+            "top": 34,
+            "width": 72,
+            "height": 86
+          },
+          "sha256": "0a2c638d724e6c1455c4f187e2275c570bfe7a8b9cf8a8ef0c962653b46f9017"
+        },
+        {
+          "file": "Thrower_Recovery_03.png",
+          "bounds": {
+            "left": 40,
+            "top": 31,
+            "width": 79,
+            "height": 89
+          },
+          "sha256": "e74c911b97e8b7844090927728e17e4081a6254eacc0df936d7c2cd3ebb47543"
+        },
+        {
+          "file": "Thrower_Recovery_04.png",
+          "bounds": {
+            "left": 49,
+            "top": 25,
+            "width": 62,
+            "height": 95
+          },
+          "sha256": "d96e07020af0e510de0ac4f8a40e99e0d17be28d9f56113896549886b1fca2c3"
+        },
+        {
+          "file": "Thrower_Recovery_05.png",
+          "bounds": {
+            "left": 52,
+            "top": 24,
+            "width": 56,
+            "height": 96
+          },
+          "sha256": "59c52df6a66e2a5e2b9588f6af97b73e14cd626d041ab3067fcee3831ef29b3d"
+        },
+        {
+          "file": "Thrower_Recovery_06.png",
+          "bounds": {
+            "left": 48,
+            "top": 26,
+            "width": 64,
+            "height": 94
+          },
+          "sha256": "14c738409ddb100310176a938ced8fee8291fcaab530ad1b4729122d130ba06f"
+        }
+      ]
+    },
+    {
+      "name": "Alert",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "thrower_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Thrower/Animations/Alert",
+      "frames": [
+        {
+          "file": "Thrower_Alert_01.png",
+          "bounds": {
+            "left": 45,
+            "top": 24,
+            "width": 69,
+            "height": 96
+          },
+          "sha256": "2aec09d99a6cfe19e0a4d8d5c50e3c9f53cc4cfca334e9f7a8bea2b3e10da2c7"
+        },
+        {
+          "file": "Thrower_Alert_02.png",
+          "bounds": {
+            "left": 44,
+            "top": 24,
+            "width": 71,
+            "height": 96
+          },
+          "sha256": "06731f5860cbbe991ecb20b548e2787e4b061394875faac5e32f26d759e0df26"
+        },
+        {
+          "file": "Thrower_Alert_03.png",
+          "bounds": {
+            "left": 32,
+            "top": 24,
+            "width": 95,
+            "height": 96
+          },
+          "sha256": "3c2feea8b20b85ed05bed8898adb8f5f8c6df4ac339531283068d3ec87796de3"
+        },
+        {
+          "file": "Thrower_Alert_04.png",
+          "bounds": {
+            "left": 35,
+            "top": 24,
+            "width": 90,
+            "height": 96
+          },
+          "sha256": "6c66acd1aa48a464ba47cd4c3595e38206a58cd0c8eb8e85676b4bf50b838b5a"
+        },
+        {
+          "file": "Thrower_Alert_05.png",
+          "bounds": {
+            "left": 48,
+            "top": 24,
+            "width": 64,
+            "height": 96
+          },
+          "sha256": "4aa46769a8816470cab4b5320dd1599a8b1ef0dbbde745d413646f6be578e2b2"
+        },
+        {
+          "file": "Thrower_Alert_06.png",
+          "bounds": {
+            "left": 46,
+            "top": 25,
+            "width": 68,
+            "height": 95
+          },
+          "sha256": "9f52594b25f808eabd5c7bcca0b8f315931dc4bb6e4d775b9185cc637d550e36"
+        }
+      ]
+    },
+    {
+      "name": "Hurt_Light",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "thrower_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Thrower/Animations/Hurt_Light",
+      "frames": [
+        {
+          "file": "Thrower_Hurt_Light_01.png",
+          "bounds": {
+            "left": 48,
+            "top": 12,
+            "width": 63,
+            "height": 108
+          },
+          "sha256": "60e9fc18ff173e6a8f65230699b03f76b35f06d3581066b9e3450a863db45f71"
+        },
+        {
+          "file": "Thrower_Hurt_Light_02.png",
+          "bounds": {
+            "left": 48,
+            "top": 15,
+            "width": 64,
+            "height": 105
+          },
+          "sha256": "b543c54ea98d414d19684f0d877e5fc6de53572a5abb0845b7bb09bdb3245b23"
+        },
+        {
+          "file": "Thrower_Hurt_Light_03.png",
+          "bounds": {
+            "left": 46,
+            "top": 30,
+            "width": 68,
+            "height": 90
+          },
+          "sha256": "5b56db08707f8668a3e25be6722515c52592d5c3693e5bd308d57abfd8e64346"
+        },
+        {
+          "file": "Thrower_Hurt_Light_04.png",
+          "bounds": {
+            "left": 49,
+            "top": 29,
+            "width": 62,
+            "height": 91
+          },
+          "sha256": "96407d546770881aecc3ecadec756a811180f8f61a588b8d8c7b1008078ba7dc"
+        },
+        {
+          "file": "Thrower_Hurt_Light_05.png",
+          "bounds": {
+            "left": 49,
+            "top": 11,
+            "width": 61,
+            "height": 109
+          },
+          "sha256": "194246250c2c6b1ed1080c9ce3d15cd400dac2283c7cb7a2f1b707990ceb1593"
+        },
+        {
+          "file": "Thrower_Hurt_Light_06.png",
+          "bounds": {
+            "left": 50,
+            "top": 11,
+            "width": 60,
+            "height": 109
+          },
+          "sha256": "0d2d803034a10bc07558964216b0eb9517cf1fa66674512096e0bf7f9ed5e2f2"
+        }
+      ]
+    },
+    {
+      "name": "Hurt_Heavy",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "thrower_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Thrower/Animations/Hurt_Heavy",
+      "frames": [
+        {
+          "file": "Thrower_Hurt_Heavy_01.png",
+          "bounds": {
+            "left": 29,
+            "top": 6,
+            "width": 101,
+            "height": 114
+          },
+          "sha256": "cc376fea63220e41551926a1a1512bbe280da6742cd5b36212fe465b17ee256d"
+        },
+        {
+          "file": "Thrower_Hurt_Heavy_02.png",
+          "bounds": {
+            "left": 30,
+            "top": 15,
+            "width": 99,
+            "height": 105
+          },
+          "sha256": "fbbf4b7ab89eaec8d9b8870463d612eaa5cfe3455bdd48c0fadc30f73487a46a"
+        },
+        {
+          "file": "Thrower_Hurt_Heavy_03.png",
+          "bounds": {
+            "left": 35,
+            "top": 12,
+            "width": 89,
+            "height": 108
+          },
+          "sha256": "cf7047b6a262f51bc83c7d5b21b297bc8a2e7e823682c9c9f68f1e01fd1642e3"
+        },
+        {
+          "file": "Thrower_Hurt_Heavy_04.png",
+          "bounds": {
+            "left": 43,
+            "top": 18,
+            "width": 73,
+            "height": 102
+          },
+          "sha256": "8a57548304b0f5d350613bc3055d57a162cccdc0b7516e8b1adea785fc9832d1"
+        },
+        {
+          "file": "Thrower_Hurt_Heavy_05.png",
+          "bounds": {
+            "left": 45,
+            "top": 22,
+            "width": 69,
+            "height": 98
+          },
+          "sha256": "784b979eff8eaf69e5954141b023c479ec44e442a878ac089284ad88b1a4d039"
+        },
+        {
+          "file": "Thrower_Hurt_Heavy_06.png",
+          "bounds": {
+            "left": 49,
+            "top": 10,
+            "width": 62,
+            "height": 110
+          },
+          "sha256": "5b850021d5fb95991e049b98cb613fdf9e998f02b687a1d05a79d83206ecc58c"
+        }
+      ]
+    },
+    {
+      "name": "Air_Hit",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "thrower_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Thrower/Animations/Air_Hit",
+      "frames": [
+        {
+          "file": "Thrower_Air_Hit_01.png",
+          "bounds": {
+            "left": 31,
+            "top": 12,
+            "width": 97,
+            "height": 108
+          },
+          "sha256": "be458b395147ddecbe17ad20a7c55ec50a0a5bd812a1fd751a93ea51485953dc"
+        },
+        {
+          "file": "Thrower_Air_Hit_02.png",
+          "bounds": {
+            "left": 34,
+            "top": 28,
+            "width": 92,
+            "height": 92
+          },
+          "sha256": "9e912ed2371061fe458d92ed636486e67d1b6b61e3c06f235cc997e2f9b1015a"
+        },
+        {
+          "file": "Thrower_Air_Hit_03.png",
+          "bounds": {
+            "left": 31,
+            "top": 43,
+            "width": 97,
+            "height": 77
+          },
+          "sha256": "0144e82188720611f913a2e7556b44b89a7fdfb4b3a81ebb81615985739d4d5c"
+        },
+        {
+          "file": "Thrower_Air_Hit_04.png",
+          "bounds": {
+            "left": 41,
+            "top": 37,
+            "width": 77,
+            "height": 83
+          },
+          "sha256": "253703e0c3588cb151d2048da4f18467d830c8e6257f5e80e73d5f11f978bdee"
+        },
+        {
+          "file": "Thrower_Air_Hit_05.png",
+          "bounds": {
+            "left": 31,
+            "top": 28,
+            "width": 97,
+            "height": 92
+          },
+          "sha256": "55773cd7d19acf2a22f072851cd88600af583a069ad8dd97766537c1aceb579d"
+        },
+        {
+          "file": "Thrower_Air_Hit_06.png",
+          "bounds": {
+            "left": 31,
+            "top": 44,
+            "width": 98,
+            "height": 76
+          },
+          "sha256": "5ca03f26dee60890bc9990604d68300856ae1e192cb14b7b287f7f8342f1e8bb"
+        }
+      ]
+    },
+    {
+      "name": "Knockdown",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "thrower_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Thrower/Animations/Knockdown",
+      "frames": [
+        {
+          "file": "Thrower_Knockdown_01.png",
+          "bounds": {
+            "left": 27,
+            "top": 31,
+            "width": 106,
+            "height": 89
+          },
+          "sha256": "2d20abc656cc53faf7e53c0729f18361e4bdb88944ba39870182e7e13777d14c"
+        },
+        {
+          "file": "Thrower_Knockdown_02.png",
+          "bounds": {
+            "left": 32,
+            "top": 36,
+            "width": 95,
+            "height": 84
+          },
+          "sha256": "aa8868542105142fcb71b47254875562d369dceb55c41eaac9d9b2773731f5a8"
+        },
+        {
+          "file": "Thrower_Knockdown_03.png",
+          "bounds": {
+            "left": 30,
+            "top": 56,
+            "width": 99,
+            "height": 64
+          },
+          "sha256": "34ea7a7455b2a56c92291a25477cba2c3d01e1995d3bdf4dd9d5c0d725b22e8e"
+        },
+        {
+          "file": "Thrower_Knockdown_04.png",
+          "bounds": {
+            "left": 29,
+            "top": 65,
+            "width": 102,
+            "height": 55
+          },
+          "sha256": "04d253df9c8f64e2e0e5c469d65f0e1f6d8d05a2def9a6622d27aa3b02bee441"
+        },
+        {
+          "file": "Thrower_Knockdown_05.png",
+          "bounds": {
+            "left": 26,
+            "top": 72,
+            "width": 108,
+            "height": 48
+          },
+          "sha256": "afb2892897cad94bd96b7fa63660fd9902048be625287f0b8453bc9718204d3f"
+        },
+        {
+          "file": "Thrower_Knockdown_06.png",
+          "bounds": {
+            "left": 25,
+            "top": 78,
+            "width": 109,
+            "height": 42
+          },
+          "sha256": "b80e31eb877d46fc8c679af47662c505063cff67e447e34d467a0601dab3d3e0"
+        }
+      ]
+    },
+    {
+      "name": "Downed",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "thrower_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Thrower/Animations/Downed",
+      "frames": [
+        {
+          "file": "Thrower_Downed_01.png",
+          "bounds": {
+            "left": 25,
+            "top": 78,
+            "width": 109,
+            "height": 42
+          },
+          "sha256": "b80e31eb877d46fc8c679af47662c505063cff67e447e34d467a0601dab3d3e0"
+        },
+        {
+          "file": "Thrower_Downed_02.png",
+          "bounds": {
+            "left": 27,
+            "top": 75,
+            "width": 105,
+            "height": 45
+          },
+          "sha256": "6d0b1340b81acdd631ad0c2bcf3f5e1e084495cae422ccbb63d8460a6d98cdba"
+        },
+        {
+          "file": "Thrower_Downed_03.png",
+          "bounds": {
+            "left": 35,
+            "top": 79,
+            "width": 89,
+            "height": 41
+          },
+          "sha256": "c9361c15d8bf293512ff9598fc2a365861e756a5671efeb2fa90455923046efa"
+        },
+        {
+          "file": "Thrower_Downed_04.png",
+          "bounds": {
+            "left": 30,
+            "top": 78,
+            "width": 99,
+            "height": 42
+          },
+          "sha256": "319d57f04d05263b1b80f0999a7c754d1f29d46f32b8a0eb311e888a5e5f5791"
+        },
+        {
+          "file": "Thrower_Downed_05.png",
+          "bounds": {
+            "left": 33,
+            "top": 79,
+            "width": 94,
+            "height": 41
+          },
+          "sha256": "8ce62cf143a961bdaf7482a79db5e525586ab7957fdcd62e717f9e88e3d335c7"
+        },
+        {
+          "file": "Thrower_Downed_06.png",
+          "bounds": {
+            "left": 29,
+            "top": 78,
+            "width": 101,
+            "height": 42
+          },
+          "sha256": "59bb3064adc6ba5428a08581cf57e9443b6f24f24c936e76608abd11b22ec205"
+        }
+      ]
+    },
+    {
+      "name": "GetUp",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "thrower_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Thrower/Animations/GetUp",
+      "frames": [
+        {
+          "file": "Thrower_GetUp_01.png",
+          "bounds": {
+            "left": 25,
+            "top": 78,
+            "width": 109,
+            "height": 42
+          },
+          "sha256": "b80e31eb877d46fc8c679af47662c505063cff67e447e34d467a0601dab3d3e0"
+        },
+        {
+          "file": "Thrower_GetUp_02.png",
+          "bounds": {
+            "left": 32,
+            "top": 46,
+            "width": 96,
+            "height": 74
+          },
+          "sha256": "6c384780d089469736f8b5c305b8d07d67fc9240f41a2ef81a736b05d8b22785"
+        },
+        {
+          "file": "Thrower_GetUp_03.png",
+          "bounds": {
+            "left": 37,
+            "top": 41,
+            "width": 86,
+            "height": 79
+          },
+          "sha256": "ee9df32f42a3a29abbfabf9dde41661748ab08e9dc88b7e87fed6eb8f29adc1e"
+        },
+        {
+          "file": "Thrower_GetUp_04.png",
+          "bounds": {
+            "left": 42,
+            "top": 32,
+            "width": 76,
+            "height": 88
+          },
+          "sha256": "165bb410b10a479b3eaaefce76aca8a19f790c5166cc4e9934ab58cc5d469b8c"
+        },
+        {
+          "file": "Thrower_GetUp_05.png",
+          "bounds": {
+            "left": 40,
+            "top": 13,
+            "width": 79,
+            "height": 107
+          },
+          "sha256": "0bdc259f9dce010007644c67b6932eb4d2e801e9eda014579826ed72bad580ce"
+        },
+        {
+          "file": "Thrower_GetUp_06.png",
+          "bounds": {
+            "left": 53,
+            "top": 20,
+            "width": 54,
+            "height": 100
+          },
+          "sha256": "118eae480c844de41cc5f01f6190ad21f0983c3fdad04b65e890a0186482716d"
+        }
+      ]
+    },
+    {
+      "name": "Defeated",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "thrower_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Thrower/Animations/Defeated",
+      "frames": [
+        {
+          "file": "Thrower_Defeated_01.png",
+          "bounds": {
+            "left": 44,
+            "top": 16,
+            "width": 72,
+            "height": 104
+          },
+          "sha256": "ab5d6df3e4edb1fa1de4e8687fb20d7536c74203b88bb7d646818c829a51dcf8"
+        },
+        {
+          "file": "Thrower_Defeated_02.png",
+          "bounds": {
+            "left": 37,
+            "top": 39,
+            "width": 85,
+            "height": 81
+          },
+          "sha256": "637a11a238786d9476310ba36755ea374c4787f82689e6278331b36780362e69"
+        },
+        {
+          "file": "Thrower_Defeated_03.png",
+          "bounds": {
+            "left": 25,
+            "top": 51,
+            "width": 110,
+            "height": 69
+          },
+          "sha256": "5865681df515894775373ed000f10ee373da36369cecd96a0fb56f99829b2074"
+        },
+        {
+          "file": "Thrower_Defeated_04.png",
+          "bounds": {
+            "left": 28,
+            "top": 76,
+            "width": 103,
+            "height": 44
+          },
+          "sha256": "24228b27ac30016d7ec1094d674e18f1c9602dc2b3f7b6f2e09c198cf5af9ff2"
+        },
+        {
+          "file": "Thrower_Defeated_05.png",
+          "bounds": {
+            "left": 31,
+            "top": 80,
+            "width": 98,
+            "height": 40
+          },
+          "sha256": "6a166130438b64e9af638c14be7af26f2c893012b73a1aa966fb091adb0d200c"
+        },
+        {
+          "file": "Thrower_Defeated_06.png",
+          "bounds": {
+            "left": 32,
+            "top": 82,
+            "width": 96,
+            "height": 38
+          },
+          "sha256": "bcc0b8da15e7d6c28671c93d15f6898bf498d66e4c3e5f274fac35bab5a82be7"
+        }
+      ]
+    }
+  ]
+}

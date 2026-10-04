@@ -1,0 +1,228 @@
+{
+  "id": "Totems",
+  "canvas": [
+    160,
+    128
+  ],
+  "ground": 120,
+  "pivot": [
+    0.5,
+    0.0625
+  ],
+  "standingOrCrouchedIdleHeight": 88,
+  "animations": [
+    {
+      "name": "Idle",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "totems",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Totems/Animations/Idle",
+      "frames": [
+        {
+          "file": "Totems_Idle_01.png",
+          "bounds": {
+            "left": 45,
+            "top": 32,
+            "width": 70,
+            "height": 88
+          },
+          "sha256": "2feaa347eb0117eeed9ab3f337680854f092f988cc703c82df5436cfd91b455a"
+        },
+        {
+          "file": "Totems_Idle_02.png",
+          "bounds": {
+            "left": 45,
+            "top": 35,
+            "width": 69,
+            "height": 85
+          },
+          "sha256": "811aaa43e670dcb4476efef9c87fdb49d39720a72356bf5697137c802f103ed4"
+        },
+        {
+          "file": "Totems_Idle_03.png",
+          "bounds": {
+            "left": 45,
+            "top": 32,
+            "width": 70,
+            "height": 88
+          },
+          "sha256": "c9469545a7a3eaac73d00086f2d15c7bfa451f0ac5f6ec6adaaa05ec7c3f3738"
+        },
+        {
+          "file": "Totems_Idle_04.png",
+          "bounds": {
+            "left": 45,
+            "top": 32,
+            "width": 70,
+            "height": 88
+          },
+          "sha256": "436a176df619b2807aec5c5c7a833c7dedc7c163d05becfe2c72ce45b65cee1d"
+        },
+        {
+          "file": "Totems_Idle_05.png",
+          "bounds": {
+            "left": 45,
+            "top": 33,
+            "width": 69,
+            "height": 87
+          },
+          "sha256": "4681830615cbefb7af6f034e0a2404a17e3859847706dc12c97ca3d0f7a6bfd9"
+        },
+        {
+          "file": "Totems_Idle_06.png",
+          "bounds": {
+            "left": 45,
+            "top": 32,
+            "width": 70,
+            "height": 88
+          },
+          "sha256": "f3d1ea2c1e7d33c84393bd2381c1771d9394aa799b0ff865104baee1207735e0"
+        }
+      ]
+    },
+    {
+      "name": "Damaged",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "totems",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Totems/Animations/Damaged",
+      "frames": [
+        {
+          "file": "Totems_Damaged_01.png",
+          "bounds": {
+            "left": 45,
+            "top": 33,
+            "width": 70,
+            "height": 87
+          },
+          "sha256": "122764b07e19870020aa1ff387ebbba235177aa75840448dc8f6bcf040da735f"
+        },
+        {
+          "file": "Totems_Damaged_02.png",
+          "bounds": {
+            "left": 43,
+            "top": 34,
+            "width": 73,
+            "height": 86
+          },
+          "sha256": "52191aa8875033b8c2a81032a4f6cc9f7686363218860b003a3b1442652d8ce9"
+        },
+        {
+          "file": "Totems_Damaged_03.png",
+          "bounds": {
+            "left": 43,
+            "top": 37,
+            "width": 73,
+            "height": 83
+          },
+          "sha256": "140825f6a31ae4a88cf262ad7cbdb736bd820f5c18304b72925bc4b9126b7ad6"
+        },
+        {
+          "file": "Totems_Damaged_04.png",
+          "bounds": {
+            "left": 41,
+            "top": 34,
+            "width": 78,
+            "height": 86
+          },
+          "sha256": "ec3ffae9dc6259b1c0e4cdc59bd72cef981ac29bb1fe8315603740b5d876b2d9"
+        },
+        {
+          "file": "Totems_Damaged_05.png",
+          "bounds": {
+            "left": 40,
+            "top": 39,
+            "width": 79,
+            "height": 81
+          },
+          "sha256": "6a645baf0912df8fdaf33d18547d104940a070587d12e073ca5cccb1b9410afb"
+        },
+        {
+          "file": "Totems_Damaged_06.png",
+          "bounds": {
+            "left": 37,
+            "top": 45,
+            "width": 86,
+            "height": 75
+          },
+          "sha256": "213eca55239e49939baea55ccbb37063ac3a91c5857a3bca3127d45f41e4a98f"
+        }
+      ]
+    },
+    {
+      "name": "Destroyed",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "totems",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Totems/Animations/Destroyed",
+      "frames": [
+        {
+          "file": "Totems_Destroyed_01.png",
+          "bounds": {
+            "left": 41,
+            "top": 35,
+            "width": 77,
+            "height": 85
+          },
+          "sha256": "b314b8eeb9edcf2545c2b910e4085cfa0206218e908cc4efcc0c39da8d36de30"
+        },
+        {
+          "file": "Totems_Destroyed_02.png",
+          "bounds": {
+            "left": 35,
+            "top": 58,
+            "width": 89,
+            "height": 62
+          },
+          "sha256": "b2eece89b497d18e4b17095a8894a41073e6204e812540edc4cdc21fb8a83d29"
+        },
+        {
+          "file": "Totems_Destroyed_03.png",
+          "bounds": {
+            "left": 35,
+            "top": 63,
+            "width": 89,
+            "height": 57
+          },
+          "sha256": "72fbe8a85d7f3db279fa8d0834064f535c22201eb0f309d8785a258653ec7868"
+        },
+        {
+          "file": "Totems_Destroyed_04.png",
+          "bounds": {
+            "left": 35,
+            "top": 75,
+            "width": 89,
+            "height": 45
+          },
+          "sha256": "d5b2471b893f984135d68f7d66c17b2dc67d5736c5745e27ea5d4efc9f3ca7ee"
+        },
+        {
+          "file": "Totems_Destroyed_05.png",
+          "bounds": {
+            "left": 34,
+            "top": 84,
+            "width": 91,
+            "height": 36
+          },
+          "sha256": "cd89e2cd4527053f2f6034a396ef89dff672f818ed4a254d3d089e3c0ab52c5e"
+        },
+        {
+          "file": "Totems_Destroyed_06.png",
+          "bounds": {
+            "left": 39,
+            "top": 88,
+            "width": 82,
+            "height": 32
+          },
+          "sha256": "7df0150731d91c96fa67b66f1f2e4b529722c6aecd78db438280f0fc13f9dda5"
+        }
+      ]
+    }
+  ]
+}

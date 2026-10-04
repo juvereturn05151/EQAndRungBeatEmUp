@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "checks": [
+    "Every expected frame and clip exists",
+    "Canvas consistency",
+    "Binary transparent alpha",
+    "No empty frame",
+    "At least three unique key poses per animation",
+    "Shared palette at most48 opaque colours per character"
+  ],
+  "assets": [
+    {
+      "id": "Rusher",
+      "animations": 14,
+      "frames": 83,
+      "opaquePaletteColors": 47
+    },
+    {
+      "id": "GrapplerBruiser",
+      "animations": 14,
+      "frames": 84,
+      "opaquePaletteColors": 47
+    },
+    {
+      "id": "Thrower",
+      "animations": 14,
+      "frames": 84,
+      "opaquePaletteColors": 47
+    },
+    {
+      "id": "Screamer",
+      "animations": 14,
+      "frames": 80,
+      "opaquePaletteColors": 47
+    },
+    {
+      "id": "Ambusher",
+      "animations": 14,
+      "frames": 88,
+      "opaquePaletteColors": 47
+    },
+    {
+      "id": "Prefect",
+      "animations": 14,
+      "frames": 83,
+      "opaquePaletteColors": 47
+    },
+    {
+      "id": "WhiteGhostBoss",
+      "animations": 19,
+      "frames": 111,
+      "opaquePaletteColors": 47
+    },
+    {
+      "id": "Totems",
+      "animations": 3,
+      "frames": 18,
+      "opaquePaletteColors": 47
+    },
+    {
+      "id": "Effects",
+      "animations": 8,
+      "frames": 48,
+      "opaquePaletteColors": 47
+    }
+  ]
+}

@@ -1,0 +1,1334 @@
+{
+  "id": "WhiteGhostBoss",
+  "canvas": [
+    192,
+    192
+  ],
+  "ground": 184,
+  "pivot": [
+    0.5,
+    0.041666666666666664
+  ],
+  "standingOrCrouchedIdleHeight": 150,
+  "animations": [
+    {
+      "name": "Idle_Float",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "boss_presence",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Idle_Float",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Idle_Float_01.png",
+          "bounds": {
+            "left": 44,
+            "top": 34,
+            "width": 103,
+            "height": 150
+          },
+          "sha256": "c14070e5a7720e363d171aad3ff2415898092e55edb9814973a9905135ccbe87"
+        },
+        {
+          "file": "WhiteGhostBoss_Idle_Float_02.png",
+          "bounds": {
+            "left": 45,
+            "top": 35,
+            "width": 101,
+            "height": 149
+          },
+          "sha256": "f837a49f20f32a800a9a2035248fe8b4af5e144eba476a8ff658842ecf7b4c75"
+        },
+        {
+          "file": "WhiteGhostBoss_Idle_Float_03.png",
+          "bounds": {
+            "left": 42,
+            "top": 34,
+            "width": 107,
+            "height": 150
+          },
+          "sha256": "e61d4b5970c0d0d6ca1ea62713377ff3fb6385b4d3906a5f5457a6886d9cf05a"
+        },
+        {
+          "file": "WhiteGhostBoss_Idle_Float_04.png",
+          "bounds": {
+            "left": 41,
+            "top": 34,
+            "width": 109,
+            "height": 150
+          },
+          "sha256": "315fa9651505cd9eff124e9bd82cb9d484840e265026447a22129da5a1784435"
+        },
+        {
+          "file": "WhiteGhostBoss_Idle_Float_05.png",
+          "bounds": {
+            "left": 41,
+            "top": 32,
+            "width": 110,
+            "height": 152
+          },
+          "sha256": "ee79d1c94f7e949b98b63710b69cbb80dbde81a74c1f8e74bfbd5d9c29418fe9"
+        },
+        {
+          "file": "WhiteGhostBoss_Idle_Float_06.png",
+          "bounds": {
+            "left": 43,
+            "top": 33,
+            "width": 105,
+            "height": 151
+          },
+          "sha256": "6d2420c3970a358f541fd62d16dcd7e78c5ef7e33da72f31de32fc34cdccf33d"
+        }
+      ]
+    },
+    {
+      "name": "Glide",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": true,
+      "source": "boss_presence",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Glide",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Glide_01.png",
+          "bounds": {
+            "left": 22,
+            "top": 36,
+            "width": 147,
+            "height": 148
+          },
+          "sha256": "3140eee2baec67fe5fbe63e2cda93e901cbcfb357d8411b5bc3531f9b021c95f"
+        },
+        {
+          "file": "WhiteGhostBoss_Glide_02.png",
+          "bounds": {
+            "left": 21,
+            "top": 35,
+            "width": 150,
+            "height": 149
+          },
+          "sha256": "6314b859f70450cfebef93ff85f25b6c315f81384acc6b2dfe1e4a9fc8b5fe12"
+        },
+        {
+          "file": "WhiteGhostBoss_Glide_03.png",
+          "bounds": {
+            "left": 19,
+            "top": 36,
+            "width": 153,
+            "height": 148
+          },
+          "sha256": "2e3facc0d09d5b0fc5cd799c20cc132933ce82fb8932879389e79574e768cf75"
+        },
+        {
+          "file": "WhiteGhostBoss_Glide_04.png",
+          "bounds": {
+            "left": 21,
+            "top": 35,
+            "width": 149,
+            "height": 149
+          },
+          "sha256": "ef6bfcfe5a640ba09a4a80576d2e924e5a61f9cbe361691d1c54af09a7af53b8"
+        },
+        {
+          "file": "WhiteGhostBoss_Glide_05.png",
+          "bounds": {
+            "left": 18,
+            "top": 36,
+            "width": 156,
+            "height": 148
+          },
+          "sha256": "460e66e30310ba6f4004c283c0dadf1ce1813106a867a74d8319381e885c4b83"
+        },
+        {
+          "file": "WhiteGhostBoss_Glide_06.png",
+          "bounds": {
+            "left": 25,
+            "top": 29,
+            "width": 142,
+            "height": 155
+          },
+          "sha256": "4a837a5d1cab0fe68ca57571a11527052f27d0541f59e63deb0bcc544c5acf47"
+        }
+      ]
+    },
+    {
+      "name": "Invulnerable",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "boss_presence",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Invulnerable",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Invulnerable_01.png",
+          "bounds": {
+            "left": 30,
+            "top": 23,
+            "width": 131,
+            "height": 161
+          },
+          "sha256": "e675a7fdaeaf4a9974eff263e72cc458d4fb74d8f5bebbf2a5b249ea750445ab"
+        },
+        {
+          "file": "WhiteGhostBoss_Invulnerable_02.png",
+          "bounds": {
+            "left": 26,
+            "top": 25,
+            "width": 139,
+            "height": 159
+          },
+          "sha256": "cb35662a3889faf05029d347bea7c3e1bda7efe397edf4d64edffd9c29fd93cb"
+        },
+        {
+          "file": "WhiteGhostBoss_Invulnerable_03.png",
+          "bounds": {
+            "left": 26,
+            "top": 24,
+            "width": 140,
+            "height": 160
+          },
+          "sha256": "7a095dbfbc54e088a8ca5094beed99a9b30885bdf9d8c0ee58f9e30a1ed2a1d8"
+        },
+        {
+          "file": "WhiteGhostBoss_Invulnerable_04.png",
+          "bounds": {
+            "left": 25,
+            "top": 24,
+            "width": 142,
+            "height": 160
+          },
+          "sha256": "e5ad27341d43a8342cb02d82afd840a3527c3994df439b4d669b1ecda97c893e"
+        },
+        {
+          "file": "WhiteGhostBoss_Invulnerable_05.png",
+          "bounds": {
+            "left": 27,
+            "top": 23,
+            "width": 138,
+            "height": 161
+          },
+          "sha256": "235a28b6951ab9db1449e737791c1da80aa0a0548fb5b1e6dd145b3830c5fa79"
+        },
+        {
+          "file": "WhiteGhostBoss_Invulnerable_06.png",
+          "bounds": {
+            "left": 30,
+            "top": 24,
+            "width": 131,
+            "height": 160
+          },
+          "sha256": "7bb031981fbeaffa1fa837662e8fbbe02b8a8b39fd0da34d36dd206e01a912d6"
+        }
+      ]
+    },
+    {
+      "name": "Vulnerable",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "boss_presence",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Vulnerable",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Vulnerable_01.png",
+          "bounds": {
+            "left": 21,
+            "top": 37,
+            "width": 150,
+            "height": 147
+          },
+          "sha256": "f1be9050a06ce9223ae5356cd98810d7a07d31c638ccb4336aafd4f11030524c"
+        },
+        {
+          "file": "WhiteGhostBoss_Vulnerable_02.png",
+          "bounds": {
+            "left": 16,
+            "top": 40,
+            "width": 159,
+            "height": 144
+          },
+          "sha256": "c4dd434fee83c585c39b9004c8a658a9111af459d1b9f7ab2283c648c71b172e"
+        },
+        {
+          "file": "WhiteGhostBoss_Vulnerable_03.png",
+          "bounds": {
+            "left": 12,
+            "top": 35,
+            "width": 168,
+            "height": 149
+          },
+          "sha256": "82d485bf4202e60bad1ae8ba56363717e7ea66e8696a828d531d982f0aa9622d"
+        },
+        {
+          "file": "WhiteGhostBoss_Vulnerable_04.png",
+          "bounds": {
+            "left": 14,
+            "top": 38,
+            "width": 165,
+            "height": 146
+          },
+          "sha256": "440c982fb7f13e91378e812e5bc3f5ef1ff9e5a410d0b2d3334576d3bb76c366"
+        },
+        {
+          "file": "WhiteGhostBoss_Vulnerable_05.png",
+          "bounds": {
+            "left": 20,
+            "top": 35,
+            "width": 152,
+            "height": 149
+          },
+          "sha256": "4c7bd5671eda662d8ea262d4baad20eefa4a1b6560082993f2c63e29951fc61e"
+        },
+        {
+          "file": "WhiteGhostBoss_Vulnerable_06.png",
+          "bounds": {
+            "left": 28,
+            "top": 37,
+            "width": 135,
+            "height": 147
+          },
+          "sha256": "f48accb37a62d6594b94f3f6caf8e7cf2474c2b3ad73e76af0b7649deb601c62"
+        }
+      ]
+    },
+    {
+      "name": "Stunned",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "boss_presence",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Stunned",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Stunned_01.png",
+          "bounds": {
+            "left": 26,
+            "top": 70,
+            "width": 140,
+            "height": 114
+          },
+          "sha256": "349aa6f413bc787bda115552a41b22c43c6313159a74c229dc11696e097233f2"
+        },
+        {
+          "file": "WhiteGhostBoss_Stunned_02.png",
+          "bounds": {
+            "left": 32,
+            "top": 60,
+            "width": 128,
+            "height": 124
+          },
+          "sha256": "d5b330f4087732eab8605e68c6d97a8a423788128aab2c1bad4f5191967a3ca8"
+        },
+        {
+          "file": "WhiteGhostBoss_Stunned_03.png",
+          "bounds": {
+            "left": 35,
+            "top": 48,
+            "width": 122,
+            "height": 136
+          },
+          "sha256": "a5767fc6c8a0bb5aaa970a52492c6e72dad839af4bb555de34f9aeb38a356adf"
+        },
+        {
+          "file": "WhiteGhostBoss_Stunned_04.png",
+          "bounds": {
+            "left": 36,
+            "top": 49,
+            "width": 120,
+            "height": 135
+          },
+          "sha256": "08561d0265ae85e79522d3587e6a50cac98d83e37d6a7b4be2dc45a107147c1c"
+        },
+        {
+          "file": "WhiteGhostBoss_Stunned_05.png",
+          "bounds": {
+            "left": 37,
+            "top": 41,
+            "width": 118,
+            "height": 143
+          },
+          "sha256": "ae0ba0246d4bb053abb012a6d8c3c4d8e6b62d0700868f86711d68e4b1bedc4c"
+        },
+        {
+          "file": "WhiteGhostBoss_Stunned_06.png",
+          "bounds": {
+            "left": 44,
+            "top": 39,
+            "width": 103,
+            "height": 145
+          },
+          "sha256": "ae3dd18e8796aea4eeca239cfbe45062bc2b13671feb4f3f95d8bdd3c67013d5"
+        }
+      ]
+    },
+    {
+      "name": "Recovery_Rise",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "boss_presence",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Recovery_Rise",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Recovery_Rise_01.png",
+          "bounds": {
+            "left": 23,
+            "top": 89,
+            "width": 145,
+            "height": 95
+          },
+          "sha256": "b75169b59b3d884e3a6c58c562ff6d3b77efde8dd393f6f2bac7ee8c2de658a8"
+        },
+        {
+          "file": "WhiteGhostBoss_Recovery_Rise_02.png",
+          "bounds": {
+            "left": 22,
+            "top": 73,
+            "width": 147,
+            "height": 111
+          },
+          "sha256": "7b394ca4c20c73de2449fcb592a9e125a6ff78bd4e377890126931c249644dee"
+        },
+        {
+          "file": "WhiteGhostBoss_Recovery_Rise_03.png",
+          "bounds": {
+            "left": 26,
+            "top": 34,
+            "width": 140,
+            "height": 150
+          },
+          "sha256": "b5ce6b8204f0d2212f2c1ec10f13cea582b729aeb49ca7f15b238c29c9ffa491"
+        },
+        {
+          "file": "WhiteGhostBoss_Recovery_Rise_04.png",
+          "bounds": {
+            "left": 33,
+            "top": 30,
+            "width": 125,
+            "height": 154
+          },
+          "sha256": "929180158f69fc2e0c59365ac6dbefc03307d1f30c682e7e198563637b7c7178"
+        },
+        {
+          "file": "WhiteGhostBoss_Recovery_Rise_05.png",
+          "bounds": {
+            "left": 41,
+            "top": 22,
+            "width": 109,
+            "height": 162
+          },
+          "sha256": "7c384540f0cc55c198017f1ef58fa47a0be2e056e5f133d9b85e1c934addc35b"
+        },
+        {
+          "file": "WhiteGhostBoss_Recovery_Rise_06.png",
+          "bounds": {
+            "left": 41,
+            "top": 22,
+            "width": 110,
+            "height": 162
+          },
+          "sha256": "5c9c97a98a63335a5769d316621e95576fd24424da6059546af8aa33dd5d1af9"
+        }
+      ]
+    },
+    {
+      "name": "Warp_Start",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "boss_attacks",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Warp_Start",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Warp_Start_01.png",
+          "bounds": {
+            "left": 35,
+            "top": 26,
+            "width": 122,
+            "height": 158
+          },
+          "sha256": "20f1058e0db40c28b4cd59f351ea937254228ae74b684744884e6b814e83e2a0"
+        },
+        {
+          "file": "WhiteGhostBoss_Warp_Start_02.png",
+          "bounds": {
+            "left": 35,
+            "top": 40,
+            "width": 121,
+            "height": 144
+          },
+          "sha256": "a24412bed83daa5032c2725880ed6292bd43e5f782343e726884ba810b9a28d1"
+        },
+        {
+          "file": "WhiteGhostBoss_Warp_Start_03.png",
+          "bounds": {
+            "left": 40,
+            "top": 46,
+            "width": 113,
+            "height": 138
+          },
+          "sha256": "3754d23af8ec608fdcd9958a891a8c24d944d809a58fc623dfb7550583935155"
+        },
+        {
+          "file": "WhiteGhostBoss_Warp_Start_04.png",
+          "bounds": {
+            "left": 39,
+            "top": 52,
+            "width": 113,
+            "height": 132
+          },
+          "sha256": "53678c28de5e6f5ea917db52bdc7692671039bc0a75091891591ec60f4fa9ac9"
+        },
+        {
+          "file": "WhiteGhostBoss_Warp_Start_05.png",
+          "bounds": {
+            "left": 48,
+            "top": 37,
+            "width": 96,
+            "height": 147
+          },
+          "sha256": "32e980c16dae75b25e65f26937aee13b5e8f7aaa4a32808e9705cc509c2bb604"
+        },
+        {
+          "file": "WhiteGhostBoss_Warp_Start_06.png",
+          "bounds": {
+            "left": 70,
+            "top": 89,
+            "width": 52,
+            "height": 95
+          },
+          "sha256": "c07aea0e863597e9149a62ebc82869040071f6628d9ef85988ac4224d39aad26"
+        }
+      ]
+    },
+    {
+      "name": "Warp_Disappear",
+      "frameCount": 5,
+      "uniqueFrames": 5,
+      "durationSeconds": 0.56,
+      "loop": false,
+      "source": "boss_attacks",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Warp_Disappear",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Warp_Disappear_01.png",
+          "bounds": {
+            "left": 65,
+            "top": 36,
+            "width": 61,
+            "height": 148
+          },
+          "sha256": "34b4c4189dec75110fbeed25197d533e22665567c7d6a608f78633a3f1f1267d"
+        },
+        {
+          "file": "WhiteGhostBoss_Warp_Disappear_02.png",
+          "bounds": {
+            "left": 61,
+            "top": 66,
+            "width": 69,
+            "height": 118
+          },
+          "sha256": "6e1f91d398b28049410da29ad26cb209d9ce66923b2ca3745ee259f78a25efe9"
+        },
+        {
+          "file": "WhiteGhostBoss_Warp_Disappear_03.png",
+          "bounds": {
+            "left": 78,
+            "top": 127,
+            "width": 37,
+            "height": 57
+          },
+          "sha256": "59c33eb7da7088b709ac22bcabf8a293d7e8ecd5c0d352468956ea710a4df1ef"
+        },
+        {
+          "file": "WhiteGhostBoss_Warp_Disappear_04.png",
+          "bounds": {
+            "left": 73,
+            "top": 148,
+            "width": 46,
+            "height": 35
+          },
+          "sha256": "709bc84a7a124397de12dd788f2b49d675531d697089d0b3949c6e9c6702fa26"
+        },
+        {
+          "file": "WhiteGhostBoss_Warp_Disappear_05.png",
+          "bounds": {
+            "left": 86,
+            "top": 138,
+            "width": 20,
+            "height": 46
+          },
+          "sha256": "1919cc633b7c2ddc7821c33e4abc4267c87ae419738b2cad6320c5576e54329b"
+        }
+      ]
+    },
+    {
+      "name": "Warp_Appear",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "boss_attacks",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Warp_Appear",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Warp_Appear_01.png",
+          "bounds": {
+            "left": 83,
+            "top": 139,
+            "width": 26,
+            "height": 45
+          },
+          "sha256": "9b8b3a4b239c3bf04b4fa145800126e55826c4806a87b2ec151ebb2e2ad5e72e"
+        },
+        {
+          "file": "WhiteGhostBoss_Warp_Appear_02.png",
+          "bounds": {
+            "left": 72,
+            "top": 73,
+            "width": 48,
+            "height": 111
+          },
+          "sha256": "5bb22efadbc86c5678c2a20d20cb12e99edf9c8d1f742fdec90eb4f2385499c3"
+        },
+        {
+          "file": "WhiteGhostBoss_Warp_Appear_03.png",
+          "bounds": {
+            "left": 38,
+            "top": 44,
+            "width": 115,
+            "height": 140
+          },
+          "sha256": "0f404e679488e00fb123da2075979c3ded4220be74efb57c5c3c51e581df4df3"
+        },
+        {
+          "file": "WhiteGhostBoss_Warp_Appear_04.png",
+          "bounds": {
+            "left": 34,
+            "top": 34,
+            "width": 123,
+            "height": 150
+          },
+          "sha256": "cd2ea5fefe3a141b06a85c44cc536ebab5dab04bd7d79a38f178c8b4acbde3d8"
+        },
+        {
+          "file": "WhiteGhostBoss_Warp_Appear_05.png",
+          "bounds": {
+            "left": 25,
+            "top": 29,
+            "width": 141,
+            "height": 155
+          },
+          "sha256": "c157be805d1f78da766a330a4e35b4cb7d450be69ce52385a9ae57f7f4cb0b2e"
+        },
+        {
+          "file": "WhiteGhostBoss_Warp_Appear_06.png",
+          "bounds": {
+            "left": 34,
+            "top": 27,
+            "width": 124,
+            "height": 157
+          },
+          "sha256": "0aa81e4c6cb86a92033d6713d6b6bc73b3079c3460e3399010d0261e60dda01c"
+        }
+      ]
+    },
+    {
+      "name": "Attack_Swipe",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "boss_attacks",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Attack_Swipe",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Attack_Swipe_01.png",
+          "bounds": {
+            "left": 29,
+            "top": 46,
+            "width": 134,
+            "height": 138
+          },
+          "sha256": "8cfabced38388bade6b71282aa43e88d6d96a8174083eac9f4137eb183ef440e"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_Swipe_02.png",
+          "bounds": {
+            "left": 15,
+            "top": 40,
+            "width": 162,
+            "height": 144
+          },
+          "sha256": "e50dc6f108ddc1454b20769199ef2b8c8c341751e7f25844affbdf24c0f0f150"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_Swipe_03.png",
+          "bounds": {
+            "left": 5,
+            "top": 40,
+            "width": 182,
+            "height": 144
+          },
+          "sha256": "60218dc6093fbcdc44671aa95f37eea8c64e7ece44dbb7a98def3deb0f77edb7"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_Swipe_04.png",
+          "bounds": {
+            "left": 6,
+            "top": 45,
+            "width": 179,
+            "height": 139
+          },
+          "sha256": "61d39c650a2904270c8e41229f245c49ba2125eeb7007b85cce8bcdb8572b2f4"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_Swipe_05.png",
+          "bounds": {
+            "left": 20,
+            "top": 36,
+            "width": 152,
+            "height": 148
+          },
+          "sha256": "5ac1b08c12a0cc75bbf5e51302338a53699d8a99d1bc89f00c3dfc67a4aa6ab6"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_Swipe_06.png",
+          "bounds": {
+            "left": 36,
+            "top": 34,
+            "width": 120,
+            "height": 150
+          },
+          "sha256": "f3663ee546049e8008dcd1de0a4465b7ed405cb09041f3c8dd1c370a778693da"
+        }
+      ]
+    },
+    {
+      "name": "Attack_CurseWave",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "boss_attacks",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Attack_CurseWave",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Attack_CurseWave_01.png",
+          "bounds": {
+            "left": 35,
+            "top": 35,
+            "width": 121,
+            "height": 149
+          },
+          "sha256": "c3fd1a15136d098a16c87e8e7e6e4240abcef78a98c4054f8d91ae64b37ed36f"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_CurseWave_02.png",
+          "bounds": {
+            "left": 26,
+            "top": 28,
+            "width": 139,
+            "height": 156
+          },
+          "sha256": "91aee4e4d6b80bc28b72145d61b3f8097bcbbbd0d2386ccdf159b1dcd7673123"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_CurseWave_03.png",
+          "bounds": {
+            "left": 6,
+            "top": 40,
+            "width": 180,
+            "height": 144
+          },
+          "sha256": "7f3faa0d6ee7588b6f44f78480f922b7e72d8694299d537b9a6c6ef86f8b1ee0"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_CurseWave_04.png",
+          "bounds": {
+            "left": 4,
+            "top": 51,
+            "width": 184,
+            "height": 133
+          },
+          "sha256": "4ced618aeecb701a36eebc121e3f2c4f5a368503a495cef63c7174003824f7de"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_CurseWave_05.png",
+          "bounds": {
+            "left": 30,
+            "top": 36,
+            "width": 132,
+            "height": 148
+          },
+          "sha256": "65eb973baed3df0d9cc97c633658a5f8b4b5b29bd7c651669c653223ed00dd5d"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_CurseWave_06.png",
+          "bounds": {
+            "left": 34,
+            "top": 35,
+            "width": 124,
+            "height": 149
+          },
+          "sha256": "b6c55c7014ce0d69fef598c89c5af69606dac13d69af8e12fed8597705e25046"
+        }
+      ]
+    },
+    {
+      "name": "Attack_Summon",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "boss_attacks",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Attack_Summon",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Attack_Summon_01.png",
+          "bounds": {
+            "left": 32,
+            "top": 36,
+            "width": 128,
+            "height": 148
+          },
+          "sha256": "48dc0ad61948af4328dd7761051537302581988eedb2f062ddeac0f1b103b887"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_Summon_02.png",
+          "bounds": {
+            "left": 27,
+            "top": 34,
+            "width": 138,
+            "height": 150
+          },
+          "sha256": "34504066bbae0e170bd5fce6a1383e1b7fce2f1b789a1d50e85eae92402db0fa"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_Summon_03.png",
+          "bounds": {
+            "left": 20,
+            "top": 24,
+            "width": 152,
+            "height": 160
+          },
+          "sha256": "c6e71b076b7490cef03be400d73b6b02406b7aa8e0121375cde361780b17bff2"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_Summon_04.png",
+          "bounds": {
+            "left": 4,
+            "top": 40,
+            "width": 183,
+            "height": 144
+          },
+          "sha256": "8cf9af3a9aae0e6d0478dc97fd581e4c82d7a2d5a8e75f7e5594c101bebd546e"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_Summon_05.png",
+          "bounds": {
+            "left": 22,
+            "top": 35,
+            "width": 148,
+            "height": 149
+          },
+          "sha256": "97369eca4e00b954466c32317c27d07a9480f7062e5e98deb42701d5550b7dac"
+        },
+        {
+          "file": "WhiteGhostBoss_Attack_Summon_06.png",
+          "bounds": {
+            "left": 33,
+            "top": 28,
+            "width": 126,
+            "height": 156
+          },
+          "sha256": "288ce094dcf1132acde770438376b4db65a2e4f9d413bc8422d510256945ec16"
+        }
+      ]
+    },
+    {
+      "name": "Hurt_Light",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "boss_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Hurt_Light",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Hurt_Light_01.png",
+          "bounds": {
+            "left": 37,
+            "top": 26,
+            "width": 117,
+            "height": 158
+          },
+          "sha256": "b8ee8a69132dd69c7b37abc6ab4106ae0e695c3b19cfbb1eed33c43f1ba4569e"
+        },
+        {
+          "file": "WhiteGhostBoss_Hurt_Light_02.png",
+          "bounds": {
+            "left": 33,
+            "top": 33,
+            "width": 125,
+            "height": 151
+          },
+          "sha256": "4195b834cef061d3277c6cf11ed13b2c1c2489809b40e33f5fbf68406345d1a4"
+        },
+        {
+          "file": "WhiteGhostBoss_Hurt_Light_03.png",
+          "bounds": {
+            "left": 35,
+            "top": 35,
+            "width": 121,
+            "height": 149
+          },
+          "sha256": "2ad7260b079dc1ef371b77afcbd77e02d96e82aae04552a77ed5ed09b19e0d8e"
+        },
+        {
+          "file": "WhiteGhostBoss_Hurt_Light_04.png",
+          "bounds": {
+            "left": 34,
+            "top": 49,
+            "width": 123,
+            "height": 135
+          },
+          "sha256": "c1eefc60ee0abf22d1af06129cccb9b3ec0e08fce54a5c0f9e860e0c96560561"
+        },
+        {
+          "file": "WhiteGhostBoss_Hurt_Light_05.png",
+          "bounds": {
+            "left": 35,
+            "top": 30,
+            "width": 122,
+            "height": 154
+          },
+          "sha256": "6071e0e96fd17329b24882ff9819c4107193d84253bc10598315df01750037f5"
+        },
+        {
+          "file": "WhiteGhostBoss_Hurt_Light_06.png",
+          "bounds": {
+            "left": 41,
+            "top": 25,
+            "width": 110,
+            "height": 159
+          },
+          "sha256": "ab9b3b77960d6498a43af822da1449f743d0921edc6b70022b07964674666795"
+        }
+      ]
+    },
+    {
+      "name": "Hurt_Heavy",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "boss_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Hurt_Heavy",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Hurt_Heavy_01.png",
+          "bounds": {
+            "left": 38,
+            "top": 25,
+            "width": 115,
+            "height": 159
+          },
+          "sha256": "3f4ae0123750a68c10826b86c3578267053505df1579935d95a212612a938d05"
+        },
+        {
+          "file": "WhiteGhostBoss_Hurt_Heavy_02.png",
+          "bounds": {
+            "left": 14,
+            "top": 32,
+            "width": 163,
+            "height": 152
+          },
+          "sha256": "db64258003aea77295120d3273682faaaee72f8b6966e64c0a1859283fb16c85"
+        },
+        {
+          "file": "WhiteGhostBoss_Hurt_Heavy_03.png",
+          "bounds": {
+            "left": 28,
+            "top": 32,
+            "width": 135,
+            "height": 152
+          },
+          "sha256": "5e84db1856946f569cf818840b2692e216a227fbba841cddb1693355eb628ed9"
+        },
+        {
+          "file": "WhiteGhostBoss_Hurt_Heavy_04.png",
+          "bounds": {
+            "left": 31,
+            "top": 56,
+            "width": 129,
+            "height": 128
+          },
+          "sha256": "f7312bc8cd13e85c87ca22a071e4e73663dc9812db1bafd12983bdf67d8c9099"
+        },
+        {
+          "file": "WhiteGhostBoss_Hurt_Heavy_05.png",
+          "bounds": {
+            "left": 32,
+            "top": 28,
+            "width": 128,
+            "height": 156
+          },
+          "sha256": "4a8cab5b97914ea29b0a288556abdc69c6c8e5e7ee609ab8e3f6503bc216bcdd"
+        },
+        {
+          "file": "WhiteGhostBoss_Hurt_Heavy_06.png",
+          "bounds": {
+            "left": 40,
+            "top": 25,
+            "width": 111,
+            "height": 159
+          },
+          "sha256": "da35ab2acbc57f426251ab61b52056dae3a0325ffbcfb4d4e17e8fd90b7481fa"
+        }
+      ]
+    },
+    {
+      "name": "Air_Hit",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "boss_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Air_Hit",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Air_Hit_01.png",
+          "bounds": {
+            "left": 28,
+            "top": 21,
+            "width": 135,
+            "height": 163
+          },
+          "sha256": "919359d915417cae3a5d1cb9f4996bdf2ec888c1d377a6a050a6c46542b467aa"
+        },
+        {
+          "file": "WhiteGhostBoss_Air_Hit_02.png",
+          "bounds": {
+            "left": 8,
+            "top": 32,
+            "width": 176,
+            "height": 152
+          },
+          "sha256": "72ee7756101f7946c2a6f659d69bc11fd09e7f23faf1e9a9f2c42d7752720e5a"
+        },
+        {
+          "file": "WhiteGhostBoss_Air_Hit_03.png",
+          "bounds": {
+            "left": 36,
+            "top": 42,
+            "width": 119,
+            "height": 142
+          },
+          "sha256": "cf07b6c9ad7644eb6c1711560ea041d5687d485c2eb9aa839bb082b2572bd810"
+        },
+        {
+          "file": "WhiteGhostBoss_Air_Hit_04.png",
+          "bounds": {
+            "left": 19,
+            "top": 60,
+            "width": 153,
+            "height": 124
+          },
+          "sha256": "653f5b18134534454f74198fb41d345cdeb77855057e68a5e7cafd721578a059"
+        },
+        {
+          "file": "WhiteGhostBoss_Air_Hit_05.png",
+          "bounds": {
+            "left": 19,
+            "top": 20,
+            "width": 154,
+            "height": 164
+          },
+          "sha256": "2a2897203932705eecc8481bcf1698e8bdd9e9b8336235f4c79b29eac2d2dff1"
+        },
+        {
+          "file": "WhiteGhostBoss_Air_Hit_06.png",
+          "bounds": {
+            "left": 31,
+            "top": 18,
+            "width": 129,
+            "height": 166
+          },
+          "sha256": "5fe60a21716388079e56f39600477ff65a9626d0c877e79ef588f0d4b7d2007f"
+        }
+      ]
+    },
+    {
+      "name": "Knockdown",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "boss_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Knockdown",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Knockdown_01.png",
+          "bounds": {
+            "left": 29,
+            "top": 42,
+            "width": 134,
+            "height": 142
+          },
+          "sha256": "cb154500f41caa2347d74e776901ad33978453a69b57bfbb9c4657253aabc9f2"
+        },
+        {
+          "file": "WhiteGhostBoss_Knockdown_02.png",
+          "bounds": {
+            "left": 14,
+            "top": 75,
+            "width": 164,
+            "height": 109
+          },
+          "sha256": "46bdee19e1e82567f73b12afe40288396f9bc92416a1073f8c5bd707af95bc07"
+        },
+        {
+          "file": "WhiteGhostBoss_Knockdown_03.png",
+          "bounds": {
+            "left": 24,
+            "top": 79,
+            "width": 143,
+            "height": 105
+          },
+          "sha256": "b5c552995f0b77670fe477cc80b4c9870bb205aa9104dac46ff6dee2e0b25c2c"
+        },
+        {
+          "file": "WhiteGhostBoss_Knockdown_04.png",
+          "bounds": {
+            "left": 26,
+            "top": 91,
+            "width": 140,
+            "height": 93
+          },
+          "sha256": "e59e433750108e848392542626214e0af51d7728aa026506a341694bf536b564"
+        },
+        {
+          "file": "WhiteGhostBoss_Knockdown_05.png",
+          "bounds": {
+            "left": 18,
+            "top": 109,
+            "width": 156,
+            "height": 75
+          },
+          "sha256": "59028198879df41ef30bb445bea3177cd99e77c613a5f047804e0f9459d9491a"
+        },
+        {
+          "file": "WhiteGhostBoss_Knockdown_06.png",
+          "bounds": {
+            "left": 8,
+            "top": 130,
+            "width": 176,
+            "height": 54
+          },
+          "sha256": "8eaef08aeb39e89befe7c4451460d771a45d3b67711a1e52ed2eb96ee6354726"
+        }
+      ]
+    },
+    {
+      "name": "Downed",
+      "frameCount": 5,
+      "uniqueFrames": 5,
+      "durationSeconds": 0.8,
+      "loop": true,
+      "source": "boss_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Downed",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Downed_01.png",
+          "bounds": {
+            "left": 8,
+            "top": 130,
+            "width": 176,
+            "height": 54
+          },
+          "sha256": "8eaef08aeb39e89befe7c4451460d771a45d3b67711a1e52ed2eb96ee6354726"
+        },
+        {
+          "file": "WhiteGhostBoss_Downed_02.png",
+          "bounds": {
+            "left": 18,
+            "top": 121,
+            "width": 156,
+            "height": 63
+          },
+          "sha256": "f68678ad8fa145282c30701292eabc09e1e3784ad8a83730d0bada419f500ca1"
+        },
+        {
+          "file": "WhiteGhostBoss_Downed_03.png",
+          "bounds": {
+            "left": 21,
+            "top": 125,
+            "width": 150,
+            "height": 59
+          },
+          "sha256": "2f72aa65ef326c69d4b8622363551cc46a7efdf2ee16d32b586724fdc456e9c8"
+        },
+        {
+          "file": "WhiteGhostBoss_Downed_04.png",
+          "bounds": {
+            "left": 23,
+            "top": 109,
+            "width": 145,
+            "height": 75
+          },
+          "sha256": "5fd1f022189243bc8b49c1c29617968e6913687badbb67f48c8155f773f81632"
+        },
+        {
+          "file": "WhiteGhostBoss_Downed_05.png",
+          "bounds": {
+            "left": 26,
+            "top": 111,
+            "width": 140,
+            "height": 73
+          },
+          "sha256": "a89d8c4f0b4dc54ed4867775399e9692944dcbd5ea3d5cba53dcb8f0fb6933cb"
+        }
+      ]
+    },
+    {
+      "name": "GetUp",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "boss_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/GetUp",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_GetUp_01.png",
+          "bounds": {
+            "left": 8,
+            "top": 130,
+            "width": 176,
+            "height": 54
+          },
+          "sha256": "8eaef08aeb39e89befe7c4451460d771a45d3b67711a1e52ed2eb96ee6354726"
+        },
+        {
+          "file": "WhiteGhostBoss_GetUp_02.png",
+          "bounds": {
+            "left": 14,
+            "top": 101,
+            "width": 164,
+            "height": 83
+          },
+          "sha256": "1211e61e01e64d2f64b93907349975a40cf92b276fffb7f3669a6938398e3d74"
+        },
+        {
+          "file": "WhiteGhostBoss_GetUp_03.png",
+          "bounds": {
+            "left": 26,
+            "top": 68,
+            "width": 140,
+            "height": 116
+          },
+          "sha256": "918174fe81aadb616ba5f7f87fa5b1c6bc877a0f08570d585af82c40b82a39e8"
+        },
+        {
+          "file": "WhiteGhostBoss_GetUp_04.png",
+          "bounds": {
+            "left": 35,
+            "top": 36,
+            "width": 122,
+            "height": 148
+          },
+          "sha256": "b9eafa7270b9148cfeef52e1aae0cc52934f899567962275a852b653ef419344"
+        },
+        {
+          "file": "WhiteGhostBoss_GetUp_05.png",
+          "bounds": {
+            "left": 24,
+            "top": 20,
+            "width": 144,
+            "height": 164
+          },
+          "sha256": "400ad66cf5f55aa1d9fd2ae8acbe0e6a34b397b032a5c5c5505b570d7c2bd78c"
+        },
+        {
+          "file": "WhiteGhostBoss_GetUp_06.png",
+          "bounds": {
+            "left": 44,
+            "top": 34,
+            "width": 103,
+            "height": 150
+          },
+          "sha256": "c14070e5a7720e363d171aad3ff2415898092e55edb9814973a9905135ccbe87"
+        }
+      ]
+    },
+    {
+      "name": "Defeated",
+      "frameCount": 5,
+      "uniqueFrames": 5,
+      "durationSeconds": 0.68,
+      "loop": false,
+      "source": "boss_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/WhiteGhostBoss/Animations/Defeated",
+      "frames": [
+        {
+          "file": "WhiteGhostBoss_Defeated_01.png",
+          "bounds": {
+            "left": 22,
+            "top": 95,
+            "width": 148,
+            "height": 89
+          },
+          "sha256": "c28cb61ae2ae4148630531c3db1463005f58067fd2ad34bb5762cd545ca70903"
+        },
+        {
+          "file": "WhiteGhostBoss_Defeated_02.png",
+          "bounds": {
+            "left": 11,
+            "top": 103,
+            "width": 170,
+            "height": 81
+          },
+          "sha256": "31ee8cf8edbbcb62b57dd6c04f8b162e86acd76ac353aa0917a0abe4ca791bfc"
+        },
+        {
+          "file": "WhiteGhostBoss_Defeated_03.png",
+          "bounds": {
+            "left": 23,
+            "top": 109,
+            "width": 145,
+            "height": 75
+          },
+          "sha256": "090af6c753ff5ab1c160bc154f6cd56000db66e99bdf6eea858bf607f93c1eff"
+        },
+        {
+          "file": "WhiteGhostBoss_Defeated_04.png",
+          "bounds": {
+            "left": 26,
+            "top": 108,
+            "width": 139,
+            "height": 76
+          },
+          "sha256": "86ca8186d30420ff9f73f96906328b09da2e40666bbb70674261805ce9768a61"
+        },
+        {
+          "file": "WhiteGhostBoss_Defeated_05.png",
+          "bounds": {
+            "left": 44,
+            "top": 119,
+            "width": 103,
+            "height": 65
+          },
+          "sha256": "80ef736ec62609ba6af53eaf5e3c48dcddf79196a5df80f52f7e03cdd8ef7462"
+        }
+      ]
+    }
+  ]
+}

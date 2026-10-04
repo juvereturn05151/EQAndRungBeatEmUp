@@ -1,0 +1,132 @@
+{
+  "frames": [
+    {
+      "filename": "WhiteGhostBoss_Defeated_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 192
+      },
+      "duration": 130
+    },
+    {
+      "filename": "WhiteGhostBoss_Defeated_02.png",
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 192
+      },
+      "duration": 130
+    },
+    {
+      "filename": "WhiteGhostBoss_Defeated_03.png",
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 192
+      },
+      "duration": 130
+    },
+    {
+      "filename": "WhiteGhostBoss_Defeated_04.png",
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 192
+      },
+      "duration": 130
+    },
+    {
+      "filename": "WhiteGhostBoss_Defeated_05.png",
+      "frame": {
+        "x": 768,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 192
+      },
+      "duration": 160
+    }
+  ],
+  "meta": {
+    "app": "Haunted Enemies export",
+    "image": "WhiteGhostBoss_Defeated_Sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1152,
+      "h": 192
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "Defeated",
+        "from": 0,
+        "to": 4,
+        "direction": "forward"
+      }
+    ]
+  }
+}

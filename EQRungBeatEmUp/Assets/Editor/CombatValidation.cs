@@ -13,6 +13,7 @@ using UnityEngine.InputSystem.LowLevel;
 public static class CombatValidation
 {
     private const string Pending = "BeatEmUp.FrameValidation";
+    private const string BounceOnly = "BeatEmUp.BounceValidation";
     private static readonly List<string> results = new List<string>();
     private static GameObject playerObject, enemyObject;
     private static ComboController player;
@@ -30,10 +31,21 @@ public static class CombatValidation
         EditorSceneManager.OpenScene(CombatDemoBuilder.ScenePath);
         SessionState.SetBool(Pending, true); EditorApplication.EnterPlaymode();
     }
+    [MenuItem("Beat Em Up/Validate combat bounces (Play Mode)")]
+    public static void BuildAndValidateBounces()
+    {
+        if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+        CombatDemoBuilder.Build();
+        EditorSceneManager.OpenScene(CombatDemoBuilder.ScenePath);
+        SessionState.SetBool(BounceOnly, true);
+        SessionState.SetBool(Pending, true); EditorApplication.EnterPlaymode();
+    }
     private static void Poll()
     {
         if (!SessionState.GetBool(Pending, false) || !EditorApplication.isPlaying || EditorApplication.isCompiling) return;
         SessionState.SetBool(Pending, false); results.Clear();
+        bool bounceOnly = SessionState.GetBool(BounceOnly, false); SessionState.SetBool(BounceOnly, false);
+        string resultsPath = bounceOnly ? "BounceCombatValidationResults.txt" : "CombatValidationResults.txt";
         var previousBackground = InputSystem.settings.backgroundBehavior;
         var previousEditorInput = InputSystem.settings.editorInputBehaviorInPlayMode;
         bool previousRunInBackground = InputSystem.runInBackground;
@@ -41,18 +53,20 @@ public static class CombatValidation
         {
             foreach (var component in UnityEngine.Object.FindObjectsByType<ComboController>()) component.gameObject.SetActive(false);
             foreach (var component in UnityEngine.Object.FindObjectsByType<EnemyHitReaction>()) component.gameObject.SetActive(false);
+            foreach (var wall in UnityEngine.Object.FindObjectsByType<CombatWall>()) wall.gameObject.SetActive(false);
             clock = UnityEngine.Object.FindFirstObjectByType<CombatClock>(); clock.enabled = false;
             InputSystem.settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus;
             InputSystem.settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
             InputSystem.runInBackground = true;
             keyboard = InputSystem.AddDevice<Keyboard>(); mouse = InputSystem.AddDevice<Mouse>(); gamepad = InputSystem.AddDevice<Gamepad>();
-            Run(); File.WriteAllLines("CombatValidationResults.txt", results);
+            if (bounceOnly) { Route(false); Route(true); ValidateBounces(); } else Run();
+            File.WriteAllLines(resultsPath, results);
             Debug.Log("FRAME COMBAT VALIDATION PASSED: " + results.Count + " assertions");
             if (Application.isBatchMode) EditorApplication.Exit(0); else EditorApplication.ExitPlaymode();
         }
         catch (Exception exception)
         {
-            results.Add("FAIL: " + exception); File.WriteAllLines("CombatValidationResults.txt", results); Debug.LogException(exception);
+            results.Add("FAIL: " + exception); File.WriteAllLines(resultsPath, results); Debug.LogException(exception);
             if (Application.isBatchMode) EditorApplication.Exit(1); else EditorApplication.ExitPlaymode();
         }
         finally
@@ -111,14 +125,17 @@ public static class CombatValidation
     private static void Route(bool pad)
     {
         Reset(pad);
+        float expectedGroundHealth = enemy.health.Current - player.groundCombo.Sum(a => a.frames[a.FirstActiveFrame].hitboxes[0].damage);
         void Attack() { if (pad) Pad(GamepadButton.West); else Key(UnityEngine.InputSystem.Key.J); }
         Attack(); Check(player.CurrentAttack == player.groundCombo[0] && player.attackPlayer.CurrentFrame == 0, "Frame 0 starts on manual input " + pad);
         Step(3); Attack(); Check(player.BufferedInput == CombatInput.Attack && player.ComboIndex == 1, "Attack buffers before cancel");
         Until(() => player.CurrentAttack == player.groundCombo[1]); Check(player.attackPlayer.CurrentFrame == 0, "Buffered input starts Punch2 at frame 0");
         Step(3); Attack(); Until(() => player.CurrentAttack == player.groundCombo[2]); Step(45);
-        Check(enemy.health.Current == 470 && enemy.motor.IsGrounded, "Punch1 -> Punch2 -> Punch3 deals exactly three grounded hits " + pad);
+        Check(enemy.health.Current == expectedGroundHealth && enemy.motor.IsGrounded, "Punch1 -> Punch2 -> Punch3 deals exactly three grounded hits " + pad);
         Check(!player.CurrentAttack && player.ComboIndex == 0, "Terminal ground route clears");
-        Reset(pad); Attack(); Step(3); Attack(); Until(() => player.CurrentAttack == player.groundCombo[1]); Step(3);
+        Reset(pad);
+        float expectedAirHealth = enemy.health.Current - player.groundCombo.Take(2).Concat(new[] { player.launcher }).Concat(player.airCombo).Sum(a => a.frames[a.FirstActiveFrame].hitboxes[0].damage);
+        Attack(); Step(3); Attack(); Until(() => player.CurrentAttack == player.groundCombo[1]); Step(3);
         if (pad) Pad(GamepadButton.North); else Key(UnityEngine.InputSystem.Key.K);
         Check(player.BufferedInput == CombatInput.Launcher, "Launcher buffers before cancel");
         Until(() => player.CurrentAttack == player.launcher); Until(() => !enemy.motor.IsGrounded);
@@ -128,8 +145,11 @@ public static class CombatValidation
         Until(() => !player.motor.IsGrounded); Attack();
         Check(player.CurrentAttack == player.airCombo[0], "Manual jump then AirPunch1");
         Step(3); Attack(); Until(() => player.CurrentAttack == player.airCombo[1]);
-        Step(3); Attack(); Until(() => player.CurrentAttack == player.airCombo[2]); Step(45);
-        Check(enemy.health.Current == 440 && !enemy.JuggleOpen, "Three manual air punches hit launched enemy and end juggle " + pad);
+        Step(3); Attack(); Until(() => player.CurrentAttack == player.airCombo[2]);
+        Until(() => enemy.GroundBounceEligible);
+        Check(enemy.health.Current == expectedAirHealth && enemy.motor.VerticalVelocity < 0 && !enemy.JuggleOpen, "Three manual air punches hit launched enemy and slam downward " + pad);
+        Until(() => enemy.GroundBouncesUsed == 1);
+        Check(!enemy.motor.IsGrounded && enemy.motor.VerticalVelocity > 0, "Air route actually bounces at the floor " + pad);
         Step(180); Check(enemy.CanAct && player.motor.IsGrounded, "Enemy lands and recovers; player lands");
     }
     private static void Run()
@@ -209,6 +229,7 @@ public static class CombatValidation
         for (int i = 0; i < 10; i++) enemy.Receive(player.airCombo[0].frames[6].hitboxes[0], 1);
         Check(enemy.JuggleHits == enemy.maximumJuggleHits && !enemy.JuggleOpen && enemy.motor.VerticalVelocity < 0, "Juggle cap prevents unlimited lift");
         Step(180); Check(enemy.CanAct, "Capped juggle lands and recovers");
+        ValidateBounces();
         var editorAsset = UnityEngine.Object.Instantiate(player.groundCombo[0]);
         AssetDatabase.CreateAsset(editorAsset, "Assets/FrameEditorValidation.asset");
         var editor = UnityEditor.Editor.CreateEditor(editorAsset, typeof(AttackDataEditor));
@@ -225,5 +246,97 @@ public static class CombatValidation
         UnityEngine.Object.DestroyImmediate(editor); AssetDatabase.DeleteAsset("Assets/FrameEditorValidation.asset");
         foreach (var attack in player.groundCombo.Concat(player.airCombo).Append(player.launcher))
             Check(attack.frames.Count > 0 && attack.frames.All(f => f.sprite), "Every frame has existing artwork: " + attack.name);
+    }
+    private static void ValidateBounces()
+    {
+        Reset();
+        var slam = new AttackHitboxData { groundBounce = true, forceAirborneTargetDownward = true,
+            launchVelocity = new Vector2(0, -12), groundBounceForce = new Vector2(.6f, 4.5f), groundBounceGravity = 18 };
+        enemy.motor.Launch(3, 0); enemy.Receive(slam, -1);
+        Check(enemy.GroundBounceEligible && enemy.motor.VerticalVelocity == -12, "Reusable slam sends an airborne target downward");
+        enemy.motor.attackPlayer.Freeze(5); int stun = enemy.RecoveryFrames; float height = enemy.motor.Height;
+        Step(5);
+        Check(enemy.GroundBounceEligible && enemy.GroundBouncesUsed == 0 && enemy.motor.Height == height && enemy.RecoveryFrames == stun, "Hitstop freezes pending slam, eligibility and recovery");
+        Step(1);
+        Check(enemy.State == EnemyReaction.GroundBouncing && enemy.GroundBouncesUsed == 1 && enemy.motor.VerticalVelocity > 0 && enemy.motor.HorizontalRecoil < 0,
+            "Floor contact consumes ground eligibility before landing and mirrors bounce X");
+        Check(enemy.JuggleOpen && enemy.motor.GravityOverride == 18, "Ground bounce reopens a bounded juggle with authored gravity");
+        enemy.Receive(slam, 1);
+        Check(!enemy.GroundBounceEligible, "Second ground bounce is denied within the same combo");
+        Until(() => enemy.State == EnemyReaction.Knockdown);
+        Check(enemy.IsRecovering && enemy.PhaseFramesRemaining == enemy.KnockdownFrames, "Final air-combo landing starts the full Knockdown animation");
+        enemy.Receive(new AttackHitboxData(), 1);
+        Check(enemy.State == EnemyReaction.Knockdown, "Grounded follow-up cannot replace bounce knockdown with hurt");
+        Step(enemy.KnockdownFrames);
+        Check(enemy.State == EnemyReaction.Downed && enemy.PhaseFramesRemaining == slam.groundBounceRecoveryFrames, "Bounce recovery setting controls the downed delay after knockdown");
+        Check(enemy.GroundBouncesUsed == 1, "Bounce resource survives final landing recovery");
+        Until(() => enemy.CanAct);
+        Check(enemy.GroundBouncesUsed == 0 && enemy.WallBouncesUsed == 0, "Neutral resets both combo resources");
+        Reset(); enemy.motor.Launch(3, 0); enemy.Receive(new AttackHitboxData { forceAirborneTargetDownward = true, launchVelocity = new Vector2(0, -12) }, 1); Step(1);
+        Check(enemy.GroundBouncesUsed == 0 && enemy.IsRecovering, "An unmarked slam lands normally without bouncing");
+        Reset(); enemy.maxGroundBounces = 0; enemy.motor.Launch(3, 0); enemy.Receive(slam, 1);
+        Check(!enemy.GroundBounceEligible, "Enemy resource cap can disable ground bounce");
+        Reset(); enemy.motor.Launch(3, 0); var disabledSlam = AttackFrameAuthoring.CloneBox(slam); disabledSlam.maximumGroundBounces = 0; enemy.Receive(disabledSlam, 1);
+        Check(!enemy.GroundBounceEligible, "Hitbox resource cap can disable ground bounce");
+        Reset(); enemy.motor.Launch(3, 0); enemy.Receive(slam, 1); enemy.health.Damage(10000); Step(1);
+        Check(enemy.State == EnemyReaction.Defeated && enemy.GroundBouncesUsed == 0 && !enemy.GroundBounceEligible, "Death clears pending bounce and prevents rebound");
+        enemy.health.Restore(); Check(enemy.GroundBouncesUsed == 0 && enemy.WallBouncesUsed == 0, "Health restore resets bounce resources");
+        Reset(); enemy.motor.Launch(3, 0); enemy.Receive(slam, 1); enemy.Receive(new AttackHitboxData(), 1);
+        Check(!enemy.GroundBounceEligible, "A new ordinary reaction clears stale ground eligibility");
+        Reset(); enemy.motor.Launch(3, 0); slam.wallBounce = true; enemy.Receive(slam, 1);
+        Check(enemy.GroundBounceEligible && !enemy.WallBounceEligible, "Ground eligibility wins over wall eligibility on a combined airborne hit");
+
+        var wallObject = new GameObject("Validation combat wall");
+        try
+        {
+            var collider = wallObject.AddComponent<BoxCollider2D>(); collider.size = new Vector2(.2f, 4);
+            var wall = wallObject.AddComponent<CombatWall>();
+            var wallHit = new AttackHitboxData { wallBounce = true, knockback = 40, hitstunFrames = 30 };
+            foreach (int direction in new[] { 1, -1 })
+            {
+                Reset(); playerObject.transform.position = new Vector3(-.7f * direction, 0, 0);
+                enemyObject.transform.position = new Vector3(.15f * direction, 0, 0); player.motor.Face(direction);
+                wallObject.transform.position = enemy.motor.transform.position + new Vector3(direction, 0, 0); Physics2D.SyncTransforms();
+                float expected = enemy.health.Current - player.groundCombo.Sum(a => a.frames[a.FirstActiveFrame].hitboxes[0].damage);
+                Key(UnityEngine.InputSystem.Key.J); Step(3); Key(UnityEngine.InputSystem.Key.J);
+                Until(() => player.CurrentAttack == player.groundCombo[1]); Step(3); Key(UnityEngine.InputSystem.Key.J);
+                Until(() => enemy.WallBouncesUsed == 1);
+                Check(enemy.health.Current == expected && !enemy.motor.IsGrounded && enemy.motor.HorizontalRecoil * direction < 0,
+                    "Authored Punch1 -> Punch2 -> Punch3 route bounces on a physical wall " + direction);
+                Until(() => enemy.CanAct);
+                Check(enemy.WallBouncesUsed == 0, "Wall route returns to neutral and resets resources " + direction);
+                Reset(); wallObject.transform.position = enemy.motor.transform.position + new Vector3(direction * .6f, 0, 0); Physics2D.SyncTransforms();
+                enemy.Receive(wallHit, direction);
+                Check(enemy.WallBounceEligible && enemy.motor.IsGrounded, "Wall hit arms eligibility without immediately bouncing " + direction);
+                Step(1);
+                Check(enemy.State == EnemyReaction.WallBouncing && enemy.WallBouncesUsed == 1 && enemy.motor.VerticalVelocity > 0 && enemy.motor.HorizontalRecoil * direction < 0,
+                    "Swept collider contact rebounds even fast knockback " + direction);
+                enemy.Receive(wallHit, direction);
+                Check(!enemy.WallBounceEligible, "Wall bounce limit survives an airborne follow-up " + direction);
+            }
+            Reset(); wallObject.transform.position = enemy.motor.transform.position + new Vector3(.6f, 0, 0); Physics2D.SyncTransforms();
+            enemy.motor.MovementLocked = false; enemy.motor.MoveInput = Vector2.right; enemy.motor.Simulate(.2f);
+            Check(enemy.WallBouncesUsed == 0 && enemy.motor.IsGrounded && enemy.motor.transform.position.x < wallObject.transform.position.x - .3f, "Normal movement is blocked by a combat wall without bouncing");
+            Reset(); wallObject.transform.position = enemy.motor.transform.position + new Vector3(.6f, 0, 0); wall.allowsBounce = false; Physics2D.SyncTransforms();
+            enemy.Receive(wallHit, 1); Step(1);
+            Check(enemy.WallBouncesUsed == 0 && enemy.motor.IsGrounded, "A solid wall can opt out of bouncing");
+            wall.allowsBounce = true; collider.isTrigger = true;
+            Reset(); wallObject.transform.position = enemy.motor.transform.position + new Vector3(.6f, 0, 0); Physics2D.SyncTransforms();
+            enemy.Receive(wallHit, 1); Step(1);
+            Check(enemy.WallBouncesUsed == 0, "Trigger volumes do not count as wall collisions");
+            collider.isTrigger = false;
+            Reset(); wallObject.transform.position = enemy.motor.transform.position + new Vector3(.6f, 0, 0); Physics2D.SyncTransforms();
+            enemy.Receive(new AttackHitboxData { knockback = 40 }, 1); Step(1);
+            Check(enemy.WallBouncesUsed == 0 && enemy.motor.IsGrounded, "Unmarked knockback reaches a wall without bouncing");
+            Reset(); wallObject.transform.position = new Vector3(50, 0, 0); Physics2D.SyncTransforms(); enemy.Receive(wallHit, 1); Step(30);
+            Check(enemy.WallBouncesUsed == 0 && !enemy.WallBounceEligible, "Arena clamp is not a wall and eligibility expires with hitstun");
+            Reset(); wallObject.transform.position = enemy.motor.transform.position + new Vector3(.6f, 0, 0); Physics2D.SyncTransforms();
+            wallHit.hitstunFrames = 1; enemy.Receive(wallHit, 1); Step(1);
+            Check(enemy.WallBouncesUsed == 0, "Expired wall hitstun cannot bounce on later contact");
+        }
+        finally { UnityEngine.Object.DestroyImmediate(wallObject); }
+        Reset();
+        Check(player.airCombo[2].frames.Where(f => f.hitboxes.Count > 0).All(f => f.hitboxes.All(h => h.groundBounce && h.forceAirborneTargetDownward)), "AirPunch3 active hitboxes author slam and ground bounce");
+        Check(player.groundCombo[2].frames.Where(f => f.hitboxes.Count > 0).All(f => f.hitboxes.All(h => h.wallBounce)), "Punch3 active hitboxes author wall bounce");
     }
 }

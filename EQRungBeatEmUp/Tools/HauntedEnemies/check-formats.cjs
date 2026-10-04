@@ -1,0 +1,9 @@
+const fs=require('fs'),path=require('path'),zlib=require('zlib'),sharp=require('sharp');
+const root=path.resolve(__dirname,'../..'),art=path.join(root,'Assets/ArtAssets/Characters/Enemies');
+async function main(){const report=JSON.parse(fs.readFileSync(path.join(art,'ArtValidation.json')));let sequences=0,cels=0;
+for(const e of report.enemies)for(const a of e.animations){const stem=path.join(root,a.folder,e.id+'_'+a.name),b=fs.readFileSync(stem+'.aseprite');
+if(b.readUInt32LE(0)!==b.length||b.readUInt16LE(4)!==0xa5e0||b.readUInt16LE(6)!==a.frameCount||b.readUInt16LE(8)!==e.canvas[0]||b.readUInt16LE(10)!==e.canvas[1])throw Error('Invalid Aseprite header '+stem);
+let offset=128;for(let f=0;f<a.frameCount;f++){const size=b.readUInt32LE(offset),chunks=b.readUInt16LE(offset+6);if(b.readUInt16LE(offset+4)!==0xf1fa)throw Error('Bad frame');let p=offset+16,celCount=0;for(let i=0;i<chunks;i++){const length=b.readUInt32LE(p),type=b.readUInt16LE(p+4);if(type===0x2005){const raw=zlib.inflateSync(b.subarray(p+26,p+length));if(raw.length!==e.canvas[0]*e.canvas[1]*4)throw Error('Invalid cel');celCount++;cels++;}p+=length;}if(p!==offset+size||celCount!==1)throw Error('Invalid chunks');offset+=size;}if(offset!==b.length)throw Error('Trailing data');
+const gif=await sharp(stem+'_Preview.gif',{animated:true}).metadata();if(gif.pages!==a.frameCount||gif.width!==e.canvas[0]||gif.pageHeight!==e.canvas[1])throw Error('Invalid GIF '+stem);sequences++;}
+const result={passed:true,sequences,compressedRgbaCels:cels,checks:['Aseprite headers, frames, chunk lengths and decompressed RGBA cels','Animated GIF page counts and canvas sizes']};fs.writeFileSync(path.join(art,'FormatValidation.json'),JSON.stringify(result,null,2));console.log(result);}
+main().catch(e=>{console.error(e);process.exitCode=1;});

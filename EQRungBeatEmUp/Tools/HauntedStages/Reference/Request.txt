@@ -1,0 +1,351 @@
+Please inspect the project and draw the STAGE ENVIRONMENT ASSETS for the haunted-house beat ’em up based on the attached reference image.
+
+IMPORTANT:
+Use the attached image as the visual source of truth.
+
+I do NOT need enemies in this task.
+I want the STAGE BACKGROUND and FLOOR for each stage sequence.
+
+The goal is to create environment concept/sprite assets for ALL stage sequences shown in the reference.
+
+==================================================
+GOAL
+==================================================
+
+Create pixel-art environment assets for each stage in the sequence.
+
+For each stage, I want:
+
+1. Background asset
+2. Floor / walkable gameplay area asset
+
+These should be usable as beat ’em up stage art.
+
+The game is a side-scrolling / belt-scrolling beat ’em up, so the environments should clearly support:
+- background / non-walkable upper area
+- floor / walkable lower area
+- side-view combat readability
+
+==================================================
+STAGES TO CREATE
+==================================================
+
+Create environment assets for all of these stage sequences:
+
+1. Entrance Gate
+2. Blood Sheet Corridor
+3. Fake Morgue
+4. Service Corridor & Stair
+5. Haunted Maze
+6. Recovery Shrine / Safe Room
+7. White Ghost Boss Chamber
+8. Escape Lane (Exit)
+
+==================================================
+GENERAL ART REQUIREMENTS
+==================================================
+
+Use the attached reference image as the source of truth for layout, tone, props, and stage identity.
+
+The art style should be:
+
+- pixel art
+- suitable for 2D beat ’em up gameplay
+- readable at gameplay distance
+- moody / horror themed
+- cheap homemade Thai haunted-house attraction aesthetic
+- consistent across all stages
+- same game world / same visual language
+
+Do NOT make them painterly or high-resolution concept painting style.
+They should feel like actual game environment assets.
+
+==================================================
+IMPORTANT STAGE-ART STRUCTURE
+==================================================
+
+For each stage, split the environment into at least these parts:
+
+A. BACKGROUND
+- non-walkable upper environment
+- walls
+- props
+- scenery
+- doors
+- decorations
+- lighting fixtures
+- signs
+- horror attraction dressing
+
+B. FLOOR / WALKABLE GAMEPLAY AREA
+- lower area where player/enemy fight
+- floor tiles / ground plane / lane
+- readable perspective for beat ’em up movement
+- should visually support combat and lane depth
+
+If appropriate, feel free to organize with additional layers such as:
+- foreground props
+- midground props
+- overlay details
+
+But at minimum I need:
+- one background asset
+- one floor / walkable asset
+for each stage.
+
+==================================================
+DO NOT INCLUDE
+==================================================
+
+Do NOT include:
+- enemy characters
+- UI
+- stage labels
+- arrows
+- infographic text
+- legend boxes
+- intensity graphs
+- poster layout elements
+
+Only create the actual gameplay environment art.
+
+==================================================
+OUTPUT FORMAT
+==================================================
+
+For each stage, create clean environment assets with transparent backgrounds where appropriate.
+
+Preferred output structure per stage:
+
+StageName/
+    Background/
+    Floor/
+    Optional_Props/
+
+If the project already has a folder convention, follow that instead.
+
+Suggested file naming:
+
+Stage01_EntranceGate_Background
+Stage01_EntranceGate_Floor
+
+Stage02_BloodSheetCorridor_Background
+Stage02_BloodSheetCorridor_Floor
+
+Stage03_FakeMorgue_Background
+Stage03_FakeMorgue_Floor
+
+Stage04_ServiceCorridor_Background
+Stage04_ServiceCorridor_Floor
+
+Stage05_HauntedMaze_Background
+Stage05_HauntedMaze_Floor
+
+Stage06_RecoveryShrine_Background
+Stage06_RecoveryShrine_Floor
+
+Stage07_WhiteGhostBossChamber_Background
+Stage07_WhiteGhostBossChamber_Floor
+
+Stage08_EscapeLane_Background
+Stage08_EscapeLane_Floor
+
+==================================================
+GAMEPLAY FRAMING REQUIREMENT
+==================================================
+
+These stages are for a beat ’em up.
+
+So each stage should visually support this structure:
+
+TOP AREA
+= background / non-walkable / set dressing
+
+LOWER AREA
+= floor / walkable gameplay lane
+
+Please keep in mind:
+- characters will fight on the lower area
+- the floor should read clearly
+- the background should not visually confuse the playable plane
+- the stage must feel usable for combat
+
+The floor should feel like around the lower 60–65% of the visible gameplay composition, while the upper portion is more background and set dressing.
+
+==================================================
+STAGE-SPECIFIC DIRECTIONS
+==================================================
+
+1. ENTRANCE GATE
+Theme:
+Thai fair haunted-house entrance.
+Flashy but cheap, colorful lights, demon-face entrance, ticket booth, barricades, banners, motorcycles nearby.
+
+Need:
+- background showing façade, signs, lights, demon mouth entrance, fencing, booth
+- floor showing outdoor wet carnival/fair ground suitable for beat ’em up gameplay
+
+2. BLOOD SHEET CORRIDOR
+Theme:
+Dark corridor with hanging blood-painted sheets and horror cloth partitions.
+
+Need:
+- background with hanging sheets, narrow haunted-path walls, light bulbs, creepy corridor setup
+- floor showing grimy haunted-house walkway / corridor floor
+
+3. FAKE MORGUE
+Theme:
+Homemade morgue room with tables, fake corpses, medical junk, metal cabinets, body props.
+
+Need:
+- background with morgue tables, shelves, equipment, corpse props, Thai signage
+- floor showing dirty clinical / stained room floor suitable for gameplay
+
+4. SERVICE CORRIDOR & STAIR
+Theme:
+Backstage area with props, storage, tools, stair corner, clutter.
+
+Need:
+- background with stairs, backstage storage, props, tools, wiring, shelves
+- floor showing work/storage area flooring for combat
+
+5. HAUNTED MAZE
+Theme:
+Branching doors, eerie lights, fake scare props, confusing path vibe.
+
+Need:
+- background with creepy doors, signs, light sources, maze walls, theatrical haunted-house scenery
+- floor showing haunted maze path / indoor pathway for combat
+
+6. RECOVERY SHRINE / SAFE ROOM
+Theme:
+Calm safe room before the boss.
+Health recovery space.
+Thai shrine / altar vibe, candles, offerings, supplies.
+
+Need:
+- background with shrine setup, altar, candles, offerings, supplies, healing atmosphere
+- floor showing safe indoor floor / shrine room ground
+
+No enemies in this room.
+It should feel like a breather.
+
+7. WHITE GHOST BOSS CHAMBER
+Theme:
+Final boss arena for ผีชุดขาว.
+Ritual / cursed room with dramatic haunted presentation.
+
+Need:
+- background with cursed shrine atmosphere, ritual props, ghostly portraits / figures, dramatic stage-like boss chamber
+- floor showing open combat arena floor
+
+Important:
+This room should feel like a boss arena with enough open space.
+
+Optional support:
+if useful, also create matching environment props for cursed totems around the room, but prioritize background and floor first.
+
+8. ESCAPE LANE (EXIT)
+Theme:
+Outdoor exit lane after the boss.
+Night fair exit path, signage, barricades, temple-fair atmosphere still visible.
+
+Need:
+- background with exit sign, fences, hanging cloth, lights, temple-fair distance
+- floor showing outdoor exit path / wet pavement / carnival walkway
+
+This should feel like a cool-down / aftermath area.
+
+==================================================
+PIXEL-ART GAMEPLAY RULES
+==================================================
+
+Please make the environments usable for a belt-scrolling game.
+
+That means:
+- floor perspective should help the player understand walkable space
+- background should stay readable behind sprites
+- strong silhouette and prop readability
+- no overly busy noise in the gameplay lane
+- visual separation between floor and wall/background
+
+==================================================
+LAYERING / MODULARITY
+==================================================
+
+If practical, make the assets modular.
+
+For example:
+- big background plate
+- separate floor plate
+- optional prop overlays
+- optional decorative objects that can be independently placed
+
+However, do not overcomplicate the task.
+Priority is:
+1. full background
+2. full floor
+for each stage
+
+==================================================
+TECHNICAL PREFERENCES
+==================================================
+
+Before drawing, inspect the project and existing art pipeline if available.
+
+Check:
+- current sprite resolution conventions
+- Pixels Per Unit
+- stage art import conventions
+- canvas sizes
+- whether stages are built from single plates or modular pieces
+- naming conventions
+- how floor/background are currently arranged in Unity
+
+Match the existing pipeline where possible.
+
+If there is no strong convention yet, create clean and sensible file organization.
+
+==================================================
+DO NOT REDESIGN THE STAGES
+==================================================
+
+Do not replace the stage identities with unrelated environments.
+
+These must stay faithful to the attached reference image.
+
+For example:
+- Entrance Gate must remain the Thai haunted-house fair entrance
+- Fake Morgue must remain the morgue-like room
+- Safe Room must remain a recovery shrine
+- Boss Chamber must remain the white-ghost boss room
+
+==================================================
+SUCCESS CRITERIA
+==================================================
+
+The task is successful when:
+
+1. All 8 stages have environment art.
+2. Each stage has a background asset.
+3. Each stage has a floor / walkable asset.
+4. The stages clearly match the attached reference.
+5. The stages look like one consistent pixel-art game.
+6. No enemies or infographic UI are included.
+7. The assets are organized and ready for import/use.
+
+==================================================
+FINAL REPORT
+==================================================
+
+When finished, report:
+
+1. Which stage assets were created.
+2. Which files were created for each stage.
+3. Whether each stage has separate background and floor assets.
+4. Any optional modular props created.
+5. Folder structure used.
+6. Any issues or recommendations for importing into Unity.
+
+Most importantly:
+Actually draw the background and floor assets for all 8 stages from the attached reference image, without enemies or infographic UI.

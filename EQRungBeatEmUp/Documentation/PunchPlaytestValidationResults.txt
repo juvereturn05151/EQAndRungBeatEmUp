@@ -161,37 +161,37 @@ PASS: Early Launcher input buffers into Punch2's separate launcher window
 PASS: Nonterminal air attack keeps the existing air route after completion
 PASS: Ground neutral reset preserves manual air-combo continuation
 PASS: Punch1 startup cannot damage the opponent
-PASS: Punch1 applies damage and ground stagger on the first active frame
+PASS: Punch1 applies damage and authored ground reaction on the first active frame
 PASS: Punch1 freezes both actors for the authored hitstop
 PASS: Punch1 hitstop freezes timeline, motion and hitstun
 PASS: Punch1 horizontal knockback mirrors facing and begins after hitstop
 PASS: Punch1 hits once across its active frames and recovers without launching
 PASS: Punch1 startup cannot damage the opponent
-PASS: Punch1 applies damage and ground stagger on the first active frame
+PASS: Punch1 applies damage and authored ground reaction on the first active frame
 PASS: Punch1 freezes both actors for the authored hitstop
 PASS: Punch1 hitstop freezes timeline, motion and hitstun
 PASS: Punch1 horizontal knockback mirrors facing and begins after hitstop
 PASS: Punch1 hits once across its active frames and recovers without launching
 PASS: Punch2 startup cannot damage the opponent
-PASS: Punch2 applies damage and ground stagger on the first active frame
+PASS: Punch2 applies damage and authored ground reaction on the first active frame
 PASS: Punch2 freezes both actors for the authored hitstop
 PASS: Punch2 hitstop freezes timeline, motion and hitstun
 PASS: Punch2 horizontal knockback mirrors facing and begins after hitstop
 PASS: Punch2 hits once across its active frames and recovers without launching
 PASS: Punch2 startup cannot damage the opponent
-PASS: Punch2 applies damage and ground stagger on the first active frame
+PASS: Punch2 applies damage and authored ground reaction on the first active frame
 PASS: Punch2 freezes both actors for the authored hitstop
 PASS: Punch2 hitstop freezes timeline, motion and hitstun
 PASS: Punch2 horizontal knockback mirrors facing and begins after hitstop
 PASS: Punch2 hits once across its active frames and recovers without launching
 PASS: Punch3 startup cannot damage the opponent
-PASS: Punch3 applies damage and ground stagger on the first active frame
+PASS: Punch3 applies damage and authored ground reaction on the first active frame
 PASS: Punch3 freezes both actors for the authored hitstop
 PASS: Punch3 hitstop freezes timeline, motion and hitstun
 PASS: Punch3 horizontal knockback mirrors facing and begins after hitstop
 PASS: Punch3 hits once across its active frames and recovers without launching
 PASS: Punch3 startup cannot damage the opponent
-PASS: Punch3 applies damage and ground stagger on the first active frame
+PASS: Punch3 applies damage and authored ground reaction on the first active frame
 PASS: Punch3 freezes both actors for the authored hitstop
 PASS: Punch3 hitstop freezes timeline, motion and hitstun
 PASS: Punch3 horizontal knockback mirrors facing and begins after hitstop

@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "sequences": 114,
+  "compressedRgbaCels": 679,
+  "checks": [
+    "Aseprite headers, frames, chunk lengths and decompressed RGBA cels",
+    "Animated GIF page counts and canvas sizes"
+  ]
+}

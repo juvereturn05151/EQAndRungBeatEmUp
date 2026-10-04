@@ -1,0 +1,17 @@
+PASS: Rusher imports 14 clips and 83 sprite frames
+PASS: Rusher art preview prefab/controller with runtime reaction aliases
+PASS: GrapplerBruiser imports 14 clips and 84 sprite frames
+PASS: GrapplerBruiser art preview prefab/controller with runtime reaction aliases
+PASS: Thrower imports 14 clips and 84 sprite frames
+PASS: Thrower art preview prefab/controller with runtime reaction aliases
+PASS: Screamer imports 14 clips and 80 sprite frames
+PASS: Screamer art preview prefab/controller with runtime reaction aliases
+PASS: Ambusher imports 14 clips and 88 sprite frames
+PASS: Ambusher art preview prefab/controller with runtime reaction aliases
+PASS: Prefect imports 14 clips and 83 sprite frames
+PASS: Prefect art preview prefab/controller with runtime reaction aliases
+PASS: WhiteGhostBoss imports 19 clips and 111 sprite frames
+PASS: WhiteGhostBoss art preview prefab/controller with runtime reaction aliases
+PASS: Totems imports 3 clips and 18 sprite frames
+PASS: Effects imports 8 clips and 48 sprite frames
+PASS: TOTAL 679 sprites / 114 clips, point filter, 100 PPU, uncompressed, complete SpriteRenderer references

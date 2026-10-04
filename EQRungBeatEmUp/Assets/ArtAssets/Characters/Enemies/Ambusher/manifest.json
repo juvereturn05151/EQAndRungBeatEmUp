@@ -1,0 +1,1049 @@
+{
+  "id": "Ambusher",
+  "canvas": [
+    160,
+    128
+  ],
+  "ground": 120,
+  "pivot": [
+    0.5,
+    0.0625
+  ],
+  "standingOrCrouchedIdleHeight": 70,
+  "animations": [
+    {
+      "name": "Idle_Crouched",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "ambusher_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Ambusher/Animations/Idle_Crouched",
+      "frames": [
+        {
+          "file": "Ambusher_Idle_Crouched_01.png",
+          "bounds": {
+            "left": 47,
+            "top": 50,
+            "width": 66,
+            "height": 70
+          },
+          "sha256": "bd192af47ee17b081bb02fb9297f88a45530404a61d43d792272fa748ef8ceb6"
+        },
+        {
+          "file": "Ambusher_Idle_Crouched_02.png",
+          "bounds": {
+            "left": 47,
+            "top": 51,
+            "width": 66,
+            "height": 69
+          },
+          "sha256": "ddef228fa6f8c65a55ec5ded60ca60956f27a53035294463182b269892e44a6b"
+        },
+        {
+          "file": "Ambusher_Idle_Crouched_03.png",
+          "bounds": {
+            "left": 43,
+            "top": 53,
+            "width": 74,
+            "height": 67
+          },
+          "sha256": "9eb0fa380d72ac7c5415abccb5d269b329f6b5544ff9cb2e08d114821cdc4f23"
+        },
+        {
+          "file": "Ambusher_Idle_Crouched_04.png",
+          "bounds": {
+            "left": 44,
+            "top": 51,
+            "width": 71,
+            "height": 69
+          },
+          "sha256": "d36ef9a5b98ec82a9f37e019ad03f020e60ae3c901281bbeac65a322a0d0d351"
+        },
+        {
+          "file": "Ambusher_Idle_Crouched_05.png",
+          "bounds": {
+            "left": 45,
+            "top": 51,
+            "width": 70,
+            "height": 69
+          },
+          "sha256": "b6e0bc4dceb80992304b2056bacca6de371383c3dadcba1ea0b9aaccc7878fac"
+        },
+        {
+          "file": "Ambusher_Idle_Crouched_06.png",
+          "bounds": {
+            "left": 45,
+            "top": 51,
+            "width": 69,
+            "height": 69
+          },
+          "sha256": "f7157544fa91211b4e77b845d85d979ba782dd3777b8fb26cb65168982cf9657"
+        }
+      ]
+    },
+    {
+      "name": "Crawl",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": true,
+      "source": "ambusher_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Ambusher/Animations/Crawl",
+      "frames": [
+        {
+          "file": "Ambusher_Crawl_01.png",
+          "bounds": {
+            "left": 31,
+            "top": 60,
+            "width": 97,
+            "height": 60
+          },
+          "sha256": "3f85eeca2ab8765d4e6254a9fda248b5627b3fcb22dde9438be8af48ce677ad9"
+        },
+        {
+          "file": "Ambusher_Crawl_02.png",
+          "bounds": {
+            "left": 29,
+            "top": 59,
+            "width": 101,
+            "height": 61
+          },
+          "sha256": "ba6a4c5c22f9751c4954dde27fe00c6f2a5aa8cb768cd2973a9441e48f7fe09d"
+        },
+        {
+          "file": "Ambusher_Crawl_03.png",
+          "bounds": {
+            "left": 26,
+            "top": 59,
+            "width": 108,
+            "height": 61
+          },
+          "sha256": "bc7809a8039b1e12c660fbbc86f15eec87f708f6f5986564c2e40fea5fb5c9bf"
+        },
+        {
+          "file": "Ambusher_Crawl_04.png",
+          "bounds": {
+            "left": 29,
+            "top": 57,
+            "width": 102,
+            "height": 63
+          },
+          "sha256": "79b05b2cdeab78817f4db840de01f07be82de420f6797443ba6626e4ef783bd1"
+        },
+        {
+          "file": "Ambusher_Crawl_05.png",
+          "bounds": {
+            "left": 30,
+            "top": 57,
+            "width": 100,
+            "height": 63
+          },
+          "sha256": "c579de02fdd01c8b8f98b45b93fa37f0ad30cecde344a2460db95ab5b8141277"
+        },
+        {
+          "file": "Ambusher_Crawl_06.png",
+          "bounds": {
+            "left": 36,
+            "top": 59,
+            "width": 88,
+            "height": 61
+          },
+          "sha256": "25d44fa274c70d9608f009182741c13f863c2b81399d8304b2036767a2b2b34d"
+        }
+      ]
+    },
+    {
+      "name": "Hide",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "ambusher_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Ambusher/Animations/Hide",
+      "frames": [
+        {
+          "file": "Ambusher_Hide_01.png",
+          "bounds": {
+            "left": 48,
+            "top": 53,
+            "width": 64,
+            "height": 67
+          },
+          "sha256": "d13b4092fd04a732c3ce3227cc1fbf58bcc1c1ea6a04f6bc4ebde5446093229c"
+        },
+        {
+          "file": "Ambusher_Hide_02.png",
+          "bounds": {
+            "left": 46,
+            "top": 53,
+            "width": 67,
+            "height": 67
+          },
+          "sha256": "d430167eeb511a20c5e1b19c90086dff104bd76dcdf8b92afc79fae7b7b938f2"
+        },
+        {
+          "file": "Ambusher_Hide_03.png",
+          "bounds": {
+            "left": 46,
+            "top": 56,
+            "width": 67,
+            "height": 64
+          },
+          "sha256": "35240ad48495b3aa1c68b0a8fb219cc96e2f4facd5183825d48c86e9888000aa"
+        },
+        {
+          "file": "Ambusher_Hide_04.png",
+          "bounds": {
+            "left": 48,
+            "top": 55,
+            "width": 63,
+            "height": 65
+          },
+          "sha256": "a52db6867366c61606c2174d950087243a3d99e87b6d20a095a7ada250b3661d"
+        },
+        {
+          "file": "Ambusher_Hide_05.png",
+          "bounds": {
+            "left": 47,
+            "top": 53,
+            "width": 66,
+            "height": 67
+          },
+          "sha256": "039bb34f2b3eb79d8616118f32cdfeefb8ebd8f6ae6d7f9f5fa5383d42d8c589"
+        },
+        {
+          "file": "Ambusher_Hide_06.png",
+          "bounds": {
+            "left": 48,
+            "top": 53,
+            "width": 63,
+            "height": 67
+          },
+          "sha256": "83242e9897ebc27a61aec17fd347add3b43c4c5816e02c2d87056eb746a80f64"
+        }
+      ]
+    },
+    {
+      "name": "PopOut",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "ambusher_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Ambusher/Animations/PopOut",
+      "frames": [
+        {
+          "file": "Ambusher_PopOut_01.png",
+          "bounds": {
+            "left": 47,
+            "top": 51,
+            "width": 66,
+            "height": 69
+          },
+          "sha256": "4aa29fcaa7f21efc76831f4d28a5a25e7eafd56efeb0363952ce569371637cc2"
+        },
+        {
+          "file": "Ambusher_PopOut_02.png",
+          "bounds": {
+            "left": 35,
+            "top": 35,
+            "width": 89,
+            "height": 85
+          },
+          "sha256": "90ff2e3bf4d17302a0a2aa10034de3b9debaf15a149419c2ea66f54a80ce66a2"
+        },
+        {
+          "file": "Ambusher_PopOut_03.png",
+          "bounds": {
+            "left": 26,
+            "top": 21,
+            "width": 108,
+            "height": 99
+          },
+          "sha256": "20476960ed68306ede9892bf14eb48c70bb45261c8eb5aff7df199599c0b5639"
+        },
+        {
+          "file": "Ambusher_PopOut_04.png",
+          "bounds": {
+            "left": 28,
+            "top": 31,
+            "width": 104,
+            "height": 89
+          },
+          "sha256": "7e1bc644459c4005ecc16a7def9971edfa43d57941da234a55f118f77f052b84"
+        },
+        {
+          "file": "Ambusher_PopOut_05.png",
+          "bounds": {
+            "left": 21,
+            "top": 42,
+            "width": 118,
+            "height": 78
+          },
+          "sha256": "3c1d6acb5e4b91adbcd0df911859facd342bf674e99dc57a03129c778974ca2b"
+        },
+        {
+          "file": "Ambusher_PopOut_06.png",
+          "bounds": {
+            "left": 46,
+            "top": 52,
+            "width": 67,
+            "height": 68
+          },
+          "sha256": "322c572375960290b4d3424b998db9f1813024373ba9c3cb7cdf07f261ac9dea"
+        }
+      ]
+    },
+    {
+      "name": "LegTrip",
+      "frameCount": 8,
+      "uniqueFrames": 8,
+      "durationSeconds": 0.86,
+      "loop": false,
+      "source": "ambusher_legtrip",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Ambusher/Animations/LegTrip",
+      "frames": [
+        {
+          "file": "Ambusher_LegTrip_01.png",
+          "bounds": {
+            "left": 43,
+            "top": 50,
+            "width": 74,
+            "height": 70
+          },
+          "sha256": "82a9c54f8f60f5556b92b36d15fb4d6c99c679b525b4b713830f11d456b935ca"
+        },
+        {
+          "file": "Ambusher_LegTrip_02.png",
+          "bounds": {
+            "left": 41,
+            "top": 52,
+            "width": 78,
+            "height": 68
+          },
+          "sha256": "e2e948e2490388a20438ffdff80e5a57cce2a60ac9092e7c83262bedf7b4cc49"
+        },
+        {
+          "file": "Ambusher_LegTrip_03.png",
+          "bounds": {
+            "left": 38,
+            "top": 54,
+            "width": 84,
+            "height": 66
+          },
+          "sha256": "990696dec1133b84a183a0fb1d6ec53a6cff0ca26f3c135dd48d87cb7505aa7b"
+        },
+        {
+          "file": "Ambusher_LegTrip_04.png",
+          "bounds": {
+            "left": 30,
+            "top": 54,
+            "width": 100,
+            "height": 66
+          },
+          "sha256": "de4d0c619616da278c314a79d12c44f51b88897fffefd7adad48c67507ab4385"
+        },
+        {
+          "file": "Ambusher_LegTrip_05.png",
+          "bounds": {
+            "left": 30,
+            "top": 54,
+            "width": 100,
+            "height": 66
+          },
+          "sha256": "b52c3e05f0e898e3999b55ee680ab707a8433c824e6d157766679c4944e5c612"
+        },
+        {
+          "file": "Ambusher_LegTrip_06.png",
+          "bounds": {
+            "left": 37,
+            "top": 55,
+            "width": 85,
+            "height": 65
+          },
+          "sha256": "1d19033e647c7663e11cde74fd88d57ca6ff237c05c2128a17c8e8f114254ae3"
+        },
+        {
+          "file": "Ambusher_LegTrip_07.png",
+          "bounds": {
+            "left": 42,
+            "top": 53,
+            "width": 75,
+            "height": 67
+          },
+          "sha256": "9e33add9906ea115af2bcfc6af4cb657707b5164d4812b2613ff9dcb41c1e094"
+        },
+        {
+          "file": "Ambusher_LegTrip_08.png",
+          "bounds": {
+            "left": 42,
+            "top": 52,
+            "width": 76,
+            "height": 68
+          },
+          "sha256": "1f70157c2337076cf7857b248e307df6bcf7cea3c88ba330b0acb0df9c2fcedf"
+        }
+      ]
+    },
+    {
+      "name": "Walk",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": true,
+      "source": "ambusher_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Ambusher/Animations/Walk",
+      "frames": [
+        {
+          "file": "Ambusher_Walk_01.png",
+          "bounds": {
+            "left": 41,
+            "top": 47,
+            "width": 78,
+            "height": 73
+          },
+          "sha256": "d62b83fbbcd1a73b181ad4bba1730b21f1ef985f34aa44bb9ec55d422e8191fc"
+        },
+        {
+          "file": "Ambusher_Walk_02.png",
+          "bounds": {
+            "left": 34,
+            "top": 47,
+            "width": 91,
+            "height": 73
+          },
+          "sha256": "7795a0957ae1c6effa1004c9fe232545f81b643068cd84026f9c1bb8dbae68cf"
+        },
+        {
+          "file": "Ambusher_Walk_03.png",
+          "bounds": {
+            "left": 34,
+            "top": 41,
+            "width": 91,
+            "height": 79
+          },
+          "sha256": "a2b84f5b324b398647d60d7772d0834185cfacdc1cc10325f9bb3a1097496e49"
+        },
+        {
+          "file": "Ambusher_Walk_04.png",
+          "bounds": {
+            "left": 39,
+            "top": 45,
+            "width": 81,
+            "height": 75
+          },
+          "sha256": "27e774a4e441830ad7c5f09d73806b7707253247b99b204704585288ec629d83"
+        },
+        {
+          "file": "Ambusher_Walk_05.png",
+          "bounds": {
+            "left": 40,
+            "top": 48,
+            "width": 79,
+            "height": 72
+          },
+          "sha256": "0ee2b3bc0e9f16ab525a935392449815cd996d5f90fa80cfa853fb4e9de9bed8"
+        },
+        {
+          "file": "Ambusher_Walk_06.png",
+          "bounds": {
+            "left": 44,
+            "top": 50,
+            "width": 71,
+            "height": 70
+          },
+          "sha256": "4ee1b14003eb246ccbc77b6f296a97e1b519aacae7424e273856420f1fc83ce4"
+        }
+      ]
+    },
+    {
+      "name": "Recovery",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "ambusher_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Ambusher/Animations/Recovery",
+      "frames": [
+        {
+          "file": "Ambusher_Recovery_01.png",
+          "bounds": {
+            "left": 45,
+            "top": 50,
+            "width": 69,
+            "height": 70
+          },
+          "sha256": "84aa67b81803fd9b8a32ab9022489f4422658bda87c163317cab45afc450a221"
+        },
+        {
+          "file": "Ambusher_Recovery_02.png",
+          "bounds": {
+            "left": 41,
+            "top": 57,
+            "width": 78,
+            "height": 63
+          },
+          "sha256": "ed968fe6aa943db4825d6efc368d65b6c04a713bca04c0b0c4d0da3006d46be1"
+        },
+        {
+          "file": "Ambusher_Recovery_03.png",
+          "bounds": {
+            "left": 45,
+            "top": 54,
+            "width": 70,
+            "height": 66
+          },
+          "sha256": "1d098c3ad6e9664df54bed742ab83a57e72535fe573790fc4ed150f720a56f50"
+        },
+        {
+          "file": "Ambusher_Recovery_04.png",
+          "bounds": {
+            "left": 47,
+            "top": 52,
+            "width": 66,
+            "height": 68
+          },
+          "sha256": "c11ae2263406baced142ba05fa8bb7d4a3711cf9d849ec17fd4f9b6ff0279bc5"
+        },
+        {
+          "file": "Ambusher_Recovery_05.png",
+          "bounds": {
+            "left": 44,
+            "top": 51,
+            "width": 71,
+            "height": 69
+          },
+          "sha256": "08caa555b09f730e2a9152b29c87b171eab87bcbca274acd8167ebf34234d39c"
+        },
+        {
+          "file": "Ambusher_Recovery_06.png",
+          "bounds": {
+            "left": 46,
+            "top": 51,
+            "width": 68,
+            "height": 69
+          },
+          "sha256": "1d08f2768e0177cf561b23346936f427556e32ef95f8c0b040adf1813fa5d059"
+        }
+      ]
+    },
+    {
+      "name": "Hurt_Light",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "ambusher_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Ambusher/Animations/Hurt_Light",
+      "frames": [
+        {
+          "file": "Ambusher_Hurt_Light_01.png",
+          "bounds": {
+            "left": 45,
+            "top": 45,
+            "width": 69,
+            "height": 75
+          },
+          "sha256": "1db45cda1008467ce010a39660493bfc3be69025adcd01bbcf090a065f283f66"
+        },
+        {
+          "file": "Ambusher_Hurt_Light_02.png",
+          "bounds": {
+            "left": 45,
+            "top": 50,
+            "width": 70,
+            "height": 70
+          },
+          "sha256": "acc5b40114ff992b6f2e66b55d6b39801dea43156bee9dfc463a70956cbd4180"
+        },
+        {
+          "file": "Ambusher_Hurt_Light_03.png",
+          "bounds": {
+            "left": 46,
+            "top": 44,
+            "width": 68,
+            "height": 76
+          },
+          "sha256": "dcdf9ff480ebcfba7e2163b9b102f2e4b29c89a898c1792d2925afe5cda9412c"
+        },
+        {
+          "file": "Ambusher_Hurt_Light_04.png",
+          "bounds": {
+            "left": 41,
+            "top": 47,
+            "width": 77,
+            "height": 73
+          },
+          "sha256": "3fd4361d37446e547c88b57dd0de75b62d9a59b6a2cdec06ac31a87adaf112e8"
+        },
+        {
+          "file": "Ambusher_Hurt_Light_05.png",
+          "bounds": {
+            "left": 42,
+            "top": 46,
+            "width": 75,
+            "height": 74
+          },
+          "sha256": "5cf8b01805d1dc8fe04b564f9eff937a0a4a6848d44846b209d9c1077ac93060"
+        },
+        {
+          "file": "Ambusher_Hurt_Light_06.png",
+          "bounds": {
+            "left": 45,
+            "top": 51,
+            "width": 70,
+            "height": 69
+          },
+          "sha256": "990d66b2a8a6a96339e17ae04593eef87812339fa0dc1c72589eef4f25bd4e8e"
+        }
+      ]
+    },
+    {
+      "name": "Hurt_Heavy",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "ambusher_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Ambusher/Animations/Hurt_Heavy",
+      "frames": [
+        {
+          "file": "Ambusher_Hurt_Heavy_01.png",
+          "bounds": {
+            "left": 30,
+            "top": 48,
+            "width": 100,
+            "height": 72
+          },
+          "sha256": "2c5744aa743e1a7f62544627d4cfd5460420318c1ae52beac0081542423c350a"
+        },
+        {
+          "file": "Ambusher_Hurt_Heavy_02.png",
+          "bounds": {
+            "left": 35,
+            "top": 41,
+            "width": 89,
+            "height": 79
+          },
+          "sha256": "22166c2db8ee5200097a4db17da07f45d26b45b84414fe9720f3f285a262360e"
+        },
+        {
+          "file": "Ambusher_Hurt_Heavy_03.png",
+          "bounds": {
+            "left": 30,
+            "top": 41,
+            "width": 99,
+            "height": 79
+          },
+          "sha256": "55fb0ef03b680bffe58408fc0eec47cb20e0a790c2bfc76799d4be1c30c06f5f"
+        },
+        {
+          "file": "Ambusher_Hurt_Heavy_04.png",
+          "bounds": {
+            "left": 27,
+            "top": 50,
+            "width": 105,
+            "height": 70
+          },
+          "sha256": "926f08e1cf0587cbbc40792825cdf1b7e748c3ee0aac3ff4a6ceb7d1cdeab9c8"
+        },
+        {
+          "file": "Ambusher_Hurt_Heavy_05.png",
+          "bounds": {
+            "left": 33,
+            "top": 50,
+            "width": 93,
+            "height": 70
+          },
+          "sha256": "d564c8e65a49c86c951e22d08a3f37a930b97eaaaf8a656f281ad6a754305fdf"
+        },
+        {
+          "file": "Ambusher_Hurt_Heavy_06.png",
+          "bounds": {
+            "left": 44,
+            "top": 47,
+            "width": 71,
+            "height": 73
+          },
+          "sha256": "27e7593238aadfdc61150539b460e8ef1ce0fc0de66a4d058c01665c6a3532e0"
+        }
+      ]
+    },
+    {
+      "name": "Air_Hit",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "ambusher_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Ambusher/Animations/Air_Hit",
+      "frames": [
+        {
+          "file": "Ambusher_Air_Hit_01.png",
+          "bounds": {
+            "left": 38,
+            "top": 52,
+            "width": 84,
+            "height": 68
+          },
+          "sha256": "e4de1462ed536f38dca24413680947a43cc36c44d49b8287c04d1d67218ca3ee"
+        },
+        {
+          "file": "Ambusher_Air_Hit_02.png",
+          "bounds": {
+            "left": 41,
+            "top": 42,
+            "width": 77,
+            "height": 78
+          },
+          "sha256": "d10bfa8192c1f8f59e0bd65eb109a2421f8df84a48c7c2700903cef296167077"
+        },
+        {
+          "file": "Ambusher_Air_Hit_03.png",
+          "bounds": {
+            "left": 34,
+            "top": 38,
+            "width": 92,
+            "height": 82
+          },
+          "sha256": "1a7757ac4e02a879913cf2c801be254d17275024c05ff6c9e0ba9625d82dc4f1"
+        },
+        {
+          "file": "Ambusher_Air_Hit_04.png",
+          "bounds": {
+            "left": 34,
+            "top": 46,
+            "width": 91,
+            "height": 74
+          },
+          "sha256": "76d30be354145c1e93c0379c3cfde7f45eb875c8e666871a9996542b8dd34a96"
+        },
+        {
+          "file": "Ambusher_Air_Hit_05.png",
+          "bounds": {
+            "left": 39,
+            "top": 50,
+            "width": 81,
+            "height": 69
+          },
+          "sha256": "5a50073beb38446c6dc30b5504b6fd1bfae2ea84538b9d326afd69022944eb03"
+        },
+        {
+          "file": "Ambusher_Air_Hit_06.png",
+          "bounds": {
+            "left": 43,
+            "top": 73,
+            "width": 74,
+            "height": 47
+          },
+          "sha256": "c85c587b641cd9e8ae1a2c8ff1b351f7bc155da28a4e0d4e441a13eadee980d0"
+        }
+      ]
+    },
+    {
+      "name": "Knockdown",
+      "frameCount": 8,
+      "uniqueFrames": 8,
+      "durationSeconds": 1.07,
+      "loop": false,
+      "source": "ambusher_knockdown",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Ambusher/Animations/Knockdown",
+      "frames": [
+        {
+          "file": "Ambusher_Knockdown_01.png",
+          "bounds": {
+            "left": 39,
+            "top": 38,
+            "width": 81,
+            "height": 82
+          },
+          "sha256": "acb99ea57d6b1c9849cf7199e298f88cf26abfce3bf84d18a9ad5b5a2534fc30"
+        },
+        {
+          "file": "Ambusher_Knockdown_02.png",
+          "bounds": {
+            "left": 37,
+            "top": 42,
+            "width": 87,
+            "height": 78
+          },
+          "sha256": "f2b4e3798dc80b2c9e5ec782128ebe76ee08db0e3d660438864ad90f26cc2495"
+        },
+        {
+          "file": "Ambusher_Knockdown_03.png",
+          "bounds": {
+            "left": 43,
+            "top": 54,
+            "width": 73,
+            "height": 66
+          },
+          "sha256": "884ef8939a7f9d3b667a26efbb76651582d2754f2acf67cd99a2a5ec572fb79f"
+        },
+        {
+          "file": "Ambusher_Knockdown_04.png",
+          "bounds": {
+            "left": 36,
+            "top": 67,
+            "width": 88,
+            "height": 53
+          },
+          "sha256": "48d6152769e94c7a3d5baddfb8b001aeeaf99cd06c3cb6fe50d601befbbe48c3"
+        },
+        {
+          "file": "Ambusher_Knockdown_05.png",
+          "bounds": {
+            "left": 29,
+            "top": 67,
+            "width": 102,
+            "height": 53
+          },
+          "sha256": "9f4f7403a61f03aa3dbc17389c1835d25c3c7046e475ebc661be9d0039edc9c9"
+        },
+        {
+          "file": "Ambusher_Knockdown_06.png",
+          "bounds": {
+            "left": 26,
+            "top": 78,
+            "width": 108,
+            "height": 42
+          },
+          "sha256": "70ad8db8338c68ae547024fcdae16a24f5096f8c2133655609264b9eaa913218"
+        },
+        {
+          "file": "Ambusher_Knockdown_07.png",
+          "bounds": {
+            "left": 25,
+            "top": 85,
+            "width": 110,
+            "height": 35
+          },
+          "sha256": "6ef3c52907aa9ceab98a51ddadcb09f248c6ccce9b2157495c925a92eb184083"
+        },
+        {
+          "file": "Ambusher_Knockdown_08.png",
+          "bounds": {
+            "left": 26,
+            "top": 89,
+            "width": 108,
+            "height": 31
+          },
+          "sha256": "457b460a48ab73e1c371df62092d450cced36f27380a842fc4ff0338eb93aab5"
+        }
+      ]
+    },
+    {
+      "name": "Downed",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "ambusher_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Ambusher/Animations/Downed",
+      "frames": [
+        {
+          "file": "Ambusher_Downed_01.png",
+          "bounds": {
+            "left": 26,
+            "top": 89,
+            "width": 108,
+            "height": 31
+          },
+          "sha256": "457b460a48ab73e1c371df62092d450cced36f27380a842fc4ff0338eb93aab5"
+        },
+        {
+          "file": "Ambusher_Downed_02.png",
+          "bounds": {
+            "left": 33,
+            "top": 80,
+            "width": 93,
+            "height": 40
+          },
+          "sha256": "8b06e42be04fc49e8dd6eaa24d0b5c74d23f1f0e2ccb5ba4f1c37bfb2a00961f"
+        },
+        {
+          "file": "Ambusher_Downed_03.png",
+          "bounds": {
+            "left": 32,
+            "top": 80,
+            "width": 95,
+            "height": 40
+          },
+          "sha256": "4bc3e5b74361e12a965173cf3f9d5adc051a0efea54b0ec31123e6583f6bd74d"
+        },
+        {
+          "file": "Ambusher_Downed_04.png",
+          "bounds": {
+            "left": 31,
+            "top": 79,
+            "width": 98,
+            "height": 41
+          },
+          "sha256": "37c791bb105156c05187843930f3325053901120e61bec8060bd5815c602ac9f"
+        },
+        {
+          "file": "Ambusher_Downed_05.png",
+          "bounds": {
+            "left": 37,
+            "top": 80,
+            "width": 86,
+            "height": 40
+          },
+          "sha256": "44ed05e23883f26adbdf5f46ece1e95e0e1ef8eef34c8759596e70c2fa685186"
+        },
+        {
+          "file": "Ambusher_Downed_06.png",
+          "bounds": {
+            "left": 34,
+            "top": 83,
+            "width": 91,
+            "height": 37
+          },
+          "sha256": "7a4a1315c938a1624092f44b8316fed0277d83b95ad54a736c2e156931877429"
+        }
+      ]
+    },
+    {
+      "name": "GetUp",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "ambusher_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Ambusher/Animations/GetUp",
+      "frames": [
+        {
+          "file": "Ambusher_GetUp_01.png",
+          "bounds": {
+            "left": 26,
+            "top": 89,
+            "width": 108,
+            "height": 31
+          },
+          "sha256": "457b460a48ab73e1c371df62092d450cced36f27380a842fc4ff0338eb93aab5"
+        },
+        {
+          "file": "Ambusher_GetUp_02.png",
+          "bounds": {
+            "left": 36,
+            "top": 61,
+            "width": 88,
+            "height": 59
+          },
+          "sha256": "8c9a68374830e66c439adaefeb25d26bfc647c7a8a0176de1a0278e1a6575d4f"
+        },
+        {
+          "file": "Ambusher_GetUp_03.png",
+          "bounds": {
+            "left": 37,
+            "top": 45,
+            "width": 86,
+            "height": 75
+          },
+          "sha256": "3a8af5544565ecfad73e16d49d0adebd9e6254c3b790408e7900c5d8b106b94f"
+        },
+        {
+          "file": "Ambusher_GetUp_04.png",
+          "bounds": {
+            "left": 38,
+            "top": 39,
+            "width": 83,
+            "height": 81
+          },
+          "sha256": "9eb56efd7a053b55a653171f8a30ed7f010ea84eb4dc9d0b12cf080b97942abf"
+        },
+        {
+          "file": "Ambusher_GetUp_05.png",
+          "bounds": {
+            "left": 45,
+            "top": 39,
+            "width": 70,
+            "height": 81
+          },
+          "sha256": "57d8aafdcabb7bc8083dfeb685091529baefb489e5b3af05e609ecd2c8d6a080"
+        },
+        {
+          "file": "Ambusher_GetUp_06.png",
+          "bounds": {
+            "left": 47,
+            "top": 50,
+            "width": 66,
+            "height": 70
+          },
+          "sha256": "bd192af47ee17b081bb02fb9297f88a45530404a61d43d792272fa748ef8ceb6"
+        }
+      ]
+    },
+    {
+      "name": "Defeated",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "ambusher_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Ambusher/Animations/Defeated",
+      "frames": [
+        {
+          "file": "Ambusher_Defeated_01.png",
+          "bounds": {
+            "left": 47,
+            "top": 30,
+            "width": 65,
+            "height": 90
+          },
+          "sha256": "b13f6edacccf6dd6be1f3b9b1ef4a725d94fccfb05b42d097f8991d82a994374"
+        },
+        {
+          "file": "Ambusher_Defeated_02.png",
+          "bounds": {
+            "left": 40,
+            "top": 37,
+            "width": 79,
+            "height": 83
+          },
+          "sha256": "db9c8fa0af4b518002574de72fa1aa49848f5f1eb71a52fe1da0270de8761ce3"
+        },
+        {
+          "file": "Ambusher_Defeated_03.png",
+          "bounds": {
+            "left": 30,
+            "top": 64,
+            "width": 99,
+            "height": 56
+          },
+          "sha256": "0201548232622fdce97749ea078bbdd61060755a8487f43114efafd5981e745b"
+        },
+        {
+          "file": "Ambusher_Defeated_04.png",
+          "bounds": {
+            "left": 13,
+            "top": 77,
+            "width": 134,
+            "height": 43
+          },
+          "sha256": "e785d9ccb9aed1e0d231e1a0e626b93ca27a0df393945841a842fa098545cde0"
+        },
+        {
+          "file": "Ambusher_Defeated_05.png",
+          "bounds": {
+            "left": 56,
+            "top": 96,
+            "width": 47,
+            "height": 24
+          },
+          "sha256": "09df10f06d359308aed271d724f50bf02252556a139510dd1a4e4513ad224a6c"
+        },
+        {
+          "file": "Ambusher_Defeated_06.png",
+          "bounds": {
+            "left": 29,
+            "top": 83,
+            "width": 101,
+            "height": 37
+          },
+          "sha256": "d57934407263f73a0a918442fa4e25155e41a572a94d4f38f35683a214f1a320"
+        }
+      ]
+    }
+  ]
+}

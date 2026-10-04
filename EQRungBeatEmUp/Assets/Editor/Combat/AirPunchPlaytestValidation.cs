@@ -70,9 +70,9 @@ public static class AirPunchPlaytestValidation
         Check(player.airCombo.SequenceEqual(air), "Real player prefab references the authored air combo");
     }
     private static void Step(int frames) { for (int i = 0; i < frames; i++) clock.StepFrame(); }
-    private static void Until(Func<bool> condition, string label, bool slow = false)
+    private static void Until(Func<bool> condition, string label, bool slow = false, int maximumSteps = 120)
     {
-        for (int i = 0; !condition() && i < 120; i++)
+        for (int i = 0; !condition() && i < maximumSteps; i++)
             if (slow) clock.Advance(2f / 60); else Step(1);
         Check(condition(), label);
     }
@@ -153,10 +153,14 @@ public static class AirPunchPlaytestValidation
         Check(enemy.State == EnemyReaction.AirHit && enemy.JuggleHits == 2, "AirPunch2 maintains the juggle without forcing a fall");
         player.RequestAttack(); Until(() => player.CurrentAttack == air[2], "Full route: AirPunch2 -> AirPunch3", slow);
         Until(() => enemy.health.Current < expected, "Full route: AirPunch3 connects", slow); expected -= 13;
-        Check(enemy.health.Current == expected && enemy.State == EnemyReaction.Falling && !enemy.JuggleOpen && enemy.motor.VerticalVelocity <= -8 && player.attackPlayer.HitstopRemaining > 0, "Finisher deals 13, applies six-frame impact and drives enemy downward");
-        Until(() => enemy.motor.IsGrounded, "Full route: enemy contacts floor", slow);
-        Check(enemy.State == EnemyReaction.Knockdown && !enemy.CanAct, "Full route: floor contact starts Knockdown instead of normal AI");
-        Step(enemy.KnockdownFrames + enemy.knockdownRecoveryDelayFrames + enemy.GetUpFrames);
+        Check(enemy.health.Current == expected && enemy.GroundBounceEligible && !enemy.JuggleOpen && enemy.motor.VerticalVelocity <= -8 && player.attackPlayer.HitstopRemaining > 0, "Finisher deals 13, applies six-frame impact and arms downward ground bounce");
+        Until(() => enemy.GroundBouncesUsed == 1, "Full route: enemy contacts floor and bounces", slow);
+        Check(!enemy.motor.IsGrounded && !enemy.CanAct, "Full route: consumed floor contact rebounds before landing recovery");
+        Until(() => enemy.motor.IsGrounded, "Full route: enemy lands after its single bounce", slow);
+        Check(enemy.State == EnemyReaction.Knockdown && enemy.IsRecovering && !enemy.CanAct, "Full route: final landing enters Knockdown recovery");
+        var finisherHit = air[2].frames[air[2].FirstActiveFrame].hitboxes[0];
+        Until(() => enemy.CanAct && player.motor.IsGrounded, "Full route: both actors recover", slow,
+            Mathf.Max(120, enemy.KnockdownFrames + finisherHit.groundBounceRecoveryFrames + enemy.GetUpFrames + 1));
         Check(player.motor.IsGrounded && !player.CurrentAttack && player.State == CombatState.Idle && enemy.motor.IsGrounded && enemy.CanAct, "Full route lands and recovers both actors (facing " + facing + ", slow rendering " + slow + ")");
     }
     private static void Impacts()

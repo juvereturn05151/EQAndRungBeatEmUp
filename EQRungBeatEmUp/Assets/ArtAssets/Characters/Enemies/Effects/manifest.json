@@ -1,0 +1,583 @@
+{
+  "id": "Effects",
+  "canvas": [
+    160,
+    128
+  ],
+  "ground": 64,
+  "pivot": [
+    0.5,
+    0.5
+  ],
+  "standingOrCrouchedIdleHeight": 64,
+  "animations": [
+    {
+      "name": "Notebook",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": true,
+      "source": "effects",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Effects/Animations/Notebook",
+      "frames": [
+        {
+          "file": "Effects_Notebook_01.png",
+          "bounds": {
+            "left": 41,
+            "top": 32,
+            "width": 77,
+            "height": 64
+          },
+          "sha256": "bf9e082fcf2ee2c238959e12646b62f06df94cca09f5a4b3829704722393cc67"
+        },
+        {
+          "file": "Effects_Notebook_02.png",
+          "bounds": {
+            "left": 42,
+            "top": 36,
+            "width": 75,
+            "height": 55
+          },
+          "sha256": "988121947bfbd1e4bd97aee545ca21a70b13de0c64add4d58b8afe2ae0b5fd06"
+        },
+        {
+          "file": "Effects_Notebook_03.png",
+          "bounds": {
+            "left": 39,
+            "top": 51,
+            "width": 81,
+            "height": 25
+          },
+          "sha256": "3f8f2004586654f5017a8c10a477aebad49933ba1eccae1385c1f1b317777434"
+        },
+        {
+          "file": "Effects_Notebook_04.png",
+          "bounds": {
+            "left": 40,
+            "top": 42,
+            "width": 80,
+            "height": 43
+          },
+          "sha256": "dec554b5705cfdd13ebd9bc34a66eebac410617020586baa2949dcc4966d2d59"
+        },
+        {
+          "file": "Effects_Notebook_05.png",
+          "bounds": {
+            "left": 48,
+            "top": 37,
+            "width": 64,
+            "height": 54
+          },
+          "sha256": "f2a11126da217705a12909364badaeac13f7e9d1707467b794f1044ed5fd0590"
+        },
+        {
+          "file": "Effects_Notebook_06.png",
+          "bounds": {
+            "left": 51,
+            "top": 30,
+            "width": 57,
+            "height": 68
+          },
+          "sha256": "283d7326e2b88e8df84bbdf89477c12bc02af4e7177e0822138e7ab56ab15d55"
+        }
+      ]
+    },
+    {
+      "name": "Pen",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": true,
+      "source": "effects",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Effects/Animations/Pen",
+      "frames": [
+        {
+          "file": "Effects_Pen_01.png",
+          "bounds": {
+            "left": 46,
+            "top": 36,
+            "width": 67,
+            "height": 56
+          },
+          "sha256": "e96ef1a96ea56129a5e85f7105e729ad9b669f48f6bfdf6d7d6f9a234800312d"
+        },
+        {
+          "file": "Effects_Pen_02.png",
+          "bounds": {
+            "left": 45,
+            "top": 37,
+            "width": 70,
+            "height": 53
+          },
+          "sha256": "c0ed540e040b4188c26b42dfebb976175734c5ae3a7f6a67f650ef5fe139bee0"
+        },
+        {
+          "file": "Effects_Pen_03.png",
+          "bounds": {
+            "left": 41,
+            "top": 47,
+            "width": 77,
+            "height": 33
+          },
+          "sha256": "0c739ef2bc60cbb54aa4f7272778b18fe426b343c81668ce4c16b017990f20b1"
+        },
+        {
+          "file": "Effects_Pen_04.png",
+          "bounds": {
+            "left": 44,
+            "top": 44,
+            "width": 72,
+            "height": 39
+          },
+          "sha256": "3ece10775270bdcfc7f75c1d84cd47b0c261e67d0163f39befb3c19fa85b4166"
+        },
+        {
+          "file": "Effects_Pen_05.png",
+          "bounds": {
+            "left": 49,
+            "top": 32,
+            "width": 62,
+            "height": 64
+          },
+          "sha256": "c5227ab1fe16a2c88bbc3cf3baf10fb18831e7f19edd6c4f86efa48f50b75a84"
+        },
+        {
+          "file": "Effects_Pen_06.png",
+          "bounds": {
+            "left": 48,
+            "top": 38,
+            "width": 64,
+            "height": 51
+          },
+          "sha256": "ce498561d148bc3c45267679c8fcc2196a32a9b6f80e37340cb9303a6a905f29"
+        }
+      ]
+    },
+    {
+      "name": "ExamPaper",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": true,
+      "source": "effects",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Effects/Animations/ExamPaper",
+      "frames": [
+        {
+          "file": "Effects_ExamPaper_01.png",
+          "bounds": {
+            "left": 39,
+            "top": 26,
+            "width": 81,
+            "height": 75
+          },
+          "sha256": "398f7d1c9c90b35cdbcfee645460ff7f7ba04fd61e6e64891dde8beff7257dfa"
+        },
+        {
+          "file": "Effects_ExamPaper_02.png",
+          "bounds": {
+            "left": 40,
+            "top": 30,
+            "width": 80,
+            "height": 67
+          },
+          "sha256": "630db44a0312178d47fa07d3f930a49d21ceacd749e1cc974b33203b7dd23bc6"
+        },
+        {
+          "file": "Effects_ExamPaper_03.png",
+          "bounds": {
+            "left": 58,
+            "top": 33,
+            "width": 44,
+            "height": 61
+          },
+          "sha256": "a844d00f481c695e0bfe4e7069f0d7c626dc211b3143272ee069e52a873cd334"
+        },
+        {
+          "file": "Effects_ExamPaper_04.png",
+          "bounds": {
+            "left": 46,
+            "top": 30,
+            "width": 68,
+            "height": 67
+          },
+          "sha256": "8c0a34a36b2eba8f02b8f79cbc7bf6247f446cfc05889b521a4abb4540cbafc0"
+        },
+        {
+          "file": "Effects_ExamPaper_05.png",
+          "bounds": {
+            "left": 42,
+            "top": 36,
+            "width": 75,
+            "height": 55
+          },
+          "sha256": "4a83197f9428a39264856f060fa021d653b8ccb3fd37b49d670f30952ee03abe"
+        },
+        {
+          "file": "Effects_ExamPaper_06.png",
+          "bounds": {
+            "left": 40,
+            "top": 24,
+            "width": 79,
+            "height": 80
+          },
+          "sha256": "9c3994c1b1dc5d2e546fc8de6a4ec86fe96d31a8d88f30a3853c8e8df71e70cc"
+        }
+      ]
+    },
+    {
+      "name": "ScreamWave",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "effects",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Effects/Animations/ScreamWave",
+      "frames": [
+        {
+          "file": "Effects_ScreamWave_01.png",
+          "bounds": {
+            "left": 55,
+            "top": 32,
+            "width": 51,
+            "height": 63
+          },
+          "sha256": "be1122b400e88bfec022081d8bbcfbe3cf5121e51d68d6dbbc6aa8ac02f1d136"
+        },
+        {
+          "file": "Effects_ScreamWave_02.png",
+          "bounds": {
+            "left": 37,
+            "top": 20,
+            "width": 85,
+            "height": 87
+          },
+          "sha256": "9cd47b68f8f6ee28337f2dff3a62ac661ab1edf3ed99630f16ae63e896c945e9"
+        },
+        {
+          "file": "Effects_ScreamWave_03.png",
+          "bounds": {
+            "left": 27,
+            "top": 16,
+            "width": 106,
+            "height": 95
+          },
+          "sha256": "bceb06586d2cc8f805699c33e5eb7b40396371d846c854e8f975f5300e5b0b8f"
+        },
+        {
+          "file": "Effects_ScreamWave_04.png",
+          "bounds": {
+            "left": 31,
+            "top": 17,
+            "width": 97,
+            "height": 93
+          },
+          "sha256": "c98ea8421d0d7b2c8a92e916478b2de408902032d16cdce326542975f437983f"
+        },
+        {
+          "file": "Effects_ScreamWave_05.png",
+          "bounds": {
+            "left": 50,
+            "top": 21,
+            "width": 60,
+            "height": 85
+          },
+          "sha256": "283d8b211bb0e7e965125229293eaa1d069b997d307417b07853153360ca3dde"
+        },
+        {
+          "file": "Effects_ScreamWave_06.png",
+          "bounds": {
+            "left": 64,
+            "top": 53,
+            "width": 32,
+            "height": 20
+          },
+          "sha256": "2be57f332299206f7b5fe0ec50067361ab5d9859ddc4ab25bbcdb920afe21a74"
+        }
+      ]
+    },
+    {
+      "name": "StunBurst",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "effects",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Effects/Animations/StunBurst",
+      "frames": [
+        {
+          "file": "Effects_StunBurst_01.png",
+          "bounds": {
+            "left": 59,
+            "top": 39,
+            "width": 41,
+            "height": 49
+          },
+          "sha256": "4c9ad39af2adcafe7a2f018df520d312726d41bc9d11ff8dbb737e6eb252afc7"
+        },
+        {
+          "file": "Effects_StunBurst_02.png",
+          "bounds": {
+            "left": 39,
+            "top": 24,
+            "width": 81,
+            "height": 79
+          },
+          "sha256": "44a266579362b05046e945ef90515015edf72205a7e9f0c24d5757b934b06620"
+        },
+        {
+          "file": "Effects_StunBurst_03.png",
+          "bounds": {
+            "left": 27,
+            "top": 18,
+            "width": 106,
+            "height": 91
+          },
+          "sha256": "36b5be36d6c283b49ac4ba7a75a07e1477ee4423c388c1c95d8ee2ca111bded1"
+        },
+        {
+          "file": "Effects_StunBurst_04.png",
+          "bounds": {
+            "left": 24,
+            "top": 19,
+            "width": 111,
+            "height": 90
+          },
+          "sha256": "e04f481022014fbf17fbef561cb744991b0e156f3b929cdf754e19e3a6fdfceb"
+        },
+        {
+          "file": "Effects_StunBurst_05.png",
+          "bounds": {
+            "left": 57,
+            "top": 33,
+            "width": 45,
+            "height": 62
+          },
+          "sha256": "d7062db965c2cb6bab9460963b0c16434e73852815d4759ddc30936250502105"
+        },
+        {
+          "file": "Effects_StunBurst_06.png",
+          "bounds": {
+            "left": 73,
+            "top": 56,
+            "width": 13,
+            "height": 15
+          },
+          "sha256": "112f02fd8677ced45667b7de51e71a9c4b0d126071cd03ead2ac7581c9a3fa58"
+        }
+      ]
+    },
+    {
+      "name": "CurseWave",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "effects",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Effects/Animations/CurseWave",
+      "frames": [
+        {
+          "file": "Effects_CurseWave_01.png",
+          "bounds": {
+            "left": 46,
+            "top": 35,
+            "width": 67,
+            "height": 58
+          },
+          "sha256": "f285bba13abb206b7bfcad0cd94d5f6629f4ff85e4c04807307eee18c0b4b25f"
+        },
+        {
+          "file": "Effects_CurseWave_02.png",
+          "bounds": {
+            "left": 33,
+            "top": 26,
+            "width": 94,
+            "height": 76
+          },
+          "sha256": "d1fd7241099840035af7366f3b8abeddfb2bc0ed2ea33e80e7b4ca58e4ac698c"
+        },
+        {
+          "file": "Effects_CurseWave_03.png",
+          "bounds": {
+            "left": 23,
+            "top": 17,
+            "width": 113,
+            "height": 94
+          },
+          "sha256": "8f8c14b2e8da3038be99ac27b1036cc9a46fa2e29d9a3f35608b303739139c92"
+        },
+        {
+          "file": "Effects_CurseWave_04.png",
+          "bounds": {
+            "left": 19,
+            "top": 26,
+            "width": 121,
+            "height": 76
+          },
+          "sha256": "1570ffbed4fac13a4c9d307cdfa8222ef9311f5ff1ae6b3d6f68bac87c63ee50"
+        },
+        {
+          "file": "Effects_CurseWave_05.png",
+          "bounds": {
+            "left": 29,
+            "top": 20,
+            "width": 102,
+            "height": 87
+          },
+          "sha256": "9e730a499a5bb91995995107115f7fcc2067d0b504f5140c4cd7126d053052b0"
+        },
+        {
+          "file": "Effects_CurseWave_06.png",
+          "bounds": {
+            "left": 36,
+            "top": 39,
+            "width": 87,
+            "height": 50
+          },
+          "sha256": "7f20e16e8b89408749a713373c90eb8e9b24676fb698453a87d8c24fd88588e7"
+        }
+      ]
+    },
+    {
+      "name": "TalismanSlip",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": true,
+      "source": "effects",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Effects/Animations/TalismanSlip",
+      "frames": [
+        {
+          "file": "Effects_TalismanSlip_01.png",
+          "bounds": {
+            "left": 40,
+            "top": 29,
+            "width": 80,
+            "height": 70
+          },
+          "sha256": "de994b53d329926ec3c8612c45d0ab3921ec523700770dc046d0781221db7ac8"
+        },
+        {
+          "file": "Effects_TalismanSlip_02.png",
+          "bounds": {
+            "left": 47,
+            "top": 35,
+            "width": 65,
+            "height": 58
+          },
+          "sha256": "92c689d2fc46398014905c1154924709dbb470f3a4a6ce691af4b92ca201efb4"
+        },
+        {
+          "file": "Effects_TalismanSlip_03.png",
+          "bounds": {
+            "left": 63,
+            "top": 23,
+            "width": 34,
+            "height": 81
+          },
+          "sha256": "4cbdc55c490a90aa6f06b22caa9b27ad45a9bf4f44405cc032310a16e55f87fa"
+        },
+        {
+          "file": "Effects_TalismanSlip_04.png",
+          "bounds": {
+            "left": 45,
+            "top": 32,
+            "width": 69,
+            "height": 64
+          },
+          "sha256": "5c8cd21626d460c2d90667f64b3d65104875b6a799493a5ed6a18af211580257"
+        },
+        {
+          "file": "Effects_TalismanSlip_05.png",
+          "bounds": {
+            "left": 45,
+            "top": 29,
+            "width": 69,
+            "height": 69
+          },
+          "sha256": "d3224aed4552f9c9aeae696811aef5c73febf1295a7702a1e22fe80cebc14248"
+        },
+        {
+          "file": "Effects_TalismanSlip_06.png",
+          "bounds": {
+            "left": 39,
+            "top": 35,
+            "width": 82,
+            "height": 57
+          },
+          "sha256": "6d4a50d0cdc67ecd39aa119b2a7a2d5cfe318dc38b3bd4cb1ab7ddafbe622f89"
+        }
+      ]
+    },
+    {
+      "name": "SummonSeal",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "effects",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Effects/Animations/SummonSeal",
+      "frames": [
+        {
+          "file": "Effects_SummonSeal_01.png",
+          "bounds": {
+            "left": 54,
+            "top": 49,
+            "width": 51,
+            "height": 30
+          },
+          "sha256": "6d30c8fb46f8b393db8372a63111bda40549fd40f1c5b64e660d52fcddc091ff"
+        },
+        {
+          "file": "Effects_SummonSeal_02.png",
+          "bounds": {
+            "left": 38,
+            "top": 39,
+            "width": 83,
+            "height": 50
+          },
+          "sha256": "13a223a642626071d3064abcf4bc9114494bfc20475284be86c059d0b8980e71"
+        },
+        {
+          "file": "Effects_SummonSeal_03.png",
+          "bounds": {
+            "left": 27,
+            "top": 33,
+            "width": 105,
+            "height": 61
+          },
+          "sha256": "25006ee49173c0634aea817d970928d86faec6c1f3a386ff17ad7c52315d7f61"
+        },
+        {
+          "file": "Effects_SummonSeal_04.png",
+          "bounds": {
+            "left": 23,
+            "top": 19,
+            "width": 114,
+            "height": 90
+          },
+          "sha256": "0c8ac3cd11b2ebcb4922ac68b739a749513045d5c773dcec032dd335bf506dfd"
+        },
+        {
+          "file": "Effects_SummonSeal_05.png",
+          "bounds": {
+            "left": 33,
+            "top": 38,
+            "width": 92,
+            "height": 52
+          },
+          "sha256": "f8f9472ac69f072f5635dbe4019eb3e5713bf98b5019993139078ce1c5700850"
+        },
+        {
+          "file": "Effects_SummonSeal_06.png",
+          "bounds": {
+            "left": 76,
+            "top": 58,
+            "width": 8,
+            "height": 12
+          },
+          "sha256": "aa881fa9607a9ba835a5487f66969229b7732903b7ea670a667202192e7156e2"
+        }
+      ]
+    }
+  ]
+}

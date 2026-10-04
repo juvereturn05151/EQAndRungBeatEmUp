@@ -118,8 +118,22 @@ MonoBehaviour:
       knockback: 1
       launchVelocity: {x: 0, y: -8}
       hitType: 2
+      forceAirborneTargetDownward: 1
+      groundBounce: 1
+      groundBounceForce: {x: 3, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
       canHitGrounded: 0
       canHitAirborne: 1
+      unblockable: 0
+      blockDamage: 0
+      blockstunFrames: 10
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
     setHorizontalVelocity: 0
@@ -148,8 +162,22 @@ MonoBehaviour:
       knockback: 1
       launchVelocity: {x: 0, y: -8}
       hitType: 2
+      forceAirborneTargetDownward: 1
+      groundBounce: 1
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
       canHitGrounded: 0
       canHitAirborne: 1
+      unblockable: 0
+      blockDamage: 0
+      blockstunFrames: 10
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
     setHorizontalVelocity: 0
@@ -178,8 +206,22 @@ MonoBehaviour:
       knockback: 1
       launchVelocity: {x: 0, y: -8}
       hitType: 2
+      forceAirborneTargetDownward: 1
+      groundBounce: 1
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
       canHitGrounded: 0
       canHitAirborne: 1
+      unblockable: 0
+      blockDamage: 0
+      blockstunFrames: 10
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
     setHorizontalVelocity: 0
@@ -208,8 +250,22 @@ MonoBehaviour:
       knockback: 1
       launchVelocity: {x: 0, y: -8}
       hitType: 2
+      forceAirborneTargetDownward: 1
+      groundBounce: 1
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
       canHitGrounded: 0
       canHitAirborne: 1
+      unblockable: 0
+      blockDamage: 0
+      blockstunFrames: 10
     movement: {x: 0, y: 0}
     movementInputScale: 0.3
     setHorizontalVelocity: 0

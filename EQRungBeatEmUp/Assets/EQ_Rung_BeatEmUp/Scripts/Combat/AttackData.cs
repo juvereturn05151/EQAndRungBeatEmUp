@@ -23,9 +23,25 @@ namespace BeatEmUp
         [Min(0)] public int hitstunFrames = 18;
         [Min(0)] public int hitstopFrames = 5;
         public float knockback = .25f;
-        [Tooltip("Launcher: X horizontal, Y upward. AirFinisher: negative Y sets downward speed; 0 uses the enemy's fallback fall speed.")]
+        [Tooltip("Launcher: X horizontal, Y upward. AirFinisher / Force Airborne Target Downward: negative Y sets downward speed; nonnegative Y uses the enemy's fallback fall speed. Normal horizontal recoil uses Knockback.")]
         public Vector2 launchVelocity = new Vector2(.7f, 8);
         public HitType hitType;
+        [Header("Downward slam (airborne targets)")]
+        public bool forceAirborneTargetDownward;
+        [Header("Ground bounce")]
+        public bool groundBounce;
+        [Tooltip("X follows attack facing; Y is height velocity, not walking lane.")]
+        public Vector2 groundBounceForce = new Vector2(.6f, 4.5f);
+        [Min(.1f)] public float groundBounceGravity = 18;
+        [Min(0), Tooltip("Bounce hitstun and downed delay after the final landing's Knockdown animation; then GetUp returns the enemy to neutral.")]
+        public int groundBounceRecoveryFrames = 21;
+        [Min(0)] public int maximumGroundBounces = 1;
+        [Header("Wall bounce")]
+        public bool wallBounce;
+        [Min(0)] public float wallBounceHorizontalForce = 4;
+        [Min(.1f)] public float wallBounceVerticalForce = 4;
+        [Min(0)] public int wallBounceHitstunFrames = 24;
+        [Min(0)] public int maximumWallBounces = 1;
         public bool canHitGrounded = true;
         public bool canHitAirborne;
         [Header("Guard response")]
@@ -74,10 +90,17 @@ namespace BeatEmUp
         public int ActiveFrames => frames.FindAll(f => f != null && f.hitboxes.Count > 0).Count;
         private void OnValidate()
         {
-            foreach (var frame in frames)
-                if (frame != null)
-                    foreach (var box in frame.hitboxes)
+            foreach (var frame in frames) 
+            {
+                if (frame != null) 
+                {
+                    foreach (var box in frame.hitboxes) 
+                    {
                         if (box != null) box.size = new Vector2(Mathf.Max(.01f, box.size.x), Mathf.Max(.01f, box.size.y));
+                    }
+                }
+            }
+                
         }
     }
 }

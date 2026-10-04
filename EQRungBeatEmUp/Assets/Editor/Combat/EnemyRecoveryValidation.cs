@@ -138,11 +138,14 @@ public static class EnemyRecoveryValidation
         hp = enemy.health.Current; Until(() => enemy.health.Current < hp, "AirPunch2 connects");
         Until(() => !player.attackPlayer.IsFrozen && player.attackPlayer.CurrentFrame >= 5, "AirPunch2 cancel window"); player.RequestAttack();
         hp = enemy.health.Current; Until(() => enemy.health.Current < hp, "AirPunch3 connects");
-        Check(enemy.State == EnemyReaction.Falling && enemy.motor.VerticalVelocity <= -8, "Existing AirPunch3 drives fall without rebound");
-        Land();
+        Check(enemy.GroundBounceEligible && enemy.motor.VerticalVelocity <= -8, "AirPunch3 arms ground bounce and drives downward slam");
+        Until(() => enemy.GroundBouncesUsed == 1, "Full combo consumes one ground bounce at floor contact");
+        Check(!enemy.motor.IsGrounded && enemy.motor.VerticalVelocity > 0, "Ground bounce adds a short airborne reaction");
+        Until(() => enemy.motor.IsGrounded, "Full combo lands after bounce");
+        Check(enemy.State == EnemyReaction.Knockdown && enemy.IsRecovering && !enemy.CanAct, "Bounce landing enters Knockdown and blocks AI during recovery");
         ai.passiveTrainingDummy = false; playerObject.transform.position = new Vector3(-3 * facing, 0, 0);
-        Step(enemy.KnockdownFrames + 45 + enemy.GetUpFrames);
-        Check(enemy.State == EnemyReaction.Normal && enemy.CanAct && enemy.JuggleHits == 0, "Full combo completes Knockdown/Downed/GetUp and resets juggle budget");
+        Until(() => enemy.CanAct, "Full combo completes bounce landing recovery");
+        Check(enemy.State == EnemyReaction.Normal && enemy.JuggleHits == 0 && enemy.GroundBouncesUsed == 0, "Neutral resets juggle and ground bounce budgets");
         Step(); Check(enemy.motor.MoveInput != Vector2.zero, "Recovered enemy resumes chase");
         enemy.health.Restore(); Launch(); Check(enemy.JuggleOpen, "Recovered enemy can be launched/juggled again");
     }

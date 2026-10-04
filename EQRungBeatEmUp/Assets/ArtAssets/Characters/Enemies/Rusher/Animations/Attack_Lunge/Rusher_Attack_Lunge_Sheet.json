@@ -1,0 +1,132 @@
+{
+  "frames": [
+    {
+      "filename": "Rusher_Attack_Lunge_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 100
+    },
+    {
+      "filename": "Rusher_Attack_Lunge_02.png",
+      "frame": {
+        "x": 160,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 100
+    },
+    {
+      "filename": "Rusher_Attack_Lunge_03.png",
+      "frame": {
+        "x": 320,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 100
+    },
+    {
+      "filename": "Rusher_Attack_Lunge_04.png",
+      "frame": {
+        "x": 480,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 100
+    },
+    {
+      "filename": "Rusher_Attack_Lunge_05.png",
+      "frame": {
+        "x": 640,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 160
+    }
+  ],
+  "meta": {
+    "app": "Haunted Enemies export",
+    "image": "Rusher_Attack_Lunge_Sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 960,
+      "h": 128
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "Attack_Lunge",
+        "from": 0,
+        "to": 4,
+        "direction": "forward"
+      }
+    ]
+  }
+}

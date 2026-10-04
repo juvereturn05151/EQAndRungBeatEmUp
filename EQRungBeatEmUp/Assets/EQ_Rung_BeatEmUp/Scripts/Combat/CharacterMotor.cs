@@ -15,6 +15,10 @@ namespace BeatEmUp
         [Min(.1f)] public float gravity = 14;
         public Vector2 arenaMin = new Vector2(-6, -2);
         public Vector2 arenaMax = new Vector2(6, 1);
+        [Header("Environment collision (ground/lane XY)")]
+        public LayerMask wallCollisionMask = ~0;
+        public Vector2 wallCollisionSize = new Vector2(.5f, .3f);
+        public Vector2 wallCollisionOffset;
         [Header("Air attack control (bounded per jump)")]
         [Range(.05f, 1)] public float airAttackGravityScale = .2f;
         [Min(.1f)] public float airAttackMaxFallSpeed = 1.2f;
@@ -34,6 +38,8 @@ namespace BeatEmUp
         public Vector2 DefenseVelocity { get; set; }
         public int FrameOrder => 50;
         public event Action Landed;
+        public event Action<CombatWall, Vector2, float> WallContact;
+        public float HorizontalRecoil => recoil.x;
         private float airControlUsed;
         private Vector2 recoil;
         public void Face(float direction)
@@ -76,7 +82,7 @@ namespace BeatEmUp
             var position = transform.position;
             position.x = Mathf.Clamp(position.x + displacement.x * facing, arenaMin.x, arenaMax.x);
             position.y = Mathf.Clamp(position.y + displacement.y, arenaMin.y, arenaMax.y);
-            transform.position = position;
+            transform.position = ResolveWalls(transform.position, position, false);
         }
         public void SetVerticalVelocity(float velocity)
         {
@@ -92,8 +98,9 @@ namespace BeatEmUp
             Vector3 position = transform.position + (Vector3)((movement * moveSpeed + recoil + new Vector2(AttackHorizontalVelocity, 0) + DefenseVelocity) * dt);
             position.x = Mathf.Clamp(position.x, arenaMin.x, arenaMax.x);
             position.y = Mathf.Clamp(position.y, arenaMin.y, arenaMax.y);
-            transform.position = position;
             recoil = Vector2.MoveTowards(recoil, Vector2.zero, 6 * dt);
+            // Decay before reporting contact so a rebound assigned by the listener survives this tick.
+            transform.position = ResolveWalls(transform.position, position, true);
             if (!IsGrounded)
             {
                 float g = GravityOverride > 0 ? GravityOverride : gravity;
@@ -112,6 +119,34 @@ namespace BeatEmUp
             }
             if (visual) visual.localPosition = new Vector3(0, Height, 0);
             if (sprite) sprite.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100);
+        }
+        private Vector3 ResolveWalls(Vector3 origin, Vector3 destination, bool reportContact)
+        {
+            Vector2 delta = destination - origin;
+            if (delta.sqrMagnitude < .0000001f) return destination;
+            float distance = delta.magnitude;
+            var hits = Physics2D.BoxCastAll((Vector2)origin + wallCollisionOffset,
+                new Vector2(Mathf.Max(.01f, wallCollisionSize.x), Mathf.Max(.01f, wallCollisionSize.y)),
+                0, delta / distance, distance, wallCollisionMask);
+            RaycastHit2D nearest = default;
+            CombatWall wall = null;
+            foreach (var hit in hits)
+            {
+                if (hit.collider.isTrigger || hit.collider.transform.IsChildOf(transform)) continue;
+                var candidate = hit.collider.GetComponentInParent<CombatWall>();
+                if (!candidate || !candidate.isActiveAndEnabled || Vector2.Dot(delta, hit.normal) >= 0) continue;
+                if (wall && hit.distance >= nearest.distance) continue;
+                nearest = hit; wall = candidate;
+            }
+            if (!wall) return destination;
+            float incoming = delta.x;
+            destination = origin + (Vector3)(delta / distance * Mathf.Max(0, nearest.distance - .001f));
+            if (Mathf.Abs(nearest.normal.x) > .5f)
+            {
+                recoil.x = 0;
+                if (reportContact) WallContact?.Invoke(wall, nearest.normal, incoming);
+            }
+            return destination;
         }
     }
 }

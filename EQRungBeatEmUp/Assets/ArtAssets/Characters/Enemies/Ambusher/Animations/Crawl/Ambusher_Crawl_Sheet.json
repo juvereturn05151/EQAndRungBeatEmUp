@@ -1,0 +1,154 @@
+{
+  "frames": [
+    {
+      "filename": "Ambusher_Crawl_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 110
+    },
+    {
+      "filename": "Ambusher_Crawl_02.png",
+      "frame": {
+        "x": 160,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 110
+    },
+    {
+      "filename": "Ambusher_Crawl_03.png",
+      "frame": {
+        "x": 320,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 110
+    },
+    {
+      "filename": "Ambusher_Crawl_04.png",
+      "frame": {
+        "x": 480,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 110
+    },
+    {
+      "filename": "Ambusher_Crawl_05.png",
+      "frame": {
+        "x": 640,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 110
+    },
+    {
+      "filename": "Ambusher_Crawl_06.png",
+      "frame": {
+        "x": 800,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 128
+      },
+      "duration": 110
+    }
+  ],
+  "meta": {
+    "app": "Haunted Enemies export",
+    "image": "Ambusher_Crawl_Sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 960,
+      "h": 128
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "Crawl",
+        "from": 0,
+        "to": 5,
+        "direction": "forward"
+      }
+    ]
+  }
+}

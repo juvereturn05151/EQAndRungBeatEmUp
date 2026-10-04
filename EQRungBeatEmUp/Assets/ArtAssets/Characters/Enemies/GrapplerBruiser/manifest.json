@@ -1,0 +1,1009 @@
+{
+  "id": "GrapplerBruiser",
+  "canvas": [
+    160,
+    128
+  ],
+  "ground": 120,
+  "pivot": [
+    0.5,
+    0.0625
+  ],
+  "standingOrCrouchedIdleHeight": 116,
+  "animations": [
+    {
+      "name": "Idle",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "grappler_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/GrapplerBruiser/Animations/Idle",
+      "frames": [
+        {
+          "file": "GrapplerBruiser_Idle_01.png",
+          "bounds": {
+            "left": 35,
+            "top": 4,
+            "width": 90,
+            "height": 116
+          },
+          "sha256": "339487096f079a1d679d7647d4585c58625128436ed84c46e9d689a417aef2c7"
+        },
+        {
+          "file": "GrapplerBruiser_Idle_02.png",
+          "bounds": {
+            "left": 34,
+            "top": 4,
+            "width": 92,
+            "height": 116
+          },
+          "sha256": "5d6ab4900b0dd90659807c931fee8ce8b2266cbcf775ec6dcc0c1fa7036f8990"
+        },
+        {
+          "file": "GrapplerBruiser_Idle_03.png",
+          "bounds": {
+            "left": 37,
+            "top": 5,
+            "width": 86,
+            "height": 115
+          },
+          "sha256": "6e6e9c5ee178191c251009ea669a7ffc06baaa4a1239d3e951dce3f2f34fed17"
+        },
+        {
+          "file": "GrapplerBruiser_Idle_04.png",
+          "bounds": {
+            "left": 34,
+            "top": 4,
+            "width": 91,
+            "height": 116
+          },
+          "sha256": "419adceb14c1500d85d07d249d8ac06572071e4b9bcd6fb6892862cc65110e73"
+        },
+        {
+          "file": "GrapplerBruiser_Idle_05.png",
+          "bounds": {
+            "left": 36,
+            "top": 4,
+            "width": 87,
+            "height": 116
+          },
+          "sha256": "e46a80e8218772f32fb144df24838ffa4fd10ce44349c5fb4d73237f925b9a6a"
+        },
+        {
+          "file": "GrapplerBruiser_Idle_06.png",
+          "bounds": {
+            "left": 35,
+            "top": 5,
+            "width": 89,
+            "height": 115
+          },
+          "sha256": "56094a6884fe42f79947de65c5bcd59c1521093a667dd4c665cf339c59cd27d2"
+        }
+      ]
+    },
+    {
+      "name": "Walk",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": true,
+      "source": "grappler_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/GrapplerBruiser/Animations/Walk",
+      "frames": [
+        {
+          "file": "GrapplerBruiser_Walk_01.png",
+          "bounds": {
+            "left": 33,
+            "top": 3,
+            "width": 94,
+            "height": 117
+          },
+          "sha256": "3096abc603f2b3a3d33a74a30017f516a775949ea68eef7ac9a402d140396fb7"
+        },
+        {
+          "file": "GrapplerBruiser_Walk_02.png",
+          "bounds": {
+            "left": 32,
+            "top": 3,
+            "width": 96,
+            "height": 117
+          },
+          "sha256": "83aa86b09d427f0c146a5eb549c04050a8b0e6e7e2ddf9f541379d991a38ae36"
+        },
+        {
+          "file": "GrapplerBruiser_Walk_03.png",
+          "bounds": {
+            "left": 31,
+            "top": 4,
+            "width": 98,
+            "height": 116
+          },
+          "sha256": "f1c26b3a9f1cd074af32733abe7b8790769451497515dd957f3e24e1da355465"
+        },
+        {
+          "file": "GrapplerBruiser_Walk_04.png",
+          "bounds": {
+            "left": 28,
+            "top": 3,
+            "width": 104,
+            "height": 117
+          },
+          "sha256": "f0a64008e4dcec64cdcb259a1a6e883395ccd4e5ff5d9373c5a9331ffa300fba"
+        },
+        {
+          "file": "GrapplerBruiser_Walk_05.png",
+          "bounds": {
+            "left": 28,
+            "top": 3,
+            "width": 104,
+            "height": 116
+          },
+          "sha256": "3f7b62a43f3e15f1d106aeb09d92090b75945723e8a1362a39ea82e53a917983"
+        },
+        {
+          "file": "GrapplerBruiser_Walk_06.png",
+          "bounds": {
+            "left": 32,
+            "top": 3,
+            "width": 96,
+            "height": 117
+          },
+          "sha256": "d7a813434bf76e8a5260ac2969b5a5ac6185a5b12f7a22b0a69c7389fe881948"
+        }
+      ]
+    },
+    {
+      "name": "Grab_Start",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "grappler_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/GrapplerBruiser/Animations/Grab_Start",
+      "frames": [
+        {
+          "file": "GrapplerBruiser_Grab_Start_01.png",
+          "bounds": {
+            "left": 25,
+            "top": 12,
+            "width": 110,
+            "height": 108
+          },
+          "sha256": "80c9b752e9ebfd7576caa4b055a1d13250138c15bd6415d9f0550055a3f300da"
+        },
+        {
+          "file": "GrapplerBruiser_Grab_Start_02.png",
+          "bounds": {
+            "left": 10,
+            "top": 14,
+            "width": 139,
+            "height": 106
+          },
+          "sha256": "b0f63be573a8c9b2d6adc255a51617ee495b6c8aa392ec79c322f92f8cd33a2c"
+        },
+        {
+          "file": "GrapplerBruiser_Grab_Start_03.png",
+          "bounds": {
+            "left": 10,
+            "top": 10,
+            "width": 139,
+            "height": 110
+          },
+          "sha256": "fce4c9e841b5f421e2ab626d5e8dc8a09eb7e52282ec6a6ec743511772878f8a"
+        },
+        {
+          "file": "GrapplerBruiser_Grab_Start_04.png",
+          "bounds": {
+            "left": 14,
+            "top": 12,
+            "width": 132,
+            "height": 108
+          },
+          "sha256": "729dfaeb426f627d48168c755fcaffc93c8bf9beb37517dd01926efc87c92076"
+        },
+        {
+          "file": "GrapplerBruiser_Grab_Start_05.png",
+          "bounds": {
+            "left": 14,
+            "top": 9,
+            "width": 131,
+            "height": 111
+          },
+          "sha256": "d31ab5b52860b6e05cde2ba0fc351e24abac33eaeb605f460fcbf4ba4c2024c5"
+        },
+        {
+          "file": "GrapplerBruiser_Grab_Start_06.png",
+          "bounds": {
+            "left": 16,
+            "top": 12,
+            "width": 127,
+            "height": 108
+          },
+          "sha256": "678a13b5a89a08e952a5e53e3ef5b53673e6a2452c09023fde0f3270ee63f51b"
+        }
+      ]
+    },
+    {
+      "name": "Grab_Hold",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.6,
+      "loop": true,
+      "source": "grappler_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/GrapplerBruiser/Animations/Grab_Hold",
+      "frames": [
+        {
+          "file": "GrapplerBruiser_Grab_Hold_01.png",
+          "bounds": {
+            "left": 27,
+            "top": 3,
+            "width": 106,
+            "height": 117
+          },
+          "sha256": "8ac1be786d62564e3a9333e6f54e5493fcb5329ecae40d513bb0e723ff29761a"
+        },
+        {
+          "file": "GrapplerBruiser_Grab_Hold_02.png",
+          "bounds": {
+            "left": 28,
+            "top": 3,
+            "width": 104,
+            "height": 117
+          },
+          "sha256": "4715c1bf43572f891b7f6245a86ec2328368c5ea941b9ac803d494be8fb7d531"
+        },
+        {
+          "file": "GrapplerBruiser_Grab_Hold_03.png",
+          "bounds": {
+            "left": 28,
+            "top": 3,
+            "width": 103,
+            "height": 117
+          },
+          "sha256": "6aaa5389a1e805bd4920fcee4da7adc2e286484e401fdbd865191c93d38071f6"
+        },
+        {
+          "file": "GrapplerBruiser_Grab_Hold_04.png",
+          "bounds": {
+            "left": 29,
+            "top": 3,
+            "width": 102,
+            "height": 117
+          },
+          "sha256": "5f04ba0d71c204f2df6e01b082ad9a71eed72ac63c0e9778307ce67378952e99"
+        },
+        {
+          "file": "GrapplerBruiser_Grab_Hold_05.png",
+          "bounds": {
+            "left": 11,
+            "top": 7,
+            "width": 137,
+            "height": 113
+          },
+          "sha256": "2f4afaf99c0c199204ce8cd61766147a9d425b729df3aa3b012e263f8dcf7f4a"
+        },
+        {
+          "file": "GrapplerBruiser_Grab_Hold_06.png",
+          "bounds": {
+            "left": 17,
+            "top": 14,
+            "width": 126,
+            "height": 106
+          },
+          "sha256": "bf04673d0f19847f04679552274b415dc129cea2fd53e5ffb351ba6fffad66d4"
+        }
+      ]
+    },
+    {
+      "name": "BodySlam",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "grappler_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/GrapplerBruiser/Animations/BodySlam",
+      "frames": [
+        {
+          "file": "GrapplerBruiser_BodySlam_01.png",
+          "bounds": {
+            "left": 27,
+            "top": 35,
+            "width": 106,
+            "height": 85
+          },
+          "sha256": "22d7bd7f6f3aafbbcd0eefe2a85633f0d7bcf694b272a041997ef5cc6c0bc794"
+        },
+        {
+          "file": "GrapplerBruiser_BodySlam_02.png",
+          "bounds": {
+            "left": 27,
+            "top": 3,
+            "width": 105,
+            "height": 117
+          },
+          "sha256": "32ce78dff695b9debb0963927cb6dd7f306b70ef21f4601942c616ad46629c10"
+        },
+        {
+          "file": "GrapplerBruiser_BodySlam_03.png",
+          "bounds": {
+            "left": 27,
+            "top": 3,
+            "width": 105,
+            "height": 117
+          },
+          "sha256": "2c805b756fab520ce7dfc8bc805ca1e6bb8d9087bb618ce52b24faa1d2e0b806"
+        },
+        {
+          "file": "GrapplerBruiser_BodySlam_04.png",
+          "bounds": {
+            "left": 19,
+            "top": 31,
+            "width": 122,
+            "height": 89
+          },
+          "sha256": "bb08aed861a75939e3e137d0e4cac2fb24644e56729935d3cabf2120fe20c492"
+        },
+        {
+          "file": "GrapplerBruiser_BodySlam_05.png",
+          "bounds": {
+            "left": 18,
+            "top": 29,
+            "width": 124,
+            "height": 91
+          },
+          "sha256": "0a0b0b51ab2bc91021630cb35cb18fdf06df83cdd7aa88049a18bc23e244b398"
+        },
+        {
+          "file": "GrapplerBruiser_BodySlam_06.png",
+          "bounds": {
+            "left": 24,
+            "top": 32,
+            "width": 112,
+            "height": 88
+          },
+          "sha256": "45a3c7c6d167be331e8f04c0c5bad937da5180c901d89e6ea422589b5ace1827"
+        }
+      ]
+    },
+    {
+      "name": "HeavyAttack",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "grappler_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/GrapplerBruiser/Animations/HeavyAttack",
+      "frames": [
+        {
+          "file": "GrapplerBruiser_HeavyAttack_01.png",
+          "bounds": {
+            "left": 22,
+            "top": 19,
+            "width": 115,
+            "height": 101
+          },
+          "sha256": "b14e725c02b2cbee2caadcb35ea2314bd034c4307d81b3a50fbe2a90310e28a5"
+        },
+        {
+          "file": "GrapplerBruiser_HeavyAttack_02.png",
+          "bounds": {
+            "left": 16,
+            "top": 12,
+            "width": 128,
+            "height": 108
+          },
+          "sha256": "bc6cefa686d381a9a57df6809a5a04ee7262ae50ebd7dfc59a3a77a5831ec8de"
+        },
+        {
+          "file": "GrapplerBruiser_HeavyAttack_03.png",
+          "bounds": {
+            "left": 23,
+            "top": 12,
+            "width": 113,
+            "height": 108
+          },
+          "sha256": "4a29585fc1f64fe12b08a62161821fd567aab7127c6a4e227c623926f2ec486f"
+        },
+        {
+          "file": "GrapplerBruiser_HeavyAttack_04.png",
+          "bounds": {
+            "left": 19,
+            "top": 10,
+            "width": 121,
+            "height": 110
+          },
+          "sha256": "06d8fe58ce91cefb32811e32c752e1df750b2fad404f1bf7e13dabdaaec3f50e"
+        },
+        {
+          "file": "GrapplerBruiser_HeavyAttack_05.png",
+          "bounds": {
+            "left": 24,
+            "top": 8,
+            "width": 111,
+            "height": 112
+          },
+          "sha256": "b93e090aa469046963e4413d60cd2526a91ac869e90389da7f1657a7a65355f6"
+        },
+        {
+          "file": "GrapplerBruiser_HeavyAttack_06.png",
+          "bounds": {
+            "left": 34,
+            "top": 8,
+            "width": 92,
+            "height": 112
+          },
+          "sha256": "3cdf42e79dcd5dfdf78c7c40e37faf590912120a8d7686e1f25e6b99a9545c81"
+        }
+      ]
+    },
+    {
+      "name": "Recovery",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "grappler_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/GrapplerBruiser/Animations/Recovery",
+      "frames": [
+        {
+          "file": "GrapplerBruiser_Recovery_01.png",
+          "bounds": {
+            "left": 30,
+            "top": 20,
+            "width": 100,
+            "height": 100
+          },
+          "sha256": "f385ca18b5478aef2c4f6074677d4d584d9d62727902c200167034164bfffd09"
+        },
+        {
+          "file": "GrapplerBruiser_Recovery_02.png",
+          "bounds": {
+            "left": 30,
+            "top": 23,
+            "width": 100,
+            "height": 97
+          },
+          "sha256": "2f26857a560de854551733b3151b0312f0ca23ab2584c4487654b93b73726c83"
+        },
+        {
+          "file": "GrapplerBruiser_Recovery_03.png",
+          "bounds": {
+            "left": 31,
+            "top": 15,
+            "width": 98,
+            "height": 105
+          },
+          "sha256": "bae59c62d071b6a15e58c7e448886e4ba12e1441a04e39ab40526215e1851456"
+        },
+        {
+          "file": "GrapplerBruiser_Recovery_04.png",
+          "bounds": {
+            "left": 32,
+            "top": 7,
+            "width": 95,
+            "height": 113
+          },
+          "sha256": "24ddbfb4ea451609fdc1bb3a867359cf515436d6079e9574a66dec8b4c568f34"
+        },
+        {
+          "file": "GrapplerBruiser_Recovery_05.png",
+          "bounds": {
+            "left": 34,
+            "top": 5,
+            "width": 91,
+            "height": 115
+          },
+          "sha256": "931975ef6727eaddaf11d3703625e6232130a07e9e2d2d547a53270548384258"
+        },
+        {
+          "file": "GrapplerBruiser_Recovery_06.png",
+          "bounds": {
+            "left": 35,
+            "top": 4,
+            "width": 90,
+            "height": 116
+          },
+          "sha256": "bb527742f1490d7ba18dbc1b02f9fed27af16e145ee77a34000efd0b2c583eb2"
+        }
+      ]
+    },
+    {
+      "name": "Hurt_Light",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "grappler_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/GrapplerBruiser/Animations/Hurt_Light",
+      "frames": [
+        {
+          "file": "GrapplerBruiser_Hurt_Light_01.png",
+          "bounds": {
+            "left": 32,
+            "top": 3,
+            "width": 95,
+            "height": 117
+          },
+          "sha256": "12da5b47cc97895fecbada55e65411d6c6934d94b32d8611b55654570cf40784"
+        },
+        {
+          "file": "GrapplerBruiser_Hurt_Light_02.png",
+          "bounds": {
+            "left": 27,
+            "top": 6,
+            "width": 106,
+            "height": 114
+          },
+          "sha256": "d0c4b2e81bc6bec4689db5ca0b25e311022c9312901df0d14aeac066840ea23f"
+        },
+        {
+          "file": "GrapplerBruiser_Hurt_Light_03.png",
+          "bounds": {
+            "left": 31,
+            "top": 9,
+            "width": 97,
+            "height": 111
+          },
+          "sha256": "092666ebb37e2cc36521f690c6010368d57fc6fb9ea313b3d2e95585026b819c"
+        },
+        {
+          "file": "GrapplerBruiser_Hurt_Light_04.png",
+          "bounds": {
+            "left": 32,
+            "top": 9,
+            "width": 95,
+            "height": 111
+          },
+          "sha256": "c21fc96985beba4035a1ea92317b34fe1b13a8a8e002cf2a818310294e73a8f6"
+        },
+        {
+          "file": "GrapplerBruiser_Hurt_Light_05.png",
+          "bounds": {
+            "left": 34,
+            "top": 3,
+            "width": 92,
+            "height": 117
+          },
+          "sha256": "ea5d1d8b3ae3f7127b3d48747b058ba32ab49d43ba6ee085b2d9e80128f1aa3a"
+        },
+        {
+          "file": "GrapplerBruiser_Hurt_Light_06.png",
+          "bounds": {
+            "left": 33,
+            "top": 3,
+            "width": 93,
+            "height": 117
+          },
+          "sha256": "3738dc52ad0351e15baece210f155c2b0eb444b4958848eef470ef1a4032c151"
+        }
+      ]
+    },
+    {
+      "name": "Hurt_Heavy",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "grappler_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/GrapplerBruiser/Animations/Hurt_Heavy",
+      "frames": [
+        {
+          "file": "GrapplerBruiser_Hurt_Heavy_01.png",
+          "bounds": {
+            "left": 15,
+            "top": 3,
+            "width": 128,
+            "height": 117
+          },
+          "sha256": "ce4d827a1c7cd4d51c82ac2ec5c877e64a531d3160e5e22cb9f4da43d10008e3"
+        },
+        {
+          "file": "GrapplerBruiser_Hurt_Heavy_02.png",
+          "bounds": {
+            "left": 19,
+            "top": 3,
+            "width": 122,
+            "height": 117
+          },
+          "sha256": "52ffa5186725cee16be8e18f5c6dbde0fa9a91e342fa5b452b9fa15c8f3e88a7"
+        },
+        {
+          "file": "GrapplerBruiser_Hurt_Heavy_03.png",
+          "bounds": {
+            "left": 29,
+            "top": 7,
+            "width": 101,
+            "height": 113
+          },
+          "sha256": "3fe76aabe61ae160fd05d1b304f9161ff9eb40f1ebcd509408190e189f28100f"
+        },
+        {
+          "file": "GrapplerBruiser_Hurt_Heavy_04.png",
+          "bounds": {
+            "left": 23,
+            "top": 28,
+            "width": 114,
+            "height": 92
+          },
+          "sha256": "2b0b13e8a9146379a230b68721f3307679baaafa809bf12be261c69cbef874c0"
+        },
+        {
+          "file": "GrapplerBruiser_Hurt_Heavy_05.png",
+          "bounds": {
+            "left": 30,
+            "top": 18,
+            "width": 100,
+            "height": 102
+          },
+          "sha256": "0404b3e3822d140fb778d98dd3cd0129ce329aeb9575e9a9bf00000dc2f29b2e"
+        },
+        {
+          "file": "GrapplerBruiser_Hurt_Heavy_06.png",
+          "bounds": {
+            "left": 35,
+            "top": 3,
+            "width": 90,
+            "height": 117
+          },
+          "sha256": "4a2f3d040a2a45b2b67f57c6cc34616a53b579967ea9180adb688da2c95087c3"
+        }
+      ]
+    },
+    {
+      "name": "Air_Hit",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "grappler_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/GrapplerBruiser/Animations/Air_Hit",
+      "frames": [
+        {
+          "file": "GrapplerBruiser_Air_Hit_01.png",
+          "bounds": {
+            "left": 19,
+            "top": 3,
+            "width": 122,
+            "height": 117
+          },
+          "sha256": "3671fd74c8d0ccbf4a65a352cbd0082d3e97ac6ec98aaff10c1c0b325c4712fd"
+        },
+        {
+          "file": "GrapplerBruiser_Air_Hit_02.png",
+          "bounds": {
+            "left": 22,
+            "top": 4,
+            "width": 115,
+            "height": 116
+          },
+          "sha256": "245bc011f7c5732029edfbe4a10daf529f5ef4cb5d5e747f8cda47182850aad6"
+        },
+        {
+          "file": "GrapplerBruiser_Air_Hit_03.png",
+          "bounds": {
+            "left": 22,
+            "top": 3,
+            "width": 116,
+            "height": 117
+          },
+          "sha256": "1a29410958271d38c39b80d8253858b0b4876725a1dbbed232a1ddb7b153cd5c"
+        },
+        {
+          "file": "GrapplerBruiser_Air_Hit_04.png",
+          "bounds": {
+            "left": 25,
+            "top": 3,
+            "width": 110,
+            "height": 117
+          },
+          "sha256": "dc77defd29a021566c56a10698be85249b7da8ce2f1831a80996d1773f6451b3"
+        },
+        {
+          "file": "GrapplerBruiser_Air_Hit_05.png",
+          "bounds": {
+            "left": 30,
+            "top": 34,
+            "width": 99,
+            "height": 86
+          },
+          "sha256": "2780620ed01408846c53e69849d005a8c62fff832c7ac63dd3e1f49d7300d2ef"
+        },
+        {
+          "file": "GrapplerBruiser_Air_Hit_06.png",
+          "bounds": {
+            "left": 20,
+            "top": 45,
+            "width": 119,
+            "height": 75
+          },
+          "sha256": "b8cf34b220a46e5cd1a774a6b6a7d00942eff7feab9dbe9c346dc8de9be2d25d"
+        }
+      ]
+    },
+    {
+      "name": "Knockdown",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "grappler_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/GrapplerBruiser/Animations/Knockdown",
+      "frames": [
+        {
+          "file": "GrapplerBruiser_Knockdown_01.png",
+          "bounds": {
+            "left": 26,
+            "top": 18,
+            "width": 108,
+            "height": 102
+          },
+          "sha256": "36eae0d6d98fcacb56c6fba3648df9dd6d5da73dbd1bea98c97d457851e5d62f"
+        },
+        {
+          "file": "GrapplerBruiser_Knockdown_02.png",
+          "bounds": {
+            "left": 24,
+            "top": 30,
+            "width": 112,
+            "height": 90
+          },
+          "sha256": "38bdeafd8e189f3855f0094899d2226045dcb763f3c5b6be413d23ef29e2efb6"
+        },
+        {
+          "file": "GrapplerBruiser_Knockdown_03.png",
+          "bounds": {
+            "left": 10,
+            "top": 67,
+            "width": 140,
+            "height": 53
+          },
+          "sha256": "4d8a6fb161e9b40667b47669a024378f195f099ac10916c80f7316cbfbd86577"
+        },
+        {
+          "file": "GrapplerBruiser_Knockdown_04.png",
+          "bounds": {
+            "left": 7,
+            "top": 68,
+            "width": 145,
+            "height": 52
+          },
+          "sha256": "71064a619df4774338d21eeb45e6f4638ee3ae2e279c274f7f827caf5f048e0a"
+        },
+        {
+          "file": "GrapplerBruiser_Knockdown_05.png",
+          "bounds": {
+            "left": 32,
+            "top": 77,
+            "width": 95,
+            "height": 43
+          },
+          "sha256": "56642e97432167d8adf959f36085bf6888e0b33dc69854b9f3f024d2065cd931"
+        },
+        {
+          "file": "GrapplerBruiser_Knockdown_06.png",
+          "bounds": {
+            "left": 12,
+            "top": 73,
+            "width": 135,
+            "height": 47
+          },
+          "sha256": "2f85496f31e6e479cdb169d4e61b648e0e7117b6a5fe4c936d2fda375485910a"
+        }
+      ]
+    },
+    {
+      "name": "Downed",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "grappler_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/GrapplerBruiser/Animations/Downed",
+      "frames": [
+        {
+          "file": "GrapplerBruiser_Downed_01.png",
+          "bounds": {
+            "left": 12,
+            "top": 73,
+            "width": 135,
+            "height": 47
+          },
+          "sha256": "2f85496f31e6e479cdb169d4e61b648e0e7117b6a5fe4c936d2fda375485910a"
+        },
+        {
+          "file": "GrapplerBruiser_Downed_02.png",
+          "bounds": {
+            "left": 16,
+            "top": 70,
+            "width": 128,
+            "height": 50
+          },
+          "sha256": "b723cffd0a17057037e050ddd17a7b897f9d3af34bf7d72cb31647c9ed774fd0"
+        },
+        {
+          "file": "GrapplerBruiser_Downed_03.png",
+          "bounds": {
+            "left": 20,
+            "top": 70,
+            "width": 119,
+            "height": 50
+          },
+          "sha256": "29a5bee41e680db2145905d4fb3eedcd0da5ccc7df7eae3a7514e1433df4755c"
+        },
+        {
+          "file": "GrapplerBruiser_Downed_04.png",
+          "bounds": {
+            "left": 19,
+            "top": 70,
+            "width": 121,
+            "height": 50
+          },
+          "sha256": "8e93e503e890a6314df18f39c813289c26309e2bbdd35bcc823b95df4fd26a33"
+        },
+        {
+          "file": "GrapplerBruiser_Downed_05.png",
+          "bounds": {
+            "left": 23,
+            "top": 68,
+            "width": 114,
+            "height": 52
+          },
+          "sha256": "d41ab7eda06a347928bf2245f40b0ccfacc75949b080edb2e4d8e8329604395f"
+        },
+        {
+          "file": "GrapplerBruiser_Downed_06.png",
+          "bounds": {
+            "left": 23,
+            "top": 68,
+            "width": 114,
+            "height": 52
+          },
+          "sha256": "196441281c5638723510239a42262c7c33deeb3ba0c9d291498a947d560c1b92"
+        }
+      ]
+    },
+    {
+      "name": "GetUp",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "grappler_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/GrapplerBruiser/Animations/GetUp",
+      "frames": [
+        {
+          "file": "GrapplerBruiser_GetUp_01.png",
+          "bounds": {
+            "left": 12,
+            "top": 73,
+            "width": 135,
+            "height": 47
+          },
+          "sha256": "2f85496f31e6e479cdb169d4e61b648e0e7117b6a5fe4c936d2fda375485910a"
+        },
+        {
+          "file": "GrapplerBruiser_GetUp_02.png",
+          "bounds": {
+            "left": 15,
+            "top": 36,
+            "width": 130,
+            "height": 84
+          },
+          "sha256": "a58525f9cae64a00e18a7ce0be0ddfd6a77c9c751ec6306cda7a00fc90eca30f"
+        },
+        {
+          "file": "GrapplerBruiser_GetUp_03.png",
+          "bounds": {
+            "left": 22,
+            "top": 30,
+            "width": 115,
+            "height": 90
+          },
+          "sha256": "5ba53cfc4c8dcd01e1acb55d7baac2ebc796f63e2b4114689bcbf05ded55b7c6"
+        },
+        {
+          "file": "GrapplerBruiser_GetUp_04.png",
+          "bounds": {
+            "left": 25,
+            "top": 25,
+            "width": 110,
+            "height": 95
+          },
+          "sha256": "ea023b7b659c209e50b5ea8e4cefea366a4725afc7a559942563cb3ba70b3a0f"
+        },
+        {
+          "file": "GrapplerBruiser_GetUp_05.png",
+          "bounds": {
+            "left": 27,
+            "top": 6,
+            "width": 105,
+            "height": 114
+          },
+          "sha256": "f9cba749543b259a19ac679660c330cdebfad8d3d58343c7c5958c49b8e52845"
+        },
+        {
+          "file": "GrapplerBruiser_GetUp_06.png",
+          "bounds": {
+            "left": 35,
+            "top": 4,
+            "width": 90,
+            "height": 116
+          },
+          "sha256": "339487096f079a1d679d7647d4585c58625128436ed84c46e9d689a417aef2c7"
+        }
+      ]
+    },
+    {
+      "name": "Defeated",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "grappler_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/GrapplerBruiser/Animations/Defeated",
+      "frames": [
+        {
+          "file": "GrapplerBruiser_Defeated_01.png",
+          "bounds": {
+            "left": 29,
+            "top": 3,
+            "width": 101,
+            "height": 117
+          },
+          "sha256": "888c2335aa0a3f93cc39dbe95718e1d55373a65665881d33c022974a6b263066"
+        },
+        {
+          "file": "GrapplerBruiser_Defeated_02.png",
+          "bounds": {
+            "left": 24,
+            "top": 18,
+            "width": 111,
+            "height": 102
+          },
+          "sha256": "a69fac2541c87f6c52388cec029afadae38badcf7e44a47a87a618f8e42a6e29"
+        },
+        {
+          "file": "GrapplerBruiser_Defeated_03.png",
+          "bounds": {
+            "left": 5,
+            "top": 52,
+            "width": 150,
+            "height": 68
+          },
+          "sha256": "ba2e96449f057003396b5de3c9912e954f6586d6754149c7f35ac08248f25e33"
+        },
+        {
+          "file": "GrapplerBruiser_Defeated_04.png",
+          "bounds": {
+            "left": 27,
+            "top": 70,
+            "width": 106,
+            "height": 50
+          },
+          "sha256": "e4cbddfb29740c1c1df3b06734da8e42c2c838d34b4d3e5a35599ca3f649d095"
+        },
+        {
+          "file": "GrapplerBruiser_Defeated_05.png",
+          "bounds": {
+            "left": 15,
+            "top": 74,
+            "width": 130,
+            "height": 46
+          },
+          "sha256": "44e125a71c96facd2580c1835afaac609f86a13bda5d5013af233e1d6bd8161e"
+        },
+        {
+          "file": "GrapplerBruiser_Defeated_06.png",
+          "bounds": {
+            "left": 16,
+            "top": 72,
+            "width": 128,
+            "height": 48
+          },
+          "sha256": "41b739af15f2e5b1ce7025499aa175c5be73aeafee16346af45d0eb0e92ec9a1"
+        }
+      ]
+    }
+  ]
+}

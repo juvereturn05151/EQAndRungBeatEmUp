@@ -29,26 +29,56 @@ namespace BeatEmUp
         private CombatInput buffered;
         private int bufferFrames, jumpBuffer, idleFrames, cooldown, stun, nextIndex, airAttacksUsed;
         private bool routeAir;
-        private void Awake() { if (!attackPlayer) attackPlayer = GetComponent<AttackPlayer>(); }
+        private void Awake()
+        {
+            if (!attackPlayer)
+            {
+                attackPlayer = GetComponent<AttackPlayer>();
+            }
+        }
+
         private void OnEnable()
         {
-            if (motor) motor.Landed += OnLanding;
-            if (!attackPlayer) attackPlayer = GetComponent<AttackPlayer>();
+            if (motor) { 
+                motor.Landed += OnLanding; 
+            }
+
+            if (!attackPlayer) 
+            { 
+                attackPlayer = GetComponent<AttackPlayer>(); 
+            }
+
             attackPlayer.Finished += Finish;
-            if (health) { health.Died += EnterDie; health.Restored += RestorePlayer; }
+            
+            if (health) 
+            { 
+                health.Died += EnterDie; 
+                health.Restored += RestorePlayer; 
+            }
+
             CombatClock.Register(this);
         }
+        
         private void OnDisable()
         {
             CombatClock.Unregister(this);
-            if (motor) { motor.Landed -= OnLanding; motor.MovementLocked = false; }
+
+            if (motor) 
+            { 
+                motor.Landed -= OnLanding; 
+                motor.MovementLocked = false; 
+            }
+            
             if (attackPlayer) attackPlayer.Finished -= Finish;
             if (health) { health.Died -= EnterDie; health.Restored -= RestorePlayer; }
             ClearDefenseControl();
             ResetCombo();
         }
+
         public void RequestAttack() => Buffer(CombatInput.Attack);
+        
         public void RequestLauncher() => Buffer(CombatInput.Launcher);
+        
         public void RequestJump()
         {
             if (!health || health.IsDead || stun > 0 || IsDefenseState || !motor.IsGrounded) return;
@@ -102,9 +132,20 @@ namespace BeatEmUp
         }
         private void TryJump()
         {
-            if (jumpBuffer <= 0 || !motor.IsGrounded || stun > 0 || IsDefenseState || cooldown > 0 || attackPlayer.IsFrozen) return;
-            if (CurrentAttack && !attackPlayer.Frame.canCancelIntoJump) return;
-            ResetCombo(); motor.MovementLocked = false; motor.Jump(); State = CombatState.Jumping;
+            if (jumpBuffer <= 0 || !motor.IsGrounded || stun > 0 || IsDefenseState || cooldown > 0 || attackPlayer.IsFrozen) 
+            { 
+                return; 
+            }
+
+            if (CurrentAttack && !attackPlayer.Frame.canCancelIntoJump) 
+            { 
+                return; 
+            }
+            
+            ResetCombo(); 
+            motor.MovementLocked = false; 
+            motor.Jump(); 
+            State = CombatState.Jumping;
             animationDriver.Play("Jumping", true);
         }
         private void TryConsume()
@@ -121,12 +162,20 @@ namespace BeatEmUp
             }
             else if (air != routeAir) index = 0;
             AttackData attack = null;
-            if (buffered == CombatInput.Launcher) { if (!air && index == launcherAfterGroundHit) attack = launcher; }
+            
+            if (buffered == CombatInput.Launcher) 
+            {
+                if (!air && (!CurrentAttack || index == launcherAfterGroundHit)) 
+                { 
+                    attack = launcher; 
+                }
+            }
             else
             {
                 var route = air ? airCombo : groundCombo;
                 if (index >= 0 && index < route.Length) attack = route[index];
             }
+
             if (!attack || (attack.domain == AttackDomain.Air) != air || !attackPlayer.Play(attack)) return;
             buffered = CombatInput.None; bufferFrames = 0;
             ComboIndex = index + 1; routeAir = air; idleFrames = 0;
@@ -134,6 +183,7 @@ namespace BeatEmUp
             State = attack.isLauncher ? CombatState.Launcher : air ? CombatState.AirAttack : CombatState.GroundAttack;
             motor.MovementLocked = motor.IsGrounded;
         }
+
         private void Finish(AttackData finished)
         {
             bool terminal = finished.isLauncher || ComboIndex >= (routeAir ? airCombo.Length : groundCombo.Length);
@@ -142,7 +192,13 @@ namespace BeatEmUp
             // Preserve the existing between-attack continuation for air routes.
             bool resetRoute = terminal || (!routeAir && !finished.isLauncher);
             nextIndex = resetRoute ? 0 : ComboIndex; idleFrames = 0;
-            if (resetRoute) { bufferFrames = 0; buffered = CombatInput.None; ComboIndex = 0; }
+            
+            if (resetRoute) 
+            { 
+                bufferFrames = 0; 
+                buffered = CombatInput.None; 
+                ComboIndex = 0; 
+            }
         }
     }
 }

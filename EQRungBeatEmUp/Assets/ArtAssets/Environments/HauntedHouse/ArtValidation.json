@@ -1,0 +1,355 @@
+{
+  "builtInImageGen": true,
+  "pixelsPerUnit": 100,
+  "canvas": [
+    720,
+    400
+  ],
+  "backgroundFraction": 0.4,
+  "floorFraction": 0.6,
+  "stages": [
+    {
+      "id": "Stage01_EntranceGate",
+      "name": "Entrance Gate",
+      "sourceSplit": 0.467,
+      "canvas": [
+        720,
+        400
+      ],
+      "pixelsPerUnit": 100,
+      "backgroundFraction": 0.4,
+      "floorFraction": 0.6,
+      "plates": [
+        {
+          "layer": "Background",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage01_EntranceGate/Background/Stage01_EntranceGate_Background.png",
+          "canvas": [
+            720,
+            160
+          ],
+          "position": [
+            0,
+            2.56,
+            0
+          ],
+          "sortingOrder": -100
+        },
+        {
+          "layer": "Floor",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage01_EntranceGate/Floor/Stage01_EntranceGate_Floor.png",
+          "canvas": [
+            720,
+            240
+          ],
+          "position": [
+            0,
+            0.56,
+            0
+          ],
+          "sortingOrder": -90
+        }
+      ]
+    },
+    {
+      "id": "Stage02_BloodSheetCorridor",
+      "name": "Blood Sheet Corridor",
+      "sourceSplit": 0.405,
+      "canvas": [
+        720,
+        400
+      ],
+      "pixelsPerUnit": 100,
+      "backgroundFraction": 0.4,
+      "floorFraction": 0.6,
+      "plates": [
+        {
+          "layer": "Background",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage02_BloodSheetCorridor/Background/Stage02_BloodSheetCorridor_Background.png",
+          "canvas": [
+            720,
+            160
+          ],
+          "position": [
+            0,
+            2.56,
+            0
+          ],
+          "sortingOrder": -100
+        },
+        {
+          "layer": "Floor",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage02_BloodSheetCorridor/Floor/Stage02_BloodSheetCorridor_Floor.png",
+          "canvas": [
+            720,
+            240
+          ],
+          "position": [
+            0,
+            0.56,
+            0
+          ],
+          "sortingOrder": -90
+        }
+      ]
+    },
+    {
+      "id": "Stage03_FakeMorgue",
+      "name": "Fake Morgue",
+      "sourceSplit": 0.46,
+      "canvas": [
+        720,
+        400
+      ],
+      "pixelsPerUnit": 100,
+      "backgroundFraction": 0.4,
+      "floorFraction": 0.6,
+      "plates": [
+        {
+          "layer": "Background",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage03_FakeMorgue/Background/Stage03_FakeMorgue_Background.png",
+          "canvas": [
+            720,
+            160
+          ],
+          "position": [
+            0,
+            2.56,
+            0
+          ],
+          "sortingOrder": -100
+        },
+        {
+          "layer": "Floor",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage03_FakeMorgue/Floor/Stage03_FakeMorgue_Floor.png",
+          "canvas": [
+            720,
+            240
+          ],
+          "position": [
+            0,
+            0.56,
+            0
+          ],
+          "sortingOrder": -90
+        }
+      ]
+    },
+    {
+      "id": "Stage04_ServiceCorridor",
+      "name": "Service Corridor & Stair",
+      "sourceSplit": 0.431,
+      "canvas": [
+        720,
+        400
+      ],
+      "pixelsPerUnit": 100,
+      "backgroundFraction": 0.4,
+      "floorFraction": 0.6,
+      "plates": [
+        {
+          "layer": "Background",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage04_ServiceCorridor/Background/Stage04_ServiceCorridor_Background.png",
+          "canvas": [
+            720,
+            160
+          ],
+          "position": [
+            0,
+            2.56,
+            0
+          ],
+          "sortingOrder": -100
+        },
+        {
+          "layer": "Floor",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage04_ServiceCorridor/Floor/Stage04_ServiceCorridor_Floor.png",
+          "canvas": [
+            720,
+            240
+          ],
+          "position": [
+            0,
+            0.56,
+            0
+          ],
+          "sortingOrder": -90
+        }
+      ]
+    },
+    {
+      "id": "Stage05_HauntedMaze",
+      "name": "Haunted Maze",
+      "sourceSplit": 0.438,
+      "canvas": [
+        720,
+        400
+      ],
+      "pixelsPerUnit": 100,
+      "backgroundFraction": 0.4,
+      "floorFraction": 0.6,
+      "plates": [
+        {
+          "layer": "Background",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage05_HauntedMaze/Background/Stage05_HauntedMaze_Background.png",
+          "canvas": [
+            720,
+            160
+          ],
+          "position": [
+            0,
+            2.56,
+            0
+          ],
+          "sortingOrder": -100
+        },
+        {
+          "layer": "Floor",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage05_HauntedMaze/Floor/Stage05_HauntedMaze_Floor.png",
+          "canvas": [
+            720,
+            240
+          ],
+          "position": [
+            0,
+            0.56,
+            0
+          ],
+          "sortingOrder": -90
+        }
+      ]
+    },
+    {
+      "id": "Stage06_RecoveryShrine",
+      "name": "Recovery Shrine / Safe Room",
+      "sourceSplit": 0.43,
+      "canvas": [
+        720,
+        400
+      ],
+      "pixelsPerUnit": 100,
+      "backgroundFraction": 0.4,
+      "floorFraction": 0.6,
+      "plates": [
+        {
+          "layer": "Background",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage06_RecoveryShrine/Background/Stage06_RecoveryShrine_Background.png",
+          "canvas": [
+            720,
+            160
+          ],
+          "position": [
+            0,
+            2.56,
+            0
+          ],
+          "sortingOrder": -100
+        },
+        {
+          "layer": "Floor",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage06_RecoveryShrine/Floor/Stage06_RecoveryShrine_Floor.png",
+          "canvas": [
+            720,
+            240
+          ],
+          "position": [
+            0,
+            0.56,
+            0
+          ],
+          "sortingOrder": -90
+        }
+      ]
+    },
+    {
+      "id": "Stage07_WhiteGhostBossChamber",
+      "name": "White Ghost Boss Chamber",
+      "sourceSplit": 0.447,
+      "canvas": [
+        720,
+        400
+      ],
+      "pixelsPerUnit": 100,
+      "backgroundFraction": 0.4,
+      "floorFraction": 0.6,
+      "plates": [
+        {
+          "layer": "Background",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage07_WhiteGhostBossChamber/Background/Stage07_WhiteGhostBossChamber_Background.png",
+          "canvas": [
+            720,
+            160
+          ],
+          "position": [
+            0,
+            2.56,
+            0
+          ],
+          "sortingOrder": -100
+        },
+        {
+          "layer": "Floor",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage07_WhiteGhostBossChamber/Floor/Stage07_WhiteGhostBossChamber_Floor.png",
+          "canvas": [
+            720,
+            240
+          ],
+          "position": [
+            0,
+            0.56,
+            0
+          ],
+          "sortingOrder": -90
+        }
+      ]
+    },
+    {
+      "id": "Stage08_EscapeLane",
+      "name": "Escape Lane (Exit)",
+      "sourceSplit": 0.436,
+      "canvas": [
+        720,
+        400
+      ],
+      "pixelsPerUnit": 100,
+      "backgroundFraction": 0.4,
+      "floorFraction": 0.6,
+      "plates": [
+        {
+          "layer": "Background",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage08_EscapeLane/Background/Stage08_EscapeLane_Background.png",
+          "canvas": [
+            720,
+            160
+          ],
+          "position": [
+            0,
+            2.56,
+            0
+          ],
+          "sortingOrder": -100
+        },
+        {
+          "layer": "Floor",
+          "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage08_EscapeLane/Floor/Stage08_EscapeLane_Floor.png",
+          "canvas": [
+            720,
+            240
+          ],
+          "position": [
+            0,
+            0.56,
+            0
+          ],
+          "sortingOrder": -90
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "checks": [
+    "Eight stages, two plates each",
+    "720x160 background and720x240 floor",
+    "Reassembled720x400 composition",
+    "60 percent open floor band"
+  ]
+}

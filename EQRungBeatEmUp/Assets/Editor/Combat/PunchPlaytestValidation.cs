@@ -221,7 +221,7 @@ public static class PunchPlaytestValidation
                 Fixture(true, facing); var data = punches[i]; var hit = data.frames[data.FirstActiveFrame].hitboxes[0];
                 player.attackPlayer.Play(data); Step(data.FirstActiveFrame - 1);
                 Check(enemy.health.Current == 500, data.name + " startup cannot damage the opponent"); Step(1);
-                Check(enemy.health.Current == 500 - hit.damage && enemy.RecoveryFrames == hit.hitstunFrames && enemy.State == EnemyReaction.GroundHit && enemy.motor.IsGrounded, data.name + " applies damage and ground stagger on the first active frame");
+                Check(enemy.health.Current == 500 - hit.damage && enemy.RecoveryFrames == hit.hitstunFrames && enemy.State == (hit.wallBounce ? EnemyReaction.WallBounceEligible : EnemyReaction.GroundHit) && enemy.motor.IsGrounded, data.name + " applies damage and authored ground reaction on the first active frame");
                 Check(player.attackPlayer.HitstopRemaining == hit.hitstopFrames && enemy.motor.attackPlayer.HitstopRemaining == hit.hitstopFrames, data.name + " freezes both actors for the authored hitstop");
                 var position = enemyObject.transform.position; int frame = player.attackPlayer.CurrentFrame;
                 Step(hit.hitstopFrames);

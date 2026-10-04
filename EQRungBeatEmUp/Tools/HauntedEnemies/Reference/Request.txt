@@ -1,0 +1,527 @@
+Please inspect the project and create the FULL enemy art asset set for the haunted-house beat ’em up based on the attached reference image.
+
+REFERENCE:
+Use the attached image as the source of truth for enemy design, naming, and theme.
+The image contains the full enemy roster and stage context.
+
+IMPORTANT:
+I want you to DRAW ALL ENEMIES shown in the reference and make sure they have ALL ANIMATIONS NEEDED for gameplay.
+
+The enemies are:
+
+1. Rusher
+2. Grappler / Bruiser
+3. Thrower
+4. Screamer / Stunner
+5. Ambusher / Crawler
+6. Prefect / Enforcer
+7. White Ghost Boss
+
+==================================================
+OVERALL GOAL
+==================================================
+
+Create a complete 2D pixel-art enemy asset package for a beat ’em up game.
+
+The result should be usable for gameplay production/prototyping.
+
+All enemies should visually fit the same game world:
+- cheap homemade Thai haunted house
+- horror-fair / temple-fair haunted attraction vibe
+- possessed students theme
+- pixel-art side-scrolling beat ’em up style
+- readable silhouettes
+- strong gameplay readability
+- consistent scale and art style across the full roster
+
+==================================================
+STYLE REQUIREMENTS
+==================================================
+
+Use the attached reference image as the visual source of truth.
+
+Preserve the intended identity of each enemy.
+
+The art should be:
+
+- pixel art
+- gameplay readable
+- consistent across all enemies
+- slightly gritty / horror themed
+- suitable for a beat ’em up
+- side-view gameplay presentation
+- not overly realistic
+- not painterly
+- not high-res illustration style
+
+Keep all enemies consistent with the same general:
+- outline style
+- shading logic
+- color treatment
+- sprite resolution logic
+- scale logic
+- camera angle
+- beat ’em up readability
+
+They should feel like they belong in one game.
+
+==================================================
+ENEMY IDENTITY
+==================================================
+
+Use these enemy identities:
+
+1. RUSHER
+Thai: นักเรียนหัวเกรียน
+Fast melee enemy.
+Aggressive, low durability.
+Possessed schoolboy with shaved head / crew cut look.
+Threat type: rushdown / quick slashes / sprinting attacks.
+
+2. GRAPPLER / BRUISER
+Thai: รุ่นพี่ตัวโต
+Large possessed senior student.
+Big body, strong close-range threat.
+Threat type: grabs, shove, heavy slam, more HP.
+
+3. THROWER
+Thai: นักเรียนเนิร์ด
+Possessed nerd student.
+Mid-range pressure enemy.
+Threat type: throws notebooks, pens, exam papers, classroom projectiles.
+
+4. SCREAMER / STUNNER
+Thai: นักเรียนผมสั้นเท่าติ่งหู, ผมบลอนด์
+Short hair around ear length, blonde hair.
+Possessed student ghost.
+Threat type: scream, stun wave, disruption, lower HP.
+
+5. AMBUSHER / CRAWLER
+Thai: นักเรียนเก็บตัว
+Dark skin.
+Withdrawn / isolated student type.
+Threat type: low movement, hiding, crawling, pop-out attacks, leg trip.
+
+6. PREFECT / ENFORCER
+Thai: หัวหน้าห้องผีสิง
+Possessed student prefect.
+Threat type: command/support/control, whistle, cursed badge, talisman-like school slips.
+
+7. WHITE GHOST BOSS
+Thai: ผีชุดขาว
+Final boss.
+White-clothed ghost inspired by Thai horror.
+Threat type: warping/teleporting, untouchable until mechanics are cleared, totem-based boss fight.
+
+==================================================
+IMPORTANT DESIGN RULE
+==================================================
+
+Do NOT redesign these enemies into unrelated concepts.
+
+Keep them faithful to the identities already established in the reference image.
+
+The final pixel-art enemies should feel like:
+“the actual gameplay enemy sprites derived from this poster/reference.”
+
+==================================================
+WHAT TO PRODUCE
+==================================================
+
+Create enemy sprite assets for ALL 7 enemies.
+
+Each enemy should have all essential gameplay animations needed for a beat ’em up.
+
+Mock-up quality is acceptable, but the set must be complete and usable.
+
+==================================================
+REQUIRED ANIMATIONS FOR ALL STANDARD ENEMIES
+==================================================
+
+For enemies 1–6, create at minimum:
+
+CORE STATES
+- Idle
+- Walk
+- Alert / Aggro (optional if needed)
+- Turn (if needed)
+- Spawn / Enter (if useful)
+
+REACTIONS
+- Light Hurt
+- Heavy Hurt
+- Air Hit
+- Knockdown / Fall
+- Grounded / Downed
+- Get Up
+- Defeated / Death
+
+MOVEMENT / COMBAT BASICS
+- Attack 1
+- Attack 2 (if needed for enemy variety)
+- Special Attack
+- Recovery / endlag pose where needed
+
+OPTIONAL STATE IF NEEDED
+- Taunt / windup / telegraph
+- Stunned
+- Block / guard (only if the enemy design needs it)
+
+Every enemy should at least have enough animation to:
+- appear in gameplay
+- move
+- attack
+- get hit
+- be launched
+- be knocked down
+- get up
+- die / be defeated
+
+==================================================
+REQUIRED UNIQUE ANIMATIONS BY ENEMY
+==================================================
+
+1. RUSHER
+Required unique moves:
+- Sprint / dash run
+- Quick slash combo
+- Lunge attack
+- Optional leap-in
+
+Animation list suggestion:
+- Idle
+- Walk
+- Sprint
+- Attack_Slash1
+- Attack_Slash2
+- Attack_Lunge
+- Hurt_Light
+- Hurt_Heavy
+- Air_Hit
+- Knockdown
+- Downed
+- GetUp
+- Defeated
+
+2. GRAPPLER / BRUISER
+Required unique moves:
+- Grab / shove
+- Body slam / heavy strike
+- Heavy walk / stomp feel
+
+Animation list suggestion:
+- Idle
+- Walk
+- Grab_Start
+- Grab_Hold / shove
+- Slam / BodySlam
+- HeavyAttack
+- Hurt_Light
+- Hurt_Heavy
+- Air_Hit
+- Knockdown
+- Downed
+- GetUp
+- Defeated
+
+3. THROWER
+Required unique moves:
+- Throw notebook
+- Throw pen spread
+- Throw exam papers / ranged toss
+- Optional scared recoil after throw
+
+Animation list suggestion:
+- Idle
+- Walk
+- Throw_Notebook
+- Throw_Pens
+- Throw_Papers
+- Hurt_Light
+- Hurt_Heavy
+- Air_Hit
+- Knockdown
+- Downed
+- GetUp
+- Defeated
+
+4. SCREAMER / STUNNER
+Required unique moves:
+- Scream / stun wave
+- Wail / short-range shock scream
+- Disturbing wind-up pose
+
+Animation list suggestion:
+- Idle
+- Walk
+- Scream_Wave
+- Wail_Burst
+- Hurt_Light
+- Hurt_Heavy
+- Air_Hit
+- Knockdown
+- Downed
+- GetUp
+- Defeated
+
+5. AMBUSHER / CRAWLER
+Required unique moves:
+- Crawl locomotion
+- Hide / low crouch / tucked pose
+- Pop out attack
+- Leg trip / low sweep
+- Lurking movement
+
+Animation list suggestion:
+- Idle_Crouched / idle low
+- Crawl
+- Hide
+- PopOut
+- LegTrip
+- Hurt_Light
+- Hurt_Heavy
+- Air_Hit
+- Knockdown
+- Downed
+- GetUp
+- Defeated
+
+6. PREFECT / ENFORCER
+Required unique moves:
+- Whistle call
+- Talisman zone / curse support move
+- Baton or strict-enforcer strike (if appropriate)
+- Commanding gesture
+
+Animation list suggestion:
+- Idle
+- Walk
+- Whistle_Call
+- Talisman_Cast
+- Strike / BatonAttack
+- Hurt_Light
+- Hurt_Heavy
+- Air_Hit
+- Knockdown
+- Downed
+- GetUp
+- Defeated
+
+==================================================
+WHITE GHOST BOSS REQUIRED ANIMATIONS
+==================================================
+
+For the White Ghost Boss, create a more complete boss package.
+
+Required boss states:
+- Idle_Float / eerie idle
+- Walk / glide / drift
+- Warp_Start
+- Warp_Disappear
+- Warp_Appear
+- Attack_Swipe
+- Attack_Projectile or curse wave
+- Attack_Summon / pressure move
+- Vulnerable state
+- Stunned / broken state
+- Hurt_Light
+- Hurt_Heavy
+- Air_Hit if applicable
+- Knockdown if applicable
+- Downed / staggered state if applicable
+- Recovery / rise
+- Death / defeat
+
+Because this is a boss with totem mechanics:
+also create visual states for:
+- Invulnerable / untouchable presence
+- Vulnerable phase after totems are destroyed
+
+The boss should clearly feel different from normal enemies.
+
+==================================================
+TOTEM SUPPORT ASSETS
+==================================================
+
+Since the White Ghost Boss requires destroying totems first, also create concept/sprite assets for:
+
+- cursed totem idle
+- cursed totem damaged
+- cursed totem destroyed
+
+These should match the boss arena.
+
+==================================================
+DIRECTION / FACING
+==================================================
+
+If the project can flip sprites horizontally at runtime:
+create a canonical facing direction only.
+
+Recommended:
+Draw all enemies facing right in gameplay profile.
+
+Do NOT create left-facing duplicates unless absolutely necessary.
+
+==================================================
+SPRITE CONSISTENCY
+==================================================
+
+Please keep consistent:
+
+- character baseline / foot grounding
+- sprite scale
+- canvas logic
+- relative body proportions
+- silhouette clarity
+
+Enemies must feel correctly scaled against one another.
+
+For example:
+- Rusher: smaller / leaner
+- Grappler: bigger / wider
+- Thrower: slim / awkward
+- Screamer: ghostly but still readable in combat
+- Ambusher: low profile / crouched
+- Prefect: upright, composed
+- White Ghost Boss: imposing and eerie
+
+==================================================
+ANIMATION FRAME COUNT GUIDELINES
+==================================================
+
+Do NOT make them too sparse, but also do not overdo the frame count.
+
+This is a beat ’em up, so prioritize readability.
+
+Suggested ranges:
+- Idle: 4–6 frames
+- Walk: 6–8 frames
+- Basic attacks: 4–8 key frames
+- Special attacks: 5–10 key frames
+- Hurt: 2–4 frames
+- Knockdown / get-up: 4–8 frames
+- Death: 4–8 frames
+- Warp: 4–8 frames
+
+If needed, use fewer frames for mock-up production, but keep all critical motion represented.
+
+==================================================
+SPRITE SHEET / FILE ORGANIZATION
+==================================================
+
+Please organize output clearly.
+
+Use a folder structure like:
+
+Enemies/
+    Rusher/
+        Idle/
+        Walk/
+        Sprint/
+        Attack/
+        Hurt/
+        Knockdown/
+        GetUp/
+        Death/
+
+    GrapplerBruiser/
+        Idle/
+        Walk/
+        Grab/
+        Slam/
+        Hurt/
+        Knockdown/
+        GetUp/
+        Death/
+
+    Thrower/
+    Screamer/
+    Ambusher/
+    Prefect/
+    WhiteGhostBoss/
+    Totems/
+
+If the project already has a different folder convention, adapt to that instead.
+
+==================================================
+OUTPUT FORMAT
+==================================================
+
+Prefer:
+- transparent background sprites
+- individual frames and/or sprite sheets
+- consistent naming
+- ready for Unity import
+
+Suggested naming examples:
+Rusher_Idle_01
+Rusher_Idle_02
+Rusher_Walk_01
+Rusher_AttackSlash_01
+...
+WhiteGhostBoss_WarpStart_01
+WhiteGhostBoss_WarpAppear_01
+Totem_Idle_01
+Totem_Destroyed_01
+
+==================================================
+IMPLEMENTATION AWARENESS
+==================================================
+
+Before drawing, inspect the project if available.
+
+Check:
+- current enemy art pipeline
+- sprite import conventions
+- canvas sizes
+- Pixels Per Unit
+- animation naming conventions
+- whether enemies already exist partially
+- whether some animations are already present and can be extended
+
+If usable assets already exist, reuse/extend them rather than replacing everything unnecessarily.
+
+==================================================
+DO NOT
+==================================================
+
+Do NOT:
+- replace the enemy concepts with unrelated monsters
+- turn everything into generic zombies
+- use a totally different art style
+- make one enemy much more detailed than the others
+- ignore the Thai student identity
+- ignore the white ghost boss/totem mechanic
+- omit required reaction states
+- omit knockdown/get-up/death
+
+==================================================
+SUCCESS CRITERIA
+==================================================
+
+The task is successful when:
+
+1. All 7 enemies have clear, consistent pixel-art designs.
+2. Enemies 1–6 match the reference roster.
+3. The White Ghost Boss is present as the 7th enemy.
+4. All enemies have gameplay-usable animation sets.
+5. All standard beat ’em up reaction states are included.
+6. Assets are organized and ready for import.
+7. The roster feels like one coherent game.
+
+==================================================
+FINAL REPORT
+==================================================
+
+When finished, report:
+
+1. Which enemies were created.
+2. Which animations were created for each enemy.
+3. What folder/file structure was used.
+4. Any existing assets reused.
+5. Any missing animations that still need polish.
+6. Any implementation concerns for Unity import.
+
+Most importantly:
+Actually produce the full enemy sprite asset set, not just one concept frame per enemy.

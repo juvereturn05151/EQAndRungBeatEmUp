@@ -1,0 +1,59 @@
+PASS: Frame 0 starts on manual input False
+PASS: Attack buffers before cancel
+PASS: Buffered input starts Punch2 at frame 0
+PASS: Punch1 -> Punch2 -> Punch3 deals exactly three grounded hits False
+PASS: Terminal ground route clears
+PASS: Launcher buffers before cancel
+PASS: Launcher launches enemy without auto jump
+PASS: Launcher does not auto attack or jump
+PASS: Manual jump then AirPunch1
+PASS: Three manual air punches hit launched enemy and slam downward False
+PASS: Air route actually bounces at the floor False
+PASS: Enemy lands and recovers; player lands
+PASS: Frame 0 starts on manual input True
+PASS: Attack buffers before cancel
+PASS: Buffered input starts Punch2 at frame 0
+PASS: Punch1 -> Punch2 -> Punch3 deals exactly three grounded hits True
+PASS: Terminal ground route clears
+PASS: Launcher buffers before cancel
+PASS: Launcher launches enemy without auto jump
+PASS: Launcher does not auto attack or jump
+PASS: Manual jump then AirPunch1
+PASS: Three manual air punches hit launched enemy and slam downward True
+PASS: Air route actually bounces at the floor True
+PASS: Enemy lands and recovers; player lands
+PASS: Reusable slam sends an airborne target downward
+PASS: Hitstop freezes pending slam, eligibility and recovery
+PASS: Floor contact consumes ground eligibility before landing and mirrors bounce X
+PASS: Ground bounce reopens a bounded juggle with authored gravity
+PASS: Second ground bounce is denied within the same combo
+PASS: Final air-combo landing starts the full Knockdown animation
+PASS: Grounded follow-up cannot replace bounce knockdown with hurt
+PASS: Bounce recovery setting controls the downed delay after knockdown
+PASS: Bounce resource survives final landing recovery
+PASS: Neutral resets both combo resources
+PASS: An unmarked slam lands normally without bouncing
+PASS: Enemy resource cap can disable ground bounce
+PASS: Hitbox resource cap can disable ground bounce
+PASS: Death clears pending bounce and prevents rebound
+PASS: Health restore resets bounce resources
+PASS: A new ordinary reaction clears stale ground eligibility
+PASS: Ground eligibility wins over wall eligibility on a combined airborne hit
+PASS: Authored Punch1 -> Punch2 -> Punch3 route bounces on a physical wall 1
+PASS: Wall route returns to neutral and resets resources 1
+PASS: Wall hit arms eligibility without immediately bouncing 1
+PASS: Swept collider contact rebounds even fast knockback 1
+PASS: Wall bounce limit survives an airborne follow-up 1
+PASS: Authored Punch1 -> Punch2 -> Punch3 route bounces on a physical wall -1
+PASS: Wall route returns to neutral and resets resources -1
+PASS: Wall hit arms eligibility without immediately bouncing -1
+PASS: Swept collider contact rebounds even fast knockback -1
+PASS: Wall bounce limit survives an airborne follow-up -1
+PASS: Normal movement is blocked by a combat wall without bouncing
+PASS: A solid wall can opt out of bouncing
+PASS: Trigger volumes do not count as wall collisions
+PASS: Unmarked knockback reaches a wall without bouncing
+PASS: Arena clamp is not a wall and eligibility expires with hitstun
+PASS: Expired wall hitstun cannot bounce on later contact
+PASS: AirPunch3 active hitboxes author slam and ground bounce
+PASS: Punch3 active hitboxes author wall bounce

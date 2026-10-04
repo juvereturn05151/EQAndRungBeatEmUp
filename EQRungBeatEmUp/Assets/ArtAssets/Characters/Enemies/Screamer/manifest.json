@@ -1,0 +1,969 @@
+{
+  "id": "Screamer",
+  "canvas": [
+    160,
+    128
+  ],
+  "ground": 120,
+  "pivot": [
+    0.5,
+    0.0625
+  ],
+  "standingOrCrouchedIdleHeight": 100,
+  "animations": [
+    {
+      "name": "Idle",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.9600000000000001,
+      "loop": true,
+      "source": "screamer_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Screamer/Animations/Idle",
+      "frames": [
+        {
+          "file": "Screamer_Idle_01.png",
+          "bounds": {
+            "left": 40,
+            "top": 20,
+            "width": 80,
+            "height": 100
+          },
+          "sha256": "e61ace525dae6004095c888f95c96777a8860eac4c335a24b51a5d6829210632"
+        },
+        {
+          "file": "Screamer_Idle_02.png",
+          "bounds": {
+            "left": 41,
+            "top": 20,
+            "width": 78,
+            "height": 100
+          },
+          "sha256": "ca60cff4567fb597e97637d08d08e73965ac7a232d6e102cd3e8b98cc28cb004"
+        },
+        {
+          "file": "Screamer_Idle_03.png",
+          "bounds": {
+            "left": 43,
+            "top": 20,
+            "width": 74,
+            "height": 100
+          },
+          "sha256": "0054f58cab4a2e2f120953b4c587f76779dd98c641c85bbaf8585c07485bed94"
+        },
+        {
+          "file": "Screamer_Idle_04.png",
+          "bounds": {
+            "left": 43,
+            "top": 20,
+            "width": 74,
+            "height": 100
+          },
+          "sha256": "18a4034d034fc5bfe427e38495893ada25f72544f4dca5c4f9695fe2f2d03c12"
+        },
+        {
+          "file": "Screamer_Idle_05.png",
+          "bounds": {
+            "left": 46,
+            "top": 20,
+            "width": 68,
+            "height": 100
+          },
+          "sha256": "88f8cd838f05833b7e0d465ded97bb423c5d79e32fcc4169326ad2b223399c06"
+        },
+        {
+          "file": "Screamer_Idle_06.png",
+          "bounds": {
+            "left": 44,
+            "top": 20,
+            "width": 71,
+            "height": 100
+          },
+          "sha256": "55afdc27a97d30117e3726dbb4aee7b9cb68b76ad4a03b2d61fa649ea30326dc"
+        }
+      ]
+    },
+    {
+      "name": "Walk",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": true,
+      "source": "screamer_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Screamer/Animations/Walk",
+      "frames": [
+        {
+          "file": "Screamer_Walk_01.png",
+          "bounds": {
+            "left": 34,
+            "top": 18,
+            "width": 92,
+            "height": 102
+          },
+          "sha256": "57872a6821380d6d7e59dc34e787a276608257b0cce7ca368fcdfd94b658144d"
+        },
+        {
+          "file": "Screamer_Walk_02.png",
+          "bounds": {
+            "left": 33,
+            "top": 15,
+            "width": 93,
+            "height": 105
+          },
+          "sha256": "76d099f7ca6248aaffd37993ba056a70b302ad6dad726ede09d20d9de42d9ae9"
+        },
+        {
+          "file": "Screamer_Walk_03.png",
+          "bounds": {
+            "left": 38,
+            "top": 16,
+            "width": 83,
+            "height": 104
+          },
+          "sha256": "e79de7840afcc45a648a72d77cc0e1d54a985c0d24d855994f03e7541f9c0b5d"
+        },
+        {
+          "file": "Screamer_Walk_04.png",
+          "bounds": {
+            "left": 35,
+            "top": 19,
+            "width": 90,
+            "height": 101
+          },
+          "sha256": "08dcd7dfaa389c3d22d434ae6b267fc4180eebde65576c9fb3c85b87e0591e5c"
+        },
+        {
+          "file": "Screamer_Walk_05.png",
+          "bounds": {
+            "left": 33,
+            "top": 15,
+            "width": 93,
+            "height": 105
+          },
+          "sha256": "b4841d395b57e83015264e05ed9823ee5b7884fc3fd213c39e5510fb3f12208c"
+        },
+        {
+          "file": "Screamer_Walk_06.png",
+          "bounds": {
+            "left": 35,
+            "top": 18,
+            "width": 89,
+            "height": 102
+          },
+          "sha256": "43c21d03ebae9e49127098df7fc81e5563a75482ce5b5f2d5c972677a85e12d6"
+        }
+      ]
+    },
+    {
+      "name": "Scream_Wave",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "screamer_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Screamer/Animations/Scream_Wave",
+      "frames": [
+        {
+          "file": "Screamer_Scream_Wave_01.png",
+          "bounds": {
+            "left": 39,
+            "top": 21,
+            "width": 82,
+            "height": 99
+          },
+          "sha256": "89f869f5a64345f73a47e0199d39482c097206b4fd03a03eaa801ed73c125fdb"
+        },
+        {
+          "file": "Screamer_Scream_Wave_02.png",
+          "bounds": {
+            "left": 31,
+            "top": 26,
+            "width": 98,
+            "height": 94
+          },
+          "sha256": "1cde08620eedc83093cec829ef37809b32150ad2063d76b1ed06f9671cfd46c3"
+        },
+        {
+          "file": "Screamer_Scream_Wave_03.png",
+          "bounds": {
+            "left": 13,
+            "top": 19,
+            "width": 133,
+            "height": 101
+          },
+          "sha256": "6a1e57541cc5ba201bd32219904eab37ee7275adbaff4d14f3514e2667b9cfcb"
+        },
+        {
+          "file": "Screamer_Scream_Wave_04.png",
+          "bounds": {
+            "left": 10,
+            "top": 12,
+            "width": 139,
+            "height": 108
+          },
+          "sha256": "1a8de5568a9212bd3e7816bbb9832ab4a55ddc06452407635a41016a3750c21a"
+        },
+        {
+          "file": "Screamer_Scream_Wave_05.png",
+          "bounds": {
+            "left": 25,
+            "top": 23,
+            "width": 110,
+            "height": 97
+          },
+          "sha256": "1c89b092384f5d68e490f9ee1a238d7daa565d20d927f68fbacca48239d8bbb5"
+        },
+        {
+          "file": "Screamer_Scream_Wave_06.png",
+          "bounds": {
+            "left": 39,
+            "top": 20,
+            "width": 82,
+            "height": 100
+          },
+          "sha256": "4b755d0a37be30d3b0e0abb840277398d335c076dbc55f1ba5e7b8cb0ffec4cd"
+        }
+      ]
+    },
+    {
+      "name": "Wail_Burst",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "screamer_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Screamer/Animations/Wail_Burst",
+      "frames": [
+        {
+          "file": "Screamer_Wail_Burst_01.png",
+          "bounds": {
+            "left": 42,
+            "top": 30,
+            "width": 76,
+            "height": 90
+          },
+          "sha256": "1f4183f8210e1367c49ee7117e68ccb97de3ce81c0730f6acfeb24a207675c67"
+        },
+        {
+          "file": "Screamer_Wail_Burst_02.png",
+          "bounds": {
+            "left": 26,
+            "top": 14,
+            "width": 107,
+            "height": 106
+          },
+          "sha256": "4558d22d31f040d30ef1ec9215e544c6a7d342ddb56f7ecdec24b3e4f6c760f7"
+        },
+        {
+          "file": "Screamer_Wail_Burst_03.png",
+          "bounds": {
+            "left": 19,
+            "top": 21,
+            "width": 122,
+            "height": 99
+          },
+          "sha256": "72fc893fadf5ca38901be5fc72f5da3acacacf62e5e7aa3edcba4d3110c623b4"
+        },
+        {
+          "file": "Screamer_Wail_Burst_04.png",
+          "bounds": {
+            "left": 16,
+            "top": 19,
+            "width": 128,
+            "height": 101
+          },
+          "sha256": "cb095602540dffeac2b871ee034c8631a6a465acf10c58d32a6c40cab34d8a61"
+        },
+        {
+          "file": "Screamer_Wail_Burst_05.png",
+          "bounds": {
+            "left": 35,
+            "top": 22,
+            "width": 90,
+            "height": 98
+          },
+          "sha256": "e35d379db08c0c6ef29c82ddfe14a78e2eab826e8550ea57cf78e5663591a94e"
+        },
+        {
+          "file": "Screamer_Wail_Burst_06.png",
+          "bounds": {
+            "left": 41,
+            "top": 19,
+            "width": 78,
+            "height": 101
+          },
+          "sha256": "c32ceb3e18383b76e30ddf5b198e4f6610f842bcc34bc6e2bab7ff64b47f2fc2"
+        }
+      ]
+    },
+    {
+      "name": "Telegraph",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "screamer_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Screamer/Animations/Telegraph",
+      "frames": [
+        {
+          "file": "Screamer_Telegraph_01.png",
+          "bounds": {
+            "left": 37,
+            "top": 30,
+            "width": 85,
+            "height": 90
+          },
+          "sha256": "79baf2d405d8a6ca40d04e10c2e45c34937bdb2f309edb339b712029538d0be6"
+        },
+        {
+          "file": "Screamer_Telegraph_02.png",
+          "bounds": {
+            "left": 36,
+            "top": 24,
+            "width": 88,
+            "height": 96
+          },
+          "sha256": "1b479a51bcdc15b3d41b3503e29387a05e07e67314a91d872d6e87b4bcc614fc"
+        },
+        {
+          "file": "Screamer_Telegraph_03.png",
+          "bounds": {
+            "left": 30,
+            "top": 29,
+            "width": 99,
+            "height": 91
+          },
+          "sha256": "7b6d9bbf552816672231bfdc15d939acd87105f383391c2c03070e1b06ae0974"
+        },
+        {
+          "file": "Screamer_Telegraph_04.png",
+          "bounds": {
+            "left": 30,
+            "top": 27,
+            "width": 100,
+            "height": 93
+          },
+          "sha256": "521d4678d4b43cea6e03500cbe207ae2ed9516646e925ee5f19541169dcc547d"
+        },
+        {
+          "file": "Screamer_Telegraph_05.png",
+          "bounds": {
+            "left": 36,
+            "top": 33,
+            "width": 88,
+            "height": 87
+          },
+          "sha256": "0e8267ffa6f3226afa8792e5d0558d2d93acdbe7130c74820472cf3c3c155bf3"
+        },
+        {
+          "file": "Screamer_Telegraph_06.png",
+          "bounds": {
+            "left": 41,
+            "top": 24,
+            "width": 77,
+            "height": 96
+          },
+          "sha256": "9f2fa0983971e620990dacedbf6a38dd3ccfe30ebc9a05b51498e8a88e6c4a1d"
+        }
+      ]
+    },
+    {
+      "name": "Recovery",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "screamer_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Screamer/Animations/Recovery",
+      "frames": [
+        {
+          "file": "Screamer_Recovery_01.png",
+          "bounds": {
+            "left": 43,
+            "top": 23,
+            "width": 74,
+            "height": 97
+          },
+          "sha256": "e4c7aec431b3fd102d9bcb1e5dc54a981d5df674774450458bbbf282c6ec956b"
+        },
+        {
+          "file": "Screamer_Recovery_02.png",
+          "bounds": {
+            "left": 39,
+            "top": 25,
+            "width": 81,
+            "height": 95
+          },
+          "sha256": "1948b17b66ccabf656df782559aa09f99a62dae4a0eef969b9c0d567e706ee9e"
+        },
+        {
+          "file": "Screamer_Recovery_03.png",
+          "bounds": {
+            "left": 38,
+            "top": 25,
+            "width": 83,
+            "height": 95
+          },
+          "sha256": "df4daa97ccad1678b0e927a57f562cc8130ef0618a09eb236b3d4c6cb2c75abd"
+        },
+        {
+          "file": "Screamer_Recovery_04.png",
+          "bounds": {
+            "left": 45,
+            "top": 25,
+            "width": 70,
+            "height": 95
+          },
+          "sha256": "6c8e00f3b6c8a870755bfbcb71d576d91779b6bbcd203db2ca5d249eb430613e"
+        },
+        {
+          "file": "Screamer_Recovery_05.png",
+          "bounds": {
+            "left": 40,
+            "top": 21,
+            "width": 79,
+            "height": 99
+          },
+          "sha256": "a0e9ccf01153bf3751cf15dc15a15a21d57f848a3659bb17978394f8d9edf155"
+        },
+        {
+          "file": "Screamer_Recovery_06.png",
+          "bounds": {
+            "left": 42,
+            "top": 16,
+            "width": 75,
+            "height": 104
+          },
+          "sha256": "36e6ec2e8b192b779a135303a330437dc6a3cb4268af093c363ef7026ee533e0"
+        }
+      ]
+    },
+    {
+      "name": "Stunned",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.66,
+      "loop": false,
+      "source": "screamer_core",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Screamer/Animations/Stunned",
+      "frames": [
+        {
+          "file": "Screamer_Stunned_01.png",
+          "bounds": {
+            "left": 44,
+            "top": 20,
+            "width": 72,
+            "height": 100
+          },
+          "sha256": "98785c97b7c9e2042f9bf23bd32b5f6602480ec1576c95b9f0fc644a6df605c1"
+        },
+        {
+          "file": "Screamer_Stunned_02.png",
+          "bounds": {
+            "left": 36,
+            "top": 22,
+            "width": 88,
+            "height": 98
+          },
+          "sha256": "6169d0024442f06a1b85e604959cfad5e2f37efac4d896db2e8f7417064b8f34"
+        },
+        {
+          "file": "Screamer_Stunned_03.png",
+          "bounds": {
+            "left": 38,
+            "top": 24,
+            "width": 83,
+            "height": 96
+          },
+          "sha256": "6b70f8dbb3105c81102e50ecda85a401abeed02af50536e4083b49ce2f338c4a"
+        },
+        {
+          "file": "Screamer_Stunned_04.png",
+          "bounds": {
+            "left": 42,
+            "top": 21,
+            "width": 75,
+            "height": 99
+          },
+          "sha256": "d1e814be4709e90be5103c6995239de2e82ecc331bdb7069adb0c4d70ada8fc1"
+        },
+        {
+          "file": "Screamer_Stunned_05.png",
+          "bounds": {
+            "left": 40,
+            "top": 19,
+            "width": 79,
+            "height": 101
+          },
+          "sha256": "6f412899ea699b7aadc8b82f37cf5a5ead9f7ab4b0b6cd0a33d1dc3b0d88c8dc"
+        },
+        {
+          "file": "Screamer_Stunned_06.png",
+          "bounds": {
+            "left": 45,
+            "top": 19,
+            "width": 70,
+            "height": 101
+          },
+          "sha256": "207e80fa53c2e800ce01305693e0512b26d795d0d79c07946b5d3269b08c9ab1"
+        }
+      ]
+    },
+    {
+      "name": "Hurt_Light",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "screamer_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Screamer/Animations/Hurt_Light",
+      "frames": [
+        {
+          "file": "Screamer_Hurt_Light_01.png",
+          "bounds": {
+            "left": 37,
+            "top": 12,
+            "width": 86,
+            "height": 108
+          },
+          "sha256": "ca87a697cdb87b4f3d2e3b72f7a4973b12833083d265e91425cccbbd4a227a2a"
+        },
+        {
+          "file": "Screamer_Hurt_Light_02.png",
+          "bounds": {
+            "left": 39,
+            "top": 21,
+            "width": 81,
+            "height": 99
+          },
+          "sha256": "0106b9cde4e894bd4e42691d443de9ab26f2274048dc1181cb000196c89a2b80"
+        },
+        {
+          "file": "Screamer_Hurt_Light_03.png",
+          "bounds": {
+            "left": 42,
+            "top": 18,
+            "width": 75,
+            "height": 102
+          },
+          "sha256": "1b3646e4e4d95d6f005f5027208e4f79fc72396a9425e266c05fff9b9f86aac8"
+        },
+        {
+          "file": "Screamer_Hurt_Light_04.png",
+          "bounds": {
+            "left": 39,
+            "top": 21,
+            "width": 81,
+            "height": 99
+          },
+          "sha256": "246f784ee65eea9436f99dd58d56529842ae08b9198f5de2a558bb97c281a3ab"
+        },
+        {
+          "file": "Screamer_Hurt_Light_05.png",
+          "bounds": {
+            "left": 45,
+            "top": 13,
+            "width": 70,
+            "height": 107
+          },
+          "sha256": "7fb4456004e6885d4e1a3ba49e2d13329a4b6e88398b18aae3d550c4da230125"
+        },
+        {
+          "file": "Screamer_Hurt_Light_06.png",
+          "bounds": {
+            "left": 43,
+            "top": 10,
+            "width": 74,
+            "height": 110
+          },
+          "sha256": "414af79f97ec58d5da7b637d424d9c52225cecf7a5ff0994b3bb3e9c91c67906"
+        }
+      ]
+    },
+    {
+      "name": "Hurt_Heavy",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.61,
+      "loop": false,
+      "source": "screamer_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Screamer/Animations/Hurt_Heavy",
+      "frames": [
+        {
+          "file": "Screamer_Hurt_Heavy_01.png",
+          "bounds": {
+            "left": 34,
+            "top": 3,
+            "width": 91,
+            "height": 117
+          },
+          "sha256": "960443642179bc7a206a43abda8c425c855efb0af852aaf3d371ccb2b06f85c2"
+        },
+        {
+          "file": "Screamer_Hurt_Heavy_02.png",
+          "bounds": {
+            "left": 36,
+            "top": 3,
+            "width": 88,
+            "height": 117
+          },
+          "sha256": "a3e97b91380271bf3f75a250415c444e4e8193019e955feeeefddac9276d3c56"
+        },
+        {
+          "file": "Screamer_Hurt_Heavy_03.png",
+          "bounds": {
+            "left": 28,
+            "top": 3,
+            "width": 103,
+            "height": 117
+          },
+          "sha256": "97a2ce47726fe9093d23daf415c3cf6628419ee0178e8a8491c6e086d39026bd"
+        },
+        {
+          "file": "Screamer_Hurt_Heavy_04.png",
+          "bounds": {
+            "left": 37,
+            "top": 16,
+            "width": 86,
+            "height": 104
+          },
+          "sha256": "5fbf91557611a105ea15592a4301cc3b74c7647d8077a7ace2192d382731db1a"
+        },
+        {
+          "file": "Screamer_Hurt_Heavy_05.png",
+          "bounds": {
+            "left": 39,
+            "top": 16,
+            "width": 81,
+            "height": 104
+          },
+          "sha256": "dab142abdbbf3d115268e09542ff9555056bb529457542e0e2555f85c17b1a55"
+        },
+        {
+          "file": "Screamer_Hurt_Heavy_06.png",
+          "bounds": {
+            "left": 40,
+            "top": 12,
+            "width": 80,
+            "height": 108
+          },
+          "sha256": "adc75a3ff6c9467320ea13b514c876dc94d52d95c425cf585b6582a2d5f38c4e"
+        }
+      ]
+    },
+    {
+      "name": "Air_Hit",
+      "frameCount": 4,
+      "uniqueFrames": 4,
+      "durationSeconds": 0.43000000000000005,
+      "loop": false,
+      "source": "screamer_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Screamer/Animations/Air_Hit",
+      "frames": [
+        {
+          "file": "Screamer_Air_Hit_01.png",
+          "bounds": {
+            "left": 34,
+            "top": 3,
+            "width": 92,
+            "height": 117
+          },
+          "sha256": "a46d18e91a0840e0acc4dae2398c72139aade19227fbd93260f044b486bc47df"
+        },
+        {
+          "file": "Screamer_Air_Hit_02.png",
+          "bounds": {
+            "left": 12,
+            "top": 16,
+            "width": 136,
+            "height": 104
+          },
+          "sha256": "e80c721813d0babc0796ac9aecb83dd2ce008313db55dad543c58e5f624e1ec3"
+        },
+        {
+          "file": "Screamer_Air_Hit_03.png",
+          "bounds": {
+            "left": 10,
+            "top": 15,
+            "width": 140,
+            "height": 105
+          },
+          "sha256": "c438fbb93c34d3a0c4d1faf01e0bc84f27b609318eb1379762a21d0b5694b122"
+        },
+        {
+          "file": "Screamer_Air_Hit_04.png",
+          "bounds": {
+            "left": 4,
+            "top": 27,
+            "width": 151,
+            "height": 93
+          },
+          "sha256": "6956513a49899240d93378390188ab9c16d799ada1eadb19f2fe34c0b6cd4d9c"
+        }
+      ]
+    },
+    {
+      "name": "Knockdown",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "screamer_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Screamer/Animations/Knockdown",
+      "frames": [
+        {
+          "file": "Screamer_Knockdown_01.png",
+          "bounds": {
+            "left": 28,
+            "top": 55,
+            "width": 103,
+            "height": 65
+          },
+          "sha256": "0e5285cda6d26720f98427249f286d8f5179d704c221a71c159e0f93986b6f52"
+        },
+        {
+          "file": "Screamer_Knockdown_02.png",
+          "bounds": {
+            "left": 20,
+            "top": 63,
+            "width": 120,
+            "height": 57
+          },
+          "sha256": "7884bc0fbf6e51cd7877cdc571ec19dc5e480cebba7e0e32c2142a21ee43c605"
+        },
+        {
+          "file": "Screamer_Knockdown_03.png",
+          "bounds": {
+            "left": 23,
+            "top": 57,
+            "width": 113,
+            "height": 63
+          },
+          "sha256": "412b3dfb21959658184e4ac76218671a0fe343cf95f67a282743eb43280908f3"
+        },
+        {
+          "file": "Screamer_Knockdown_04.png",
+          "bounds": {
+            "left": 4,
+            "top": 68,
+            "width": 151,
+            "height": 52
+          },
+          "sha256": "d9f3509d91b412b43d1c2cc92453fb364ffa138bd37cf21c23b884fc68f0ade4"
+        },
+        {
+          "file": "Screamer_Knockdown_05.png",
+          "bounds": {
+            "left": 52,
+            "top": 82,
+            "width": 56,
+            "height": 38
+          },
+          "sha256": "a76db71f8c771bc5dd4b9cb5609f9580facfc8294510b9d34d83328221aff61e"
+        },
+        {
+          "file": "Screamer_Knockdown_06.png",
+          "bounds": {
+            "left": 20,
+            "top": 78,
+            "width": 120,
+            "height": 42
+          },
+          "sha256": "9f901ca05b3d5b22f3a56b558ec41eefd904ce0b553c44e447c72420f18dd2c5"
+        }
+      ]
+    },
+    {
+      "name": "Downed",
+      "frameCount": 5,
+      "uniqueFrames": 5,
+      "durationSeconds": 0.8,
+      "loop": true,
+      "source": "screamer_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Screamer/Animations/Downed",
+      "frames": [
+        {
+          "file": "Screamer_Downed_01.png",
+          "bounds": {
+            "left": 20,
+            "top": 78,
+            "width": 120,
+            "height": 42
+          },
+          "sha256": "9f901ca05b3d5b22f3a56b558ec41eefd904ce0b553c44e447c72420f18dd2c5"
+        },
+        {
+          "file": "Screamer_Downed_02.png",
+          "bounds": {
+            "left": 20,
+            "top": 72,
+            "width": 119,
+            "height": 48
+          },
+          "sha256": "0a8e8dd996866364aeeef3ddebf11a154d0a367f08354cf770946791718aacd5"
+        },
+        {
+          "file": "Screamer_Downed_03.png",
+          "bounds": {
+            "left": 16,
+            "top": 69,
+            "width": 127,
+            "height": 51
+          },
+          "sha256": "a27aabdf38c4c473aa9f9b240d5021d2db90784dbaee1032656a5a6eb54390e2"
+        },
+        {
+          "file": "Screamer_Downed_04.png",
+          "bounds": {
+            "left": 33,
+            "top": 66,
+            "width": 94,
+            "height": 54
+          },
+          "sha256": "d703a7dc094837c56800802774bf4f2dbfd4a66a27ce80f714a0f0936aca4e1c"
+        },
+        {
+          "file": "Screamer_Downed_05.png",
+          "bounds": {
+            "left": 22,
+            "top": 69,
+            "width": 115,
+            "height": 51
+          },
+          "sha256": "c60e236bcda0e8689d40989369f4e9916e9264b865c73aa7c43418c8df0c1ce8"
+        }
+      ]
+    },
+    {
+      "name": "GetUp",
+      "frameCount": 5,
+      "uniqueFrames": 5,
+      "durationSeconds": 0.68,
+      "loop": false,
+      "source": "screamer_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Screamer/Animations/GetUp",
+      "frames": [
+        {
+          "file": "Screamer_GetUp_01.png",
+          "bounds": {
+            "left": 20,
+            "top": 78,
+            "width": 120,
+            "height": 42
+          },
+          "sha256": "9f901ca05b3d5b22f3a56b558ec41eefd904ce0b553c44e447c72420f18dd2c5"
+        },
+        {
+          "file": "Screamer_GetUp_02.png",
+          "bounds": {
+            "left": 32,
+            "top": 43,
+            "width": 96,
+            "height": 77
+          },
+          "sha256": "206a88723a47db2436acbc4c6cd752fda3150e4d2c585edfaf4c5da6bd40b71a"
+        },
+        {
+          "file": "Screamer_GetUp_03.png",
+          "bounds": {
+            "left": 33,
+            "top": 41,
+            "width": 94,
+            "height": 79
+          },
+          "sha256": "f5d03c4ddb16674b7cd22f8c7d49c2fe3e59ea288194979b389b1ff82c07288d"
+        },
+        {
+          "file": "Screamer_GetUp_04.png",
+          "bounds": {
+            "left": 31,
+            "top": 25,
+            "width": 98,
+            "height": 95
+          },
+          "sha256": "69a918968bbfef2c2a246376e8651cea00989ce5c8e4c87417ab75342637ee28"
+        },
+        {
+          "file": "Screamer_GetUp_05.png",
+          "bounds": {
+            "left": 40,
+            "top": 20,
+            "width": 80,
+            "height": 100
+          },
+          "sha256": "e61ace525dae6004095c888f95c96777a8860eac4c335a24b51a5d6829210632"
+        }
+      ]
+    },
+    {
+      "name": "Defeated",
+      "frameCount": 6,
+      "uniqueFrames": 6,
+      "durationSeconds": 0.81,
+      "loop": false,
+      "source": "screamer_reactions",
+      "folder": "Assets/ArtAssets/Characters/Enemies/Screamer/Animations/Defeated",
+      "frames": [
+        {
+          "file": "Screamer_Defeated_01.png",
+          "bounds": {
+            "left": 40,
+            "top": 19,
+            "width": 80,
+            "height": 101
+          },
+          "sha256": "aab3c4ebb5aa0a29122f0ddd675e9e25e98b936bb80778bcb74463c990f88c38"
+        },
+        {
+          "file": "Screamer_Defeated_02.png",
+          "bounds": {
+            "left": 37,
+            "top": 32,
+            "width": 86,
+            "height": 88
+          },
+          "sha256": "e90588ceba4e7ac38fe072e6e2a89685f57b1e91978e518e22aaa6fbb9f31fbf"
+        },
+        {
+          "file": "Screamer_Defeated_03.png",
+          "bounds": {
+            "left": 27,
+            "top": 54,
+            "width": 105,
+            "height": 66
+          },
+          "sha256": "292df638ae3ec94a8fbd4221086ebf3eff14077ee0dd1a7d6f2901f25b4eaf76"
+        },
+        {
+          "file": "Screamer_Defeated_04.png",
+          "bounds": {
+            "left": 15,
+            "top": 75,
+            "width": 130,
+            "height": 45
+          },
+          "sha256": "da38c2360be508b90aedbe6b01ac8845f50321f63d12dfad2c9db29a5147ebc8"
+        },
+        {
+          "file": "Screamer_Defeated_05.png",
+          "bounds": {
+            "left": 21,
+            "top": 80,
+            "width": 117,
+            "height": 40
+          },
+          "sha256": "5deb23d41e23de7b4f6b0f37c831b9a1f336af70df48bb8e7365a1f19643af47"
+        },
+        {
+          "file": "Screamer_Defeated_06.png",
+          "bounds": {
+            "left": 21,
+            "top": 84,
+            "width": 117,
+            "height": 36
+          },
+          "sha256": "f5745931bef9637cf4aa76306336b1183a24262c6ddab917db0d71dbf762df57"
+        }
+      ]
+    }
+  ]
+}

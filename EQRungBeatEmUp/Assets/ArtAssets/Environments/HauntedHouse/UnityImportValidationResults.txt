@@ -1,0 +1,9 @@
+PASS: Stage01_EntranceGate separate background/floor, 100 PPU, Point, uncompressed, centered pivots, exact seam and 40/60 framing, preview prefab
+PASS: Stage02_BloodSheetCorridor separate background/floor, 100 PPU, Point, uncompressed, centered pivots, exact seam and 40/60 framing, preview prefab
+PASS: Stage03_FakeMorgue separate background/floor, 100 PPU, Point, uncompressed, centered pivots, exact seam and 40/60 framing, preview prefab
+PASS: Stage04_ServiceCorridor separate background/floor, 100 PPU, Point, uncompressed, centered pivots, exact seam and 40/60 framing, preview prefab
+PASS: Stage05_HauntedMaze separate background/floor, 100 PPU, Point, uncompressed, centered pivots, exact seam and 40/60 framing, preview prefab
+PASS: Stage06_RecoveryShrine separate background/floor, 100 PPU, Point, uncompressed, centered pivots, exact seam and 40/60 framing, preview prefab
+PASS: Stage07_WhiteGhostBossChamber separate background/floor, 100 PPU, Point, uncompressed, centered pivots, exact seam and 40/60 framing, preview prefab
+PASS: Stage08_EscapeLane separate background/floor, 100 PPU, Point, uncompressed, centered pivots, exact seam and 40/60 framing, preview prefab
+PASS: TOTAL 8 stages / 16 gameplay plates / 8 art preview prefabs

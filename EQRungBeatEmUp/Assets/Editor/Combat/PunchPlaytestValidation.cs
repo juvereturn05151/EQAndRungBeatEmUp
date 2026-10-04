@@ -75,7 +75,7 @@ public static class PunchPlaytestValidation
 
     private static void ValidateData()
     {
-        int[] totals = { 15, 16, 22 }, first = { 4, 4, 6 }, last = { 6, 6, 9 };
+        int[] totals = { 23, 24, 33 }, first = { 6, 6, 9 }, last = { 10, 10, 14 };
         float[] damage = { 8, 9, 14 }, push = { 1, 1.4f, 5 }, movement = { .08f, .12f, .24f };
         int[] stun = { 18, 20, 24 }, stop = { 3, 4, 6 };
         for (int p = 0; p < 3; p++)
@@ -89,7 +89,7 @@ public static class PunchPlaytestValidation
                 var frame = attack.frames[i];
                 bool active = i >= first[p] && i <= last[p];
                 Check(frame.hitboxes.Count == (active ? 1 : 0), attack.name + " frame " + i + " hitbox timing");
-                bool cancel = p < 2 && i >= 7 && i <= (p == 0 ? 11 : 12);
+                bool cancel = p < 2 && i >= 11 && i <= (p == 0 ? 17 : 19);
                 Check(frame.canCancelIntoAttack == cancel && frame.canCancelIntoLauncher == (p == 1 && cancel) && !frame.canCancelIntoJump, attack.name + " frame " + i + " separate cancel permissions");
                 if (active)
                 {
@@ -99,7 +99,7 @@ public static class PunchPlaytestValidation
             }
             Check(Mathf.Abs(attack.frames.Sum(f => f.movement.x) - movement[p]) < .0001f, attack.name + " has subtle authored forward movement");
         }
-        Check(punches[0].frames[4].hitboxes[0].size.x < punches[1].frames[4].hitboxes[0].size.x && punches[1].frames[4].hitboxes[0].size.x < punches[2].frames[6].hitboxes[0].size.x, "Horizontal hitbox reach increases through the ground string");
+        Check(punches[0].frames[first[0]].hitboxes[0].size.x < punches[1].frames[first[1]].hitboxes[0].size.x && punches[1].frames[first[1]].hitboxes[0].size.x < punches[2].frames[first[2]].hitboxes[0].size.x, "Horizontal hitbox reach increases through the ground string");
         var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(Output + "/Prefabs/BlueShirtGuy.prefab");
         var combo = prefab.GetComponent<ComboController>();
         Check(combo.inputBufferFrames == 6 && combo.finisherRecoveryFrames == 0 && combo.groundCombo.SequenceEqual(punches) && combo.launcher == launcher, "Player prefab uses these assets, a six-frame buffer and authored recovery without extra finisher cooldown");
@@ -153,50 +153,50 @@ public static class PunchPlaytestValidation
             player.RequestAttack();
             Check(player.CurrentAttack == punches[0], "Attack after " + punches[i].name + " recovery starts a fresh Punch1");
         }
-        Fixture(); player.RequestAttack(); Step(12); player.RequestAttack();
+        Fixture(); player.RequestAttack(); Step(18); player.RequestAttack();
         Check(player.CurrentAttack == punches[0], "Late Punch1 input cannot use a closed cancel window");
-        Step(3);
+        Step(5);
         Check(!player.CurrentAttack && player.BufferedInput == CombatInput.None, "Late chain input expires at recovery completion without auto restarting Punch1");
-        Fixture(); player.RequestAttack(); Step(7); player.RequestAttack(); Step(13); player.RequestAttack(); Step(3);
+        Fixture(); player.RequestAttack(); Step(11); player.RequestAttack(); Step(20); player.RequestAttack(); Step(4);
         Check(!player.CurrentAttack && player.BufferedInput == CombatInput.None, "Late Punch2 input cannot chain or auto restart after its cancel window closes");
     }
 
     private static void ValidateRoutes()
     {
-        Fixture(); player.RequestAttack(); Step(7); player.RequestAttack();
-        Check(player.CurrentAttack == punches[1] && player.attackPlayer.CurrentFrame == 0, "Punch1 cancels immediately into Punch2 on frame 7");
-        Step(15); Check(player.CurrentAttack == punches[1], "Punch2 retains all recovery without continuation input"); Step(1);
+        Fixture(); player.RequestAttack(); Step(11); player.RequestAttack();
+        Check(player.CurrentAttack == punches[1] && player.attackPlayer.CurrentFrame == 0, "Punch1 cancels immediately into Punch2 on frame 11");
+        Step(23); Check(player.CurrentAttack == punches[1], "Punch2 retains all recovery without continuation input"); Step(1);
         Check(!player.CurrentAttack && player.ComboIndex == 0, "Punch1 -> Punch2 -> neutral");
-        Fixture(); player.RequestAttack(); Step(3); player.RequestAttack(); Step(3);
+        Fixture(); player.RequestAttack(); Step(7); player.RequestAttack(); Step(3);
         Check(player.CurrentAttack == punches[0] && player.BufferedInput == CombatInput.Attack, "Early chain input waits in the existing buffer"); Step(1);
-        Check(player.CurrentAttack == punches[1] && player.attackPlayer.CurrentFrame == 0, "Buffered Attack consumes at the first legal frame 7");
-        Step(7); player.RequestAttack();
-        Check(player.CurrentAttack == punches[2], "Punch2 cancels immediately into Punch3 on frame 7");
-        Step(21); player.RequestAttack(); Check(player.CurrentAttack == punches[2], "Finisher cannot chain back into Punch1"); Step(1);
+        Check(player.CurrentAttack == punches[1] && player.attackPlayer.CurrentFrame == 0, "Buffered Attack consumes at the first legal frame 11");
+        Step(11); player.RequestAttack();
+        Check(player.CurrentAttack == punches[2], "Punch2 cancels immediately into Punch3 on frame 11");
+        Step(32); player.RequestAttack(); Check(player.CurrentAttack == punches[2], "Finisher cannot chain back into Punch1"); Step(1);
         Check(!player.CurrentAttack && player.ComboIndex == 0, "Punch1 -> Punch2 -> Punch3 -> neutral");
-        Fixture(); player.RequestAttack(); Step(1); player.RequestAttack(); Step(6);
+        Fixture(); player.RequestAttack(); Step(5); player.RequestAttack(); Step(6);
         Check(player.CurrentAttack == punches[1], "Six-frame buffer accepts input six logical frames before cancel");
-        Fixture(); player.RequestAttack(); player.RequestAttack(); Step(7);
+        Fixture(); player.RequestAttack(); player.RequestAttack(); Step(11);
         Check(player.CurrentAttack == punches[0] && player.BufferedInput == CombatInput.None, "Input earlier than six frames before cancel expires");
-        foreach (int frame in new[] { 7, 12 })
+        foreach (int frame in new[] { 11, 19 })
         {
-            Fixture(); player.RequestAttack(); Step(7); player.RequestAttack(); Step(frame); player.RequestLauncher();
+            Fixture(); player.RequestAttack(); Step(11); player.RequestAttack(); Step(frame); player.RequestLauncher();
             Check(player.CurrentAttack == launcher, "Separate Launcher Cancel opens from Punch2 on frame " + frame);
         }
-        Fixture(); player.RequestAttack(); Step(7); player.RequestAttack(); Step(13); player.RequestLauncher(); Step(3);
-        Check(!player.CurrentAttack && player.BufferedInput == CombatInput.None, "Launcher cannot activate after Punch2's frame 12 cancel boundary");
+        Fixture(); player.RequestAttack(); Step(11); player.RequestAttack(); Step(20); player.RequestLauncher(); Step(4);
+        Check(!player.CurrentAttack && player.BufferedInput == CombatInput.None, "Launcher cannot activate after Punch2's frame 19 cancel boundary");
         Fixture(); player.RequestAttack(); var visited = new List<AttackData> { player.CurrentAttack };
-        for (int i = 0; i < 36; i++)
+        for (int i = 0; i < 55; i++)
         {
             var previous = player.CurrentAttack; player.RequestAttack(); Step(1);
             if (player.CurrentAttack && player.CurrentAttack != previous) visited.Add(player.CurrentAttack);
         }
         Check(visited.SequenceEqual(punches) && !player.CurrentAttack, "Repeated Attack produces one intended string without restarting Punch1 during recovery");
-        Fixture(); player.RequestAttack(); Step(11); player.RequestAttack();
-        Check(player.CurrentAttack == punches[1], "Punch1 Attack Cancel includes its final frame 11");
-        Step(12); player.RequestAttack();
-        Check(player.CurrentAttack == punches[2], "Punch2 Attack Cancel includes its final frame 12");
-        Fixture(); player.RequestAttack(); Step(7); player.RequestAttack(); Step(2); player.RequestLauncher(); Step(5);
+        Fixture(); player.RequestAttack(); Step(17); player.RequestAttack();
+        Check(player.CurrentAttack == punches[1], "Punch1 Attack Cancel includes its final frame 17");
+        Step(19); player.RequestAttack();
+        Check(player.CurrentAttack == punches[2], "Punch2 Attack Cancel includes its final frame 19");
+        Fixture(); player.RequestAttack(); Step(11); player.RequestAttack(); Step(6); player.RequestLauncher(); Step(5);
         Check(player.CurrentAttack == launcher, "Early Launcher input buffers into Punch2's separate launcher window");
         Fixture();
         var air = ScriptableObject.CreateInstance<AttackData>(); air.domain = AttackDomain.Air;
@@ -233,9 +233,9 @@ public static class PunchPlaytestValidation
                 Check(enemy.health.Current == 500 - hit.damage && enemy.motor.IsGrounded && enemy.CanAct, data.name + " hits once across its active frames and recovers without launching");
             }
         }
-        Fixture(true); player.RequestAttack(); Step(4); player.RequestAttack(); Step(3);
-        Check(player.BufferedInput == CombatInput.Attack && player.attackPlayer.CurrentFrame == 4, "Attack input remains buffered throughout hitstop"); Step(3);
-        Check(player.CurrentAttack == punches[1], "Hitstop-buffered input consumes at Punch1 frame 7"); Step(4); Step(4); Step(3); player.RequestAttack(); Step(6); Step(6); Step(30);
+        Fixture(true); player.RequestAttack(); Step(6); player.RequestAttack(); Step(3);
+        Check(player.BufferedInput == CombatInput.Attack && player.attackPlayer.CurrentFrame == 6, "Attack input remains buffered throughout hitstop"); Step(5);
+        Check(player.CurrentAttack == punches[1], "Hitstop-buffered input consumes at Punch1 frame 11"); Step(6); Step(4); Step(5); player.RequestAttack(); Step(9); Step(6); Step(33);
         Check(enemy.health.Current == 469 && enemy.motor.IsGrounded, "Connected three-punch string deals 8 + 9 + 14 damage and never launches");
         Fixture(true); player.RequestAttack(); clock.Advance(.5f);
         Check(enemy.health.Current == 492 && !player.CurrentAttack, "A slow rendered frame still processes active frames, hitstop and recovery at logical 60 FPS");
@@ -247,12 +247,12 @@ public static class PunchPlaytestValidation
         var copy = UnityEngine.Object.Instantiate(original);
         try
         {
-            AttackFrameAuthoring.SetSprite(copy, 0, 1, punches[2].frames[6].sprite);
+            AttackFrameAuthoring.SetSprite(copy, 0, 1, punches[2].frames[punches[2].FirstActiveFrame].sprite);
             AttackFrameAuthoring.SetHitboxes(copy, 0, 1, true, new AttackHitboxData { damage = 30, hitstopFrames = 7, hitstunFrames = 25 });
             AttackFrameAuthoring.SetMovement(copy, 0, 1, new Vector2(.02f, 0));
             AttackFrameAuthoring.SetCancels(copy, 0, 1, true, true, false);
             AttackFrameAuthoring.Add(copy);
-            Check(copy.TotalFrames == 16 && copy.frames[0].sprite == punches[2].frames[6].sprite && copy.frames[0].movement.x == .02f && copy.frames[0].canCancelIntoAttack && copy.frames[0].canCancelIntoLauncher && copy.frames[0].hitboxes[0].damage == 30 && copy.frames[0].hitboxes[0].hitstopFrames == 7 && copy.frames[0].hitboxes[0].hitstunFrames == 25, "Existing editor authoring commands still edit sprites, hitboxes, frame count, motion, damage, hitstop, hitstun and cancel windows");
+            Check(copy.TotalFrames == original.TotalFrames + 1 && copy.frames[0].sprite == punches[2].frames[punches[2].FirstActiveFrame].sprite && copy.frames[0].movement.x == .02f && copy.frames[0].canCancelIntoAttack && copy.frames[0].canCancelIntoLauncher && copy.frames[0].hitboxes[0].damage == 30 && copy.frames[0].hitboxes[0].hitstopFrames == 7 && copy.frames[0].hitboxes[0].hitstunFrames == 25, "Existing editor authoring commands still edit sprites, hitboxes, frame count, motion, damage, hitstop, hitstun and cancel windows");
             Check(JsonUtility.ToJson(original) == before, "Authoring validation leaves the designer's real assets unchanged");
             AttackDataEditorWindow.Open(original);
             var window = EditorWindow.GetWindow<AttackDataEditorWindow>();

@@ -1,0 +1,53 @@
+PASS: PlayerHub scene starts in safe Hub using shared stage flow
+PASS: Saved character applies on fresh scene spawn
+PASS: Hub spans more than five reference gameplay view widths
+PASS: Sanctuary contains no normal enemies or destructibles
+PASS: Hub rejects direct lethal damage without spending run protection
+PASS: Hub rejects combat damage before player hit reactions
+PASS: Walking near gate cannot accidentally launch a run
+PASS: One actual modular environment is instantiated
+PASS: Five unique environment modules use distinct artwork
+PASS: Environment panels scale uniformly without horizontal stretching
+PASS: Buddha and spawn landmark have no attackable/destructible components
+PASS: Hub player physically walks with shared motor
+PASS: Stations reject interaction outside physical radius
+PASS: Existing camera follows horizontally and stays within Hub edges
+PASS: Hub has no combat camera lock
+PASS: Approach and interaction open character station
+PASS: BlueShirtGuy can be selected in physical Hub
+PASS: Immediate shared loadout and saved character update together
+PASS: Character 2 can be reselected without restarting Hub
+PASS: Runtime character switch applies own frame attack data
+PASS: Unknown character is rejected
+PASS: Station closes and restores normal control
+PASS: Base-stat station opens through existing interaction path
+PASS: Persistent stat upgrade succeeds: 0
+PASS: Persistent stat upgrade succeeds: 1
+PASS: Persistent stat upgrade succeeds: 2
+PASS: Persistent stat upgrade succeeds: 3
+PASS: Four reusable saved base-stat levels increment independently
+PASS: Persistent health increases shared effective maximum
+PASS: Attack, defense and meter multipliers resolve from persistent data
+PASS: Unaffordable upgrade cannot modify levels
+PASS: Invalid stat request is rejected
+PASS: Maximum stat level is enforced
+PASS: Skill shrine saves separate equipped-character skill level
+PASS: Skill power composes with base attack without changing authored assets
+PASS: Profile round-trip persists selected character, four stats, skill and currency
+PASS: Corrupt primary save recovers a valid backup
+PASS: Physical World 1 gate starts existing Entrance Gate stage
+PASS: Starting run closes Hub UI and restores normal combat damage
+PASS: Permanent defense reduces damage through shared health path
+PASS: Permanent attack power affects real accepted hit damage
+PASS: Permanent meter gain scales accepted-hit gain while keeping one-bar cap
+PASS: Explicit return also uses Buddha spawn
+PASS: Explicit return retains permanent upgrades
+PASS: Run death begins outside Hub before transition
+PASS: Death automatically returns to actual Hub after configured transition
+PASS: Death always respawns at Buddha point facing into Hub
+PASS: Death return restores protected health
+PASS: Temporary run build clears on death return
+PASS: Death preserves permanent character/stats/skill/currency
+PASS: Returning Hub removes stage enemies and projectiles
+PASS: Last used station cannot become a death checkpoint
+ALL PLAYER SANCTUARY CHECKS PASSED

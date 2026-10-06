@@ -1,0 +1,187 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4bb731267e462a8b2dad208e302ec6, type: 3}
+  m_Name: PrefectAIProfile
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyAIProfile
+  defaultState: Wait
+  aggroRange: 8
+  loseTargetRange: 10
+  targetRule: 0
+  meleeRange: 1.05
+  useGroundPlaneRange: 1
+  projectileRange: 6
+  preferredDistance: 3.5
+  laneTolerance: 0.45
+  reactionDelay: 0.05
+  recoveryTime: 0.25
+  commitToAttack: 1
+  states:
+  - id: Wait
+    role: 0
+    action: 5
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions:
+    - targetState: Push
+      conditions:
+      - condition: 21
+        value: 0.5
+        invert: 0
+    - targetState: Retreat
+      conditions:
+      - condition: 22
+        value: 0.5
+        invert: 0
+    - targetState: CallBackup
+      conditions:
+      - condition: 20
+        value: 0.5
+        invert: 0
+  - id: Retreat
+    role: 0
+    action: 2
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions:
+    - targetState: Push
+      conditions:
+      - condition: 21
+        value: 0.5
+        invert: 0
+    - targetState: Wait
+      conditions:
+      - condition: 23
+        value: 0.5
+        invert: 0
+    - targetState: Wait
+      conditions:
+      - condition: 2
+        value: 0.5
+        invert: 0
+  - id: CallBackup
+    role: 0
+    action: 8
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: CallBackup
+    transitions:
+    - targetState: Recovery
+      conditions:
+      - condition: 14
+        value: 0.5
+        invert: 0
+    - targetState: Wait
+      conditions:
+      - condition: 20
+        value: 0.5
+        invert: 1
+  - id: Push
+    role: 0
+    action: 8
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: Push
+    transitions:
+    - targetState: Retreat
+      conditions:
+      - condition: 14
+        value: 0.5
+        invert: 0
+    - targetState: Retreat
+      conditions:
+      - condition: 21
+        value: 0.5
+        invert: 1
+  - id: Recovery
+    role: 0
+    action: 5
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions:
+    - targetState: Wait
+      conditions:
+      - condition: 15
+        value: 0.5
+        invert: 0
+  - id: Hurt
+    role: 1
+    action: 0
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions: []
+  - id: Knockdown
+    role: 2
+    action: 0
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions: []
+  - id: GetUp
+    role: 3
+    action: 0
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions: []
+  - id: Dead
+    role: 4
+    action: 0
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions: []
+  attacks:
+  - id: CallBackup
+    attack: {fileID: 11400000, guid: 9c801a350e6fd7742aab3cc849574f88, type: 2}
+    projectile: 0
+    coordination:
+      requiresMeleeSlot: 0
+      requiresRangedSlot: 0
+      requiresCrowdControlSlot: 0
+      requiresSupportSlot: 1
+      priorityModifier: 0
+      ignoreCoordinator: 0
+    minimumRange: 3.2
+    maximumRange: 10
+    laneTolerance: 10
+    cooldown: 2
+    weight: 1
+    prerequisites: []
+  - id: Push
+    attack: {fileID: 11400000, guid: 2d2311d8210d59e4f950c4a5d8453d14, type: 2}
+    projectile: 0
+    coordination:
+      requiresMeleeSlot: 1
+      requiresRangedSlot: 0
+      requiresCrowdControlSlot: 0
+      requiresSupportSlot: 0
+      priorityModifier: 0
+      ignoreCoordinator: 0
+    minimumRange: 0
+    maximumRange: 1.05
+    laneTolerance: 0.45
+    cooldown: 0.5
+    weight: 1
+    prerequisites: []

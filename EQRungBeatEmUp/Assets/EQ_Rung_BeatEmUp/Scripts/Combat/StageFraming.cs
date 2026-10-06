@@ -20,6 +20,8 @@ namespace BeatEmUp
         public float topLane = .65f;
         [Header("Camera tracking")]
         public CharacterMotor player;
+        // Set by the session: all couch players, or the local online replica.
+        public readonly List<SpriteRenderer> sharedPlayers = new List<SpriteRenderer>();
         public bool followEnabled = true;
         [Min(0), Tooltip("Seconds of horizontal follow damping. Zero follows immediately.")]
         public float followSmoothTime = .12f;
@@ -44,6 +46,8 @@ namespace BeatEmUp
         private Camera view;
         private float followVelocity;
         private bool ownsViewport;
+        public Rect? EncounterBounds { get; private set; }
+        public void SetEncounterBounds(Rect? bounds) => EncounterBounds = bounds;
         private readonly List<CharacterMotor> actors = new List<CharacterMotor>();
 
         private void OnEnable()
@@ -91,8 +95,27 @@ namespace BeatEmUp
             if (!view) view = GetComponent<Camera>();
             if (!view) return;
             view.orthographic = true;
+            // Unity's aspect-constrained Game view can disagree with Screen.width/height during
+            // startup or resizing. Measure this camera's full output before applying pillarboxes.
+            if (clampToStageBounds || ownsViewport) { view.rect = new Rect(0, 0, 1, 1); view.ResetAspect(); }
+            float fullAspect = view.aspect;
             float size = orthographicSize;
             float x = transform.position.x;
+            Bounds groupBounds=default; bool hasGroup=false;
+            if(Application.isPlaying)
+            {
+                sharedPlayers.RemoveAll(p=>!p);
+                foreach(var renderer in sharedPlayers)
+                {
+                    if(!renderer.gameObject.activeInHierarchy) continue;
+                    var health=renderer.GetComponentInParent<CharacterHealth>(); if(health && health.IsDead) continue;
+                    if(!hasGroup) { groupBounds=renderer.bounds; hasGroup=true; } else groupBounds.Encapsulate(renderer.bounds);
+                }
+                if(hasGroup)
+                {
+                    size=Mathf.Max(size,(groupBounds.size.x+.8f)/(2*Mathf.Max(.1f,fullAspect)),(groupBounds.max.y+airborneTopMargin-BaseBottom)*.5f);
+                }
+            }
             if (Application.isPlaying && player)
             {
                 // Expand upwards only when nearby airborne art needs the room.
@@ -111,17 +134,18 @@ namespace BeatEmUp
             // Pillarbox that case instead of changing vertical framing or stretching the art.
             if (clampToStageBounds)
             {
-                float fullAspect = view.targetTexture ? (float)view.targetTexture.width / view.targetTexture.height : (float)Mathf.Max(1, Screen.width) / Mathf.Max(1, Screen.height);
-                float viewportWidth = Mathf.Clamp((stageRight - stageLeft) / Mathf.Max(.0001f, 2 * size * fullAspect), .001f, 1);
+                float availableWidth = stageRight - stageLeft;
+                if (EncounterBounds.HasValue) availableWidth = Mathf.Max(.01f, Mathf.Min(stageRight, EncounterBounds.Value.xMax) - Mathf.Max(stageLeft, EncounterBounds.Value.xMin));
+                float viewportWidth = Mathf.Clamp(availableWidth / Mathf.Max(.0001f, 2 * size * fullAspect), .001f, 1);
                 view.rect = new Rect((1 - viewportWidth) * .5f, 0, viewportWidth, 1);
                 view.ResetAspect(); ownsViewport = true;
             }
             else if (ownsViewport) { view.rect = new Rect(0, 0, 1, 1); view.ResetAspect(); ownsViewport = false; }
             float halfWidth = size * view.aspect;
             if (reset) followVelocity = 0;
-            if (Application.isPlaying && player && followEnabled)
+            if (Application.isPlaying && (player || hasGroup) && followEnabled)
             {
-                var bounds = player.sprite ? player.sprite.bounds : new Bounds(player.transform.position, Vector3.zero);
+                var bounds = hasGroup ? groupBounds : player.sprite ? player.sprite.bounds : new Bounds(player.transform.position, Vector3.zero);
                 float minimum = bounds.max.x - halfWidth + 2 * halfWidth * Mathf.Clamp(rightSafeMargin, 0, .45f);
                 float maximum = bounds.min.x + halfWidth - 2 * halfWidth * Mathf.Clamp(leftSafeMargin, 0, .45f);
                 float target = minimum <= maximum ? Mathf.Clamp(x, minimum, maximum) : bounds.center.x;
@@ -135,7 +159,13 @@ namespace BeatEmUp
             }
             else followVelocity = 0;
             x = ClampHorizontal(x, halfWidth);
-            transform.position = new Vector3(x, BaseBottom + size, transform.position.z);
+            float y = BaseBottom + size;
+            if (EncounterBounds.HasValue)
+            {
+                var arena = EncounterBounds.Value;
+                y = arena.height >= size * 2 ? Mathf.Clamp(y, arena.yMin + size, arena.yMax - size) : arena.center.y;
+            }
+            transform.position = new Vector3(x, y, transform.position.z);
             if (floor && floor.sprite)
             {
                 float height = BackgroundBoundary - BaseBottom;
@@ -146,9 +176,15 @@ namespace BeatEmUp
         }
         private float ClampHorizontal(float x, float halfWidth)
         {
-            if (!clampToStageBounds) return x;
-            float left = stageLeft + halfWidth, right = stageRight - halfWidth;
-            return left <= right ? Mathf.Clamp(x, left, right) : (stageLeft + stageRight) * .5f;
+            float minimum = clampToStageBounds ? stageLeft : float.NegativeInfinity;
+            float maximum = clampToStageBounds ? stageRight : float.PositiveInfinity;
+            if (EncounterBounds.HasValue)
+            {
+                minimum = Mathf.Max(minimum, EncounterBounds.Value.xMin);
+                maximum = Mathf.Min(maximum, EncounterBounds.Value.xMax);
+            }
+            float left = minimum + halfWidth, right = maximum - halfWidth;
+            return left <= right ? Mathf.Clamp(x, left, right) : (minimum + maximum) * .5f;
         }
         private void OnDrawGizmos()
         {

@@ -18,7 +18,27 @@ namespace BeatEmUp
         public void Begin(AttackData attack) { current = null; victims.Clear(); props.Clear(); }
         public void End() { current = null; victims.Clear(); props.Clear(); }
         public void SetFrame(AttackFrameData frame, int index, int direction) { current = frame; frameNumber = index; facing = direction; }
-        public Vector2 Center(AttackHitboxData box) => (Vector2)motor.transform.position + new Vector2(box.offset.x * facing, motor.Height + box.offset.y);
+        public Vector2 Center(AttackHitboxData box) => (Vector2)motor.transform.position + new Vector2(box.offset.x * facing, (box.groundArea ? 0 : motor.Height) + box.offset.y);
+        public static bool InGroundArea(AttackHitboxData box, Vector2 center, Vector2 groundPosition)
+        {
+            var delta = groundPosition - center;
+            float x = delta.x / Mathf.Max(.005f, box.size.x * .5f), y = delta.y / Mathf.Max(.005f, box.size.y * .5f);
+            return x * x + y * y <= 1 && Mathf.Abs(delta.y) <= box.laneTolerance;
+        }
+        Collider2D[] Candidates(AttackHitboxData box)
+        {
+            if (!box.groundArea) return Physics2D.OverlapBoxAll(Center(box), box.size, 0, hurtboxLayers);
+            // Airborne colliders follow sprite height. Select by motor ground coordinates instead,
+            // then pass through precisely the same defense, damage and deduplication path below.
+            var colliders = new List<Collider2D>();
+            foreach (var hurtbox in FindObjectsByType<CombatHurtbox>(FindObjectsSortMode.None))
+            {
+                if (!hurtbox.isActiveAndEnabled || !hurtbox.motor || !InGroundArea(box, Center(box), hurtbox.motor.transform.position)) continue;
+                var collider = hurtbox.GetComponent<Collider2D>();
+                if (collider && collider.enabled && (hurtboxLayers.value & (1 << collider.gameObject.layer)) != 0) colliders.Add(collider);
+            }
+            return colliders.ToArray();
+        }
         public void Sample()
         {
             if (CombatClock.IsPaused || current == null || !motor) return;
@@ -27,7 +47,7 @@ namespace BeatEmUp
             {
                 if (box == null) continue;
                 if (!victims.TryGetValue(box.hitId, out var history)) { history = new Dictionary<CharacterHealth, int>(); victims.Add(box.hitId, history); }
-                foreach (var collider in Physics2D.OverlapBoxAll(Center(box), box.size, 0, hurtboxLayers))
+                foreach (var collider in Candidates(box))
                 {
                     var prop = collider.GetComponentInParent<DestructibleObject>();
                     if (prop && team == 0)
@@ -35,6 +55,8 @@ namespace BeatEmUp
                         if (!props.TryGetValue(box.hitId, out var propHistory)) { propHistory = new Dictionary<DestructibleObject, int>(); props.Add(box.hitId, propHistory); }
                         if (propHistory.TryGetValue(prop, out int lastProp) && (box.repeatAfterFrames == 0 || frameNumber - lastProp < box.repeatAfterFrames)) continue;
                         var propHit = motor.GetComponent<RunBuildState>()?.ModifyHit(box, null) ?? box;
+                        var meta=motor.GetComponent<MetaProgress>();
+                        if(meta) { propHit=propHit.RuntimeCopy(); propHit.damage*=meta.DamageMultiplier(owner && owner.CurrentAttack==motor.GetComponent<PlayerSkillController>()?.equippedSkill?.cast); }
                         if (prop.Receive(propHit, facing, motor))
                         {
                             propHistory[prop] = frameNumber;
@@ -64,7 +86,19 @@ namespace BeatEmUp
         {
             if (!debugDraw || current == null || !motor) return;
             Gizmos.color = Color.yellow;
-            foreach (var box in current.hitboxes) if (box != null) Gizmos.DrawWireCube(Center(box), box.size);
+            var boxes = current.hitboxes;
+            if (owner && owner.CurrentAttack && owner.CurrentAttack.feedback != null && owner.CurrentAttack.feedback.areaWarning && boxes.Count == 0 && owner.CurrentFrame < owner.CurrentAttack.FirstActiveFrame)
+            { boxes = owner.CurrentAttack.frames[owner.CurrentAttack.FirstActiveFrame].hitboxes; Gizmos.color = new Color(1, .4f, 0); }
+            foreach (var box in boxes) if (box != null)
+            {
+                if (!box.groundArea) { Gizmos.DrawWireCube(Center(box), box.size); continue; }
+                var center = Center(box);
+                for (int i = 0; i < 48; i++)
+                {
+                    float a = i * Mathf.PI / 24, b = (i + 1) * Mathf.PI / 24;
+                    Gizmos.DrawLine(center + new Vector2(Mathf.Cos(a) * box.size.x / 2, Mathf.Sin(a) * box.size.y / 2), center + new Vector2(Mathf.Cos(b) * box.size.x / 2, Mathf.Sin(b) * box.size.y / 2));
+                }
+            }
         }
     }
 }

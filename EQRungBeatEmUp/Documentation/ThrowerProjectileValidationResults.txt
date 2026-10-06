@@ -1,0 +1,36 @@
+PASS: Existing 40-frame throw drawings retained; fake melee hitboxes removed
+PASS: One release event on extended-arm drawing at frame 18
+PASS: AI begins ranged windup at useful range, facing 1
+PASS: No projectile during 18-frame anticipation
+PASS: Release aims toward player X and walking lane
+PASS: Shot appears at authored hand offset on release frame
+PASS: Projectile movement begins on next logical combat tick
+PASS: Notebook causes existing damage and player hit reaction
+PASS: Hit consumes projectile once and applies existing hitstop
+PASS: No repeated collision damage or per-frame throwing
+PASS: Authored throw cooldown remains active
+PASS: Thrower throws again after cooldown
+PASS: AI begins ranged windup at useful range, facing -1
+PASS: No projectile during 18-frame anticipation
+PASS: Release aims toward player X and walking lane
+PASS: Shot appears at authored hand offset on release frame
+PASS: Projectile movement begins on next logical combat tick
+PASS: Notebook causes existing damage and player hit reaction
+PASS: Hit consumes projectile once and applies existing hitstop
+PASS: No repeated collision damage or per-frame throwing
+PASS: Authored throw cooldown remains active
+PASS: Thrower throws again after cooldown
+PASS: Beyond maximum range, Thrower approaches rather than throws
+PASS: Thrower aligns walking lane before attack
+PASS: Thrower backs away from point-blank range
+PASS: Interrupted windup cannot release a delayed projectile
+PASS: Paused combat does not advance release event
+PASS: Missed notebook despawns after combat-frame lifetime
+PASS: Swept collision stops notebook at solid wall
+PASS: Projectile uses existing guard instead of bypassing defense
+PASS: BloodSheetCorridor loads taller v2 art while preserving original world seam
+PASS: Background width and floor layout remain unchanged
+PASS: Entering authored corridor encounter spawns a functioning ranged Thrower
+PASS: Real BloodSheetCorridor Thrower projectile hits assigned stage player
+PASS: Stage room owns projectile independently of Thrower
+PASS: Stage replacement disables old room and its projectiles

@@ -1,0 +1,69 @@
+PASS: Live preview refresh preserves selected stage
+PASS: Edit preview contains only render copies without combat or colliders
+PASS: Preview / clear does not alter authored level data
+PASS: Entrance Gate authors two independent zones with requested Rusher / Thrower counts
+PASS: Runtime has no spawn / stage error
+PASS: Traversal starts unlocked with no encounter enemies
+PASS: Runtime has no spawn / stage error
+PASS: Exit cannot bypass untriggered required encounters
+PASS: Runtime has no spawn / stage error
+PASS: A entry activates camera lock and spawns two Rushers
+PASS: A locks player progression to its combat area
+PASS: Running cannot pass the active right barrier
+PASS: Running cannot pass the active left barrier
+PASS: Existing safe-zone camera keeps horizontal viewport inside encounter bounds (X -3.1, half 3.3, rect (x:0.04, y:0.00, width:0.93, height:1.00), aspect 1.65, screen 851x479)
+PASS: Runtime has no spawn / stage error
+PASS: Clearing A restores traversal while B still gates stage exit
+PASS: Runtime has no spawn / stage error
+PASS: B independently locks and spawns two Rushers plus one Thrower
+PASS: Runtime has no spawn / stage error
+PASS: Clearing B releases camera / progression and unlocks exit
+PASS: Runtime has no spawn / stage error
+PASS: One-shot encounter does not respawn on revisiting its trigger
+PASS: Runtime has no spawn / stage error
+PASS: Player reaches exit and advances after both encounters clear
+PASS: Runtime has no spawn / stage error
+PASS: Runtime has no spawn / stage error
+PASS: Camera stays locked while next wave awaits previous-clear delay
+PASS: Runtime has no spawn / stage error
+PASS: Clear-based wave respects one-second delay
+PASS: Runtime has no spawn / stage error
+PASS: Enemy spawn delay applies after wave start
+PASS: Runtime has no spawn / stage error
+PASS: Delayed wave spawns first enemy after group delay
+PASS: Runtime has no spawn / stage error
+PASS: Queued second enemy prevents encounter from clearing
+PASS: Runtime has no spawn / stage error
+PASS: Per-enemy interval spawns queued second enemy
+PASS: Runtime has no spawn / stage error
+PASS: Final wave death releases arena
+PASS: Runtime has no spawn / stage error
+PASS: Simulation skips A and starts B directly using real runtime
+PASS: Runtime has no spawn / stage error
+PASS: Runtime has no spawn / stage error
+PASS: Simple Spawn Trigger spawns enemies without camera / progression / exit lock
+PASS: Runtime has no spawn / stage error
+PASS: Runtime has no spawn / stage error
+PASS: Runtime has no spawn / stage error
+PASS: Runtime has no spawn / stage error
+PASS: Repeatable encounter re-arms only after players leave its trigger
+PASS: Runtime has no spawn / stage error
+PASS: Runtime has no spawn / stage error
+PASS: Completed repeatable encounter does not permanently gate stage exit when re-armed
+PASS: Runtime has no spawn / stage error
+PASS: Runtime has no spawn / stage error
+PASS: Manual clear condition retains arena after enemies die
+PASS: Runtime has no spawn / stage error
+PASS: Explicit clear signal releases manual encounter after all waves clear
+PASS: Runtime has no spawn / stage error
+PASS: Right-only exit lock preserves left traversal bound
+PASS: Runtime has no spawn / stage error
+PASS: Runtime has no spawn / stage error
+PASS: Left-only exit lock preserves right traversal bound
+PASS: Runtime has no spawn / stage error
+PASS: Runtime has no spawn / stage error
+PASS: Crossing entire trigger between ticks still activates encounter
+PASS: Runtime has no spawn / stage error
+PASS: Runtime has no spawn / stage error
+PASS: Second local player activates encounter and both players stay in arena
+PASS: All combat encounter zone checks completed

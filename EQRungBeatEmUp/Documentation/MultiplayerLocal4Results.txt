@@ -1,0 +1,88 @@
+PASS: Local joined players all ready
+PASS: Independent player instances: 4
+PASS: Independent combat controllers
+PASS: Independent run builds
+PASS: Independent landed-hit trackers
+PASS: P2 private action copy reads only its paired gamepad
+PASS: Paired P2 gamepad moves P2
+PASS: P2 gamepad does not move P1
+PASS: One shared camera tracks all couch players
+PASS: Authority entered stage 0
+PASS: Safe stage protects every player
+PASS: Stage encounters resolve once: 0
+PASS: Authoritative stage exit advances: 0
+PASS: Authority entered stage 1
+PASS: Stage encounters resolve once: 1
+PASS: One authoritative co-op chapel
+PASS: P1 opens independent reward
+PASS: P2 opens independent reward
+PASS: P3 opens independent reward
+PASS: P4 opens independent reward
+PASS: Host validates upgrade selection
+PASS: Exit waits for other players' rewards
+PASS: Independent upgrades are retained
+PASS: Authoritative stage exit advances: 1
+PASS: Authority entered stage 2
+PASS: Authoritative Thrower projectile damages a player
+PASS: Stage encounters resolve once: 2
+PASS: One authoritative co-op chapel
+PASS: P1 opens independent reward
+PASS: P2 opens independent reward
+PASS: P3 opens independent reward
+PASS: P4 opens independent reward
+PASS: Host validates upgrade selection
+PASS: Exit waits for other players' rewards
+PASS: Independent upgrades are retained
+PASS: Authoritative stage exit advances: 2
+PASS: Authority entered stage 3
+PASS: Authoritative Thrower projectile damages a player
+PASS: Stage encounters resolve once: 3
+PASS: One authoritative co-op chapel
+PASS: P1 opens independent reward
+PASS: P2 opens independent reward
+PASS: P3 opens independent reward
+PASS: P4 opens independent reward
+PASS: Host validates upgrade selection
+PASS: Exit waits for other players' rewards
+PASS: Independent upgrades are retained
+PASS: Authoritative stage exit advances: 3
+PASS: Authority entered stage 4
+PASS: Stage encounters resolve once: 4
+PASS: One authoritative co-op chapel
+PASS: P1 opens independent reward
+PASS: P2 opens independent reward
+PASS: P3 opens independent reward
+PASS: P4 opens independent reward
+PASS: Host validates upgrade selection
+PASS: Exit waits for other players' rewards
+PASS: Independent upgrades are retained
+PASS: Authoritative stage exit advances: 4
+PASS: Authority entered stage 5
+PASS: Authoritative Thrower projectile damages a player
+PASS: Stage encounters resolve once: 5
+PASS: One authoritative co-op chapel
+PASS: P1 opens independent reward
+PASS: P2 opens independent reward
+PASS: P3 opens independent reward
+PASS: P4 opens independent reward
+PASS: Host validates upgrade selection
+PASS: Exit waits for other players' rewards
+PASS: Independent upgrades are retained
+PASS: Authoritative stage exit advances: 5
+PASS: Authority entered stage 6
+PASS: Safe stage protects every player
+PASS: Stage encounters resolve once: 6
+PASS: Authoritative stage exit advances: 6
+PASS: Authority entered stage 7
+PASS: Boss rejects damage while cursed totems remain
+PASS: Authoritative totem destruction opens boss vulnerability
+PASS: Stage encounters resolve once: 7
+PASS: Authoritative stage exit advances: 7
+PASS: Authority entered stage 8
+PASS: Stage encounters resolve once: 8
+PASS: Authoritative stage exit advances: 8
+PASS: Full hub-to-exit run completes
+PASS: One defeated player does not end the party run
+MULTIPLAYER SMOKE PASSED (4 players)
+PASS: All defeated players produce party Game Over
+PASS: Host retry restores every player and restarts at hub

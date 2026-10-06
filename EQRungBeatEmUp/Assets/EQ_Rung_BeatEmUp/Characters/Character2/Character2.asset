@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944aefd73074fd94abde5b7c6c89ea09, type: 3}
+  m_Name: Character2
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.PlayableCharacterData
+  characterId: gray-shirt
+  displayName: GrayShirtGuy
+  sortOrder: 1
+  prefab: {fileID: 4994252911329430528, guid: 835631e21f6777d4b91bf0137b1f5700, type: 3}
+  portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+  idlePose: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+  locomotion: {fileID: 9100000, guid: 7f69077abc4cd604585c4751a0522503, type: 2}
+  groundCombo:
+  - {fileID: 11400000, guid: 6e9ae9f70cb2046409bcb08caec618ee, type: 2}
+  - {fileID: 11400000, guid: 0bfa516b04863ed4d858f4dce0bd55ba, type: 2}
+  - {fileID: 11400000, guid: 906ef292dc163d84fa3a1ce1f4d14622, type: 2}
+  airCombo:
+  - {fileID: 11400000, guid: de9870f767ade1146becff60ee9de6c8, type: 2}
+  - {fileID: 11400000, guid: b0f53a312ded60842a48a61b24dcb03d, type: 2}
+  - {fileID: 11400000, guid: ef5e1f05aa42ebd4dbafc7d5c57e0e4e, type: 2}
+  launcher: {fileID: 11400000, guid: 8472a258d656d4940bab87a2ce7acfec, type: 2}
+  airDive: {fileID: 11400000, guid: b96001e03c1fa4b4dbf339cfe3807938, type: 2}
+  defense: {fileID: 11400000, guid: 2b56140b0c48eb94a9bbd7529ab4fcf5, type: 2}
+  skill: {fileID: 11400000, guid: 96ec76ed31a1b9643b5112e1ab39702a, type: 2}

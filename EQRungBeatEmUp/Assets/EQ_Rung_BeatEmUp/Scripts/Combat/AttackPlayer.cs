@@ -20,7 +20,10 @@ namespace BeatEmUp
         public int FrameOrder => 20;
         public event Action<AttackData> Finished;
         public event Action<AttackData> Started;
+        public event Action<AttackData> Interrupted;
+        public event Action<AttackData> Stopped;
         public event Action<string> FrameEvent;
+        public event Action FrameApplied;
         private long startedOnTick = -1;
         private void Awake()
         {
@@ -35,6 +38,8 @@ namespace BeatEmUp
         {
             if (CombatClock.IsPaused || !attack || attack.frames.Count == 0 || attack.frames[0] == null || IsFrozen) return false;
             if (attack.requiresAirborne && motor.IsGrounded) return false;
+            var enemy = GetComponent<EnemyHitReaction>();
+            if (enemy && (enemy.IsStunState || enemy.health && enemy.health.IsDead)) return false;
             var player = GetComponent<ComboController>();
             if (player && (player.IsDefenseState || (player.health && player.health.IsDead))) return false;
             Stop(); CurrentAttack = attack; CurrentFrame = 0; Facing = motor.Facing;
@@ -42,18 +47,26 @@ namespace BeatEmUp
             hitbox.Begin(attack); animationDriver.SetAttackOverride(true);
             player?.Build?.AttackStarted(attack);
             // Attach only for configured attacks; existing scene/prefab actors need no rebuild.
-            if (attack.feedback != null && (attack.feedback.swingSound || attack.feedback.impactSound || attack.feedback.impactPrefab)
+            if (attack.feedback != null && (attack.feedback.areaWarning || attack.feedback.directionalWaveWarning || attack.feedback.telegraphSound || attack.feedback.screamSound || attack.feedback.swingSound || attack.feedback.impactSound || attack.feedback.impactPrefab)
                 && !GetComponent<AttackFeedback>()) gameObject.AddComponent<AttackFeedback>();
             Started?.Invoke(attack);
             ApplyFrame(); return true;
         }
         public void Stop()
         {
+            var interrupted = CurrentAttack;
+            StopTimeline();
+            if (interrupted) Interrupted?.Invoke(interrupted);
+        }
+        private void StopTimeline()
+        {
+            var stopped = CurrentAttack;
             GetComponent<RunBuildState>()?.AttackStopped();
             CurrentAttack = null; CurrentFrame = -1;
             if (hitbox) hitbox.End();
             if (motor) { motor.FrameGravityScale = 1; motor.SuspendFalling = false; motor.AttackHorizontalVelocity = 0; motor.AirAttackControl = false; }
             if (animationDriver) animationDriver.SetAttackOverride(false);
+            if (stopped) Stopped?.Invoke(stopped);
         }
         public void Freeze(int frames)
         {
@@ -89,15 +102,25 @@ namespace BeatEmUp
             CurrentFrame += increment;
             if (CurrentFrame >= CurrentAttack.frames.Count)
             {
-                var finished = CurrentAttack; Stop(); Finished?.Invoke(finished); return;
+                var finished = CurrentAttack; StopTimeline(); Finished?.Invoke(finished); return;
             }
             ApplyFrame();
         }
         public bool BeginLanding()
         {
             if (!CurrentAttack || !motor.IsGrounded || CurrentAttack.landingFrame < 0 || CurrentAttack.landingFrame >= CurrentAttack.frames.Count) return false;
-            CurrentFrame = CurrentAttack.landingFrame; startedOnTick = CombatClock.IsStepping ? CombatClock.CurrentTick : -1;
-            motor.StopGroundedMotion(); ApplyFrame(); return true;
+            return SeekFrame(CurrentAttack.landingFrame, true);
+        }
+        public void CommitFacing(int direction)
+        {
+            Facing=direction<0 ? -1 : 1; motor.Face(Facing);
+            if(Frame!=null) hitbox.SetFrame(Frame,CurrentFrame,Facing);
+        }
+        public bool SeekFrame(int index, bool stopGroundedMotion=false)
+        {
+            if(!CurrentAttack || index<0 || index>=CurrentAttack.TotalFrames) return false;
+            CurrentFrame=index; startedOnTick=CombatClock.IsStepping ? CombatClock.CurrentTick : -1;
+            if(stopGroundedMotion) motor.StopGroundedMotion(); ApplyFrame(); return true;
         }
         private void ApplyFrame()
         {
@@ -109,6 +132,7 @@ namespace BeatEmUp
             if (frame.setVerticalVelocity) motor.SetVerticalVelocity(frame.verticalVelocity);
             if (frame.verticalVelocityModifier != 0) motor.SetVerticalVelocity(motor.VerticalVelocity + frame.verticalVelocityModifier);
             motor.FrameGravityScale = frame.gravityScale; motor.SuspendFalling = frame.suspendFalling;
+            FrameApplied?.Invoke();
             hitbox.SetFrame(frame, CurrentFrame, Facing);
             hitbox.Sample();
             foreach (string signal in frame.events) FrameEvent?.Invoke(signal);

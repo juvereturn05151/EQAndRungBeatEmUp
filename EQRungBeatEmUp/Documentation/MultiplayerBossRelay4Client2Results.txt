@@ -1,0 +1,29 @@
+PASS: MainMenu created a session
+PASS: Host published a Relay code
+PASS: Relay join request finished
+PASS: Client entered network lobby
+PASS: Host accepted owned character selection
+PASS: Client received world snapshot
+PASS: Client has no authoritative boss AI
+PASS: Client snapshot preserves selected character identity
+PASS: Client sees missed radial wave without vulnerability
+PASS: Snapshot includes explicit warp version
+PASS: Short warp snaps instead of interpolating
+PASS: Client sees full 420-frame window and cosmetic ring
+PASS: Client receives phase two and host HP
+PASS: Client sees penultimate vulnerability frame
+PASS: Client sees restored shield and wave cleanup
+PASS: Client receives boss death and cleans up waves
+PASS: Client receives unlocked exit and camera
+PASS: Observed BossWaveMiss
+PASS: Observed BossWaveHit
+PASS: Observed BossPhase2
+PASS: Observed BossWindowLastFrame
+PASS: Observed BossProtectedAgain
+PASS: Observed BossDead
+PASS: Client reconstructs original guardian from reliable feedback cue
+PASS: Client reconstructs radial spirit blast from reliable feedback cue
+PASS: Client changes character twice in Hub and receives saved identity
+PASS: Client receives purchased permanent health and updated maximum
+PASS: Client persists its own host-approved upgrade to disk
+BOSS NETWORK PASSED / RELAY

@@ -44,6 +44,7 @@ namespace BeatEmUp
         private Vector2 recoil;
         public void ResetForStage(Vector2 position)
         {
+            GetComponent<ComboTracker>()?.ResetTracking();
             if (attackPlayer) attackPlayer.Stop();
             Height = VerticalVelocity = airControlUsed = 0; recoil = MoveInput = DefenseVelocity = Vector2.zero;
             AttackHorizontalVelocity = GravityOverride = 0; FrameGravityScale = 1;
@@ -55,6 +56,14 @@ namespace BeatEmUp
         {
             if (Mathf.Abs(direction) > .01f) Facing = direction < 0 ? -1 : 1;
             if (sprite) sprite.flipX = Facing < 0;
+        }
+        // Capture alignment without the stage-reset side effects on combo statistics.
+        public void SnapGrabToGround(Vector2 position)
+        {
+            Height=VerticalVelocity=airControlUsed=0; recoil=DefenseVelocity=Vector2.zero;
+            AttackHorizontalVelocity=GravityOverride=0; FrameGravityScale=1; AirAttackControl=SuspendFalling=false;
+            transform.position=new Vector3(position.x,position.y,0);
+            if(visual) visual.localPosition=Vector3.zero;
         }
         public bool Jump()
         {
@@ -98,6 +107,12 @@ namespace BeatEmUp
             VerticalVelocity = velocity;
             if (velocity > 0) Height = Mathf.Max(.001f, Height);
         }
+        // Authored arcs keep air height separate from walking-lane position.
+        public void SetAuthoredHeight(float height)
+        {
+            Height = Mathf.Max(0, height); VerticalVelocity = 0;
+            if (visual) visual.localPosition = new Vector3(0, Height, 0);
+        }
         public void Simulate(float dt)
         {
             Vector2 movement = MovementLocked ? Vector2.zero : Vector2.ClampMagnitude(MoveInput, 1);
@@ -129,7 +144,14 @@ namespace BeatEmUp
             if (visual) visual.localPosition = new Vector3(0, Height, 0);
             if (sprite) sprite.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100);
         }
-        private Vector3 ResolveWalls(Vector3 origin, Vector3 destination, bool reportContact)
+        public Vector2 ProbeGroundMove(Vector2 displacement)
+        {
+            var destination=(Vector2)transform.position+displacement;
+            destination=new Vector2(Mathf.Clamp(destination.x,arenaMin.x,arenaMax.x),Mathf.Clamp(destination.y,arenaMin.y,arenaMax.y));
+            return (Vector2)ResolveWalls(transform.position,destination,false,true)-(Vector2)transform.position;
+        }
+        public void AddGroundKnockback(Vector2 velocity) { recoil=velocity; }
+        private Vector3 ResolveWalls(Vector3 origin, Vector3 destination, bool reportContact,bool probe=false)
         {
             Vector2 delta = destination - origin;
             if (delta.sqrMagnitude < .0000001f) return destination;
@@ -152,7 +174,7 @@ namespace BeatEmUp
             destination = origin + (Vector3)(delta / distance * Mathf.Max(0, nearest.distance - .001f));
             if (Mathf.Abs(nearest.normal.x) > .5f)
             {
-                recoil.x = 0;
+                if(!probe)recoil.x = 0;
                 if (reportContact) WallContact?.Invoke(wall, nearest.normal, incoming);
             }
             return destination;

@@ -11,6 +11,7 @@ namespace BeatEmUp
         public Sprite intactSprite, damagedSprite, brokenSprite;
         [Min(1)] public float maximumHealth = 25;
         public PropKind kind;
+        [Min(0)] public float totemBreakRadius;
         public GameObject dropPrefab;
         public UnityEvent onBroken = new UnityEvent();
         public float Current { get; private set; }
@@ -21,7 +22,7 @@ namespace BeatEmUp
         private void Awake() { Current = maximumHealth; if (visual) rest = visual.transform.localPosition; }
         public void Configure(DestructiblePlacement placement)
         {
-            maximumHealth = Mathf.Max(1, placement.health); Current = maximumHealth; kind = placement.kind;
+            maximumHealth = Mathf.Max(1, placement.health); Current = maximumHealth; kind = placement.kind; totemBreakRadius = placement.totemBreakRadius;
             intactSprite = placement.intactSprite ? placement.intactSprite : intactSprite;
             damagedSprite = placement.damagedSprite ? placement.damagedSprite : damagedSprite;
             brokenSprite = placement.brokenSprite ? placement.brokenSprite : brokenSprite;
@@ -46,6 +47,17 @@ namespace BeatEmUp
             }
             else if (visual && damagedSprite) visual.sprite = damagedSprite;
             return true;
+        }
+        public void Respawn(float hp)
+        {
+            maximumHealth = Mathf.Max(1, hp); Current = maximumHealth; shake = 0;
+            GetComponent<BoxCollider2D>().enabled = true;
+            if (visual) { visual.transform.localPosition = rest; visual.sprite = intactSprite; visual.enabled = true; }
+        }
+        public void SetMaximumHealth(float hp)
+        {
+            float fraction = Current / Mathf.Max(1, maximumHealth);
+            maximumHealth = Mathf.Max(1, hp); Current = maximumHealth * fraction;
         }
         private void Update()
         {

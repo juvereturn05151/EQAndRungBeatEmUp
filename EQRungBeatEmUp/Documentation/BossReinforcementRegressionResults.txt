@@ -1,0 +1,106 @@
+PASS: Real encounter fixture starts without spawn errors
+PASS: Frame-data backup call begins
+PASS: 24-frame telegraph stays stationary and cannot summon early
+PASS: Existing call / authority sprites play during startup
+PASS: CallBackup24 spawns exactly2 tracked Rushers
+PASS: Backup uses only existing typed Rusher prefab / normal AI
+PASS: Backup does not spawn inside player or Prefect
+PASS: Spawned motors inherit same room bounds
+PASS: Backup recovery retained through41
+PASS: Single cast cannot replay backup event
+PASS: Prefect death does not clear encounter while backup lives
+PASS: Defeated backup completes original wave / encounter without stuck tracking
+PASS: Real encounter fixture starts without spawn errors
+PASS: Frame-data backup call begins
+PASS: Interrupt before spawn leaves no delayed summons, frame 0
+PASS: Real encounter fixture starts without spawn errors
+PASS: Frame-data backup call begins
+PASS: Interrupt before spawn leaves no delayed summons, frame 12
+PASS: Real encounter fixture starts without spawn errors
+PASS: Frame-data backup call begins
+PASS: Interrupt before spawn leaves no delayed summons, frame 23
+PASS: Real encounter fixture starts without spawn errors
+PASS: Frame-data backup call begins
+PASS: Misconfigured non-Rusher prefab is rejected by authoritative spawn API
+PASS: Real encounter fixture starts without spawn errors
+PASS: Frame-data backup call begins
+PASS: Blocked authored spawn point skipped for valid entrance/perimeter points
+PASS: Real encounter fixture starts without spawn errors
+PASS: Frame-data backup call begins
+PASS: Global combat pause cannot activate summon event
+PASS: Real encounter fixture starts without spawn errors
+PASS: Frame-data backup call begins
+PASS: Backup obeys active combat-zone bounds and tracking
+PASS: Real encounter fixture starts without spawn errors
+PASS: Frame-data backup call begins
+PASS: One remaining encounter slot spawns only one Rusher
+PASS: Real encounter fixture starts without spawn errors
+PASS: Full encounter prevents AI backup eligibility
+PASS: Frame-data backup call begins
+PASS: Full encounter rejects even an externally started backup cast
+PASS: Real encounter fixture starts without spawn errors
+PASS: Frame-data backup call begins
+PASS: Simultaneous Prefects share atomic encounter cap
+PASS: Real encounter fixture starts without spawn errors
+PASS: Frame-data backup call begins
+PASS: Room-wide cap also restricts backup below encounter cap
+PASS: Real encounter fixture starts without spawn errors
+PASS: Authored wave spawning uses same active cap
+PASS: Pending authored wave waits for slot and resumes after a death
+PASS: Real encounter fixture starts without spawn errors
+PASS: Defensive push begins facing 1
+PASS: Push has six readable startup frames without damage
+PASS: Push6 applies low4 damage / normal hitstun / strong outward recoil
+PASS: Active frames share one accepted hit and move victim away
+PASS: Push finishes its punishable recovery
+PASS: Short hitstun returns control without knockdown
+PASS: Real encounter fixture starts without spawn errors
+PASS: Defensive push begins facing -1
+PASS: Push has six readable startup frames without damage
+PASS: Push6 applies low4 damage / normal hitstun / strong outward recoil
+PASS: Active frames share one accepted hit and move victim away
+PASS: Push finishes its punishable recovery
+PASS: Short hitstun returns control without knockdown
+PASS: Real encounter fixture starts without spawn errors
+PASS: Outward recoil includes valid XY depth component
+PASS: Real encounter fixture starts without spawn errors
+PASS: Push only threatens local forward box/lane at (-1.00, 0.00)
+PASS: Real encounter fixture starts without spawn errors
+PASS: Push only threatens local forward box/lane at (0.70, 0.90)
+PASS: Real encounter fixture starts without spawn errors
+PASS: Push only threatens local forward box/lane at (2.00, 0.00)
+PASS: Real encounter fixture starts without spawn errors
+PASS: Push does not globally affect another player outside its box
+PASS: Real encounter fixture starts without spawn errors
+PASS: Normal guard/parry defense path handles defensive push
+PASS: Real encounter fixture starts without spawn errors
+PASS: Prefect retreats diagonally away from nearby threat
+PASS: Retreat reaches preferred distance
+PASS: Prefect stops fleeing once preferred distance is reached
+PASS: Real encounter fixture starts without spawn errors
+PASS: Blocked ideal escape at boundary selects a lane/tangent alternative
+PASS: Retreat stays inside motor/room bounds
+PASS: Real encounter fixture starts without spawn errors
+PASS: Solid wall makes retreat probe choose another increasing-distance direction
+PASS: Real encounter fixture starts without spawn errors
+PASS: Close threat in another lane retreats instead of entering an ineligible push state
+PASS: Real encounter fixture starts without spawn errors
+PASS: Safe distance / free slots trigger AI backup telegraph
+PASS: Interrupted call consumes8-second cooldown
+PASS: AI interruption never spawns pending backup later
+PASS: Real encounter fixture starts without spawn errors
+PASS: Emergency player proximity prioritizes push over long call
+PASS: AI push recovery completes
+PASS: Push consumes2-second cooldown independently of backup
+PASS: After push Prefect creates distance rather than immediate shove spam
+PASS: Real encounter fixture starts without spawn errors
+PASS: AI call reaches frame24
+PASS: AI call recovery ends
+PASS: Successful call receives8-second cooldown
+PASS: Backup cooldown prevents repeated calls
+PASS: Editable Prefect AI states/transitions/choices validate
+PASS: Call/push assets present in multiplayer catalog
+PASS: Real encounter fixture starts without spawn errors
+PASS: Frame-data backup call begins
+PASS: Real encounter fixture starts without spawn errors
+NOTE: Separate online peers were not launched. StageFlow authority guard, enemy/sprite catalog and existing spawn snapshots inspected.

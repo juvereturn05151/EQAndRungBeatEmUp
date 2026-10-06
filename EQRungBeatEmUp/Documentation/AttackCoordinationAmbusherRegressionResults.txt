@@ -1,0 +1,132 @@
+PASS: Frame-data leap begins
+PASS: Crouch telegraph stays stationary / grounded without early capture
+PASS: Target player / XY destination locks near end at17
+PASS: Takeoff20 enters separate airborne height before opening grab
+PASS: Authored midpoint reaches1.6 height and half locked XY travel
+PASS: No capture before descending frame45
+PASS: Final leap grab opens45 with height/lane limit
+PASS: Miss reaches original target without homing and returns to floor49
+PASS: Landing50 disables grab and starts miss recovery
+PASS: All30 miss recovery frames retained
+PASS: Miss timeline completes80
+PASS: Frame-data leap begins
+PASS: Crouch telegraph stays stationary / grounded without early capture
+PASS: Target player / XY destination locks near end at17
+PASS: Takeoff20 enters separate airborne height before opening grab
+PASS: Authored midpoint reaches1.6 height and half locked XY travel
+PASS: No capture before descending frame45
+PASS: Final leap grab opens45 with height/lane limit
+PASS: Miss reaches original target without homing and returns to floor49
+PASS: Landing50 disables grab and starts miss recovery
+PASS: All30 miss recovery frames retained
+PASS: Miss timeline completes80
+PASS: Frame-data leap begins
+PASS: Pure depth leap does not confuse depth with air height
+PASS: Frame-data leap begins
+PASS: Early telegraph tracks changed target before commit
+PASS: Frame-data leap begins
+PASS: Sidestep after commit escapes traveling grab lane
+PASS: Frame-data leap begins
+PASS: Dodge starts before existing4-frame invulnerability startup
+PASS: Existing dodge immunity avoids descending grab
+PASS: Frame-data leap begins
+PASS: Ordinary hit interrupts telegraph without Grappler armor
+PASS: Frame-data leap begins
+PASS: Air interruption restores normal falling / recovery safely
+PASS: Frame-data leap begins
+PASS: Hitstop freezes both ground travel and arc height
+PASS: Frame-data leap begins
+PASS: Solid CombatWall stops leap, lands actor and starts miss recovery
+PASS: Frame-data leap begins
+PASS: Distance cap prevents unbounded leap travel
+PASS: Frame-data leap begins
+PASS: Speed limits travel distance over authored duration
+PASS: Frame-data leap begins
+PASS: Final airborne approach captures player
+PASS: Capture stops leap, lands owner and reuses bilateral Grabbed ownership
+PASS: GrabAnchor mirrors correctly facing 1
+PASS: Existing Grabbed state blocks all gameplay actions
+PASS: Other player continues combat independently
+PASS: Hold and windup do not apply early damage
+PASS: Impact6 applies first separate8 damage and preserves attachment
+PASS: Impact VFX/SFX cue /2-frame hitstop /held hurt pose occur together
+PASS: Second authored impact loop executes
+PASS: Second hit does not release held player
+PASS: Third authored impact loop executes
+PASS: Default3 face strikes total24 damage with3 feedback cues
+PASS: Final sequence releases player
+PASS: Release18 transitions into existing KnockDown
+PASS: Knockdown / get-up returns normal controls
+PASS: Frame-data leap begins
+PASS: Final airborne approach captures player
+PASS: Capture stops leap, lands owner and reuses bilateral Grabbed ownership
+PASS: GrabAnchor mirrors correctly facing -1
+PASS: Existing Grabbed state blocks all gameplay actions
+PASS: Other player continues combat independently
+PASS: Hold and windup do not apply early damage
+PASS: Impact6 applies first separate8 damage and preserves attachment
+PASS: Impact VFX/SFX cue /2-frame hitstop /held hurt pose occur together
+PASS: Second authored impact loop executes
+PASS: Second hit does not release held player
+PASS: Third authored impact loop executes
+PASS: Default3 face strikes total24 damage with3 feedback cues
+PASS: Final sequence releases player
+PASS: Release18 transitions into existing KnockDown
+PASS: Knockdown / get-up returns normal controls
+PASS: Frame-data leap begins
+PASS: Configurable count fixture captures
+PASS: Configured strike count completes
+PASS: Configurable face attack count 1 produces exact damage
+PASS: Frame-data leap begins
+PASS: Configurable count fixture captures
+PASS: Configured strike count completes
+PASS: Configurable face attack count 4 produces exact damage
+PASS: Frame-data leap begins
+PASS: Cleanup fixture captures
+PASS: Hit interrupt / enemy death / disable / restore / lethal strike releases links, case 0
+PASS: Frame-data leap begins
+PASS: Cleanup fixture captures
+PASS: Hit interrupt / enemy death / disable / restore / lethal strike releases links, case 1
+PASS: Frame-data leap begins
+PASS: Cleanup fixture captures
+PASS: Hit interrupt / enemy death / disable / restore / lethal strike releases links, case 2
+PASS: Frame-data leap begins
+PASS: Cleanup fixture captures
+PASS: Hit interrupt / enemy death / disable / restore / lethal strike releases links, case 3
+PASS: Frame-data leap begins
+PASS: Cleanup fixture captures
+PASS: Hit interrupt / enemy death / disable / restore / lethal strike releases links, case 4
+PASS: Lethal face strike stops sequence and uses normal Die state
+PASS: Frame-data leap begins
+PASS: Cleanup fixture captures
+PASS: Hit interrupt / enemy death / disable / restore / lethal strike releases links, case 5
+PASS: Lethal face strike stops sequence and uses normal Die state
+PASS: Frame-data leap begins
+PASS: Invalid target rejected, case 0
+PASS: Frame-data leap begins
+PASS: Invalid target rejected, case 1
+PASS: Frame-data leap begins
+PASS: Invalid target rejected, case 2
+PASS: Frame-data leap begins
+PASS: Invalid target rejected, case 3
+PASS: Frame-data leap begins
+PASS: Invalid target rejected, case 4
+PASS: Frame-data leap begins
+PASS: Exclusive owner fixture captures
+PASS: One player cannot be captured by two owners
+PASS: Leap / held-strike assets registered in existing multiplayer catalog
+PASS: AI minimum range excludes point-blank leaps
+PASS: Point-blank Ambusher retreats to preferred leap distance
+PASS: Out-of-range Ambusher approaches normally
+PASS: AI selects medium-distance depth leap
+PASS: AI maintains committed airborne timeline
+PASS: Existing AI does not cancel its authored jump as generic airborne hitstun
+PASS: AI-controlled leap reaches and grabs target
+PASS: AI-controlled face sequence releases player
+PASS: AI success branch completes
+PASS: Success cooldown maps back to original3-second leap choice
+PASS: AI interrupt fixture enters telegraph
+PASS: Interrupted telegraph consumes meaningful leap cooldown
+PASS: Frame-data leap begins
+PASS: Preview capture succeeds
+NOTE: Separate online peers were not launched. Existing snapshot/catalog and per-strike feedback cue integration inspected.

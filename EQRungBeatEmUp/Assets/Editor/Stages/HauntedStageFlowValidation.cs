@@ -80,8 +80,13 @@ public static class HauntedStageFlowValidation
             Check(flow.StageIndex == Entrance + 6 && flow.RemainingTotems == 4 && bossControl.Invulnerable, "TEST8: boss spawns protected by four cursed totems");
             var hit = punch.frames.First(f => f.hitboxes.Count > 0).hitboxes[0]; float bossHealth = boss.Current;
             Check(!bossHurt.Receive(hit, 1, flow.player) && boss.Current == bossHealth && !flow.TryAdvance(), "TEST8: protected boss rejects combat damage and room cannot complete");
+            Step(70); // Exercise a real warp before positioning the contact fixture.
+            // This suite tests stage progression with many individual prop punches; the boss suite checks the exact default 420-frame window.
+            bossControl.data = UnityEngine.Object.Instantiate(bossControl.data); bossControl.data.warpOutFrames = 10000;
+            bossControl.data.vulnerabilityFrames = 10000; bossControl.data.totemMode = BossTotemMode.OneShot; bossControl.BindEncounter(); bossControl.ForceWarp();
+            boss.GetComponent<CharacterMotor>().SnapGrabToGround(flow.Destructibles.First().transform.position);
             foreach (var totem in flow.Destructibles.ToArray()) while (!totem.IsBroken) HitProp(totem);
-            Step(2); Check(flow.RemainingTotems == 0 && !bossControl.Invulnerable && !bossHurt.externalInvulnerable, "TEST8: last totem break opens vulnerable boss phase");
+            Step(2); Check(flow.RemainingTotems == 0 && !bossControl.Invulnerable && !bossHurt.externalInvulnerable, "TEST8: a Totem break wave reaches the boss and opens its vulnerability overlay");
             Check(bossControl.WarpsPerformed > 0, "Boss telegraphs and performs an arena warp during the totem phase");
             Capture("Stage7-Boss"); Defeat(boss); Step(2); Check(flow.ExitUnlocked, "Boss defeat unlocks exit only after required encounter completes"); Leave();
             Check(flow.StageIndex == Entrance + 7 && !flow.LivingEnemies.Any(), "TEST9: boss clear leads to Escape Lane"); Capture("Stage8-Exit"); Leave();

@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace BeatEmUp
 {
-    public sealed class StageFlowController : MonoBehaviour, ICombatFrameListener
+    public sealed partial class StageFlowController : MonoBehaviour, ICombatFrameListener
     {
         public LevelDefinition level;
         public CharacterMotor player;
@@ -18,6 +18,9 @@ namespace BeatEmUp
         public UnityEvent onLevelCompleted = new UnityEvent();
         public RunUpgradeController RunUpgrades => GetComponent<RunUpgradeController>();
         public RewardSelectionController WorldRewards => GetComponent<RewardSelectionController>();
+        public CoopRewards CoopRewards => GetComponent<CoopRewards>();
+        public IEnumerable<CharacterMotor> Players => PlayerRoster.Motors(player);
+        public IEnumerable<CharacterMotor> LivingPlayers => Players.Where(p=>p && p.gameObject.activeInHierarchy && !p.GetComponent<CharacterHealth>().IsDead);
         public int StageIndex { get; private set; } = -1;
         public StageSegmentDefinition CurrentStage => level && StageIndex >= 0 && StageIndex < level.stages.Count ? level.stages[StageIndex] : !Application.isPlaying && level && level.stages.Count > 0 ? level.stages[0] : null;
         public float StageElapsed { get; private set; }
@@ -28,39 +31,46 @@ namespace BeatEmUp
         public IEnumerable<CharacterHealth> StageEnemies => encounters.SelectMany(e => e.waves).SelectMany(w => w.enemies).Where(h => h);
         public IEnumerable<CharacterHealth> LivingEnemies => StageEnemies.Where(h => h.gameObject.activeInHierarchy && !h.IsDead);
         public int RemainingTotems => destructibles.Count(p => p && p.kind == PropKind.CursedTotem && !p.IsBroken);
-        public bool EncountersComplete => encounters.All(e => !e.definition.requiredForCompletion || e.completed);
-        public bool ExitUnlocked => CompletionSatisfied && !(RunUpgrades && RunUpgrades.IsChoosing) && !(WorldRewards && WorldRewards.IsPending);
+        public bool EncountersComplete => encounters.All(e => !e.definition.requiredForCompletion || EncounterSatisfied(e));
+        public string ActiveEncounterName => encounters.FirstOrDefault(e => e.definition.enabled && e.started && !e.completed)?.definition.encounterId;
+        public Rect? ActiveCameraBounds => encounters.FirstOrDefault(e => e.definition.enabled && e.started && !e.completed && e.definition.useCombatBounds && e.definition.lockCamera)?.definition.cameraBounds;
+        private bool HasAuthority => !MultiplayerSession.Active || MultiplayerSession.Active.IsAuthority;
+        public bool ExitUnlocked => CompletionSatisfied && !(RunUpgrades && RunUpgrades.IsChoosing) && !(WorldRewards && WorldRewards.IsPending) && !(CoopRewards && CoopRewards.Pending);
         public bool CompletionSatisfied => CurrentStage != null && !LevelCompleted && string.IsNullOrEmpty(Failure) &&
-            !encounters.Any(e => e.started && !e.completed && e.definition.lockStageUntilClear) &&
-            (CurrentStage.completionMode == StageCompletion.ReachExit ||
+            !encounters.Any(e => e.definition.enabled && e.started && !e.completed && e.definition.lockStageUntilClear) &&
+            (CurrentStage.completionMode == StageCompletion.ReachExit && EncountersComplete ||
              CurrentStage.completionMode == StageCompletion.ClearEncounters && EncountersComplete ||
-             CurrentStage.completionMode == StageCompletion.BossDefeated && EncountersComplete && bossSpawned && !LivingEnemies.Any(h => h.GetComponent<TotemBossController>()) && RemainingTotems == 0 ||
+             CurrentStage.completionMode == StageCompletion.BossDefeated && EncountersComplete && (bossSpawned || BossRequirementSkipped) && !LivingEnemies.Any(h => h.GetComponent<TotemBossController>()) ||
              CurrentStage.completionMode == StageCompletion.Event && stageEventComplete);
         private sealed class Plan { public EnemySpawnDefinition definition; public int spawned; public float due; }
         private sealed class WaveState { public WaveDefinition definition; public bool started, completed, signalled; public float elapsed, clearedAt; public readonly List<Plan> plans = new List<Plan>(); public readonly List<CharacterHealth> enemies = new List<CharacterHealth>(); }
-        private sealed class EncounterState { public EncounterDefinition definition; public bool started, completed, signalled; public float elapsed, eligibleAt = -1; public readonly List<WaveState> waves = new List<WaveState>(); }
+        private sealed class EncounterState { public EnemyAttackCoordinator coordinator; public EncounterDefinition definition; public bool started, completed, signalled, clearSignalled, clearedOnce, simulationSkipped; public float elapsed, eligibleAt = -1; public readonly List<WaveState> waves = new List<WaveState>(); public readonly Dictionary<GameObject, bool> objectOriginals = new Dictionary<GameObject, bool>(); }
         private readonly List<EncounterState> encounters = new List<EncounterState>();
         private readonly List<DestructibleObject> destructibles = new List<DestructibleObject>();
+        private readonly Dictionary<CharacterMotor, Vector2> previousPlayerPositions = new Dictionary<CharacterMotor, Vector2>();
         private GameObject room;
+        public Transform SpawnedAttackRoot => room ? room.transform : transform;
         private bool stageEventComplete, bossSpawned, debugVisible;
         private float transitionFlash;
         private readonly HashSet<string> rewardedStages = new HashSet<string>();
         private bool rewardStarted;
         private string RewardKey => string.IsNullOrEmpty(CurrentStage.stageId) ? StageIndex.ToString() : CurrentStage.stageId;
         private void OnEnable() => CombatClock.Register(this);
-        private void OnDisable() { CombatClock.Unregister(this); if (player) player.GetComponent<CharacterHealth>().SafeStageProtection = false; }
+        private void OnDisable() { CombatClock.Unregister(this); foreach(var encounter in encounters) encounter.coordinator?.Clear(); RestoreActiveEncounterObjects(); foreach(var actor in Players) if(actor) actor.GetComponent<CharacterHealth>().SafeStageProtection = false; }
         private void Start() 
-        { if (level && player) Restart(true); else Failure = "Assign a LevelDefinition and player."; }
+        { if(StageIndex>=0) return; if (level && player) Restart(true); else Failure = "Assign a LevelDefinition and player."; }
         // Stage asset edits during Play update the artwork without restarting encounters.
         private void LateUpdate() 
         {
             if (CurrentStage != null) 
             {
                 ApplyStageArt(CurrentStage);
+                if (Application.isPlaying && HasAuthority) ApplyEncounterLocks();
             } 
         }
         public void EnterStage(int index)
         {
+            if (!HasAuthority) return;
             if (!level || !player || index < 0 || index >= level.stages.Count) 
             { 
                 return;
@@ -72,12 +82,14 @@ namespace BeatEmUp
                 Destroy(room); 
             }
 
-            WorldRewards?.Cancel(); RunUpgrades?.CloseChoice();
+            WorldRewards?.Cancel(); CoopRewards?.Cancel(); RunUpgrades?.CloseChoice();
+            RestoreActiveEncounterObjects();
             StageIndex = index; StageElapsed = 0; LevelCompleted = false; Failure = null;
             stageEventComplete = bossSpawned = false; encounters.Clear(); destructibles.Clear();
             rewardStarted = false;
             RunUpgrades?.Initialize(); RunUpgrades?.Build?.ClearTransient();
             var stage = CurrentStage;
+            if(stage.hub) stage.playerEntryPoint=stage.hub.spawn;
             player.GetComponent<CharacterHealth>().SafeStageProtection = stage.IsSafeStage;
             room = new GameObject("Stage runtime — " + stage.stageName); 
             room.transform.SetParent(transform, false);
@@ -86,9 +98,19 @@ namespace BeatEmUp
             player.Face(1);
             player.arenaMin = stage.movementMin; 
             player.arenaMax = stage.movementMax;
+            foreach(var actor in Players.Where(p=>p!=player))
+            {
+                var identity=actor.GetComponent<PlayerIdentity>();
+                actor.GetComponent<ComboController>()?.ResetCombo();
+                actor.ResetForStage(stage.playerEntryPoint+Vector2.right*(identity ? identity.slot*.35f : .35f));
+                actor.Face(1); actor.arenaMin=stage.movementMin; actor.arenaMax=stage.movementMax;
+                actor.GetComponent<CharacterHealth>().SafeStageProtection=stage.IsSafeStage;
+                actor.GetComponent<RunBuildState>()?.ClearTransient();
+            }
             
             if (framing)
             {
+                framing.SetEncounterBounds(null);
                 framing.floor = null; framing.player = player; framing.bottomLane = stage.movementMin.y; framing.topLane = stage.movementMax.y;
                 framing.SetStageBounds(-stage.artWidth * .5f, stage.artWidth * .5f);
                 framing.transform.position = new Vector3(0, framing.verticalCenter, -10); framing.ApplyFraming(0, true);
@@ -133,7 +155,9 @@ namespace BeatEmUp
             }
             foreach (var e in stage.IsSafeStage ? Enumerable.Empty<EncounterDefinition>() : stage.encounters)
             {
-                var state = new EncounterState { definition = e };
+                var coordinatorObject=new GameObject("Attack coordinator — "+e.encounterId); coordinatorObject.transform.SetParent(room.transform,false);
+                var coordinator=coordinatorObject.AddComponent<EnemyAttackCoordinator>(); coordinator.settings=e.attackCoordination ?? new AttackCoordinationSettings(); coordinator.encounterId=e.encounterId;
+                var state = new EncounterState { definition = e, coordinator=coordinator };
                 foreach (var w in e.waves) 
                 { 
                     state.waves.Add(new WaveState { definition = w }); 
@@ -141,6 +165,7 @@ namespace BeatEmUp
                 encounters.Add(state);
             }
             transitionFlash = .2f;
+            previousPlayerPositions.Clear(); foreach (var actor in Players) previousPlayerPositions[actor] = actor.transform.position;
         }
         public void ApplyStageArt(StageSegmentDefinition stage)
         {
@@ -149,6 +174,9 @@ namespace BeatEmUp
                 return; 
             }
 
+            if(background) background.enabled=!stage.hub;
+            if(floor) floor.enabled=!stage.hub;
+            if(stage.hub) { if(framing) framing.SetStageBounds(-stage.hub.width*.5f,stage.hub.width*.5f); return; }
             ApplyPlate(background, stage.backgroundSprite, stage.artWidth, stage.backgroundHeight, stage.backgroundCenterY, -1000);
             ApplyPlate(floor, stage.floorSprite, stage.artWidth, stage.floorHeight, stage.floorCenterY, -900);
             
@@ -184,35 +212,53 @@ namespace BeatEmUp
         
         public void Tick(float dt)
         {
-            if (CombatClock.IsPaused || CurrentStage == null || LevelCompleted || !player || player.GetComponent<CharacterHealth>().IsDead || !string.IsNullOrEmpty(Failure)) return;
+            if (!HasAuthority || CombatClock.IsPaused || CurrentStage == null || LevelCompleted || !player || !LivingPlayers.Any() || !string.IsNullOrEmpty(Failure)) return;
             if (WorldRewards && WorldRewards.IsPending) return;
+            if (CoopRewards && CoopRewards.Pending) return;
             dt = Mathf.Max(0, dt); StageElapsed += dt;
             for (int i = 0; i < encounters.Count; i++)
             {
-                var e = encounters[i]; if (e.completed) continue;
+                var e = encounters[i];
+                if (!e.definition.enabled) continue;
+                if (e.completed)
+                {
+                    if (!e.simulationSkipped && !e.definition.oneShot && e.definition.trigger == EncounterTrigger.PlayerZone && !LivingPlayers.Any(p => e.definition.triggerZone.Contains(p.transform.position)))
+                    {
+                        e.coordinator?.Clear(); e.started = e.completed = e.signalled = e.clearSignalled = false; e.elapsed = 0; e.eligibleAt = -1;
+                        foreach (var old in e.waves) foreach (var enemy in old.enemies) if (enemy) Destroy(enemy.gameObject);
+                        e.waves.Clear(); foreach (var definition in e.definition.waves) e.waves.Add(new WaveState { definition = definition });
+                    }
+                    continue;
+                }
                 if (!e.started)
                 {
+                    // Combat zones run sequentially; ordinary traversal spawn triggers can overlap.
+                    if (e.definition.useCombatBounds && encounters.Any(other => other != e && other.definition.enabled && other.started && !other.completed && other.definition.useCombatBounds)) continue;
                     int previous = e.definition.requiredPreviousEncounter < 0 ? i - 1 : e.definition.requiredPreviousEncounter;
                     bool eligible = e.definition.trigger == EncounterTrigger.StageEnter || e.definition.trigger == EncounterTrigger.Time ||
                         e.definition.trigger == EncounterTrigger.Manual && e.signalled ||
-                        e.definition.trigger == EncounterTrigger.PlayerZone && e.definition.triggerZone.Contains(player.transform.position) ||
-                        e.definition.trigger == EncounterTrigger.PreviousEncounterClear && previous >= 0 && previous < i && encounters[previous].completed;
+                        e.definition.trigger == EncounterTrigger.PlayerZone && LivingPlayers.Any(p=>ReachedTrigger(p, e.definition.triggerZone)) ||
+                        e.definition.trigger == EncounterTrigger.PreviousEncounterClear && previous >= 0 && previous < i && EncounterDependencySatisfied(encounters[previous]);
                     // Entering a zone latches its event even if the player leaves during its delay.
                     if (!eligible && e.eligibleAt < 0) continue;
                     if (e.eligibleAt < 0) e.eligibleAt = e.definition.trigger == EncounterTrigger.Time || e.definition.trigger == EncounterTrigger.StageEnter ? 0 : StageElapsed;
                     if (StageElapsed - e.eligibleAt + .0001f < e.definition.triggerDelay) continue;
                     e.started = true;
+                    BeginEncounterObjects(e);
+                    ApplyEncounterLocks();
                 }
 
                 e.elapsed += dt;
 
                 for (int w = 0; w < e.waves.Count; w++)
                 {
-                    var wave = e.waves[w]; if (wave.completed) continue;
+                    var wave = e.waves[w]; if (!wave.definition.enabled || wave.completed) continue;
                     if (!wave.started)
                     {
-                        bool clear = w > 0 && e.waves[w - 1].completed;
-                        float from = wave.definition.trigger == WaveTrigger.PreviousWaveClear && clear ? e.waves[w - 1].clearedAt : 0;
+                        int previousWave = w - 1;
+                        while (previousWave >= 0 && !e.waves[previousWave].definition.enabled) previousWave--;
+                        bool clear = previousWave < 0 || e.waves[previousWave].completed;
+                        float from = wave.definition.trigger == WaveTrigger.PreviousWaveClear && clear && previousWave >= 0 ? e.waves[previousWave].clearedAt : 0;
                         bool eligible = wave.definition.trigger == WaveTrigger.EncounterStart || wave.definition.trigger == WaveTrigger.Time ||
                             wave.definition.trigger == WaveTrigger.Manual && wave.signalled || wave.definition.trigger == WaveTrigger.PreviousWaveClear && clear;
 
@@ -222,9 +268,11 @@ namespace BeatEmUp
                         }
 
                         wave.started = true;
+                        e.coordinator.settings=(wave.definition.overrideAttackCoordination ? wave.definition.attackCoordination : e.definition.attackCoordination) ?? new AttackCoordinationSettings();
+                        ApplySceneObjectStates(wave.definition.sceneObjectStates, e.objectOriginals);
                         foreach (var spawn in wave.definition.enemySpawns) 
                         { 
-                            wave.plans.Add(new Plan { definition = spawn }); 
+                            wave.plans.Add(new Plan { definition = spawn, due = Mathf.Max(0, spawn.spawnDelay) });
                         }
                     }
 
@@ -234,7 +282,9 @@ namespace BeatEmUp
                     { 
                         while (plan.spawned < Mathf.Max(1, plan.definition.count) && wave.elapsed + .0001f >= plan.due)
                         {
-                            Spawn(plan, wave); plan.spawned++; plan.due += Mathf.Max(0, plan.definition.interval);
+                            if(AvailableSlots(e)<=0)break;
+                            Spawn(plan, wave, e); if (!string.IsNullOrEmpty(Failure)) return;
+                            plan.spawned++; plan.due += Mathf.Max(0, plan.definition.interval);
                         }
                     }
                     if (wave.plans.All(p => p.spawned >= Mathf.Max(1, p.definition.count)) && wave.enemies.All(h => !h || h.IsDead)) 
@@ -243,13 +293,16 @@ namespace BeatEmUp
                         wave.clearedAt = e.elapsed; 
                     }
                 }
-                e.completed = e.waves.All(w => w.completed);
+                e.completed = e.waves.All(w => !w.definition.enabled || w.completed) && (e.definition.clearCondition == EncounterClearCondition.AllEnemiesDefeated || e.clearSignalled);
+                if (e.completed) { e.coordinator?.Clear(); e.clearedOnce = true; EndEncounterObjects(e); }
             }
-            bool atExit = player.IsGrounded && !player.attackPlayer.CurrentAttack && !player.MovementLocked && Vector2.Distance(player.transform.position, CurrentStage.playerExitPoint) <= CurrentStage.exitRadius;
+            ApplyEncounterLocks();
+            foreach (var actor in Players) previousPlayerPositions[actor] = actor.transform.position;
+            bool atExit = LivingPlayers.Any(p=>p.IsGrounded && !p.attackPlayer.CurrentAttack && !p.MovementLocked && Vector2.Distance(p.transform.position, CurrentStage.playerExitPoint) <= CurrentStage.exitRadius);
             if (CompletionSatisfied && (CurrentStage.completionMode != StageCompletion.ReachExit || atExit)) GrantStageReward();
             if (ExitUnlocked && atExit) TryAdvance();
         }
-        private void Spawn(Plan plan, WaveState wave)
+        private void Spawn(Plan plan, WaveState wave, EncounterState encounter)
         {
             var definition = plan.definition;
 
@@ -261,27 +314,87 @@ namespace BeatEmUp
 
             var points = definition.spawnPoints;
             Vector2 point = points.Count > 0 ? points[plan.spawned % points.Count] : CurrentStage.movementMax;
-            point = new Vector2(Mathf.Clamp(point.x, CurrentStage.movementMin.x, CurrentStage.movementMax.x), Mathf.Clamp(point.y, CurrentStage.movementMin.y, CurrentStage.movementMax.y));
-            var go = Instantiate(definition.prefab, point, Quaternion.identity, room.transform);
-            var motor = go.GetComponent<CharacterMotor>(); motor.arenaMin = CurrentStage.movementMin; motor.arenaMax = CurrentStage.movementMax;
-            var combat = go.GetComponent<EnemyCombat>(); if (combat) { combat.target = player.transform; combat.passiveTrainingDummy = false; }
-            var boss = go.GetComponent<TotemBossController>();
-
-            if (definition.isBoss && !boss) 
-            { 
-                boss = go.AddComponent<TotemBossController>(); 
+            GetEncounterMovement(encounter.definition, out var minimum, out var maximum, true);
+            point = new Vector2(Mathf.Clamp(point.x, minimum.x, maximum.x), Mathf.Clamp(point.y, minimum.y, maximum.y));
+            SpawnTrackedEnemy(definition.prefab,point,wave,encounter,definition.isBoss);
+        }
+        private bool ReachedTrigger(CharacterMotor actor, Rect trigger)
+        {
+            Vector2 current = actor.transform.position;
+            if (trigger.Contains(current)) return true;
+            if (!previousPlayerPositions.TryGetValue(actor, out var previous)) return false;
+            // Slab intersection in ground XY also catches a dash that crosses a narrow trigger in one tick.
+            Vector2 delta = current - previous;
+            float enter = 0, leave = 1;
+            for (int axis = 0; axis < 2; axis++)
+            {
+                float min = axis == 0 ? trigger.xMin : trigger.yMin, max = axis == 0 ? trigger.xMax : trigger.yMax;
+                if (Mathf.Abs(delta[axis]) < .00001f) { if (previous[axis] < min || previous[axis] > max) return false; continue; }
+                float first = (min - previous[axis]) / delta[axis], last = (max - previous[axis]) / delta[axis];
+                enter = Mathf.Max(enter, Mathf.Min(first, last)); leave = Mathf.Min(leave, Mathf.Max(first, last));
+                if (enter > leave) return false;
             }
-            if (boss) 
-            { 
-                boss.flow = this; 
-                bossSpawned = true; 
+            return true;
+        }
+        private void GetEncounterMovement(EncounterDefinition definition, out Vector2 minimum, out Vector2 maximum, bool enemy = false)
+        {
+            minimum = CurrentStage.movementMin; maximum = CurrentStage.movementMax;
+            if (!definition.useCombatBounds || (!enemy && !definition.lockStageUntilClear)) return;
+            var bounds = definition.combatBounds;
+            if (enemy || definition.exitLock != EncounterExitLock.RightOnly) minimum.x = Mathf.Clamp(bounds.xMin, minimum.x, maximum.x);
+            if (enemy || definition.exitLock != EncounterExitLock.LeftOnly) maximum.x = Mathf.Clamp(bounds.xMax, minimum.x, maximum.x);
+            minimum.y = Mathf.Clamp(bounds.yMin, minimum.y, maximum.y);
+            maximum.y = Mathf.Clamp(bounds.yMax, minimum.y, maximum.y);
+        }
+        private static void RestrictMotor(CharacterMotor motor, Vector2 minimum, Vector2 maximum)
+        {
+            if (!motor) return;
+            motor.arenaMin = minimum; motor.arenaMax = maximum;
+            var position = motor.transform.position;
+            position.x = Mathf.Clamp(position.x, minimum.x, maximum.x);
+            position.y = Mathf.Clamp(position.y, minimum.y, maximum.y);
+            motor.transform.position = position;
+        }
+        private void ApplyEncounterLocks()
+        {
+            if (CurrentStage == null) return;
+            var active = encounters.FirstOrDefault(e => e.definition.enabled && e.started && !e.completed && e.definition.useCombatBounds);
+            Vector2 minimum = CurrentStage.movementMin, maximum = CurrentStage.movementMax;
+            if (active != null) GetEncounterMovement(active.definition, out minimum, out maximum);
+            foreach (var actor in Players) RestrictMotor(actor, minimum, maximum);
+            foreach (var encounter in encounters)
+            {
+                var min = CurrentStage.movementMin; var max = CurrentStage.movementMax;
+                if (encounter.started && !encounter.completed) GetEncounterMovement(encounter.definition, out min, out max, true);
+                foreach (var wave in encounter.waves) foreach (var enemy in wave.enemies)
+                    if (enemy && !enemy.IsDead) RestrictMotor(enemy.GetComponent<CharacterMotor>(), min, max);
             }
-
-            wave.enemies.Add(go.GetComponent<CharacterHealth>());
+            if (framing) framing.SetEncounterBounds(ActiveCameraBounds);
+        }
+        public void SignalEncounterClear(string id)
+        {
+            if (!HasAuthority) return;
+            var encounter = encounters.FirstOrDefault(e => e.definition.encounterId == id);
+            if (encounter != null) encounter.clearSignalled = true;
+        }
+        // Debug shortcut uses the real runtime. Earlier encounters are marked complete only for this run.
+        public void SimulateEncounter(int stageIndex, int encounterIndex)
+        {
+            if (!HasAuthority) return;
+            RestartAt(stageIndex);
+            if (encounterIndex < 0 || encounterIndex >= encounters.Count) return;
+            for (int i = 0; i < encounterIndex; i++) encounters[i].completed = encounters[i].clearedOnce = encounters[i].simulationSkipped = true;
+            var encounter = encounters[encounterIndex]; encounter.started = true;
+            if (!encounter.definition.enabled) { encounter.started = false; return; }
+            BeginEncounterObjects(encounter);
+            foreach (var actor in Players) actor.ResetForStage(encounter.definition.triggerZone.center);
+            ApplyEncounterLocks(); debugVisible = true;
+            Tick(0);
         }
         public bool TryAdvance()
         {
-            if (!ExitUnlocked || !player || player.GetComponent<CharacterHealth>().IsDead) 
+            if (!HasAuthority) return false;
+            if (!ExitUnlocked || !player || !LivingPlayers.Any())
             { 
                 return false; 
             }
@@ -307,20 +420,27 @@ namespace BeatEmUp
         }
         public bool GrantStageReward()
         {
-            if (!CompletionSatisfied || !player || player.GetComponent<CharacterHealth>().IsDead || CombatClock.IsPaused) return false;
+            if (!CompletionSatisfied || !player || !LivingPlayers.Any() || CombatClock.IsPaused) return false;
             if (rewardedStages.Contains(RewardKey)) return true;
             if (rewardStarted) return false;
-            rewardStarted = true; RunUpgrades?.Build?.Notify(RunCombatEvent.StageClear);
+            rewardStarted = true;
+            if(CoopRewards) foreach(var actor in LivingPlayers) actor.GetComponent<RunBuildState>()?.Notify(RunCombatEvent.StageClear);
+            else RunUpgrades?.Build?.Notify(RunCombatEvent.StageClear);
             string key = RewardKey;
             if (CurrentStage.rewardAfterClear == StageReward.UpgradeChoice)
             {
+                if(CoopRewards)
+                {
+                    if(!CoopRewards.Begin(()=>rewardedStages.Add(key))) Failure="Co-op reward needs an upgrade pool and reachable chapel.";
+                    return false;
+                }
                 if (!RunUpgrades || !RunUpgrades.pool) { Failure = "UpgradeChoice reward needs a RunUpgradeController with an UpgradePool."; return false; }
                 var world = WorldRewards ? WorldRewards : gameObject.AddComponent<RewardSelectionController>();
                 if (!world.BeginReward(() => rewardedStages.Add(key))) Failure = "No reachable chapel reward placement. Adjust reward points / geometry or assign the chapel prefab.";
                 return false;
             }
             else if (CurrentStage.rewardAfterClear == StageReward.Heal)
-                player.GetComponent<CharacterHealth>().Heal(player.GetComponent<CharacterHealth>().EffectiveMaximum * CurrentStage.rewardHealFraction);
+                foreach(var actor in LivingPlayers) actor.GetComponent<CharacterHealth>().Heal(actor.GetComponent<CharacterHealth>().EffectiveMaximum * CurrentStage.rewardHealFraction);
             rewardedStages.Add(key); return true;
         }
         public void SignalEncounter(string id) 
@@ -350,16 +470,18 @@ namespace BeatEmUp
         private void Update()
         {
             transitionFlash = Mathf.Max(0, transitionFlash - Time.deltaTime);
+            if(MultiplayerSession.Active) return; // Each paired input source owns interaction/restart commands.
             if (CombatClock.IsPaused) return;
             if (Keyboard.current != null)
             {
                 if (Keyboard.current.eKey.wasPressedThisFrame) Interact();
-                if (Keyboard.current.rKey.wasPressedThisFrame && (LevelCompleted || player && player.GetComponent<CharacterHealth>().IsDead)) Restart(LevelCompleted);
+                if (Keyboard.current.rKey.wasPressedThisFrame && (LevelCompleted || player && player.GetComponent<CharacterHealth>().IsDead))
+                { var hub=GetComponent<PlayerHubController>(); if(hub) hub.ReturnToHub(); else Restart(LevelCompleted); }
                 if (Keyboard.current.f8Key.wasPressedThisFrame) debugVisible = !debugVisible;
             }
             if (Gamepad.current != null && Gamepad.current.selectButton.wasPressedThisFrame) Interact();
         }
-        public bool Interact() => WorldRewards && WorldRewards.IsPending ? WorldRewards.Interact() : Recover();
+        public bool Interact() => CurrentStage!=null && CurrentStage.hub ? GetComponent<PlayerHubController>().Interact(player) : WorldRewards && WorldRewards.IsPending ? WorldRewards.Interact() : Recover();
         private void OnGUI()
         {
             if (!showHud || CurrentStage == null) return;
@@ -374,7 +496,8 @@ namespace BeatEmUp
                 if (GUILayout.Button("Complete stage event")) CompleteStageEvent();
                 foreach (var e in encounters)
                 {
-                    GUILayout.Label(e.definition.encounterId + ": " + (e.completed ? "clear" : e.started ? "active" : "waiting"));
+                    GUILayout.Label(e.definition.encounterId + ": " + (e.completed ? "clear" : e.started ? e.definition.useCombatBounds ? "Combat Locked" : "active" : "waiting") + " / wave " + e.waves.Count(w => w.started) + "/" + e.waves.Count + " / enemies " + e.waves.Sum(w => w.enemies.Count(h => h && !h.IsDead)));
+                    if (e.definition.clearCondition == EncounterClearCondition.ManualSignal && GUILayout.Button("Clear signal " + e.definition.encounterId)) SignalEncounterClear(e.definition.encounterId);
                     if (GUILayout.Button("Signal " + e.definition.encounterId)) SignalEncounter(e.definition.encounterId);
                     foreach (var w in e.waves)
                     {
@@ -400,6 +523,13 @@ namespace BeatEmUp
             Gizmos.color = Color.green; Gizmos.DrawWireCube((s.movementMin + s.movementMax) * .5f, s.movementMax - s.movementMin);
             Gizmos.color = Color.cyan; Gizmos.DrawWireSphere(s.playerEntryPoint, .2f); Gizmos.color = Color.yellow; Gizmos.DrawWireSphere(s.playerExitPoint, s.exitRadius);
             foreach (var e in s.encounters) foreach (var w in e.waves) foreach (var spawn in w.enemySpawns) foreach (var point in spawn.spawnPoints) { Gizmos.color = Color.red; Gizmos.DrawWireSphere(point, .15f); }
+            foreach (var e in s.encounters)
+            {
+                Gizmos.color = Color.yellow; Gizmos.DrawWireCube(e.triggerZone.center, e.triggerZone.size);
+                if (!e.useCombatBounds) continue;
+                Gizmos.color = Color.red; Gizmos.DrawWireCube(e.combatBounds.center, e.combatBounds.size);
+                if (e.lockCamera) { Gizmos.color = Color.magenta; Gizmos.DrawWireCube(e.cameraBounds.center, e.cameraBounds.size); }
+            }
             foreach (var p in s.destructibles) { Gizmos.color = Color.magenta; Gizmos.DrawWireCube(p.position + p.hitboxOffset, p.hitboxSize); }
         }
     }

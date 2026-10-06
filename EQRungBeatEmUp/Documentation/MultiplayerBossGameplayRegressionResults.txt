@@ -1,0 +1,87 @@
+PASS: 5 enabled corner / center warp points
+PASS: Boss starts invulnerable, including direct health damage
+PASS: Shield rejects normal hurtbox damage without hit reaction
+PASS: No repeated warp index 0
+PASS: Warp remains in combat bounds 0
+PASS: No repeated warp index 1
+PASS: Warp remains in combat bounds 1
+PASS: No repeated warp index 2
+PASS: Warp remains in combat bounds 2
+PASS: No repeated warp index 3
+PASS: Warp remains in combat bounds 3
+PASS: No repeated warp index 4
+PASS: Warp remains in combat bounds 4
+PASS: No repeated warp index 5
+PASS: Warp remains in combat bounds 5
+PASS: No repeated warp index 6
+PASS: Warp remains in combat bounds 6
+PASS: No repeated warp index 7
+PASS: Warp remains in combat bounds 7
+PASS: No repeated warp index 8
+PASS: Warp remains in combat bounds 8
+PASS: No repeated warp index 9
+PASS: Warp remains in combat bounds 9
+PASS: No repeated warp index 10
+PASS: Warp remains in combat bounds 10
+PASS: No repeated warp index 11
+PASS: Warp remains in combat bounds 11
+PASS: Warp feedback assigned and boss reappears
+PASS: Single valid warp point remains usable with repeat disabled
+PASS: Configured same-point repetition works
+PASS: Phase 1 contains Book, Swipe and Rusher
+PASS: Weighted random pool can select all three actions
+PASS: Disabled / zero-weight actions excluded
+PASS: Four damageable Totem hurt volumes
+PASS: Per-Totem radius override is used by its wave
+PASS: Live Totem HP tuning preserves health fraction
+PASS: Totem takes nonlethal damage
+PASS: Totem destruction disables its damage collider
+PASS: Boss outside radial break wave remains invulnerable
+PASS: Totem destruction does not immediately unlock boss
+PASS: Physical expanding front opens exactly configured 420-frame window
+PASS: Paused combat does not consume vulnerability frames
+PASS: Vulnerability remains through 419 elapsed combat frames
+PASS: Returns to invulnerability exactly at 420 frames
+PASS: Boss loop continues during vulnerability
+PASS: Repeated wave Ignore does not refresh timer
+PASS: Repeated wave RefreshTimer restores full frame duration
+PASS: Respawn mode restores configured HP after configured frames
+PASS: One Shot mode never schedules respawn
+PASS: Force Book accepts valid action
+PASS: Book uses shared swept projectile and existing six-frame possessed-book art
+PASS: Book damages through player combat hurtbox
+PASS: Force Book accepts valid action
+PASS: Parried Book reverses and becomes player-owned
+PASS: Deflected Book cannot bypass boss invulnerability
+PASS: Swipe uses AttackPlayer timeline
+PASS: Actual Swipe active hitbox is parryable and negates damage
+PASS: Boss exception prevents generic parry Stun and interruption
+PASS: Phase 2 activates exactly at <=50% HP
+PASS: Phase transition occurs once without restoring HP
+PASS: Phase 2 retains original three attacks and adds two
+PASS: Force CurseWave accepts valid action
+PASS: Curse uses Screamer shared forward ground rectangle with configurable Stun
+PASS: Curse reuses directional corridor telegraph
+PASS: Curse Wave puts player in existing Stunned state
+PASS: Force CurseWave accepts valid action
+PASS: Player can sidestep Curse by leaving its walking-lane depth
+PASS: Rusher summon starts
+PASS: Default summon creates one existing Rusher tracked by encounter
+PASS: Summons respect player clearance
+PASS: Strong Ghost action starts
+PASS: Strong summon reuses Grappler implementation
+PASS: Strong summon reuses Thrower implementation
+PASS: Strong summon with one minion slot starts
+PASS: One-slot priority chooses Thrower without exceeding cap
+PASS: Summon unavailable when boss minion cap is full
+PASS: Shared spawning respects encounter and stage enemy caps
+PASS: Force Book accepts valid action
+PASS: Boss death stops AI, cancels attack and immediately deactivates owned projectiles
+PASS: Boss can die while unused Totems remain
+PASS: Tracked boss death completes encounter and unlocks exit / camera without requiring all Totems broken
+PASS: Editor serialized phase weights / vulnerability Undo works
+PASS: Editor tuning Redo works
+PASS: Serialized boss values persist after asset reload
+PASS: Visual editor and authorable warp / Totem radius data installed
+MANUAL: Verify Scene View dragging, radius slider, preview art, Add/Remove list controls and perceptual VFX/SFX quality. See Documentation/FirstBossEncounter.md.
+ALL AUTOMATED BOSS CHECKS PASSED

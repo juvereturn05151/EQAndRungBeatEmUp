@@ -15,19 +15,22 @@ public static class PlayerDefenseValidation
     static EnemyHitReaction e;
     static GameObject po, eo;
     static CombatClock clock;
+    static PlayerDefenseData defenseCopy;
     static readonly List<string> results = new List<string>();
     static PlayerDefenseValidation() { EditorApplication.update += Poll; }
     [MenuItem("Beat Em Up/Validate player defense (Play Mode)")]
     public static void Run() { if (EditorApplication.isPlaying || EditorApplication.isCompiling) return; SessionState.SetBool(Pending, true); EditorApplication.EnterPlaymode(); }
     static void Poll()
     {
+        if (!EditorApplication.isCompiling && !EditorApplication.isPlayingOrWillChangePlaymode && File.Exists("Temp/PlayerDefenseValidation.request"))
+        { try { File.Delete("Temp/PlayerDefenseValidation.request"); } catch (IOException) { return; } Run(); return; }
         if (!SessionState.GetBool(Pending, false) || !EditorApplication.isPlaying || EditorApplication.isCompiling) return;
         SessionState.SetBool(Pending, false); results.Clear();
         try
         {
             foreach (var m in UnityEngine.Object.FindObjectsByType<CharacterMotor>(FindObjectsSortMode.None)) m.gameObject.SetActive(false);
             foreach (var c in UnityEngine.Object.FindObjectsByType<CombatClock>(FindObjectsSortMode.None)) c.enabled = false;
-            Dodge(); GuardParry(); Knockdown(); Death(); RealEnemyAttacks(); InputBindings();
+            Dodge(); GuardParry(); ParryBoundariesAndRearm(); ParryCompatibilityAndCounter(); Knockdown(); Death(); RealEnemyAttacks(); InputBindings();
             Directory.CreateDirectory("Documentation"); File.WriteAllLines("Documentation/PlayerDefenseValidationResults.txt", results);
             Debug.Log("PLAYER DEFENSE VALIDATION PASSED: " + results.Count);
             if (Application.isBatchMode) EditorApplication.Exit(0); else EditorApplication.ExitPlaymode();
@@ -45,9 +48,11 @@ public static class PlayerDefenseValidation
         // arena. Stage lane composition is covered by StageFramingValidation.
         foreach (var framing in UnityEngine.Object.FindObjectsByType<StageFraming>(FindObjectsSortMode.None)) framing.enabled = false;
         if (po) UnityEngine.Object.DestroyImmediate(po); if (eo) UnityEngine.Object.DestroyImmediate(eo);
+        if (defenseCopy) UnityEngine.Object.DestroyImmediate(defenseCopy);
         po = UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/EQ_Rung_BeatEmUp/Prefabs/BlueShirtGuy.prefab"));
         eo = UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/EQ_Rung_BeatEmUp/Prefabs/BadGuy.prefab"));
         p = po.GetComponent<ComboController>(); e = eo.GetComponent<EnemyHitReaction>(); eo.GetComponent<EnemyCombat>().enabled = false;
+        defenseCopy = UnityEngine.Object.Instantiate(p.defenseData); p.defenseData = defenseCopy;
         po.transform.position = Vector3.zero; eo.transform.position = new Vector3(.8f, 0, 0); p.motor.Face(1); e.motor.Face(-1);
         p.health.Restore(); e.health.Restore(); clock = UnityEngine.Object.FindFirstObjectByType<CombatClock>(); clock.enabled = false; clock.combatFPS = 60;
         foreach (var input in po.GetComponents<MonoBehaviour>()) if (input && input.GetType().Name == "PlayerCombatInput") input.enabled = false;
@@ -86,12 +91,12 @@ public static class PlayerDefenseValidation
         Fixture(); p.RequestGuard(true); Check(p.State == CombatState.GuardEnter && p.DefenseFrame == 0, "Fresh Guard press opens guard/parry window");
         Step(4); Hurtbox.Receive(Hit(), -1, e.motor);
         Check(p.State == CombatState.Parry && p.health.Current == p.health.maximumHealth && Hurtbox.LastHitOutcome == CombatHitOutcome.Parry, "Parry includes frame 4 and negates damage/blockstun");
-        Check(e.State == EnemyReaction.GroundHit && e.RecoveryFrames == 18 && !e.GetComponent<AttackPlayer>().CurrentAttack && p.BlockstunFrames == 0, "Parry interrupts attacker for existing 18-frame hitstun");
+        Check(e.State == EnemyReaction.Stunned && e.RecoveryFrames == p.defenseData.parryAttackerStunFrames && !e.GetComponent<AttackPlayer>().CurrentAttack && p.BlockstunFrames == 0, "Parry interrupts attacker for dedicated 90-frame stun");
         var first = p.motor.sprite.sprite; p.RequestGuard(false); Step(2);
         Check(p.State == CombatState.Parry && p.motor.sprite.sprite != first, "Parry displays intentional contact/deflection sprite holds");
         Step(6); Check(p.State == CombatState.Idle && !p.motor.MovementLocked, "Released parry recovers in eight logical frames");
-        Fixture(); p.RequestGuard(true); Step(5); Hurtbox.Receive(Hit(), -1, e.motor);
-        Check(Hurtbox.LastHitOutcome == CombatHitOutcome.Block && p.State == CombatState.GuardHold && p.health.Current == 200 && p.BlockstunFrames == 10, "Frame 5 yields normal zero-damage guard and ten-frame blockstun");
+        Fixture(); p.RequestGuard(true); Step(8); Hurtbox.Receive(Hit(), -1, e.motor);
+        Check(Hurtbox.LastHitOutcome == CombatHitOutcome.Block && p.State == CombatState.GuardHold && p.health.Current == 200 && p.BlockstunFrames == 10, "Frame 8 yields normal zero-damage guard and ten-frame blockstun");
         p.RequestGuard(false); p.RequestGuard(true);
         Check(p.State == CombatState.GuardHold, "Repress during blockstun cannot rearm parry");
         p.RequestGuard(false); Step(9); Check(p.State == CombatState.GuardHold, "Release during blockstun cannot escape early");
@@ -163,10 +168,86 @@ public static class PlayerDefenseValidation
             var copy = UnityEngine.Object.Instantiate(attack); copy.frames.RemoveRange(0, copy.FirstActiveFrame);
             e.GetComponent<AttackPlayer>().Play(copy);
             Check(p.health.Current == 200 && Hurtbox.LastHitOutcome == (parry ? CombatHitOutcome.Parry : CombatHitOutcome.Block), "Actual enemy attack hitbox produces " + (parry ? "Parry" : "Guard"));
-            Check(p.attackPlayer.HitstopRemaining == (parry ? 5 : 2) && e.GetComponent<AttackPlayer>().HitstopRemaining == (parry ? 5 : 2), "Both actors receive stronger parry / smaller guard hitstop");
-            if (parry) Check(!e.GetComponent<AttackPlayer>().CurrentAttack && e.RecoveryFrames == 18, "Parry safely aborts the currently sampling enemy attack");
+            Check(p.attackPlayer.HitstopRemaining == (parry ? 6 : 2) && e.GetComponent<AttackPlayer>().HitstopRemaining == (parry ? 6 : 2), "Both actors receive stronger parry / smaller guard hitstop");
+            if (parry) Check(!e.GetComponent<AttackPlayer>().CurrentAttack && e.RecoveryFrames == p.defenseData.parryAttackerStunFrames, "Parry safely aborts the currently sampling enemy attack");
             UnityEngine.Object.DestroyImmediate(copy);
         }
+    }
+    static void ParryBoundariesAndRearm()
+    {
+        foreach (int window in new[] { 6, 8, 10 }) foreach (int contact in new[] { 0, window - 1, window })
+        {
+            Fixture(); p.defenseData.parryWindowFrames = window; p.RequestGuard(true); Step(contact);
+            Hurtbox.Receive(Hit(HitType.KnockDown), -1, e.motor);
+            Check(Hurtbox.LastHitOutcome == (contact < window ? CombatHitOutcome.Parry : CombatHitOutcome.Block), "Editable " + window + "-frame window accepts frame " + contact + " with correct exclusive end");
+            Check(p.health.Current == 200 && p.motor.IsGrounded && p.motor.HorizontalRecoil == 0 && !p.IsKnockdownState, "Parry / guard prevents incoming damage, recoil and knockdown at " + contact + "/" + window);
+        }
+        for (int contact = 0; contact < 8; contact++)
+        {
+            Fixture(); p.RequestGuard(true); Step(contact); Hurtbox.Receive(Hit(), -1, e.motor);
+            Check(Hurtbox.LastHitOutcome == CombatHitOutcome.Parry, "Default parry is active at zero-based frame " + contact);
+        }
+        Fixture(); p.RequestGuard(true); int cycle = p.EffectiveParryWindow + p.defenseData.parryRearmDelayFrames;
+        Check(p.ParryActive && cycle == 14, "Fresh Guard is immediately active; default re-arm interval includes eight active plus six delay frames");
+        p.RequestGuard(false);
+        for (int frame = 0; frame < cycle; frame++)
+        {
+            p.RequestGuard(true);
+            Check(p.GuardActive && !p.ParryActive, "Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame " + frame);
+            p.RequestGuard(false); Step();
+        }
+        p.RequestGuard(true); Check(p.ParryActive && p.DefenseFrame == 0, "Fresh press after full re-arm interval starts a new window");
+        Fixture(); p.RequestGuard(true); p.RequestGuard(false); p.RequestGuard(true); Step(30);
+        Check(p.GuardActive && !p.ParryActive && p.State == CombatState.GuardHold, "Holding Guard through re-arm expiry cannot silently generate another window");
+        p.RequestGuard(false); p.RequestGuard(true); Check(p.ParryActive, "Release and a new eligible press deliberately rearm parry");
+        Fixture(); p.RequestGuard(true); Step(3); int savedFrame = p.DefenseFrame, savedRearm = p.ParryRearmRemaining;
+        p.attackPlayer.Freeze(6); Step(6);
+        Check(p.DefenseFrame == savedFrame && p.ParryRearmRemaining == savedRearm, "Parry window and re-arm timing both freeze with combat hitstop");
+        Step(); Check(p.DefenseFrame == savedFrame + 1, "Window resumes on the next combat frame after hitstop");
+        Fixture(); p.motor.Jump(); p.RequestGuard(true); Check(!p.ParryActive && !p.GuardActive, "Airborne guard press cannot activate parry");
+        Fixture(); p.Interrupt(20); p.RequestGuard(true); Check(!p.ParryActive && p.State == CombatState.Hitstun, "Hitstun cannot be escaped through parry");
+        Fixture(); p.RequestAttack(); p.RequestGuard(true); Check(p.CurrentAttack && !p.ParryActive, "Incompatible running attack prevents parry");
+    }
+    static void ParryCompatibilityAndCounter()
+    {
+        Fixture(); p.RequestGuard(true); var blockOnly = Hit(); blockOnly.canBeParried = false; blockOnly.blockDamage = 2;
+        Hurtbox.Receive(blockOnly, -1, e.motor);
+        Check(Hurtbox.LastHitOutcome == CombatHitOutcome.Block && p.health.Current == 198 && e.State == EnemyReaction.Normal, "Attack opt-out preserves chip / normal Guard without parry stun");
+        Check(!p.GetComponent<AttackFeedback>() || p.GetComponent<AttackFeedback>().ParryCount == 0, "Normal Guard does not emit successful-parry feedback");
+        Fixture(); p.RequestGuard(true);
+        var copy = UnityEngine.Object.Instantiate(eo.GetComponent<EnemyCombat>().attack);
+        copy.frames.RemoveRange(0, copy.FirstActiveFrame);
+        try
+        {
+            Check(copy.frames[0].hitboxes[0].canBeParried, "Existing enemy attacks inherit parryable compatibility");
+            e.GetComponent<AttackPlayer>().Play(copy);
+            Check(Hurtbox.LastHitOutcome == CombatHitOutcome.Parry && p.health.Current == 200, "Real authoritative hitbox produces a damage-free immediate parry");
+            var feedback = p.GetComponent<AttackFeedback>();
+            Check(feedback && feedback.ParryCount == 1 && feedback.LastImpact, "Successful parry creates one distinct effect through existing feedback renderer");
+            Check(feedback.LastSound && feedback.LastSound.clip == p.defenseData.parryFeedback.impactSound && feedback.LastSound.clip, "Successful parry plays assigned distinct sound hook");
+            Check(p.attackPlayer.HitstopRemaining == 6 && e.GetComponent<AttackPlayer>().HitstopRemaining == 6 && e.RecoveryFrames == p.defenseData.parryAttackerStunFrames, "Real parry freezes both actors for six frames and stuns normal enemy for 90 frames");
+            foreach (var particles in feedback.LastImpact.GetComponentsInChildren<ParticleSystem>()) particles.Simulate(.08f, false, false, false);
+            CaptureParry();
+            p.RequestGuard(false); Step(6);
+            Check(p.DefenseFrame == 0 && e.RecoveryFrames == p.defenseData.parryAttackerStunFrames, "Parry hitstop does not consume recovery or enemy stun frames");
+            Step(p.defenseData.parryRecoveryFrames);
+            Check(p.State == CombatState.Idle && e.RecoveryFrames == 82 && p.CounterAdvantageFrames == 82, "Eight-frame player recovery leaves eighty-two combat frames of counter advantage");
+            p.RequestAttack(); Check(p.CurrentAttack && !e.CanAct, "Player can start a counterattack while enemy remains stunned");
+        }
+        finally { UnityEngine.Object.DestroyImmediate(copy); }
+    }
+    static void CaptureParry()
+    {
+        var go = new GameObject("Parry validation camera"); var camera = go.AddComponent<Camera>();
+        camera.enabled = false; camera.orthographic = true; camera.orthographicSize = 1.5f; camera.transform.position = new Vector3(.4f,.8f,-10);
+        var target = new RenderTexture(960,540,24); camera.targetTexture = target; var old = RenderTexture.active;
+        try
+        {
+            camera.Render(); RenderTexture.active = target;
+            var texture = new Texture2D(960,540,TextureFormat.RGB24,false); texture.ReadPixels(new Rect(0,0,960,540),0,0); texture.Apply();
+            Directory.CreateDirectory("Documentation/ParryPreview"); File.WriteAllBytes("Documentation/ParryPreview/Success.png",texture.EncodeToPNG()); UnityEngine.Object.DestroyImmediate(texture);
+        }
+        finally { RenderTexture.active = old; camera.targetTexture = null; UnityEngine.Object.DestroyImmediate(target); UnityEngine.Object.DestroyImmediate(go); }
     }
     static void InputBindings()
     {
@@ -194,7 +275,7 @@ public static class PlayerDefenseValidation
             Check(input.actions.FindAction("Player/Parry", false) == null && guard != null, "Guard and parry use one action; no separate Parry binding exists");
             InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.L)); InputSystem.Update();
             Check(p.State == CombatState.GuardEnter && !p.CurrentAttack, "Actual Guard action press invokes guard/parry without attack");
-            Step(6); int frame = p.DefenseFrame;
+            Step(8); int frame = p.DefenseFrame;
             InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.L)); InputSystem.Update();
             Check(p.State == CombatState.GuardHold && p.DefenseFrame == frame, "Held Guard input does not repeatedly fire or reopen parry");
             InputSystem.QueueStateEvent(keyboard, new KeyboardState()); InputSystem.Update();

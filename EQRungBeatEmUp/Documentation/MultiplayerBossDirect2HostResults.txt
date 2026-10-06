@@ -1,0 +1,23 @@
+PASS: MainMenu created a session
+PASS: All requested players connected
+PASS: All players ready
+PASS: Scene load acknowledgements released simulation
+PASS: Host instantiates each lobby-selected character through shared loadout
+PASS: Remote players open physical Hub character station through network input
+PASS: Host character loadouts match persistent Hub choices
+PASS: Remote players purchase permanent health through validated Hub requests
+PASS: Host applies permanent health to every selected character
+PASS: Selected Character 2 casts equipped guardian on host
+PASS: Selected Character 2 releases one guardian and one area through shared frame events
+PASS: Boss warps and starts protected with four Totems
+PASS: Distant Totem wave does not unlock boss
+PASS: Boss stays protected throughout the entire missed wave
+PASS: Boss fixture is inside authored radial reach
+PASS: Physical wave contact opens full configured window (remaining=420, distance=0.79)
+PASS: Half HP activates phase two once
+PASS: Vulnerable through penultimate frame
+PASS: Host closes vulnerability on exact configured frame
+PASS: Boss death stops authoritative AI
+PASS: Defeated boss and remaining minions unlock exit and camera
+PASS: Death cleans up host waves
+BOSS NETWORK PASSED / DIRECT

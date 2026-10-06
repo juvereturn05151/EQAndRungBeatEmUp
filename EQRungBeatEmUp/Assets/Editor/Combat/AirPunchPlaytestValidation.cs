@@ -136,6 +136,8 @@ public static class AirPunchPlaytestValidation
     private static void FullRoute(int facing, bool slow)
     {
         Fixture(true, facing); float initial = enemy.health.Current;
+        var tracker = player.GetComponent<ComboTracker>(); int drops = 0;
+        tracker.Ended += () => drops++;
         player.RequestAttack(); Step(player.groundCombo[0].FirstActiveFrame); player.RequestAttack();
         Until(() => player.CurrentAttack == player.groundCombo[1], "Full route: Punch1 -> Punch2", slow);
         Step(player.groundCombo[1].FirstActiveFrame); player.RequestLauncher();
@@ -154,6 +156,8 @@ public static class AirPunchPlaytestValidation
         player.RequestAttack(); Until(() => player.CurrentAttack == air[2], "Full route: AirPunch2 -> AirPunch3", slow);
         Until(() => enemy.health.Current < expected, "Full route: AirPunch3 connects", slow); expected -= 13;
         Check(enemy.health.Current == expected && enemy.GroundBounceEligible && !enemy.JuggleOpen && enemy.motor.VerticalVelocity <= -8 && player.attackPlayer.HitstopRemaining > 0, "Finisher deals 13, applies six-frame impact and arms downward ground bounce");
+        Check(tracker.IsActive && tracker.HitCount == 6 && tracker.TotalDamage == initial - expected && drops == 0, "Ground-launcher-air route remains one six-hit damage combo");
+        Check(player.GetComponent<ComboUIController>().HitText.text == "6 HITS", "Air route updates the live combo HUD");
         Until(() => enemy.GroundBouncesUsed == 1, "Full route: enemy contacts floor and bounces", slow);
         Check(!enemy.motor.IsGrounded && !enemy.CanAct, "Full route: consumed floor contact rebounds before landing recovery");
         Until(() => enemy.motor.IsGrounded, "Full route: enemy lands after its single bounce", slow);

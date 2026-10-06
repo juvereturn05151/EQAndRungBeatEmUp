@@ -6,10 +6,12 @@ namespace BeatEmUp
 {
     public enum StageCompletion { ReachExit, ClearEncounters, BossDefeated, Event }
     public enum EncounterTrigger { StageEnter, Time, PreviousEncounterClear, PlayerZone, Manual }
-    public enum WaveTrigger { EncounterStart, Time, PreviousWaveClear, Manual }
+    public enum WaveTrigger { [InspectorName("Immediate")] EncounterStart, [InspectorName("After Delay")] Time, [InspectorName("After Previous Wave Cleared")] PreviousWaveClear, Manual }
     public enum PropKind { Normal, CursedTotem }
     public enum StageReward { None, UpgradeChoice, Heal }
     public enum StageType { Combat, Safe, Boss, Exit }
+    public enum EncounterClearCondition { AllEnemiesDefeated, ManualSignal }
+    public enum EncounterExitLock { BothSides, LeftOnly, RightOnly }
 
     [CreateAssetMenu(menuName = "Beat Em Up/Level Definition")]
     public sealed class LevelDefinition : ScriptableObject
@@ -22,8 +24,10 @@ namespace BeatEmUp
     [Serializable]
     public sealed class StageSegmentDefinition
     {
+        [Min(1), Tooltip("Room-wide active enemy limit, shared by waves and backup calls.")] public int maxActiveEnemies=12;
         public string stageId;
         public string stageName;
+        public PlayerHubDefinition hub;
         public StageType stageType;
         public bool IsSafeStage => stageType == StageType.Safe || safeRoom;
         [Header("Stage Art Layout")]
@@ -67,6 +71,13 @@ namespace BeatEmUp
     [Serializable]
     public sealed class EncounterDefinition
     {
+        public AttackCoordinationSettings attackCoordination=new AttackCoordinationSettings();
+        public bool enabled = true;
+        [Tooltip("Normally disabled encounters are skipped. Enable this only to deliberately block completion/dependencies while disabled.")]
+        public bool disabledBlocksProgression;
+        public bool restoreSceneObjectsOnEncounterEnd;
+        public List<SceneObjectState> sceneObjectStates = new List<SceneObjectState>();
+        [Min(1), Tooltip("Shared active-enemy limit for authored waves and reinforcement calls.")] public int maxActiveEnemies=8;
         public string encounterId = "Encounter";
         public EncounterTrigger trigger;
         [Min(0)] public float triggerDelay;
@@ -75,17 +86,40 @@ namespace BeatEmUp
         public Rect triggerZone = new Rect(-1, -.4f, 2, 1.05f);
         public bool lockStageUntilClear = true;
         public bool requiredForCompletion = true;
+        [Header("Combat Encounter Zone (off preserves legacy spawn triggers)")]
+        public bool useCombatBounds;
+        public Rect combatBounds = new Rect(-3, -.4f, 6, 1.05f);
+        public bool lockCamera = true;
+        [Tooltip("Visible camera arena in world XY. A smaller arena centers the existing view; vertical composition / jump framing is preserved.")]
+        public Rect cameraBounds = new Rect(-3.8f, -.64f, 7.6f, 4);
+        public EncounterExitLock exitLock;
+        public EncounterClearCondition clearCondition;
+        [Tooltip("When disabled, a PlayerZone encounter re-arms after clearing and all players leave the trigger.")]
+        public bool oneShot = true;
         public List<WaveDefinition> waves = new List<WaveDefinition>();
     }
 
     [Serializable]
     public sealed class WaveDefinition
     {
+        public bool overrideAttackCoordination;
+        public AttackCoordinationSettings attackCoordination=new AttackCoordinationSettings();
+        public bool enabled = true;
+        public List<SceneObjectState> sceneObjectStates = new List<SceneObjectState>();
         public string waveId = "Wave";
         public WaveTrigger trigger;
         [Tooltip("Time delay is measured from encounter start; clear-based delay starts when the previous wave clears.")]
         [Min(0)] public float spawnDelay;
-        public List<EnemySpawnDefinition> enemySpawns = new List<EnemySpawnDefinition>();
+        [InspectorName("Spawn Groups")] public List<EnemySpawnDefinition> enemySpawns = new List<EnemySpawnDefinition>();
+    }
+
+    [Serializable]
+    public sealed class SceneObjectState
+    {
+        [Tooltip("Resolved through the scene Stage Flow object's bindings. Use the encounter editor to assign a Hierarchy object.")]
+        public string bindingId;
+        public bool apply = true;
+        public bool active = true;
     }
 
     [Serializable]
@@ -95,6 +129,7 @@ namespace BeatEmUp
         [Min(1)] public int count = 1;
         public List<Vector2> spawnPoints = new List<Vector2> { new Vector2(2, 0) };
         [Min(0)] public float interval;
+        [Min(0)] public float spawnDelay;
         public bool isBoss;
     }
 
@@ -109,6 +144,8 @@ namespace BeatEmUp
         public Vector2 hitboxSize = new Vector2(.65f, .9f);
         public Vector2 hitboxOffset = new Vector2(0, .4f);
         public PropKind kind;
+        [Min(0), Tooltip("Boss Totems only: 0 uses the Boss Encounter's default break-wave radius.")]
+        public float totemBreakRadius;
         public GameObject dropPrefab;
     }
 

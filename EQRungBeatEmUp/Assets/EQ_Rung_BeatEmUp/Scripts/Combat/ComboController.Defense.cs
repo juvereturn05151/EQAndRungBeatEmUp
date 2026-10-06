@@ -9,12 +9,17 @@ namespace BeatEmUp
         public int DefenseFrame { get; private set; }
         public int BlockstunFrames => blockstun;
         public bool GuardHeld => guardHeld;
+        public bool ParryActive => State == CombatState.GuardEnter && parryArmed && DefenseFrame < EffectiveParryWindow && blockstun == 0 && motor.IsGrounded;
+        public bool GuardActive => (State == CombatState.GuardEnter || State == CombatState.GuardHold) && guardHeld && motor.IsGrounded;
+        public int ParryRearmRemaining { get; private set; }
+        public int CounterAdvantageFrames => defenseData ? Mathf.Max(0, defenseData.parryAttackerStunFrames + Mathf.RoundToInt(Build?.Value(RunModifier.ParryStunBonus) ?? 0) - defenseData.parryRecoveryFrames) : 0;
         public bool IsKnockdownState => State == CombatState.KnockDown || State == CombatState.Downed || State == CombatState.GetUp;
         public bool IsDefenseState => (int)State >= (int)CombatState.Dodge;
         public bool DodgeInvulnerable => defenseData && State == CombatState.Dodge && DefenseFrame >= defenseData.dodgeInvulnerableFirstFrame && DefenseFrame <= defenseData.dodgeInvulnerableLastFrame;
         public event Action<DefenseFeedback> DefenseImpact;
         private bool guardHeld, parryArmed;
         private int blockstun;
+        private int downedDurationOverride = -1;
         private Vector2 dodgeDirection;
         private long defenseStartedTick = -1;
         private bool CanStartDefense => !CombatClock.IsPaused && defenseData && health && !health.IsDead && motor.IsGrounded && !CurrentAttack && stun <= 0 && cooldown <= 0 && !attackPlayer.IsFrozen;
@@ -63,12 +68,13 @@ namespace BeatEmUp
                 return; 
             }
 
-            BeginGuard(true);
+            BeginGuard(ParryRearmRemaining <= 0);
         }
         private void BeginGuard(bool freshPress)
         {
             BeginDefense(freshPress ? CombatState.GuardEnter : CombatState.GuardHold);
             parryArmed = freshPress;
+            if (freshPress) ParryRearmRemaining = EffectiveParryWindow + Mathf.Max(0, defenseData.parryRearmDelayFrames);
 
             if (!freshPress) 
             { 
@@ -90,6 +96,8 @@ namespace BeatEmUp
 
         private void ClearDefenseControl()
         {
+            DetachGrabOwner();
+            if (stunVisual) stunVisual.enabled = false;
             if (motor) motor.DefenseVelocity = Vector2.zero;
             if (animationDriver) animationDriver.ReleaseReactionControl();
         }
@@ -100,13 +108,15 @@ namespace BeatEmUp
             State = motor.IsGrounded ? CombatState.Idle : CombatState.Jumping;
             motor.MovementLocked = false; 
             DefenseFrame = blockstun = 0; 
+            downedDurationOverride = -1;
             parryArmed = false;
             animationDriver.Play(motor.IsGrounded ? "Idle" : "Jumping", true);
         }
 
         public void PrepareDefenseFrame()
         {
-            if (!IsDefenseState || !defenseData || attackPlayer.IsFrozen || defenseStartedTick == CombatClock.CurrentTick) return;
+            if (ParryRearmRemaining > 0 && !attackPlayer.IsFrozen && defenseStartedTick != CombatClock.CurrentTick) ParryRearmRemaining--;
+            if (!IsDefenseState || (!defenseData && !IsStunned && !IsGrabbed) || attackPlayer.IsFrozen || defenseStartedTick == CombatClock.CurrentTick) return;
             if ((State == CombatState.KnockDown || State == CombatState.Die) && !motor.IsGrounded) return;
             // Evaluated before offensive hitboxes, so immunity and parry windows
             // correspond to the same logical frame as the incoming attack.
@@ -115,17 +125,18 @@ namespace BeatEmUp
             if (State == CombatState.GuardEnter && DefenseFrame >= EffectiveParryWindow) { State = CombatState.GuardHold; parryArmed = false; }
             if (State == CombatState.Dodge && DefenseFrame >= EffectiveDodgeFrames) EndDefense();
         }
-        public CombatHitOutcome TryDefense(AttackHitboxData hit, int facing, CharacterMotor attacker)
+        public CombatHitOutcome TryDefense(AttackHitboxData hit, int facing, CharacterMotor attacker, CombatProjectile projectile = null)
         {
-            if (!defenseData || health.IsDead || DodgeInvulnerable || IsKnockdownState || State == CombatState.Die) return CombatHitOutcome.None;
+            if (!defenseData || health.IsDead || !motor.IsGrounded || DodgeInvulnerable || IsKnockdownState || State == CombatState.Die) return CombatHitOutcome.None;
             if (State != CombatState.GuardEnter && State != CombatState.GuardHold) return CombatHitOutcome.None;
-            float direction = attacker ? attacker.transform.position.x - motor.transform.position.x : -facing;
+            float direction = projectile ? -facing : attacker ? attacker.transform.position.x - motor.transform.position.x : -facing;
             if (Mathf.Abs(direction) < .001f) direction = -facing;
             if (hit.unblockable || direction * motor.Facing < 0) return CombatHitOutcome.None;
-            if (parryArmed && DefenseFrame < EffectiveParryWindow && blockstun == 0)
+            if (ParryActive && hit.canBeParried)
             {
                 BeginDefense(CombatState.Parry); parryArmed = false;
-                if (attacker)
+                if (projectile) projectile.Deflect(motor);
+                else if (attacker)
                 {
                     var reaction = attacker.GetComponent<EnemyHitReaction>();
                     int punish = defenseData.parryAttackerStunFrames + Mathf.RoundToInt(Build?.Value(RunModifier.ParryStunBonus) ?? 0);
@@ -133,6 +144,7 @@ namespace BeatEmUp
                     else { var otherPlayer = attacker.GetComponent<ComboController>(); if (otherPlayer) otherPlayer.Interrupt(punish); }
                 }
                 Build?.OnParry();
+                if (!GetComponent<AttackFeedback>()) gameObject.AddComponent<AttackFeedback>();
                 ShowDefense(); DefenseImpact?.Invoke(DefenseFeedback.Parry); return CombatHitOutcome.Parry;
             }
             parryArmed = false; State = CombatState.GuardHold;
@@ -145,12 +157,14 @@ namespace BeatEmUp
         {
             if (health.IsDead) { EnterDie(); return; }
             if (IsKnockdownState) return;
+            if (hit.hitType == HitType.Stun) { EnterStun(hit.stunDurationFrames); return; }
             if (hit.hitType == HitType.Launcher || hit.hitType == HitType.AirFinisher || hit.hitType == HitType.KnockDown)
             {
                 guardHeld = false; BeginDefense(CombatState.KnockDown);
+                downedDurationOverride = hit.knockdownDurationFrames;
                 motor.AddKnockback(facing * hit.knockback);
                 if (hit.hitType == HitType.Launcher) motor.Launch(hit.launchVelocity.y, facing * hit.launchVelocity.x);
-                else if (hit.hitType == HitType.AirFinisher && !motor.IsGrounded) motor.Fall(hit.launchVelocity.y < 0 ? -hit.launchVelocity.y : 3);
+                else if (!motor.IsGrounded && (hit.hitType == HitType.AirFinisher || hit.hitType == HitType.KnockDown || hit.forceAirborneTargetDownward)) motor.Fall(hit.launchVelocity.y < 0 ? -hit.launchVelocity.y : 3);
                 ShowDefense(); return;
             }
             Interrupt(hit.hitstunFrames); motor.AddKnockback(facing * hit.knockback);
@@ -173,6 +187,7 @@ namespace BeatEmUp
         private void RestorePlayer()
         {
             AirDiveUsed = false;
+            ParryRearmRemaining = 0;
             guardHeld = parryArmed = false; stun = cooldown = blockstun = 0;
             ResetCombo(); EndDefense(); motor.StopGroundedMotion();
         }
@@ -183,17 +198,23 @@ namespace BeatEmUp
                 case CombatState.Dodge: return EffectiveDodgeFrames;
                 case CombatState.Parry: return defenseData.parryRecoveryFrames;
                 case CombatState.KnockDown: return defenseData.knockdownFrames;
-                case CombatState.Downed: return defenseData.downedFrames;
+                case CombatState.Downed: return downedDurationOverride >= 0 ? downedDurationOverride : defenseData.downedFrames;
                 case CombatState.GetUp: return defenseData.getUpFrames;
                 case CombatState.Die: return defenseData.dieFrames;
+                case CombatState.Stunned: return statusStunDuration;
                 default: return int.MaxValue;
             }
         }
         private bool UpdateDefense()
         {
             if (!IsDefenseState) return false;
+            if (IsGrabbed) { UpdateGrabbed(); return true; }
             motor.MovementLocked = true; motor.DefenseVelocity = Vector2.zero;
-            if (!defenseData) return true;
+            if (!defenseData)
+            {
+                if (IsStunned && DefenseFrame >= statusStunDuration && motor.IsGrounded) EndDefense();
+                return true;
+            }
             if (State == CombatState.Dodge)
             {
                 if (DefenseFrame >= defenseData.dodgeMoveFirstFrame && DefenseFrame <= defenseData.dodgeMoveLastFrame) motor.DefenseVelocity = dodgeDirection * defenseData.dodgeSpeed * (1 + (Build?.Value(RunModifier.DodgeDistanceBonus) ?? 0));
@@ -205,11 +226,13 @@ namespace BeatEmUp
                 else if (State == CombatState.Downed) BeginDefense(CombatState.GetUp);
                 else { EndDefense(); if (guardHeld) BeginGuard(false); return true; }
             }
-            if (State == CombatState.Downed || State == CombatState.GetUp || State == CombatState.GuardEnter || State == CombatState.GuardHold) motor.StopGroundedMotion();
+            if (State == CombatState.Stunned || State == CombatState.Downed || State == CombatState.GetUp || State == CombatState.GuardEnter || State == CombatState.GuardHold) motor.StopGroundedMotion();
             ShowDefense(); return true;
         }
         private void ShowDefense()
         {
+            if (IsGrabbed) { ShowGrabbed(); return; }
+            if (IsStunned) { ShowStun(); return; }
             if (!defenseData) return;
             CharacterPoseHold[] poses;
             switch (State)

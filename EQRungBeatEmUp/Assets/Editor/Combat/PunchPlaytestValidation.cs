@@ -237,6 +237,9 @@ public static class PunchPlaytestValidation
         Check(player.BufferedInput == CombatInput.Attack && player.attackPlayer.CurrentFrame == 7, "Attack input remains buffered throughout hitstop"); Step(6);
         Check(player.CurrentAttack == punches[1], "Hitstop-buffered input consumes at Punch1 frame 13"); Step(7); Step(4); Step(6); player.RequestAttack(); Step(11); Step(6); Step(38);
         Check(enemy.health.Current == 469 && enemy.motor.IsGrounded, "Connected three-punch string deals 8 + 9 + 14 damage and never launches");
+        var tracked = player.GetComponent<ComboTracker>();
+        Check(tracked.HitCount == 3 && tracked.TotalDamage == 31 && tracked.BestHitCount == 3, "Connected ground string tracks one three-hit, 31-damage combo");
+        Check(player.GetComponent<ComboUIController>().HitText.text == "3 HITS" && player.GetComponent<ComboUIController>().DamageText.text == "31 DAMAGE", "Ground combo HUD displays the real final result");
         Fixture(true); player.RequestAttack(); clock.Advance(.5f);
         Check(enemy.health.Current == 492 && !player.CurrentAttack, "A slow rendered frame still processes active frames, hitstop and recovery at logical 60 FPS");
     }

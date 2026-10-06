@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b7d612602d4777880fcee720d86424, type: 3}
+  m_Name: Character2_Defense
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.PlayerDefenseData
+  dodgeTotalFrames: 20
+  dodgeMoveFirstFrame: 3
+  dodgeMoveLastFrame: 10
+  dodgeInvulnerableFirstFrame: 4
+  dodgeInvulnerableLastFrame: 9
+  dodgeSpeed: 9
+  parryWindowFrames: 12
+  parryRecoveryFrames: 8
+  parryAttackerStunFrames: 90
+  parryHitstopFrames: 6
+  guardHitstopFrames: 2
+  parryRearmDelayFrames: 6
+  parryFeedback:
+    areaWarning: 0
+    directionalWaveWarning: 0
+    areaRingSprite: {fileID: 0}
+    areaWaveSprites: []
+    warningColor: {r: 1, g: 0.35, b: 0.1, a: 0.8}
+    waveColor: {r: 1, g: 0.2, b: 0.3, a: 0.9}
+    telegraphSound: {fileID: 0}
+    screamSound: {fileID: 0}
+    areaVolume: 0.6
+    swingSound: {fileID: 0}
+    impactSound: {fileID: 8300000, guid: e5ecc98ff40556543b77c8c2aa090822, type: 3}
+    swingVolume: 0.35
+    impactVolume: 0.7
+    impactPrefab: {fileID: 8525990746615576120, guid: b85d21f3b8fed714bacf0c4fd50fa512, type: 3}
+    impactScale: 0.2
+    impactLifetime: 0.45
+  knockdownFrames: 18
+  downedFrames: 45
+  getUpFrames: 24
+  dieFrames: 18
+  dodge:
+  - sprite: {fileID: 21300000, guid: 122a719d4178dad41868064d52a93d53, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: 122a719d4178dad41868064d52a93d53, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: 531eff9b38a40f14ca5e093434b3140b, type: 3}
+    frames: 4
+  - sprite: {fileID: 21300000, guid: 531eff9b38a40f14ca5e093434b3140b, type: 3}
+    frames: 4
+  - sprite: {fileID: 21300000, guid: b9408465ce9f48a4cb1365877f916ded, type: 3}
+    frames: 6
+  guard:
+  - sprite: {fileID: 21300000, guid: 4e3b1a2b910bfbf4e9423ce9a30d6e3d, type: 3}
+    frames: 2
+  - sprite: {fileID: 21300000, guid: 6b5bbb4d7c1592f4f9a89620b25de19a, type: 3}
+    frames: 3
+  parry:
+  - sprite: {fileID: 21300000, guid: 5798dfcd9c6a05c45a4a9f5cecf12f9e, type: 3}
+    frames: 1
+  - sprite: {fileID: 21300000, guid: 5798dfcd9c6a05c45a4a9f5cecf12f9e, type: 3}
+    frames: 2
+  - sprite: {fileID: 21300000, guid: 6fd9628bed1e1c94aad0303bf2267595, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: 6fd9628bed1e1c94aad0303bf2267595, type: 3}
+    frames: 2
+  knockdown:
+  - sprite: {fileID: 21300000, guid: e16cec9a456ae9747b12b314f790413b, type: 3}
+    frames: 4
+  - sprite: {fileID: 21300000, guid: e16cec9a456ae9747b12b314f790413b, type: 3}
+    frames: 5
+  - sprite: {fileID: 21300000, guid: 026ed62db7d4c03469e61c14016b0d11, type: 3}
+    frames: 4
+  - sprite: {fileID: 21300000, guid: 026ed62db7d4c03469e61c14016b0d11, type: 3}
+    frames: 5
+  getUp:
+  - sprite: {fileID: 21300000, guid: 3bca29bab4111b64f890f32da6009472, type: 3}
+    frames: 6
+  - sprite: {fileID: 21300000, guid: 3bca29bab4111b64f890f32da6009472, type: 3}
+    frames: 6
+  - sprite: {fileID: 21300000, guid: 3bca29bab4111b64f890f32da6009472, type: 3}
+    frames: 6
+  - sprite: {fileID: 21300000, guid: bba6826dd3acf7f4d9e9dd5bd8d368ad, type: 3}
+    frames: 5
+  - sprite: {fileID: 21300000, guid: bba6826dd3acf7f4d9e9dd5bd8d368ad, type: 3}
+    frames: 1
+  die:
+  - sprite: {fileID: 21300000, guid: d4c71b2b0d484694895f40f87455e79a, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: d4c71b2b0d484694895f40f87455e79a, type: 3}
+    frames: 5
+  - sprite: {fileID: 21300000, guid: 0c26635f3ffa60e42b7eabc6e92ec327, type: 3}
+    frames: 4
+  - sprite: {fileID: 21300000, guid: 0c26635f3ffa60e42b7eabc6e92ec327, type: 3}
+    frames: 6
+  blockPose: {fileID: 21300000, guid: 6b5bbb4d7c1592f4f9a89620b25de19a, type: 3}
+  grabbed:
+  - sprite: {fileID: 21300000, guid: 809a9fbba7fd8ec419ec0128f0d072eb, type: 3}
+    frames: 6
+  stunned:
+  - sprite: {fileID: 21300000, guid: 24a5641c546bbdd4e8622188adc875f8, type: 3}
+    frames: 6
+  - sprite: {fileID: 21300000, guid: 24a5641c546bbdd4e8622188adc875f8, type: 3}
+    frames: 6
+  - sprite: {fileID: 21300000, guid: 24a5641c546bbdd4e8622188adc875f8, type: 3}
+    frames: 6
+  - sprite: {fileID: 21300000, guid: 0629b85cdc1b52541bc5793b70aee4a2, type: 3}
+    frames: 6
+  - sprite: {fileID: 21300000, guid: 0629b85cdc1b52541bc5793b70aee4a2, type: 3}
+    frames: 6
+  stunVfx:
+  - {fileID: 21300000, guid: 2360fa2428f6add48bcdbd099030b549, type: 3}
+  - {fileID: 21300000, guid: 2a66fa2cd0c88b1499c275abe1a385db, type: 3}
+  - {fileID: 21300000, guid: 2732a08fafe0bac458158e8094ea93e6, type: 3}
+  - {fileID: 21300000, guid: 953d4682cb4633c4c9619eace6cd0423, type: 3}
+  - {fileID: 21300000, guid: bfb9430bd06569b4ca8d848bf4972574, type: 3}
+  - {fileID: 21300000, guid: 3181582cd104f9c468758433d341b583, type: 3}
+  stunVfxHoldFrames: 5
+  stunVfxOffset: {x: 0, y: 1.2}
+  stunVfxScale: 1

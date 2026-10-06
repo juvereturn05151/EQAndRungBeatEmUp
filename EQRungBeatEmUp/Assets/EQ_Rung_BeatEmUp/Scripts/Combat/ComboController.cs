@@ -25,6 +25,7 @@ namespace BeatEmUp
         [Min(0)] public int comboResetFrames = 21;
         [Min(0)] public int finisherRecoveryFrames = 7;
         public CombatState State { get; private set; }
+        public int StunFramesRemaining => IsStunned ? Mathf.Max(0, statusStunDuration - DefenseFrame) : stun;
         public AttackData CurrentAttack => attackPlayer ? attackPlayer.CurrentAttack : null;
         public int ComboIndex { get; private set; }
         public CombatInput BufferedInput => bufferFrames > 0 ? buffered : CombatInput.None;
@@ -36,6 +37,7 @@ namespace BeatEmUp
         private bool bufferedAirDive;
         private void Awake()
         {
+            if (!GetComponent<ComboTracker>()) gameObject.AddComponent<ComboTracker>();
             if (!attackPlayer)
             {
                 attackPlayer = GetComponent<AttackPlayer>();
@@ -115,7 +117,8 @@ namespace BeatEmUp
         }
         public void Interrupt(int frames)
         {
-            if (health.IsDead) 
+            GetComponent<ComboTracker>()?.EndCombo("Player interrupted");
+            if (health.IsDead)
             { 
                 EnterDie(); 
                 return; 
@@ -125,6 +128,10 @@ namespace BeatEmUp
             { 
                 return; 
             }
+
+            // Normal hits still damage a stunned player but cannot clear the stronger status.
+            if (IsGrabbed) { motor.MovementLocked = true; ShowGrabbed(); return; }
+            if (IsStunned) { ResetCombo(); motor.MovementLocked = true; ShowStun(); return; }
 
             ClearDefenseControl(); 
             guardHeld = false;
@@ -136,6 +143,7 @@ namespace BeatEmUp
         }
         public void ResetCombo()
         {
+            skillPlaying = false;
             if (attackPlayer) 
             { 
                 attackPlayer.Stop(); 
@@ -180,6 +188,9 @@ namespace BeatEmUp
                 DefenseLanded(); 
                 return; 
             }
+
+            if (IsStunned) { motor.StopGroundedMotion(); ShowStun(); return; }
+            if (IsGrabbed) { ShowGrabbed(); return; }
 
             ResetCombo(); 
             State = stun > 0 ? CombatState.Hitstun : CombatState.Idle;
@@ -372,6 +383,11 @@ namespace BeatEmUp
 
         private void Finish(AttackData finished)
         {
+            if (skillPlaying)
+            {
+                skillPlaying = false; ComboIndex = nextIndex = 0; bufferFrames = jumpBuffer = 0; buffered = CombatInput.None;
+                cooldown = finished.cooldownFrames; motor.MovementLocked = false; State = motor.IsGrounded ? CombatState.Idle : CombatState.Jumping; return;
+            }
             Build?.Notify(RunCombatEvent.ComboFinished);
 
             if (finished == airDive)

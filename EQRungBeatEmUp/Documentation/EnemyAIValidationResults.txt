@@ -1,0 +1,36 @@
+PASS: AmbusherAIProfile has valid states, destinations and attack references
+PASS: AI profile opens in the editable custom inspector
+PASS: GrapplerBruiserAIProfile has valid states, destinations and attack references
+PASS: AI profile opens in the editable custom inspector
+PASS: PrefectAIProfile has valid states, destinations and attack references
+PASS: AI profile opens in the editable custom inspector
+PASS: RusherAIProfile has valid states, destinations and attack references
+PASS: AI profile opens in the editable custom inspector
+PASS: ScreamerAIProfile has valid states, destinations and attack references
+PASS: AI profile opens in the editable custom inspector
+PASS: ThrowerAIProfile has valid states, destinations and attack references
+PASS: AI profile opens in the editable custom inspector
+PASS: Small aggro range prevents detection and movement
+PASS: Edited aggro range acquires target and profile drives approach
+PASS: Profile uses lane-align state before attacking
+PASS: Weighted selection excludes zero-weight sprint and uses slash combo
+PASS: Runtime debug exposes chosen attack ID
+PASS: Committed attack preserves facing when the target crosses behind
+PASS: Finishing AttackData starts per-choice cooldown
+PASS: Cooldown prevents immediate repeated attack
+PASS: Missing forced state is rejected safely
+PASS: Rusher can select sprint as a distinct AttackData choice
+PASS: Edited cooldown is honored
+PASS: Missing default state idles safely and validates
+PASS: Invalid default produces validation warning
+PASS: Duplicated profile can add a new behavior without code changes
+PASS: Explicit FaceTarget action works without movement or automatic facing
+PASS: Hurt interrupts profile actions through the existing reaction system
+PASS: Force-state cannot bypass hurt safety
+PASS: Existing reaction recovery returns control to AI
+PASS: Dead enemies cannot move or attack
+PASS: Thrower selects projectile through its profile
+PASS: ThrowProjectile frame event releases a real projectile
+PASS: Profile-driven projectile applies host combat damage
+PASS: Thrower retreats when target is too close
+PASS: Unassigned enemies retain legacy movement behavior

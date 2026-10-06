@@ -86,7 +86,7 @@ public sealed class LevelDefinitionEditor : Editor
                 for (int w = 0; w < encounter.waves.Count; w++)
                 {
                     var wave = encounter.waves[w];
-                    if (w == 0 && wave.trigger == WaveTrigger.PreviousWaveClear) EditorGUILayout.HelpBox($"Stage {i + 1}: first wave cannot wait for a previous wave.", MessageType.Error);
+                    if (w == 0 && wave.trigger == WaveTrigger.PreviousWaveClear) EditorGUILayout.HelpBox($"Stage {i + 1}: first enabled wave uses encounter start for its previous-clear delay.", MessageType.Info);
                     foreach (var spawn in wave.enemySpawns) if (!spawn.prefab || !spawn.prefab.GetComponent<CharacterHealth>() || !spawn.prefab.GetComponent<EnemyCombat>()) EditorGUILayout.HelpBox($"Stage {i + 1}: spawn needs a combat enemy prefab.", MessageType.Error);
                 }
             }

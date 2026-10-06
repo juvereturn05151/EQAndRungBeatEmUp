@@ -1,0 +1,224 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4bb731267e462a8b2dad208e302ec6, type: 3}
+  m_Name: GrapplerBruiserAIProfile
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyAIProfile
+  defaultState: Idle
+  aggroRange: 8
+  loseTargetRange: 10
+  targetRule: 0
+  meleeRange: 3
+  useGroundPlaneRange: 0
+  projectileRange: 6
+  preferredDistance: 0.5
+  laneTolerance: 1.8
+  reactionDelay: 0.05
+  recoveryTime: 0.25
+  commitToAttack: 1
+  states:
+  - id: Idle
+    role: 0
+    action: 0
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions:
+    - targetState: Approach
+      conditions:
+      - condition: 1
+        value: 0.5
+        invert: 0
+  - id: Approach
+    role: 0
+    action: 1
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions:
+    - targetState: Idle
+      conditions:
+      - condition: 2
+        value: 0.5
+        invert: 0
+    - targetState: Retreat
+      conditions:
+      - condition: 9
+        value: 0.5
+        invert: 0
+    - targetState: LaneAlign
+      conditions:
+      - condition: 7
+        value: 0.5
+        invert: 0
+      - condition: 6
+        value: 0.5
+        invert: 0
+    - targetState: Attack
+      conditions:
+      - condition: 7
+        value: 0.5
+        invert: 0
+      - condition: 5
+        value: 0.5
+        invert: 0
+      - condition: 11
+        value: 0.5
+        invert: 0
+    - targetState: Wait
+      conditions:
+      - condition: 7
+        value: 0.5
+        invert: 0
+      - condition: 5
+        value: 0.5
+        invert: 0
+  - id: LaneAlign
+    role: 0
+    action: 3
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions:
+    - targetState: Idle
+      conditions:
+      - condition: 2
+        value: 0.5
+        invert: 0
+    - targetState: Approach
+      conditions:
+      - condition: 5
+        value: 0.5
+        invert: 0
+  - id: Retreat
+    role: 0
+    action: 2
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions:
+    - targetState: Idle
+      conditions:
+      - condition: 2
+        value: 0.5
+        invert: 0
+    - targetState: Approach
+      conditions:
+      - condition: 10
+        value: 0.5
+        invert: 0
+  - id: Attack
+    role: 0
+    action: 7
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions:
+    - targetState: Recover
+      conditions:
+      - condition: 14
+        value: 0.5
+        invert: 0
+    - targetState: Idle
+      conditions:
+      - condition: 2
+        value: 0.5
+        invert: 0
+    - targetState: Approach
+      conditions:
+      - condition: 6
+        value: 0.5
+        invert: 0
+  - id: Recover
+    role: 0
+    action: 5
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions:
+    - targetState: Approach
+      conditions:
+      - condition: 15
+        value: 0.5
+        invert: 0
+  - id: Wait
+    role: 0
+    action: 5
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions:
+    - targetState: Approach
+      conditions:
+      - condition: 19
+        value: 0.5
+        invert: 0
+    - targetState: Idle
+      conditions:
+      - condition: 2
+        value: 0.5
+        invert: 0
+  - id: Hurt
+    role: 1
+    action: 0
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions: []
+  - id: Knockdown
+    role: 2
+    action: 0
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions: []
+  - id: GetUp
+    role: 3
+    action: 0
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions: []
+  - id: Dead
+    role: 4
+    action: 0
+    duration: 0.25
+    movementScale: 1
+    faceTarget: 1
+    attackChoice: 
+    transitions: []
+  attacks:
+  - id: Primary
+    attack: {fileID: 11400000, guid: 80af89f91e5d4a64e982ab8d4d801d99, type: 2}
+    projectile: 0
+    coordination:
+      requiresMeleeSlot: 1
+      requiresRangedSlot: 0
+      requiresCrowdControlSlot: 1
+      requiresSupportSlot: 0
+      priorityModifier: 0
+      ignoreCoordinator: 0
+    minimumRange: 0
+    maximumRange: 3
+    laneTolerance: 1.8
+    cooldown: 1
+    weight: 1
+    prerequisites: []

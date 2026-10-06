@@ -25,15 +25,16 @@ All indices are zero-based logical frames. Hitstop pauses the actor's state time
 | Dodge invulnerability | Only 4–9 inclusive. Startup and recovery receive ordinary hits. |
 | Dodge movement | Configurable speed 9 units/s, eight moving ticks = 1.2 units. Normalized current movement input, or backward from facing when input is absent. Uses motor velocity and arena bounds. |
 | Guard entry / hold | Entry poses hold 2f and 3f; last pose holds indefinitely. No animation restart each tick. |
-| Parry window | Guard press frames 0–4, configurable 5f. Held Guard after that only blocks. |
+| Parry window | Guard press frames 0–7, configurable 8f. Held Guard after that only blocks. |
 | Guard block | Default zero damage, 10f blockstun and 2f hitstop. Per-hitbox `blockDamage`, `blockstunFrames` and `unblockable` are editable in Attack Data Editor. |
-| Successful Parry | Zero damage, no blockstun, 8f player recovery, 18f attacker interruption, 5f hitstop on both actors. |
+| Successful Parry | Zero damage, no blockstun, 8f player recovery, 24f attacker interruption, 6f hitstop on both actors. |
+| Parry re-arm | Full active window plus 6 additional combat frames. Repressing during this delay immediately Guards without reopening parry. |
 | KnockDown | 18f ground fall/impact, 45f Downed, 24f GetUp, then neutral. Airborne launcher reactions hold the falling pose until actual motor landing, then begin the 18f ground sequence. |
 | Die | 18f fall/impact, then final pose indefinitely. Death while already down keeps the defeated pose. Airborne death falls to the floor first. |
 
 Guard and Parry require a valid incoming attack from the front, based on attacker position and player facing. Behind attacks and explicitly unblockable hits go through normally. Releasing/repressing Guard during blockstun does not reopen a parry window. Successful Parry interrupts the attack already being sampled and uses existing enemy hitstun recovery without dealing artificial damage. If Guard is still held after parry recovery, it resumes ordinary Guard without rearming Parry.
 
-Block uses a distinct recoil sprite and lighter hitstop; Parry uses deflection poses and stronger hitstop. The `DefenseImpact` event provides Block/Parry hooks for future sounds or impact effects. This pass does not add new sound files, screen shake or VFX systems.
+Block uses a distinct recoil sprite and lighter hitstop; Parry uses deflection poses and stronger hitstop. The `DefenseImpact` event now connects successful parries to the existing AttackFeedback renderer, using a distinct existing flash/sparks prefab and block sound. The defense Inspector includes a visual parry/Guard frame track and editable re-arm / feedback data. See [Parry.md](Parry.md) for current tuning and test steps.
 
 KnockDown is entered by an explicit `HitType.KnockDown`, a Launcher, or an AirFinisher. Defense/attack/jump requests are rejected while knocked down, downed or getting up. Normal follow-up hits can damage the player but cannot force an incompatible state. Health reaching zero overrides every state, including frozen reactions. Dead players cannot move, attack, defend or recover automatically. Only an explicit existing `CharacterHealth.Restore()` can reset the player for respawn/restart.
 
@@ -75,7 +76,7 @@ Assets and authoring:
 
 Unity 6000.4.6f1 Play Mode validation uses copies of the actual prefab, authored defense data, sprite assets, input actions and installed Input System package in an isolated project. The defensive suite executes 188 checks, including every Dodge tick, vulnerable/immune hit frames, hitstop, normalized movement, front/behind/unblockable hits, early/timely/late Guard, block damage and blockstun configuration, held-input edge behavior, keyboard and gamepad callbacks, deflection/prone/final sprite holds, launch-to-ground recovery, and death from eight different states. Actual enemy AttackPlayer/AttackHitbox sampling verifies Block/Parry outcomes and safe attacker interruption; the test removes startup from a copy of the enemy attack only to align the active collision deterministically.
 
-All 815 checks passed: player defense 188, ground punch regression 205, air punch regression 262, enemy recovery regression 160. The final runs reported no script compile errors or runtime exceptions.
+The original defense implementation passed 815 checks: player defense 188, ground punch regression 205, air punch regression 262, enemy recovery regression 160. The later parry improvement passed the updated 272-check player defense suite; those original other regression suites were not rerun for the parry change. Current outcomes are in `PlayerDefenseValidationResults.txt` and `Parry.md`.
 
 Run the suite in the project via **Beat Em Up → Validate player defense (Play Mode)**. Detailed outcomes are in `Documentation/PlayerDefenseValidationResults.txt`. Regression results are recorded alongside this report.
 

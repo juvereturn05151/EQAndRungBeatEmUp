@@ -1,0 +1,36 @@
+PASS: Notebook is fixed-height flight with grounded-only hit permission
+PASS: Thrower starts coordinated telegraph with grounded target
+PASS: Book telegraph holds its ordinary Ranged token
+PASS: Existing frame event releases projectile against current target
+PASS: Book trajectory uses walking-lane coordinates only
+PASS: Book keeps constant flight height throughout travel
+PASS: Book hits grounded player normally
+PASS: Ranged reservation releases after existing throw/recovery
+PASS: Thrower starts coordinated telegraph with airborne target
+PASS: Book telegraph holds its ordinary Ranged token
+PASS: Existing frame event releases projectile against current target
+PASS: Book trajectory uses walking-lane coordinates only
+PASS: Book keeps constant flight height throughout travel
+PASS: Book passes beneath airborne player without damage
+PASS: Ranged reservation releases after existing throw/recovery
+PASS: Grounded target begins windup
+PASS: Jump during telegraph neither cancels throw nor releases Ranged early
+PASS: Existing frame event releases projectile against current target
+PASS: Book still spawns at unchanged release height after telegraph jump
+PASS: Existing frame event releases projectile against current target
+PASS: Landing before arrival allows normal book collision and damage
+PASS: Airborne depth-target begins throw
+PASS: Existing frame event releases projectile against current target
+PASS: Aiming uses root ground X/depth Y after airborne depth movement
+PASS: Launched book does not home toward later depth or jump-height changes
+PASS: Existing frame event releases projectile against current target
+PASS: Airborne hit filter rejects book even when low airborne hurtbox overlaps its flight
+PASS: Existing frame event releases projectile against current target
+PASS: Valid grounded parry deflects existing book and negates damage
+PASS: Deflected book retains ground-plane height
+PASS: Existing frame event releases projectile against current target
+PASS: Screamer still casts forward grounded-only wave against airborne target
+PASS: Jump avoids Screamer wave damage and Stun
+PASS: Existing frame event releases projectile against current target
+PASS: Screamer wave still Stuns grounded player
+ALL THROWER GROUND-PLANE CHECKS PASSED

@@ -1,0 +1,67 @@
+PASS: Starts at one full bar
+PASS: Reusable spending empties one bar
+PASS: Insufficient / invalid spending rejected
+PASS: Existing solo canvas displays empty bar
+PASS: Actual accepted punch hit grants .06, repeated overlap does not double gain
+PASS: UI fill updates on confirmed-hit gain
+PASS: Whiff grants no meter
+PASS: Successful existing parry grants .4 bar
+PASS: Parry gain is substantially larger than regular hit
+PASS: Gain clamps at max
+PASS: Normal block grants no parry meter
+PASS: Multiple bars and fractional costs / gains supported
+PASS: New-run health restore resets starting meter
+PASS: Global pause blocks skill and resource gain
+PASS: Full bar accepts and consumes once, facing 1
+PASS: Repeated input cannot restart or spawn early
+PASS: Cast uses grounded combat state and movement lock
+PASS: No dragon before authored release frame 0, facing 1
+PASS: No dragon before authored release frame 1, facing 1
+PASS: No dragon before authored release frame 2, facing 1
+PASS: No dragon before authored release frame 3, facing 1
+PASS: No dragon before authored release frame 4, facing 1
+PASS: No dragon before authored release frame 5, facing 1
+PASS: No dragon before authored release frame 6, facing 1
+PASS: No dragon before authored release frame 7, facing 1
+PASS: No dragon before authored release frame 8, facing 1
+PASS: No dragon before authored release frame 9, facing 1
+PASS: No dragon before authored release frame 10, facing 1
+PASS: No dragon before authored release frame 11, facing 1
+PASS: Named frame event releases exactly on frame 12
+PASS: Dragon emerges at configured hand offset
+PASS: Visual and travel mirror with facing
+PASS: Dragon moves forward
+PASS: Cast finishes all 32 frames and returns controllable neutral
+PASS: No repeated release while cast frame advances
+PASS: Normal attack still starts after skill recovery
+PASS: Full bar accepts and consumes once, facing -1
+PASS: Repeated input cannot restart or spawn early
+PASS: Cast uses grounded combat state and movement lock
+PASS: No dragon before authored release frame 0, facing -1
+PASS: No dragon before authored release frame 1, facing -1
+PASS: No dragon before authored release frame 2, facing -1
+PASS: No dragon before authored release frame 3, facing -1
+PASS: No dragon before authored release frame 4, facing -1
+PASS: No dragon before authored release frame 5, facing -1
+PASS: No dragon before authored release frame 6, facing -1
+PASS: No dragon before authored release frame 7, facing -1
+PASS: No dragon before authored release frame 8, facing -1
+PASS: No dragon before authored release frame 9, facing -1
+PASS: No dragon before authored release frame 10, facing -1
+PASS: No dragon before authored release frame 11, facing -1
+PASS: Named frame event releases exactly on frame 12
+PASS: Dragon emerges at configured hand offset
+PASS: Visual and travel mirror with facing
+PASS: Dragon moves forward
+PASS: Cast finishes all 32 frames and returns controllable neutral
+PASS: No repeated release while cast frame advances
+PASS: Normal attack still starts after skill recovery
+PASS: Startup interruption cancels pending spawn; accepted cost stays spent
+PASS: Insufficient bar leaves state unchanged
+PASS: Alternate skill asset and fractional cost accepted
+PASS: Moved event has no hardcoded release
+PASS: Changing authored event moves release to frame 4
+FAIL: System.Exception: First dragon contact causes real enemy knockdown
+  at ShadowDragonValidation.Check (System.Boolean ok, System.String label) [0x0001f] in E:\EQRungBeatEmUp\EQAndRungBeatEmUp\EQRungBeatEmUp\Assets\Editor\Combat\ShadowDragonValidation.cs:51 
+  at ShadowDragonValidation.ProjectileRules () [0x000b8] in E:\EQRungBeatEmUp\EQAndRungBeatEmUp\EQRungBeatEmUp\Assets\Editor\Combat\ShadowDragonValidation.cs:125 
+  at ShadowDragonValidation.Poll () [0x000ed] in E:\EQRungBeatEmUp\EQAndRungBeatEmUp\EQRungBeatEmUp\Assets\Editor\Combat\ShadowDragonValidation.cs:41 

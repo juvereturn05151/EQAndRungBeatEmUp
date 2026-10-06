@@ -3,9 +3,9 @@ using UnityEngine;
 namespace BeatEmUp
 {
     // Keep the existing enum values stable for serialized/debug references.
-    public enum EnemyReaction { Normal, GroundHit, Launched, AirHit, Falling, Landing, Defeated, Knockdown, Downed, GetUp, GroundBounceEligible, GroundBouncing, WallBounceEligible, WallBouncing }
+    public enum EnemyReaction { Normal, GroundHit, Launched, AirHit, Falling, Landing, Defeated, Knockdown, Downed, GetUp, GroundBounceEligible, GroundBouncing, WallBounceEligible, WallBouncing, Stunned, StunRecovery }
     [RequireComponent(typeof(AttackPlayer))]
-    public sealed class EnemyHitReaction : MonoBehaviour, ICombatFrameListener
+    public sealed partial class EnemyHitReaction : MonoBehaviour, ICombatFrameListener
     {
         public CharacterMotor motor;
         public CharacterHealth health;
@@ -61,6 +61,7 @@ namespace BeatEmUp
             if (motor) { motor.Landed -= OnLanding; motor.WallContact -= OnWallContact; motor.GravityOverride = 0; }
             ClearBounceEligibility();
             if (animationDriver) animationDriver.ReleaseReactionControl();
+            EndStunVisual();
         }
         private static int ClipFrames(AnimationClip clip) => Mathf.Max(1, Mathf.CeilToInt((clip ? clip.length : 0) / CombatClock.FrameSeconds - .0001f));
         public void Receive(AttackHitboxData hit, int facing)
@@ -70,10 +71,14 @@ namespace BeatEmUp
             // Damage remains possible while downed/recovering, but a grounded
             // hit cannot silently replace the recovery with GroundHit/Normal.
             if (IsRecovering) { LockMotion(); return; }
+            if (hit.hitType == HitType.Stun && CanBeParryStunned) { EnterStun(hit.stunDurationFrames); return; }
+            if (IsStunState && hit.hitType == HitType.Normal) { LockStunMotion(); ShowStun(); return; }
+            EndStunVisual();
+            GetComponent<EnemyCombat>()?.ReleaseCoordination("Hit reaction");
             attackPlayer.Stop();
             animationDriver.ReleaseReactionControl();
             ClearBounceEligibility();
-            recovery = Mathf.Max(recovery, hit.hitstunFrames);
+            recovery = Mathf.Max(recovery, hit.hitType == HitType.Stun ? hit.stunDurationFrames : hit.hitstunFrames);
             if (hit.hitType == HitType.Launcher && motor.IsGrounded && !health.IsDead)
             {
                 JuggleHits = 0; juggleFrames = 0; juggleClosed = false;
@@ -123,9 +128,15 @@ namespace BeatEmUp
         private string AnimationState() => State == EnemyReaction.WallBounceEligible && motor.IsGrounded ? "GroundHit" : State.ToString();
         public void InterruptFromParry(int frames)
         {
+            if (CanBeParryStunned) EnterStun(frames);
+        }
+        // Armor breaks retain their original short stagger; parry has a distinct status.
+        public void InterruptWithHitstun(int frames)
+        {
             if (health.IsDead || IsRecovering) return;
             ClearBounceEligibility();
             attackPlayer.Stop(); animationDriver.ReleaseReactionControl();
+            EndStunVisual();
             recovery = Mathf.Max(recovery, frames);
             State = motor.IsGrounded ? EnemyReaction.GroundHit : juggleClosed ? EnemyReaction.Falling : EnemyReaction.AirHit;
             LockMotion(); ShowReaction(true);
@@ -218,6 +229,7 @@ namespace BeatEmUp
             if (State == EnemyReaction.Defeated) return;
             if (!attackPlayer) attackPlayer = GetComponent<AttackPlayer>();
             attackPlayer.Stop(); CloseJuggle(true); recovery = phaseFrames = 0;
+            EndStunVisual();
             ClearBounceEligibility();
             State = EnemyReaction.Defeated; LastHitReaction = State.ToString(); LockMotion();
             motor.StopGroundedMotion();
@@ -225,6 +237,7 @@ namespace BeatEmUp
         }
         private void OnRestore()
         {
+            EndStunVisual();
             attackPlayer.Stop(); recovery = phaseFrames = juggleFrames = JuggleHits = 0; juggleClosed = false;
             ResetComboResources(); LastHitReaction = "None";
             motor.GravityOverride = 0; State = EnemyReaction.Normal;
@@ -236,6 +249,7 @@ namespace BeatEmUp
             if (!motor || !health) return;
             if (health.IsDead) { OnDeath(); return; }
             if (attackPlayer && attackPlayer.IsFrozen) return;
+            if (IsStunState) { TickStun(); return; }
             if (IsRecovering)
             {
                 LockMotion();

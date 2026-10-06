@@ -1,0 +1,234 @@
+PASS: Preserved 36f telegraph, 8f scream, 30f recovery
+PASS: Every radial / actor-owned scream hitbox removed
+PASS: All phases remain stationary and interruptible
+PASS: Frame-data scream starts
+PASS: Directional corridor warning at frame zero, no radial VFX
+PASS: Warning lies entirely in front and communicates exact full depth
+PASS: Telegraph sound hook retained
+PASS: Telegraph neither moves nor damages / spawns early
+PASS: One wave replaces warning exactly on release frame 36
+PASS: Separate scream audio hook retained
+PASS: Shared projectile uses forward ground rectangle at mouth offset
+PASS: Three forward crescents reuse six original pixel wave frames
+PASS: Screamer enters recovery while its wave travels independently
+PASS: Cast completes existing recovery
+PASS: One release per cast despite hitstop / recovery
+PASS: Remote scream cancels telegraph audio
+PASS: Remote interruption cancels warning audio
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Travel and all visual crescents mirror for facing 1
+PASS: Swept rectangular front/lane threat at (2.50, 0.00), facing 1, hit=True
+PASS: Duplicate overlap causes only one 14-damage hit
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Travel and all visual crescents mirror for facing 1
+PASS: Swept rectangular front/lane threat at (-1.00, 0.00), facing 1, hit=False
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Travel and all visual crescents mirror for facing 1
+PASS: Swept rectangular front/lane threat at (2.50, 0.59), facing 1, hit=True
+PASS: Duplicate overlap causes only one 14-damage hit
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Travel and all visual crescents mirror for facing 1
+PASS: Swept rectangular front/lane threat at (2.50, 0.61), facing 1, hit=False
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Travel and all visual crescents mirror for facing 1
+PASS: Swept rectangular front/lane threat at (2.50, -0.61), facing 1, hit=False
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Travel and all visual crescents mirror for facing 1
+PASS: Swept rectangular front/lane threat at (7.00, 0.00), facing 1, hit=False
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Travel and all visual crescents mirror for facing 1
+PASS: Swept rectangular front/lane threat at (0.00, 1.00), facing 1, hit=False
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Travel and all visual crescents mirror for facing -1
+PASS: Swept rectangular front/lane threat at (-2.50, 0.00), facing -1, hit=True
+PASS: Duplicate overlap causes only one 14-damage hit
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Travel and all visual crescents mirror for facing -1
+PASS: Swept rectangular front/lane threat at (1.00, 0.00), facing -1, hit=False
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Travel and all visual crescents mirror for facing -1
+PASS: Swept rectangular front/lane threat at (-2.50, 0.59), facing -1, hit=True
+PASS: Duplicate overlap causes only one 14-damage hit
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Travel and all visual crescents mirror for facing -1
+PASS: Swept rectangular front/lane threat at (-2.50, 0.61), facing -1, hit=False
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Travel and all visual crescents mirror for facing -1
+PASS: Swept rectangular front/lane threat at (-2.50, -0.61), facing -1, hit=False
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Travel and all visual crescents mirror for facing -1
+PASS: Swept rectangular front/lane threat at (-7.00, 0.00), facing -1, hit=False
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Travel and all visual crescents mirror for facing -1
+PASS: Swept rectangular front/lane threat at (0.00, 1.00), facing -1, hit=False
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Moving behind during warning / flight avoids wave
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Sidestepping warning's depth avoids wave
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Projectile stun remains authoritative with telegraph VFX removed
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Committed facing does not retarget a player crossing behind just before release
+PASS: Wave never homes toward moving target
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Wave contact enters explicit Stunned status / cancels player case 0
+PASS: Stun clears buffered combat inputs
+PASS: Scream applies 90-frame Stunned status separate from normal Hitstun
+PASS: Stunned player rejects attack, launcher, jump, dodge, guard and skill
+PASS: Hitstop pauses the stun countdown
+PASS: Stun lasts its authored combat frames without Downed or GetUp
+PASS: Stun countdown reaches zero
+PASS: Stunned status returns neutral after natural landing
+PASS: Player recovers control after exactly one wave hit
+PASS: Player can attack again after stun recovery
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Wave contact enters explicit Stunned status / cancels player case 1
+PASS: Stun clears buffered combat inputs
+PASS: Scream applies 90-frame Stunned status separate from normal Hitstun
+PASS: Stunned player rejects attack, launcher, jump, dodge, guard and skill
+PASS: Hitstop pauses the stun countdown
+PASS: Stun lasts its authored combat frames without Downed or GetUp
+PASS: Stun countdown reaches zero
+PASS: Stunned status returns neutral after natural landing
+PASS: Player recovers control after exactly one wave hit
+PASS: Player can attack again after stun recovery
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Wave contact enters explicit Stunned status / cancels player case 2
+PASS: Stun clears buffered combat inputs
+PASS: Airborne stun preserves natural upward trajectory and releases attack control
+PASS: Scream applies 90-frame Stunned status separate from normal Hitstun
+PASS: Stunned player rejects attack, launcher, jump, dodge, guard and skill
+PASS: Hitstop pauses the stun countdown
+PASS: Stun lasts its authored combat frames without Downed or GetUp
+PASS: Stun countdown reaches zero
+PASS: Stunned status returns neutral after natural landing
+PASS: Player recovers control after exactly one wave hit
+PASS: Player can attack again after stun recovery
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Wave contact enters explicit Stunned status / cancels player case 3
+PASS: Stun clears buffered combat inputs
+PASS: Scream applies 90-frame Stunned status separate from normal Hitstun
+PASS: Stunned player rejects attack, launcher, jump, dodge, guard and skill
+PASS: Hitstop pauses the stun countdown
+PASS: Stun lasts its authored combat frames without Downed or GetUp
+PASS: Stun countdown reaches zero
+PASS: Stunned status returns neutral after natural landing
+PASS: Player recovers control after exactly one wave hit
+PASS: Player can attack again after stun recovery
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Wave contact enters explicit Stunned status / cancels player case 4
+PASS: Stun clears buffered combat inputs
+PASS: Airborne stun preserves natural upward trajectory and releases attack control
+PASS: Scream applies 90-frame Stunned status separate from normal Hitstun
+PASS: Stunned player rejects attack, launcher, jump, dodge, guard and skill
+PASS: Hitstop pauses the stun countdown
+PASS: Stun lasts its authored combat frames without Downed or GetUp
+PASS: Stun countdown reaches zero
+PASS: Stunned status returns neutral after natural landing
+PASS: Player recovers control after exactly one wave hit
+PASS: Player can attack again after stun recovery
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Wave contact enters explicit Stunned status / cancels player case 5
+PASS: Stun clears buffered combat inputs
+PASS: Scream applies 90-frame Stunned status separate from normal Hitstun
+PASS: Stunned player rejects attack, launcher, jump, dodge, guard and skill
+PASS: Hitstop pauses the stun countdown
+PASS: Stun lasts its authored combat frames without Downed or GetUp
+PASS: Stun countdown reaches zero
+PASS: Stunned status returns neutral after natural landing
+PASS: Player recovers control after exactly one wave hit
+PASS: Player can attack again after stun recovery
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Front player stunned; independent player behind remains safe
+PASS: Any attack can apply reusable Stun reaction through hit data
+PASS: Five 6-frame body poses and six overhead VFX frames configured
+PASS: Stun begins with dedicated dazed pose and overhead indicator
+PASS: Body and VFX advance on authored combat-frame holds
+PASS: Body / orbit loops repeat every 30 combat frames
+PASS: Global pause freezes status and sprite loop
+PASS: Standing stun prevents horizontal / lane movement without a knockdown
+PASS: Stunned player stays vulnerable; normal hitstun cannot clear the status
+PASS: Repeated Stun refreshes remaining duration to the longer authored value
+PASS: Shorter repeated Stun cannot shorten existing status
+PASS: Status expires cleanly, removes VFX and restores animator / normal control
+PASS: Normal attacks still use the separate short Hitstun reaction
+PASS: Body and overhead effect mirror and sort with the owner's renderer
+PASS: All stun body / VFX sprites registered for authoritative multiplayer snapshots
+PASS: A separate knockdown reaction overrides status and clears overhead effect
+PASS: Lethal damage overrides Stunned and clears VFX
+PASS: Restore resets status and visual control
+PASS: Disabling an actor clears its owned VFX and movement lock
+PASS: Missing cosmetic data does not prevent status recovery
+PASS: AI stops and starts telegraph when ready
+PASS: Interrupting telegraph cancels directional warning and pending spawn
+PASS: Telegraph interruption consumes unchanged 2.5-second cooldown
+PASS: No delayed wave leaks from cancelled telegraph
+PASS: AI finds left-hand target
+PASS: AI faces left before committing and stops chase
+PASS: One wave releases on frame 36
+PASS: AI maintains committed direction after target crosses
+PASS: AI completes cast recovery
+PASS: Natural finish starts existing 120f plus .5s cooldown
+PASS: Cooldown prevents immediate repeat attack
+PASS: AI does not fire at a target outside configured wave depth
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Recovery interruption begins at frame 44
+PASS: Screamer recovery stays vulnerable
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Maximum distance caps travel precisely and expires wave
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Wave remains through configured lifetime frames
+PASS: Wave lifetime expires independently from caster recovery
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: Pause freezes wave movement, age and animation
+PASS: Frame-data scream starts
+PASS: Existing dodge is inside its authored immunity window
+PASS: One wave releases on frame 36
+PASS: Existing dodge immunity rejects directional wave contact
+PASS: Frame-data scream starts
+PASS: One wave releases on frame 36
+PASS: External immunity remains authoritative
+PASS: Directional warning and original wave art registered in multiplayer catalog
+PASS: Scream timeline remains in multiplayer attack catalog
+PASS: Notebook retains existing aimed circular, single-target defaults
+PASS: Thrower event and target-aimed spawn remain unchanged
+PASS: Existing Thrower cast begins, facing 1
+PASS: Thrower still has 18-frame anticipation
+PASS: Thrower still fires one aimed notebook at frame 18
+PASS: Existing aimed circle projectile still damages player
+PASS: Notebook retains its original damage amount
+PASS: Existing Thrower cast begins, facing -1
+PASS: Thrower still has 18-frame anticipation
+PASS: Thrower still fires one aimed notebook at frame 18
+PASS: Existing aimed circle projectile still damages player
+PASS: Notebook retains its original damage amount
+NOTE: Separate online peers were not rerun. Existing sprite snapshots / catalog carry directional warning and all wave crescents.

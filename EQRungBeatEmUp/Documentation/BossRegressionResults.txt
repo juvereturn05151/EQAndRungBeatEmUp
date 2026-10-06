@@ -1,0 +1,36 @@
+Unity 6000.4.6f1, isolated batch-mode copy of the current working project.
+
+BossEncounterValidation: PASS, 85 automated checks.
+Includes physical radial-wave miss/contact, exact 420 frames, pause, overlay AI,
+reuse modes, Book damage/deflection, Swipe parry/no generic boss Stun, inclusive
+phase threshold/one transition, Curse forward wave/Stun/sidestep, existing
+Grappler/Thrower summons, caps/priority, death cleanup, exit/camera release,
+per-Totem radius/HP, Undo/Redo and serialized asset reload.
+
+PrefectValidation: PASS, 106 results (including informational notes).
+Confirms that the common reinforcement spawn path preserves existing support
+behavior, reinforcement caps, clearance and tracking. See the separate
+BossReinforcementRegressionResults.txt report. Its first no-graphics launch
+crashed in Unity's sprite renderer during camera capture; a graphics-enabled
+batch launch completed successfully.
+
+RunUpgradeValidation: FAIL before the boss encounter.
+First failing assertion: Stage 2 clear spawns chapel without cards.
+Stack: RunUpgradeValidation.ClearCombatRoom, called from Poll at line 103.
+This run did not reach the modified boss-specific upgrade assertion.
+
+HauntedStageFlowValidation: FAIL before the boss encounter.
+First failing assertion: TEST5: encounter locks exit while required enemies live.
+Stack: HauntedStageFlowValidation.Poll at line 49, first combat-stage fixture.
+This run did not reach the modified boss-specific stage assertion.
+
+These legacy fixtures assume earlier encounter/reward settings; this task did
+not change the first two stage encounter/reward settings. They are not reported
+as passing. The dedicated boss suite tests the current authored boss encounter.
+
+Manual checks remaining: Scene View dragging/slider interaction and perceptual
+VFX/SFX quality. Headless validation confirms data and runtime paths, not visual
+quality. Separate multiplayer peers were not launched.
+
+Automatic approval review rejected deletion of the temporary test-project copy
+as blocked by policy. Temporary copies remain in the ignored Temp directory.

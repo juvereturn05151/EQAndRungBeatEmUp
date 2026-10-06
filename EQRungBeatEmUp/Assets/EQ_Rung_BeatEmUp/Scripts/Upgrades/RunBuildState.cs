@@ -81,7 +81,7 @@ namespace BeatEmUp
         }
         public void AttackHit(CharacterHealth victim, CombatHitOutcome outcome)
         {
-            if (outcome != CombatHitOutcome.Hit) return;
+            if (outcome != CombatHitOutcome.Hit && outcome != CombatHitOutcome.Armor && outcome != CombatHitOutcome.ArmorBreak) return;
             if (player.IsAirDiving) diveConnected = true;
             CombatEvent?.Invoke(RunCombatEvent.AttackHit);
             if (victim && victim.IsDead) CombatEvent?.Invoke(RunCombatEvent.EnemyKilled);

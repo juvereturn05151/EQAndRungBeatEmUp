@@ -12,10 +12,16 @@ public static class EncounterPreview
     {
         public LevelDefinition level;
         public int stage = -1, encounter, wave;
+        public bool shown;
     }
     static LevelDefinition previewLevel;
     static int previewStage, encounterIndex, waveIndex;
-    static bool editHandles;
+    static bool editHandles = true;
+    static bool showAllBounds, showTrigger = true, showCombat = true, showCamera = true;
+    static LevelDefinition requestedLevel;
+    static int requestedStage, requestedEncounter, requestedWave;
+    public static void RequestSelection(LevelDefinition level, int stage, int encounter, int wave)
+    { requestedLevel = level; requestedStage = stage; requestedEncounter = encounter; requestedWave = wave; }
     static bool stageMode;
     static LevelDefinition resumeLevel;
     static string previewFingerprint;
@@ -43,7 +49,11 @@ public static class EncounterPreview
     {
         if (!level || stageIndex < 0 || stageIndex >= level.stages.Count) return;
         PrepareSelection(level, stageIndex, selection);
+        if (requestedLevel == level && requestedStage == stageIndex)
+        { selection.encounter = requestedEncounter; selection.wave = requestedWave; requestedLevel = null; selection.shown = false; PrepareSelection(level, stageIndex, selection); }
+        if (!Application.isPlaying && !selection.shown) { SelectEncounter(level, stageIndex, selection.encounter, selection.wave); selection.shown = true; }
         var stage = level.stages[stageIndex];
+        EncounterZoneAuthoring.Draw(level, stageIndex, selection);
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Encounter / Trigger Preview", EditorStyles.boldLabel);
         if (stage.IsSafeStage)
@@ -58,13 +68,18 @@ public static class EncounterPreview
         }
         EditorGUI.BeginChangeCheck();
         int chosenEncounter = EditorGUILayout.Popup("Encounter", selection.encounter,
-            stage.encounters.Select((e, i) => $"{i + 1}. {e.encounterId}").ToArray());
+            stage.encounters.Select((e, i) => $"{i + 1}. {e.encounterId}" + (e.enabled ? "" : " [Disabled]")).ToArray());
         if (chosenEncounter != selection.encounter) selection.wave = 0;
         selection.encounter = chosenEncounter;
         var encounter = stage.encounters[selection.encounter];
+        var coordinationObject=new SerializedObject(level); coordinationObject.Update();
+        var coordination=coordinationObject.FindProperty("stages").GetArrayElementAtIndex(stageIndex).FindPropertyRelative("encounters").GetArrayElementAtIndex(selection.encounter).FindPropertyRelative("attackCoordination");
+        coordination.isExpanded=true;
+        EditorGUILayout.PropertyField(coordination,new GUIContent("Attack Coordination"),true);
+        coordinationObject.ApplyModifiedProperties();
         selection.wave = Mathf.Clamp(selection.wave, 0, encounter.waves.Count);
         var names = new List<string> { "All waves (layout, not simultaneous spawns)" };
-        names.AddRange(encounter.waves.Select((w, i) => $"{i + 1}. {w.waveId}"));
+        names.AddRange(encounter.waves.Select((w, i) => $"{i + 1}. {w.waveId}" + (w.enabled ? "" : " [Disabled]")));
         selection.wave = EditorGUILayout.Popup("Wave", selection.wave, names.ToArray());
         bool changed = EditorGUI.EndChangeCheck();
         EditorGUILayout.HelpBox(Activation(stage, selection.encounter), MessageType.Info);
@@ -80,9 +95,8 @@ public static class EncounterPreview
         bool sameContext = previewLevel == level && previewStage == stageIndex;
         if (changed && sameContext)
         {
-            bool keepHandles = editHandles;
-            Begin(level, stageIndex, selection.encounter, selection.wave);
-            editHandles = keepHandles; Focus();
+            EncounterObjectAuthoring.Restore();
+            SelectEncounter(level, stageIndex, selection.encounter, selection.wave); RefreshNow();
         }
         bool active = !stageMode && previewLevel == level && previewStage == stageIndex && encounterIndex == selection.encounter && waveIndex == selection.wave;
         if (TryGet(out var showingStage, out var showingEncounter))
@@ -97,7 +111,7 @@ public static class EncounterPreview
             }
             using (new EditorGUI.DisabledScope(!active))
             {
-                if (GUILayout.Button("Focus Trigger / Spawns")) Focus();
+                if (GUILayout.Button("Focus Encounter")) FocusZone();
                 if (GUILayout.Button("Clear Preview")) Clear();
             }
         }
@@ -110,8 +124,15 @@ public static class EncounterPreview
                 }
         using (new EditorGUI.DisabledScope(!active))
             if (GUILayout.Button("Focus Trigger Zone Rectangle")) FocusZone();
+        EditorGUI.BeginChangeCheck();
         using (new EditorGUI.DisabledScope(!active || Application.isPlaying))
             editHandles = EditorGUILayout.Toggle("Edit Zone / Spawn Handles", editHandles);
+        showAllBounds = EditorGUILayout.Toggle("Show All Encounter Bounds", showAllBounds);
+        showTrigger = EditorGUILayout.Toggle("Show Trigger Zone", showTrigger);
+        showCombat = EditorGUILayout.Toggle("Show Combat Bounds", showCombat);
+        showCamera = EditorGUILayout.Toggle("Show Camera Bounds", showCamera);
+        if (EditorGUI.EndChangeCheck()) SceneView.RepaintAll();
+        EncounterObjectAuthoring.Draw(level, stageIndex, selection);
         EditorGUILayout.HelpBox("In Edit Mode, Preview Encounter temporarily shows this stage's art, props, player entry and enemy visuals in the Scene view. Original renderers are hidden only in the editor. Clear Preview restores them. No combat scripts run. All waves shows a layout, not spawn timing. Labels/handles draw over the artwork. Handles edit the level asset with Undo; Clear does not undo those edits.", MessageType.Info);
     }
 
@@ -122,6 +143,7 @@ public static class EncounterPreview
         {
             // Reset only this inspector's encounter controls; keep the shared stage preview intact.
             selection.level = level; selection.stage = stageIndex; selection.encounter = selection.wave = 0;
+            selection.shown = false;
         }
         var stage = level.stages[stageIndex];
         selection.encounter = Mathf.Clamp(selection.encounter, 0, stage.encounters.Count - 1);
@@ -166,16 +188,33 @@ public static class EncounterPreview
     public static Vector2 SpawnPosition(StageSegmentDefinition stage, EnemySpawnDefinition spawn, int instance)
     {
         var p = spawn.spawnPoints.Count > 0 ? spawn.spawnPoints[instance % spawn.spawnPoints.Count] : stage.movementMax;
-        return new Vector2(Mathf.Clamp(p.x, stage.movementMin.x, stage.movementMax.x), Mathf.Clamp(p.y, stage.movementMin.y, stage.movementMax.y));
+        var zone = stage.encounters.FirstOrDefault(e => e.waves.Any(w => w.enemySpawns.Contains(spawn)));
+        var min = stage.movementMin; var max = stage.movementMax;
+        if (zone != null && zone.useCombatBounds)
+        {
+            min = Vector2.Max(min, zone.combatBounds.min); max = Vector2.Min(max, zone.combatBounds.max);
+            max = Vector2.Max(min, max);
+        }
+        return new Vector2(Mathf.Clamp(p.x, min.x, max.x), Mathf.Clamp(p.y, min.y, max.y));
     }
 
     public static void Clear()
     {
+        EncounterObjectAuthoring.Restore();
         EncounterScenePreview.Clear(); previewFingerprint = null;
-        previewLevel = null; editHandles = false; SceneView.RepaintAll();
+        previewLevel = null; SceneView.RepaintAll();
     }
 
-    public static bool IsPreviewing(LevelDefinition level, int stage) => previewLevel == level && previewStage == stage && EncounterScenePreview.IsActive;
+    public static void SelectEncounter(LevelDefinition level, int stage, int encounter, int wave)
+    {
+        if (Application.isPlaying || !level || stage < 0 || stage >= level.stages.Count || level.stages[stage].encounters.Count == 0) return;
+        bool different = previewLevel != level || previewStage != stage || encounterIndex != encounter || waveIndex != wave;
+        if (different) EncounterObjectAuthoring.Restore();
+        previewLevel = level; previewStage = stage; encounterIndex = Mathf.Clamp(encounter, 0, level.stages[stage].encounters.Count - 1);
+        waveIndex = wave; stageMode = false; StageEditorSelection.Remember(level, stage); SceneView.RepaintAll();
+    }
+
+    public static bool IsPreviewing(LevelDefinition level, int stage) => previewLevel == level && previewStage == stage && (EncounterScenePreview.IsActive || EncounterObjectAuthoring.IsPreviewing);
     public static void BeginStage(LevelDefinition level, int index)
     {
         Clear();
@@ -211,6 +250,7 @@ public static class EncounterPreview
         string fingerprint = EditorJsonUtility.ToJson(previewLevel) + ":" + previewStage + ":" + stageMode + ":" + encounterIndex + ":" + waveIndex;
         if (!force && fingerprint == previewFingerprint) return;
         previewFingerprint = fingerprint;
+        if (EncounterObjectAuthoring.IsPreviewing) { EncounterObjectAuthoring.Refresh(); return; }
         try { EncounterScenePreview.Show(previewLevel, stage, stageMode ? StageWaves(stage) : SelectedWaves(encounter), stageMode); }
         catch (System.Exception error) { Clear(); Debug.LogException(error); }
     }
@@ -262,6 +302,7 @@ public static class EncounterPreview
     {
         if (!TryGet(out _, out var encounter) || stageMode) return;
         var zone = encounter.triggerZone;
+        if (encounter.useCombatBounds) zone = encounter.combatBounds;
         var bounds = new Bounds(zone.center, new Vector3(Mathf.Abs(zone.width), Mathf.Abs(zone.height), .1f));
         bounds.Expand(.8f);
         var view = SceneView.lastActiveSceneView ? SceneView.lastActiveSceneView : EditorWindow.GetWindow<SceneView>();
@@ -299,11 +340,11 @@ public static class EncounterPreview
         Handles.zTest = UnityEngine.Rendering.CompareFunction.Always;
         DrawRect(new Rect(stage.movementMin, stage.movementMax - stage.movementMin), Color.green);
         DrawStageMarkers(stage);
-        if (stageMode)
+        if (stageMode || showAllBounds)
         {
             var stacked = new Dictionary<Vector2, int>();
             if (!stage.IsSafeStage)
-                for (int i = 0; i < stage.encounters.Count; i++) DrawEncounter(stage, stage.encounters[i], i, true, stacked);
+                for (int i = 0; i < stage.encounters.Count; i++) DrawEncounter(stage, stage.encounters[i], i, stageMode, stacked);
         }
         else DrawEncounter(stage, encounter, encounterIndex, false);
         Handles.color = oldColor;
@@ -334,15 +375,41 @@ public static class EncounterPreview
 
     static void DrawEncounter(StageSegmentDefinition stage, EncounterDefinition encounter, int index, bool allWaves, Dictionary<Vector2, int> stacked = null)
     {
-        DrawTriggerZone(encounter);
+        if (showTrigger) DrawTriggerZone(encounter);
+        bool selected = !stageMode && index == encounterIndex;
+        if (showCombat)
+        {
+            DrawRect(encounter.combatBounds, encounter.useCombatBounds ? Color.red : new Color(1, .4f, .4f, .35f));
+            Handles.Label(new Vector3(encounter.combatBounds.xMin, encounter.combatBounds.yMax), "COMBAT BOUNDS / " + encounter.encounterId + (encounter.useCombatBounds ? "" : " (unused)"));
+        }
+        if (showCamera)
+        {
+            DrawRect(encounter.cameraBounds, encounter.lockCamera && encounter.useCombatBounds ? new Color(.2f, .6f, 1) : new Color(.4f, .6f, 1, .35f));
+            Handles.Label(new Vector3(encounter.cameraBounds.xMin, encounter.cameraBounds.yMax), "CAMERA BOUNDS / " + encounter.encounterId + (encounter.lockCamera && encounter.useCombatBounds ? "" : " (unused)"));
+        }
+        if (editHandles && selected && !Application.isPlaying)
+        {
+            if (showTrigger) EditZone(encounter);
+            if (showCombat) EditBounds(encounter, false);
+            if (showCamera) EditBounds(encounter, true);
+        }
+        if (encounter.useCombatBounds)
+        {
+            if (encounter.lockStageUntilClear)
+            {
+                Handles.color = Color.red;
+                if (encounter.exitLock != EncounterExitLock.RightOnly) Barrier(encounter.combatBounds.xMin, encounter.combatBounds);
+                if (encounter.exitLock != EncounterExitLock.LeftOnly) Barrier(encounter.combatBounds.xMax, encounter.combatBounds);
+            }
+        }
         Vector2 labelPoint = stage.playerEntryPoint;
         if (encounter.trigger == EncounterTrigger.PlayerZone)
         {
             labelPoint = new Vector2(encounter.triggerZone.xMin, encounter.triggerZone.yMax);
-            if (editHandles && !Application.isPlaying) EditZone(encounter);
         }
         Handles.Label((Vector3)labelPoint + Vector3.up * .25f, $"{stage.stageName} / {encounter.encounterId}\n{Activation(stage, index)}");
         if (stacked == null) stacked = new Dictionary<Vector2, int>();
+        if (!stageMode && !selected) return;
         foreach (var wave in allWaves ? encounter.waves : SelectedWaves(encounter)) foreach (var spawn in wave.enemySpawns)
         {
             if (editHandles && !Application.isPlaying) EditSpawns(spawn);
@@ -367,24 +434,48 @@ public static class EncounterPreview
     static void EditZone(EncounterDefinition encounter)
     {
         Handles.color = TriggerColor;
-        var zone = encounter.triggerZone;
+        var zone = EditRectangle(encounter.triggerZone, "Edit encounter trigger zone");
+        if (zone != encounter.triggerZone) { encounter.triggerZone = zone; BoundsChanged(); }
+    }
+
+    static void Barrier(float x, Rect bounds)
+    {
+        Handles.DrawAAPolyLine(5, new Vector3(x, bounds.yMin), new Vector3(x, bounds.yMax));
+        Handles.Label(new Vector3(x, bounds.yMin), "TEMPORARY LOCK");
+    }
+    static void EditBounds(EncounterDefinition encounter, bool camera)
+    {
+        var bounds = camera ? encounter.cameraBounds : encounter.combatBounds;
+        Handles.color = camera ? new Color(.2f, .6f, 1) : Color.red;
+        var changed = EditRectangle(bounds, camera ? "Edit encounter camera bounds" : "Edit encounter combat bounds");
+        if (changed == bounds) return;
+        if (camera) encounter.cameraBounds = changed; else encounter.combatBounds = changed;
+        BoundsChanged();
+    }
+    static Rect EditRectangle(Rect bounds, string undo)
+    {
         EditorGUI.BeginChangeCheck();
-        Vector3 center = Handles.PositionHandle(zone.center, Quaternion.identity);
-        if (EditorGUI.EndChangeCheck())
+        Vector3 center = Handles.PositionHandle(bounds.center, Quaternion.identity);
+        if (EditorGUI.EndChangeCheck()) { Undo.RecordObject(previewLevel, undo); bounds.center = center; return bounds; }
+        // Four corners plus four edge midpoints. Edge handles affect only their own axis.
+        for (int x = -1; x <= 1; x++) for (int y = -1; y <= 1; y++)
         {
-            Undo.RecordObject(previewLevel, "Move encounter trigger zone");
-            zone.center = center; encounter.triggerZone = zone; EditorUtility.SetDirty(previewLevel);
-            EditorApplication.delayCall += RefreshNow;
+            if (x == 0 && y == 0) continue;
+            Vector3 point = bounds.center + new Vector2(x * bounds.width * .5f, y * bounds.height * .5f);
+            EditorGUI.BeginChangeCheck();
+            Vector3 moved = Handles.FreeMoveHandle(point, HandleUtility.GetHandleSize(point) * .055f, Vector3.zero, Handles.RectangleHandleCap);
+            if (!EditorGUI.EndChangeCheck()) continue;
+            Undo.RecordObject(previewLevel, undo);
+            float minX = bounds.xMin, maxX = bounds.xMax, minY = bounds.yMin, maxY = bounds.yMax;
+            if (x < 0) minX = Mathf.Min(moved.x, maxX - .01f); else if (x > 0) maxX = Mathf.Max(moved.x, minX + .01f);
+            if (y < 0) minY = Mathf.Min(moved.y, maxY - .01f); else if (y > 0) maxY = Mathf.Max(moved.y, minY + .01f);
+            bounds = Rect.MinMaxRect(minX, minY, maxX, maxY);
         }
-        EditorGUI.BeginChangeCheck();
-        Vector3 corner = Handles.PositionHandle(new Vector3(zone.xMax, zone.yMax, 0), Quaternion.identity);
-        if (EditorGUI.EndChangeCheck())
-        {
-            Undo.RecordObject(previewLevel, "Resize encounter trigger zone");
-            zone.width = Mathf.Max(.01f, corner.x - zone.xMin); zone.height = Mathf.Max(.01f, corner.y - zone.yMin);
-            encounter.triggerZone = zone; EditorUtility.SetDirty(previewLevel);
-            EditorApplication.delayCall += RefreshNow;
-        }
+        return bounds;
+    }
+    static void BoundsChanged()
+    {
+        EditorUtility.SetDirty(previewLevel); EditorApplication.delayCall += RefreshNow;
     }
 
     static void EditSpawns(EnemySpawnDefinition spawn)

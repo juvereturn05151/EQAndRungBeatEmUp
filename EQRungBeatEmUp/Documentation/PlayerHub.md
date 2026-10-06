@@ -1,5 +1,7 @@
 # Outdoor Player Hub
 
+This documents the earlier short outdoor Hub. The current walkable sanctuary, progression stations, persistence and death returns are documented in [PlayerSanctuary.md](PlayerSanctuary.md). Its new PlayerHub scene replaces this version's walk-to-exit behavior.
+
 Start `Assets/EQ_Rung_BeatEmUp/Scenes/HauntedHouse.unity`. The run now begins in **Player Hub**, stage index **0**, displayed as **1/9**. Walk to the right exit at `(2.7, 0)` to enter Entrance Gate. No upgrade cards or combat locks appear in the hub. New runs return here with an empty build.
 
 Order: Player Hub → Entrance Gate → Blood Sheet Corridor → Fake Morgue → Service Corridor & Stair → Haunted Maze → Recovery Shrine → White Ghost Boss Chamber → Escape Lane. Existing stage IDs remain unchanged; the original eight stages shift forward one index. Explicit next-stage routes are remapped when the hub is first inserted. Combat-room rewards, shrine healing and cursed-totem boss protection remain in place.

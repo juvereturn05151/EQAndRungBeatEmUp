@@ -15,14 +15,191 @@ MonoBehaviour:
   levelId: ThaiHauntedHouse
   levelName: Thai Haunted House
   stages:
-  - stageId: Stage01_EntranceGate
+  - maxActiveEnemies: 12
+    stageId: Stage00_PlayerHub
+    stageName: Player Hub
+    hub: {fileID: 11400000, guid: 7134b791933de5f4ead73d9e1c3998af, type: 2}
+    stageType: 1
+    backgroundSprite: {fileID: -1160340735777781435, guid: 854da9651aa5440419daebcdf074938c, type: 3}
+    floorSprite: {fileID: 181364130211492052, guid: 854da9651aa5440419daebcdf074938c, type: 3}
+    artWidth: 38
+    backgroundHeight: 2.66
+    backgroundCenterY: 2.56
+    floorHeight: 2.4
+    floorCenterY: 0.0765
+    movementMin: {x: -18.5, y: -0.4}
+    movementMax: {x: 18.5, y: 0.65}
+    playerEntryPoint: {x: -15.2, y: 0}
+    playerExitPoint: {x: 15.2, y: 0}
+    exitRadius: 0.35
+    completionMode: 3
+    rewardAfterClear: 0
+    chapelSpawnPoint: {x: 0.9, y: 0.1}
+    rewardChoiceCenter: {x: 0, y: -0.1}
+    rewardChoiceSpacing: 1.8
+    rewardInteractRadius: 0.65
+    rewardHealFraction: 0.5
+    nextStageIndex: -1
+    encounters: []
+    destructibles: []
+    decorativeProps:
+    - prefab: {fileID: 3726383542495818450, guid: 01b573a3aee6db7429eb2f918a226ccc, type: 3}
+      position: {x: 0, y: 0}
+    safeRoom: 0
+    recoveryPoint: {x: 0, y: 0.1}
+    recoveryRadius: 1
+    ambience: {fileID: 0}
+    notes: 'Walkable sanctuary: Buddha spawn, character wardrobe, permanent base-stat
+      pavilion, equipped-skill shrine, World 1 gate. E / Select interacts; gate starts
+      run explicitly. Five distinct environment modules; no enemies/destructibles.'
+  - maxActiveEnemies: 12
+    stageId: Stage01_EntranceGate
     stageName: Entrance Gate
+    hub: {fileID: 0}
     stageType: 0
     backgroundSprite: {fileID: 21300000, guid: bea7167b9e70234a60b3c3388d3f5813, type: 3}
     floorSprite: {fileID: 21300000, guid: 4b27a12ff4262b81dc54735db15187e9, type: 3}
     artWidth: 12.8
     backgroundHeight: 3.2
     backgroundCenterY: 2.5418
+    floorHeight: 1.8379375
+    floorCenterY: 0.0189
+    movementMin: {x: -6.11, y: -0.6}
+    movementMax: {x: 5.73, y: 0.8}
+    playerEntryPoint: {x: -5, y: 0.35}
+    playerExitPoint: {x: 5.4, y: 0}
+    exitRadius: 0.35
+    completionMode: 0
+    rewardAfterClear: 1
+    chapelSpawnPoint: {x: 4, y: 0.1}
+    rewardChoiceCenter: {x: 0, y: -0.1}
+    rewardChoiceSpacing: 1.8
+    rewardInteractRadius: 0.65
+    rewardHealFraction: 0.5
+    nextStageIndex: -1
+    encounters:
+    - enabled: 1
+      disabledBlocksProgression: 0
+      restoreSceneObjectsOnEncounterEnd: 0
+      sceneObjectStates: []
+      maxActiveEnemies: 8
+      encounterId: Encounter 01
+      trigger: 3
+      triggerDelay: 0
+      requiredPreviousEncounter: -1
+      triggerZone:
+        serializedVersion: 2
+        x: -4
+        y: -0.6
+        width: 0.6
+        height: 1.53
+      lockStageUntilClear: 1
+      requiredForCompletion: 1
+      useCombatBounds: 1
+      combatBounds:
+        serializedVersion: 2
+        x: -6.16
+        y: -0.62
+        width: 6
+        height: 1.55
+      lockCamera: 0
+      cameraBounds:
+        serializedVersion: 2
+        x: -6.4
+        y: -0.9
+        width: 6.6
+        height: 4.8
+      exitLock: 0
+      clearCondition: 0
+      oneShot: 1
+      waves:
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave 1
+        trigger: 0
+        spawnDelay: 0
+        enemySpawns:
+        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+          count: 2
+          spawnPoints:
+          - {x: -0.18, y: -0.06}
+          - {x: -1, y: 1.24}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+    - enabled: 1
+      disabledBlocksProgression: 0
+      restoreSceneObjectsOnEncounterEnd: 0
+      sceneObjectStates: []
+      maxActiveEnemies: 8
+      encounterId: Encounter 02
+      trigger: 3
+      triggerDelay: 0
+      requiredPreviousEncounter: -1
+      triggerZone:
+        serializedVersion: 2
+        x: 1
+        y: -0.6
+        width: 0.6
+        height: 1.4
+      lockStageUntilClear: 1
+      requiredForCompletion: 1
+      useCombatBounds: 1
+      combatBounds:
+        serializedVersion: 2
+        x: 0.8
+        y: -0.6
+        width: 4.4
+        height: 1.4
+      lockCamera: 0
+      cameraBounds:
+        serializedVersion: 2
+        x: -1
+        y: -0.9
+        width: 7.4
+        height: 4.8
+      exitLock: 0
+      clearCondition: 0
+      oneShot: 1
+      waves:
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave 1
+        trigger: 0
+        spawnDelay: 0
+        enemySpawns:
+        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+          count: 2
+          spawnPoints:
+          - {x: 3, y: -0.1}
+          - {x: 4.5, y: 0.4}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+        - prefab: {fileID: 602326886208348345, guid: 214e6fe0ba15cbe40976fda378d0bc71, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 4.8, y: -0.3}
+          interval: 0
+          spawnDelay: 0
+          isBoss: 0
+    destructibles: []
+    decorativeProps: []
+    safeRoom: 0
+    recoveryPoint: {x: 0, y: 0.1}
+    recoveryRadius: 1
+    ambience: {fileID: 0}
+    notes: 
+  - maxActiveEnemies: 12
+    stageId: Stage02_BloodSheetCorridoor
+    stageName: Blood Sheet Corridoor
+    hub: {fileID: 0}
+    stageType: 0
+    backgroundSprite: {fileID: 21300000, guid: 0e2bbcee8cf4c57bdcb8859b8665b7a7, type: 3}
+    floorSprite: {fileID: 21300000, guid: 49cc7fa7bcee8ef2c8774e312b50468f, type: 3}
+    artWidth: 11.33
+    backgroundHeight: 3.15
+    backgroundCenterY: 2.435
     floorHeight: 1.8379375
     floorCenterY: 0.0189
     movementMin: {x: -6.11, y: -0.6}
@@ -39,7 +216,12 @@ MonoBehaviour:
     rewardHealFraction: 0.5
     nextStageIndex: -1
     encounters:
-    - encounterId: Stage01_EntranceGate_Encounter
+    - enabled: 1
+      disabledBlocksProgression: 0
+      restoreSceneObjectsOnEncounterEnd: 0
+      sceneObjectStates: []
+      maxActiveEnemies: 8
+      encounterId: Stage02_EntranceGate_Encounter
       trigger: 3
       triggerDelay: 0
       requiredPreviousEncounter: -1
@@ -51,8 +233,27 @@ MonoBehaviour:
         height: 1.05
       lockStageUntilClear: 1
       requiredForCompletion: 1
+      useCombatBounds: 0
+      combatBounds:
+        serializedVersion: 2
+        x: -3
+        y: -0.4
+        width: 6
+        height: 1.05
+      lockCamera: 1
+      cameraBounds:
+        serializedVersion: 2
+        x: -3.8
+        y: -0.64
+        width: 7.6
+        height: 4
+      exitLock: 0
+      clearCondition: 0
+      oneShot: 1
       waves:
-      - waveId: Wave1
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave1
         trigger: 0
         spawnDelay: 0
         enemySpawns:
@@ -63,18 +264,33 @@ MonoBehaviour:
           - {x: 2.5, y: 0.4}
           - {x: 3, y: -0.4}
           interval: 0.25
+          spawnDelay: 0
           isBoss: 0
-      - waveId: Wave2
+        - prefab: {fileID: 602326886208348345, guid: 214e6fe0ba15cbe40976fda378d0bc71, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 1.6, y: -0.1}
+          - {x: 2.5, y: 0.4}
+          - {x: 3, y: -0.4}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave2
         trigger: 2
         spawnDelay: 0
         enemySpawns:
-        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+        - prefab: {fileID: 602326886208348345, guid: 214e6fe0ba15cbe40976fda378d0bc71, type: 3}
           count: 1
           spawnPoints:
           - {x: -5, y: 0}
           interval: 0.25
+          spawnDelay: 0
           isBoss: 0
-      - waveId: Wave3
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave3
         trigger: 2
         spawnDelay: 0
         enemySpawns:
@@ -83,8 +299,14 @@ MonoBehaviour:
           spawnPoints:
           - {x: 5, y: 0}
           interval: 0.25
+          spawnDelay: 0
           isBoss: 0
-    - encounterId: Stage01_EntranceGate_Encounter_2
+    - enabled: 1
+      disabledBlocksProgression: 0
+      restoreSceneObjectsOnEncounterEnd: 0
+      sceneObjectStates: []
+      maxActiveEnemies: 8
+      encounterId: Stage02_EntranceGate_Encounter_2
       trigger: 3
       triggerDelay: 0
       requiredPreviousEncounter: -1
@@ -96,8 +318,27 @@ MonoBehaviour:
         height: 1.05
       lockStageUntilClear: 1
       requiredForCompletion: 1
+      useCombatBounds: 0
+      combatBounds:
+        serializedVersion: 2
+        x: -3
+        y: -0.4
+        width: 6
+        height: 1.05
+      lockCamera: 1
+      cameraBounds:
+        serializedVersion: 2
+        x: -3.8
+        y: -0.64
+        width: 7.6
+        height: 4
+      exitLock: 0
+      clearCondition: 0
+      oneShot: 1
       waves:
-      - waveId: Wave1
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave1
         trigger: 0
         spawnDelay: 0
         enemySpawns:
@@ -108,8 +349,11 @@ MonoBehaviour:
           - {x: -2.5, y: 0.4}
           - {x: -3, y: -0.4}
           interval: 0.25
+          spawnDelay: 0
           isBoss: 0
-      - waveId: Wave2
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave2
         trigger: 2
         spawnDelay: 0
         enemySpawns:
@@ -118,16 +362,27 @@ MonoBehaviour:
           spawnPoints:
           - {x: 6, y: 0}
           interval: 0.25
+          spawnDelay: 0
           isBoss: 0
-      - waveId: Wave3
+        - prefab: {fileID: 602326886208348345, guid: 214e6fe0ba15cbe40976fda378d0bc71, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 6, y: 0}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave3
         trigger: 2
         spawnDelay: 0
         enemySpawns:
-        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+        - prefab: {fileID: 602326886208348345, guid: 214e6fe0ba15cbe40976fda378d0bc71, type: 3}
           count: 1
           spawnPoints:
           - {x: -3, y: 0}
           interval: 0.25
+          spawnDelay: 0
           isBoss: 0
     destructibles: []
     decorativeProps: []
@@ -136,414 +391,547 @@ MonoBehaviour:
     recoveryRadius: 1
     ambience: {fileID: 0}
     notes: 
-  - stageId: Stage00_PlayerHub
-    stageName: Player Hub
-    stageType: 1
-    backgroundSprite: {fileID: -1160340735777781435, guid: 854da9651aa5440419daebcdf074938c, type: 3}
-    floorSprite: {fileID: 181364130211492052, guid: 854da9651aa5440419daebcdf074938c, type: 3}
-    artWidth: 7.6
-    backgroundHeight: 1.6
-    backgroundCenterY: 2.56
-    floorHeight: 2.4
-    floorCenterY: 0.0765
-    movementMin: {x: -3.05, y: -0.4}
-    movementMax: {x: 3.05, y: 0.65}
-    playerEntryPoint: {x: -2.5, y: 0}
-    playerExitPoint: {x: 2.7, y: 0}
-    exitRadius: 0.35
-    completionMode: 0
-    rewardAfterClear: 0
-    chapelSpawnPoint: {x: 0.9, y: 0.1}
-    rewardChoiceCenter: {x: 0, y: -0.1}
-    rewardChoiceSpacing: 1.8
-    rewardInteractRadius: 0.65
-    rewardHealFraction: 0.5
-    nextStageIndex: -1
-    encounters: []
-    destructibles: []
-    decorativeProps: []
-    safeRoom: 0
-    recoveryPoint: {x: 0, y: 0.1}
-    recoveryRadius: 1
-    ambience: {fileID: 0}
-    notes: Warm outdoor camper hub. No encounters, damage, hazards or combat props.
-      Walk right to enter Entrance Gate. DecorativeProps can host future camp/NPC
-      interactions; safeRoom can enable the existing recovery interaction later.
-      No run-build selection here.
-  - stageId: Stage02_BloodSheetCorridor
-    stageName: Blood Sheet Corridor
+  - maxActiveEnemies: 12
+    stageId: Stage03_FakeMorgue
+    stageName: Fake Morgue
+    hub: {fileID: 0}
     stageType: 0
-    backgroundSprite: {fileID: 21300000, guid: 7897464285278ff83fe596c835646a4d, type: 3}
-    floorSprite: {fileID: 21300000, guid: 49cc7fa7bcee8ef2c8774e312b50468f, type: 3}
-    artWidth: 7.6
-    backgroundHeight: 1.6
-    backgroundCenterY: 2.56
-    floorHeight: 2.4
-    floorCenterY: 0.56
-    movementMin: {x: -3.05, y: -0.4}
-    movementMax: {x: 3.05, y: 0.65}
-    playerEntryPoint: {x: -2.5, y: 0}
+    backgroundSprite: {fileID: 21300000, guid: 946f755c5caf89a15419dc05f6b3c717, type: 3}
+    floorSprite: {fileID: 21300000, guid: 59141aad2eeb43f280de14a3b26f31fd, type: 3}
+    artWidth: 11.33
+    backgroundHeight: 3.15
+    backgroundCenterY: 2.49
+    floorHeight: 1.8379375
+    floorCenterY: 0.0189
+    movementMin: {x: -6.11, y: -0.6}
+    movementMax: {x: 5.73, y: 0.8}
+    playerEntryPoint: {x: -5, y: 0.35}
     playerExitPoint: {x: 2.7, y: 0}
     exitRadius: 0.35
     completionMode: 1
     rewardAfterClear: 1
-    chapelSpawnPoint: {x: 0.9, y: 0.1}
+    chapelSpawnPoint: {x: 4, y: 0.1}
     rewardChoiceCenter: {x: 0, y: -0.1}
     rewardChoiceSpacing: 1.8
     rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
     encounters:
-    - encounterId: Stage02_BloodSheetCorridor_Encounter
-      trigger: 0
+    - enabled: 1
+      disabledBlocksProgression: 0
+      restoreSceneObjectsOnEncounterEnd: 0
+      sceneObjectStates: []
+      maxActiveEnemies: 8
+      encounterId: Stage03__Encounter
+      trigger: 3
       triggerDelay: 0
       requiredPreviousEncounter: -1
       triggerZone:
         serializedVersion: 2
-        x: -1
+        x: -4.4
         y: -0.4
         width: 2
         height: 1.05
       lockStageUntilClear: 1
       requiredForCompletion: 1
+      useCombatBounds: 0
+      combatBounds:
+        serializedVersion: 2
+        x: -3
+        y: -0.4
+        width: 6
+        height: 1.05
+      lockCamera: 1
+      cameraBounds:
+        serializedVersion: 2
+        x: -3.8
+        y: -0.64
+        width: 7.6
+        height: 4
+      exitLock: 0
+      clearCondition: 0
+      oneShot: 1
       waves:
-      - waveId: Wave1
-        trigger: 1
-        spawnDelay: 3
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave1
+        trigger: 0
+        spawnDelay: 0
         enemySpawns:
-        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
-          count: 3
+        - prefab: {fileID: 5052869314956010402, guid: 1b13fa54356a01049978774f4f0d6cbd, type: 3}
+          count: 1
           spawnPoints:
           - {x: 1.6, y: -0.1}
           - {x: 2.5, y: 0.4}
+          - {x: 3, y: -0.4}
           interval: 0.25
+          spawnDelay: 2
           isBoss: 0
-      - waveId: Wave2
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave2
+        trigger: 2
+        spawnDelay: 0
+        enemySpawns:
+        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 0.52, y: 0.26}
+          - {x: 0.52, y: -0.21}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+    - enabled: 1
+      disabledBlocksProgression: 0
+      restoreSceneObjectsOnEncounterEnd: 0
+      sceneObjectStates: []
+      maxActiveEnemies: 8
+      encounterId: Stage03_FakeMorgue_Encounter_2
+      trigger: 3
+      triggerDelay: 0
+      requiredPreviousEncounter: -1
+      triggerZone:
+        serializedVersion: 2
+        x: 2.31
+        y: -0.4
+        width: 5
+        height: 1.05
+      lockStageUntilClear: 1
+      requiredForCompletion: 1
+      useCombatBounds: 0
+      combatBounds:
+        serializedVersion: 2
+        x: -3
+        y: -0.4
+        width: 6
+        height: 1.05
+      lockCamera: 1
+      cameraBounds:
+        serializedVersion: 2
+        x: -3.8
+        y: -0.64
+        width: 7.6
+        height: 4
+      exitLock: 0
+      clearCondition: 0
+      oneShot: 1
+      waves:
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave1
+        trigger: 0
+        spawnDelay: 0
+        enemySpawns:
+        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+          count: 2
+          spawnPoints:
+          - {x: -1.6, y: -0.1}
+          - {x: -2.5, y: 0.4}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+        - prefab: {fileID: 602326886208348345, guid: 214e6fe0ba15cbe40976fda378d0bc71, type: 3}
+          count: 2
+          spawnPoints:
+          - {x: 5.63, y: -0.1}
+          - {x: -2.54, y: 0.4}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave2
+        trigger: 2
+        spawnDelay: 0
+        enemySpawns:
+        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 5.61, y: 0}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+        - prefab: {fileID: 5052869314956010402, guid: 1b13fa54356a01049978774f4f0d6cbd, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 0.88, y: 0}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+    destructibles: []
+    decorativeProps: []
+    safeRoom: 0
+    recoveryPoint: {x: 0, y: 0.1}
+    recoveryRadius: 1
+    ambience: {fileID: 0}
+    notes: 
+  - maxActiveEnemies: 12
+    stageId: Stage06_ServiceCorridorAndStair
+    stageName: Service Corridor & Stair
+    hub: {fileID: 0}
+    stageType: 0
+    backgroundSprite: {fileID: 21300000, guid: fd97a644901e440852add083211a975b, type: 3}
+    floorSprite: {fileID: 21300000, guid: a8b04b660eaff870d6f8e52f03605e24, type: 3}
+    artWidth: 11.33
+    backgroundHeight: 3.15
+    backgroundCenterY: 2.49
+    floorHeight: 1.8379375
+    floorCenterY: 0.0189
+    movementMin: {x: -5.69, y: -0.6}
+    movementMax: {x: 5.73, y: 0.8}
+    playerEntryPoint: {x: -5, y: 0.35}
+    playerExitPoint: {x: 2.7, y: 0}
+    exitRadius: 0.35
+    completionMode: 1
+    rewardAfterClear: 1
+    chapelSpawnPoint: {x: 4, y: 0.1}
+    rewardChoiceCenter: {x: 0, y: -0.1}
+    rewardChoiceSpacing: 1.8
+    rewardInteractRadius: 0.65
+    rewardHealFraction: 0.5
+    nextStageIndex: -1
+    encounters:
+    - enabled: 1
+      disabledBlocksProgression: 0
+      restoreSceneObjectsOnEncounterEnd: 0
+      sceneObjectStates: []
+      maxActiveEnemies: 8
+      encounterId: Stage03__Encounter
+      trigger: 3
+      triggerDelay: 0
+      requiredPreviousEncounter: -1
+      triggerZone:
+        serializedVersion: 2
+        x: -2.61
+        y: -0.4
+        width: 0.73
+        height: 1.05
+      lockStageUntilClear: 1
+      requiredForCompletion: 1
+      useCombatBounds: 0
+      combatBounds:
+        serializedVersion: 2
+        x: -3
+        y: -0.4
+        width: 6
+        height: 1.05
+      lockCamera: 0
+      cameraBounds:
+        serializedVersion: 2
+        x: -3.8
+        y: -0.64
+        width: 7.6
+        height: 4
+      exitLock: 0
+      clearCondition: 0
+      oneShot: 1
+      waves:
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave1
+        trigger: 0
+        spawnDelay: 0
+        enemySpawns:
+        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+          count: 6
+          spawnPoints:
+          - {x: 2.46, y: -0.1}
+          - {x: 1.77, y: 0.4}
+          - {x: 1.63, y: -0.4}
+          - {x: -4.92, y: -0.4}
+          - {x: -5.02, y: 0.18}
+          - {x: -4.98, y: -0.01}
+          interval: 1
+          spawnDelay: 0.5
+          isBoss: 0
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave2
+        trigger: 2
+        spawnDelay: 0
+        enemySpawns:
+        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 0.52, y: 0.26}
+          - {x: 0.52, y: -0.21}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+    - enabled: 1
+      disabledBlocksProgression: 0
+      restoreSceneObjectsOnEncounterEnd: 0
+      sceneObjectStates: []
+      maxActiveEnemies: 8
+      encounterId: Stage03_FakeMorgue_Encounter_2
+      trigger: 3
+      triggerDelay: 0
+      requiredPreviousEncounter: -1
+      triggerZone:
+        serializedVersion: 2
+        x: 2.31
+        y: -0.4
+        width: 5
+        height: 1.05
+      lockStageUntilClear: 1
+      requiredForCompletion: 1
+      useCombatBounds: 0
+      combatBounds:
+        serializedVersion: 2
+        x: -3
+        y: -0.4
+        width: 6
+        height: 1.05
+      lockCamera: 1
+      cameraBounds:
+        serializedVersion: 2
+        x: -3.8
+        y: -0.64
+        width: 7.6
+        height: 4
+      exitLock: 0
+      clearCondition: 0
+      oneShot: 1
+      waves:
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave1
+        trigger: 0
+        spawnDelay: 0
+        enemySpawns:
+        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+          count: 2
+          spawnPoints:
+          - {x: -1.6, y: -0.1}
+          - {x: -2.5, y: 0.4}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+        - prefab: {fileID: 602326886208348345, guid: 214e6fe0ba15cbe40976fda378d0bc71, type: 3}
+          count: 2
+          spawnPoints:
+          - {x: 5.63, y: -0.1}
+          - {x: -2.54, y: 0.4}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave2
         trigger: 2
         spawnDelay: 0
         enemySpawns:
         - prefab: {fileID: 602326886208348345, guid: 214e6fe0ba15cbe40976fda378d0bc71, type: 3}
           count: 1
           spawnPoints:
-          - {x: 1.6, y: -0.1}
-          - {x: 2.5, y: 0.4}
+          - {x: 5.61, y: 0}
           interval: 0.25
-          isBoss: 0
-    destructibles:
-    - label: Breakable haunted prop
-      prefab: {fileID: 0}
-      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
-      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
-      position: {x: -1.45, y: -0.25}
-      health: 15
-      hitboxSize: {x: 0.65, y: 0.9}
-      hitboxOffset: {x: 0, y: 0.4}
-      kind: 0
-      dropPrefab: {fileID: 0}
-    - label: Breakable haunted prop
-      prefab: {fileID: 0}
-      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
-      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
-      position: {x: 1.45, y: 0.4}
-      health: 15
-      hitboxSize: {x: 0.65, y: 0.9}
-      hitboxOffset: {x: 0, y: 0.4}
-      kind: 0
-      dropPrefab: {fileID: 0}
-    decorativeProps: []
-    safeRoom: 0
-    recoveryPoint: {x: 0, y: 0.1}
-    recoveryRadius: 1
-    ambience: {fileID: 0}
-    notes: 
-  - stageId: Stage03_FakeMorgue
-    stageName: Fake Morgue
-    stageType: 0
-    backgroundSprite: {fileID: 21300000, guid: 946f755c5caf89a15419dc05f6b3c717, type: 3}
-    floorSprite: {fileID: 21300000, guid: 59141aad2eeb43f280de14a3b26f31fd, type: 3}
-    artWidth: 7.6
-    backgroundHeight: 1.6
-    backgroundCenterY: 2.56
-    floorHeight: 2.4
-    floorCenterY: 0.56
-    movementMin: {x: -3.05, y: -0.4}
-    movementMax: {x: 3.05, y: 0.65}
-    playerEntryPoint: {x: -2.5, y: 0}
-    playerExitPoint: {x: 2.7, y: 0}
-    exitRadius: 0.35
-    completionMode: 1
-    rewardAfterClear: 1
-    chapelSpawnPoint: {x: 0.9, y: 0.1}
-    rewardChoiceCenter: {x: 0, y: -0.1}
-    rewardChoiceSpacing: 1.8
-    rewardInteractRadius: 0.65
-    rewardHealFraction: 0.5
-    nextStageIndex: -1
-    encounters:
-    - encounterId: Stage03_FakeMorgue_Encounter
-      trigger: 0
-      triggerDelay: 0
-      requiredPreviousEncounter: -1
-      triggerZone:
-        serializedVersion: 2
-        x: -1
-        y: -0.4
-        width: 2
-        height: 1.05
-      lockStageUntilClear: 1
-      requiredForCompletion: 1
-      waves:
-      - waveId: Wave1
-        trigger: 0
-        spawnDelay: 0
-        enemySpawns:
-        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
-          count: 2
-          spawnPoints:
-          - {x: 1.6, y: -0.1}
-          - {x: 2.5, y: 0.4}
-          interval: 0.25
-          isBoss: 0
-        - prefab: {fileID: 602326886208348345, guid: 214e6fe0ba15cbe40976fda378d0bc71, type: 3}
-          count: 1
-          spawnPoints:
-          - {x: 1.8000001, y: -0.1}
-          - {x: 2.5, y: 0.4}
-          interval: 0.25
-          isBoss: 0
-        - prefab: {fileID: 5052869314956010402, guid: 1b13fa54356a01049978774f4f0d6cbd, type: 3}
-          count: 1
-          spawnPoints:
-          - {x: 2, y: -0.1}
-          - {x: 2.5, y: 0.4}
-          interval: 0.25
-          isBoss: 0
-    destructibles:
-    - label: Breakable haunted prop
-      prefab: {fileID: 0}
-      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
-      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
-      position: {x: -1.45, y: -0.25}
-      health: 15
-      hitboxSize: {x: 0.65, y: 0.9}
-      hitboxOffset: {x: 0, y: 0.4}
-      kind: 0
-      dropPrefab: {fileID: 0}
-    - label: Breakable haunted prop
-      prefab: {fileID: 0}
-      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
-      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
-      position: {x: 1.45, y: 0.4}
-      health: 15
-      hitboxSize: {x: 0.65, y: 0.9}
-      hitboxOffset: {x: 0, y: 0.4}
-      kind: 0
-      dropPrefab: {fileID: 0}
-    decorativeProps: []
-    safeRoom: 0
-    recoveryPoint: {x: 0, y: 0.1}
-    recoveryRadius: 1
-    ambience: {fileID: 0}
-    notes: 
-  - stageId: Stage04_ServiceCorridor
-    stageName: Service Corridor & Stair
-    stageType: 0
-    backgroundSprite: {fileID: 21300000, guid: fd97a644901e440852add083211a975b, type: 3}
-    floorSprite: {fileID: 21300000, guid: a8b04b660eaff870d6f8e52f03605e24, type: 3}
-    artWidth: 7.6
-    backgroundHeight: 1.6
-    backgroundCenterY: 2.56
-    floorHeight: 2.4
-    floorCenterY: 0.56
-    movementMin: {x: -3.05, y: -0.4}
-    movementMax: {x: 3.05, y: 0.65}
-    playerEntryPoint: {x: -2.5, y: 0}
-    playerExitPoint: {x: 2.7, y: 0}
-    exitRadius: 0.35
-    completionMode: 1
-    rewardAfterClear: 1
-    chapelSpawnPoint: {x: 0.9, y: 0.1}
-    rewardChoiceCenter: {x: 0, y: -0.1}
-    rewardChoiceSpacing: 1.8
-    rewardInteractRadius: 0.65
-    rewardHealFraction: 0.5
-    nextStageIndex: -1
-    encounters:
-    - encounterId: Stage04_ServiceCorridor_Encounter
-      trigger: 0
-      triggerDelay: 0
-      requiredPreviousEncounter: -1
-      triggerZone:
-        serializedVersion: 2
-        x: -1
-        y: -0.4
-        width: 2
-        height: 1.05
-      lockStageUntilClear: 1
-      requiredForCompletion: 1
-      waves:
-      - waveId: Wave1
-        trigger: 0
-        spawnDelay: 0
-        enemySpawns:
-        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
-          count: 2
-          spawnPoints:
-          - {x: 1.6, y: -0.1}
-          - {x: 2.5, y: 0.4}
-          interval: 0.25
+          spawnDelay: 0
           isBoss: 0
         - prefab: {fileID: 8535335901447473880, guid: 03d477f0092df7b4bb2331b6ec0e35fc, type: 3}
           count: 1
           spawnPoints:
-          - {x: 1.8000001, y: -0.1}
-          - {x: 2.5, y: 0.4}
+          - {x: 0.88, y: 0}
           interval: 0.25
+          spawnDelay: 0
           isBoss: 0
-    destructibles:
-    - label: Breakable haunted prop
-      prefab: {fileID: 0}
-      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
-      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
-      position: {x: -1.45, y: -0.25}
-      health: 15
-      hitboxSize: {x: 0.65, y: 0.9}
-      hitboxOffset: {x: 0, y: 0.4}
-      kind: 0
-      dropPrefab: {fileID: 0}
-    - label: Breakable haunted prop
-      prefab: {fileID: 0}
-      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
-      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
-      position: {x: 1.45, y: 0.4}
-      health: 15
-      hitboxSize: {x: 0.65, y: 0.9}
-      hitboxOffset: {x: 0, y: 0.4}
-      kind: 0
-      dropPrefab: {fileID: 0}
+    destructibles: []
     decorativeProps: []
     safeRoom: 0
     recoveryPoint: {x: 0, y: 0.1}
     recoveryRadius: 1
     ambience: {fileID: 0}
     notes: 
-  - stageId: Stage05_HauntedMaze
+  - maxActiveEnemies: 12
+    stageId: Stage06_HauntedMaze
     stageName: Haunted Maze
+    hub: {fileID: 0}
     stageType: 0
     backgroundSprite: {fileID: 21300000, guid: 7d531ba6cd1ba679744e006fbfbea6ab, type: 3}
     floorSprite: {fileID: 21300000, guid: dedc18889b4b6293d336bdc392a2b502, type: 3}
-    artWidth: 7.6
-    backgroundHeight: 1.6
-    backgroundCenterY: 2.56
-    floorHeight: 2.4
-    floorCenterY: 0.56
-    movementMin: {x: -3.05, y: -0.4}
-    movementMax: {x: 3.05, y: 0.65}
-    playerEntryPoint: {x: -2.5, y: 0}
+    artWidth: 11.33
+    backgroundHeight: 3.15
+    backgroundCenterY: 2.49
+    floorHeight: 1.8379375
+    floorCenterY: 0.0189
+    movementMin: {x: -5, y: -0.6}
+    movementMax: {x: 5.01, y: 0.8}
+    playerEntryPoint: {x: -5, y: 0.35}
     playerExitPoint: {x: 2.7, y: 0}
     exitRadius: 0.35
     completionMode: 1
     rewardAfterClear: 1
-    chapelSpawnPoint: {x: 0.9, y: 0.1}
+    chapelSpawnPoint: {x: 4, y: 0.1}
     rewardChoiceCenter: {x: 0, y: -0.1}
     rewardChoiceSpacing: 1.8
     rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
     encounters:
-    - encounterId: Stage05_HauntedMaze_Encounter
-      trigger: 0
+    - enabled: 1
+      disabledBlocksProgression: 0
+      restoreSceneObjectsOnEncounterEnd: 0
+      sceneObjectStates: []
+      maxActiveEnemies: 8
+      encounterId: Stage03__Encounter
+      trigger: 3
       triggerDelay: 0
       requiredPreviousEncounter: -1
       triggerZone:
         serializedVersion: 2
-        x: -1
-        y: -0.4
-        width: 2
-        height: 1.05
+        x: -2.64
+        y: -0.49
+        width: 0.73
+        height: 1.14
       lockStageUntilClear: 1
       requiredForCompletion: 1
+      useCombatBounds: 0
+      combatBounds:
+        serializedVersion: 2
+        x: -3
+        y: -0.48
+        width: 6
+        height: 1.05
+      lockCamera: 0
+      cameraBounds:
+        serializedVersion: 2
+        x: -3.8
+        y: -0.64
+        width: 7.6
+        height: 4
+      exitLock: 0
+      clearCondition: 0
+      oneShot: 1
       waves:
-      - waveId: Wave1
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave1
         trigger: 0
         spawnDelay: 0
         enemySpawns:
         - prefab: {fileID: 3471718419548686087, guid: ac5abf980e0cb2c4eb3afcb344f2d229, type: 3}
-          count: 1
-          spawnPoints:
-          - {x: 1.6, y: -0.1}
-          - {x: 2.5, y: 0.4}
-          interval: 0.25
-          isBoss: 0
-        - prefab: {fileID: 1934238382108998416, guid: d6497c0fd22add84db966f4fefc73ae9, type: 3}
-          count: 1
-          spawnPoints:
-          - {x: 1.8000001, y: -0.1}
-          - {x: 2.5, y: 0.4}
-          interval: 0.25
-          isBoss: 0
-        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
           count: 2
           spawnPoints:
-          - {x: 2, y: -0.1}
-          - {x: 2.5, y: 0.4}
-          interval: 0.25
+          - {x: -3.94, y: 0.47}
+          - {x: 1.77, y: 0.03}
+          interval: 1
+          spawnDelay: 0.5
           isBoss: 0
-      - waveId: Wave2
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave2
         trigger: 2
         spawnDelay: 0
         enemySpawns:
-        - prefab: {fileID: 602326886208348345, guid: 214e6fe0ba15cbe40976fda378d0bc71, type: 3}
+        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
           count: 1
           spawnPoints:
-          - {x: 1.6, y: -0.1}
-          - {x: 2.5, y: 0.4}
+          - {x: 0.52, y: 0.26}
+          - {x: 0.52, y: -0.21}
           interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+    - enabled: 1
+      disabledBlocksProgression: 0
+      restoreSceneObjectsOnEncounterEnd: 0
+      sceneObjectStates: []
+      maxActiveEnemies: 8
+      encounterId: Stage03_FakeMorgue_Encounter_2
+      trigger: 3
+      triggerDelay: 0
+      requiredPreviousEncounter: -1
+      triggerZone:
+        serializedVersion: 2
+        x: 2.04
+        y: -0.4
+        width: 1.17
+        height: 1.05
+      lockStageUntilClear: 1
+      requiredForCompletion: 1
+      useCombatBounds: 0
+      combatBounds:
+        serializedVersion: 2
+        x: -5.4
+        y: -0.66
+        width: 10.47
+        height: 1.35
+      lockCamera: 0
+      cameraBounds:
+        serializedVersion: 2
+        x: -3.8
+        y: -0.64
+        width: 7.6
+        height: 4
+      exitLock: 2
+      clearCondition: 0
+      oneShot: 1
+      waves:
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave1
+        trigger: 0
+        spawnDelay: 0
+        enemySpawns:
+        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+          count: 3
+          spawnPoints:
+          - {x: -1.26, y: -0.1}
+          - {x: -1.22, y: 0.4}
+          - {x: 5.57, y: 0.4}
+          interval: 0.25
+          spawnDelay: 0
           isBoss: 0
         - prefab: {fileID: 5052869314956010402, guid: 1b13fa54356a01049978774f4f0d6cbd, type: 3}
           count: 1
           spawnPoints:
-          - {x: 1.8000001, y: -0.1}
-          - {x: 2.5, y: 0.4}
+          - {x: 5.1, y: -0.1}
           interval: 0.25
+          spawnDelay: 0
           isBoss: 0
-    destructibles:
-    - label: Breakable haunted prop
-      prefab: {fileID: 0}
-      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
-      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
-      position: {x: -1.45, y: -0.25}
-      health: 15
-      hitboxSize: {x: 0.65, y: 0.9}
-      hitboxOffset: {x: 0, y: 0.4}
-      kind: 0
-      dropPrefab: {fileID: 0}
-    - label: Breakable haunted prop
-      prefab: {fileID: 0}
-      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
-      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
-      position: {x: 1.45, y: 0.4}
-      health: 15
-      hitboxSize: {x: 0.65, y: 0.9}
-      hitboxOffset: {x: 0, y: 0.4}
-      kind: 0
-      dropPrefab: {fileID: 0}
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave2
+        trigger: 2
+        spawnDelay: 0
+        enemySpawns:
+        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+          count: 4
+          spawnPoints:
+          - {x: 3.59, y: 0}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+        - prefab: {fileID: 8535335901447473880, guid: 03d477f0092df7b4bb2331b6ec0e35fc, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 0.88, y: 0}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave3
+        trigger: 2
+        spawnDelay: 0
+        enemySpawns:
+        - prefab: {fileID: 1934238382108998416, guid: d6497c0fd22add84db966f4fefc73ae9, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 2.68, y: 0}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 0
+    destructibles: []
     decorativeProps: []
     safeRoom: 0
     recoveryPoint: {x: 0, y: 0.1}
     recoveryRadius: 1
     ambience: {fileID: 0}
     notes: 
-  - stageId: Stage06_RecoveryShrine
+  - maxActiveEnemies: 12
+    stageId: Stage06_RecoveryShrine
     stageName: Recovery Shrine / Safe Room
+    hub: {fileID: 0}
     stageType: 1
     backgroundSprite: {fileID: 21300000, guid: dd2a641960e081f088ae853428f3ef91, type: 3}
     floorSprite: {fileID: 21300000, guid: a1c3dd839fcd540c040fec46c668a2d9, type: 3}
@@ -574,108 +962,10 @@ MonoBehaviour:
     ambience: {fileID: 0}
     notes: No enemies. E / gamepad Select near shrine restores health; walk right
       when ready.
-  - stageId: Stage07_WhiteGhostBossChamber
-    stageName: White Ghost Boss Chamber
-    stageType: 2
-    backgroundSprite: {fileID: 21300000, guid: 35feb2cd5570cd6aacb094e7bef38829, type: 3}
-    floorSprite: {fileID: 21300000, guid: bccf2a9dd101ad790b4dab5289997332, type: 3}
-    artWidth: 7.6
-    backgroundHeight: 1.6
-    backgroundCenterY: 2.56
-    floorHeight: 2.4
-    floorCenterY: 0.56
-    movementMin: {x: -3.05, y: -0.4}
-    movementMax: {x: 3.05, y: 0.65}
-    playerEntryPoint: {x: -2.5, y: 0}
-    playerExitPoint: {x: 2.7, y: 0}
-    exitRadius: 0.35
-    completionMode: 2
-    rewardAfterClear: 0
-    chapelSpawnPoint: {x: 0.9, y: 0.1}
-    rewardChoiceCenter: {x: 0, y: -0.1}
-    rewardChoiceSpacing: 1.8
-    rewardInteractRadius: 0.65
-    rewardHealFraction: 0.5
-    nextStageIndex: -1
-    encounters:
-    - encounterId: Stage07_WhiteGhostBossChamber_Encounter
-      trigger: 0
-      triggerDelay: 0
-      requiredPreviousEncounter: -1
-      triggerZone:
-        serializedVersion: 2
-        x: -1
-        y: -0.4
-        width: 2
-        height: 1.05
-      lockStageUntilClear: 1
-      requiredForCompletion: 1
-      waves:
-      - waveId: Wave1
-        trigger: 0
-        spawnDelay: 0
-        enemySpawns:
-        - prefab: {fileID: 8316862883575817677, guid: ca5ea5b511b797c45ba7b18f25e1e7f3, type: 3}
-          count: 1
-          spawnPoints:
-          - {x: 1.6, y: -0.1}
-          - {x: 2.5, y: 0.4}
-          interval: 0.25
-          isBoss: 1
-    destructibles:
-    - label: Cursed totem
-      prefab: {fileID: 0}
-      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
-      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
-      position: {x: -1.6, y: -0.25}
-      health: 20
-      hitboxSize: {x: 0.65, y: 0.9}
-      hitboxOffset: {x: 0, y: 0.4}
-      kind: 1
-      dropPrefab: {fileID: 0}
-    - label: Cursed totem
-      prefab: {fileID: 0}
-      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
-      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
-      position: {x: -0.65, y: 0.45}
-      health: 20
-      hitboxSize: {x: 0.65, y: 0.9}
-      hitboxOffset: {x: 0, y: 0.4}
-      kind: 1
-      dropPrefab: {fileID: 0}
-    - label: Cursed totem
-      prefab: {fileID: 0}
-      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
-      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
-      position: {x: 0.65, y: 0.45}
-      health: 20
-      hitboxSize: {x: 0.65, y: 0.9}
-      hitboxOffset: {x: 0, y: 0.4}
-      kind: 1
-      dropPrefab: {fileID: 0}
-    - label: Cursed totem
-      prefab: {fileID: 0}
-      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
-      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
-      position: {x: 1.6, y: -0.25}
-      health: 20
-      hitboxSize: {x: 0.65, y: 0.9}
-      hitboxOffset: {x: 0, y: 0.4}
-      kind: 1
-      dropPrefab: {fileID: 0}
-    decorativeProps: []
-    safeRoom: 0
-    recoveryPoint: {x: 0, y: 0.1}
-    recoveryRadius: 1
-    ambience: {fileID: 0}
-    notes: Four cursed totems protect the boss. Break all, defeat the vulnerable
-      boss, then leave right.
-  - stageId: Stage08_EscapeLane
+  - maxActiveEnemies: 12
+    stageId: Stage08_EscapeLane
     stageName: Escape Lane (Exit)
+    hub: {fileID: 0}
     stageType: 3
     backgroundSprite: {fileID: 21300000, guid: 49c79ecb9874bd6449f117036705125e, type: 3}
     floorSprite: {fileID: 21300000, guid: 59eb646ae3c78c44ca9e26e5a170ce2c, type: 3}
@@ -705,3 +995,135 @@ MonoBehaviour:
     recoveryRadius: 1
     ambience: {fileID: 0}
     notes: 
+  - maxActiveEnemies: 12
+    stageId: Stage07_WhiteGhostBossChamber
+    stageName: White Ghost Boss Chamber
+    hub: {fileID: 0}
+    stageType: 2
+    backgroundSprite: {fileID: 21300000, guid: 35feb2cd5570cd6aacb094e7bef38829, type: 3}
+    floorSprite: {fileID: 21300000, guid: bccf2a9dd101ad790b4dab5289997332, type: 3}
+    artWidth: 7.6
+    backgroundHeight: 1.65
+    backgroundCenterY: 2.56
+    floorHeight: 2.4
+    floorCenterY: 0.56
+    movementMin: {x: -3.05, y: -0.4}
+    movementMax: {x: 3.05, y: 0.65}
+    playerEntryPoint: {x: -2.5, y: 0}
+    playerExitPoint: {x: 2.7, y: 0}
+    exitRadius: 0.35
+    completionMode: 2
+    rewardAfterClear: 0
+    chapelSpawnPoint: {x: 0.9, y: 0.1}
+    rewardChoiceCenter: {x: 0, y: -0.1}
+    rewardChoiceSpacing: 1.8
+    rewardInteractRadius: 0.65
+    rewardHealFraction: 0.5
+    nextStageIndex: -1
+    encounters:
+    - enabled: 1
+      disabledBlocksProgression: 0
+      restoreSceneObjectsOnEncounterEnd: 0
+      sceneObjectStates: []
+      maxActiveEnemies: 8
+      encounterId: Stage07_WhiteGhostBossChamber_Encounter
+      trigger: 0
+      triggerDelay: 0
+      requiredPreviousEncounter: -1
+      triggerZone:
+        serializedVersion: 2
+        x: -1
+        y: -0.4
+        width: 2
+        height: 1.05
+      lockStageUntilClear: 1
+      requiredForCompletion: 1
+      useCombatBounds: 0
+      combatBounds:
+        serializedVersion: 2
+        x: -3
+        y: -0.4
+        width: 6
+        height: 1.05
+      lockCamera: 1
+      cameraBounds:
+        serializedVersion: 2
+        x: -3.8
+        y: -0.64
+        width: 7.6
+        height: 4
+      exitLock: 0
+      clearCondition: 0
+      oneShot: 1
+      waves:
+      - enabled: 1
+        sceneObjectStates: []
+        waveId: Wave1
+        trigger: 0
+        spawnDelay: 0
+        enemySpawns:
+        - prefab: {fileID: 8316862883575817677, guid: ca5ea5b511b797c45ba7b18f25e1e7f3, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 1.6, y: -0.1}
+          - {x: 2.5, y: 0.4}
+          interval: 0.25
+          spawnDelay: 0
+          isBoss: 1
+    destructibles:
+    - label: Cursed totem
+      prefab: {fileID: 0}
+      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
+      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
+      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
+      position: {x: -2.15, y: 1.29}
+      health: 20
+      hitboxSize: {x: 0.65, y: 0.9}
+      hitboxOffset: {x: 0, y: 0.4}
+      kind: 1
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
+    - label: Cursed totem
+      prefab: {fileID: 0}
+      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
+      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
+      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
+      position: {x: 2.15, y: 1.29}
+      health: 20
+      hitboxSize: {x: 0.65, y: 0.9}
+      hitboxOffset: {x: 0, y: 0.4}
+      kind: 1
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
+    - label: Cursed totem
+      prefab: {fileID: 0}
+      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
+      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
+      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
+      position: {x: -2.15, y: -0.25}
+      health: 20
+      hitboxSize: {x: 0.65, y: 0.9}
+      hitboxOffset: {x: 0, y: 0.4}
+      kind: 1
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
+    - label: Cursed totem
+      prefab: {fileID: 0}
+      intactSprite: {fileID: 21300000, guid: 19b6acd84fdb791fd0c91d040aa98ad0, type: 3}
+      damagedSprite: {fileID: 21300000, guid: 39740e3fb10b451f9e356d254221396b, type: 3}
+      brokenSprite: {fileID: 21300000, guid: 318ed4c44cfcceb2568ab73417f36ca9, type: 3}
+      position: {x: 2.15, y: -0.25}
+      health: 20
+      hitboxSize: {x: 0.65, y: 0.9}
+      hitboxOffset: {x: 0, y: 0.4}
+      kind: 1
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
+    decorativeProps: []
+    safeRoom: 0
+    recoveryPoint: {x: 0, y: 0.1}
+    recoveryRadius: 1
+    ambience: {fileID: 0}
+    notes: 'Break a nearby Totem: its expanding radial front must reach the boss
+      to open a 420-frame damage window. Totems respawn by default. Defeat boss and
+      remaining minions to unlock exit.'

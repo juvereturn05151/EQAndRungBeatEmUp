@@ -315,6 +315,8 @@ PASS: AirPunch2 maintains the juggle without forcing a fall
 PASS: Full route: AirPunch2 -> AirPunch3
 PASS: Full route: AirPunch3 connects
 PASS: Finisher deals 13, applies six-frame impact and arms downward ground bounce
+PASS: Ground-launcher-air route remains one six-hit damage combo
+PASS: Air route updates the live combo HUD
 PASS: Full route: enemy contacts floor and bounces
 PASS: Full route: consumed floor contact rebounds before landing recovery
 PASS: Full route: enemy lands after its single bounce
@@ -335,6 +337,8 @@ PASS: AirPunch2 maintains the juggle without forcing a fall
 PASS: Full route: AirPunch2 -> AirPunch3
 PASS: Full route: AirPunch3 connects
 PASS: Finisher deals 13, applies six-frame impact and arms downward ground bounce
+PASS: Ground-launcher-air route remains one six-hit damage combo
+PASS: Air route updates the live combo HUD
 PASS: Full route: enemy contacts floor and bounces
 PASS: Full route: consumed floor contact rebounds before landing recovery
 PASS: Full route: enemy lands after its single bounce
@@ -355,6 +359,8 @@ PASS: AirPunch2 maintains the juggle without forcing a fall
 PASS: Full route: AirPunch2 -> AirPunch3
 PASS: Full route: AirPunch3 connects
 PASS: Finisher deals 13, applies six-frame impact and arms downward ground bounce
+PASS: Ground-launcher-air route remains one six-hit damage combo
+PASS: Air route updates the live combo HUD
 PASS: Full route: enemy contacts floor and bounces
 PASS: Full route: consumed floor contact rebounds before landing recovery
 PASS: Full route: enemy lands after its single bounce

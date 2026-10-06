@@ -1,0 +1,164 @@
+PASS: Grappler begins with six configurable armor points
+PASS: Frame-data grab begins with committed facing
+PASS: Accepted hit 1 damages without hitstun or action interruption
+PASS: Accepted hit 2 damages without hitstun or action interruption
+PASS: Accepted hit 3 damages without hitstun or action interruption
+PASS: Accepted hit 4 damages without hitstun or action interruption
+PASS: Accepted hit 5 damages without hitstun or action interruption
+PASS: Armored hits do not knock the Grappler backward and retain all damage
+PASS: Armored contacts have separate flash, SFX and accepted-hit feedback
+PASS: Sixth hit breaks armor and interrupts telegraph with 60f stagger
+PASS: Armor break has a distinct accepted outcome, color and heavy sound
+PASS: Ending break stun does not immediately restore armor
+PASS: Unarmored hits use normal reactions and restart the 300f recovery delay
+PASS: Armor remains broken for full delay after last accepted damage
+PASS: Idle healthy Grappler restores full armor after delay
+PASS: Optional partial recovery restores one point per delay
+PASS: Existing restore/reset replenishes armor
+PASS: Global pause rejects incoming hits before consuming armor
+PASS: Rejected invulnerable hits do not consume armor
+PASS: Frame-data grab begins with committed facing
+PASS: Telegraph contains no active grab or movement for 30 frames
+PASS: Traveling committed grab rectangle / lane geometry at (2.50, 0.00), facing 1
+PASS: Frame-data grab begins with committed facing
+PASS: Telegraph contains no active grab or movement for 30 frames
+PASS: Traveling committed grab rectangle / lane geometry at (-0.80, 0.00), facing 1
+PASS: Miss stops lunge and disables grab at frame 48
+PASS: Miss retains all 42 vulnerable recovery frames
+PASS: Miss recovery ends at frame 90
+PASS: Frame-data grab begins with committed facing
+PASS: Telegraph contains no active grab or movement for 30 frames
+PASS: Traveling committed grab rectangle / lane geometry at (2.50, 0.39), facing 1
+PASS: Frame-data grab begins with committed facing
+PASS: Telegraph contains no active grab or movement for 30 frames
+PASS: Traveling committed grab rectangle / lane geometry at (2.50, 0.41), facing 1
+PASS: Miss stops lunge and disables grab at frame 48
+PASS: Miss retains all 42 vulnerable recovery frames
+PASS: Miss recovery ends at frame 90
+PASS: Frame-data grab begins with committed facing
+PASS: Telegraph contains no active grab or movement for 30 frames
+PASS: Traveling committed grab rectangle / lane geometry at (3.80, 0.00), facing 1
+PASS: Miss stops lunge and disables grab at frame 48
+PASS: Miss retains all 42 vulnerable recovery frames
+PASS: Miss recovery ends at frame 90
+PASS: Frame-data grab begins with committed facing
+PASS: Telegraph contains no active grab or movement for 30 frames
+PASS: Traveling committed grab rectangle / lane geometry at (2.50, 0.00), facing -1
+PASS: Frame-data grab begins with committed facing
+PASS: Telegraph contains no active grab or movement for 30 frames
+PASS: Traveling committed grab rectangle / lane geometry at (-0.80, 0.00), facing -1
+PASS: Miss stops lunge and disables grab at frame 48
+PASS: Miss retains all 42 vulnerable recovery frames
+PASS: Miss recovery ends at frame 90
+PASS: Frame-data grab begins with committed facing
+PASS: Telegraph contains no active grab or movement for 30 frames
+PASS: Traveling committed grab rectangle / lane geometry at (2.50, 0.39), facing -1
+PASS: Frame-data grab begins with committed facing
+PASS: Telegraph contains no active grab or movement for 30 frames
+PASS: Traveling committed grab rectangle / lane geometry at (2.50, 0.41), facing -1
+PASS: Miss stops lunge and disables grab at frame 48
+PASS: Miss retains all 42 vulnerable recovery frames
+PASS: Miss recovery ends at frame 90
+PASS: Frame-data grab begins with committed facing
+PASS: Telegraph contains no active grab or movement for 30 frames
+PASS: Traveling committed grab rectangle / lane geometry at (3.80, 0.00), facing -1
+PASS: Miss stops lunge and disables grab at frame 48
+PASS: Miss retains all 42 vulnerable recovery frames
+PASS: Miss recovery ends at frame 90
+PASS: Frame-data grab begins with committed facing
+PASS: Crossing behind after commit avoids the locked direction
+PASS: Frame-data grab begins with committed facing
+PASS: Existing dodge immunity rejects the first active grab frame
+PASS: Dodging out of the path avoids remaining active frames
+PASS: Frame-data grab begins with committed facing
+PASS: Capture cancels the action and records both ownership links
+PASS: Zero-damage connection attaches to mirrored GrabAnchor
+PASS: Held player uses explicitly marked non-idle grabbed reference pose
+PASS: Grabbed rejects movement/combo/jump/guard/parry/dodge/skill without disabling global input
+PASS: Independent player keeps normal combat control
+PASS: Held target follows caster position without drift
+PASS: Hold lasts 30 frames without applying slam damage early
+PASS: Throw frame releases ownership and applies one separate 24-damage knockdown
+PASS: KnockDown / Downed / GetUp restores normal player control
+PASS: Release leaves no movement lock
+PASS: Frame-data grab begins with committed facing
+PASS: Capture cancels the action and records both ownership links
+PASS: Zero-damage connection attaches to mirrored GrabAnchor
+PASS: Held player uses explicitly marked non-idle grabbed reference pose
+PASS: Grabbed rejects movement/combo/jump/guard/parry/dodge/skill without disabling global input
+PASS: Independent player keeps normal combat control
+PASS: Held target follows caster position without drift
+PASS: Hold lasts 30 frames without applying slam damage early
+PASS: Throw frame releases ownership and applies one separate 24-damage knockdown
+PASS: KnockDown / Downed / GetUp restores normal player control
+PASS: Release leaves no movement lock
+PASS: Frame-data grab begins with committed facing
+PASS: Invalid / airborne target rejected, case 0
+PASS: Frame-data grab begins with committed facing
+PASS: Invalid / airborne target rejected, case 1
+PASS: Frame-data grab begins with committed facing
+PASS: Invalid / airborne target rejected, case 2
+PASS: Frame-data grab begins with committed facing
+PASS: Invalid / airborne target rejected, case 3
+PASS: Frame-data grab begins with committed facing
+PASS: Invalid / airborne target rejected, case 4
+PASS: Frame-data grab begins with committed facing
+PASS: Invalid / airborne target rejected, case 5
+PASS: Frame-data grab begins with committed facing
+PASS: A second owner cannot acquire an already grabbed player
+PASS: One owner cannot acquire a second player while holding its target
+PASS: Interrupted hold releases its player immediately
+PASS: Frame-data grab begins with committed facing
+PASS: Death / disable / restore / watchdog releases ownership, case 0
+PASS: Frame-data grab begins with committed facing
+PASS: Death / disable / restore / watchdog releases ownership, case 1
+PASS: Frame-data grab begins with committed facing
+PASS: Death / disable / restore / watchdog releases ownership, case 2
+PASS: Frame-data grab begins with committed facing
+PASS: Death / disable / restore / watchdog releases ownership, case 3
+PASS: Grab branch attacks and held-player pose registered in multiplayer catalog
+PASS: Frame-data grab begins with committed facing
+PASS: Five hits during telegraph consume armor but allow committed grab to connect
+PASS: Breaking final armor during hold releases player for future rescue support
+PASS: Frame-data grab begins with committed facing
+PASS: Breaking six armor points during telegraph cancels pending capture
+PASS: Existing AI approaches / chooses the configured grab
+PASS: AI armor-break interruption consumes normal 2.5-second grab cooldown
+PASS: Frame-data grab begins with committed facing
+PASS: Early telegraph faces target without launching
+PASS: Frame 26 locks target XY direction and facing
+PASS: Frame 30 begins 8u/s committed launch before grab activates
+PASS: Lunge is substantially faster than normal approach
+PASS: 18 authored frames travel 2.4 units on ground XY without homing or jump height
+PASS: Authored lunge end enters 42-frame miss recovery
+PASS: Frame-data grab begins with committed facing
+PASS: Early telegraph faces target without launching
+PASS: Frame 26 locks target XY direction and facing
+PASS: Frame 30 begins 8u/s committed launch before grab activates
+PASS: Lunge is substantially faster than normal approach
+PASS: 18 authored frames travel 2.4 units on ground XY without homing or jump height
+PASS: Authored lunge end enters 42-frame miss recovery
+PASS: Frame-data grab begins with committed facing
+PASS: Target directly above commits along walking depth, preserving stable sprite facing
+PASS: Traveling grab volume catches a player on a pure depth lunge
+PASS: Depth capture stops movement and immediately attaches target
+PASS: Successful hold does not keep lunging / dragging the target
+PASS: Frame-data grab begins with committed facing
+PASS: Early telegraph may update facing before the late commitment event
+PASS: Frame-data grab begins with committed facing
+PASS: Hitstop cannot repeat a frame's committed movement
+PASS: Lunge resumes once hitstop ends
+PASS: Frame-data grab begins with committed facing
+PASS: Distance cap stops committed travel and jumps to miss recovery
+PASS: Frame-data grab begins with committed facing
+PASS: Optional acceleration ramps launch speed through combat frames
+PASS: Frame-data grab begins with committed facing
+PASS: Sidestep permits a committed overshoot without steering to the new lane
+PASS: Frame-data grab begins with committed facing
+PASS: Armor absorbs five hits while the lunge continues
+PASS: Armor break cancels lunge movement / grab and enters stagger
+PASS: Frame-data grab begins with committed facing
+PASS: Solid CombatWall blocks the body, disables grab and starts miss/crash recovery
+PASS: Frame-data grab begins with committed facing
+PASS: Preview capture reaches held sequence
+NOTE: Independent online peers were not launched; state/body/armor-color snapshots and catalog membership checked through the existing host architecture.

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef5eae6ffeb47c4c87a054d77cb9883, type: 3}
+  m_Name: PlayerHub
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.PlayerHubDefinition
+  width: 38
+  interactionRadius: 1.2
+  deathReturnDelay: 1.8
+  spawn: {x: -15.2, y: 0}
+  stations:
+  - {x: -7.6, y: 0}
+  - {x: 0, y: 0}
+  - {x: 7.6, y: 0}
+  - {x: 15.2, y: 0}
+  panels:
+  - {fileID: 21300000, guid: 30c471ef92befc1459e04614beac9e7b, type: 3}
+  - {fileID: 21300000, guid: 28ecebbb6412b8c40b8f0e5901034832, type: 3}
+  - {fileID: 21300000, guid: d4ed3d52d58dfee4faad449573152147, type: 3}
+  - {fileID: 21300000, guid: 76cc07ca13f169747b9ff7a22468dc16, type: 3}
+  - {fileID: 21300000, guid: a64ed2b9c2f6cde41bef6c25c470c39c, type: 3}
+  panelBlendMaterial: {fileID: 2100000, guid: cd5dad38d407d7448afcae85f5278fd2, type: 2}
+  startingEssence: 60
+  baseCost: 10
+  costPerLevel: 10
+  maximumLevel: 10
+  roomReward: 10
+  healthPerLevel: 10
+  attackPerLevel: 0.05
+  reductionPerLevel: 0.025
+  meterGainPerLevel: 0.1
+  skillPowerPerLevel: 0.1

@@ -1,0 +1,18 @@
+PASS: MainMenu created a session
+PASS: Relay allocation request finished
+PASS: Anonymous Authentication and DTLS Relay host created
+PASS: All requested players connected
+PASS: All players ready
+PASS: Scene load acknowledgements released simulation
+PASS: Boss warps and starts protected with four Totems
+PASS: Distant Totem wave does not unlock boss
+PASS: Boss stays protected throughout the entire missed wave
+PASS: Boss fixture is inside authored radial reach
+PASS: Physical wave contact opens full configured window (remaining=420, distance=0.79)
+PASS: Half HP activates phase two once
+PASS: Vulnerable through penultimate frame
+PASS: Host closes vulnerability on exact configured frame
+PASS: Boss death stops authoritative AI
+PASS: Defeated boss and remaining minions unlock exit and camera
+PASS: Death cleans up host waves
+BOSS NETWORK PASSED / RELAY

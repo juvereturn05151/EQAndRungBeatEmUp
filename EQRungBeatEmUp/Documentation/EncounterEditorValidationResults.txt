@@ -1,0 +1,32 @@
+PASS: Existing serialized encounters/waves retain enabled defaults
+PASS: Binding an existing target reuses its stable ID
+PASS: Encounter preview changes only listed scene objects
+PASS: Wave preview reproduces earlier wave states and later overrides
+PASS: Restore Preview restores each original activeSelf
+PASS: Disabled wave is ignored in preview
+PASS: Apply unchecked ignores an object override
+PASS: Object checkbox supports Undo
+PASS: Object checkbox supports Redo
+PASS: Encounter/wave header checkboxes edit enabled flags
+PASS: Encounter/wave enabled edits support Undo
+PASS: Encounter/wave enabled edits support Redo
+PASS: Numeric bounds write the same Rect used by handles
+PASS: Bounds numeric edit supports Undo
+PASS: Bounds numeric edit supports Redo
+PASS: Saving a scene restores temporary preview before serialization
+PASS: Actual scene bindings survive scene save/reload
+PASS: Reloaded level state resolves the actual reloaded scene object
+PASS: Authoring changes preserve existing stage selection
+PASS: Encounter states apply before spawning; disabled first wave is skipped
+PASS: Existing camera and combat bounds lock during encounter
+PASS: Next enabled wave follows previous enabled clear and overrides encounter state
+PASS: Completion unlocks arena and restores original encounter object states
+PASS: Restore disabled leaves final wave states intact
+PASS: Disabled encounter never triggers or applies states and defaults to completed progression
+PASS: Explicit disabled blocking option retains required progression gate
+PASS: Required previous disabled encounter defaults to skipped dependency
+PASS: Re-enabling encounter/wave restores spawning and object states
+PASS: Legacy spawn trigger remains compatible without arena locks
+PASS: All disabled waves complete without spawning or deadlocking
+PASS: Disabled authored boss does not leave BossDefeated progression waiting for a spawn
+PASS: Encounter editor and object state checks completed

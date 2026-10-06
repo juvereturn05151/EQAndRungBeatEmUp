@@ -16,8 +16,20 @@ MonoBehaviour:
   domain: 0
   isLauncher: 0
   cooldownFrames: 30
-  artworkNotes: Prototype primary move built from the supplied animation timing.
-    Edit hitboxes/timing in Frame Attack editor; existing player frame data is unchanged.
+  requiresAirborne: 0
+  landingFrame: -1
+  airborneHoldFrame: -1
+  artworkNotes: 'Notebook ranged throw: existing 40-frame six-pose animation; release
+    on drawing 04 (frame 18). No melee hitboxes. Frame event spawns one projectile
+    through EnemyProjectileAttack.'
+  feedback:
+    swingSound: {fileID: 8300000, guid: 0e9bca6dd55d7e541a865752da6415f5, type: 3}
+    impactSound: {fileID: 0}
+    swingVolume: 0.28
+    impactVolume: 0.55
+    impactPrefab: {fileID: 0}
+    impactScale: 0.15
+    impactLifetime: 0.45
   frames:
   - sprite: {fileID: 21300000, guid: 9d8bfc30fdf742d38d5724e06e193cc0, type: 3}
     hitboxes: []
@@ -258,34 +270,7 @@ MonoBehaviour:
     superArmor: 0
     events: []
   - sprite: {fileID: 21300000, guid: af9fd1e40d88c353ffd7dc379b79d31f, type: 3}
-    hitboxes:
-    - hitId: 0
-      repeatAfterFrames: 0
-      offset: {x: 0.93500006, y: 0.5}
-      size: {x: 1.7, y: 1}
-      laneTolerance: 0.3
-      damage: 4
-      hitstunFrames: 14
-      hitstopFrames: 3
-      knockback: 0.3
-      launchVelocity: {x: 0.7, y: 8}
-      hitType: 0
-      forceAirborneTargetDownward: 0
-      groundBounce: 0
-      groundBounceForce: {x: 0.6, y: 4.5}
-      groundBounceGravity: 18
-      groundBounceRecoveryFrames: 21
-      maximumGroundBounces: 1
-      wallBounce: 0
-      wallBounceHorizontalForce: 4
-      wallBounceVerticalForce: 4
-      wallBounceHitstunFrames: 24
-      maximumWallBounces: 1
-      canHitGrounded: 1
-      canHitAirborne: 1
-      unblockable: 0
-      blockDamage: 0
-      blockstunFrames: 10
+    hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -302,34 +287,7 @@ MonoBehaviour:
     superArmor: 0
     events: []
   - sprite: {fileID: 21300000, guid: af9fd1e40d88c353ffd7dc379b79d31f, type: 3}
-    hitboxes:
-    - hitId: 0
-      repeatAfterFrames: 0
-      offset: {x: 0.93500006, y: 0.5}
-      size: {x: 1.7, y: 1}
-      laneTolerance: 0.3
-      damage: 4
-      hitstunFrames: 14
-      hitstopFrames: 3
-      knockback: 0.3
-      launchVelocity: {x: 0.7, y: 8}
-      hitType: 0
-      forceAirborneTargetDownward: 0
-      groundBounce: 0
-      groundBounceForce: {x: 0.6, y: 4.5}
-      groundBounceGravity: 18
-      groundBounceRecoveryFrames: 21
-      maximumGroundBounces: 1
-      wallBounce: 0
-      wallBounceHorizontalForce: 4
-      wallBounceVerticalForce: 4
-      wallBounceHitstunFrames: 24
-      maximumWallBounces: 1
-      canHitGrounded: 1
-      canHitAirborne: 1
-      unblockable: 0
-      blockDamage: 0
-      blockstunFrames: 10
+    hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -346,34 +304,7 @@ MonoBehaviour:
     superArmor: 0
     events: []
   - sprite: {fileID: 21300000, guid: af9fd1e40d88c353ffd7dc379b79d31f, type: 3}
-    hitboxes:
-    - hitId: 0
-      repeatAfterFrames: 0
-      offset: {x: 0.93500006, y: 0.5}
-      size: {x: 1.7, y: 1}
-      laneTolerance: 0.3
-      damage: 4
-      hitstunFrames: 14
-      hitstopFrames: 3
-      knockback: 0.3
-      launchVelocity: {x: 0.7, y: 8}
-      hitType: 0
-      forceAirborneTargetDownward: 0
-      groundBounce: 0
-      groundBounceForce: {x: 0.6, y: 4.5}
-      groundBounceGravity: 18
-      groundBounceRecoveryFrames: 21
-      maximumGroundBounces: 1
-      wallBounce: 0
-      wallBounceHorizontalForce: 4
-      wallBounceVerticalForce: 4
-      wallBounceHitstunFrames: 24
-      maximumWallBounces: 1
-      canHitGrounded: 1
-      canHitAirborne: 1
-      unblockable: 0
-      blockDamage: 0
-      blockstunFrames: 10
+    hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -390,34 +321,7 @@ MonoBehaviour:
     superArmor: 0
     events: []
   - sprite: {fileID: 21300000, guid: af9fd1e40d88c353ffd7dc379b79d31f, type: 3}
-    hitboxes:
-    - hitId: 0
-      repeatAfterFrames: 0
-      offset: {x: 0.93500006, y: 0.5}
-      size: {x: 1.7, y: 1}
-      laneTolerance: 0.3
-      damage: 4
-      hitstunFrames: 14
-      hitstopFrames: 3
-      knockback: 0.3
-      launchVelocity: {x: 0.7, y: 8}
-      hitType: 0
-      forceAirborneTargetDownward: 0
-      groundBounce: 0
-      groundBounceForce: {x: 0.6, y: 4.5}
-      groundBounceGravity: 18
-      groundBounceRecoveryFrames: 21
-      maximumGroundBounces: 1
-      wallBounce: 0
-      wallBounceHorizontalForce: 4
-      wallBounceVerticalForce: 4
-      wallBounceHitstunFrames: 24
-      maximumWallBounces: 1
-      canHitGrounded: 1
-      canHitAirborne: 1
-      unblockable: 0
-      blockDamage: 0
-      blockstunFrames: 10
+    hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -434,34 +338,26 @@ MonoBehaviour:
     superArmor: 0
     events: []
   - sprite: {fileID: 21300000, guid: 60c141df4fcc2d04721c29c0b8e9f06b, type: 3}
-    hitboxes:
-    - hitId: 0
-      repeatAfterFrames: 0
-      offset: {x: 0.93500006, y: 0.5}
-      size: {x: 1.7, y: 1}
-      laneTolerance: 0.3
-      damage: 4
-      hitstunFrames: 14
-      hitstopFrames: 3
-      knockback: 0.3
-      launchVelocity: {x: 0.7, y: 8}
-      hitType: 0
-      forceAirborneTargetDownward: 0
-      groundBounce: 0
-      groundBounceForce: {x: 0.6, y: 4.5}
-      groundBounceGravity: 18
-      groundBounceRecoveryFrames: 21
-      maximumGroundBounces: 1
-      wallBounce: 0
-      wallBounceHorizontalForce: 4
-      wallBounceVerticalForce: 4
-      wallBounceHitstunFrames: 24
-      maximumWallBounces: 1
-      canHitGrounded: 1
-      canHitAirborne: 1
-      unblockable: 0
-      blockDamage: 0
-      blockstunFrames: 10
+    hitboxes: []
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events:
+    - Swing
+    - ThrowProjectile
+  - sprite: {fileID: 21300000, guid: 60c141df4fcc2d04721c29c0b8e9f06b, type: 3}
+    hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -478,34 +374,7 @@ MonoBehaviour:
     superArmor: 0
     events: []
   - sprite: {fileID: 21300000, guid: 60c141df4fcc2d04721c29c0b8e9f06b, type: 3}
-    hitboxes:
-    - hitId: 0
-      repeatAfterFrames: 0
-      offset: {x: 0.93500006, y: 0.5}
-      size: {x: 1.7, y: 1}
-      laneTolerance: 0.3
-      damage: 4
-      hitstunFrames: 14
-      hitstopFrames: 3
-      knockback: 0.3
-      launchVelocity: {x: 0.7, y: 8}
-      hitType: 0
-      forceAirborneTargetDownward: 0
-      groundBounce: 0
-      groundBounceForce: {x: 0.6, y: 4.5}
-      groundBounceGravity: 18
-      groundBounceRecoveryFrames: 21
-      maximumGroundBounces: 1
-      wallBounce: 0
-      wallBounceHorizontalForce: 4
-      wallBounceVerticalForce: 4
-      wallBounceHitstunFrames: 24
-      maximumWallBounces: 1
-      canHitGrounded: 1
-      canHitAirborne: 1
-      unblockable: 0
-      blockDamage: 0
-      blockstunFrames: 10
+    hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -522,34 +391,7 @@ MonoBehaviour:
     superArmor: 0
     events: []
   - sprite: {fileID: 21300000, guid: 60c141df4fcc2d04721c29c0b8e9f06b, type: 3}
-    hitboxes:
-    - hitId: 0
-      repeatAfterFrames: 0
-      offset: {x: 0.93500006, y: 0.5}
-      size: {x: 1.7, y: 1}
-      laneTolerance: 0.3
-      damage: 4
-      hitstunFrames: 14
-      hitstopFrames: 3
-      knockback: 0.3
-      launchVelocity: {x: 0.7, y: 8}
-      hitType: 0
-      forceAirborneTargetDownward: 0
-      groundBounce: 0
-      groundBounceForce: {x: 0.6, y: 4.5}
-      groundBounceGravity: 18
-      groundBounceRecoveryFrames: 21
-      maximumGroundBounces: 1
-      wallBounce: 0
-      wallBounceHorizontalForce: 4
-      wallBounceVerticalForce: 4
-      wallBounceHitstunFrames: 24
-      maximumWallBounces: 1
-      canHitGrounded: 1
-      canHitAirborne: 1
-      unblockable: 0
-      blockDamage: 0
-      blockstunFrames: 10
+    hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -566,78 +408,7 @@ MonoBehaviour:
     superArmor: 0
     events: []
   - sprite: {fileID: 21300000, guid: 60c141df4fcc2d04721c29c0b8e9f06b, type: 3}
-    hitboxes:
-    - hitId: 0
-      repeatAfterFrames: 0
-      offset: {x: 0.93500006, y: 0.5}
-      size: {x: 1.7, y: 1}
-      laneTolerance: 0.3
-      damage: 4
-      hitstunFrames: 14
-      hitstopFrames: 3
-      knockback: 0.3
-      launchVelocity: {x: 0.7, y: 8}
-      hitType: 0
-      forceAirborneTargetDownward: 0
-      groundBounce: 0
-      groundBounceForce: {x: 0.6, y: 4.5}
-      groundBounceGravity: 18
-      groundBounceRecoveryFrames: 21
-      maximumGroundBounces: 1
-      wallBounce: 0
-      wallBounceHorizontalForce: 4
-      wallBounceVerticalForce: 4
-      wallBounceHitstunFrames: 24
-      maximumWallBounces: 1
-      canHitGrounded: 1
-      canHitAirborne: 1
-      unblockable: 0
-      blockDamage: 0
-      blockstunFrames: 10
-    movement: {x: 0, y: 0}
-    movementInputScale: 0
-    setHorizontalVelocity: 0
-    horizontalVelocity: 0
-    setVerticalVelocity: 0
-    verticalVelocity: 0
-    verticalVelocityModifier: 0
-    gravityScale: 1
-    suspendFalling: 0
-    canCancelIntoAttack: 0
-    canCancelIntoLauncher: 0
-    canCancelIntoJump: 0
-    invulnerable: 0
-    superArmor: 0
-    events: []
-  - sprite: {fileID: 21300000, guid: 60c141df4fcc2d04721c29c0b8e9f06b, type: 3}
-    hitboxes:
-    - hitId: 0
-      repeatAfterFrames: 0
-      offset: {x: 0.93500006, y: 0.5}
-      size: {x: 1.7, y: 1}
-      laneTolerance: 0.3
-      damage: 4
-      hitstunFrames: 14
-      hitstopFrames: 3
-      knockback: 0.3
-      launchVelocity: {x: 0.7, y: 8}
-      hitType: 0
-      forceAirborneTargetDownward: 0
-      groundBounce: 0
-      groundBounceForce: {x: 0.6, y: 4.5}
-      groundBounceGravity: 18
-      groundBounceRecoveryFrames: 21
-      maximumGroundBounces: 1
-      wallBounce: 0
-      wallBounceHorizontalForce: 4
-      wallBounceVerticalForce: 4
-      wallBounceHitstunFrames: 24
-      maximumWallBounces: 1
-      canHitGrounded: 1
-      canHitAirborne: 1
-      unblockable: 0
-      blockDamage: 0
-      blockstunFrames: 10
+    hitboxes: []
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0

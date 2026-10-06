@@ -42,14 +42,14 @@ PASS: GetUp plays kneeling pose at authored timing without early AI
 PASS: GetUp retains its final recovery frame
 PASS: Completed GetUp restores Normal and normal Animator playback
 PASS: Active AI resumes its existing attack after recovery
-PASS: Punch1 cancel timing
-PASS: Punch2 cancel timing
+PASS: Punch1 authored cancel reaches Punch2
+PASS: Punch2 authored cancel reaches Launcher
 PASS: Full combo launcher hits
 PASS: Manual launcher jump cancel succeeds
 PASS: AirPunch1 connects
-PASS: AirPunch1 cancel window
+PASS: AirPunch1 authored cancel window
 PASS: AirPunch2 connects
-PASS: AirPunch2 cancel window
+PASS: AirPunch2 authored cancel window
 PASS: AirPunch3 connects
 PASS: AirPunch3 arms ground bounce and drives downward slam
 PASS: Full combo consumes one ground bounce at floor contact
@@ -62,14 +62,14 @@ PASS: Recovered enemy resumes chase
 PASS: Existing launcher damage path accepts grounded enemy
 PASS: Launch enters existing Launched state and blocks AI
 PASS: Recovered enemy can be launched/juggled again
-PASS: Punch1 cancel timing
-PASS: Punch2 cancel timing
+PASS: Punch1 authored cancel reaches Punch2
+PASS: Punch2 authored cancel reaches Launcher
 PASS: Full combo launcher hits
 PASS: Manual launcher jump cancel succeeds
 PASS: AirPunch1 connects
-PASS: AirPunch1 cancel window
+PASS: AirPunch1 authored cancel window
 PASS: AirPunch2 connects
-PASS: AirPunch2 cancel window
+PASS: AirPunch2 authored cancel window
 PASS: AirPunch3 connects
 PASS: AirPunch3 arms ground bounce and drives downward slam
 PASS: Full combo consumes one ground bounce at floor contact

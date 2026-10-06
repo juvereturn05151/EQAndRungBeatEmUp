@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 3131041340083779622}
   - component: {fileID: 7323241557212773632}
   - component: {fileID: 5783448626945293636}
+  - component: {fileID: 3592396102106884169}
   m_Layer: 0
   m_Name: WhiteGhostBoss
   m_TagString: Untagged
@@ -307,6 +308,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f76d9872f1f6b74da4285dc347ed340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyHitReaction
+  canBeParryStunned: 0
+  stunAnimation: {fileID: 0}
+  stunFallbackSprite: {fileID: 21300000, guid: 6f5cc040dc97e703c1fe3e346585ef15, type: 3}
+  stunVfx:
+  - {fileID: 21300000, guid: 2360fa2428f6add48bcdbd099030b549, type: 3}
+  - {fileID: 21300000, guid: 2a66fa2cd0c88b1499c275abe1a385db, type: 3}
+  - {fileID: 21300000, guid: 2732a08fafe0bac458158e8094ea93e6, type: 3}
+  - {fileID: 21300000, guid: 953d4682cb4633c4c9619eace6cd0423, type: 3}
+  - {fileID: 21300000, guid: bfb9430bd06569b4ca8d848bf4972574, type: 3}
+  - {fileID: 21300000, guid: 3181582cd104f9c468758433d341b583, type: 3}
+  stunVfxHoldFrames: 5
+  stunVfxOffset: {x: 0, y: 1.2}
+  stunVfxScale: 1
+  stunRecoveryFrames: 0
+  stunDebug: 0
   motor: {fileID: 7092905998073038177}
   health: {fileID: 8773704404012154239}
   animationDriver: {fileID: 7215831307785663937}
@@ -335,6 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429c5d4e827577a49bea1ef9b14b373a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyCombat
+  role: 0
   motor: {fileID: 7092905998073038177}
   reaction: {fileID: 5272609897594472923}
   animationDriver: {fileID: 7215831307785663937}
@@ -342,8 +359,10 @@ MonoBehaviour:
   attackPlayer: {fileID: 3131041340083779622}
   target: {fileID: 0}
   attack: {fileID: 11400000, guid: 7d17ea6626576ac4faf3f1cf6de6da45, type: 2}
+  aiProfile: {fileID: 0}
   passiveTrainingDummy: 0
   attackRange: 0.85
+  minimumAttackRange: 0
   laneRange: 0.55
   attackCooldownFrames: 110
 --- !u!114 &3131041340083779622
@@ -391,7 +410,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.TotemBossController
   flow: {fileID: 0}
-  warpInterval: 6
+  data: {fileID: 11400000, guid: 02f6d31502907824cb4282c93c1ab738, type: 2}
   onVulnerable:
     m_PersistentCalls:
       m_Calls: []
+  onPhase2:
+    m_PersistentCalls:
+      m_Calls: []
+  onDefeated:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3592396102106884169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316862883575817677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beecb901c1cc40f58acd9a965a1da583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyProjectileAttack
+  projectilePrefab: {fileID: 6510233896294541721, guid: 06ebd1bbc3469d346a7cc157709079c5, type: 3}
+  releaseOffset: {x: 0.45, y: 0.78}
+  releaseEvent: ThrowProjectile
+  lockAimAtAttackStart: 1
+  forwardOnly: 0

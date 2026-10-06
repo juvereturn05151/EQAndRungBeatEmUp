@@ -54,8 +54,8 @@ public static class RunUpgradeValidation
         var motor = target.GetComponent<CharacterMotor>(); motor.ResetForStage(new Vector2(.7f, 0)); if (airborne) motor.Launch(4, 0);
         return build.ModifyHit(BaseHit(attack), motor).damage;
     }
-    static int Stage(string id) => flow.level.stages.FindIndex(s => s.stageId == id);
-    static void LeaveHub() { if (flow.CurrentStage.IsSafeStage) { player.motor.ResetForStage(flow.CurrentStage.playerExitPoint); Step(); } Check(flow.CurrentStage.stageId == "Stage01_EntranceGate", "Run reaches first combat stage without forced cards"); }
+    static int Stage(string id) => flow.level.stages.FindIndex(s => s.stageId == id || s.stageId?.Replace("Corridoor","Corridor")==id);
+    static void LeaveHub() { if(flow.CurrentStage.hub) flow.GetComponent<PlayerHubController>().BeginRun(); else if (flow.CurrentStage.IsSafeStage) { player.motor.ResetForStage(flow.CurrentStage.playerExitPoint); Step(); } Check(flow.CurrentStage.stageId == "Stage01_EntranceGate", "Run reaches first combat stage without forced cards"); }
     static void ClearCombatRoom()
     {
         int guard = 0;
@@ -63,7 +63,12 @@ public static class RunUpgradeValidation
         {
             foreach (var h in flow.LivingEnemies.ToArray()) { h.GetComponent<EnemyCombat>().enabled = false; h.Damage(10000); }
             Step();
+            if(string.IsNullOrEmpty(flow.ActiveEncounterName))
+                foreach(var encounter in flow.CurrentStage.encounters.Where(e=>e.enabled && e.trigger==EncounterTrigger.PlayerZone))
+                { player.motor.ResetForStage(encounter.triggerZone.center); Step(); if(!string.IsNullOrEmpty(flow.ActiveEncounterName) || flow.CompletionSatisfied) break; }
         }
+        if(flow.CompletionSatisfied && flow.CurrentStage.completionMode==StageCompletion.ReachExit && !flow.WorldRewards.IsPending)
+        { player.motor.ResetForStage(flow.CurrentStage.playerExitPoint); Step(); }
         Check(guard < 700 && flow.WorldRewards && flow.WorldRewards.State == WorldRewardState.RewardPending && !rewards.IsChoosing, "Stage " + (flow.StageIndex + 1) + " clear spawns chapel without cards; failure: " + flow.Failure);
         player.motor.ResetForStage(flow.WorldRewards.Chapel.transform.position);
         Check(flow.Interact() && rewards.IsWorldChoosing, "Chapel interaction opens physical current-run choices");
@@ -118,16 +123,17 @@ public static class RunUpgradeValidation
             ClearCombatRoom(); Pick("IronBody"); player.health.Damage(180); ClearCombatRoom(); Pick("LongStep");
             Check(flow.StageIndex == Stage("Stage06_RecoveryShrine") && !rewards.IsChoosing && !flow.LivingEnemies.Any(), "TEST7: shrine has no enemies and no forced cards");
             float max = player.health.EffectiveMaximum; player.motor.ResetForStage(flow.CurrentStage.playerExitPoint); Step();
-            Check(flow.StageIndex == Stage("Stage07_WhiteGhostBossChamber") && !rewards.IsChoosing, "Heal reward advances shrine to boss without upgrade UI"); Near(player.health.Current, Mathf.Min(max, max - 180 + max * .5f), "Shrine exit Heal uses configured fraction of upgraded maximum HP");
-            Step(2); Check(build.Acquired.Count == 5 && build.Value(RunModifier.DiveDamage) == .25f, "TEST8: all five acquired upgrades persist into boss");
+            Check(flow.StageIndex == Stage("Stage08_EscapeLane") && !rewards.IsChoosing, "Heal reward follows authored shrine exit without upgrade UI"); Near(player.health.Current, Mathf.Min(max, max - 180 + max * .5f), "Shrine exit Heal uses configured fraction of upgraded maximum HP");
+            flow.EnterStage(Stage("Stage07_WhiteGhostBossChamber")); Step(2); Check(build.Acquired.Count == 5 && build.Value(RunModifier.DiveDamage) == .25f, "TEST8: all five acquired upgrades persist into boss");
             var boss = flow.LivingEnemies.Single(); var hurt = boss.GetComponentInChildren<CombatHurtbox>(); hp = boss.Current;
             player.motor.Launch(4, 0); player.attackPlayer.Play(player.airDive);
             Check(!hurt.Receive(build.ModifyHit(BaseHit(player.airDive), boss.GetComponent<CharacterMotor>()), 1, player.motor) && boss.Current == hp && flow.RemainingTotems == 4, "Upgraded headbutt cannot bypass cursed-totem boss protection");
-            foreach (var prop in flow.Destructibles.ToArray()) prop.Receive(new AttackHitboxData { damage = 10000 }, 1, player.motor);
-            Step(2); Check(hurt.Receive(build.ModifyHit(BaseHit(player.airDive), boss.GetComponent<CharacterMotor>()), 1, player.motor), "Upgraded hit works after all totems are destroyed");
+            boss.GetComponent<CharacterMotor>().SnapGrabToGround(flow.Destructibles.First().transform.position);
+            foreach (var prop in flow.Destructibles.ToArray()) prop.Receive(new AttackHitboxData { damage = 10000, laneTolerance = 100 }, 1, player.motor);
+            Step(2); Check(hurt.Receive(build.ModifyHit(BaseHit(player.airDive), boss.GetComponent<CharacterMotor>()), 1, player.motor), "Upgraded hit works after a Totem's radial wave physically reaches the boss");
             boss.Damage(10000); player.ResetCombo(); player.motor.ResetForStage(flow.CurrentStage.playerEntryPoint); Step(2); Check(flow.ExitUnlocked, "Boss clear waits for exit without offering cards");
-            player.motor.ResetForStage(flow.CurrentStage.playerExitPoint); Step(); Check(flow.StageIndex == Stage("Stage08_EscapeLane"), "Boss clear preserves build into Escape Lane");
-            player.motor.ResetForStage(flow.CurrentStage.playerExitPoint); Step(); Check(flow.LevelCompleted && build.Acquired.Count == 5, "Run finishes with its acquired build");
+            player.motor.ResetForStage(flow.CurrentStage.playerExitPoint); Step(); Check(flow.LevelCompleted && build.Acquired.Count == 5, "Final authored boss exit preserves build at completion"); flow.EnterStage(Stage("Stage08_EscapeLane"));
+            player.motor.ResetForStage(flow.CurrentStage.playerExitPoint); Step(); Check(build.Acquired.Count == 5, "Escape Lane preserves acquired build in authored progression");
             flow.Restart(true); Check(build.Acquired.Count == 0 && player.health.EffectiveMaximum == player.health.maximumHealth, "TEST9: new run clears upgrades and restores base max HP");
             EffectTests(); ChoiceTests(); InputTests();
             foreach (var path in attackPaths) Check(File.ReadAllText(path) == snapshots[path], "Base AttackData file unchanged: " + Path.GetFileName(path));

@@ -96,8 +96,19 @@ public sealed class AttackPreviewGUI : IDisposable
                 var box = frame.hitboxes[b]; if (box == null) continue;
                 var world = BoxRect(box, origin, mirror); bool selected = b == selectedBox;
                 Wire(world, selected ? Color.yellow : new Color(1,.5f,.1f), selected ? 2 : 1);
+                if (box.groundArea)
+                {
+                    Handles.BeginGUI(); Handles.color = selected ? Color.yellow : new Color(1,.5f,.1f);
+                    var points = new Vector3[49];
+                    for (int p = 0; p <= 48; p++)
+                    {
+                        float angle = p * Mathf.PI / 24;
+                        points[p] = Local(world.center + new Vector2(Mathf.Cos(angle) * world.width / 2, Mathf.Sin(angle) * world.height / 2));
+                    }
+                    Handles.DrawAAPolyLine(2, points); Handles.EndGUI();
+                }
                 var screen = ScreenRect(world); screen.position -= rect.position;
-                GUI.Label(new Rect(screen.x, screen.y - 19, 130, 19), $"Hitbox {b} / ID {box.hitId}", EditorStyles.whiteMiniLabel);
+                GUI.Label(new Rect(screen.x, screen.y - 19, 200, 19), $"{(box.groundArea ? "Ground AoE" : "Hitbox")} {b} / ID {box.hitId}", EditorStyles.whiteMiniLabel);
                 if (selected)
                 {
                     foreach (var point in handlePoints)

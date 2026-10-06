@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 7412040008245325129}
   - component: {fileID: 2122798923892911664}
   - component: {fileID: 5526972927684293666}
+  - component: {fileID: 2573796144821871239}
   m_Layer: 0
   m_Name: Screamer
   m_TagString: Untagged
@@ -306,6 +307,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f76d9872f1f6b74da4285dc347ed340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyHitReaction
+  canBeParryStunned: 1
+  stunAnimation: {fileID: 11400000, guid: b2f2790c3f4e1934993a0b13451c2640, type: 2}
+  stunFallbackSprite: {fileID: 21300000, guid: d8a53e1e3fb180ccf7893ba39b1c3a64, type: 3}
+  stunVfx:
+  - {fileID: 21300000, guid: 2360fa2428f6add48bcdbd099030b549, type: 3}
+  - {fileID: 21300000, guid: 2a66fa2cd0c88b1499c275abe1a385db, type: 3}
+  - {fileID: 21300000, guid: 2732a08fafe0bac458158e8094ea93e6, type: 3}
+  - {fileID: 21300000, guid: 953d4682cb4633c4c9619eace6cd0423, type: 3}
+  - {fileID: 21300000, guid: bfb9430bd06569b4ca8d848bf4972574, type: 3}
+  - {fileID: 21300000, guid: 3181582cd104f9c468758433d341b583, type: 3}
+  stunVfxHoldFrames: 5
+  stunVfxOffset: {x: 0, y: 1.2}
+  stunVfxScale: 1
+  stunRecoveryFrames: 0
+  stunDebug: 0
   motor: {fileID: 8945692516298499687}
   health: {fileID: 403075777773336834}
   animationDriver: {fileID: 6750809571955378183}
@@ -334,6 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429c5d4e827577a49bea1ef9b14b373a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyCombat
+  role: 0
   motor: {fileID: 8945692516298499687}
   reaction: {fileID: 6410224159082132637}
   animationDriver: {fileID: 6750809571955378183}
@@ -341,8 +358,10 @@ MonoBehaviour:
   attackPlayer: {fileID: 2122798923892911664}
   target: {fileID: 0}
   attack: {fileID: 11400000, guid: e74298e4cbcfd8c45a82988a0c6aa1c4, type: 2}
+  aiProfile: {fileID: 11400000, guid: cb052c5fa17661c4e99c870b754ee564, type: 2}
   passiveTrainingDummy: 0
   attackRange: 1.5
+  minimumAttackRange: 0
   laneRange: 0.55
   attackCooldownFrames: 110
 --- !u!114 &2122798923892911664
@@ -377,3 +396,19 @@ MonoBehaviour:
   blinkRenderers:
   - {fileID: 2977657034262897341}
   blinkOnHit: 1
+--- !u!114 &2573796144821871239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5052869314956010402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beecb901c1cc40f58acd9a965a1da583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyProjectileAttack
+  projectilePrefab: {fileID: 4825056981626118552, guid: 7f442e7b110046c4e8e1079a301fe687, type: 3}
+  releaseOffset: {x: 0.65, y: 0.65}
+  releaseEvent: SpawnScreamWave
+  forwardOnly: 1

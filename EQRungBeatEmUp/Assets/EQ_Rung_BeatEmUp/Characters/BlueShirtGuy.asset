@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944aefd73074fd94abde5b7c6c89ea09, type: 3}
+  m_Name: BlueShirtGuy
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.PlayableCharacterData
+  characterId: blue-shirt
+  displayName: BlueShirtGuy
+  sortOrder: 0
+  prefab: {fileID: 6799408650324901922, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+  portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+  idlePose: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+  locomotion: {fileID: 9100000, guid: beb1c88ca643b474bbd5724164c1286b, type: 2}
+  groundCombo:
+  - {fileID: 11400000, guid: 1132a47bbbbc24441be15c1fd1ba8e0b, type: 2}
+  - {fileID: 11400000, guid: 93fb91909bfb4de4caedb037eeee9092, type: 2}
+  - {fileID: 11400000, guid: 398834ab68c3b28419f4c30cd4389f44, type: 2}
+  airCombo:
+  - {fileID: 11400000, guid: 2bf3babe77d3e5448b46d10d2a24f9a0, type: 2}
+  - {fileID: 11400000, guid: b0548e3878f2cb04eb15ba55dcdd204c, type: 2}
+  - {fileID: 11400000, guid: 5ccf16847eaaf0048a47fb3496dd291a, type: 2}
+  launcher: {fileID: 11400000, guid: fe61615f0b7122d4bb118837743387cf, type: 2}
+  airDive: {fileID: 11400000, guid: 8f30728f5c2515e43a4106869845eb97, type: 2}
+  defense: {fileID: 11400000, guid: 538d475d1eb06a443914598c91305c2c, type: 2}
+  skill: {fileID: 11400000, guid: 3709bb42cc6cc9b4baf5b3e1e0b6dc55, type: 2}

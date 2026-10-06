@@ -4,9 +4,34 @@ using BeatEmUp;
 using UnityEditor;
 using UnityEngine;
 
+[InitializeOnLoad]
 public static class PlayerDefenseSetup
 {
     private const string Root = "Assets/EQ_Rung_BeatEmUp";
+    static PlayerDefenseSetup() { EditorApplication.update += PollParrySetup; }
+    static void PollParrySetup()
+    {
+        if (EditorApplication.isCompiling || EditorApplication.isPlayingOrWillChangePlaymode || !File.Exists("Temp/ParrySetup.request")) return;
+        try { File.Delete("Temp/ParrySetup.request"); } catch (IOException) { return; }
+        ConfigureParry();
+    }
+    [MenuItem("Beat Em Up/Defense/Configure parry defaults")]
+    public static void ConfigureParry()
+    {
+        if (EditorApplication.isPlaying) return;
+        var data = AssetDatabase.LoadAssetAtPath<PlayerDefenseData>(Root + "/PlayerDefense.asset");
+        if (!data) throw new InvalidOperationException("Existing PlayerDefense asset missing");
+        Undo.RecordObject(data, "Configure parry defaults");
+        data.parryWindowFrames = 8; data.parryHitstopFrames = 6; data.parryAttackerStunFrames = 90;
+        data.parryRecoveryFrames = 8; data.parryRearmDelayFrames = 6;
+        data.parryFeedback = new AttackFeedbackData {
+            impactSound = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Deadly Kombat Free version/block_large_71.wav"), impactVolume = .7f,
+            impactPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/Sword Trails/Plain/CFXR4 Sword Hit PLAIN (Cross).prefab"),
+            impactScale = .2f, impactLifetime = .45f
+        };
+        EditorUtility.SetDirty(data); AssetDatabase.SaveAssets(); MultiplayerSetup.Build();
+        Debug.Log("PARRY DEFAULTS CONFIGURED: 8f active, 6f hitstop, 90f enemy stun, 8f player recovery, 6f extra re-arm delay.");
+    }
     public static void Build()
     {
         try

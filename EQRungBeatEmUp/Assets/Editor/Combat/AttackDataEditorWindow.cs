@@ -235,7 +235,7 @@ public sealed class AttackDataEditorWindow : EditorWindow
         {
             showIdentity = EditorGUILayout.Foldout(showIdentity, "Attack properties", true);
             if (showIdentity)
-                foreach (string property in new[] { "attackName", "domain", "isLauncher", "cooldownFrames", "requiresAirborne", "landingFrame", "airborneHoldFrame", "artworkNotes" }) EditorGUILayout.PropertyField(serializedAttack.FindProperty(property));
+                foreach (string property in new[] { "attackName", "domain", "isLauncher", "cooldownFrames", "requiresAirborne", "landingFrame", "airborneHoldFrame", "activeEvent", "eventActiveFrames", "cooldownOnInterrupt", "artworkNotes" }) EditorGUILayout.PropertyField(serializedAttack.FindProperty(property));
                 EditorGUILayout.PropertyField(serializedAttack.FindProperty("feedback"), true);
             if (attack.TotalFrames == 0) EditorGUILayout.HelpBox("Add a frame to begin authoring.", MessageType.Info);
             else
@@ -250,7 +250,7 @@ public sealed class AttackDataEditorWindow : EditorWindow
                     string[] names = new string[boxes.arraySize]; for (int b = 0; b < names.Length; b++) names[b] = "Hitbox " + b;
                     selectedBox = EditorGUILayout.Popup("Selected hitbox", Mathf.Clamp(selectedBox, 0, names.Length - 1), names);
                     var box = boxes.GetArrayElementAtIndex(selectedBox);
-                    foreach (string property in new[] { "offset", "size", "damage", "hitstunFrames", "hitstopFrames", "knockback", "launchVelocity", "hitType", "forceAirborneTargetDownward", "groundBounce", "groundBounceForce", "groundBounceGravity", "groundBounceRecoveryFrames", "maximumGroundBounces", "wallBounce", "wallBounceHorizontalForce", "wallBounceVerticalForce", "wallBounceHitstunFrames", "maximumWallBounces", "unblockable", "blockDamage", "blockstunFrames", "laneTolerance", "canHitGrounded", "canHitAirborne", "hitId", "repeatAfterFrames" }) EditorGUILayout.PropertyField(box.FindPropertyRelative(property));
+                    foreach (string property in new[] { "offset", "size", "groundArea", "knockdownDurationFrames", "damage", "hitstunFrames", "hitstopFrames", "knockback", "outwardGroundKnockback", "launchVelocity", "hitType", "stunDurationFrames", "forceAirborneTargetDownward", "groundBounce", "groundBounceForce", "groundBounceGravity", "groundBounceRecoveryFrames", "maximumGroundBounces", "wallBounce", "wallBounceHorizontalForce", "wallBounceVerticalForce", "wallBounceHitstunFrames", "maximumWallBounces", "unblockable", "canBeParried", "blockDamage", "blockstunFrames", "laneTolerance", "canHitGrounded", "canHitAirborne", "hitId", "repeatAfterFrames" }) EditorGUILayout.PropertyField(box.FindPropertyRelative(property));
                 }
                 using (new EditorGUILayout.HorizontalScope())
                 {
@@ -267,6 +267,8 @@ public sealed class AttackDataEditorWindow : EditorWindow
                         }
                 }
                 EditorGUILayout.Space(); EditorGUILayout.LabelField("Movement / velocity", EditorStyles.boldLabel);
+                EditorGUILayout.PropertyField(frame.FindPropertyRelative("grabHitboxes"), new GUIContent("Dedicated Grab Hitboxes (ground plane)"), true);
+                EditorGUILayout.PropertyField(frame.FindPropertyRelative("grabLungeMovementScale"), new GUIContent("Committed Grab Lunge Movement Scale"));
                 foreach (string property in new[] { "movement", "movementInputScale", "setHorizontalVelocity", "horizontalVelocity", "setVerticalVelocity", "verticalVelocity", "verticalVelocityModifier", "gravityScale", "suspendFalling" }) EditorGUILayout.PropertyField(frame.FindPropertyRelative(property));
                 EditorGUILayout.Space(); EditorGUILayout.LabelField("Cancels / defense", EditorStyles.boldLabel);
                 foreach (string property in new[] { "canCancelIntoAttack", "canCancelIntoLauncher", "canCancelIntoJump", "invulnerable", "superArmor", "events" }) EditorGUILayout.PropertyField(frame.FindPropertyRelative(property), true);

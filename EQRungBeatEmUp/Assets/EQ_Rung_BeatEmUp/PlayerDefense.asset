@@ -18,11 +18,29 @@ MonoBehaviour:
   dodgeInvulnerableFirstFrame: 4
   dodgeInvulnerableLastFrame: 9
   dodgeSpeed: 9
-  parryWindowFrames: 5
+  parryWindowFrames: 12
   parryRecoveryFrames: 8
-  parryAttackerStunFrames: 18
-  parryHitstopFrames: 5
+  parryAttackerStunFrames: 90
+  parryHitstopFrames: 6
   guardHitstopFrames: 2
+  parryRearmDelayFrames: 6
+  parryFeedback:
+    areaWarning: 0
+    directionalWaveWarning: 0
+    areaRingSprite: {fileID: 0}
+    areaWaveSprites: []
+    warningColor: {r: 1, g: 0.35, b: 0.1, a: 0.8}
+    waveColor: {r: 1, g: 0.2, b: 0.3, a: 0.9}
+    telegraphSound: {fileID: 0}
+    screamSound: {fileID: 0}
+    areaVolume: 0.6
+    swingSound: {fileID: 0}
+    impactSound: {fileID: 8300000, guid: e5ecc98ff40556543b77c8c2aa090822, type: 3}
+    swingVolume: 0.35
+    impactVolume: 0.7
+    impactPrefab: {fileID: 8525990746615576120, guid: b85d21f3b8fed714bacf0c4fd50fa512, type: 3}
+    impactScale: 0.2
+    impactLifetime: 0.45
   knockdownFrames: 18
   downedFrames: 45
   getUpFrames: 24
@@ -82,3 +100,27 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 982bf17a6197552f8fdb7a60619d7139, type: 3}
     frames: 6
   blockPose: {fileID: 21300000, guid: af8b4517ecc2c5944a73e2251767300a, type: 3}
+  grabbed:
+  - sprite: {fileID: 21300000, guid: 6dd9890f6e4b3b046a0dabb2a187c4c4, type: 3}
+    frames: 6
+  stunned:
+  - sprite: {fileID: 21300000, guid: 8de7b87f5692d1744b9d6a5c142479e2, type: 3}
+    frames: 6
+  - sprite: {fileID: 21300000, guid: 1d938a9edefa38143940a832513ae9f9, type: 3}
+    frames: 6
+  - sprite: {fileID: 21300000, guid: 9b94cfebe01e4ab47ad5b8be4db81729, type: 3}
+    frames: 6
+  - sprite: {fileID: 21300000, guid: ccb0d0af410a7634a92a600536aa6690, type: 3}
+    frames: 6
+  - sprite: {fileID: 21300000, guid: b07dcb56ab709a147978ee0d821d770d, type: 3}
+    frames: 6
+  stunVfx:
+  - {fileID: 21300000, guid: 2360fa2428f6add48bcdbd099030b549, type: 3}
+  - {fileID: 21300000, guid: 2a66fa2cd0c88b1499c275abe1a385db, type: 3}
+  - {fileID: 21300000, guid: 2732a08fafe0bac458158e8094ea93e6, type: 3}
+  - {fileID: 21300000, guid: 953d4682cb4633c4c9619eace6cd0423, type: 3}
+  - {fileID: 21300000, guid: bfb9430bd06569b4ca8d848bf4972574, type: 3}
+  - {fileID: 21300000, guid: 3181582cd104f9c468758433d341b583, type: 3}
+  stunVfxHoldFrames: 5
+  stunVfxOffset: {x: 0, y: 1.2}
+  stunVfxScale: 1

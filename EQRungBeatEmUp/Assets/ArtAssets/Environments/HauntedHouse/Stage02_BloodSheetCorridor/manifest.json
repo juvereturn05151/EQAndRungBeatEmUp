@@ -1,25 +1,25 @@
 {
   "id": "Stage02_BloodSheetCorridor",
   "name": "Blood Sheet Corridor",
-  "sourceSplit": 0.405,
+  "sourceSplit": 0.5,
   "canvas": [
     720,
-    400
+    480
   ],
   "pixelsPerUnit": 100,
-  "backgroundFraction": 0.4,
-  "floorFraction": 0.6,
+  "backgroundFraction": 0.5,
+  "floorFraction": 0.5,
   "plates": [
     {
       "layer": "Background",
-      "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage02_BloodSheetCorridor/Background/Stage02_BloodSheetCorridor_Background.png",
+      "file": "Assets/ArtAssets/Environments/HauntedHouse/Stage02_BloodSheetCorridor/Background/Stage02_BloodSheetCorridor_Background_v2.png",
       "canvas": [
         720,
-        160
+        240
       ],
       "position": [
         0,
-        2.56,
+        2.96,
         0
       ],
       "sortingOrder": -100
@@ -38,5 +38,9 @@
       ],
       "sortingOrder": -90
     }
-  ]
+  ],
+  "originalSourceSplit": 0.405,
+  "revision": "Upward extension v2: original lower 160 rows preserved; 80 new upper rows",
+  "source": "Source/Stage02_BloodSheetCorridor_Source_v2.png",
+  "preview": "Stage02_BloodSheetCorridor_Preview_v2.png"
 }

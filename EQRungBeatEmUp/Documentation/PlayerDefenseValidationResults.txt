@@ -85,11 +85,11 @@ PASS: Hitstop freezes dodge timing and velocity integration
 PASS: Actual player prefab has defense frame data
 PASS: Fresh Guard press opens guard/parry window
 PASS: Parry includes frame 4 and negates damage/blockstun
-PASS: Parry interrupts attacker for existing 18-frame hitstun
+PASS: Parry interrupts attacker for dedicated 90-frame stun
 PASS: Parry displays intentional contact/deflection sprite holds
 PASS: Released parry recovers in eight logical frames
 PASS: Actual player prefab has defense frame data
-PASS: Frame 5 yields normal zero-damage guard and ten-frame blockstun
+PASS: Frame 8 yields normal zero-damage guard and ten-frame blockstun
 PASS: Repress during blockstun cannot rearm parry
 PASS: Release during blockstun cannot escape early
 PASS: Guard release returns neutral after blockstun
@@ -106,6 +106,90 @@ PASS: Actual player prefab has defense frame data
 PASS: Late guard cannot erase an already accepted hit
 PASS: Actual player prefab has defense frame data
 PASS: Attack data controls chip damage and blockstun
+PASS: Actual player prefab has defense frame data
+PASS: Editable 6-frame window accepts frame 0 with correct exclusive end
+PASS: Parry / guard prevents incoming damage, recoil and knockdown at 0/6
+PASS: Actual player prefab has defense frame data
+PASS: Editable 6-frame window accepts frame 5 with correct exclusive end
+PASS: Parry / guard prevents incoming damage, recoil and knockdown at 5/6
+PASS: Actual player prefab has defense frame data
+PASS: Editable 6-frame window accepts frame 6 with correct exclusive end
+PASS: Parry / guard prevents incoming damage, recoil and knockdown at 6/6
+PASS: Actual player prefab has defense frame data
+PASS: Editable 8-frame window accepts frame 0 with correct exclusive end
+PASS: Parry / guard prevents incoming damage, recoil and knockdown at 0/8
+PASS: Actual player prefab has defense frame data
+PASS: Editable 8-frame window accepts frame 7 with correct exclusive end
+PASS: Parry / guard prevents incoming damage, recoil and knockdown at 7/8
+PASS: Actual player prefab has defense frame data
+PASS: Editable 8-frame window accepts frame 8 with correct exclusive end
+PASS: Parry / guard prevents incoming damage, recoil and knockdown at 8/8
+PASS: Actual player prefab has defense frame data
+PASS: Editable 10-frame window accepts frame 0 with correct exclusive end
+PASS: Parry / guard prevents incoming damage, recoil and knockdown at 0/10
+PASS: Actual player prefab has defense frame data
+PASS: Editable 10-frame window accepts frame 9 with correct exclusive end
+PASS: Parry / guard prevents incoming damage, recoil and knockdown at 9/10
+PASS: Actual player prefab has defense frame data
+PASS: Editable 10-frame window accepts frame 10 with correct exclusive end
+PASS: Parry / guard prevents incoming damage, recoil and knockdown at 10/10
+PASS: Actual player prefab has defense frame data
+PASS: Default parry is active at zero-based frame 0
+PASS: Actual player prefab has defense frame data
+PASS: Default parry is active at zero-based frame 1
+PASS: Actual player prefab has defense frame data
+PASS: Default parry is active at zero-based frame 2
+PASS: Actual player prefab has defense frame data
+PASS: Default parry is active at zero-based frame 3
+PASS: Actual player prefab has defense frame data
+PASS: Default parry is active at zero-based frame 4
+PASS: Actual player prefab has defense frame data
+PASS: Default parry is active at zero-based frame 5
+PASS: Actual player prefab has defense frame data
+PASS: Default parry is active at zero-based frame 6
+PASS: Actual player prefab has defense frame data
+PASS: Default parry is active at zero-based frame 7
+PASS: Actual player prefab has defense frame data
+PASS: Fresh Guard is immediately active; default re-arm interval includes eight active plus six delay frames
+PASS: Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame 0
+PASS: Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame 1
+PASS: Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame 2
+PASS: Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame 3
+PASS: Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame 4
+PASS: Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame 5
+PASS: Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame 6
+PASS: Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame 7
+PASS: Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame 8
+PASS: Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame 9
+PASS: Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame 10
+PASS: Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame 11
+PASS: Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame 12
+PASS: Guard mashing cannot refresh parry, but Guard stays responsive at re-arm frame 13
+PASS: Fresh press after full re-arm interval starts a new window
+PASS: Actual player prefab has defense frame data
+PASS: Holding Guard through re-arm expiry cannot silently generate another window
+PASS: Release and a new eligible press deliberately rearm parry
+PASS: Actual player prefab has defense frame data
+PASS: Parry window and re-arm timing both freeze with combat hitstop
+PASS: Window resumes on the next combat frame after hitstop
+PASS: Actual player prefab has defense frame data
+PASS: Airborne guard press cannot activate parry
+PASS: Actual player prefab has defense frame data
+PASS: Hitstun cannot be escaped through parry
+PASS: Actual player prefab has defense frame data
+PASS: Incompatible running attack prevents parry
+PASS: Actual player prefab has defense frame data
+PASS: Attack opt-out preserves chip / normal Guard without parry stun
+PASS: Normal Guard does not emit successful-parry feedback
+PASS: Actual player prefab has defense frame data
+PASS: Existing enemy attacks inherit parryable compatibility
+PASS: Real authoritative hitbox produces a damage-free immediate parry
+PASS: Successful parry creates one distinct effect through existing feedback renderer
+PASS: Successful parry plays assigned distinct sound hook
+PASS: Real parry freezes both actors for six frames and stuns normal enemy for 90 frames
+PASS: Parry hitstop does not consume recovery or enemy stun frames
+PASS: Eight-frame player recovery leaves eighty-two combat frames of counter advantage
+PASS: Player can start a counterattack while enemy remains stunned
 PASS: Actual player prefab has defense frame data
 PASS: Marked knockdown or launcher enters player KnockDown
 PASS: KnockDown rejects guard/dodge/attack/jump

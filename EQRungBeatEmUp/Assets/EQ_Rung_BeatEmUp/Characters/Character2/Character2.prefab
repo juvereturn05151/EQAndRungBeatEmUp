@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1951040139326508066
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1271835923811717077, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271835923811717077, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271835923811717077, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271835923811717077, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271835923811717077, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271835923811717077, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271835923811717077, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271835923811717077, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271835923811717077, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271835923811717077, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165950976811769158, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: equippedSkill
+      value: 
+      objectReference: {fileID: 11400000, guid: 96ec76ed31a1b9643b5112e1ab39702a, type: 2}
+    - target: {fileID: 3702797543408599627, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: airDive
+      value: 
+      objectReference: {fileID: 11400000, guid: b96001e03c1fa4b4dbf339cfe3807938, type: 2}
+    - target: {fileID: 3702797543408599627, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: launcher
+      value: 
+      objectReference: {fileID: 11400000, guid: 8472a258d656d4940bab87a2ce7acfec, type: 2}
+    - target: {fileID: 3702797543408599627, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: defenseData
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b56140b0c48eb94a9bbd7529ab4fcf5, type: 2}
+    - target: {fileID: 3702797543408599627, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: 'airCombo.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: de9870f767ade1146becff60ee9de6c8, type: 2}
+    - target: {fileID: 3702797543408599627, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: 'airCombo.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b0f53a312ded60842a48a61b24dcb03d, type: 2}
+    - target: {fileID: 3702797543408599627, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: 'airCombo.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ef5e1f05aa42ebd4dbafc7d5c57e0e4e, type: 2}
+    - target: {fileID: 3702797543408599627, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: 'groundCombo.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e9ae9f70cb2046409bcb08caec618ee, type: 2}
+    - target: {fileID: 3702797543408599627, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: 'groundCombo.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0bfa516b04863ed4d858f4dce0bd55ba, type: 2}
+    - target: {fileID: 3702797543408599627, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: 'groundCombo.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 906ef292dc163d84fa3a1ce1f4d14622, type: 2}
+    - target: {fileID: 5436040383349132763, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7f69077abc4cd604585c4751a0522503, type: 2}
+    - target: {fileID: 5601093808264028976, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 11400000, guid: eaee95b1a9ed74749ad9db715a87308d, type: 2}
+    - target: {fileID: 6799408650324901922, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: m_Name
+      value: Character2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300029509646884933, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 66db763612fdab144adcefca08e19b27, type: 3}

@@ -1,0 +1,25 @@
+PASS: HUD starts hidden with empty combo
+PASS: Whiffed attack never counts a hit
+PASS: Real collision starts a one-hit damage combo
+PASS: Lingering hitboxes and hitstop do not count again or consume timeout
+PASS: Target neutral recovery ends combo before maximum timeout
+PASS: Ended combo retains its final HUD result
+PASS: Final result fades after configured hold
+PASS: HUD hides after fade
+PASS: 0.9-second timeout ends a target that remains stunned
+PASS: Another accepted hit refreshes timer and accumulates damage
+PASS: Combat pause freezes counter timer and display
+PASS: Explicit reset clears active result and HUD
+PASS: Lethal hit finalizes with actual HP lost, not overkill
+PASS: Lethal result remains readable in HUD
+PASS: Rejected/invulnerable damage does not count
+PASS: Zero damage does not count
+PASS: Player damage drops active sequence
+PASS: Direct interruption/parry drops active sequence even without damage
+PASS: Stage positioning reset clears combo and HUD
+PASS: Multiple enemies participate in one player sequence
+PASS: One defeated target does not end remaining valid multi-target combo
+PASS: Last target death ends multi-target combo
+PASS: Existing 14-damage dive continues qualifying airborne hit sequence (hits=2, damage=22, end=)
+PASS: Dive updates combo UI from actual accepted hit
+PASS: Screen HUD never blocks gameplay input

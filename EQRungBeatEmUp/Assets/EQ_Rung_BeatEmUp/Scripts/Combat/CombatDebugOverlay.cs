@@ -11,9 +11,10 @@ namespace BeatEmUp
         private void OnGUI()
         {
             if (!showDebug || !player || !enemy) return;
-            GUI.Box(new Rect(10, 10, 650, 235), "Combat debug");
-            GUI.Label(new Rect(20, 35, 630, 205),
+            GUI.Box(new Rect(10, 10, 650, 255), "Combat debug");
+            GUI.Label(new Rect(20, 35, 630, 225),
                 $"Player: {player.State} | grounded {player.motor.IsGrounded} | height {player.motor.Height:F2}\n" +
+                $"Parry: {player.DefenseFrame}/{player.EffectiveParryWindow} | active {player.ParryActive} | guard {player.GuardActive} | re-arm {player.ParryRearmRemaining}f\n" +
                 $"Combo: {player.ComboIndex} | attack: {(player.CurrentAttack ? player.CurrentAttack.name : "None")} | frame {player.attackPlayer.CurrentFrame} | hitstop {player.attackPlayer.HitstopRemaining}f\n" +
                 $"Buffered: {player.BufferedInput} | jump: {player.JumpBuffered} | Input Action: {input.LastAction}\n" +
                 $"Enemy: {enemy.State} | height: {enemy.motor.Height:F2} | juggle hits: {enemy.JuggleHits}\n" +

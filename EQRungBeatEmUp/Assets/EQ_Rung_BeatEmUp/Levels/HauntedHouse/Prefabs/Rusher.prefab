@@ -306,6 +306,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f76d9872f1f6b74da4285dc347ed340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyHitReaction
+  canBeParryStunned: 1
+  stunAnimation: {fileID: 11400000, guid: 910f75c5584f9b743ae0344fd8934e93, type: 2}
+  stunFallbackSprite: {fileID: 21300000, guid: 9735d5b2b2efae126631ab8d5a9b607a, type: 3}
+  stunVfx:
+  - {fileID: 21300000, guid: 2360fa2428f6add48bcdbd099030b549, type: 3}
+  - {fileID: 21300000, guid: 2a66fa2cd0c88b1499c275abe1a385db, type: 3}
+  - {fileID: 21300000, guid: 2732a08fafe0bac458158e8094ea93e6, type: 3}
+  - {fileID: 21300000, guid: 953d4682cb4633c4c9619eace6cd0423, type: 3}
+  - {fileID: 21300000, guid: bfb9430bd06569b4ca8d848bf4972574, type: 3}
+  - {fileID: 21300000, guid: 3181582cd104f9c468758433d341b583, type: 3}
+  stunVfxHoldFrames: 5
+  stunVfxOffset: {x: 0, y: 1.2}
+  stunVfxScale: 1
+  stunRecoveryFrames: 0
+  stunDebug: 0
   motor: {fileID: 5022658935483847711}
   health: {fileID: 2505262428661192332}
   animationDriver: {fileID: 7909332072351193637}
@@ -334,6 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429c5d4e827577a49bea1ef9b14b373a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyCombat
+  role: 1
   motor: {fileID: 5022658935483847711}
   reaction: {fileID: 4048724082818403173}
   animationDriver: {fileID: 7909332072351193637}
@@ -341,8 +357,10 @@ MonoBehaviour:
   attackPlayer: {fileID: 3052240804773291034}
   target: {fileID: 0}
   attack: {fileID: 11400000, guid: dfdad2def1695ab43976ebbe743bbd6e, type: 2}
+  aiProfile: {fileID: 11400000, guid: c4ec561b69c9c8147a49388f93519a2d, type: 2}
   passiveTrainingDummy: 0
   attackRange: 0.85
+  minimumAttackRange: 0
   laneRange: 0.55
   attackCooldownFrames: 110
 --- !u!114 &3052240804773291034

@@ -1,0 +1,363 @@
+PASS: Default Melee limit is one
+PASS: Ranged and Support overlap independently with Melee
+PASS: Blocked multi-category requests reserve no partial CC token
+PASS: Screamer atomically acquires Ranged plus CC
+PASS: Grappler cannot grab while Screamer owns CC, even with free Melee
+PASS: Only one Grappler/Ambusher CC commitment is approved
+PASS: Editable capacity allows two Melee commitments
+PASS: Zero category capacity disables new commitments
+PASS: Atomic grant exists before telegraph for Rusher_0
+PASS: Existing authored attack starts: Rusher_0
+PASS: 20-frame global gap blocks commitments through frame 19
+PASS: Different category can overlap at exactly frame 20
+PASS: Atomic grant exists before telegraph for GrapplerBruiser_4
+PASS: Existing authored attack starts: GrapplerBruiser_4
+PASS: Live action-data edits cannot remove an existing lease's reserved categories
+PASS: Atomic lease still protects CC when action configuration changes during attack
+PASS: Disabling encounter coordination immediately bypasses token requests
+PASS: Highest priority wins rather than request order
+PASS: Atomic grant exists before telegraph for Rusher_1
+PASS: Existing authored attack starts: Rusher_1
+PASS: Waiting priority increases with combat frames
+PASS: Recent-attacker penalty favors the waiting Rusher
+PASS: Atomic grant exists before telegraph for Rusher_0
+PASS: Existing authored attack starts: Rusher_0
+PASS: Single eligible enemy can repeat normally
+PASS: Recent penalty expires while wait priority grows
+PASS: Atomic grant exists before telegraph for Rusher_0
+PASS: Existing authored attack starts: Rusher_0
+PASS: Enemy death releases tokens immediately
+PASS: Atomic grant exists before telegraph for Rusher_0
+PASS: Existing authored attack starts: Rusher_0
+PASS: Enemy disable releases tokens immediately
+PASS: Atomic grant exists before telegraph for Rusher_0
+PASS: Existing authored attack starts: Rusher_0
+PASS: Enemy despawn releases tokens immediately
+PASS: Atomic grant exists before telegraph for Rusher_0
+PASS: Existing authored attack starts: Rusher_0
+PASS: Encounter reset clears owners, candidates and recent history
+PASS: Atomic grant exists before telegraph for Rusher_0
+PASS: Existing authored attack starts: Rusher_0
+PASS: Player death clears target's reservations
+PASS: Atomic grant exists before telegraph for Rusher_0
+PASS: Existing authored attack starts: Rusher_0
+PASS: Watchdog cancels broken long-held attack and releases reservation
+PASS: Unconsumed grants expire defensively
+PASS: Atomic grant exists before telegraph for Rusher_0
+PASS: Existing authored attack starts: Rusher_0
+PASS: Invalid target cancels active attack and reservation
+PASS: Stunned player blocks new CC
+PASS: Recovery begins CC grace rather than allowing an immediate chain
+PASS: 45-frame CC grace remains active before expiry
+PASS: CC grace releases at configured combat frame
+PASS: Player enters existing Grabbed state
+PASS: Grabbed player blocks new CC
+PASS: Knockdown/GetUp blocks new CC
+PASS: Disabled-player CC protection is configurable
+PASS: Optional general aggression pause blocks Melee during incapacity
+PASS: CC protection follows each target, not a hardcoded Player 1
+PASS: Serialized category mapping: Rusher_0
+PASS: Serialized category mapping: Rusher_1
+PASS: Serialized category mapping: Thrower_2
+PASS: Serialized category mapping: Screamer_3
+PASS: Serialized category mapping: GrapplerBruiser_4
+PASS: Serialized category mapping: Ambusher_5
+PASS: Serialized category mapping: Prefect_6
+PASS: Prefect Push uses Melee
+PASS: Live Rusher overlap cap at frame 0
+PASS: Live Rusher overlap cap at frame 1
+PASS: Live Rusher overlap cap at frame 2
+PASS: Live Rusher overlap cap at frame 3
+PASS: Live Rusher overlap cap at frame 4
+PASS: Live Rusher overlap cap at frame 5
+PASS: Live Rusher overlap cap at frame 6
+PASS: Live Rusher overlap cap at frame 7
+PASS: Live Rusher overlap cap at frame 8
+PASS: Live Rusher overlap cap at frame 9
+PASS: Live Rusher overlap cap at frame 10
+PASS: Live Rusher overlap cap at frame 11
+PASS: Live Rusher overlap cap at frame 12
+PASS: Live Rusher overlap cap at frame 13
+PASS: Live Rusher overlap cap at frame 14
+PASS: Live Rusher overlap cap at frame 15
+PASS: Live Rusher overlap cap at frame 16
+PASS: Live Rusher overlap cap at frame 17
+PASS: Live Rusher overlap cap at frame 18
+PASS: Live Rusher overlap cap at frame 19
+PASS: Live Rusher overlap cap at frame 20
+PASS: Live Rusher overlap cap at frame 21
+PASS: Live Rusher overlap cap at frame 22
+PASS: Live Rusher overlap cap at frame 23
+PASS: Live Rusher overlap cap at frame 24
+PASS: Live Rusher overlap cap at frame 25
+PASS: Live Rusher overlap cap at frame 26
+PASS: Live Rusher overlap cap at frame 27
+PASS: Live Rusher overlap cap at frame 28
+PASS: Live Rusher overlap cap at frame 29
+PASS: Live Rusher overlap cap at frame 30
+PASS: Live Rusher overlap cap at frame 31
+PASS: Live Rusher overlap cap at frame 32
+PASS: Live Rusher overlap cap at frame 33
+PASS: Live Rusher overlap cap at frame 34
+PASS: Live Rusher overlap cap at frame 35
+PASS: Live Rusher overlap cap at frame 36
+PASS: Live Rusher overlap cap at frame 37
+PASS: Live Rusher overlap cap at frame 38
+PASS: Live Rusher overlap cap at frame 39
+PASS: Live Rusher overlap cap at frame 40
+PASS: Live Rusher overlap cap at frame 41
+PASS: Live Rusher overlap cap at frame 42
+PASS: Live Rusher overlap cap at frame 43
+PASS: Live Rusher overlap cap at frame 44
+PASS: Live Rusher overlap cap at frame 45
+PASS: Live Rusher overlap cap at frame 46
+PASS: Live Rusher overlap cap at frame 47
+PASS: Live Rusher overlap cap at frame 48
+PASS: Live Rusher overlap cap at frame 49
+PASS: Live Rusher overlap cap at frame 50
+PASS: Live Rusher overlap cap at frame 51
+PASS: Live Rusher overlap cap at frame 52
+PASS: Live Rusher overlap cap at frame 53
+PASS: Live Rusher overlap cap at frame 54
+PASS: Live Rusher overlap cap at frame 55
+PASS: Live Rusher overlap cap at frame 56
+PASS: Live Rusher overlap cap at frame 57
+PASS: Live Rusher overlap cap at frame 58
+PASS: Live Rusher overlap cap at frame 59
+PASS: Live Rusher overlap cap at frame 60
+PASS: Live Rusher overlap cap at frame 61
+PASS: Live Rusher overlap cap at frame 62
+PASS: Live Rusher overlap cap at frame 63
+PASS: Live Rusher overlap cap at frame 64
+PASS: Live Rusher overlap cap at frame 65
+PASS: Live Rusher overlap cap at frame 66
+PASS: Live Rusher overlap cap at frame 67
+PASS: Live Rusher overlap cap at frame 68
+PASS: Live Rusher overlap cap at frame 69
+PASS: Live Rusher overlap cap at frame 70
+PASS: Live Rusher overlap cap at frame 71
+PASS: Live Rusher overlap cap at frame 72
+PASS: Live Rusher overlap cap at frame 73
+PASS: Live Rusher overlap cap at frame 74
+PASS: Live Rusher overlap cap at frame 75
+PASS: Live Rusher overlap cap at frame 76
+PASS: Live Rusher overlap cap at frame 77
+PASS: Live Rusher overlap cap at frame 78
+PASS: Live Rusher overlap cap at frame 79
+PASS: Live Rusher overlap cap at frame 80
+PASS: Live Rusher overlap cap at frame 81
+PASS: Live Rusher overlap cap at frame 82
+PASS: Live Rusher overlap cap at frame 83
+PASS: Live Rusher overlap cap at frame 84
+PASS: Live Rusher overlap cap at frame 85
+PASS: Live Rusher overlap cap at frame 86
+PASS: Live Rusher overlap cap at frame 87
+PASS: Live Rusher overlap cap at frame 88
+PASS: Live Rusher overlap cap at frame 89
+PASS: Live Rusher overlap cap at frame 90
+PASS: Live Rusher overlap cap at frame 91
+PASS: Live Rusher overlap cap at frame 92
+PASS: Live Rusher overlap cap at frame 93
+PASS: Live Rusher overlap cap at frame 94
+PASS: Live Rusher overlap cap at frame 95
+PASS: Live Rusher overlap cap at frame 96
+PASS: Live Rusher overlap cap at frame 97
+PASS: Live Rusher overlap cap at frame 98
+PASS: Live Rusher overlap cap at frame 99
+PASS: Live Rusher overlap cap at frame 100
+PASS: Live Rusher overlap cap at frame 101
+PASS: Live Rusher overlap cap at frame 102
+PASS: Live Rusher overlap cap at frame 103
+PASS: Live Rusher overlap cap at frame 104
+PASS: Live Rusher overlap cap at frame 105
+PASS: Live Rusher overlap cap at frame 106
+PASS: Live Rusher overlap cap at frame 107
+PASS: Live Rusher overlap cap at frame 108
+PASS: Live Rusher overlap cap at frame 109
+PASS: Live Rusher overlap cap at frame 110
+PASS: Live Rusher overlap cap at frame 111
+PASS: Live Rusher overlap cap at frame 112
+PASS: Live Rusher overlap cap at frame 113
+PASS: Live Rusher overlap cap at frame 114
+PASS: Live Rusher overlap cap at frame 115
+PASS: Live Rusher overlap cap at frame 116
+PASS: Live Rusher overlap cap at frame 117
+PASS: Live Rusher overlap cap at frame 118
+PASS: Live Rusher overlap cap at frame 119
+PASS: Live Rusher overlap cap at frame 120
+PASS: Live Rusher overlap cap at frame 121
+PASS: Live Rusher overlap cap at frame 122
+PASS: Live Rusher overlap cap at frame 123
+PASS: Live Rusher overlap cap at frame 124
+PASS: Live Rusher overlap cap at frame 125
+PASS: Live Rusher overlap cap at frame 126
+PASS: Live Rusher overlap cap at frame 127
+PASS: Live Rusher overlap cap at frame 128
+PASS: Live Rusher overlap cap at frame 129
+PASS: Live Rusher overlap cap at frame 130
+PASS: Live Rusher overlap cap at frame 131
+PASS: Live Rusher overlap cap at frame 132
+PASS: Live Rusher overlap cap at frame 133
+PASS: Live Rusher overlap cap at frame 134
+PASS: Live Rusher overlap cap at frame 135
+PASS: Live Rusher overlap cap at frame 136
+PASS: Live Rusher overlap cap at frame 137
+PASS: Live Rusher overlap cap at frame 138
+PASS: Live Rusher overlap cap at frame 139
+PASS: Live Rusher overlap cap at frame 140
+PASS: Live Rusher overlap cap at frame 141
+PASS: Live Rusher overlap cap at frame 142
+PASS: Live Rusher overlap cap at frame 143
+PASS: Live Rusher overlap cap at frame 144
+PASS: Live Rusher overlap cap at frame 145
+PASS: Live Rusher overlap cap at frame 146
+PASS: Live Rusher overlap cap at frame 147
+PASS: Live Rusher overlap cap at frame 148
+PASS: Live Rusher overlap cap at frame 149
+PASS: Live Rusher overlap cap at frame 150
+PASS: Live Rusher overlap cap at frame 151
+PASS: Live Rusher overlap cap at frame 152
+PASS: Live Rusher overlap cap at frame 153
+PASS: Live Rusher overlap cap at frame 154
+PASS: Live Rusher overlap cap at frame 155
+PASS: Live Rusher overlap cap at frame 156
+PASS: Live Rusher overlap cap at frame 157
+PASS: Live Rusher overlap cap at frame 158
+PASS: Live Rusher overlap cap at frame 159
+PASS: Live Rusher overlap cap at frame 160
+PASS: Live Rusher overlap cap at frame 161
+PASS: Live Rusher overlap cap at frame 162
+PASS: Live Rusher overlap cap at frame 163
+PASS: Live Rusher overlap cap at frame 164
+PASS: Live Rusher overlap cap at frame 165
+PASS: Live Rusher overlap cap at frame 166
+PASS: Live Rusher overlap cap at frame 167
+PASS: Live Rusher overlap cap at frame 168
+PASS: Live Rusher overlap cap at frame 169
+PASS: Live Rusher overlap cap at frame 170
+PASS: Live Rusher overlap cap at frame 171
+PASS: Live Rusher overlap cap at frame 172
+PASS: Live Rusher overlap cap at frame 173
+PASS: Live Rusher overlap cap at frame 174
+PASS: Live Rusher overlap cap at frame 175
+PASS: Live Rusher overlap cap at frame 176
+PASS: Live Rusher overlap cap at frame 177
+PASS: Live Rusher overlap cap at frame 178
+PASS: Live Rusher overlap cap at frame 179
+PASS: Live Rusher overlap cap at frame 180
+PASS: Live Rusher overlap cap at frame 181
+PASS: Live Rusher overlap cap at frame 182
+PASS: Live Rusher overlap cap at frame 183
+PASS: Live Rusher overlap cap at frame 184
+PASS: Live Rusher overlap cap at frame 185
+PASS: Live Rusher overlap cap at frame 186
+PASS: Live Rusher overlap cap at frame 187
+PASS: Live Rusher overlap cap at frame 188
+PASS: Live Rusher overlap cap at frame 189
+PASS: Live Rusher overlap cap at frame 190
+PASS: Live Rusher overlap cap at frame 191
+PASS: Live Rusher overlap cap at frame 192
+PASS: Live Rusher overlap cap at frame 193
+PASS: Live Rusher overlap cap at frame 194
+PASS: Live Rusher overlap cap at frame 195
+PASS: Live Rusher overlap cap at frame 196
+PASS: Live Rusher overlap cap at frame 197
+PASS: Live Rusher overlap cap at frame 198
+PASS: Live Rusher overlap cap at frame 199
+PASS: Live Rusher overlap cap at frame 200
+PASS: Live Rusher overlap cap at frame 201
+PASS: Live Rusher overlap cap at frame 202
+PASS: Live Rusher overlap cap at frame 203
+PASS: Live Rusher overlap cap at frame 204
+PASS: Live Rusher overlap cap at frame 205
+PASS: Live Rusher overlap cap at frame 206
+PASS: Live Rusher overlap cap at frame 207
+PASS: Live Rusher overlap cap at frame 208
+PASS: Live Rusher overlap cap at frame 209
+PASS: Live Rusher overlap cap at frame 210
+PASS: Live Rusher overlap cap at frame 211
+PASS: Live Rusher overlap cap at frame 212
+PASS: Live Rusher overlap cap at frame 213
+PASS: Live Rusher overlap cap at frame 214
+PASS: Live Rusher overlap cap at frame 215
+PASS: Live Rusher overlap cap at frame 216
+PASS: Live Rusher overlap cap at frame 217
+PASS: Live Rusher overlap cap at frame 218
+PASS: Live Rusher overlap cap at frame 219
+PASS: Live Rusher overlap cap at frame 220
+PASS: Live Rusher overlap cap at frame 221
+PASS: Live Rusher overlap cap at frame 222
+PASS: Live Rusher overlap cap at frame 223
+PASS: Live Rusher overlap cap at frame 224
+PASS: Live Rusher overlap cap at frame 225
+PASS: Live Rusher overlap cap at frame 226
+PASS: Live Rusher overlap cap at frame 227
+PASS: Live Rusher overlap cap at frame 228
+PASS: Live Rusher overlap cap at frame 229
+PASS: Live Rusher overlap cap at frame 230
+PASS: Live Rusher overlap cap at frame 231
+PASS: Live Rusher overlap cap at frame 232
+PASS: Live Rusher overlap cap at frame 233
+PASS: Live Rusher overlap cap at frame 234
+PASS: Live Rusher overlap cap at frame 235
+PASS: Live Rusher overlap cap at frame 236
+PASS: Live Rusher overlap cap at frame 237
+PASS: Live Rusher overlap cap at frame 238
+PASS: Live Rusher overlap cap at frame 239
+PASS: Live Rusher overlap cap at frame 240
+PASS: Live Rusher overlap cap at frame 241
+PASS: Live Rusher overlap cap at frame 242
+PASS: Live Rusher overlap cap at frame 243
+PASS: Live Rusher overlap cap at frame 244
+PASS: Live Rusher overlap cap at frame 245
+PASS: Live Rusher overlap cap at frame 246
+PASS: Live Rusher overlap cap at frame 247
+PASS: Live Rusher overlap cap at frame 248
+PASS: Live Rusher overlap cap at frame 249
+PASS: Live Rusher overlap cap at frame 250
+PASS: Live Rusher overlap cap at frame 251
+PASS: Live Rusher overlap cap at frame 252
+PASS: Live Rusher overlap cap at frame 253
+PASS: Live Rusher overlap cap at frame 254
+PASS: Live Rusher overlap cap at frame 255
+PASS: Live Rusher overlap cap at frame 256
+PASS: Live Rusher overlap cap at frame 257
+PASS: Live Rusher overlap cap at frame 258
+PASS: Live Rusher overlap cap at frame 259
+PASS: Waiting Rusher repositions while another performs its existing attack
+PASS: Atomic grant exists before telegraph for GrapplerBruiser_4
+PASS: Existing authored attack starts: GrapplerBruiser_4
+PASS: Actual Grappler armor break releases Melee and CC
+PASS: Atomic grant exists before telegraph for GrapplerBruiser_4
+PASS: Existing authored attack starts: GrapplerBruiser_4
+PASS: Grappler parry Stun releases both categories
+PASS: Atomic grant exists before telegraph for Ambusher_5
+PASS: Existing authored attack starts: Ambusher_5
+PASS: Interrupted Ambusher telegraph releases both categories
+PASS: Thrower still emits its existing projectile through real AI
+PASS: Thrower recovery releases Ranged while emitted projectile still exists
+PASS: Atomic grant exists before telegraph for GrapplerBruiser_4
+PASS: Existing authored attack starts: GrapplerBruiser_4
+PASS: Missed grab completes authored recovery and releases both categories: GrapplerBruiser_4
+PASS: Atomic grant exists before telegraph for Ambusher_5
+PASS: Existing authored attack starts: Ambusher_5
+PASS: Missed grab completes authored recovery and releases both categories: Ambusher_5
+PASS: Boss actions explicitly bypass normal tokens
+PASS: Boss Swipe ignores occupied minion Melee slot
+PASS: Boss bypass does not occupy minion categories
+PASS: Seven-enemy authored encounter binds one shared coordinator
+PASS: Tracked reinforcements inherit encounter coordinator
+PASS: Mixed live encounter preserves category caps and multiple enemy types commit naturally
+PASS: Prefect performs coordinated Support/Push through existing AI
+PASS: Stage reset clears encounter token state
+PASS: First wave uses encounter coordination defaults
+PASS: Starting override wave changes shared encounter intensity
+PASS: Later non-override wave restores encounter defaults
+PASS: Encounter default CrowdControl capacity is one
+PASS: Encounter editor exposes serialized slots and combat-frame gaps
+PASS: Coordination edits support Undo
+PASS: Coordination edits support Redo
+PASS: Coordination settings persist after asset reload
+PASS: Wave overrides are serialized and opt-in
+PASS: Runtime ownership debug description is available
+ALL ATTACK COORDINATION CHECKS PASSED

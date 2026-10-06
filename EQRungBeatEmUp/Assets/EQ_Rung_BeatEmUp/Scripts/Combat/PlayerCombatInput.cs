@@ -17,7 +17,8 @@ namespace BeatEmUp
         
         private PlayerInput playerInput;
         
-        private InputAction move, attack, launcher, jump, guard, dodge;
+        private InputAction move, attack, launcher, jump, guard, dodge, skill;
+        private bool HubMenuOpen => GetComponent<MetaProgress>()?.OpenStation>=0;
         
         private void Start() 
         { 
@@ -44,6 +45,7 @@ namespace BeatEmUp
             jump = map.FindAction("Jump", true);
             guard = map.FindAction("Guard", true);
             dodge = map.FindAction("Dodge", true);
+            skill = map.FindAction("Skill", true);
 
             move.performed += OnMove; 
             move.canceled += OnMove;
@@ -53,39 +55,44 @@ namespace BeatEmUp
             guard.performed += OnGuard;
             guard.canceled += OnGuardReleased;
             dodge.performed += OnDodge;
+            skill.performed += OnSkill;
             // PlayerInput owns map enabling, device pairing and per-player action copies.
         }
 
         private void OnMove(InputAction.CallbackContext context)
         { 
-            motor.MoveInput = CombatClock.IsPaused ? Vector2.zero : context.ReadValue<Vector2>(); 
+            motor.MoveInput = CombatClock.IsPaused || HubMenuOpen ? Vector2.zero : context.ReadValue<Vector2>();
             LastAction = "Move"; 
         }
         private void Update()
         {
             // Preserve intended movement after a recovery clears motor input.
             // Buttons remain edge-triggered through action callbacks.
-            if (move != null && motor) motor.MoveInput = CombatClock.IsPaused ? Vector2.zero : move.ReadValue<Vector2>();
+            if (move != null && motor) motor.MoveInput = CombatClock.IsPaused || HubMenuOpen ? Vector2.zero : move.ReadValue<Vector2>();
         }
-        private void OnGuard(InputAction.CallbackContext context) { LastAction = "Guard / Parry"; combat.RequestGuard(true); }
+        private void OnGuard(InputAction.CallbackContext context) { if(HubMenuOpen) return; LastAction = "Guard / Parry"; combat.RequestGuard(true); }
         private void OnGuardReleased(InputAction.CallbackContext context) { combat.RequestGuard(false); }
-        private void OnDodge(InputAction.CallbackContext context) { LastAction = "Dodge"; combat.RequestDodge(); }
+        private void OnDodge(InputAction.CallbackContext context) { if(HubMenuOpen) return; LastAction = "Dodge"; combat.RequestDodge(); }
+        private void OnSkill(InputAction.CallbackContext context) { if(HubMenuOpen) return; LastAction = "Skill"; combat.GetComponent<PlayerSkillController>()?.RequestSkill(); }
         
         private void OnAttack(InputAction.CallbackContext context) 
         { 
-            LastAction = "Attack"; 
+            LastAction = "Attack";
+            if(HubMenuOpen) return;
             combat.RequestAttack(); 
         }
         
         private void OnLauncher(InputAction.CallbackContext context) 
         { 
-            LastAction = "Launcher"; 
+            LastAction = "Launcher";
+            if(HubMenuOpen) return;
             combat.RequestLauncher(); 
         }
         
         private void OnJump(InputAction.CallbackContext context) 
         { 
-            LastAction = "Jump"; 
+            LastAction = "Jump";
+            if(HubMenuOpen) return;
             combat.RequestJump(); 
         }
         
@@ -113,6 +120,7 @@ namespace BeatEmUp
             if (jump != null) jump.performed -= OnJump;
             if (guard != null) { guard.performed -= OnGuard; guard.canceled -= OnGuardReleased; }
             if (dodge != null) dodge.performed -= OnDodge;
+            if (skill != null) skill.performed -= OnSkill;
         }
     }
 }

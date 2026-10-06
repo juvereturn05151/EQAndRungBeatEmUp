@@ -18,6 +18,8 @@ public sealed class AttackTimelineGUI
     {
         new Track("Sprite", new Color(.35f,.65f,.95f), f => f.sprite ? f.sprite.name : null),
         new Track("Hitboxes", new Color(1,.65f,.15f), f => f.hitboxes != null && f.hitboxes.Count > 0 ? f.hitboxes.Count.ToString() : null),
+        new Track("Grab volumes", new Color(1,.25f,.35f), f => f.grabHitboxes != null && f.grabHitboxes.Count > 0 ? f.grabHitboxes.Count.ToString() : null),
+        new Track("Committed grab move", new Color(.9f,.3f,.7f), f => f.grabLungeMovementScale>0 ? f.grabLungeMovementScale.ToString("F2") : null),
         new Track("Movement", new Color(.8f,.45f,.95f), f => f.movement != Vector2.zero ? f.movement.ToString("F2") : null),
         new Track("Velocity / gravity", new Color(.6f,.4f,.85f), f => f.movementInputScale != 1 || f.setHorizontalVelocity || f.setVerticalVelocity || f.verticalVelocityModifier != 0 || f.gravityScale != 1 || f.suspendFalling ? "Motion" : null),
         new Track("Attack cancel", new Color(.35f,.8f,.45f), f => f.canCancelIntoAttack ? "Attack" : null),

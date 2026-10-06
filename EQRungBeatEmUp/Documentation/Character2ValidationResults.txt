@@ -1,0 +1,595 @@
+PASS: Both character definitions have reusable prefabs
+PASS: Character 2 is a BlueShirtGuy prefab variant
+PASS: Character 2 instantiates through shared data loadout
+PASS: Movement speed and sprite transform scale match BlueShirtGuy
+PASS: Sprites use BlueShirtGuy 128px canvas and 100 PPU
+PASS: Casual walking-like idle is the default pose
+PASS: Locomotion state available: Idle
+PASS: Locomotion state available: Walk
+PASS: Locomotion state available: Jumping
+PASS: Locomotion state available: GroundHit
+PASS: Four-pose subtle idle loops
+PASS: Twelve distinct walk poses loop through contact and passing drawings
+PASS: Walk has a 36 combat-frame casual stride cycle
+PASS: Wand Barrier retains shared one-bar area delivery
+PASS: Barrier shell and pulse use cast timeline events
+PASS: Active skill effects replace the elephant with surrounding barrier and pulse
+PASS: Snake extension drawing coincides with Punch 3 active frames
+PASS: Facing left mirrors shared renderer
+PASS: Facing right restores renderer
+PASS: Independent data with matching logical timing: Character2_Punch1
+PASS: Own sprite: Character2_Punch1 frame 0
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 0
+PASS: Own sprite: Character2_Punch1 frame 1
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 1
+PASS: Own sprite: Character2_Punch1 frame 2
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 2
+PASS: Own sprite: Character2_Punch1 frame 3
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 3
+PASS: Own sprite: Character2_Punch1 frame 4
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 4
+PASS: Own sprite: Character2_Punch1 frame 5
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 5
+PASS: Own sprite: Character2_Punch1 frame 6
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 6
+PASS: Own sprite: Character2_Punch1 frame 7
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 7
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch1 frame 7
+PASS: Own sprite: Character2_Punch1 frame 8
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 8
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch1 frame 8
+PASS: Own sprite: Character2_Punch1 frame 9
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 9
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch1 frame 9
+PASS: Own sprite: Character2_Punch1 frame 10
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 10
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch1 frame 10
+PASS: Own sprite: Character2_Punch1 frame 11
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 11
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch1 frame 11
+PASS: Own sprite: Character2_Punch1 frame 12
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 12
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch1 frame 12
+PASS: Own sprite: Character2_Punch1 frame 13
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 13
+PASS: Own sprite: Character2_Punch1 frame 14
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 14
+PASS: Own sprite: Character2_Punch1 frame 15
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 15
+PASS: Own sprite: Character2_Punch1 frame 16
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 16
+PASS: Own sprite: Character2_Punch1 frame 17
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 17
+PASS: Own sprite: Character2_Punch1 frame 18
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 18
+PASS: Own sprite: Character2_Punch1 frame 19
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 19
+PASS: Own sprite: Character2_Punch1 frame 20
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 20
+PASS: Own sprite: Character2_Punch1 frame 21
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 21
+PASS: Own sprite: Character2_Punch1 frame 22
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 22
+PASS: Own sprite: Character2_Punch1 frame 23
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 23
+PASS: Own sprite: Character2_Punch1 frame 24
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 24
+PASS: Own sprite: Character2_Punch1 frame 25
+PASS: Shared movement/hitbox/cancel values: Character2_Punch1 frame 25
+PASS: Independent data with matching logical timing: Character2_Punch2
+PASS: Own sprite: Character2_Punch2 frame 0
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 0
+PASS: Own sprite: Character2_Punch2 frame 1
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 1
+PASS: Own sprite: Character2_Punch2 frame 2
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 2
+PASS: Own sprite: Character2_Punch2 frame 3
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 3
+PASS: Own sprite: Character2_Punch2 frame 4
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 4
+PASS: Own sprite: Character2_Punch2 frame 5
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 5
+PASS: Own sprite: Character2_Punch2 frame 6
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 6
+PASS: Own sprite: Character2_Punch2 frame 7
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 7
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch2 frame 7
+PASS: Own sprite: Character2_Punch2 frame 8
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 8
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch2 frame 8
+PASS: Own sprite: Character2_Punch2 frame 9
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 9
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch2 frame 9
+PASS: Own sprite: Character2_Punch2 frame 10
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 10
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch2 frame 10
+PASS: Own sprite: Character2_Punch2 frame 11
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 11
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch2 frame 11
+PASS: Own sprite: Character2_Punch2 frame 12
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 12
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch2 frame 12
+PASS: Own sprite: Character2_Punch2 frame 13
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 13
+PASS: Own sprite: Character2_Punch2 frame 14
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 14
+PASS: Own sprite: Character2_Punch2 frame 15
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 15
+PASS: Own sprite: Character2_Punch2 frame 16
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 16
+PASS: Own sprite: Character2_Punch2 frame 17
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 17
+PASS: Own sprite: Character2_Punch2 frame 18
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 18
+PASS: Own sprite: Character2_Punch2 frame 19
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 19
+PASS: Own sprite: Character2_Punch2 frame 20
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 20
+PASS: Own sprite: Character2_Punch2 frame 21
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 21
+PASS: Own sprite: Character2_Punch2 frame 22
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 22
+PASS: Own sprite: Character2_Punch2 frame 23
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 23
+PASS: Own sprite: Character2_Punch2 frame 24
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 24
+PASS: Own sprite: Character2_Punch2 frame 25
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 25
+PASS: Own sprite: Character2_Punch2 frame 26
+PASS: Shared movement/hitbox/cancel values: Character2_Punch2 frame 26
+PASS: Independent data with matching logical timing: Character2_Punch3
+PASS: Own sprite: Character2_Punch3 frame 0
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 0
+PASS: Own sprite: Character2_Punch3 frame 1
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 1
+PASS: Own sprite: Character2_Punch3 frame 2
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 2
+PASS: Own sprite: Character2_Punch3 frame 3
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 3
+PASS: Own sprite: Character2_Punch3 frame 4
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 4
+PASS: Own sprite: Character2_Punch3 frame 5
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 5
+PASS: Own sprite: Character2_Punch3 frame 6
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 6
+PASS: Own sprite: Character2_Punch3 frame 7
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 7
+PASS: Own sprite: Character2_Punch3 frame 8
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 8
+PASS: Own sprite: Character2_Punch3 frame 9
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 9
+PASS: Own sprite: Character2_Punch3 frame 10
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 10
+PASS: Own sprite: Character2_Punch3 frame 11
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 11
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch3 frame 11
+PASS: Own sprite: Character2_Punch3 frame 12
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 12
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch3 frame 12
+PASS: Own sprite: Character2_Punch3 frame 13
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 13
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch3 frame 13
+PASS: Own sprite: Character2_Punch3 frame 14
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 14
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch3 frame 14
+PASS: Own sprite: Character2_Punch3 frame 15
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 15
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch3 frame 15
+PASS: Own sprite: Character2_Punch3 frame 16
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 16
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch3 frame 16
+PASS: Own sprite: Character2_Punch3 frame 17
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 17
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch3 frame 17
+PASS: Own sprite: Character2_Punch3 frame 18
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 18
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Punch3 frame 18
+PASS: Own sprite: Character2_Punch3 frame 19
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 19
+PASS: Own sprite: Character2_Punch3 frame 20
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 20
+PASS: Own sprite: Character2_Punch3 frame 21
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 21
+PASS: Own sprite: Character2_Punch3 frame 22
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 22
+PASS: Own sprite: Character2_Punch3 frame 23
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 23
+PASS: Own sprite: Character2_Punch3 frame 24
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 24
+PASS: Own sprite: Character2_Punch3 frame 25
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 25
+PASS: Own sprite: Character2_Punch3 frame 26
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 26
+PASS: Own sprite: Character2_Punch3 frame 27
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 27
+PASS: Own sprite: Character2_Punch3 frame 28
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 28
+PASS: Own sprite: Character2_Punch3 frame 29
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 29
+PASS: Own sprite: Character2_Punch3 frame 30
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 30
+PASS: Own sprite: Character2_Punch3 frame 31
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 31
+PASS: Own sprite: Character2_Punch3 frame 32
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 32
+PASS: Own sprite: Character2_Punch3 frame 33
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 33
+PASS: Own sprite: Character2_Punch3 frame 34
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 34
+PASS: Own sprite: Character2_Punch3 frame 35
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 35
+PASS: Own sprite: Character2_Punch3 frame 36
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 36
+PASS: Own sprite: Character2_Punch3 frame 37
+PASS: Shared movement/hitbox/cancel values: Character2_Punch3 frame 37
+PASS: Independent data with matching logical timing: Character2_Launcher
+PASS: Own sprite: Character2_Launcher frame 0
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 0
+PASS: Own sprite: Character2_Launcher frame 1
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 1
+PASS: Own sprite: Character2_Launcher frame 2
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 2
+PASS: Own sprite: Character2_Launcher frame 3
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 3
+PASS: Own sprite: Character2_Launcher frame 4
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 4
+PASS: Own sprite: Character2_Launcher frame 5
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 5
+PASS: Own sprite: Character2_Launcher frame 6
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 6
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Launcher frame 6
+PASS: Own sprite: Character2_Launcher frame 7
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 7
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Launcher frame 7
+PASS: Own sprite: Character2_Launcher frame 8
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 8
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Launcher frame 8
+PASS: Own sprite: Character2_Launcher frame 9
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 9
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Launcher frame 9
+PASS: Own sprite: Character2_Launcher frame 10
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 10
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Launcher frame 10
+PASS: Own sprite: Character2_Launcher frame 11
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 11
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Launcher frame 11
+PASS: Own sprite: Character2_Launcher frame 12
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 12
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_Launcher frame 12
+PASS: Own sprite: Character2_Launcher frame 13
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 13
+PASS: Own sprite: Character2_Launcher frame 14
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 14
+PASS: Own sprite: Character2_Launcher frame 15
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 15
+PASS: Own sprite: Character2_Launcher frame 16
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 16
+PASS: Own sprite: Character2_Launcher frame 17
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 17
+PASS: Own sprite: Character2_Launcher frame 18
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 18
+PASS: Own sprite: Character2_Launcher frame 19
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 19
+PASS: Own sprite: Character2_Launcher frame 20
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 20
+PASS: Own sprite: Character2_Launcher frame 21
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 21
+PASS: Own sprite: Character2_Launcher frame 22
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 22
+PASS: Own sprite: Character2_Launcher frame 23
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 23
+PASS: Own sprite: Character2_Launcher frame 24
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 24
+PASS: Own sprite: Character2_Launcher frame 25
+PASS: Shared movement/hitbox/cancel values: Character2_Launcher frame 25
+PASS: Independent data with matching logical timing: Character2_AirPunch1
+PASS: Own sprite: Character2_AirPunch1 frame 0
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 0
+PASS: Own sprite: Character2_AirPunch1 frame 1
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 1
+PASS: Own sprite: Character2_AirPunch1 frame 2
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 2
+PASS: Own sprite: Character2_AirPunch1 frame 3
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 3
+PASS: Own sprite: Character2_AirPunch1 frame 4
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 4
+PASS: Own sprite: Character2_AirPunch1 frame 5
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 5
+PASS: Own sprite: Character2_AirPunch1 frame 6
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 6
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch1 frame 6
+PASS: Own sprite: Character2_AirPunch1 frame 7
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 7
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch1 frame 7
+PASS: Own sprite: Character2_AirPunch1 frame 8
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 8
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch1 frame 8
+PASS: Own sprite: Character2_AirPunch1 frame 9
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 9
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch1 frame 9
+PASS: Own sprite: Character2_AirPunch1 frame 10
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 10
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch1 frame 10
+PASS: Own sprite: Character2_AirPunch1 frame 11
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 11
+PASS: Own sprite: Character2_AirPunch1 frame 12
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 12
+PASS: Own sprite: Character2_AirPunch1 frame 13
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 13
+PASS: Own sprite: Character2_AirPunch1 frame 14
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 14
+PASS: Own sprite: Character2_AirPunch1 frame 15
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 15
+PASS: Own sprite: Character2_AirPunch1 frame 16
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 16
+PASS: Own sprite: Character2_AirPunch1 frame 17
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 17
+PASS: Own sprite: Character2_AirPunch1 frame 18
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 18
+PASS: Own sprite: Character2_AirPunch1 frame 19
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 19
+PASS: Own sprite: Character2_AirPunch1 frame 20
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 20
+PASS: Own sprite: Character2_AirPunch1 frame 21
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 21
+PASS: Own sprite: Character2_AirPunch1 frame 22
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch1 frame 22
+PASS: Independent data with matching logical timing: Character2_AirPunch2
+PASS: Own sprite: Character2_AirPunch2 frame 0
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 0
+PASS: Own sprite: Character2_AirPunch2 frame 1
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 1
+PASS: Own sprite: Character2_AirPunch2 frame 2
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 2
+PASS: Own sprite: Character2_AirPunch2 frame 3
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 3
+PASS: Own sprite: Character2_AirPunch2 frame 4
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 4
+PASS: Own sprite: Character2_AirPunch2 frame 5
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 5
+PASS: Own sprite: Character2_AirPunch2 frame 6
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 6
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch2 frame 6
+PASS: Own sprite: Character2_AirPunch2 frame 7
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 7
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch2 frame 7
+PASS: Own sprite: Character2_AirPunch2 frame 8
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 8
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch2 frame 8
+PASS: Own sprite: Character2_AirPunch2 frame 9
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 9
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch2 frame 9
+PASS: Own sprite: Character2_AirPunch2 frame 10
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 10
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch2 frame 10
+PASS: Own sprite: Character2_AirPunch2 frame 11
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 11
+PASS: Own sprite: Character2_AirPunch2 frame 12
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 12
+PASS: Own sprite: Character2_AirPunch2 frame 13
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 13
+PASS: Own sprite: Character2_AirPunch2 frame 14
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 14
+PASS: Own sprite: Character2_AirPunch2 frame 15
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 15
+PASS: Own sprite: Character2_AirPunch2 frame 16
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 16
+PASS: Own sprite: Character2_AirPunch2 frame 17
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 17
+PASS: Own sprite: Character2_AirPunch2 frame 18
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 18
+PASS: Own sprite: Character2_AirPunch2 frame 19
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 19
+PASS: Own sprite: Character2_AirPunch2 frame 20
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 20
+PASS: Own sprite: Character2_AirPunch2 frame 21
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 21
+PASS: Own sprite: Character2_AirPunch2 frame 22
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 22
+PASS: Own sprite: Character2_AirPunch2 frame 23
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch2 frame 23
+PASS: Independent data with matching logical timing: Character2_AirPunch3
+PASS: Own sprite: Character2_AirPunch3 frame 0
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 0
+PASS: Own sprite: Character2_AirPunch3 frame 1
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 1
+PASS: Own sprite: Character2_AirPunch3 frame 2
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 2
+PASS: Own sprite: Character2_AirPunch3 frame 3
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 3
+PASS: Own sprite: Character2_AirPunch3 frame 4
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 4
+PASS: Own sprite: Character2_AirPunch3 frame 5
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 5
+PASS: Own sprite: Character2_AirPunch3 frame 6
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 6
+PASS: Own sprite: Character2_AirPunch3 frame 7
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 7
+PASS: Own sprite: Character2_AirPunch3 frame 8
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 8
+PASS: Own sprite: Character2_AirPunch3 frame 9
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 9
+PASS: Own sprite: Character2_AirPunch3 frame 10
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 10
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch3 frame 10
+PASS: Own sprite: Character2_AirPunch3 frame 11
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 11
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch3 frame 11
+PASS: Own sprite: Character2_AirPunch3 frame 12
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 12
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch3 frame 12
+PASS: Own sprite: Character2_AirPunch3 frame 13
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 13
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch3 frame 13
+PASS: Own sprite: Character2_AirPunch3 frame 14
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 14
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch3 frame 14
+PASS: Own sprite: Character2_AirPunch3 frame 15
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 15
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch3 frame 15
+PASS: Own sprite: Character2_AirPunch3 frame 16
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 16
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch3 frame 16
+PASS: Own sprite: Character2_AirPunch3 frame 17
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 17
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirPunch3 frame 17
+PASS: Own sprite: Character2_AirPunch3 frame 18
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 18
+PASS: Own sprite: Character2_AirPunch3 frame 19
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 19
+PASS: Own sprite: Character2_AirPunch3 frame 20
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 20
+PASS: Own sprite: Character2_AirPunch3 frame 21
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 21
+PASS: Own sprite: Character2_AirPunch3 frame 22
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 22
+PASS: Own sprite: Character2_AirPunch3 frame 23
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 23
+PASS: Own sprite: Character2_AirPunch3 frame 24
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 24
+PASS: Own sprite: Character2_AirPunch3 frame 25
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 25
+PASS: Own sprite: Character2_AirPunch3 frame 26
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 26
+PASS: Own sprite: Character2_AirPunch3 frame 27
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 27
+PASS: Own sprite: Character2_AirPunch3 frame 28
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 28
+PASS: Own sprite: Character2_AirPunch3 frame 29
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 29
+PASS: Own sprite: Character2_AirPunch3 frame 30
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 30
+PASS: Own sprite: Character2_AirPunch3 frame 31
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 31
+PASS: Own sprite: Character2_AirPunch3 frame 32
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 32
+PASS: Own sprite: Character2_AirPunch3 frame 33
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 33
+PASS: Own sprite: Character2_AirPunch3 frame 34
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 34
+PASS: Own sprite: Character2_AirPunch3 frame 35
+PASS: Shared movement/hitbox/cancel values: Character2_AirPunch3 frame 35
+PASS: Independent data with matching logical timing: Character2_AirDive
+PASS: Own sprite: Character2_AirDive frame 0
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 0
+PASS: Own sprite: Character2_AirDive frame 1
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 1
+PASS: Own sprite: Character2_AirDive frame 2
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 2
+PASS: Own sprite: Character2_AirDive frame 3
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 3
+PASS: Own sprite: Character2_AirDive frame 4
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 4
+PASS: Own sprite: Character2_AirDive frame 5
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 5
+PASS: Own sprite: Character2_AirDive frame 6
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 6
+PASS: Own sprite: Character2_AirDive frame 7
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 7
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirDive frame 7
+PASS: Own sprite: Character2_AirDive frame 8
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 8
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirDive frame 8
+PASS: Own sprite: Character2_AirDive frame 9
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 9
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirDive frame 9
+PASS: Own sprite: Character2_AirDive frame 10
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 10
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirDive frame 10
+PASS: Own sprite: Character2_AirDive frame 11
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 11
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirDive frame 11
+PASS: Own sprite: Character2_AirDive frame 12
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 12
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirDive frame 12
+PASS: Own sprite: Character2_AirDive frame 13
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 13
+PASS: Preserved hit/bounce data with authored snake geometry: Character2_AirDive frame 13
+PASS: Own sprite: Character2_AirDive frame 14
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 14
+PASS: Own sprite: Character2_AirDive frame 15
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 15
+PASS: Own sprite: Character2_AirDive frame 16
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 16
+PASS: Own sprite: Character2_AirDive frame 17
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 17
+PASS: Own sprite: Character2_AirDive frame 18
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 18
+PASS: Own sprite: Character2_AirDive frame 19
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 19
+PASS: Own sprite: Character2_AirDive frame 20
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 20
+PASS: Own sprite: Character2_AirDive frame 21
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 21
+PASS: Own sprite: Character2_AirDive frame 22
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 22
+PASS: Own sprite: Character2_AirDive frame 23
+PASS: Shared movement/hitbox/cancel values: Character2_AirDive frame 23
+PASS: Independent defense and skill assets
+PASS: Shared meter starts at one full bar
+PASS: Both characters are selectable in multiplayer catalog
+PASS: Character attack data is included in network catalog
+PASS: Shared input/combo route enters Character2_Punch1
+PASS: Shared input/combo route enters Character2_Punch2
+PASS: Shared input/combo route enters Character2_Punch3
+PASS: Ground combo lands real hitbox damage
+PASS: Shared input/combo route enters Character2_Punch1
+PASS: Shared input/combo route enters Character2_Punch2
+PASS: Shared input/combo route enters Character2_Launcher
+PASS: Combat frame condition reached
+PASS: Launcher opens shared airborne target reaction
+PASS: Combat frame condition reached
+PASS: Jump buffer executes through shared motor
+PASS: Shared input/combo route enters Character2_AirPunch1
+PASS: Shared input/combo route enters Character2_AirPunch2
+PASS: Shared input/combo route enters Character2_AirPunch3
+PASS: Air combat sprites are controlled by frame data, not Animator
+PASS: Shared movement walks Character 2
+PASS: Shared input/combo route enters Character2_Punch1
+PASS: Accepted normal hits refill shared meter
+PASS: Meter clamps to one bar
+PASS: Combat frame condition reached
+PASS: Character 2 Punch3 authored hit bounces target off physical wall
+PASS: Combat frame condition reached
+PASS: Character 2 AirPunch3 authored hit bounces target on floor contact
+PASS: Character 2 successfully parries through shared defense
+PASS: Successful parry grants significant shared meter gain
+PASS: Held guard blocks after parry window
+PASS: Dodge uses existing state machine
+PASS: Dodge invulnerability uses Character 2 pose
+PASS: Shared Stunned state supports Character 2
+PASS: Stun displays own reaction art
+PASS: Shared knockdown starts
+PASS: Knockdown and own GetUp poses recover
+PASS: Existing Grappler can place Character 2 in Grabbed state
+PASS: Grabbed displays own pose
+PASS: Shared grab release restores control
+PASS: BlueShirtGuy retains original equipped projectile skill
+PASS: Shared skill extension preserves Shadow Dragon projectile release
+PASS: Wand Barrier consumes exactly one bar
+PASS: Skill cannot restart while casting / without meter
+PASS: Character-specific skill resolves through equipped data
+PASS: Barrier shell appears on zero-based combat frame 16
+PASS: Wand barrier visual is instantiated
+PASS: Barrier pulse releases on zero-based combat frame 24
+PASS: One activation damages multiple surrounding enemies
+PASS: Invalid walking depth remains outside area
+PASS: Outward recoil pushes left/right/depth targets away independently
+PASS: All active frames share once-per-target accepted-hit history
+PASS: Insufficient remaining meter blocks second activation
+PASS: Wand Barrier can cast facing left
+PASS: Left facing does not reverse outward area knockback
+PASS: Area skill reuses melee area sampler without spawning a projectile
+PASS: Wand Barrier begins near shielded boss
+PASS: Wand Barrier respects physical Totem vulnerability gate
+PASS: Wand Barrier begins during boss vulnerability
+PASS: Vulnerable boss accepts ordinary area damage once
+PASS: Surrounding barrier feedback stays upright independently of facing
+PASS: Presentation cast starts facing 1
+PASS: Only barrier shell and pulse spawn for one cast
+PASS: Both effects originate at caster and remain upright facing 1
+PASS: Presentation cast starts facing -1
+PASS: Only barrier shell and pulse spawn for one cast
+PASS: Both effects originate at caster and remain upright facing -1
+PASS: Barrier shell and pulse effects expire without leaked objects (remaining=0, timeScale=1, scaledTime=1.200452)
+ALL CHARACTER 2 CHECKS PASSED

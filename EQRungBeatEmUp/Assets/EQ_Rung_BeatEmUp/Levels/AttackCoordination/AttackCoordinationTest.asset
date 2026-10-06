@@ -1,0 +1,177 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3931c4d660e4aeb6eac169d0d456dc9c, type: 3}
+  m_Name: AttackCoordinationTest
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.LevelDefinition
+  levelId: AttackCoordinationTest
+  levelName: Attack Coordination Test
+  stages:
+  - maxActiveEnemies: 12
+    stageId: AttackCoordinationTest
+    stageName: Attack Coordination Test
+    hub: {fileID: 0}
+    stageType: 0
+    backgroundSprite: {fileID: 21300000, guid: bea7167b9e70234a60b3c3388d3f5813, type: 3}
+    floorSprite: {fileID: 21300000, guid: 4b27a12ff4262b81dc54735db15187e9, type: 3}
+    artWidth: 15
+    backgroundHeight: 3.2
+    backgroundCenterY: 2.5418
+    floorHeight: 1.8379375
+    floorCenterY: 0.0189
+    movementMin: {x: -6, y: -0.6}
+    movementMax: {x: 6, y: 0.8}
+    playerEntryPoint: {x: 0, y: 0}
+    playerExitPoint: {x: 5.4, y: 0}
+    exitRadius: 0.35
+    completionMode: 3
+    rewardAfterClear: 0
+    chapelSpawnPoint: {x: 4, y: 0.1}
+    rewardChoiceCenter: {x: 0, y: -0.1}
+    rewardChoiceSpacing: 1.8
+    rewardInteractRadius: 0.65
+    rewardHealFraction: 0.5
+    nextStageIndex: -1
+    encounters:
+    - attackCoordination:
+        useAttackCoordination: 1
+        maxMeleeAttackers: 1
+        maxRangedAttackers: 1
+        maxCrowdControlAttackers: 1
+        maxSupportAttackers: 1
+        minimumGlobalAttackGapFrames: 20
+        crowdControlRecoveryGraceFrames: 45
+        pauseNewCrowdControlWhilePlayerDisabled: 1
+        pauseAllAttacksWhilePlayerDisabled: 0
+        allowBossToIgnoreCoordinator: 1
+        maximumTokenHoldFrames: 900
+        waitingPriorityBonus: 0.1
+        recentAttackPenalty: 25
+        recentAttackPenaltyFrames: 180
+        randomPriorityVariation: 2
+        showDebug: 1
+        verboseDebug: 0
+      enabled: 1
+      disabledBlocksProgression: 0
+      restoreSceneObjectsOnEncounterEnd: 0
+      sceneObjectStates: []
+      maxActiveEnemies: 10
+      encounterId: Mixed attack pressure
+      trigger: 0
+      triggerDelay: 0
+      requiredPreviousEncounter: -1
+      triggerZone:
+        serializedVersion: 2
+        x: -1
+        y: -0.4
+        width: 2
+        height: 1.05
+      lockStageUntilClear: 1
+      requiredForCompletion: 1
+      useCombatBounds: 0
+      combatBounds:
+        serializedVersion: 2
+        x: -3
+        y: -0.4
+        width: 6
+        height: 1.05
+      lockCamera: 1
+      cameraBounds:
+        serializedVersion: 2
+        x: -3.8
+        y: -0.64
+        width: 7.6
+        height: 4
+      exitLock: 0
+      clearCondition: 0
+      oneShot: 1
+      waves:
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
+        sceneObjectStates: []
+        waveId: Seven mixed enemies
+        trigger: 0
+        spawnDelay: 0
+        enemySpawns:
+        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: -1, y: 0.2}
+          interval: 0
+          spawnDelay: 0
+          isBoss: 0
+        - prefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 1, y: -0.2}
+          interval: 0
+          spawnDelay: 0
+          isBoss: 0
+        - prefab: {fileID: 602326886208348345, guid: 214e6fe0ba15cbe40976fda378d0bc71, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: -3, y: 0.1}
+          interval: 0
+          spawnDelay: 0
+          isBoss: 0
+        - prefab: {fileID: 5052869314956010402, guid: 1b13fa54356a01049978774f4f0d6cbd, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 3, y: -0.1}
+          interval: 0
+          spawnDelay: 0
+          isBoss: 0
+        - prefab: {fileID: 8535335901447473880, guid: 03d477f0092df7b4bb2331b6ec0e35fc, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: -2, y: 0.4}
+          interval: 0
+          spawnDelay: 0
+          isBoss: 0
+        - prefab: {fileID: 3471718419548686087, guid: ac5abf980e0cb2c4eb3afcb344f2d229, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 2, y: 0.4}
+          interval: 0
+          spawnDelay: 0
+          isBoss: 0
+        - prefab: {fileID: 1934238382108998416, guid: d6497c0fd22add84db966f4fefc73ae9, type: 3}
+          count: 1
+          spawnPoints:
+          - {x: 5, y: 0}
+          interval: 0
+          spawnDelay: 0
+          isBoss: 0
+    destructibles: []
+    decorativeProps: []
+    safeRoom: 0
+    recoveryPoint: {x: 0, y: 0.1}
+    recoveryRadius: 1
+    ambience: {fileID: 0}
+    notes: 

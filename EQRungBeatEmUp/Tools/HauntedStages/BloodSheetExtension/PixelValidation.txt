@@ -1,0 +1,1 @@
+PASS: Original lower 720x160 pixels preserved exactly; added 80 upper rows at same width.

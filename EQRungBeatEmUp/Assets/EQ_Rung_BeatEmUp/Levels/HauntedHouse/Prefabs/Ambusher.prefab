@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 7851962777345395107}
   - component: {fileID: 5126521282613250704}
   - component: {fileID: 4446682794865119861}
+  - component: {fileID: 1878280257931528592}
   m_Layer: 0
   m_Name: Ambusher
   m_TagString: Untagged
@@ -219,6 +220,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8628123744711106861}
+  - {fileID: 838574679936208919}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3813835350922184686
@@ -235,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.CharacterMotor
   visual: {fileID: 8628123744711106861}
   sprite: {fileID: 3954853002305235065}
-  moveSpeed: 1.1
+  moveSpeed: 2.6
   jumpForce: 7.5
   gravity: 14
   arenaMin: {x: -6, y: -2}
@@ -306,6 +308,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f76d9872f1f6b74da4285dc347ed340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyHitReaction
+  canBeParryStunned: 1
+  stunAnimation: {fileID: 11400000, guid: c56e2c65a5a32024f83ee3a9c88dd49c, type: 2}
+  stunFallbackSprite: {fileID: 21300000, guid: 1fc2854b08db36e75455bd27036078a7, type: 3}
+  stunVfx:
+  - {fileID: 21300000, guid: 2360fa2428f6add48bcdbd099030b549, type: 3}
+  - {fileID: 21300000, guid: 2a66fa2cd0c88b1499c275abe1a385db, type: 3}
+  - {fileID: 21300000, guid: 2732a08fafe0bac458158e8094ea93e6, type: 3}
+  - {fileID: 21300000, guid: 953d4682cb4633c4c9619eace6cd0423, type: 3}
+  - {fileID: 21300000, guid: bfb9430bd06569b4ca8d848bf4972574, type: 3}
+  - {fileID: 21300000, guid: 3181582cd104f9c468758433d341b583, type: 3}
+  stunVfxHoldFrames: 5
+  stunVfxOffset: {x: 0, y: 1.2}
+  stunVfxScale: 1
+  stunRecoveryFrames: 0
+  stunDebug: 0
   motor: {fileID: 3813835350922184686}
   health: {fileID: 5579427951248377437}
   animationDriver: {fileID: 2104340770548114513}
@@ -334,15 +351,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429c5d4e827577a49bea1ef9b14b373a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyCombat
+  role: 0
   motor: {fileID: 3813835350922184686}
   reaction: {fileID: 3256646466408066081}
   animationDriver: {fileID: 2104340770548114513}
   hitbox: {fileID: 2446608303455942601}
   attackPlayer: {fileID: 5126521282613250704}
   target: {fileID: 0}
-  attack: {fileID: 11400000, guid: 0fbc4b3c3c685884b8f33401419d7bb0, type: 2}
+  attack: {fileID: 11400000, guid: 43d816f4bc00b5443bf5b48ebec6c96b, type: 2}
+  aiProfile: {fileID: 11400000, guid: 76661e5688f189a4e98c68ab97639cb8, type: 2}
   passiveTrainingDummy: 0
   attackRange: 0.85
+  minimumAttackRange: 0
   laneRange: 0.55
   attackCooldownFrames: 110
 --- !u!114 &5126521282613250704
@@ -377,3 +397,129 @@ MonoBehaviour:
   blinkRenderers:
   - {fileID: 3954853002305235065}
   blinkOnHit: 1
+--- !u!114 &1878280257931528592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471718419548686087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11507a4aa62edde4595ad4ecdb9bce72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.CombatGrabController
+  leapEnabled: 1
+  leapHorizontalSpeed: 10
+  leapDistance: 4
+  leapHeight: 1.6
+  leapDurationFrames: 30
+  faceAttackCount: 3
+  faceHit:
+    hitId: 0
+    repeatAfterFrames: 0
+    offset: {x: 0.55, y: 0.55}
+    size: {x: 1, y: 1.1}
+    groundArea: 0
+    laneTolerance: 0.55
+    damage: 8
+    hitstunFrames: 0
+    hitstopFrames: 2
+    knockback: 0
+    outwardGroundKnockback: 0
+    launchVelocity: {x: 0.7, y: 8}
+    hitType: 0
+    stunDurationFrames: 90
+    knockdownDurationFrames: -1
+    forceAirborneTargetDownward: 0
+    groundBounce: 0
+    groundBounceForce: {x: 0.6, y: 4.5}
+    groundBounceGravity: 18
+    groundBounceRecoveryFrames: 21
+    maximumGroundBounces: 1
+    wallBounce: 0
+    wallBounceHorizontalForce: 4
+    wallBounceVerticalForce: 4
+    wallBounceHitstunFrames: 24
+    maximumWallBounces: 1
+    canHitGrounded: 1
+    canHitAirborne: 0
+    unblockable: 1
+    canBeParried: 0
+    blockDamage: 0
+    blockstunFrames: 10
+  heldImpactPose: {fileID: 21300000, guid: 8de7b87f5692d1744b9d6a5c142479e2, type: 3}
+  heldImpactPoseFrames: 4
+  grabAnchor: {fileID: 838574679936208919}
+  grabAttack: {fileID: 11400000, guid: 43d816f4bc00b5443bf5b48ebec6c96b, type: 2}
+  successfulGrab: {fileID: 11400000, guid: c5fc9b576b51c2245beb47e1a2d62f54, type: 2}
+  grabDamage: 0
+  slamHit:
+    hitId: 0
+    repeatAfterFrames: 0
+    offset: {x: 0.55, y: 0.55}
+    size: {x: 1, y: 1.1}
+    groundArea: 0
+    laneTolerance: 0.55
+    damage: 0
+    hitstunFrames: 18
+    hitstopFrames: 0
+    knockback: 0
+    outwardGroundKnockback: 0
+    launchVelocity: {x: 0.7, y: 8}
+    hitType: 3
+    stunDurationFrames: 90
+    knockdownDurationFrames: 45
+    forceAirborneTargetDownward: 0
+    groundBounce: 0
+    groundBounceForce: {x: 0.6, y: 4.5}
+    groundBounceGravity: 18
+    groundBounceRecoveryFrames: 21
+    maximumGroundBounces: 1
+    wallBounce: 0
+    wallBounceHorizontalForce: 4
+    wallBounceVerticalForce: 4
+    wallBounceHitstunFrames: 24
+    maximumWallBounces: 1
+    canHitGrounded: 1
+    canHitAirborne: 1
+    unblockable: 1
+    canBeParried: 1
+    blockDamage: 0
+    blockstunFrames: 10
+  maximumGrabFrames: 360
+  debugDraw: 1
+  grabLungeSpeed: 8
+  grabLungeDistance: 2.5
+  grabAcceleration: 0
+--- !u!1 &3821077911511871334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 838574679936208919}
+  m_Layer: 0
+  m_Name: GrabAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &838574679936208919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3821077911511871334}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55, y: -0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3757217835364875785}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

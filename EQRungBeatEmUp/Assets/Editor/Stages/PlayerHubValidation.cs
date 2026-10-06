@@ -16,6 +16,8 @@ public static class PlayerHubValidation
     [MenuItem("Beat Em Up/Stages/Validate outdoor safe hub (Play Mode)")]
     public static void Run()
     {
+        var level=AssetDatabase.LoadAssetAtPath<LevelDefinition>(HauntedLevelBuilder.LevelPath);
+        if(level && level.stages.Count>0 && level.stages[0].hub) { PlayerSanctuaryValidation.Run(); return; }
         if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
         EditorSceneManager.OpenScene(HauntedLevelBuilder.ScenePath); SessionState.SetBool(Pending, true); EditorApplication.EnterPlaymode();
     }

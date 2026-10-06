@@ -181,6 +181,37 @@ MonoBehaviour:
   team: 1
   debugDraw: 0
   externalInvulnerable: 0
+--- !u!1 &6025469794680741493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5879224252351472307}
+  m_Layer: 0
+  m_Name: GrabAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5879224252351472307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6025469794680741493}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8994905351961426483}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8535335901447473880
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +229,8 @@ GameObject:
   - component: {fileID: 2284207093478817735}
   - component: {fileID: 4008743354509467668}
   - component: {fileID: 9158870110441851573}
+  - component: {fileID: 5894274534877655831}
+  - component: {fileID: 5431567705431690331}
   m_Layer: 0
   m_Name: GrapplerBruiser
   m_TagString: Untagged
@@ -219,6 +252,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7576213017184138218}
+  - {fileID: 5879224252351472307}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6459475969806046797
@@ -235,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.CharacterMotor
   visual: {fileID: 7576213017184138218}
   sprite: {fileID: 3203821985920475282}
-  moveSpeed: 1.6
+  moveSpeed: 1.3
   jumpForce: 7.5
   gravity: 14
   arenaMin: {x: -6, y: -2}
@@ -274,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf00405fba87e54eb9f954012ea682b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.CharacterHealth
-  maximumHealth: 45
+  maximumHealth: 200
 --- !u!114 &5021024029957398807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +340,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f76d9872f1f6b74da4285dc347ed340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyHitReaction
+  canBeParryStunned: 1
+  stunAnimation: {fileID: 11400000, guid: 998e3b1b8abc1154fb9e93da2971ce51, type: 2}
+  stunFallbackSprite: {fileID: 21300000, guid: 07a866b688e7cc280797bf7809ada56c, type: 3}
+  stunVfx:
+  - {fileID: 21300000, guid: 2360fa2428f6add48bcdbd099030b549, type: 3}
+  - {fileID: 21300000, guid: 2a66fa2cd0c88b1499c275abe1a385db, type: 3}
+  - {fileID: 21300000, guid: 2732a08fafe0bac458158e8094ea93e6, type: 3}
+  - {fileID: 21300000, guid: 953d4682cb4633c4c9619eace6cd0423, type: 3}
+  - {fileID: 21300000, guid: bfb9430bd06569b4ca8d848bf4972574, type: 3}
+  - {fileID: 21300000, guid: 3181582cd104f9c468758433d341b583, type: 3}
+  stunVfxHoldFrames: 5
+  stunVfxOffset: {x: 0, y: 1.2}
+  stunVfxScale: 1
+  stunRecoveryFrames: 0
+  stunDebug: 0
   motor: {fileID: 6459475969806046797}
   health: {fileID: 8916858092239236724}
   animationDriver: {fileID: 7631912671125574927}
@@ -334,15 +383,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429c5d4e827577a49bea1ef9b14b373a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyCombat
+  role: 0
   motor: {fileID: 6459475969806046797}
   reaction: {fileID: 3578913533812592042}
   animationDriver: {fileID: 7631912671125574927}
   hitbox: {fileID: 5021024029957398807}
   attackPlayer: {fileID: 4008743354509467668}
   target: {fileID: 0}
-  attack: {fileID: 11400000, guid: 2e3e4904f29ddbf46a0b45a551e4e61c, type: 2}
+  attack: {fileID: 11400000, guid: 80af89f91e5d4a64e982ab8d4d801d99, type: 2}
+  aiProfile: {fileID: 11400000, guid: efa5b004f56d0734db6293ee3d11e0ba, type: 2}
   passiveTrainingDummy: 0
   attackRange: 0.85
+  minimumAttackRange: 0
   laneRange: 0.55
   attackCooldownFrames: 110
 --- !u!114 &4008743354509467668
@@ -377,3 +429,119 @@ MonoBehaviour:
   blinkRenderers:
   - {fileID: 3203821985920475282}
   blinkOnHit: 1
+--- !u!114 &5894274534877655831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8535335901447473880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03bf7455aadfac246b73a0499979dd38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.HitCountArmor
+  maxArmorHits: 6
+  armorBreakStunFrames: 60
+  armorRecoveryDelayFrames: 300
+  restoreFullArmor: 1
+  hitstopFrames: 2
+  armorHitFeedback: {fileID: 11400000, guid: 0f5f5d53bd332e14282246d483716ea0, type: 2}
+  armorBreakFeedback: {fileID: 11400000, guid: f9e1042fd1f94a74da882b44a1891b37, type: 2}
+  armorColor: {r: 1, g: 0.7, b: 0.2, a: 1}
+  breakColor: {r: 0.3, g: 1, b: 1, a: 1}
+--- !u!114 &5431567705431690331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8535335901447473880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11507a4aa62edde4595ad4ecdb9bce72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.CombatGrabController
+  leapEnabled: 0
+  leapHorizontalSpeed: 10
+  leapDistance: 4
+  leapHeight: 1.6
+  leapDurationFrames: 30
+  faceAttackCount: 3
+  faceHit:
+    hitId: 0
+    repeatAfterFrames: 0
+    offset: {x: 0.55, y: 0.55}
+    size: {x: 1, y: 1.1}
+    groundArea: 0
+    laneTolerance: 0.55
+    damage: 8
+    hitstunFrames: 0
+    hitstopFrames: 2
+    knockback: 0
+    outwardGroundKnockback: 0
+    launchVelocity: {x: 0.7, y: 8}
+    hitType: 0
+    stunDurationFrames: 90
+    knockdownDurationFrames: -1
+    forceAirborneTargetDownward: 0
+    groundBounce: 0
+    groundBounceForce: {x: 0.6, y: 4.5}
+    groundBounceGravity: 18
+    groundBounceRecoveryFrames: 21
+    maximumGroundBounces: 1
+    wallBounce: 0
+    wallBounceHorizontalForce: 4
+    wallBounceVerticalForce: 4
+    wallBounceHitstunFrames: 24
+    maximumWallBounces: 1
+    canHitGrounded: 1
+    canHitAirborne: 0
+    unblockable: 1
+    canBeParried: 0
+    blockDamage: 0
+    blockstunFrames: 10
+  heldImpactPose: {fileID: 0}
+  heldImpactPoseFrames: 4
+  grabAnchor: {fileID: 5879224252351472307}
+  grabAttack: {fileID: 11400000, guid: 80af89f91e5d4a64e982ab8d4d801d99, type: 2}
+  successfulGrab: {fileID: 11400000, guid: 759af246424033d438299018a6bad59f, type: 2}
+  grabDamage: 0
+  slamHit:
+    hitId: 0
+    repeatAfterFrames: 0
+    offset: {x: 0.55, y: 0.55}
+    size: {x: 1, y: 1.1}
+    groundArea: 0
+    laneTolerance: 0.55
+    damage: 24
+    hitstunFrames: 18
+    hitstopFrames: 4
+    knockback: 0
+    outwardGroundKnockback: 0
+    launchVelocity: {x: 0.7, y: 8}
+    hitType: 3
+    stunDurationFrames: 90
+    knockdownDurationFrames: 45
+    forceAirborneTargetDownward: 0
+    groundBounce: 0
+    groundBounceForce: {x: 0.6, y: 4.5}
+    groundBounceGravity: 18
+    groundBounceRecoveryFrames: 21
+    maximumGroundBounces: 1
+    wallBounce: 0
+    wallBounceHorizontalForce: 4
+    wallBounceVerticalForce: 4
+    wallBounceHitstunFrames: 24
+    maximumWallBounces: 1
+    canHitGrounded: 1
+    canHitAirborne: 1
+    unblockable: 1
+    canBeParried: 1
+    blockDamage: 0
+    blockstunFrames: 10
+  maximumGrabFrames: 360
+  debugDraw: 1
+  grabLungeSpeed: 8
+  grabLungeDistance: 2.5
+  grabAcceleration: 0

@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f12f0c6ea3998c4c86fe94516eaa813, type: 3}
+  m_Name: BossEncounter
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.BossEncounterData
+  warpPoints:
+  - label: Warp 1 - Top Left
+    enabled: 1
+    position: {x: -2.15, y: 0.45}
+  - label: Warp 2 - Top Right
+    enabled: 1
+    position: {x: 2.15, y: 0.45}
+  - label: Warp 3 - Bottom Left
+    enabled: 1
+    position: {x: -2.15, y: -0.25}
+  - label: Warp 4 - Bottom Right
+    enabled: 1
+    position: {x: 2.15, y: -0.25}
+  - label: Warp 5 - Center
+    enabled: 1
+    position: {x: 0, y: 0.1}
+  minionSpawnPoints:
+  - {x: -2.7, y: 0.45}
+  - {x: 2.7, y: 0.45}
+  - {x: -2.7, y: -0.2}
+  - {x: 2.7, y: -0.2}
+  warpOutFrames: 24
+  warpInFrames: 24
+  arrivalFrames: 12
+  warpCooldownFrames: 30
+  canRepeatWarpPoint: 0
+  warpOffset: 0.08
+  moveChance: 0.25
+  moveDistance: 0.25
+  moveSpeed: 0.8
+  phase2HealthThreshold: 0.5
+  phaseTransitionFrames: 45
+  phase1:
+  - action: 0
+    enabled: 1
+    coordination:
+      requiresMeleeSlot: 0
+      requiresRangedSlot: 1
+      requiresCrowdControlSlot: 0
+      requiresSupportSlot: 0
+      priorityModifier: 0
+      ignoreCoordinator: 1
+    weight: 1
+    attack: {fileID: 11400000, guid: 25a7a4c9bd43b2f4d9790898c6fc1e8c, type: 2}
+  - action: 1
+    enabled: 1
+    coordination:
+      requiresMeleeSlot: 1
+      requiresRangedSlot: 0
+      requiresCrowdControlSlot: 0
+      requiresSupportSlot: 0
+      priorityModifier: 0
+      ignoreCoordinator: 1
+    weight: 1
+    attack: {fileID: 11400000, guid: f3cee0aa736da2a49af8157fe7fabf3f, type: 2}
+  - action: 2
+    enabled: 1
+    coordination:
+      requiresMeleeSlot: 0
+      requiresRangedSlot: 0
+      requiresCrowdControlSlot: 0
+      requiresSupportSlot: 1
+      priorityModifier: 0
+      ignoreCoordinator: 1
+    weight: 1
+    attack: {fileID: 11400000, guid: 7f89127cb7f42eb47a0ddb4ace220562, type: 2}
+  phase2:
+  - action: 0
+    enabled: 1
+    coordination:
+      requiresMeleeSlot: 0
+      requiresRangedSlot: 1
+      requiresCrowdControlSlot: 0
+      requiresSupportSlot: 0
+      priorityModifier: 0
+      ignoreCoordinator: 1
+    weight: 1
+    attack: {fileID: 11400000, guid: 25a7a4c9bd43b2f4d9790898c6fc1e8c, type: 2}
+  - action: 1
+    enabled: 1
+    coordination:
+      requiresMeleeSlot: 1
+      requiresRangedSlot: 0
+      requiresCrowdControlSlot: 0
+      requiresSupportSlot: 0
+      priorityModifier: 0
+      ignoreCoordinator: 1
+    weight: 1
+    attack: {fileID: 11400000, guid: f3cee0aa736da2a49af8157fe7fabf3f, type: 2}
+  - action: 2
+    enabled: 1
+    coordination:
+      requiresMeleeSlot: 0
+      requiresRangedSlot: 0
+      requiresCrowdControlSlot: 0
+      requiresSupportSlot: 1
+      priorityModifier: 0
+      ignoreCoordinator: 1
+    weight: 1
+    attack: {fileID: 11400000, guid: 7f89127cb7f42eb47a0ddb4ace220562, type: 2}
+  - action: 3
+    enabled: 1
+    coordination:
+      requiresMeleeSlot: 0
+      requiresRangedSlot: 1
+      requiresCrowdControlSlot: 1
+      requiresSupportSlot: 0
+      priorityModifier: 0
+      ignoreCoordinator: 1
+    weight: 1
+    attack: {fileID: 11400000, guid: 26722971832f55e4a99f2c4f621acbd8, type: 2}
+  - action: 4
+    enabled: 1
+    coordination:
+      requiresMeleeSlot: 0
+      requiresRangedSlot: 0
+      requiresCrowdControlSlot: 0
+      requiresSupportSlot: 1
+      priorityModifier: 0
+      ignoreCoordinator: 1
+    weight: 1
+    attack: {fileID: 11400000, guid: 7f89127cb7f42eb47a0ddb4ace220562, type: 2}
+  bookProjectile: {fileID: 6510233896294541721, guid: 06ebd1bbc3469d346a7cc157709079c5, type: 3}
+  curseWaveProjectile: {fileID: 9220306110554779904, guid: 50b1cbd20f95ef746802b6de7c6496e2, type: 3}
+  bookSpawnOffset: {x: 0.45, y: 0.78}
+  curseSpawnOffset: {x: 0.65, y: 0.65}
+  vulnerabilityFrames: 420
+  additionalWave: 0
+  totemMode: 1
+  breakWaveRadius: 1.25
+  breakWaveFrames: 45
+  totemRespawnFrames: 600
+  totemRespawnHP: 20
+  rusherPrefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+  grapplerPrefab: {fileID: 8535335901447473880, guid: 03d477f0092df7b4bb2331b6ec0e35fc, type: 3}
+  throwerPrefab: {fileID: 602326886208348345, guid: 214e6fe0ba15cbe40976fda378d0bc71, type: 3}
+  rusherCount: 1
+  grapplerCount: 1
+  throwerCount: 1
+  maxBossMinions: 6
+  playerSpawnClearance: 1.25
+  enemySpawnClearance: 0.65
+  strongGhostPriority: 0
+  despawnMinionsOnDeath: 0
+  warpOutFeedback: {fileID: 11400000, guid: 76dcf1827cc317f4c8e784d56f4b26e3, type: 2}
+  warpInFeedback: {fileID: 11400000, guid: 7b3fc1d7a3e68e74b8844ba1111997d7, type: 2}
+  phaseFeedback: {fileID: 11400000, guid: f87563e30b923f44ba67736dd7e6a70b, type: 2}
+  shieldHitFeedback: {fileID: 11400000, guid: 47b5662052ccd6d45a8e4651bd32c1af, type: 2}
+  vulnerableFeedback: {fileID: 11400000, guid: b1fe09b2a7b87ce48872e369e481a2bf, type: 2}
+  totemBreakFeedback: {fileID: 11400000, guid: 73ffeb79bf26058478576a1cdc06240c, type: 2}
+  shieldColor: {r: 0.65, g: 0.4, b: 1, a: 0.8}
+  vulnerableColor: {r: 1, g: 0.85, b: 0.65, a: 1}

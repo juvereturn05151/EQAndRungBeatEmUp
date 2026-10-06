@@ -129,14 +129,16 @@ public static class EnemyRecoveryValidation
     private static void FullCombo(int facing)
     {
         Fixture(); player.motor.Face(facing); enemyObject.transform.position = new Vector3(.85f * facing, 0, 0);
-        player.RequestAttack(); Until(() => player.attackPlayer.CurrentFrame == 7, "Punch1 cancel timing"); player.RequestAttack();
-        Until(() => player.attackPlayer.CurrentFrame == 7, "Punch2 cancel timing"); player.RequestLauncher();
-        Until(() => !enemy.motor.IsGrounded, "Full combo launcher hits"); player.RequestJump();
+        player.RequestAttack(); Step(player.groundCombo[0].FirstActiveFrame); player.RequestAttack();
+        Until(() => player.CurrentAttack == player.groundCombo[1], "Punch1 authored cancel reaches Punch2");
+        Step(player.groundCombo[1].FirstActiveFrame); player.RequestLauncher();
+        Until(() => player.CurrentAttack == player.launcher, "Punch2 authored cancel reaches Launcher"); player.RequestJump();
+        Until(() => !enemy.motor.IsGrounded, "Full combo launcher hits");
         Until(() => !player.motor.IsGrounded, "Manual launcher jump cancel succeeds"); player.RequestAttack();
         float hp = enemy.health.Current; Until(() => enemy.health.Current < hp, "AirPunch1 connects");
-        Until(() => !player.attackPlayer.IsFrozen && player.attackPlayer.CurrentFrame >= 5, "AirPunch1 cancel window"); player.RequestAttack();
+        Until(() => !player.attackPlayer.IsFrozen && player.attackPlayer.Frame!=null && player.attackPlayer.Frame.canCancelIntoAttack, "AirPunch1 authored cancel window"); player.RequestAttack();
         hp = enemy.health.Current; Until(() => enemy.health.Current < hp, "AirPunch2 connects");
-        Until(() => !player.attackPlayer.IsFrozen && player.attackPlayer.CurrentFrame >= 5, "AirPunch2 cancel window"); player.RequestAttack();
+        Until(() => !player.attackPlayer.IsFrozen && player.attackPlayer.Frame!=null && player.attackPlayer.Frame.canCancelIntoAttack, "AirPunch2 authored cancel window"); player.RequestAttack();
         hp = enemy.health.Current; Until(() => enemy.health.Current < hp, "AirPunch3 connects");
         Check(enemy.GroundBounceEligible && enemy.motor.VerticalVelocity <= -8, "AirPunch3 arms ground bounce and drives downward slam");
         Until(() => enemy.GroundBouncesUsed == 1, "Full combo consumes one ground bounce at floor contact");

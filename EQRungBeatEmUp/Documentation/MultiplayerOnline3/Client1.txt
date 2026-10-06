@@ -1,0 +1,16 @@
+PASS: Client never owns combat simulation
+PASS: Client combat clock stays disabled
+PASS: No independent client enemy AI
+PASS: No duplicate client health/damage actors
+PASS: Client reaches authoritative run completion
+PASS: Client observes every synchronized stage
+PASS: Client receives Player lifecycle
+PASS: Client receives Enemy lifecycle
+PASS: Client receives Projectile lifecycle
+PASS: Client receives Totem lifecycle
+PASS: Client receives Boss lifecycle
+PASS: Client receives Chapel lifecycle
+PASS: Client receives all player health/ownership states
+PASS: Client input starts an authoritative attack and receives its frame/state
+PASS: Host shutdown/disconnect returns client to menu
+MULTIPLAYER SMOKE PASSED (3 players)

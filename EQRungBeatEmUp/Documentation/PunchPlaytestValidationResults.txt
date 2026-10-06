@@ -285,6 +285,8 @@ PASS: Punch3 hits once across its active frames and recovers without launching
 PASS: Attack input remains buffered throughout hitstop
 PASS: Hitstop-buffered input consumes at Punch1 frame 13
 PASS: Connected three-punch string deals 8 + 9 + 14 damage and never launches
+PASS: Connected ground string tracks one three-hit, 31-damage combo
+PASS: Ground combo HUD displays the real final result
 PASS: A slow rendered frame still processes active frames, hitstop and recovery at logical 60 FPS
 PASS: Existing editor authoring commands still edit sprites, hitboxes, frame count, motion, damage, hitstop, hitstun and cancel windows
 PASS: Authoring validation leaves the designer's real assets unchanged

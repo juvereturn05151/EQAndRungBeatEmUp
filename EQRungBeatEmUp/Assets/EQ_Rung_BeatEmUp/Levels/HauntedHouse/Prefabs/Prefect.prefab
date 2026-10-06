@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 4560385505328706204}
   - component: {fileID: 3196488872370929217}
   - component: {fileID: 7269030726571091772}
+  - component: {fileID: 7514663725037864034}
   m_Layer: 0
   m_Name: Prefect
   m_TagString: Untagged
@@ -235,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.CharacterMotor
   visual: {fileID: 3773342646582024213}
   sprite: {fileID: 2008612862106232323}
-  moveSpeed: 1.6
+  moveSpeed: 2.8
   jumpForce: 7.5
   gravity: 14
   arenaMin: {x: -6, y: -2}
@@ -274,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf00405fba87e54eb9f954012ea682b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.CharacterHealth
-  maximumHealth: 30
+  maximumHealth: 45
 --- !u!114 &4887988657742207882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +307,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f76d9872f1f6b74da4285dc347ed340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyHitReaction
+  canBeParryStunned: 1
+  stunAnimation: {fileID: 11400000, guid: b64d37ba0bfba434ab95924fc8c3a8a3, type: 2}
+  stunFallbackSprite: {fileID: 21300000, guid: 3d13042d3d8097a5eccb3ca836d5f2c2, type: 3}
+  stunVfx:
+  - {fileID: 21300000, guid: 2360fa2428f6add48bcdbd099030b549, type: 3}
+  - {fileID: 21300000, guid: 2a66fa2cd0c88b1499c275abe1a385db, type: 3}
+  - {fileID: 21300000, guid: 2732a08fafe0bac458158e8094ea93e6, type: 3}
+  - {fileID: 21300000, guid: 953d4682cb4633c4c9619eace6cd0423, type: 3}
+  - {fileID: 21300000, guid: bfb9430bd06569b4ca8d848bf4972574, type: 3}
+  - {fileID: 21300000, guid: 3181582cd104f9c468758433d341b583, type: 3}
+  stunVfxHoldFrames: 5
+  stunVfxOffset: {x: 0, y: 1.2}
+  stunVfxScale: 1
+  stunRecoveryFrames: 0
+  stunDebug: 0
   motor: {fileID: 3378733708428968543}
   health: {fileID: 1226118361820916386}
   animationDriver: {fileID: 5493815479190906101}
@@ -334,15 +350,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429c5d4e827577a49bea1ef9b14b373a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.EnemyCombat
+  role: 0
   motor: {fileID: 3378733708428968543}
   reaction: {fileID: 7748585830457624683}
   animationDriver: {fileID: 5493815479190906101}
   hitbox: {fileID: 4887988657742207882}
   attackPlayer: {fileID: 3196488872370929217}
   target: {fileID: 0}
-  attack: {fileID: 11400000, guid: d261e77ddedd4494dbc45df7f73a35a4, type: 2}
+  attack: {fileID: 11400000, guid: 9c801a350e6fd7742aab3cc849574f88, type: 2}
+  aiProfile: {fileID: 11400000, guid: 58cff5df1a6d3bd4a9a8f238ab36748b, type: 2}
   passiveTrainingDummy: 0
   attackRange: 0.85
+  minimumAttackRange: 0
   laneRange: 0.55
   attackCooldownFrames: 110
 --- !u!114 &3196488872370929217
@@ -377,3 +396,26 @@ MonoBehaviour:
   blinkRenderers:
   - {fileID: 2008612862106232323}
   blinkOnHit: 1
+--- !u!114 &7514663725037864034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934238382108998416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a25d017cfd10840b736701dc356646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.PrefectSupport
+  rusherPrefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+  callBackup: {fileID: 11400000, guid: 9c801a350e6fd7742aab3cc849574f88, type: 2}
+  pushAttack: {fileID: 11400000, guid: 2d2311d8210d59e4f950c4a5d8453d14, type: 2}
+  flow: {fileID: 0}
+  rushersPerCall: 2
+  retreatDistance: 3
+  emergencyPushDistance: 1.05
+  minimumCallDistance: 3.2
+  spawnPlayerClearance: 1.25
+  spawnEnemyClearance: 1.25
+  debugDraw: 1

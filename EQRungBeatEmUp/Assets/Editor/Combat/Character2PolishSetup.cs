@@ -8,7 +8,7 @@ using UnityEngine;
 public static class Character2PolishSetup
 {
     const string Root=Character2Setup.Root+"/Character2/";
-    static Sprite Sprite(string name)=>AssetDatabase.LoadAssetAtPath<Sprite>(Character2Setup.Art+"/"+name+".png");
+    static Sprite Sprite(string name)=>AssetDatabase.LoadAssetAtPath<Sprite>(Character2Setup.Art+(name.StartsWith("Walk_") ? "/Walk/" : "/")+name+".png");
     static void Move(string oldName,string newName)
     {
         if(!AssetDatabase.LoadMainAssetAtPath(Root+oldName)) return;

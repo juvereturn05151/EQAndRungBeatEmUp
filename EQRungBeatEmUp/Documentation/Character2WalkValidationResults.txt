@@ -1,0 +1,308 @@
+PASS: Twelve poses close into Walk_01
+PASS: Existing 60 FPS, closing key and authored loop endpoint retained (Unity sampled length=0.6166667)
+PASS: Walk does not animate Transform scale
+PASS: Pose and unchanged timestamp Walk_01
+PASS: Canvas, PPU and feet pivot Walk_01
+PASS: Crisp point import Walk_01
+PASS: Body height matches Idle within pose bob and grounded baseline Walk_01
+PASS: Hair silhouette matches Idle width Walk_01 (36 vs 37)
+PASS: Pose and unchanged timestamp Walk_02
+PASS: Canvas, PPU and feet pivot Walk_02
+PASS: Crisp point import Walk_02
+PASS: Body height matches Idle within pose bob and grounded baseline Walk_02
+PASS: Hair silhouette matches Idle width Walk_02 (35 vs 37)
+PASS: Pose and unchanged timestamp Walk_03
+PASS: Canvas, PPU and feet pivot Walk_03
+PASS: Crisp point import Walk_03
+PASS: Body height matches Idle within pose bob and grounded baseline Walk_03
+PASS: Hair silhouette matches Idle width Walk_03 (36 vs 37)
+PASS: Pose and unchanged timestamp Walk_04
+PASS: Canvas, PPU and feet pivot Walk_04
+PASS: Crisp point import Walk_04
+PASS: Body height matches Idle within pose bob and grounded baseline Walk_04
+PASS: Hair silhouette matches Idle width Walk_04 (36 vs 37)
+PASS: Pose and unchanged timestamp Walk_05
+PASS: Canvas, PPU and feet pivot Walk_05
+PASS: Crisp point import Walk_05
+PASS: Body height matches Idle within pose bob and grounded baseline Walk_05
+PASS: Hair silhouette matches Idle width Walk_05 (35 vs 37)
+PASS: Pose and unchanged timestamp Walk_06
+PASS: Canvas, PPU and feet pivot Walk_06
+PASS: Crisp point import Walk_06
+PASS: Body height matches Idle within pose bob and grounded baseline Walk_06
+PASS: Hair silhouette matches Idle width Walk_06 (36 vs 37)
+PASS: Pose and unchanged timestamp Walk_07
+PASS: Canvas, PPU and feet pivot Walk_07
+PASS: Crisp point import Walk_07
+PASS: Body height matches Idle within pose bob and grounded baseline Walk_07
+PASS: Hair silhouette matches Idle width Walk_07 (35 vs 37)
+PASS: Pose and unchanged timestamp Walk_08
+PASS: Canvas, PPU and feet pivot Walk_08
+PASS: Crisp point import Walk_08
+PASS: Body height matches Idle within pose bob and grounded baseline Walk_08
+PASS: Hair silhouette matches Idle width Walk_08 (35 vs 37)
+PASS: Pose and unchanged timestamp Walk_09
+PASS: Canvas, PPU and feet pivot Walk_09
+PASS: Crisp point import Walk_09
+PASS: Body height matches Idle within pose bob and grounded baseline Walk_09
+PASS: Hair silhouette matches Idle width Walk_09 (35 vs 37)
+PASS: Pose and unchanged timestamp Walk_10
+PASS: Canvas, PPU and feet pivot Walk_10
+PASS: Crisp point import Walk_10
+PASS: Body height matches Idle within pose bob and grounded baseline Walk_10
+PASS: Hair silhouette matches Idle width Walk_10 (36 vs 37)
+PASS: Pose and unchanged timestamp Walk_11
+PASS: Canvas, PPU and feet pivot Walk_11
+PASS: Crisp point import Walk_11
+PASS: Body height matches Idle within pose bob and grounded baseline Walk_11
+PASS: Hair silhouette matches Idle width Walk_11 (36 vs 37)
+PASS: Pose and unchanged timestamp Walk_12
+PASS: Canvas, PPU and feet pivot Walk_12
+PASS: Crisp point import Walk_12
+PASS: Body height matches Idle within pose bob and grounded baseline Walk_12
+PASS: Hair silhouette matches Idle width Walk_12 (35 vs 37)
+PASS: Shared controller starts in Idle
+PASS: Shared movement enters Walk at original playback speed
+PASS: Repeated loop 0 pose 1 at identical renderer scale (actual=Walk_01)
+PASS: Repeated loop 0 pose 2 at identical renderer scale (actual=Walk_02)
+PASS: Repeated loop 0 pose 3 at identical renderer scale (actual=Walk_03)
+PASS: Repeated loop 0 pose 4 at identical renderer scale (actual=Walk_04)
+PASS: Repeated loop 0 pose 5 at identical renderer scale (actual=Walk_05)
+PASS: Repeated loop 0 pose 6 at identical renderer scale (actual=Walk_06)
+PASS: Repeated loop 0 pose 7 at identical renderer scale (actual=Walk_07)
+PASS: Repeated loop 0 pose 8 at identical renderer scale (actual=Walk_08)
+PASS: Repeated loop 0 pose 9 at identical renderer scale (actual=Walk_09)
+PASS: Repeated loop 0 pose 10 at identical renderer scale (actual=Walk_10)
+PASS: Repeated loop 0 pose 11 at identical renderer scale (actual=Walk_11)
+PASS: Repeated loop 0 pose 12 at identical renderer scale (actual=Walk_12)
+PASS: Repeated loop 1 pose 1 at identical renderer scale (actual=Walk_01)
+PASS: Repeated loop 1 pose 2 at identical renderer scale (actual=Walk_02)
+PASS: Repeated loop 1 pose 3 at identical renderer scale (actual=Walk_03)
+PASS: Repeated loop 1 pose 4 at identical renderer scale (actual=Walk_04)
+PASS: Repeated loop 1 pose 5 at identical renderer scale (actual=Walk_05)
+PASS: Repeated loop 1 pose 6 at identical renderer scale (actual=Walk_06)
+PASS: Repeated loop 1 pose 7 at identical renderer scale (actual=Walk_07)
+PASS: Repeated loop 1 pose 8 at identical renderer scale (actual=Walk_08)
+PASS: Repeated loop 1 pose 9 at identical renderer scale (actual=Walk_09)
+PASS: Repeated loop 1 pose 10 at identical renderer scale (actual=Walk_10)
+PASS: Repeated loop 1 pose 11 at identical renderer scale (actual=Walk_11)
+PASS: Repeated loop 1 pose 12 at identical renderer scale (actual=Walk_12)
+PASS: Repeated loop 2 pose 1 at identical renderer scale (actual=Walk_01)
+PASS: Repeated loop 2 pose 2 at identical renderer scale (actual=Walk_02)
+PASS: Repeated loop 2 pose 3 at identical renderer scale (actual=Walk_03)
+PASS: Repeated loop 2 pose 4 at identical renderer scale (actual=Walk_04)
+PASS: Repeated loop 2 pose 5 at identical renderer scale (actual=Walk_05)
+PASS: Repeated loop 2 pose 6 at identical renderer scale (actual=Walk_06)
+PASS: Repeated loop 2 pose 7 at identical renderer scale (actual=Walk_07)
+PASS: Repeated loop 2 pose 8 at identical renderer scale (actual=Walk_08)
+PASS: Repeated loop 2 pose 9 at identical renderer scale (actual=Walk_09)
+PASS: Repeated loop 2 pose 10 at identical renderer scale (actual=Walk_10)
+PASS: Repeated loop 2 pose 11 at identical renderer scale (actual=Walk_11)
+PASS: Repeated loop 2 pose 12 at identical renderer scale (actual=Walk_12)
+PASS: Repeated loop 3 pose 1 at identical renderer scale (actual=Walk_01)
+PASS: Repeated loop 3 pose 2 at identical renderer scale (actual=Walk_02)
+PASS: Repeated loop 3 pose 3 at identical renderer scale (actual=Walk_03)
+PASS: Repeated loop 3 pose 4 at identical renderer scale (actual=Walk_04)
+PASS: Repeated loop 3 pose 5 at identical renderer scale (actual=Walk_05)
+PASS: Repeated loop 3 pose 6 at identical renderer scale (actual=Walk_06)
+PASS: Repeated loop 3 pose 7 at identical renderer scale (actual=Walk_07)
+PASS: Repeated loop 3 pose 8 at identical renderer scale (actual=Walk_08)
+PASS: Repeated loop 3 pose 9 at identical renderer scale (actual=Walk_09)
+PASS: Repeated loop 3 pose 10 at identical renderer scale (actual=Walk_10)
+PASS: Repeated loop 3 pose 11 at identical renderer scale (actual=Walk_11)
+PASS: Repeated loop 3 pose 12 at identical renderer scale (actual=Walk_12)
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 0
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 1
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 2
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 3
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 4
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 5
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 6
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 7
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 8
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 9
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 10
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 11
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 12
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 13
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 14
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 15
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 16
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 17
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 18
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 19
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 20
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 21
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 22
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 23
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 24
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 25
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 26
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 27
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 28
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 29
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 30
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 31
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 32
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 33
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 34
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 35
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 36
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 37
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 38
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 39
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 40
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 41
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 42
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 43
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 44
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 45
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 46
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 47
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 48
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 49
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 50
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 51
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 52
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 53
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 54
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 55
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 56
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 57
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 58
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 59
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 60
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 61
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 62
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 63
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 64
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 65
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 66
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 67
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 68
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 69
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 70
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 71
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 72
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 73
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 74
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 75
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 76
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 77
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 78
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 79
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 80
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 81
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 82
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 83
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 84
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 85
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 86
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 87
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 88
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 89
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 90
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 91
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 92
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 93
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 94
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 95
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 96
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 97
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 98
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 99
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 100
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 101
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 102
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 103
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 104
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 105
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 106
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 107
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 108
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 109
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 110
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 111
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 112
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 113
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 114
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 115
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 116
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 117
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 118
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 119
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 120
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 121
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 122
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 123
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 124
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 125
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 126
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 127
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 128
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 129
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 130
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 131
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 132
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 133
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 134
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 135
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 136
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 137
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 138
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 139
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 140
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 141
+PASS: Continuous playback advances in chronological gait order
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 142
+PASS: Continuous walking retains corrected sprite and renderer scale at tick 143
+PASS: Continuous walking traverses all twelve poses for four loops
+PASS: Movement runs without speed changes
+PASS: Stopping returns to Idle with identical scale and speed
+ALL WALK CHECKS PASSED

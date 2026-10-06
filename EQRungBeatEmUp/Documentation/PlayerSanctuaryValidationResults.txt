@@ -9,6 +9,21 @@ PASS: One actual modular environment is instantiated
 PASS: Five unique environment modules use distinct artwork
 PASS: Environment panels scale uniformly without horizontal stretching
 PASS: Buddha and spawn landmark have no attackable/destructible components
+PASS: Hub contains one available persistent World 1 portal
+PASS: Portal references the requested CFXR3 Magic Aura A (Runic)
+PASS: Portal ground origin matches existing World 1 interaction center
+PASS: Existing prompt range includes the full radius and rejects points outside
+PASS: Aura has no movement blockers or combat/damage components
+PASS: All aura systems continuously loop and prewarm without particle interactions
+PASS: Portal cannot shake the camera, flash lights or destroy itself through CFX helpers
+PASS: Same preplaced aura remains alive after twenty simulated seconds without respawning
+PASS: Every particle renderer uses the gameplay sorting layer above background panels
+PASS: Walking through aura leaves movement, health and Hub flow intact
+PASS: Player in front of portal renders above aura
+PASS: Player behind portal follows existing lane sorting
+PASS: World entrance has a persistent readable camera-facing label
+PASS: Future unavailable visual state can hide aura without a lock progression system
+PASS: Available state restores the same aura object
 PASS: Hub player physically walks with shared motor
 PASS: Stations reject interaction outside physical radius
 PASS: Existing camera follows horizontally and stays within Hub edges

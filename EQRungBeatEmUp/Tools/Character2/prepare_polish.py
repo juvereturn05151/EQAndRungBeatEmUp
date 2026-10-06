@@ -20,9 +20,11 @@ def backup(path):
     if path.exists() and not (ARCHIVE/path.name).exists(): shutil.copy2(path,ARCHIVE/path.name)
 
 def save(image,name):
-    path=ART/name; backup(path); image.save(path)
+    path=ART/('Walk/'+name if name.startswith('Walk_') else name); backup(path); image.save(path)
 
 def package(source,mode):
+    if mode=='walk':
+        raise ValueError('Legacy walk extraction repeated the leading leg. Use prepare_walk_repair.py with the corrected sheet instead.')
     im=Image.open(source).convert('RGBA'); labels,regions=components(im)
     main=[r for r in regions if r['count']>1500]
     if mode=='base':
@@ -93,7 +95,7 @@ def preview():
     output=ROOT/'Documentation/Character2PolishPreview'; output.mkdir(parents=True,exist_ok=True)
     frames=[]; sheet=Image.new('RGBA',(512,384),(20,24,30,255))
     for i in range(12):
-        sprite=Image.open(ART/f'Walk_{i+1:02}.png').convert('RGBA')
+        sprite=Image.open(ART/'Walk'/f'Walk_{i+1:02}.png').convert('RGBA')
         sheet.alpha_composite(sprite,((i%4)*128,(i//4)*128))
         frame=Image.new('RGBA',(128,128),(20,24,30,255)); frame.alpha_composite(sprite)
         frames.append(frame.resize((256,256),Image.Resampling.NEAREST).convert('RGB'))

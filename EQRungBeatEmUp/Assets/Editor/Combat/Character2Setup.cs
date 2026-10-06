@@ -13,7 +13,7 @@ public static class Character2Setup
     public const string DefinitionPath=Root+"/Character2/Character2.asset";
     public const string PrefabPath=Root+"/Character2/Character2.prefab";
     public const string SkillPath=Root+"/Character2/WandBarrier.asset";
-    static Sprite[] Sprites(string name,int count) => Enumerable.Range(1,count).Select(i=>AssetDatabase.LoadAssetAtPath<Sprite>(Art+"/"+name+"_"+i.ToString("00")+".png")).ToArray();
+    static Sprite[] Sprites(string name,int count) => Enumerable.Range(1,count).Select(i=>AssetDatabase.LoadAssetAtPath<Sprite>(Art+(name=="Walk" ? "/Walk/" : "/")+name+"_"+i.ToString("00")+".png")).ToArray();
     static T Asset<T>(string path) where T:ScriptableObject
     {
         var asset=AssetDatabase.LoadAssetAtPath<T>(path);

@@ -34,7 +34,7 @@ public static class PlayerSanctuaryValidation
         SessionState.SetBool(Pending,true); SessionState.SetBool("Sanctuary.Finished",false); EditorApplication.EnterPlaymode();
     }
     static void Check(bool value,string label) { if(!value) throw new Exception(label); results.Add("PASS: "+label); }
-    static void Step(int count) { for(int i=0;i<count;i++) { Physics2D.SyncTransforms(); clock.StepFrame(); } }
+    static void Step(int count=1) { for(int i=0;i<count;i++) { Physics2D.SyncTransforms(); clock.StepFrame(); } }
     static void Poll()
     {
         if(SessionState.GetBool("Sanctuary.Finished",false) && !EditorApplication.isPlayingOrWillChangePlaymode && Application.isBatchMode) { EditorApplication.Exit(SessionState.GetInt("Sanctuary.Exit",1)); return; }
@@ -77,6 +77,7 @@ public static class PlayerSanctuaryValidation
             Check(panels.Length==5 && panels.Select(p=>p.sprite.texture).Distinct().Count()==5,"Five unique environment modules use distinct artwork");
             Check(panels.All(p=>Mathf.Approximately(p.transform.localScale.x,p.transform.localScale.y)),"Environment panels scale uniformly without horizontal stretching");
             Check(markers.transform.Find("HubPlayerSpawnPoint") && !markers.GetComponentInChildren<CombatHurtbox>() && !markers.GetComponentInChildren<DestructibleObject>(),"Buddha and spawn landmark have no attackable/destructible components");
+            WorldPortal(markers);
             float x=flow.player.transform.position.x; flow.player.MoveInput=Vector2.right; Step(12); flow.player.MoveInput=Vector2.zero;
             Check(flow.player.transform.position.x>x+.4f,"Hub player physically walks with shared motor");
             Check(!hub.Interact(flow.player),"Stations reject interaction outside physical radius");
@@ -135,6 +136,35 @@ public static class PlayerSanctuaryValidation
         catch(Exception ex) { failed=true; results.Add("FAIL: "+ex); Debug.LogException(ex); Finish(); }
     }
     static System.Collections.IEnumerator Wait() { yield return new WaitForSecondsRealtime(2.8f); ready=true; }
+    static void WorldPortal(HubLandmarks environment)
+    {
+        var portal=environment.GetComponentInChildren<HubWorldPortal>();
+        Check(portal && portal.unlocked && portal.aura.gameObject.activeInHierarchy,"Hub contains one available persistent World 1 portal");
+        Check(AssetDatabase.GetAssetPath(portal.runicAuraReference)==HubWorldPortalSetup.AuraPath,"Portal references the requested CFXR3 Magic Aura A (Runic)");
+        Check(portal.GroundPosition==hub.definition.stations[3] && (Vector2)portal.transform.position==portal.GroundPosition,"Portal ground origin matches existing World 1 interaction center");
+        Check(portal.InteractionRadius==hub.definition.interactionRadius && hub.Nearby(portal.GroundPosition+Vector2.left*(portal.InteractionRadius-.01f))==3 && hub.Nearby(portal.GroundPosition+Vector2.left*(portal.InteractionRadius+.01f))==-1,"Existing prompt range includes the full radius and rejects points outside");
+        Check(portal.GetComponentsInChildren<Collider2D>(true).Length==0 && portal.GetComponentsInChildren<Collider>(true).Length==0 && !portal.GetComponentInChildren<AttackHitbox>(true) && !portal.GetComponentInChildren<CombatProjectile>(true),"Aura has no movement blockers or combat/damage components");
+        var systems=portal.aura.GetComponentsInChildren<ParticleSystem>();
+        Check(systems.Length>0 && systems.All(p=>p.main.loop && p.main.prewarm && p.main.playOnAwake && p.main.stopAction==ParticleSystemStopAction.None && !p.collision.enabled && !p.trigger.enabled),"All aura systems continuously loop and prewarm without particle interactions");
+        Check(portal.aura.GetComponentsInChildren<CartoonFX.CFXR_Effect>().All(e=>!e.enabled) && portal.aura.GetComponentsInChildren<Light>().All(l=>!l.enabled),"Portal cannot shake the camera, flash lights or destroy itself through CFX helpers");
+        int identity=portal.aura.gameObject.GetInstanceID(); var main=portal.aura.GetComponent<ParticleSystem>();
+        main.Simulate(20,true,true,true); main.Play(true);
+        Check(identity==portal.aura.gameObject.GetInstanceID() && systems.Sum(p=>p.particleCount)>0,"Same preplaced aura remains alive after twenty simulated seconds without respawning");
+        int order=portal.aura.GetComponent<ParticleSystemRenderer>().sortingOrder;
+        Check(portal.aura.GetComponentsInChildren<ParticleSystemRenderer>().All(r=>r.sortingLayerName=="Default" && r.sortingOrder==order) && order>environment.GetComponentsInChildren<SpriteRenderer>().Max(r=>r.sortingOrder),"Every particle renderer uses the gameplay sorting layer above background panels");
+        float hp=flow.player.GetComponent<CharacterHealth>().Current;
+        flow.player.ResetForStage(portal.GroundPosition+Vector2.left*.6f); flow.player.MoveInput=Vector2.right; Step(30); flow.player.MoveInput=Vector2.zero;
+        Check(flow.player.transform.position.x>portal.GroundPosition.x && flow.player.GetComponent<CharacterHealth>().Current==hp && hub.InHub,"Walking through aura leaves movement, health and Hub flow intact");
+        flow.player.ResetForStage(portal.GroundPosition+Vector2.down*.3f); Step();
+        Check(flow.player.sprite.sortingOrder>order,"Player in front of portal renders above aura"); Capture("WorldPortalFront");
+        flow.player.ResetForStage(portal.GroundPosition+Vector2.up*.3f); Step();
+        Check(flow.player.sprite.sortingOrder<order,"Player behind portal follows existing lane sorting"); Capture("WorldPortalBehind");
+        flow.player.ResetForStage(portal.GroundPosition+Vector2.left*3); Capture("WorldPortalApproach");
+        Check(portal.entranceLabel.text=="WORLD 1\nENTRANCE" && portal.entranceLabel.GetComponent<Renderer>().isVisible,"World entrance has a persistent readable camera-facing label");
+        portal.unlocked=false; portal.RefreshPresentation(); Check(!portal.aura.gameObject.activeSelf,"Future unavailable visual state can hide aura without a lock progression system");
+        portal.unlocked=true; portal.RefreshPresentation(); Check(portal.aura.gameObject.activeSelf,"Available state restores the same aura object");
+        flow.player.ResetForStage(hub.definition.spawn);
+    }
     static void Capture(string name)
     {
         flow.framing.ApplyFraming(0,true); var camera=flow.framing.GetComponent<Camera>(); var render=new RenderTexture(1280,720,24); var previous=camera.targetTexture; var active=RenderTexture.active;

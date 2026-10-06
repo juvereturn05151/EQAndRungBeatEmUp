@@ -1,0 +1,338 @@
+{
+  "idle_bounds": [
+    36,
+    14,
+    94,
+    120
+  ],
+  "frames": [
+    {
+      "frame": 1,
+      "source_box": [
+        89,
+        46,
+        308,
+        370
+      ],
+      "uniform_scale": 0.32515337423312884,
+      "hip_axis": 190.5,
+      "bounds": [
+        31,
+        15,
+        102,
+        120
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "ppu": 100,
+      "pivot": [
+        0.5,
+        0.0625
+      ],
+      "sha256": "a381f8758d463031afc4a7ce51dfd826ca388a6b24674fb50fd0132703d15da9"
+    },
+    {
+      "frame": 2,
+      "source_box": [
+        447,
+        46,
+        652,
+        372
+      ],
+      "uniform_scale": 0.32515337423312884,
+      "hip_axis": 542.0,
+      "bounds": [
+        33,
+        14,
+        100,
+        120
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "ppu": 100,
+      "pivot": [
+        0.5,
+        0.0625
+      ],
+      "sha256": "bab2bd14ccc0545c30be2acd41c9f12a5183d13296fa60aeb71539000330c55f"
+    },
+    {
+      "frame": 3,
+      "source_box": [
+        831,
+        46,
+        1004,
+        372
+      ],
+      "uniform_scale": 0.32515337423312884,
+      "hip_axis": 922.0,
+      "bounds": [
+        34,
+        14,
+        90,
+        120
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "ppu": 100,
+      "pivot": [
+        0.5,
+        0.0625
+      ],
+      "sha256": "27f351f9034c14e5a0f31a8591b7024484860221a10dd3875bdce72c0a7c50ee"
+    },
+    {
+      "frame": 4,
+      "source_box": [
+        1206,
+        46,
+        1350,
+        372
+      ],
+      "uniform_scale": 0.32515337423312884,
+      "hip_axis": 1270.5,
+      "bounds": [
+        43,
+        14,
+        90,
+        120
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "ppu": 100,
+      "pivot": [
+        0.5,
+        0.0625
+      ],
+      "sha256": "e4b92e802b1a4557c375c74fb326e3a6bbccc21fe466ae1582122d8cc8c841a3"
+    },
+    {
+      "frame": 5,
+      "source_box": [
+        71,
+        409,
+        325,
+        738
+      ],
+      "uniform_scale": 0.32515337423312884,
+      "hip_axis": 184.5,
+      "bounds": [
+        27,
+        13,
+        110,
+        120
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "ppu": 100,
+      "pivot": [
+        0.5,
+        0.0625
+      ],
+      "sha256": "2dbd4877e1687275aa42b2309e5508f249f62655de0a178a3e25645f7f969911"
+    },
+    {
+      "frame": 6,
+      "source_box": [
+        433,
+        410,
+        675,
+        738
+      ],
+      "uniform_scale": 0.32515337423312884,
+      "hip_axis": 545.5,
+      "bounds": [
+        27,
+        13,
+        106,
+        120
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "ppu": 100,
+      "pivot": [
+        0.5,
+        0.0625
+      ],
+      "sha256": "cfe65e01a641eb102924cfc17b361c23d096c9088e618d69627ae85e38bdfe55"
+    },
+    {
+      "frame": 7,
+      "source_box": [
+        793,
+        410,
+        1045,
+        738
+      ],
+      "uniform_scale": 0.32515337423312884,
+      "hip_axis": 907.5,
+      "bounds": [
+        27,
+        13,
+        109,
+        120
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "ppu": 100,
+      "pivot": [
+        0.5,
+        0.0625
+      ],
+      "sha256": "847850f5ff7e3a375e03cf4a00803553a934590c6495ef57f3392d8ca69dd664"
+    },
+    {
+      "frame": 8,
+      "source_box": [
+        1174,
+        410,
+        1368,
+        738
+      ],
+      "uniform_scale": 0.32515337423312884,
+      "hip_axis": 1270.6,
+      "bounds": [
+        33,
+        13,
+        96,
+        120
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "ppu": 100,
+      "pivot": [
+        0.5,
+        0.0625
+      ],
+      "sha256": "a0c442d6cf4b1a148b54982dde7f9e4f403758f84589570f6164c165108b748c"
+    },
+    {
+      "frame": 9,
+      "source_box": [
+        104,
+        748,
+        267,
+        1073
+      ],
+      "uniform_scale": 0.32515337423312884,
+      "hip_axis": 190.0,
+      "bounds": [
+        36,
+        14,
+        89,
+        120
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "ppu": 100,
+      "pivot": [
+        0.5,
+        0.0625
+      ],
+      "sha256": "5302a185f23011fa75443b8b30fee734fcd56d01deac2dbaa01b0c51ad818c8f",
+      "correction_source": "Tools/Character2/WalkLowerLegCorrectedSource.png"
+    },
+    {
+      "frame": 10,
+      "source_box": [
+        435,
+        748,
+        663,
+        1073
+      ],
+      "uniform_scale": 0.32515337423312884,
+      "hip_axis": 549.5,
+      "bounds": [
+        27,
+        14,
+        101,
+        120
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "ppu": 100,
+      "pivot": [
+        0.5,
+        0.0625
+      ],
+      "sha256": "98fd3c0cdd1fff07a703fb21a03cf14272f36c803a18a6fe355690be708d6f2e",
+      "correction_source": "Tools/Character2/WalkLowerLegCorrectedSource.png"
+    },
+    {
+      "frame": 11,
+      "source_box": [
+        801,
+        748,
+        1029,
+        1073
+      ],
+      "uniform_scale": 0.32515337423312884,
+      "hip_axis": 913.5,
+      "bounds": [
+        27,
+        14,
+        101,
+        120
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "ppu": 100,
+      "pivot": [
+        0.5,
+        0.0625
+      ],
+      "sha256": "66324c6684c8757aad229ef3579dadde18823c3669f15c73aae5746471c90b8e",
+      "correction_source": "Tools/Character2/WalkLowerLegCorrectedSource.png"
+    },
+    {
+      "frame": 12,
+      "source_box": [
+        1167,
+        748,
+        1392,
+        1073
+      ],
+      "uniform_scale": 0.32515337423312884,
+      "hip_axis": 1277.5,
+      "bounds": [
+        28,
+        14,
+        101,
+        120
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "ppu": 100,
+      "pivot": [
+        0.5,
+        0.0625
+      ],
+      "sha256": "d13c115d071fd828b36b961c2b126e7c334c1674bcb87456f916e4be2b170863",
+      "correction_source": "Tools/Character2/WalkLowerLegCorrectedSource.png"
+    }
+  ]
+}

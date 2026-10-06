@@ -54,7 +54,7 @@ public static class PlayerSanctuarySetup
         EditorSceneManager.SaveScene(scene,ScenePath);
         var catalog=AssetDatabase.LoadAssetAtPath<MultiplayerCatalog>(MultiplayerSetup.CatalogPath); catalog.gameplayScene="PlayerHub"; EditorUtility.SetDirty(catalog);
         var scenes=EditorBuildSettings.scenes.Where(s=>s.path!=ScenePath).ToList(); scenes.Add(new EditorBuildSettingsScene(ScenePath,true)); EditorBuildSettings.scenes=scenes.ToArray();
-        AssetDatabase.SaveAssets(); MultiplayerSetup.Build(); Debug.Log("PLAYER SANCTUARY SETUP COMPLETE: 38-unit Hub, four interactions, permanent progression and Buddha spawn.");
+        AssetDatabase.SaveAssets(); HubWorldPortalSetup.Build(); Debug.Log("PLAYER SANCTUARY SETUP COMPLETE: 38-unit Hub, four interactions, permanent progression and Buddha spawn.");
     }
     static Sprite Import(string path)
     {
@@ -86,7 +86,7 @@ public sealed class HubLandmarksEditor : Editor
         Handles.Label(definition.spawn,"HubPlayerSpawnPoint →");
         EditorGUI.BeginChangeCheck(); var spawn=(Vector2)Handles.PositionHandle(definition.spawn,Quaternion.identity);
         if(EditorGUI.EndChangeCheck()) { Undo.RecordObject(definition,"Move Hub spawn"); definition.spawn=spawn; Save(definition); }
-        string[] names={"Character","Base Stats","Skill Shrine","World 1"};
+        string[] names={"Character","Base Stats","Skill Shrine","WORLD 1 ENTRANCE"};
         for(int i=0;i<definition.stations.Length;i++)
         {
             Handles.Label(definition.stations[i],names[i]); EditorGUI.BeginChangeCheck(); var point=(Vector2)Handles.PositionHandle(definition.stations[i],Quaternion.identity);

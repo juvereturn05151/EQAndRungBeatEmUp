@@ -24,6 +24,7 @@ namespace BeatEmUp
                 if (signal == "StopArea") return;
             }
             bool diveStart = signal == "DiveWhoosh", landing = signal == "DiveLanding";
+            bool swing = !impact && (signal == "Swing" || string.IsNullOrEmpty(signal));
             var clip=landing ? data.landingSound : signal=="Telegraph" ? data.telegraphSound : signal=="Scream" ? data.screamSound : impact ? data.impactSound : data.swingSound;
             if(clip)
             {
@@ -32,22 +33,25 @@ namespace BeatEmUp
                 source.clip=clip; source.Play(); Destroy(sound,clip.length+.1f);
                 if (signal == "Telegraph") remoteWarnings[sourceId] = source;
             }
-            var prefab = landing ? data.landingPrefab : diveStart ? data.diveStartPrefab : impact ? data.impactPrefab : null;
+            var prefab = landing ? data.landingPrefab : diveStart ? data.diveStartPrefab : impact ? data.impactPrefab : swing ? data.swingPrefab : null;
             if (!prefab) return;
-            float scale = landing ? data.landingScale : diveStart ? data.diveStartScale : data.impactScale;
-            float lifetime = landing ? data.landingLifetime : diveStart ? data.diveStartLifetime : data.impactLifetime;
+            float scale = landing ? data.landingScale : diveStart ? data.diveStartScale : swing ? data.swingScale : data.impactScale;
+            float lifetime = landing ? data.landingLifetime : diveStart ? data.diveStartLifetime : swing ? data.swingLifetime : data.impactLifetime;
+            float sortingY = point.y;
+            if (swing) point += new Vector2(data.swingOffset.x * facing, data.swingOffset.y);
             var container=new GameObject("Network combat impact"); container.SetActive(false); container.transform.position=point;
             container.AddComponent<NetworkFeedbackVisual>();
             var effect=Instantiate(prefab,container.transform);
             effect.transform.localPosition=Vector3.zero; effect.transform.localScale*=scale;
-            effect.transform.localRotation=Quaternion.Euler(0,0,!landing && data.impactRotateWithFacing && facing<0 ? 180 : 0);
+            effect.transform.localRotation=Quaternion.Euler(0,0,swing ? data.swingRotation : !landing && data.impactRotateWithFacing && facing<0 ? 180 : 0);
+            if (swing && data.swingMirrorWithFacing && facing < 0) container.transform.localScale = new Vector3(-1, 1, 1);
             foreach(var cfx in effect.GetComponentsInChildren<CartoonFX.CFXR_Effect>(true))
             { if(cfx.cameraShake!=null) cfx.cameraShake.enabled=false; cfx.animatedLights=new CartoonFX.CFXR_Effect.AnimatedLight[0]; }
             foreach(var light in effect.GetComponentsInChildren<Light>(true)) light.enabled=false;
             foreach(var particles in effect.GetComponentsInChildren<ParticleSystem>(true))
             {
                 var main=particles.main; main.loop=false; main.scalingMode=ParticleSystemScalingMode.Hierarchy;
-                var renderer=particles.GetComponent<ParticleSystemRenderer>(); if(renderer) renderer.sortingOrder=Mathf.RoundToInt(-point.y*100)+2;
+                var renderer=particles.GetComponent<ParticleSystemRenderer>(); if(renderer) renderer.sortingOrder=Mathf.RoundToInt(-sortingY*100)+2;
             }
             container.SetActive(true); Destroy(container,lifetime);
         }
@@ -62,6 +66,7 @@ namespace BeatEmUp
         public int SwingCount { get; private set; }
         public int ImpactCount { get; private set; }
         public GameObject LastImpact { get; private set; }
+        public GameObject LastSwing { get; private set; }
         public AudioSource LastSound { get; private set; }
         public SpriteRenderer WarningVisual { get; private set; }
         public SpriteRenderer WaveVisual { get; private set; }
@@ -213,7 +218,7 @@ namespace BeatEmUp
                 else { lastDiveStartFrame = player.CurrentFrame; DiveStartCount++; }
                 var point = (Vector2)player.motor.transform.position + new Vector2(0, landing ? 0 : player.motor.Height + .3f);
                 PlaySound(landing ? cue.landingSound : cue.swingSound, landing ? cue.landingVolume : cue.swingVolume, point);
-                SpawnImpact(point, landing ? cue.landingPrefab : cue.diveStartPrefab,
+                LastImpact = SpawnImpact(point, landing ? cue.landingPrefab : cue.diveStartPrefab,
                     landing ? cue.landingScale : cue.diveStartScale, landing ? cue.landingLifetime : cue.diveStartLifetime,
                     !landing && cue.impactRotateWithFacing);
                 return;
@@ -225,6 +230,11 @@ namespace BeatEmUp
             var data = player.CurrentAttack.feedback;
             if (data == null) return;
             SwingCount++; PlaySound(data.swingSound, data.swingVolume, player.motor.transform.position);
+            if (data.swingPrefab)
+            {
+                var point = (Vector2)player.motor.transform.position + new Vector2(data.swingOffset.x * player.Facing, data.swingOffset.y);
+                LastSwing = SpawnImpact(point, data.swingPrefab, data.swingScale, data.swingLifetime, false, data.swingRotation, data.swingMirrorWithFacing);
+            }
         }
         void HitConfirmed(Vector2 point, CombatHitOutcome outcome)
         {
@@ -247,15 +257,16 @@ namespace BeatEmUp
             PlaySound(data.impactSound, data.impactVolume, point); SpawnImpact(data, point);
         }
         void SpawnImpact(AttackFeedbackData data, Vector2 point)
-            => SpawnImpact(point, data.impactPrefab, data.impactScale, data.impactLifetime, data.impactRotateWithFacing);
-        void SpawnImpact(Vector2 point, GameObject prefab, float scale, float lifetime, bool rotate)
+            => LastImpact = SpawnImpact(point, data.impactPrefab, data.impactScale, data.impactLifetime, data.impactRotateWithFacing);
+        GameObject SpawnImpact(Vector2 point, GameObject prefab, float scale, float lifetime, bool rotate, float rotation = 0, bool mirror = false)
         {
-            if (!prefab) return;
+            if (!prefab) return null;
             var container = new GameObject("Combat impact (temporary)"); container.SetActive(false);
             container.transform.position = new Vector3(point.x, point.y, -.1f);
             var effect = Instantiate(prefab, container.transform);
             effect.transform.localPosition = Vector3.zero;
-            effect.transform.localRotation = Quaternion.Euler(0, 0, rotate && player.motor.Facing < 0 ? 180 : 0);
+            effect.transform.localRotation = Quaternion.Euler(0, 0, rotation + (rotate && player.motor.Facing < 0 ? 180 : 0));
+            if (mirror && player.Facing < 0) container.transform.localScale = new Vector3(-1, 1, 1);
             effect.transform.localScale *= scale;
             // Configure before activation; disable library camera shake and scene lights per instance.
             foreach (var cfx in effect.GetComponentsInChildren<CartoonFX.CFXR_Effect>(true))
@@ -274,8 +285,9 @@ namespace BeatEmUp
                     renderer.sortingOrder = (player.motor.sprite ? player.motor.sprite.sortingOrder : 0) + 2;
                 }
             }
-            LastImpact = container; container.SetActive(true);
+            container.SetActive(true);
             Destroy(container, lifetime);
+            return container;
         }
         void PlaySound(AudioClip clip, float volume, Vector3 point)
         {

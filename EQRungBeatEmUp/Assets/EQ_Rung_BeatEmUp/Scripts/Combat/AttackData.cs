@@ -77,6 +77,13 @@ namespace BeatEmUp
         [Range(0, 1)] public float areaVolume = .6f;
         public AudioClip swingSound, impactSound;
         [Range(0, 1)] public float swingVolume = .35f, impactVolume = .55f;
+        [Header("Swing visual (once on Swing frame event, including misses)")]
+        public GameObject swingPrefab;
+        public Vector2 swingOffset;
+        public float swingRotation;
+        public bool swingMirrorWithFacing = true;
+        [Min(.01f)] public float swingScale = .15f;
+        [Min(.05f)] public float swingLifetime = .35f;
         [Header("Air dive (DiveWhoosh / DiveLanding frame events)")]
         public GameObject diveStartPrefab, landingPrefab;
         public AudioClip landingSound;

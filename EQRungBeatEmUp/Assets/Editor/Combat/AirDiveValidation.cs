@@ -80,6 +80,98 @@ public static class AirDiveValidation
             Check(UnityEngine.Object.FindObjectsByType<NetworkFeedbackVisual>(FindObjectsSortMode.None).Length >= 2, "Client dive cues reconstruct temporary VFX");
         }
     }
+    [MenuItem("Beat Em Up/Validate grounded launcher and airborne follow-up (Play Mode)")]
+    public static void RunLauncher() => Run();
+    static void LauncherFeedbackChecks()
+    {
+        int firstResult = results.Count;
+        foreach (var path in new[] { "Assets/EQ_Rung_BeatEmUp/Attacks/Launcher.asset", "Assets/EQ_Rung_BeatEmUp/Characters/Character2/Character2_Launcher.asset" })
+        foreach (int facing in new[] { -1, 1 })
+        {
+            Fixture(); player.launcher = AssetDatabase.LoadAssetAtPath<AttackData>(path); player.motor.Face(facing);
+            var cue = player.launcher.feedback;
+            Check(cue.swingSound && cue.impactSound && cue.swingPrefab && cue.impactPrefab, path + ": launcher VFX/SFX assigned");
+            Check(player.launcher.frames[6].events.Contains("Swing") &&
+                player.launcher.frames.Count(f => f.events.Contains("Swing")) == 1, "One launcher sweep event at the first active frame");
+            player.RequestLauncher(); Step(5);
+            var fx = player.GetComponent<AttackFeedback>();
+            Check(fx.SwingCount == 0 && fx.ImpactCount == 0, "Anticipation has no premature launcher cue");
+            Step(1);
+            Check(fx.SwingCount == 1 && fx.LastSwing && fx.LastSound.clip == cue.swingSound,
+                "Missed launcher emits one sweep and whoosh");
+            var expected = (Vector2)player.motor.transform.position + new Vector2(cue.swingOffset.x * facing, cue.swingOffset.y);
+            Check(Vector2.Distance(fx.LastSwing.transform.position, expected) < .01f &&
+                fx.LastSwing.transform.localScale.x == facing, "Sweep offset/mirroring follows committed facing " + facing);
+            if (path.EndsWith("/Launcher.asset") && facing == 1) Preview(fx.LastSwing, "LauncherSwing");
+            Step(40); Check(fx.SwingCount == 1 && fx.ImpactCount == 0 && player.motor.IsGrounded, "Recovery adds no duplicate or false-hit cues");
+            Fixture(); player.launcher = AssetDatabase.LoadAssetAtPath<AttackData>(path); player.motor.Face(facing);
+            enemy.motor.ResetForStage(new Vector2(.8f * facing, 0)); enemy.health.SafeStageProtection = false;
+            int impactSounds = UnityEngine.Object.FindObjectsByType<AudioSource>(FindObjectsSortMode.None).Count(a => a.clip == cue.impactSound);
+            player.RequestLauncher(); Step(8); fx = player.GetComponent<AttackFeedback>();
+            // Hit sampling precedes Swing events on the same frame; both sounds must exist.
+            Check(fx.SwingCount == 1 && fx.ImpactCount == 1 && fx.LastImpact && fx.LastImpact != fx.LastSwing &&
+                UnityEngine.Object.FindObjectsByType<AudioSource>(FindObjectsSortMode.None).Count(a => a.clip == cue.impactSound) == impactSounds + 1,
+                "Accepted launcher contact emits one separate impact visual/sound alongside the sweep");
+            Fixture(); player.launcher = AssetDatabase.LoadAssetAtPath<AttackData>(path);
+            player.RequestLauncher(); Step(3); fx = player.GetComponent<AttackFeedback>(); player.Interrupt(10); Step(15);
+            Check(fx.SwingCount == 0 && fx.ImpactCount == 0, "Interrupted startup has no delayed launcher cues");
+            var origin = new Vector2(11 * facing, -1);
+            AttackFeedback.PlayRemote(player.launcher, origin, facing, false, "Swing");
+            var remote = UnityEngine.Object.FindObjectsByType<NetworkFeedbackVisual>(FindObjectsSortMode.None)
+                .FirstOrDefault(v => Vector2.Distance(v.transform.position, origin + new Vector2(cue.swingOffset.x * facing, cue.swingOffset.y)) < .01f);
+            Check(remote && remote.transform.localScale.x == facing, "Client reconstructs launcher sweep position and facing");
+        }
+        File.WriteAllLines("Documentation/LauncherFeedbackValidationResults.txt", results.Skip(firstResult));
+    }
+    static void GroundedLauncherChecks()
+    {
+        int firstResult = results.Count;
+        var idlePath = "Assets/EQ_Rung_BeatEmUp/Sprites/BlueShirtGuy_Idle2_01.png";
+        var idle = new Texture2D(2, 2); idle.LoadImage(File.ReadAllBytes(idlePath));
+        try
+        {
+            for (int i = 1; i <= 8; i++)
+            {
+                var path = "Assets/EQ_Rung_BeatEmUp/Sprites/BlueShirtGuy_Launch1_" + i.ToString("00") + ".png";
+                var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+                Check(sprite && sprite.rect.size == new Vector2(128, 128) && sprite.pixelsPerUnit == 100 &&
+                    sprite.pivot == new Vector2(64, 8), "Launcher pose " + i + ": original canvas, scale and ground pivot");
+                var texture = new Texture2D(2, 2); texture.LoadImage(File.ReadAllBytes(path));
+                try
+                {
+                    var pixels = texture.GetPixels32(); int minY = 128;
+                    int leftY = 128, rightY = 128;
+                    for (int y = 0; y < 128; y++) for (int x = 0; x < 128; x++)
+                        if (pixels[y * 128 + x].a > 0)
+                        {
+                            minY = Mathf.Min(minY, y);
+                            if (x < 64) leftY = Mathf.Min(leftY, y); else rightY = Mathf.Min(rightY, y);
+                        }
+                    Check(minY == 8 && leftY <= 10 && rightY <= 10, "Launcher pose " + i + ": both shoes contact consistent floor; no airborne pixels");
+                    if (i == 1 || i == 8) Check(pixels.SequenceEqual(idle.GetPixels32()), "Launcher endpoint " + i + ": pixel-exact Idle return");
+                }
+                finally { UnityEngine.Object.DestroyImmediate(texture); }
+            }
+        }
+        finally { UnityEngine.Object.DestroyImmediate(idle); }
+        foreach (int facing in new[] { -1, 1 })
+        {
+            Fixture(); player.motor.Face(facing); enemy.motor.ResetForStage(new Vector2(.8f * facing, 0));
+            player.health.SafeStageProtection = enemy.health.SafeStageProtection = false;
+            Check(player.launcher.TotalFrames == 26 && player.launcher.FirstActiveFrame == 6 && player.launcher.LastActiveFrame == 12,
+                "Launcher retains 26 frames and original 6-12 hit window");
+            var impact = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/EQ_Rung_BeatEmUp/Sprites/BlueShirtGuy_Launch1_05.png");
+            Check(player.launcher.frames.Skip(8).Take(5).All(f => f.sprite == impact), "Maximum extension matches active impact frames 8-12");
+            player.RequestLauncher(); bool grounded = true, launchedEnemy = false;
+            for (int i = 0; i < 70; i++)
+            {
+                Step(1); grounded &= player.motor.IsGrounded && player.motor.Height == 0;
+                launchedEnemy |= enemy.motor.Height > 0 || enemy.motor.VerticalVelocity > 0;
+            }
+            Check(grounded && launchedEnemy && !player.CurrentAttack, "Grounded launcher launches enemy and recovers without lifting player, facing " + facing);
+        }
+        File.WriteAllLines("Documentation/LauncherAnimationValidationResults.txt", results.Skip(firstResult));
+    }
     // Isolated offscreen render for reviewing the existing library effects at gameplay scale.
     static void Preview(GameObject effect, string name)
     {
@@ -125,7 +217,7 @@ public static class AirDiveValidation
             foreach (var wall in UnityEngine.Object.FindObjectsByType<CombatWall>(FindObjectsSortMode.None)) wall.gameObject.SetActive(false);
             clock = UnityEngine.Object.FindFirstObjectByType<CombatClock>(); clock.enabled = false;
             InputSystem.settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus; InputSystem.settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView; keyboard = InputSystem.AddDevice<Keyboard>(); gamepad = InputSystem.AddDevice<Gamepad>();
-            DiveFeedbackChecks();
+            GroundedLauncherChecks(); LauncherFeedbackChecks(); DiveFeedbackChecks();
             Fixture(); Check(player.airDive && player.airDive.TotalFrames == 24 && player.airDive.FirstActiveFrame == 7 && player.airDive.LastActiveFrame == 13, "Authored24-frame attack with seven active frames");
             Check(!player.attackPlayer.Play(player.airDive), "TEST5: direct grounded Play cannot activate airborne-only dive");
             player.RequestLauncher(); Check(player.CurrentAttack == player.launcher && !player.IsAirDiving, "Grounded Launcher keeps existing launcher behavior");

@@ -47,7 +47,7 @@ namespace BeatEmUp
             hitbox.Begin(attack); animationDriver.SetAttackOverride(true);
             player?.Build?.AttackStarted(attack);
             // Attach only for configured attacks; existing scene/prefab actors need no rebuild.
-            if (attack.feedback != null && (attack.feedback.areaWarning || attack.feedback.directionalWaveWarning || attack.feedback.telegraphSound || attack.feedback.screamSound || attack.feedback.swingSound || attack.feedback.impactSound || attack.feedback.impactPrefab || attack.feedback.diveStartPrefab || attack.feedback.landingPrefab || attack.feedback.landingSound)
+            if (attack.feedback != null && (attack.feedback.areaWarning || attack.feedback.directionalWaveWarning || attack.feedback.telegraphSound || attack.feedback.screamSound || attack.feedback.swingPrefab || attack.feedback.swingSound || attack.feedback.impactSound || attack.feedback.impactPrefab || attack.feedback.diveStartPrefab || attack.feedback.landingPrefab || attack.feedback.landingSound)
                 && !GetComponent<AttackFeedback>()) gameObject.AddComponent<AttackFeedback>();
             Started?.Invoke(attack);
             ApplyFrame(); return true;

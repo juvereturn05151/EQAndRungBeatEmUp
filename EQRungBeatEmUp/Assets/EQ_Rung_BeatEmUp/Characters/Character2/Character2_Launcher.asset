@@ -32,13 +32,20 @@ MonoBehaviour:
     telegraphSound: {fileID: 0}
     screamSound: {fileID: 0}
     areaVolume: 0.6
-    swingSound: {fileID: 0}
-    impactSound: {fileID: 0}
-    swingVolume: 0.35
-    impactVolume: 0.55
-    impactPrefab: {fileID: 0}
-    impactScale: 0.15
+    swingSound: {fileID: 8300000, guid: 0e9bca6dd55d7e541a865752da6415f5, type: 3}
+    impactSound: {fileID: 8300000, guid: 05d0536a3eefc80438f95f9662331f52, type: 3}
+    swingVolume: 0.5
+    impactVolume: 0.65
+    impactPrefab: {fileID: 8525990746615576120, guid: b85d21f3b8fed714bacf0c4fd50fa512, type: 3}
+    impactScale: 0.2
     impactLifetime: 0.45
+    swingPrefab: {fileID: 6710139492206580332, guid: 95b8d3d65b5d7f1409c4ed1723887826, type: 3}
+    swingOffset: {x: 0.25, y: 0.8}
+    swingRotation: 90
+    swingMirrorWithFacing: 1
+    swingScale: 0.25
+    swingLifetime: 0.35
+    impactRotateWithFacing: 0
   frames:
   - sprite: {fileID: 21300000, guid: cc418150fbb71ab428767bd33f9ecd63, type: 3}
     hitboxes: []
@@ -204,7 +211,8 @@ MonoBehaviour:
     canCancelIntoJump: 0
     invulnerable: 0
     superArmor: 0
-    events: []
+    events:
+    - Swing
   - sprite: {fileID: 21300000, guid: 9e5455077abbb5e4ba0880ebb0b419d0, type: 3}
     hitboxes:
     - hitId: 0

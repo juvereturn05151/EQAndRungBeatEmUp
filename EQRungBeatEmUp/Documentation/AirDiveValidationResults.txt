@@ -1,3 +1,63 @@
+PASS: Launcher pose 1: original canvas, scale and ground pivot
+PASS: Launcher pose 1: both shoes contact consistent floor; no airborne pixels
+PASS: Launcher endpoint 1: pixel-exact Idle return
+PASS: Launcher pose 2: original canvas, scale and ground pivot
+PASS: Launcher pose 2: both shoes contact consistent floor; no airborne pixels
+PASS: Launcher pose 3: original canvas, scale and ground pivot
+PASS: Launcher pose 3: both shoes contact consistent floor; no airborne pixels
+PASS: Launcher pose 4: original canvas, scale and ground pivot
+PASS: Launcher pose 4: both shoes contact consistent floor; no airborne pixels
+PASS: Launcher pose 5: original canvas, scale and ground pivot
+PASS: Launcher pose 5: both shoes contact consistent floor; no airborne pixels
+PASS: Launcher pose 6: original canvas, scale and ground pivot
+PASS: Launcher pose 6: both shoes contact consistent floor; no airborne pixels
+PASS: Launcher pose 7: original canvas, scale and ground pivot
+PASS: Launcher pose 7: both shoes contact consistent floor; no airborne pixels
+PASS: Launcher pose 8: original canvas, scale and ground pivot
+PASS: Launcher pose 8: both shoes contact consistent floor; no airborne pixels
+PASS: Launcher endpoint 8: pixel-exact Idle return
+PASS: Launcher retains 26 frames and original 6-12 hit window
+PASS: Maximum extension matches active impact frames 8-12
+PASS: Grounded launcher launches enemy and recovers without lifting player, facing -1
+PASS: Launcher retains 26 frames and original 6-12 hit window
+PASS: Maximum extension matches active impact frames 8-12
+PASS: Grounded launcher launches enemy and recovers without lifting player, facing 1
+PASS: Assets/EQ_Rung_BeatEmUp/Attacks/Launcher.asset: launcher VFX/SFX assigned
+PASS: One launcher sweep event at the first active frame
+PASS: Anticipation has no premature launcher cue
+PASS: Missed launcher emits one sweep and whoosh
+PASS: Sweep offset/mirroring follows committed facing -1
+PASS: Recovery adds no duplicate or false-hit cues
+PASS: Accepted launcher contact emits one separate impact visual/sound alongside the sweep
+PASS: Interrupted startup has no delayed launcher cues
+PASS: Client reconstructs launcher sweep position and facing
+PASS: Assets/EQ_Rung_BeatEmUp/Attacks/Launcher.asset: launcher VFX/SFX assigned
+PASS: One launcher sweep event at the first active frame
+PASS: Anticipation has no premature launcher cue
+PASS: Missed launcher emits one sweep and whoosh
+PASS: Sweep offset/mirroring follows committed facing 1
+PASS: Recovery adds no duplicate or false-hit cues
+PASS: Accepted launcher contact emits one separate impact visual/sound alongside the sweep
+PASS: Interrupted startup has no delayed launcher cues
+PASS: Client reconstructs launcher sweep position and facing
+PASS: Assets/EQ_Rung_BeatEmUp/Characters/Character2/Character2_Launcher.asset: launcher VFX/SFX assigned
+PASS: One launcher sweep event at the first active frame
+PASS: Anticipation has no premature launcher cue
+PASS: Missed launcher emits one sweep and whoosh
+PASS: Sweep offset/mirroring follows committed facing -1
+PASS: Recovery adds no duplicate or false-hit cues
+PASS: Accepted launcher contact emits one separate impact visual/sound alongside the sweep
+PASS: Interrupted startup has no delayed launcher cues
+PASS: Client reconstructs launcher sweep position and facing
+PASS: Assets/EQ_Rung_BeatEmUp/Characters/Character2/Character2_Launcher.asset: launcher VFX/SFX assigned
+PASS: One launcher sweep event at the first active frame
+PASS: Anticipation has no premature launcher cue
+PASS: Missed launcher emits one sweep and whoosh
+PASS: Sweep offset/mirroring follows committed facing 1
+PASS: Recovery adds no duplicate or false-hit cues
+PASS: Accepted launcher contact emits one separate impact visual/sound alongside the sweep
+PASS: Interrupted startup has no delayed launcher cues
+PASS: Client reconstructs launcher sweep position and facing
 PASS: Assets/EQ_Rung_BeatEmUp/Attacks/AirHeadbuttDive.asset: all dive VFX/SFX assigned
 PASS: Dive start emits one visual/whoosh before landing, facing -1
 PASS: Dive burst follows airborne visual height

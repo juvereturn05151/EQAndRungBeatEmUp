@@ -1,0 +1,36 @@
+PASS: Assets/EQ_Rung_BeatEmUp/Attacks/Launcher.asset: launcher VFX/SFX assigned
+PASS: One launcher sweep event at the first active frame
+PASS: Anticipation has no premature launcher cue
+PASS: Missed launcher emits one sweep and whoosh
+PASS: Sweep offset/mirroring follows committed facing -1
+PASS: Recovery adds no duplicate or false-hit cues
+PASS: Accepted launcher contact emits one separate impact visual/sound alongside the sweep
+PASS: Interrupted startup has no delayed launcher cues
+PASS: Client reconstructs launcher sweep position and facing
+PASS: Assets/EQ_Rung_BeatEmUp/Attacks/Launcher.asset: launcher VFX/SFX assigned
+PASS: One launcher sweep event at the first active frame
+PASS: Anticipation has no premature launcher cue
+PASS: Missed launcher emits one sweep and whoosh
+PASS: Sweep offset/mirroring follows committed facing 1
+PASS: Recovery adds no duplicate or false-hit cues
+PASS: Accepted launcher contact emits one separate impact visual/sound alongside the sweep
+PASS: Interrupted startup has no delayed launcher cues
+PASS: Client reconstructs launcher sweep position and facing
+PASS: Assets/EQ_Rung_BeatEmUp/Characters/Character2/Character2_Launcher.asset: launcher VFX/SFX assigned
+PASS: One launcher sweep event at the first active frame
+PASS: Anticipation has no premature launcher cue
+PASS: Missed launcher emits one sweep and whoosh
+PASS: Sweep offset/mirroring follows committed facing -1
+PASS: Recovery adds no duplicate or false-hit cues
+PASS: Accepted launcher contact emits one separate impact visual/sound alongside the sweep
+PASS: Interrupted startup has no delayed launcher cues
+PASS: Client reconstructs launcher sweep position and facing
+PASS: Assets/EQ_Rung_BeatEmUp/Characters/Character2/Character2_Launcher.asset: launcher VFX/SFX assigned
+PASS: One launcher sweep event at the first active frame
+PASS: Anticipation has no premature launcher cue
+PASS: Missed launcher emits one sweep and whoosh
+PASS: Sweep offset/mirroring follows committed facing 1
+PASS: Recovery adds no duplicate or false-hit cues
+PASS: Accepted launcher contact emits one separate impact visual/sound alongside the sweep
+PASS: Interrupted startup has no delayed launcher cues
+PASS: Client reconstructs launcher sweep position and facing

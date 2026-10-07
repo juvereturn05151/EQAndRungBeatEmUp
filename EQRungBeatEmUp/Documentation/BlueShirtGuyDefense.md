@@ -10,10 +10,12 @@ Reused systems: CombatClock ordering and manual stepping, CharacterMotor movemen
 
 | Action | Keyboard | Gamepad | Behavior |
 |---|---|---|---|
-| Guard / Parry | L | Left shoulder | Press opens a fresh parry window; hold continues Guard; release ends Guard after any remaining blockstun. |
-| Dodge | Left Alt | Right shoulder | One dodge per press. Holding cannot repeat it. |
+| Guard / Parry | L without movement | Left shoulder without stick movement | Press opens a fresh parry window; hold continues Guard; release ends Guard after any remaining blockstun. |
+| Dodge | Direction + L | Stick direction + left shoulder | One dodge per button press, with priority over Guard. Holding cannot repeat it. |
 
-There is no separate Parry action. These bindings do not overlap Attack, Launcher or Jump. The input bridge subscribes to button `performed` and Guard `canceled` callbacks; only movement is read continuously.
+The existing `Guard` input action owns both behaviors. Separate Dodge and Parry actions are absent. Standalone input resolves defense after all input events, using the current Move action and the Guard action's press/hold state. Paired multiplayer input sends the same decision through the existing player command; a Dodge command always suppresses Guard on the authority. There are no keyboard-specific defense checks.
+
+Movement above the existing 0.1 magnitude threshold selects Dodge on a new defense-button press. Diagonals retain the existing normalized eight-direction movement and the same total travel distance. Releasing movement while holding the defense button requests Guard once the current dodge/recovery permits it. Adding movement while holding the button releases Guard and never creates another Dodge; release and press the button again to Dodge.
 
 ## Gameplay timing
 
@@ -25,7 +27,7 @@ All indices are zero-based logical frames. Hitstop pauses the actor's state time
 | Dodge invulnerability | Only 4–9 inclusive. Startup and recovery receive ordinary hits. |
 | Dodge movement | Configurable speed 9 units/s, eight moving ticks = 1.2 units. Normalized current movement input, or backward from facing when input is absent. Uses motor velocity and arena bounds. |
 | Guard entry / hold | Entry poses hold 2f and 3f; last pose holds indefinitely. No animation restart each tick. |
-| Parry window | Guard press frames 0–7, configurable 8f. Held Guard after that only blocks. |
+| Parry window | Uses the authored `parryWindowFrames` (currently 12f). Held Guard after that only blocks. The input change leaves this tuning unchanged. |
 | Guard block | Default zero damage, 10f blockstun and 2f hitstop. Per-hitbox `blockDamage`, `blockstunFrames` and `unblockable` are editable in Attack Data Editor. |
 | Successful Parry | Zero damage, no blockstun, 8f player recovery, 24f attacker interruption, 6f hitstop on both actors. |
 | Parry re-arm | Full active window plus 6 additional combat frames. Repressing during this delay immediately Guards without reopening parry. |

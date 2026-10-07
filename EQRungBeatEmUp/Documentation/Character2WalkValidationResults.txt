@@ -5,62 +5,62 @@ PASS: Pose and unchanged timestamp Walk_01
 PASS: Canvas, PPU and feet pivot Walk_01
 PASS: Crisp point import Walk_01
 PASS: Body height matches Idle within pose bob and grounded baseline Walk_01
-PASS: Hair silhouette matches Idle width Walk_01 (36 vs 37)
+PASS: Hair silhouette matches Idle width Walk_01 (38 vs 37)
 PASS: Pose and unchanged timestamp Walk_02
 PASS: Canvas, PPU and feet pivot Walk_02
 PASS: Crisp point import Walk_02
 PASS: Body height matches Idle within pose bob and grounded baseline Walk_02
-PASS: Hair silhouette matches Idle width Walk_02 (35 vs 37)
+PASS: Hair silhouette matches Idle width Walk_02 (37 vs 37)
 PASS: Pose and unchanged timestamp Walk_03
 PASS: Canvas, PPU and feet pivot Walk_03
 PASS: Crisp point import Walk_03
 PASS: Body height matches Idle within pose bob and grounded baseline Walk_03
-PASS: Hair silhouette matches Idle width Walk_03 (36 vs 37)
+PASS: Hair silhouette matches Idle width Walk_03 (38 vs 37)
 PASS: Pose and unchanged timestamp Walk_04
 PASS: Canvas, PPU and feet pivot Walk_04
 PASS: Crisp point import Walk_04
 PASS: Body height matches Idle within pose bob and grounded baseline Walk_04
-PASS: Hair silhouette matches Idle width Walk_04 (36 vs 37)
+PASS: Hair silhouette matches Idle width Walk_04 (38 vs 37)
 PASS: Pose and unchanged timestamp Walk_05
 PASS: Canvas, PPU and feet pivot Walk_05
 PASS: Crisp point import Walk_05
 PASS: Body height matches Idle within pose bob and grounded baseline Walk_05
-PASS: Hair silhouette matches Idle width Walk_05 (35 vs 37)
+PASS: Hair silhouette matches Idle width Walk_05 (39 vs 37)
 PASS: Pose and unchanged timestamp Walk_06
 PASS: Canvas, PPU and feet pivot Walk_06
 PASS: Crisp point import Walk_06
 PASS: Body height matches Idle within pose bob and grounded baseline Walk_06
-PASS: Hair silhouette matches Idle width Walk_06 (36 vs 37)
+PASS: Hair silhouette matches Idle width Walk_06 (39 vs 37)
 PASS: Pose and unchanged timestamp Walk_07
 PASS: Canvas, PPU and feet pivot Walk_07
 PASS: Crisp point import Walk_07
 PASS: Body height matches Idle within pose bob and grounded baseline Walk_07
-PASS: Hair silhouette matches Idle width Walk_07 (35 vs 37)
+PASS: Hair silhouette matches Idle width Walk_07 (39 vs 37)
 PASS: Pose and unchanged timestamp Walk_08
 PASS: Canvas, PPU and feet pivot Walk_08
 PASS: Crisp point import Walk_08
 PASS: Body height matches Idle within pose bob and grounded baseline Walk_08
-PASS: Hair silhouette matches Idle width Walk_08 (35 vs 37)
+PASS: Hair silhouette matches Idle width Walk_08 (39 vs 37)
 PASS: Pose and unchanged timestamp Walk_09
 PASS: Canvas, PPU and feet pivot Walk_09
 PASS: Crisp point import Walk_09
 PASS: Body height matches Idle within pose bob and grounded baseline Walk_09
-PASS: Hair silhouette matches Idle width Walk_09 (35 vs 37)
+PASS: Hair silhouette matches Idle width Walk_09 (39 vs 37)
 PASS: Pose and unchanged timestamp Walk_10
 PASS: Canvas, PPU and feet pivot Walk_10
 PASS: Crisp point import Walk_10
 PASS: Body height matches Idle within pose bob and grounded baseline Walk_10
-PASS: Hair silhouette matches Idle width Walk_10 (36 vs 37)
+PASS: Hair silhouette matches Idle width Walk_10 (39 vs 37)
 PASS: Pose and unchanged timestamp Walk_11
 PASS: Canvas, PPU and feet pivot Walk_11
 PASS: Crisp point import Walk_11
 PASS: Body height matches Idle within pose bob and grounded baseline Walk_11
-PASS: Hair silhouette matches Idle width Walk_11 (36 vs 37)
+PASS: Hair silhouette matches Idle width Walk_11 (39 vs 37)
 PASS: Pose and unchanged timestamp Walk_12
 PASS: Canvas, PPU and feet pivot Walk_12
 PASS: Crisp point import Walk_12
 PASS: Body height matches Idle within pose bob and grounded baseline Walk_12
-PASS: Hair silhouette matches Idle width Walk_12 (35 vs 37)
+PASS: Hair silhouette matches Idle width Walk_12 (38 vs 37)
 PASS: Shared controller starts in Idle
 PASS: Shared movement enters Walk at original playback speed
 PASS: Repeated loop 0 pose 1 at identical renderer scale (actual=Walk_01)

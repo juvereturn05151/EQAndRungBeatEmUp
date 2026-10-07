@@ -44,7 +44,49 @@ namespace BeatEmUp
             command.sequence=sources.TryGetValue(slot.slot,out var source) ? source.Read().sequence : ++submittedCommandSequence;
             if(IsAuthority) ApplyCommand(slot.slot,command); else Send(0,"input",JsonUtility.ToJson(command));
         }
-        public bool CanStart => InLobby && IsAuthority && Lobby.slots.Count>=(Mode==SessionMode.Single ? 1 : 2) && Lobby.slots.All(s=>s.ready);
+        public bool CharacterSelectInputActive { get; set; }
+        public bool LocalMenuOpen { get; set; }
+        public bool CanStart => InLobby && IsAuthority && Application.CanStreamedLevelBeLoaded(catalog.gameplayScene) && Lobby.slots.Count>=Lobby.requiredPlayerCount && Lobby.slots.All(s=>s.ready && CanConfirm(s));
+        public bool CanConfirm(LobbySlot slot)
+        {
+            var character=catalog.CharacterAt(slot.character);
+            var definition=catalog.SelectionAt(slot.character);
+            if(!character || !(definition ? definition.Prefab : character.prefab) || (definition && !definition.IsUnlocked)) return false;
+            return Lobby.allowDuplicateCharacters || !Lobby.slots.Any(s=>s.slot!=slot.slot && s.character==slot.character);
+        }
+        public void ConfigureSelection(int required, bool duplicates, string scene)
+        {
+            if(!IsAuthority || !InLobby || Lobby.running) return;
+            Lobby.requiredPlayerCount=Mode==SessionMode.Single ? 1 : Mathf.Clamp(required,1,4);
+            Lobby.allowDuplicateCharacters=duplicates;
+            var assigned=new HashSet<int>();
+            foreach(var slot in Lobby.slots.OrderBy(s=>s.slot))
+            {
+                if(!catalog.CharacterAt(slot.character) || (!duplicates && !assigned.Add(slot.character)))
+                { slot.character=AvailableCharacter(PreferredCharacter,slot.slot); slot.ready=false; }
+                if(slot.character>=0) assigned.Add(slot.character);
+            }
+            if(!string.IsNullOrEmpty(scene)) catalog.gameplayScene=scene;
+            BroadcastLobby();
+        }
+        int AvailableCharacter(int preferred, int excludedSlot=-1)
+        {
+            var candidates=Enumerable.Range(0,catalog.characters.Length).OrderBy(i=>i==preferred ? 0 : 1);
+            foreach(int choice in candidates)
+            {
+                var definition=catalog.SelectionAt(choice);
+                if(definition && (!definition.IsUnlocked || !definition.Prefab)) continue;
+                if(!definition && !catalog.CharacterAt(choice).prefab) continue;
+                if(!Lobby.allowDuplicateCharacters && Lobby.slots.Any(s=>s.slot!=excludedSlot && s.character==choice)) continue;
+                return choice;
+            }
+            return -1;
+        }
+        public void RemoveSelectionDevice(InputDevice device)
+        {
+            if(!InLobby || Mode==SessionMode.Online) return;
+            Lobby.slots.RemoveAll(s=>s.device==device); Changed?.Invoke();
+        }
         public event Action Changed;
         NetworkManager network;
         readonly Dictionary<int,SessionInput> sources=new Dictionary<int,SessionInput>();
@@ -68,7 +110,7 @@ namespace BeatEmUp
         bool sceneReady, leaving;
         int generation;
         float connectionDeadline;
-        const string Protocol="GhostFair/4/";
+        const string Protocol="GhostFair/5/";
         const int MaxMessageBytes=512*1024;
         void Awake()
         {
@@ -97,21 +139,22 @@ namespace BeatEmUp
             InLobby=true; Lobby=new LobbyState{contentHash=catalog.contentHash};
             if(Keyboard.current!=null) JoinDevice(Keyboard.current);
             else if(Gamepad.current!=null) JoinDevice(Gamepad.current);
-            if(single && Lobby.slots.Count==1) { Lobby.slots[0].ready=true; StartGame(); }
-            Status="Press Enter / gamepad A to join or toggle Ready"; Changed?.Invoke();
+            Status="Choose a character. Enter / A confirms; Escape / B cancels."; Changed?.Invoke();
         }
         public bool JoinDevice(InputDevice device)
         {
             if(!InLobby || Mode==SessionMode.Online || Lobby.slots.Count>=4 || device==null || Lobby.slots.Any(s=>s.device==device)) return false;
             int slot=Enumerable.Range(0,4).First(i=>Lobby.slots.All(s=>s.slot!=i));
-            Lobby.slots.Add(new LobbySlot{slot=slot,owner=(ulong)slot,name="Player "+(slot+1),device=device,character=catalog.CharacterAt(PreferredCharacter) ? PreferredCharacter : 0});
+            Lobby.slots.Add(new LobbySlot{slot=slot,owner=(ulong)slot,name="Player "+(slot+1),device=device,character=AvailableCharacter(PreferredCharacter)});
             Changed?.Invoke(); return true;
         }
         public void Ready(int slot)
         {
+            if(!InLobby || Lobby.running) return;
             var entry=Lobby.slots.Find(s=>s.slot==slot); if(entry==null) return;
-            if(Mode==SessionMode.Online && !IsAuthority) { Send(0,"ready","toggle"); return; }
+            if(Mode==SessionMode.Online && !IsAuthority) { if(IsLocalOwner(entry.owner)) Send(0,"ready",(!entry.ready).ToString()); return; }
             if(!IsLocalOwner(entry.owner)) return;
+            if(!entry.ready && !CanConfirm(entry)) return;
             entry.ready=!entry.ready; BroadcastLobby(); Changed?.Invoke();
         }
         public async Task HostRelay()
@@ -214,7 +257,8 @@ namespace BeatEmUp
             network.CustomMessagingManager.RegisterNamedMessageHandler(Protocol+"ready",(sender,reader)=>
             {
                 if(!IsAuthority || Lobby.running) return; var slot=Lobby.slots.Find(s=>s.owner==sender); if(slot==null) return;
-                slot.ready=!slot.ready; BroadcastLobby(); Changed?.Invoke();
+                if(!bool.TryParse(Read(reader),out bool ready) || (ready && !CanConfirm(slot))) return;
+                slot.ready=ready; BroadcastLobby(); Changed?.Invoke();
             });
             network.CustomMessagingManager.RegisterNamedMessageHandler(Protocol+"character",(sender,reader)=>
             {
@@ -223,7 +267,7 @@ namespace BeatEmUp
                 if(slot!=null && int.TryParse(Read(reader),out int choice)) ChangeCharacter(slot,choice);
             });
             network.CustomMessagingManager.RegisterNamedMessageHandler(Protocol+"load",(sender,reader)=>
-            { if(!IsAuthority && sender==0) { InLobby=false; InGame=true; SceneManager.LoadScene(catalog.gameplayScene); } });
+            { if(!IsAuthority && sender==0) { string sceneName=Read(reader); if(!Application.CanStreamedLevelBeLoaded(sceneName)) { Status="Host gameplay scene is unavailable in this build."; LeaveToMenu(); return; } catalog.gameplayScene=sceneName; InLobby=false; InGame=true; SceneManager.LoadScene(sceneName); } });
             network.CustomMessagingManager.RegisterNamedMessageHandler(Protocol+"loaded",(sender,reader)=>
             { if(IsAuthority && Lobby.slots.Any(s=>s.owner==sender)) { loaded.Add(sender); TryBeginSimulation(); } });
             network.CustomMessagingManager.RegisterNamedMessageHandler(Protocol+"input",(sender,reader)=>
@@ -260,7 +304,7 @@ namespace BeatEmUp
         {
             if(Lobby.slots.Any(s=>s.owner==id)) return;
             int slot=Enumerable.Range(0,4).First(i=>Lobby.slots.All(s=>s.slot!=i));
-            Lobby.slots.Add(new LobbySlot{slot=slot,owner=id,name="Player "+(slot+1),character=id==network.LocalClientId && catalog.CharacterAt(PreferredCharacter) ? PreferredCharacter : 0,device=id==network.LocalClientId ? PreferredOnlineDevice ?? (InputDevice)Keyboard.current ?? Gamepad.current : null});
+            Lobby.slots.Add(new LobbySlot{slot=slot,owner=id,name="Player "+(slot+1),character=AvailableCharacter(id==network.LocalClientId ? PreferredCharacter : 0),device=id==network.LocalClientId ? PreferredOnlineDevice ?? (InputDevice)Keyboard.current ?? Gamepad.current : null});
             Changed?.Invoke();
         }
         void Disconnected(ulong id)
@@ -293,7 +337,8 @@ namespace BeatEmUp
         }
         void ChangeCharacter(LobbySlot slot,int choice)
         {
-            if(!catalog.CharacterAt(choice) || Lobby.running) return;
+            if(!catalog.CharacterAt(choice) || Lobby.running || slot.ready) return;
+            if(!Lobby.allowDuplicateCharacters && Lobby.slots.Any(s=>s.slot!=slot.slot && s.character==choice)) return;
             slot.character=choice; slot.ready=false; BroadcastLobby(); Changed?.Invoke();
         }
         void SceneLoaded(Scene scene,LoadSceneMode mode)
@@ -338,7 +383,8 @@ namespace BeatEmUp
             // Instantiate inactive to disable legacy automatic device pairing before enabling the character.
             var parent=new GameObject("Player construction"); parent.SetActive(false);
             var definition=catalog.CharacterAt(slot.character);
-            var go=Instantiate(definition && definition.prefab ? definition.prefab : catalog.playerPrefab,parent.transform); go.name="Player "+(slot.slot+1);
+            var selectedPrefab=GameplayPlayerSpawner.ResolvePrefab(catalog,slot);
+            var go=Instantiate(selectedPrefab,parent.transform); go.name="Player "+(slot.slot+1);
             if(definition)
             {
                 var loadout=go.GetComponent<PlayerCharacterLoadout>(); if(!loadout) loadout=go.AddComponent<PlayerCharacterLoadout>();
@@ -346,6 +392,7 @@ namespace BeatEmUp
             }
             go.GetComponent<PlayerInput>().enabled=false; go.GetComponent<PlayerCombatInput>().enabled=false;
             var own=go.AddComponent<PlayerIdentity>(); own.slot=slot.slot; own.owner=slot.owner; own.character=slot.character;
+            own.SpawnedPrefab=selectedPrefab;
             go.GetComponent<ComboUIController>().enabled=false; // Session HUD has separate slots, avoiding four overlapping canvases.
             if(!go.GetComponent<RunBuildState>()) go.AddComponent<RunBuildState>();
             go.transform.SetParent(null); Destroy(parent); characters[slot.slot]=own;
@@ -368,9 +415,10 @@ namespace BeatEmUp
             { player.Motor.MoveInput=Vector2.zero; combat.RequestGuard(false); if(((PlayerButtons)command.buttons&PlayerButtons.Interact)!=0) Flow.GetComponent<PlayerHubController>().Execute(player.Motor,HubAction.Close,0); return; }
             var choice=Flow.CoopRewards ? Flow.CoopRewards.selections.Find(s=>s.player==player) : null;
             bool choosing=choice!=null && choice.opened && !choice.done;
+            if(choosing && command.choice==-2) { Flow.CoopRewards.CloseChoice(player); return; }
             player.Motor.MoveInput=choosing || CombatClock.IsPaused ? Vector2.zero : Vector2.ClampMagnitude(command.move,1);
             if(command.choice>=0 && choosing) { Flow.CoopRewards.Choose(player,command.choice); return; }
-            combat.RequestGuard(!choosing && command.guard);
+            combat.RequestGuard(!choosing && (command.buttons & (int)PlayerButtons.Dodge)==0 && command.guard);
             if(choosing) return;
             var buttons=(PlayerButtons)command.buttons;
             if((buttons&PlayerButtons.Attack)!=0) combat.RequestAttack();
@@ -397,14 +445,14 @@ namespace BeatEmUp
                 ClearSession(); Busy=false; Status="Connection timed out. Check the room code and try again."; Changed?.Invoke();
                 return;
             }
-            if(InLobby && Mode!=SessionMode.Online)
+            if(InLobby && !CharacterSelectInputActive && Mode!=SessionMode.Online)
             {
                 if(Keyboard.current!=null && Keyboard.current.enterKey.wasPressedThisFrame) JoinOrReady(Keyboard.current);
                 foreach(var pad in Gamepad.all) if(pad.buttonSouth.wasPressedThisFrame) JoinOrReady(pad);
             }
-            else if(InLobby && Mode==SessionMode.Online && ((Keyboard.current!=null && Keyboard.current.enterKey.wasPressedThisFrame) || (Gamepad.current!=null && Gamepad.current.buttonSouth.wasPressedThisFrame)))
+            else if(InLobby && !CharacterSelectInputActive && Mode==SessionMode.Online && ((Keyboard.current!=null && Keyboard.current.enterKey.wasPressedThisFrame) || (Gamepad.current!=null && Gamepad.current.buttonSouth.wasPressedThisFrame)))
             { var me=Lobby.slots.Find(s=>IsLocalOwner(s.owner)); if(me!=null) Ready(me.slot); }
-            if(InLobby && CanStart && ((Keyboard.current!=null && Keyboard.current.spaceKey.wasPressedThisFrame) || Gamepad.all.Any(p=>p.startButton.wasPressedThisFrame))) StartGame();
+            if(InLobby && !CharacterSelectInputActive && CanStart && ((Keyboard.current!=null && Keyboard.current.spaceKey.wasPressedThisFrame) || Gamepad.all.Any(p=>p.startButton.wasPressedThisFrame))) StartGame();
             if(!InGame || !sceneReady) return;
             if(!IsAuthority)
             {
@@ -415,6 +463,9 @@ namespace BeatEmUp
             {
                 if(input.Value.Device!=null && !input.Value.Device.added) { if(IsAuthority && characters.TryGetValue(input.Key,out var p)) p.Motor.MoveInput=Vector2.zero; continue; }
                 var command=input.Value.Read();
+                var menuState=input.Value.Menu.Read();
+                if(LocalMenuOpen || Latest?.gameOver==true || Latest?.completed==true || (menuState.Start && input.Value.Device is Gamepad) || menuState.Cancel)
+                { command.move=Vector2.zero; command.buttons=0; command.guard=false; command.choice=-1; }
                 if(IsAuthority) ApplyCommand(input.Key,command);
                 else if(command.buttons!=0 || command.choice>=0 || Time.unscaledTime>=nextInputTime)
                 { Send(0,"input",JsonUtility.ToJson(command)); nextInputTime=Time.unscaledTime+1f/30; }
@@ -534,7 +585,7 @@ namespace BeatEmUp
             foreach(var p in FindObjectsByType<AttackPlayer>(FindObjectsSortMode.None))
             {
                 if(!observed.Add(p)) continue;
-                p.FrameEvent+=signal=> { if(p && (signal=="Swing" || signal=="Telegraph" || signal=="Scream") && p.CurrentAttack) AddFeedback(p,false,p.motor.transform.position,signal); };
+                p.FrameEvent+=signal=> { if(p && (signal=="Swing" || signal=="Telegraph" || signal=="Scream" || signal=="DiveWhoosh" || signal=="DiveLanding") && p.CurrentAttack) AddFeedback(p,false,(Vector2)p.motor.transform.position + new Vector2(0,signal=="DiveWhoosh" ? p.motor.Height+.3f : 0),signal); };
                 p.Stopped+=attack=> { if(p && attack && attack.feedback!=null && (attack.feedback.areaWarning || attack.feedback.directionalWaveWarning)) AddFeedback(p,false,p.motor.transform.position,"StopArea",attack); };
                 var defender=p.GetComponent<ComboController>();
                 var capture=p.GetComponent<CombatGrabController>();
@@ -592,7 +643,7 @@ namespace BeatEmUp
             characters.Clear(); commandSequences.Clear(); lastInput.Clear(); loaded.Clear(); observed.Clear(); feedback.Clear(); feedbackKeys.Clear();
             if(replicaRoot) Destroy(replicaRoot); replicaRoot=null;
             replicas.Clear(); replicaPositions.Clear(); replicaTeleports.Clear(); waveReplicas.Clear();
-            InGame=InLobby=sceneReady=false; Latest=null; Flow=null; lastEffectId=effectId=0;
+            InGame=InLobby=sceneReady=LocalMenuOpen=false; Latest=null; Flow=null; lastEffectId=effectId=0;
             Lobby=new LobbyState(); Time.timeScale=1;
             ValidationPhase=null; ValidationOwner=0;
             remoteMeta.Clear(); savedMeta=null;

@@ -15,6 +15,8 @@ namespace BeatEmUp
     }
     [Serializable] public sealed class LobbyState
     {
+        public int requiredPlayerCount = 1;
+        public bool allowDuplicateCharacters = true;
         public List<LobbySlot> slots=new List<LobbySlot>();
         public bool running;
         public string code;

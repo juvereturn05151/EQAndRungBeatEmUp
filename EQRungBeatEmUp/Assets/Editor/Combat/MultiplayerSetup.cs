@@ -28,7 +28,8 @@ public static class MultiplayerSetup
         catalog.menuBackground=catalog.level.stages[0].backgroundSprite;
         // Reject builds whose art indexing, player configuration or stage definitions do not match.
         var paths=AssetDatabase.GetDependencies(new[]{ComboTrackingSetup.PlayerPath,HauntedLevelBuilder.LevelPath}.Concat(catalog.characters.Select(AssetDatabase.GetAssetPath)).ToArray(),true).OrderBy(p=>p,StringComparer.Ordinal);
-        string contents="GhostFairProtocol4|"+string.Join("|",paths.Select(p=>p+":"+AssetDatabase.GetAssetDependencyHash(p)))+"|"+string.Join("|",catalog.sprites.Select(s=>AssetDatabase.GetAssetPath(s)+":"+s.name));
+        string contents="GhostFairProtocol5|"+string.Join("|",paths.Select(p=>p+":"+AssetDatabase.GetAssetDependencyHash(p)))+"|"+string.Join("|",catalog.sprites.Select(s=>AssetDatabase.GetAssetPath(s)+":"+s.name));
+        contents+="|"+string.Join("|",catalog.selectionCharacters.Where(c=>c).Select(c=>AssetDatabase.GetAssetPath(c)+":"+AssetDatabase.GetAssetDependencyHash(AssetDatabase.GetAssetPath(c))));
         contents+="|"+string.Join("|",Directory.GetFiles("Assets/EQ_Rung_BeatEmUp/Scripts","*.cs",SearchOption.AllDirectories).OrderBy(p=>p,StringComparer.Ordinal).Select(p=>p+":"+File.ReadAllText(p)))+"|"+File.ReadAllText("Packages/manifest.json");
         using(var hash=SHA256.Create()) catalog.contentHash=BitConverter.ToString(hash.ComputeHash(Encoding.UTF8.GetBytes(contents))).Replace("-","");
         EditorUtility.SetDirty(catalog); AssetDatabase.SaveAssets();

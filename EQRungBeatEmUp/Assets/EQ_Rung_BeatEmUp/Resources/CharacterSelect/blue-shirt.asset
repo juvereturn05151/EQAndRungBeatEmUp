@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24dc36680f7b2764c815b0a0bb55dc33, type: 3}
+  m_Name: blue-shirt
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.CharacterDefinition
+  GameplayCharacter: {fileID: 11400000, guid: b655dba35256d104abe43db870fa78d0, type: 2}
+  CharacterId: blue-shirt
+  DisplayName: BLUE SHIRT GUY
+  CharacterPrefab: {fileID: 6799408650324901922, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+  PortraitSprite: {fileID: 21300000, guid: e16b5ee029b09404cbefaa2dd3425f13, type: 3}
+  LargePreviewSprite: {fileID: 21300000, guid: e16b5ee029b09404cbefaa2dd3425f13, type: 3}
+  Power: 4
+  Speed: 3
+  Defense: 4
+  Technique: 2
+  Archetype: BRAWLER
+  IsUnlocked: 1
+  Description: 'Fists up. Spirits down.
+
+    A stubborn schoolyard fighter.'
+  CharacterSelectVoice: {fileID: 0}
+  ConfirmVoice: {fileID: 0}
+  ThemeColor: {r: 1, g: 1, b: 1, a: 1}
+  CharacterSelectAnimation:
+  - {fileID: 21300000, guid: e16b5ee029b09404cbefaa2dd3425f13, type: 3}
+  - {fileID: 21300000, guid: d9af85c692dd1bc438265e2e0e497202, type: 3}
+  - {fileID: 21300000, guid: 5f6a0004b92b61b4898c98d01660aed1, type: 3}
+  - {fileID: 21300000, guid: e725ff77dfc84814db2dc4d29271f0cf, type: 3}
+  - {fileID: 21300000, guid: 22f58b1c5d951c941a99caf6893e7327, type: 3}
+  - {fileID: 21300000, guid: ca04829b5b0227e40a56552b31ec1946, type: 3}
+  - {fileID: 21300000, guid: db63eecede1ba4142be18bc7a8e07073, type: 3}
+  - {fileID: 21300000, guid: 6202deee142e5a34683d360a4b05e344, type: 3}

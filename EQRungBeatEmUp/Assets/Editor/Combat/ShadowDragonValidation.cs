@@ -170,7 +170,7 @@ public static class ShadowDragonValidation
         Fixture(5);
         var actions=po.GetComponent<PlayerInput>().actions; var action=actions.FindAction("Player/Skill",true);
         Check(action.bindings.Any(b=>b.path=="<Keyboard>/i") && action.bindings.Any(b=>b.path=="<Gamepad>/rightTrigger"),"New Input System skill keyboard / gamepad bindings");
-        Check(actions.FindAction("Player/Guard").bindings.Any(b=>b.path=="<Keyboard>/l") && actions.FindAction("Player/Dodge").bindings.Any(b=>b.path=="<Gamepad>/rightShoulder"),"Existing guard and dodge bindings preserved");
+        Check(actions.FindAction("Player/Guard").bindings.Any(b=>b.path=="<Keyboard>/l") && actions.FindAction("Player/Guard").bindings.Any(b=>b.path=="<Gamepad>/leftShoulder") && actions.FindAction("Player/Dodge",false)==null,"Shared keyboard/controller defense action replaces the separate Dodge binding");
         foreach(bool gamepad in new[]{false,true})
         {
             var device=gamepad ? (InputDevice)InputSystem.AddDevice<Gamepad>() : InputSystem.AddDevice<Keyboard>();

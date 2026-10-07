@@ -1,0 +1,82 @@
+PASS: Existing persistent session and two real character prefabs available
+PASS: Main menu starts with visible PLAY focus
+PASS: Keyboard arrows navigate buttons
+PASS: Enter opens help without a mouse
+PASS: Escape returns to the main menu
+PASS: Controller D-pad navigates the main menu
+PASS: Controller A opens options
+PASS: Focus survives options rebuilding after activation
+PASS: Controller B returns to the main menu
+PASS: Online page navigable without connecting
+PASS: Controller room-code keypad entry available
+PASS: Room-code keypad starts on A
+PASS: A enters a room-code character and retains focus
+PASS: Analog stick navigates keypad
+PASS: Back traverses keypad, online and modes to main
+PASS: Open Character Select from existing local mode
+PASS: Canvas preview has visible size and lies inside the game screen
+PASS: P1 joins selecting; not auto-confirmed
+PASS: P1 navigation action changes character
+PASS: Preview, name and archetype update from definition
+PASS: Stat segments update immediately
+PASS: P1 portrait highlight and marker visible
+PASS: Confirm action shows READY
+PASS: Confirmed selection ignores navigation
+PASS: Cancel unlocks selection
+PASS: P2 Join action adds separate selecting cursor without also confirming
+PASS: P2 gamepad navigation is independent of P1 keyboard
+PASS: Duplicate characters allowed: both can confirm
+PASS: Duplicate characters disabled: occupied selection rejected
+PASS: Locked character cannot confirm
+PASS: Start unavailable until every joined player is ready
+PASS: Start available after both required players confirm
+PASS: Four local players supported
+PASS: Joining with duplicates disabled never assigns an occupied fighter
+PASS: Unconfirmed third/fourth players block Start
+PASS: All four slots render and become ready
+PASS: Network lobby payload preserves selections, readiness and party rules
+PASS: Scene load completed within timeout
+PASS: Gameplay spawns two distinct player instances
+PASS: P1 uses selected gameplay loadout
+PASS: P1 instantiated the exact selected prefab after scene loading
+PASS: P1 stable character ID survives scene loading
+PASS: P2 uses selected gameplay loadout
+PASS: P2 instantiated the exact selected prefab after scene loading
+PASS: P2 stable character ID survives scene loading
+PASS: P1/P2 selected distinct actual prefabs
+PASS: Authority prioritizes directional Dodge over Guard: (-1.00, 0.00)
+PASS: Authority uses the command's current movement direction: (-1.00, 0.00)
+PASS: Authority prioritizes directional Dodge over Guard: (1.00, 0.00)
+PASS: Authority uses the command's current movement direction: (1.00, 0.00)
+PASS: Authority prioritizes directional Dodge over Guard: (0.00, 1.00)
+PASS: Authority uses the command's current movement direction: (0.00, 1.00)
+PASS: Authority prioritizes directional Dodge over Guard: (0.00, -1.00)
+PASS: Authority uses the command's current movement direction: (0.00, -1.00)
+PASS: Authority enters Guard for stationary shared-button input
+PASS: Escape opens gameplay menu and pauses local combat
+PASS: P2 confirm cannot activate P1's gameplay menu
+PASS: Enter resumes local play
+PASS: Space remains the gameplay jump button
+PASS: Escape opens the gameplay menu again
+PASS: Escape closes gameplay menu
+PASS: P2 can open the gameplay menu with controller Start
+PASS: The controller that opened the gameplay menu can close it with B
+PASS: P2 navigates to hub Close and confirms with A
+PASS: Controller B closes a hub panel without opening the gameplay menu
+PASS: Co-op blessing reward available for navigation checks
+PASS: Both players open independent blessing menus
+PASS: D-pad changes focus without immediately purchasing a blessing
+PASS: P2 cancel closes only P2's blessing menu and retains the reward
+PASS: P2 A selects the focused blessing without changing P1
+PASS: Standalone upgrade-card menu opens
+PASS: Standalone controller navigation chooses the focused upgrade card
+PASS: Keyboard Tab opens the standalone current-build menu
+PASS: Keyboard Escape closes the standalone current-build menu
+PASS: Controller Start opens the standalone current-build menu
+PASS: Controller B closes the standalone current-build menu
+PASS: Scene load completed within timeout
+PASS: Re-entry clears previous party and ready state
+PASS: Re-entry handles navigation once; no stale action listeners
+PASS: Cancel from an unconfirmed P1 returns to the menu
+PASS: Single player also enters selection before gameplay
+RESULT: PASS

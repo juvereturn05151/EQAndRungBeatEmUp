@@ -23,6 +23,23 @@ MonoBehaviour:
     until landing), 14-16 impact, 17-23 recovery. Velocity5: forward6/down8; compact
     head hitbox. Ground contact branches directly to14. Events: DiveWindup, DiveWhoosh,
     DiveLanding. Edit all timings/physics/hits here.'
+  feedback:
+    swingSound: {fileID: 8300000, guid: a65d792d6907f744490c9b15bb70edfe, type: 3}
+    impactSound: {fileID: 8300000, guid: d0f166575306db84091dc03fce0eff69, type: 3}
+    swingVolume: 0.5
+    impactVolume: 0.55
+    diveStartPrefab: {fileID: 1429954232896169633, guid: 83036083a4ebcd34f98131bd3cf6f4d2, type: 3}
+    diveStartScale: 0.2
+    diveStartLifetime: 0.35
+    landingPrefab: {fileID: 3432958286849152088, guid: 87ee7299dd44ed747af24dbb91bcd33b, type: 3}
+    landingSound: {fileID: 8300000, guid: 2a295373a10441545bcaf619b61bea94, type: 3}
+    landingVolume: 0.65
+    landingScale: 0.25
+    landingLifetime: 0.7
+    impactPrefab: {fileID: 8525990746615576120, guid: b85d21f3b8fed714bacf0c4fd50fa512, type: 3}
+    impactRotateWithFacing: 0
+    impactScale: 0.15
+    impactLifetime: 0.45
   frames:
   - sprite: {fileID: 21300000, guid: 326cc7d5937b51e40f52cbd892dcd65c, type: 3}
     hitboxes: []

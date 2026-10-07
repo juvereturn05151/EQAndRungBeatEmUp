@@ -77,6 +77,12 @@ namespace BeatEmUp
         [Range(0, 1)] public float areaVolume = .6f;
         public AudioClip swingSound, impactSound;
         [Range(0, 1)] public float swingVolume = .35f, impactVolume = .55f;
+        [Header("Air dive (DiveWhoosh / DiveLanding frame events)")]
+        public GameObject diveStartPrefab, landingPrefab;
+        public AudioClip landingSound;
+        [Range(0, 1)] public float landingVolume = .65f;
+        [Min(.01f)] public float diveStartScale = .2f, landingScale = .25f;
+        [Min(.05f)] public float diveStartLifetime = .3f, landingLifetime = .6f;
         public GameObject impactPrefab;
         [Tooltip("Rotate the effect 180 degrees when facing left. Disable for upright, surrounding area effects.")]
         public bool impactRotateWithFacing = true;

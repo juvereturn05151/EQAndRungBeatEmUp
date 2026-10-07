@@ -52,8 +52,68 @@ public static class AirDiveValidation
         Step(player.airDive.TotalFrames - player.airDive.landingFrame);
         Check(!player.CurrentAttack && player.State == CombatState.Idle && !player.motor.MovementLocked && player.motor.FrameGravityScale == 1 && player.motor.AttackHorizontalVelocity == 0, "Recovery ends in neutral with normal physics restored");
     }
+    static void DiveFeedbackChecks()
+    {
+        foreach (var path in new[] { AirDiveSetup.AssetPath, "Assets/EQ_Rung_BeatEmUp/Characters/Character2/Character2_AirDive.asset" })
+        foreach (int facing in new[] { -1, 1 })
+        {
+            Fixture(); player.airDive = AssetDatabase.LoadAssetAtPath<AttackData>(path);
+            var cue = player.airDive.feedback;
+            Check(cue.swingSound && cue.impactSound && cue.landingSound && cue.diveStartPrefab && cue.impactPrefab && cue.landingPrefab, path + ": all dive VFX/SFX assigned");
+            player.motor.Face(facing); player.motor.Launch(24, 0); Step(25); player.RequestLauncher(); Step(5);
+            var fx = player.GetComponent<AttackFeedback>();
+            Check(fx && fx.DiveStartCount == 1 && fx.LandingCount == 0 && fx.LastSound.clip == cue.swingSound && fx.LastImpact,
+                "Dive start emits one visual/whoosh before landing, facing " + facing);
+            Check(fx.LastImpact.transform.position.y > player.motor.transform.position.y + 1, "Dive burst follows airborne visual height");
+            if (path == AirDiveSetup.AssetPath && facing == 1) Preview(fx.LastImpact, "DiveStart");
+            Step(20); Check(fx.DiveStartCount == 1 && fx.LandingCount == 0, "Held airborne frame does not repeat effects or land early");
+            int guard = 0; while (!player.motor.IsGrounded && guard++ < 180) Step(1);
+            Check(fx.LandingCount == 1 && fx.LastSound.clip == cue.landingSound && fx.LastImpact, "Whiff still emits one landing visual/thud");
+            Check(Mathf.Abs(fx.LastImpact.transform.position.y - player.motor.transform.position.y) < .01f &&
+                fx.LastImpact.transform.GetChild(0).localRotation == Quaternion.identity, "Landing effect stays upright at floor");
+            if (path == AirDiveSetup.AssetPath && facing == 1) Preview(fx.LastImpact, "DiveLanding");
+            Step(30); Check(fx.LandingCount == 1 && fx.DiveStartCount == 1, "Recovery does not repeat dive cues");
+            player.RequestJump(); Step(12); player.RequestLauncher(); Step(6); player.Interrupt(10); Step(40);
+            Check(fx.DiveStartCount == 2 && fx.LandingCount == 1, "Interrupted dive has no false landing cue");
+            AttackFeedback.PlayRemote(player.airDive, Vector2.zero, facing, false, "DiveWhoosh");
+            AttackFeedback.PlayRemote(player.airDive, Vector2.zero, facing, false, "DiveLanding");
+            Check(UnityEngine.Object.FindObjectsByType<NetworkFeedbackVisual>(FindObjectsSortMode.None).Length >= 2, "Client dive cues reconstruct temporary VFX");
+        }
+    }
+    // Isolated offscreen render for reviewing the existing library effects at gameplay scale.
+    static void Preview(GameObject effect, string name)
+    {
+        var transforms = effect.GetComponentsInChildren<Transform>();
+        var layers = transforms.Select(t => t.gameObject.layer).ToArray();
+        var cameraObject = new GameObject("Dive feedback preview camera");
+        var texture = new Texture2D(512, 512, TextureFormat.RGB24, false);
+        var render = new RenderTexture(512, 512, 24);
+        var previous = RenderTexture.active;
+        try
+        {
+            foreach (var t in transforms) t.gameObject.layer = 31;
+            foreach (var particles in effect.GetComponentsInChildren<ParticleSystem>())
+                particles.Simulate(.12f, false, true);
+            var camera = cameraObject.AddComponent<Camera>(); camera.orthographic = true; camera.orthographicSize = 1.2f;
+            camera.transform.position = effect.transform.position + new Vector3(0, 0, -10);
+            camera.cullingMask = 1 << 31; camera.clearFlags = CameraClearFlags.SolidColor;
+            camera.backgroundColor = new Color(.06f, .065f, .09f); camera.targetTexture = render;
+            camera.Render(); RenderTexture.active = render;
+            texture.ReadPixels(new Rect(0, 0, 512, 512), 0, 0); texture.Apply();
+            File.WriteAllBytes("Temp/" + name + "FeedbackPreview.png", texture.EncodeToPNG());
+        }
+        finally
+        {
+            RenderTexture.active = previous;
+            for (int i = 0; i < transforms.Length; i++) transforms[i].gameObject.layer = layers[i];
+            UnityEngine.Object.DestroyImmediate(cameraObject); UnityEngine.Object.DestroyImmediate(texture);
+            render.Release(); UnityEngine.Object.DestroyImmediate(render);
+        }
+    }
     static void Poll()
     {
+        if (!EditorApplication.isCompiling && !EditorApplication.isPlayingOrWillChangePlaymode && File.Exists("Temp/AirDiveValidation.request"))
+        { File.Delete("Temp/AirDiveValidation.request"); Run(); return; }
         if (!SessionState.GetBool(Pending, false) || !EditorApplication.isPlaying || EditorApplication.isCompiling) return;
         SessionState.SetBool(Pending, false); results.Clear();
         var background = InputSystem.settings.backgroundBehavior;
@@ -65,6 +125,7 @@ public static class AirDiveValidation
             foreach (var wall in UnityEngine.Object.FindObjectsByType<CombatWall>(FindObjectsSortMode.None)) wall.gameObject.SetActive(false);
             clock = UnityEngine.Object.FindFirstObjectByType<CombatClock>(); clock.enabled = false;
             InputSystem.settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus; InputSystem.settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView; keyboard = InputSystem.AddDevice<Keyboard>(); gamepad = InputSystem.AddDevice<Gamepad>();
+            DiveFeedbackChecks();
             Fixture(); Check(player.airDive && player.airDive.TotalFrames == 24 && player.airDive.FirstActiveFrame == 7 && player.airDive.LastActiveFrame == 13, "Authored24-frame attack with seven active frames");
             Check(!player.attackPlayer.Play(player.airDive), "TEST5: direct grounded Play cannot activate airborne-only dive");
             player.RequestLauncher(); Check(player.CurrentAttack == player.launcher && !player.IsAirDiving, "Grounded Launcher keeps existing launcher behavior");
@@ -75,6 +136,9 @@ public static class AirDiveValidation
             FinishDive(); Check(!player.AirDiveUsed, "Landing replenishes per-airborne-sequence dive use");
             Fixture(); Jump(); enemy.motor.ResetForStage(new Vector2(1, 0)); float hp = enemy.health.Current; player.RequestLauncher(); Step(11);
             Check(enemy.health.Current == hp - 14 && player.attackPlayer.IsFrozen, "TEST2: grounded enemy takes one14-damage head hit with hitstop");
+            var hitFx = player.GetComponent<AttackFeedback>();
+            Check(hitFx.ImpactCount == 1 && hitFx.LastSound.clip == player.airDive.feedback.impactSound && hitFx.LastImpact,
+                "Accepted enemy hit emits one configured hit visual/sound during hitstop");
             FinishDive();
             Fixture(); Jump(); enemy.motor.ResetForStage(new Vector2(1, 0)); enemy.motor.Launch(4, 0); enemy.motor.Simulate(.1f); hp = enemy.health.Current;
             player.RequestLauncher(); Step(30); Check(enemy.health.Current == hp - 14 && !enemy.JuggleOpen, "TEST3: airborne enemy receives finisher hit and descends toward knockdown");

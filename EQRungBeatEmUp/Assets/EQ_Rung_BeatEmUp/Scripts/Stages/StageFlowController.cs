@@ -51,6 +51,9 @@ namespace BeatEmUp
         private GameObject room;
         public Transform SpawnedAttackRoot => room ? room.transform : transform;
         private bool stageEventComplete, bossSpawned, debugVisible;
+        MenuNavigationInput debugInput;
+        readonly ImmediateMenuNavigation debugNavigation=new ImmediateMenuNavigation();
+        void OnDestroy() { debugInput?.Dispose(); }
         private float transitionFlash;
         private readonly HashSet<string> rewardedStages = new HashSet<string>();
         private bool rewardStarted;
@@ -472,40 +475,52 @@ namespace BeatEmUp
             transitionFlash = Mathf.Max(0, transitionFlash - Time.deltaTime);
             if(MultiplayerSession.Active) return; // Each paired input source owns interaction/restart commands.
             if (CombatClock.IsPaused) return;
+            if(debugInput==null && player) debugInput=new MenuNavigationInput(player.GetComponent<PlayerInput>().actions);
+            if(Keyboard.current?.f8Key.wasPressedThisFrame==true) debugVisible=!debugVisible;
+            if(debugVisible)
+            {
+                var input=debugInput?.Read() ?? default;
+                if(input.Cancel) debugVisible=false; else debugNavigation.Read(input);
+                return;
+            }
+            debugInput?.Read();
             if (Keyboard.current != null)
             {
                 if (Keyboard.current.eKey.wasPressedThisFrame) Interact();
-                if (Keyboard.current.rKey.wasPressedThisFrame && (LevelCompleted || player && player.GetComponent<CharacterHealth>().IsDead))
+                if ((Keyboard.current.rKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame) && (LevelCompleted || player && player.GetComponent<CharacterHealth>().IsDead))
                 { var hub=GetComponent<PlayerHubController>(); if(hub) hub.ReturnToHub(); else Restart(LevelCompleted); }
-                if (Keyboard.current.f8Key.wasPressedThisFrame) debugVisible = !debugVisible;
             }
             if (Gamepad.current != null && Gamepad.current.selectButton.wasPressedThisFrame) Interact();
+            if(Gamepad.current?.buttonSouth.wasPressedThisFrame==true && (LevelCompleted || player && player.GetComponent<CharacterHealth>().IsDead))
+            { var hub=GetComponent<PlayerHubController>(); if(hub) hub.ReturnToHub(); else Restart(LevelCompleted); }
         }
         public bool Interact() => CurrentStage!=null && CurrentStage.hub ? GetComponent<PlayerHubController>().Interact(player) : WorldRewards && WorldRewards.IsPending ? WorldRewards.Interact() : Recover();
         private void OnGUI()
         {
             if (!showHud || CurrentStage == null) return;
-            string status = WorldRewards && WorldRewards.IsPending ? WorldRewards.State == WorldRewardState.RewardPending ? "Stage clear — approach the chapel and press E / Select" : "Walk to a blessing and press E / Select to choose" : RunUpgrades && RunUpgrades.IsChoosing ? "Choose an upgrade" : LevelCompleted ? "You escaped! R: restart level" : player.GetComponent<CharacterHealth>().IsDead ? "Defeated — R: retry room" : !string.IsNullOrEmpty(Failure) ? Failure : ExitUnlocked ? "Exit open — walk to the right-hand exit" : "Exit locked — finish the encounter";
+            string status = WorldRewards && WorldRewards.IsPending ? WorldRewards.State == WorldRewardState.RewardPending ? "Stage clear — approach the chapel and press E / Select" : "Walk to a blessing and press E / Select to choose" : RunUpgrades && RunUpgrades.IsChoosing ? "Choose an upgrade" : LevelCompleted ? "You escaped! R / Enter / A: restart level" : player.GetComponent<CharacterHealth>().IsDead ? "Defeated — R / Enter / A: retry room" : !string.IsNullOrEmpty(Failure) ? Failure : ExitUnlocked ? "Exit open — walk to the right-hand exit" : "Exit locked — finish the encounter";
             GUI.Box(new Rect(12, 12, 470, 80), $"{StageIndex + 1}/{level.stages.Count}  {CurrentStage.stageName}\nHP {player.GetComponent<CharacterHealth>().Current:0}  Enemies {LivingEnemies.Count()}  Totems {RemainingTotems}\n{status}");
             if (CurrentStage.safeRoom) GUI.Box(new Rect(12, 98, 470, 30), "Stand near the shrine: E / gamepad Select to recover");
             if (debugVisible)
             {
+                debugNavigation.Begin();
                 GUILayout.BeginArea(new Rect(12, 138, 320, 430), GUI.skin.box); GUILayout.Label("Stage flow debug (F8)");
-                for (int i = 0; i < level.stages.Count; i++) if (GUILayout.Button((i + 1) + ": " + level.stages[i].stageName)) RestartAt(i);
-                if (GUILayout.Button("Advance if unlocked")) TryAdvance();
-                if (GUILayout.Button("Complete stage event")) CompleteStageEvent();
+                for (int i = 0; i < level.stages.Count; i++) if (debugNavigation.Button((i + 1) + ": " + level.stages[i].stageName)) RestartAt(i);
+                if (debugNavigation.Button("Advance if unlocked")) TryAdvance();
+                if (debugNavigation.Button("Complete stage event")) CompleteStageEvent();
                 foreach (var e in encounters)
                 {
                     GUILayout.Label(e.definition.encounterId + ": " + (e.completed ? "clear" : e.started ? e.definition.useCombatBounds ? "Combat Locked" : "active" : "waiting") + " / wave " + e.waves.Count(w => w.started) + "/" + e.waves.Count + " / enemies " + e.waves.Sum(w => w.enemies.Count(h => h && !h.IsDead)));
-                    if (e.definition.clearCondition == EncounterClearCondition.ManualSignal && GUILayout.Button("Clear signal " + e.definition.encounterId)) SignalEncounterClear(e.definition.encounterId);
-                    if (GUILayout.Button("Signal " + e.definition.encounterId)) SignalEncounter(e.definition.encounterId);
+                    if (e.definition.clearCondition == EncounterClearCondition.ManualSignal && debugNavigation.Button("Clear signal " + e.definition.encounterId)) SignalEncounterClear(e.definition.encounterId);
+                    if (debugNavigation.Button("Signal " + e.definition.encounterId)) SignalEncounter(e.definition.encounterId);
                     foreach (var w in e.waves)
                     {
                         GUILayout.Label(w.definition.waveId + ": " + (w.completed ? "clear" : w.started ? "active" : "waiting") + " / live " + w.enemies.Count(h => h && !h.IsDead) + " / pending " + w.plans.Sum(p => Mathf.Max(1, p.definition.count) - p.spawned));
-                        if (w.definition.trigger == WaveTrigger.Manual && GUILayout.Button("Signal " + w.definition.waveId)) SignalWave(e.definition.encounterId, w.definition.waveId);
+                        if (w.definition.trigger == WaveTrigger.Manual && debugNavigation.Button("Signal " + w.definition.waveId)) SignalWave(e.definition.encounterId, w.definition.waveId);
                     }
                 }
                 GUILayout.EndArea();
+                debugNavigation.End();
             }
             if (transitionFlash > 0) { var color = GUI.color; GUI.color = new Color(0, 0, 0, transitionFlash / .2f); GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Texture2D.whiteTexture); GUI.color = color; }
         }

@@ -27,6 +27,10 @@ namespace BeatEmUp
         private int focused, debugStage;
         private Vector2 buildScroll, debugScroll;
         private GUIStyle title, cardTitle, body, small;
+        private MenuNavigationInput menuInput;
+        readonly ImmediateMenuNavigation debugNavigation=new ImmediateMenuNavigation();
+        public bool MenuOpen => buildVisible || debugVisible || IsChoosing && !IsWorldChoosing;
+        private void OnDestroy() => menuInput?.Dispose();
         public void Initialize()
         {
             if (!flow) flow = GetComponent<StageFlowController>();
@@ -86,25 +90,33 @@ namespace BeatEmUp
         private void Update()
         {
             var key = Keyboard.current; var pad = Gamepad.current;
+            Initialize();
+            if(menuInput==null && flow.player) menuInput=new MenuNavigationInput(flow.player.GetComponent<PlayerInput>().actions);
+            var input=menuInput?.Read() ?? default;
             if (key != null && key.tabKey.wasPressedThisFrame) buildVisible = !buildVisible;
-            if (pad != null && pad.startButton.wasPressedThisFrame && !IsChoosing) buildVisible = !buildVisible;
+            if (pad?.startButton.wasPressedThisFrame==true && !IsChoosing) buildVisible = !buildVisible;
             if ((Application.isEditor || Debug.isDebugBuild) && key != null && key.f9Key.wasPressedThisFrame) debugVisible = !debugVisible;
+            if(debugVisible)
+            {
+                if(input.Cancel) debugVisible=false;
+                else { debugNavigation.Read(input); debugScroll.y=Mathf.Max(0,debugScroll.y-input.Navigate.y*32); }
+                return;
+            }
+            if(buildVisible)
+            {
+                if(input.Cancel || input.Confirm) buildVisible=false;
+                else buildScroll.y=Mathf.Max(0,buildScroll.y-input.Navigate.y*80);
+                return;
+            }
             if (!IsChoosing || IsWorldChoosing) return;
             if (key != null)
             {
                 if (key.digit1Key.wasPressedThisFrame) { Choose(0); return; }
                 if (key.digit2Key.wasPressedThisFrame) { Choose(1); return; }
                 if (key.digit3Key.wasPressedThisFrame) { Choose(2); return; }
-                if (key.leftArrowKey.wasPressedThisFrame) focused = (focused + choices.Count - 1) % choices.Count;
-                if (key.rightArrowKey.wasPressedThisFrame) focused = (focused + 1) % choices.Count;
-                if (key.enterKey.wasPressedThisFrame) { Choose(focused); return; }
             }
-            if (pad != null)
-            {
-                if (pad.dpad.left.wasPressedThisFrame) focused = (focused + choices.Count - 1) % choices.Count;
-                if (pad.dpad.right.wasPressedThisFrame) focused = (focused + 1) % choices.Count;
-                if (pad.buttonSouth.wasPressedThisFrame) Choose(focused);
-            }
+            if(input.Navigate!=Vector2.zero) focused=(focused+(input.Navigate.x>0 || input.Navigate.y<0 ? 1 : choices.Count-1))%choices.Count;
+            if(input.Confirm) Choose(focused);
         }
         private void Styles()
         {
@@ -140,7 +152,7 @@ namespace BeatEmUp
                         GUI.Label(new Rect(x + 22, 470, 296, 30), "Stacks " + Build.Stacks(u) + " → " + (Build.Stacks(u) + 1) + " / " + u.maxStacks, small);
                         if (GUI.Button(new Rect(x + 22, 508, 296, 34), (focused == i ? "► " : "") + "Choose  [" + (i + 1) + "]")) { Choose(i); break; }
                     }
-                    GUI.Label(new Rect(110, 608, 1060, 45), "Active for the rest of this run • 1 / 2 / 3 or click • Gamepad: D-pad + A / Cross", new GUIStyle(small) { alignment = TextAnchor.MiddleCenter });
+                    GUI.Label(new Rect(110, 608, 1060, 45), "Arrows / WASD / stick / D-pad: move • Enter / A: choose • 1 / 2 / 3: quick choose", new GUIStyle(small) { alignment = TextAnchor.MiddleCenter });
                 }
                 if (buildVisible) DrawBuild();
                 if (debugVisible && (Application.isEditor || Debug.isDebugBuild)) DrawDebug();
@@ -153,7 +165,7 @@ namespace BeatEmUp
             GUI.Box(new Rect(830, 65, 438, 620), GUIContent.none);
             GUILayout.BeginArea(new Rect(850, 80, 398, 585));
             GUILayout.Label("CURRENT RUN BUILD", cardTitle);
-            if (GUILayout.Button("Close  [Tab]")) buildVisible = false;
+            if (GUILayout.Button("► Close  [Enter / Escape / A / B / Tab / Start]")) buildVisible = false;
             buildScroll = GUILayout.BeginScrollView(buildScroll);
             if (Build.Acquired.Count == 0) GUILayout.Label("No upgrades yet. Clear a reward stage to choose your first.", body);
             foreach (var stack in Build.Acquired) { GUILayout.Label(stack.upgrade.displayName + " ×" + stack.count, cardTitle); GUILayout.Label(stack.upgrade.description, small); GUILayout.Space(12); }
@@ -162,17 +174,19 @@ namespace BeatEmUp
         }
         private void DrawDebug()
         {
+            debugNavigation.Begin();
             GUI.Box(new Rect(12, 140, 400, 555), GUIContent.none); GUILayout.BeginArea(new Rect(24, 152, 376, 530));
             GUILayout.Label("RUN UPGRADE DEBUG  [F9]", cardTitle); debugScroll = GUILayout.BeginScrollView(debugScroll);
-            if (GUILayout.Button("Force upgrade choice now")) DebugForceChoice();
-            if (IsChoosing && GUILayout.Button("Reroll cards (debug)")) DebugReroll();
-            if (GUILayout.Button("Clear current build")) DebugClearBuild();
-            if (GUILayout.Button("Print current modifiers")) Debug.Log(Build.DescribeModifiers());
+            if (debugNavigation.Button("Force upgrade choice now")) DebugForceChoice();
+            if (IsChoosing && debugNavigation.Button("Reroll cards (debug)")) DebugReroll();
+            if (debugNavigation.Button("Clear current build")) DebugClearBuild();
+            if (debugNavigation.Button("Print current modifiers")) Debug.Log(Build.DescribeModifiers());
             GUILayout.Label("Jump to reward in stage " + (debugStage + 1));
-            debugStage = Mathf.RoundToInt(GUILayout.HorizontalSlider(debugStage, 0, flow.level.stages.Count - 1));
-            if (GUILayout.Button("Jump and force reward choice")) DebugJumpToReward(debugStage);
-            if (pool) foreach (var upgrade in pool.upgrades) if (upgrade && GUILayout.Button("Give: " + upgrade.displayName + " (" + Build.Stacks(upgrade) + ")")) DebugGive(upgrade);
+            if(debugNavigation.Button("Next reward stage")) debugStage=(debugStage+1)%flow.level.stages.Count;
+            if (debugNavigation.Button("Jump and force reward choice")) DebugJumpToReward(debugStage);
+            if (pool) foreach (var upgrade in pool.upgrades) if (upgrade && debugNavigation.Button("Give: " + upgrade.displayName + " (" + Build.Stacks(upgrade) + ")")) DebugGive(upgrade);
             GUILayout.EndScrollView(); GUILayout.EndArea();
+            debugNavigation.End();
         }
     }
 }

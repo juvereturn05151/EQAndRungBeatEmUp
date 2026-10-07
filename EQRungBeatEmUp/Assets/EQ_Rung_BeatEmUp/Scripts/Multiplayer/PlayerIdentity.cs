@@ -11,6 +11,8 @@ namespace BeatEmUp
         public int slot;
         public int character;
         public ulong owner;
+        // Source used by the authoritative spawn, useful for inspecting selected-prefab integration.
+        public GameObject SpawnedPrefab { get; internal set; }
         public CharacterMotor Motor => GetComponent<CharacterMotor>();
         public CharacterHealth Health => GetComponent<CharacterHealth>();
         public bool Living => isActiveAndEnabled && Health && !Health.IsDead;

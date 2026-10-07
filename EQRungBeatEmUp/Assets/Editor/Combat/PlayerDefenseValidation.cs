@@ -53,6 +53,8 @@ public static class PlayerDefenseValidation
         eo = UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/EQ_Rung_BeatEmUp/Prefabs/BadGuy.prefab"));
         p = po.GetComponent<ComboController>(); e = eo.GetComponent<EnemyHitReaction>(); eo.GetComponent<EnemyCombat>().enabled = false;
         defenseCopy = UnityEngine.Object.Instantiate(p.defenseData); p.defenseData = defenseCopy;
+        // Boundary checks below use an explicit eight-frame fixture. Preserve authored tuning.
+        defenseCopy.parryWindowFrames = 8;
         po.transform.position = Vector3.zero; eo.transform.position = new Vector3(.8f, 0, 0); p.motor.Face(1); e.motor.Face(-1);
         p.health.Restore(); e.health.Restore(); clock = UnityEngine.Object.FindFirstObjectByType<CombatClock>(); clock.enabled = false; clock.combatFPS = 60;
         foreach (var input in po.GetComponents<MonoBehaviour>()) if (input && input.GetType().Name == "PlayerCombatInput") input.enabled = false;
@@ -252,57 +254,109 @@ public static class PlayerDefenseValidation
     static void InputBindings()
     {
         Fixture();
-        var updateMode = InputSystem.settings.updateMode;
-        var background = InputSystem.settings.backgroundBehavior;
-        var editorBehavior = InputSystem.settings.editorInputBehaviorInPlayMode;
-        InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsManually;
-        InputSystem.settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus;
-        InputSystem.settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
-        var keyboard = InputSystem.AddDevice<Keyboard>();
-        var mouse = InputSystem.AddDevice<Mouse>();
-        var gamepad = InputSystem.AddDevice<Gamepad>();
+        // Measure cardinal travel away from the prefab's y=1 arena boundary.
+        p.motor.arenaMin=new Vector2(-6,-4); p.motor.arenaMax=new Vector2(6,4);
+        var updateMode=InputSystem.settings.updateMode;
+        var background=InputSystem.settings.backgroundBehavior;
+        var editorBehavior=InputSystem.settings.editorInputBehaviorInPlayMode;
+        InputSystem.settings.updateMode=InputSettings.UpdateMode.ProcessEventsManually;
+        InputSystem.settings.backgroundBehavior=InputSettings.BackgroundBehavior.IgnoreFocus;
+        InputSystem.settings.editorInputBehaviorInPlayMode=InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
+        var keyboard=InputSystem.AddDevice<Keyboard>(); var mouse=InputSystem.AddDevice<Mouse>(); var gamepad=InputSystem.AddDevice<Gamepad>();
+        var input=po.GetComponent<PlayerInput>(); var bridge=po.GetComponent<PlayerCombatInput>();
+        SessionInput source=null;
         try
         {
-            var input = po.GetComponent<PlayerInput>();
-            Check(input.actions != null, "PlayerInput prefab resolves the updated actions asset");
-            // In headless tests devices arrive after the prefab's OnEnable.
-            input.enabled = false; input.enabled = true;
-            input.SwitchCurrentControlScheme("Keyboard&Mouse", keyboard, mouse);
-            input.SwitchCurrentActionMap("Player");
-            var bridge = po.GetComponent<PlayerCombatInput>(); bridge.enabled = true;
-            bridge.SendMessage("Start");
-            var guard = input.actions.FindAction("Player/Guard", true);
-            Check(input.actions.FindAction("Player/Parry", false) == null && guard != null, "Guard and parry use one action; no separate Parry binding exists");
-            InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.L)); InputSystem.Update();
-            Check(p.State == CombatState.GuardEnter && !p.CurrentAttack, "Actual Guard action press invokes guard/parry without attack");
-            Step(8); int frame = p.DefenseFrame;
-            InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.L)); InputSystem.Update();
-            Check(p.State == CombatState.GuardHold && p.DefenseFrame == frame, "Held Guard input does not repeatedly fire or reopen parry");
-            InputSystem.QueueStateEvent(keyboard, new KeyboardState()); InputSystem.Update();
-            Check(p.State == CombatState.Idle && !p.GuardHeld, "Guard action canceled releases the held guard");
-            InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.LeftAlt)); InputSystem.Update();
-            Check(p.State == CombatState.Dodge && !p.CurrentAttack, "Actual separate Dodge action starts a dodge");
-            Step(20); InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.LeftAlt)); InputSystem.Update();
-            Check(p.State == CombatState.Idle, "Holding Dodge after completion cannot automatically repeat it");
-            InputSystem.QueueStateEvent(keyboard, new KeyboardState()); InputSystem.Update();
-            InputSystem.QueueStateEvent(keyboard, new KeyboardState(Key.LeftAlt)); InputSystem.Update();
-            Check(p.State == CombatState.Dodge, "A new Dodge button press starts the next dodge");
-            Step(20);
-            input.SwitchCurrentControlScheme("Gamepad", gamepad);
-            InputSystem.QueueStateEvent(gamepad, new GamepadState().WithButton(GamepadButton.LeftShoulder)); InputSystem.Update();
-            Check(p.State == CombatState.GuardEnter && !p.CurrentAttack, "Gamepad left shoulder invokes the shared Guard / Parry action");
-            InputSystem.QueueStateEvent(gamepad, new GamepadState()); InputSystem.Update();
-            Check(p.State == CombatState.Idle, "Gamepad shoulder release cancels Guard");
-            InputSystem.QueueStateEvent(gamepad, new GamepadState().WithButton(GamepadButton.RightShoulder)); InputSystem.Update();
-            Check(p.State == CombatState.Dodge && !p.CurrentAttack, "Gamepad right shoulder invokes Dodge independently of attacks");
+            Check(input.actions!=null,"PlayerInput prefab resolves the updated actions asset");
+            input.enabled=false; input.enabled=true;
+            input.SwitchCurrentControlScheme("Keyboard&Mouse",keyboard,mouse); input.SwitchCurrentActionMap("Player");
+            bridge.enabled=true; bridge.SendMessage("Start");
+            Check(input.actions.FindAction("Player/Dodge",false)==null && input.actions.FindAction("Player/Parry",false)==null,"Only the existing Guard action owns Guard, Parry and directional Dodge");
+            Action<Key[]> keys=held=>{ InputSystem.QueueStateEvent(keyboard,new KeyboardState(held)); InputSystem.Update(); bridge.SendMessage("Update"); };
+            keys(new[]{Key.L}); Check(p.State==CombatState.GuardEnter && p.GuardHeld,"Standing still plus L enters Guard");
+            Step(8); int frame=p.DefenseFrame; keys(new[]{Key.L});
+            Check(p.State==CombatState.GuardHold && p.DefenseFrame==frame,"Holding L keeps Guard without restarting its animation or parry window");
+            keys(new Key[0]); Check(p.State==CombatState.Idle && !p.GuardHeld,"Releasing L releases Guard");
+            keys(new[]{Key.LeftAlt}); Check(p.State==CombatState.Idle,"Removed Left Alt binding no longer dodges");
+            var directions=new[]{Key.A,Key.D,Key.W,Key.S};
+            var vectors=new[]{Vector2.left,Vector2.right,Vector2.up,Vector2.down};
+            for(int i=0;i<directions.Length;i++)
+            {
+                keys(new Key[0]); p.health.Restore(); p.motor.ResetForStage(Vector2.zero);
+                InputSystem.QueueStateEvent(keyboard,new KeyboardState(directions[i],Key.L)); InputSystem.Update();
+                Check(p.State==CombatState.Idle && p.ParryRearmRemaining==0,"Simultaneous direction and L does not briefly trigger Guard: "+directions[i]);
+                bridge.SendMessage("Update");
+                Check(p.State==CombatState.Dodge && !p.GuardHeld && p.ParryRearmRemaining==0,"Direction plus L prioritizes Dodge: "+directions[i]);
+                Step(20); Vector2 displacement=p.transform.position;
+                Check(Vector2.Distance(displacement,vectors[i]*1.2f)<.001f,"Dodge preserves authored distance and direction: "+directions[i]);
+                keys(new[]{directions[i],Key.L}); Step(25); keys(new[]{directions[i],Key.L});
+                Check(p.State==CombatState.Idle,"Held direction and L never repeat Dodge: "+directions[i]);
+                keys(new[]{Key.L}); Check(p.GuardHeld && p.GuardActive,"Releasing movement while L remains held enters Guard: "+directions[i]);
+            }
+            keys(new Key[0]); p.health.Restore(); p.motor.ResetForStage(Vector2.zero);
+            keys(new[]{Key.W,Key.D,Key.L}); Step(20);
+            Check(Vector2.Distance(p.transform.position,new Vector2(1,1).normalized*1.2f)<.001f,"Keyboard diagonal dodge is normalized and preserves total distance");
+            keys(new Key[0]); p.health.Restore(); p.motor.ResetForStage(Vector2.zero);
+            keys(new[]{Key.L}); keys(new[]{Key.L,Key.D});
+            Check(!p.GuardHeld && p.State==CombatState.Idle,"Adding movement to held L releases Guard without triggering Dodge");
+            keys(new[]{Key.D}); keys(new[]{Key.D,Key.L});
+            Check(p.State==CombatState.Dodge,"Repressing L with movement triggers the next Dodge"); Step(20); keys(new Key[0]);
+            p.health.Restore(); p.motor.ResetForStage(Vector2.zero);
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.L));
+            InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.L,Key.D)); InputSystem.Update();
+            Check(!p.GuardHeld && p.ParryRearmRemaining==0,"Button event before movement in the same input update never starts Guard");
+            bridge.SendMessage("Update"); Check(p.State==CombatState.Dodge,"Button-first simultaneous input resolves the final intended Dodge direction");
+            Step(20); keys(new Key[0]);
+            p.health.Restore(); p.motor.ResetForStage(Vector2.zero);
+            keys(new[]{Key.D,Key.L}); Step(5); keys(new[]{Key.L});
+            Check(p.State==CombatState.Dodge && !p.GuardHeld,"Movement release during Dodge cannot cancel its authored recovery into Guard");
+            Step(15); keys(new[]{Key.L});
+            Check(p.GuardActive,"Holding L after releasing movement enters Guard once Dodge recovery finishes");
+            keys(new Key[0]);
+            p.health.Restore(); input.SwitchCurrentControlScheme("Gamepad",gamepad);
+            Action<GamepadState> pad=state=>{InputSystem.QueueStateEvent(gamepad,state);InputSystem.Update();bridge.SendMessage("Update");};
+            pad(new GamepadState().WithButton(GamepadButton.LeftShoulder));
+            Check(p.GuardHeld && p.GuardActive,"Controller left shoulder alone Guards");
+            pad(new GamepadState()); Check(!p.GuardHeld,"Controller shoulder release stops Guard");
+            foreach(var direction in vectors)
+            {
+                p.health.Restore(); p.motor.ResetForStage(Vector2.zero);
+                pad(new GamepadState{leftStick=direction}.WithButton(GamepadButton.LeftShoulder));
+                Check(p.State==CombatState.Dodge && !p.GuardHeld && p.ParryRearmRemaining==0,"Controller stick plus left shoulder prioritizes Dodge: "+direction);
+                Step(20); Check(Vector2.Distance(p.transform.position,(Vector3)(direction*1.2f))<.001f,"Controller dodge preserves directional distance: "+direction);
+                pad(new GamepadState{leftStick=direction}.WithButton(GamepadButton.LeftShoulder));
+                Check(p.State==CombatState.Idle,"Held controller shoulder does not repeat Dodge");
+                pad(new GamepadState().WithButton(GamepadButton.LeftShoulder)); Check(p.GuardActive,"Releasing stick while holding shoulder enters Guard");
+                pad(new GamepadState());
+            }
+            p.health.Restore(); pad(new GamepadState().WithButton(GamepadButton.RightShoulder));
+            Check(p.State==CombatState.Idle,"Removed right-shoulder binding no longer dodges"); pad(new GamepadState());
+            bridge.enabled=false;
+            source=new SessionInput(input.actions,keyboard);
+            foreach(var direction in directions)
+            {
+                InputSystem.QueueStateEvent(keyboard,new KeyboardState()); InputSystem.Update(); source.Read();
+                InputSystem.QueueStateEvent(keyboard,new KeyboardState(direction,Key.L)); InputSystem.Update(); var command=source.Read();
+                Check(!command.guard && ((PlayerButtons)command.buttons & PlayerButtons.Dodge)!=0,"Paired multiplayer input sends Dodge without Guard: "+direction);
+                InputSystem.QueueStateEvent(keyboard,new KeyboardState(direction,Key.L)); InputSystem.Update(); command=source.Read();
+                Check(!command.guard && ((PlayerButtons)command.buttons & PlayerButtons.Dodge)==0,"Paired multiplayer input sends no repeated held-button Dodge");
+                InputSystem.QueueStateEvent(keyboard,new KeyboardState(Key.L)); InputSystem.Update(); command=source.Read();
+                Check(command.guard && ((PlayerButtons)command.buttons & PlayerButtons.Dodge)==0,"Paired multiplayer input sends Guard after movement release");
+            }
+            source.Dispose(); source=new SessionInput(input.actions,gamepad);
+            InputSystem.QueueStateEvent(gamepad,new GamepadState{leftStick=Vector2.right}.WithButton(GamepadButton.LeftShoulder)); InputSystem.Update();
+            var controllerCommand=source.Read(); var wire=JsonUtility.FromJson<PlayerCommand>(JsonUtility.ToJson(controllerCommand));
+            Check(!wire.guard && ((PlayerButtons)wire.buttons & PlayerButtons.Dodge)!=0 && wire.move.x>0,"Controller multiplayer command preserves directional Dodge and priority across serialization");
+            InputSystem.QueueStateEvent(gamepad,new GamepadState{leftStick=Vector2.right}.WithButton(GamepadButton.LeftShoulder)); InputSystem.Update();
+            Check(((PlayerButtons)source.Read().buttons & PlayerButtons.Dodge)==0,"Controller multiplayer input does not repeat a held Dodge");
+            InputSystem.QueueStateEvent(gamepad,new GamepadState().WithButton(GamepadButton.LeftShoulder)); InputSystem.Update();
+            Check(source.Read().guard,"Controller multiplayer input Guards after releasing the stick");
         }
         finally
         {
-            po.GetComponent<PlayerCombatInput>().enabled = false;
+            source?.Dispose(); bridge.enabled=false;
             InputSystem.RemoveDevice(keyboard); InputSystem.RemoveDevice(mouse); InputSystem.RemoveDevice(gamepad);
-            InputSystem.settings.updateMode = updateMode;
-            InputSystem.settings.backgroundBehavior = background;
-            InputSystem.settings.editorInputBehaviorInPlayMode = editorBehavior;
+            InputSystem.settings.updateMode=updateMode; InputSystem.settings.backgroundBehavior=background; InputSystem.settings.editorInputBehaviorInPlayMode=editorBehavior;
         }
     }
 }

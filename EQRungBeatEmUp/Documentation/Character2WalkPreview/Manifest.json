@@ -9,42 +9,15 @@
     {
       "frame": 1,
       "source_box": [
-        89,
-        46,
-        308,
-        370
+        84,
+        44,
+        300,
+        351
       ],
-      "uniform_scale": 0.32515337423312884,
-      "hip_axis": 190.5,
+      "uniform_scale": 0.34527687296416937,
+      "hip_axis": 196.0,
       "bounds": [
-        31,
-        15,
-        102,
-        120
-      ],
-      "canvas": [
-        128,
-        128
-      ],
-      "ppu": 100,
-      "pivot": [
-        0.5,
-        0.0625
-      ],
-      "sha256": "a381f8758d463031afc4a7ce51dfd826ca388a6b24674fb50fd0132703d15da9"
-    },
-    {
-      "frame": 2,
-      "source_box": [
-        447,
-        46,
-        652,
-        372
-      ],
-      "uniform_scale": 0.32515337423312884,
-      "hip_axis": 542.0,
-      "bounds": [
-        33,
+        25,
         14,
         100,
         120
@@ -58,22 +31,49 @@
         0.5,
         0.0625
       ],
-      "sha256": "bab2bd14ccc0545c30be2acd41c9f12a5183d13296fa60aeb71539000330c55f"
+      "sha256": "af07d4f251f1c442f06e3aa4c11880f77fa4df78b88cfd27d7041e4a25afc662"
+    },
+    {
+      "frame": 2,
+      "source_box": [
+        448,
+        43,
+        660,
+        350
+      ],
+      "uniform_scale": 0.34527687296416937,
+      "hip_axis": 557.1,
+      "bounds": [
+        26,
+        14,
+        99,
+        120
+      ],
+      "canvas": [
+        128,
+        128
+      ],
+      "ppu": 100,
+      "pivot": [
+        0.5,
+        0.0625
+      ],
+      "sha256": "aef58abffed47433e66aab3b15e9be8a3848419325bedb8218aa38f50667759d"
     },
     {
       "frame": 3,
       "source_box": [
-        831,
-        46,
-        1004,
-        372
+        814,
+        44,
+        985,
+        351
       ],
-      "uniform_scale": 0.32515337423312884,
-      "hip_axis": 922.0,
+      "uniform_scale": 0.34527687296416937,
+      "hip_axis": 901.5,
       "bounds": [
         34,
         14,
-        90,
+        93,
         120
       ],
       "canvas": [
@@ -85,22 +85,22 @@
         0.5,
         0.0625
       ],
-      "sha256": "27f351f9034c14e5a0f31a8591b7024484860221a10dd3875bdce72c0a7c50ee"
+      "sha256": "64669b8d1997d23323e04ee263380a2006950203a9b735e125078ba27a07c4f9"
     },
     {
       "frame": 4,
       "source_box": [
-        1206,
-        46,
+        1200,
+        44,
         1350,
-        372
+        354
       ],
-      "uniform_scale": 0.32515337423312884,
-      "hip_axis": 1270.5,
+      "uniform_scale": 0.34527687296416937,
+      "hip_axis": 1267.5,
       "bounds": [
-        43,
-        14,
-        90,
+        41,
+        13,
+        93,
         120
       ],
       "canvas": [
@@ -112,22 +112,22 @@
         0.5,
         0.0625
       ],
-      "sha256": "e4b92e802b1a4557c375c74fb326e3a6bbccc21fe466ae1582122d8cc8c841a3"
+      "sha256": "a7ea0fc99487b7672142735268c2910bcbca87431c2f24ae8a0d289c5afa94db"
     },
     {
       "frame": 5,
       "source_box": [
-        71,
-        409,
-        325,
-        738
+        72,
+        397,
+        314,
+        699
       ],
-      "uniform_scale": 0.32515337423312884,
-      "hip_axis": 184.5,
+      "uniform_scale": 0.34527687296416937,
+      "hip_axis": 174.0,
       "bounds": [
-        27,
-        13,
-        110,
+        29,
+        16,
+        113,
         120
       ],
       "canvas": [
@@ -139,22 +139,22 @@
         0.5,
         0.0625
       ],
-      "sha256": "2dbd4877e1687275aa42b2309e5508f249f62655de0a178a3e25645f7f969911"
+      "sha256": "ca611603ca3b9e02f5810996b0678dcff249864eb680f9d17029ace68264ab9f"
     },
     {
       "frame": 6,
       "source_box": [
-        433,
-        410,
-        675,
-        738
+        429,
+        397,
+        672,
+        701
       ],
-      "uniform_scale": 0.32515337423312884,
-      "hip_axis": 545.5,
+      "uniform_scale": 0.34527687296416937,
+      "hip_axis": 533.0,
       "bounds": [
-        27,
-        13,
-        106,
+        28,
+        15,
+        112,
         120
       ],
       "canvas": [
@@ -166,22 +166,22 @@
         0.5,
         0.0625
       ],
-      "sha256": "cfe65e01a641eb102924cfc17b361c23d096c9088e618d69627ae85e38bdfe55"
+      "sha256": "e95497c96a0de9d324af5e831578ab4cef0730cac8e6a236a64c5294fac46aa0"
     },
     {
       "frame": 7,
       "source_box": [
-        793,
-        410,
-        1045,
-        738
+        782,
+        397,
+        1038,
+        700
       ],
-      "uniform_scale": 0.32515337423312884,
-      "hip_axis": 907.5,
+      "uniform_scale": 0.34527687296416937,
+      "hip_axis": 893.5,
       "bounds": [
-        27,
-        13,
-        109,
+        26,
+        15,
+        114,
         120
       ],
       "canvas": [
@@ -193,22 +193,22 @@
         0.5,
         0.0625
       ],
-      "sha256": "847850f5ff7e3a375e03cf4a00803553a934590c6495ef57f3392d8ca69dd664"
+      "sha256": "2d8d6c9826b031c06028358c1d9f2d1b06a799930a52dc30ac54528e7a6a71a4"
     },
     {
       "frame": 8,
       "source_box": [
-        1174,
-        410,
-        1368,
-        738
+        1173,
+        397,
+        1370,
+        703
       ],
-      "uniform_scale": 0.32515337423312884,
-      "hip_axis": 1270.6,
+      "uniform_scale": 0.34527687296416937,
+      "hip_axis": 1260.0,
       "bounds": [
-        33,
-        13,
-        96,
+        34,
+        14,
+        102,
         120
       ],
       "canvas": [
@@ -220,22 +220,22 @@
         0.5,
         0.0625
       ],
-      "sha256": "a0c442d6cf4b1a148b54982dde7f9e4f403758f84589570f6164c165108b748c"
+      "sha256": "fb69d1696c9421f9130ec076659a414506eee8e18e715a42e37f8983b9eacee2"
     },
     {
       "frame": 9,
       "source_box": [
-        104,
-        748,
-        267,
-        1073
+        97,
+        734,
+        268,
+        1039
       ],
-      "uniform_scale": 0.32515337423312884,
-      "hip_axis": 190.0,
+      "uniform_scale": 0.34527687296416937,
+      "hip_axis": 182.5,
       "bounds": [
-        36,
-        14,
-        89,
+        34,
+        15,
+        93,
         120
       ],
       "canvas": [
@@ -247,23 +247,23 @@
         0.5,
         0.0625
       ],
-      "sha256": "5302a185f23011fa75443b8b30fee734fcd56d01deac2dbaa01b0c51ad818c8f",
-      "correction_source": "Tools/Character2/WalkLowerLegCorrectedSource.png"
+      "sha256": "9388155fc1a604cf177722daab6cefc0ee58592f8baf6bb81330fb63c6ee11ee",
+      "correction_source": "Tools/Character2/WalkModelConsistencyProportions.png"
     },
     {
       "frame": 10,
       "source_box": [
-        435,
-        748,
-        663,
-        1073
+        433,
+        734,
+        660,
+        1038
       ],
-      "uniform_scale": 0.32515337423312884,
-      "hip_axis": 549.5,
+      "uniform_scale": 0.34527687296416937,
+      "hip_axis": 544.725,
       "bounds": [
-        27,
-        14,
-        101,
+        25,
+        15,
+        103,
         120
       ],
       "canvas": [
@@ -275,23 +275,23 @@
         0.5,
         0.0625
       ],
-      "sha256": "98fd3c0cdd1fff07a703fb21a03cf14272f36c803a18a6fe355690be708d6f2e",
-      "correction_source": "Tools/Character2/WalkLowerLegCorrectedSource.png"
+      "sha256": "48ffe5134184e5a87b61db0124ee3c42c49758509586031b0aec26649b6d7ecb",
+      "correction_source": "Tools/Character2/WalkModelConsistencyProportions.png"
     },
     {
       "frame": 11,
       "source_box": [
-        801,
-        748,
-        1029,
-        1073
+        794,
+        733,
+        1022,
+        1038
       ],
-      "uniform_scale": 0.32515337423312884,
-      "hip_axis": 913.5,
+      "uniform_scale": 0.34527687296416937,
+      "hip_axis": 903.5,
       "bounds": [
-        27,
-        14,
-        101,
+        26,
+        15,
+        105,
         120
       ],
       "canvas": [
@@ -303,23 +303,23 @@
         0.5,
         0.0625
       ],
-      "sha256": "66324c6684c8757aad229ef3579dadde18823c3669f15c73aae5746471c90b8e",
-      "correction_source": "Tools/Character2/WalkLowerLegCorrectedSource.png"
+      "sha256": "100a1dac84b25184f5334b6e97c488bbe2ac8182c2a53bb82db1e5d8d9636f23",
+      "correction_source": "Tools/Character2/WalkModelConsistencyProportions.png"
     },
     {
       "frame": 12,
       "source_box": [
-        1167,
-        748,
-        1392,
-        1073
+        1157,
+        733,
+        1387,
+        1039
       ],
-      "uniform_scale": 0.32515337423312884,
-      "hip_axis": 1277.5,
+      "uniform_scale": 0.34527687296416937,
+      "hip_axis": 1269.0,
       "bounds": [
-        28,
+        25,
         14,
-        101,
+        104,
         120
       ],
       "canvas": [
@@ -331,8 +331,8 @@
         0.5,
         0.0625
       ],
-      "sha256": "d13c115d071fd828b36b961c2b126e7c334c1674bcb87456f916e4be2b170863",
-      "correction_source": "Tools/Character2/WalkLowerLegCorrectedSource.png"
+      "sha256": "b9dd8d11bd76e91ecd4a5619cbfc3dccfc42e61812c67d94aa46fc6625f93271",
+      "correction_source": "Tools/Character2/WalkModelConsistencyProportions.png"
     }
   ]
 }

@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[2]
 ART=ROOT/'Assets/ArtAssets/Characters/Character2'
 OUT=ROOT/'Documentation/Character2WalkPreview'
 
-def package(source):
+def package(source,source_name='WalkCorrectedSource.png'):
     im=Image.open(source).convert('RGBA'); labels,regions=components(im)
     figures=[r for r in regions if r['count']>1500]
     assert len(figures)==12,len(figures)
@@ -36,7 +36,7 @@ def package(source):
         frame=Image.new('RGBA',(128,128)); frame.alpha_composite(crop,(px,py))
         path=ART/'Walk'/f'Walk_{i+1:02}.png'; frame.save(path); frames.append(frame)
         manifest.append(dict(frame=i+1,source_box=r['box'],uniform_scale=scale,hip_axis=axis+x0,bounds=frame.getbbox(),canvas=[128,128],ppu=100,pivot=[.5,.0625],sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
-    shutil.copy2(source,ROOT/'Tools/Character2/WalkCorrectedSource.png')
+    shutil.copy2(source,ROOT/'Tools/Character2'/source_name)
     (OUT/'Manifest.json').write_text(json.dumps(dict(idle_bounds=ib,frames=manifest),indent=2))
     preview()
     print(json.dumps(dict(idle_bounds=ib,walk_bounds=[f.getbbox() for f in frames],uniform_scale=scale)))

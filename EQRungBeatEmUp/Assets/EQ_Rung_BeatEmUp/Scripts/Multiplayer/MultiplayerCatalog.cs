@@ -7,6 +7,8 @@ namespace BeatEmUp
     {
         public GameObject playerPrefab;
         public PlayableCharacterData[] characters = new PlayableCharacterData[0];
+        public CharacterDefinition[] selectionCharacters = new CharacterDefinition[0];
+        public CharacterDefinition SelectionAt(int index) => System.Array.Find(selectionCharacters, c => c && c.GameplayCharacter == CharacterAt(index));
         public PlayableCharacterData CharacterAt(int index) => characters != null && index >= 0 && index < characters.Length ? characters[index] : null;
         public LevelDefinition level;
         public Sprite[] sprites;

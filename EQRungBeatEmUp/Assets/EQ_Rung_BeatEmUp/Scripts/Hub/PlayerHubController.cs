@@ -13,6 +13,9 @@ namespace BeatEmUp
         float deathAt=-1;
         readonly System.Collections.Generic.HashSet<int> paidRooms=new System.Collections.Generic.HashSet<int>();
         readonly System.Collections.Generic.Dictionary<int,int> uiChoices=new System.Collections.Generic.Dictionary<int,int>();
+        MenuNavigationInput standaloneMenu;
+        int visibleMenuSlot;
+        void OnDestroy() { standaloneMenu?.Dispose(); }
         readonly string[] names={"Change Character","Upgrade Base Stats","Upgrade Skill","Enter World 1"};
         public bool InHub=>flow && flow.CurrentStage!=null && flow.CurrentStage.hub;
         void Awake() { flow=GetComponent<StageFlowController>(); }
@@ -110,21 +113,24 @@ namespace BeatEmUp
         void MenuInput()
         {
             var session=MultiplayerSession.Active;
+            if(session && session.LocalMenuOpen) return;
+            standaloneMenu?.Read();
             var local=session ? session.Latest?.players.Where(p=>session.IsLocalOwner(p.owner)).ToArray() : new[]{new PlayerState{slot=0,hubStation=flow.player.GetComponent<MetaProgress>()?.OpenStation ?? -1}};
             if(local==null) return;
             foreach(var state in local.Where(p=>p.hubStation>=0))
             {
-                var device=session ? session.LocalInput(state.slot)?.Device : (InputDevice)Keyboard.current;
-                var key=device as Keyboard; var pad=device as Gamepad;
-                if(!session) { key=Keyboard.current; pad=Gamepad.current; }
-                int count=state.hubStation==0 ? Resources.Load<MultiplayerCatalog>("MultiplayerCatalog").characters.Length : state.hubStation==1 ? 4 : 1;
+                if(!session && standaloneMenu==null) standaloneMenu=new MenuNavigationInput(flow.player.GetComponent<PlayerInput>().actions);
+                var input=session ? session.LocalInput(state.slot)?.Menu.Read() ?? default : standaloneMenu.Read();
+                if(input.Navigate!=Vector2.zero || input.Confirm || input.Cancel) visibleMenuSlot=state.slot;
+                int actions=state.hubStation==0 ? Resources.Load<MultiplayerCatalog>("MultiplayerCatalog").characters.Length : state.hubStation==1 ? 4 : 1;
+                int count=actions+1; // Close is a selectable button, as well as the cancel shortcut.
                 int choice=uiChoices.TryGetValue(state.slot,out int old) ? old : 0;
-                if(key?.downArrowKey.wasPressedThisFrame==true || key?.rightArrowKey.wasPressedThisFrame==true || pad?.dpad.down.wasPressedThisFrame==true || pad?.dpad.right.wasPressedThisFrame==true) choice++;
-                if(key?.upArrowKey.wasPressedThisFrame==true || key?.leftArrowKey.wasPressedThisFrame==true || pad?.dpad.up.wasPressedThisFrame==true || pad?.dpad.left.wasPressedThisFrame==true) choice--;
+                if(input.Navigate.x>0 || input.Navigate.y<0) choice++;
+                if(input.Navigate.x<0 || input.Navigate.y>0) choice--;
                 choice=(choice+count)%count; uiChoices[state.slot]=choice;
-                if(key?.escapeKey.wasPressedThisFrame==true || pad?.buttonEast.wasPressedThisFrame==true) Command(state.slot,HubAction.Close);
-                if(key?.enterKey.wasPressedThisFrame==true || pad?.buttonSouth.wasPressedThisFrame==true)
-                    Command(state.slot,state.hubStation==0 ? HubAction.Character : state.hubStation==1 ? HubAction.Stat : state.hubStation==2 ? HubAction.Skill : HubAction.EnterWorld,choice);
+                if(input.Cancel) Command(state.slot,HubAction.Close);
+                else if(input.Confirm)
+                    Command(state.slot,choice==actions ? HubAction.Close : state.hubStation==0 ? HubAction.Character : state.hubStation==1 ? HubAction.Stat : state.hubStation==2 ? HubAction.Skill : HubAction.EnterWorld,choice);
             }
         }
         void OnGUI()
@@ -139,17 +145,18 @@ namespace BeatEmUp
             }
             var old=GUI.matrix; GUI.matrix=Matrix4x4.TRS(Vector3.zero,Quaternion.identity,new Vector3(Screen.width/960f,Screen.height/540f,1));
             var local=session ? session.Latest.players.Where(p=>session.IsLocalOwner(p.owner)).ToArray() : new[]{new PlayerState{slot=0,position=flow.player.transform.position,character=0,meta=flow.player.GetComponent<MetaProgress>()?.profile,hubStation=flow.player.GetComponent<MetaProgress>()?.OpenStation ?? -1}};
-            foreach(var p in local)
+            foreach(var p in local.OrderByDescending(p=>p.slot==visibleMenuSlot))
             {
                 int near=Nearby(p.position); if(p.hubStation<0) { if(near>=0) GUI.Box(new Rect(270,440+24*p.slot,420,28),"P"+(p.slot+1)+"  [E / Select] "+names[near]); continue; }
                 var catalog=session ? session.catalog : Resources.Load<MultiplayerCatalog>("MultiplayerCatalog"); var selected=session ? catalog.CharacterAt(p.character) : catalog.characters.FirstOrDefault(c=>c.characterId==p.meta?.characterId);
                 GUI.Box(new Rect(210,90,540,350),names[p.hubStation]+"  ·  P"+(p.slot+1)+"  ·  Essence "+(p.meta?.essence ?? 0));
                 int cursor=uiChoices.TryGetValue(p.slot,out int cursorValue) ? cursorValue : 0;
+                int actionCount=p.hubStation==0 ? catalog.characters.Length : p.hubStation==1 ? 4 : 1;
                 GUI.Label(new Rect(235,125,480,25),"Currently selected: "+(selected ? selected.displayName : p.meta?.characterId));
                 if(p.hubStation==0)
-                    for(int i=0;i<catalog.characters.Length;i++)
+                    for(int i=cursor<catalog.characters.Length ? (cursor/2)*2 : 0;i<Mathf.Min(catalog.characters.Length,(cursor<catalog.characters.Length ? (cursor/2)*2 : 0)+2);i++)
                     {
-                        var character=catalog.characters[i]; var rect=new Rect(245+i*240,165,220,190);
+                        var character=catalog.characters[i]; var rect=new Rect(245+(i%2)*240,165,220,190);
                         if(character.portrait) GUI.DrawTexture(new Rect(rect.x+60,rect.y,100,100),character.portrait.texture,ScaleMode.ScaleToFit,true);
                         GUI.Label(new Rect(rect.x,rect.y+105,220,30),character.skill.displayName);
                         if(GUI.Button(new Rect(rect.x,rect.y+140,220,35),(cursor==i ? "→ " : "")+character.displayName)) Command(p.slot,HubAction.Character,i);
@@ -164,15 +171,15 @@ namespace BeatEmUp
                 {
                     GUI.Label(new Rect(240,165,470,65),(selected ? selected.skill.displayName : "Equipped skill")+" · Lv "+p.meta.SkillLevel+"\n+"+(definition.skillPowerPerLevel*100).ToString("0")+"% skill damage per level. Cost remains one bar.");
                     GUI.enabled=p.meta.SkillLevel<definition.maximumLevel && p.meta.essence>=definition.Cost(p.meta.SkillLevel);
-                    if(GUI.Button(new Rect(260,255,440,45),"Upgrade Skill · "+definition.Cost(p.meta.SkillLevel)+" essence")) Command(p.slot,HubAction.Skill); GUI.enabled=true;
+                    if(GUI.Button(new Rect(260,255,440,45),(cursor==0 ? "► " : "")+"Upgrade Skill · "+definition.Cost(p.meta.SkillLevel)+" essence")) Command(p.slot,HubAction.Skill); GUI.enabled=true;
                 }
                 if(p.hubStation==3)
                 {
                     GUI.Label(new Rect(240,175,470,65),"World 1 · Thai Haunted House\nStart a fresh run with your permanent blessings.");
                     GUI.enabled=!session || session.IsAuthority;
-                    if(GUI.Button(new Rect(260,265,440,45),"Begin Run (host starts the party)")) Command(p.slot,HubAction.EnterWorld); GUI.enabled=true;
+                    if(GUI.Button(new Rect(260,265,440,45),(cursor==0 ? "► " : "")+"Begin Run (host starts the party)")) Command(p.slot,HubAction.EnterWorld); GUI.enabled=true;
                 }
-                if(GUI.Button(new Rect(260,385,440,35),"Close [E / Select]")) Command(p.slot,HubAction.Close);
+                if(GUI.Button(new Rect(260,385,440,35),(cursor==actionCount ? "► " : "")+"Close [E / Select / Esc / B]")) Command(p.slot,HubAction.Close);
                 break;
             }
             GUI.matrix=old;

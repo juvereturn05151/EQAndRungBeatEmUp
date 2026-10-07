@@ -260,13 +260,69 @@ PASS: Actual enemy attack hitbox produces Guard
 PASS: Both actors receive stronger parry / smaller guard hitstop
 PASS: Actual player prefab has defense frame data
 PASS: PlayerInput prefab resolves the updated actions asset
-PASS: Guard and parry use one action; no separate Parry binding exists
-PASS: Actual Guard action press invokes guard/parry without attack
-PASS: Held Guard input does not repeatedly fire or reopen parry
-PASS: Guard action canceled releases the held guard
-PASS: Actual separate Dodge action starts a dodge
-PASS: Holding Dodge after completion cannot automatically repeat it
-PASS: A new Dodge button press starts the next dodge
-PASS: Gamepad left shoulder invokes the shared Guard / Parry action
-PASS: Gamepad shoulder release cancels Guard
-PASS: Gamepad right shoulder invokes Dodge independently of attacks
+PASS: Only the existing Guard action owns Guard, Parry and directional Dodge
+PASS: Standing still plus L enters Guard
+PASS: Holding L keeps Guard without restarting its animation or parry window
+PASS: Releasing L releases Guard
+PASS: Removed Left Alt binding no longer dodges
+PASS: Simultaneous direction and L does not briefly trigger Guard: A
+PASS: Direction plus L prioritizes Dodge: A
+PASS: Dodge preserves authored distance and direction: A
+PASS: Held direction and L never repeat Dodge: A
+PASS: Releasing movement while L remains held enters Guard: A
+PASS: Simultaneous direction and L does not briefly trigger Guard: D
+PASS: Direction plus L prioritizes Dodge: D
+PASS: Dodge preserves authored distance and direction: D
+PASS: Held direction and L never repeat Dodge: D
+PASS: Releasing movement while L remains held enters Guard: D
+PASS: Simultaneous direction and L does not briefly trigger Guard: W
+PASS: Direction plus L prioritizes Dodge: W
+PASS: Dodge preserves authored distance and direction: W
+PASS: Held direction and L never repeat Dodge: W
+PASS: Releasing movement while L remains held enters Guard: W
+PASS: Simultaneous direction and L does not briefly trigger Guard: S
+PASS: Direction plus L prioritizes Dodge: S
+PASS: Dodge preserves authored distance and direction: S
+PASS: Held direction and L never repeat Dodge: S
+PASS: Releasing movement while L remains held enters Guard: S
+PASS: Keyboard diagonal dodge is normalized and preserves total distance
+PASS: Adding movement to held L releases Guard without triggering Dodge
+PASS: Repressing L with movement triggers the next Dodge
+PASS: Button event before movement in the same input update never starts Guard
+PASS: Button-first simultaneous input resolves the final intended Dodge direction
+PASS: Movement release during Dodge cannot cancel its authored recovery into Guard
+PASS: Holding L after releasing movement enters Guard once Dodge recovery finishes
+PASS: Controller left shoulder alone Guards
+PASS: Controller shoulder release stops Guard
+PASS: Controller stick plus left shoulder prioritizes Dodge: (-1.00, 0.00)
+PASS: Controller dodge preserves directional distance: (-1.00, 0.00)
+PASS: Held controller shoulder does not repeat Dodge
+PASS: Releasing stick while holding shoulder enters Guard
+PASS: Controller stick plus left shoulder prioritizes Dodge: (1.00, 0.00)
+PASS: Controller dodge preserves directional distance: (1.00, 0.00)
+PASS: Held controller shoulder does not repeat Dodge
+PASS: Releasing stick while holding shoulder enters Guard
+PASS: Controller stick plus left shoulder prioritizes Dodge: (0.00, 1.00)
+PASS: Controller dodge preserves directional distance: (0.00, 1.00)
+PASS: Held controller shoulder does not repeat Dodge
+PASS: Releasing stick while holding shoulder enters Guard
+PASS: Controller stick plus left shoulder prioritizes Dodge: (0.00, -1.00)
+PASS: Controller dodge preserves directional distance: (0.00, -1.00)
+PASS: Held controller shoulder does not repeat Dodge
+PASS: Releasing stick while holding shoulder enters Guard
+PASS: Removed right-shoulder binding no longer dodges
+PASS: Paired multiplayer input sends Dodge without Guard: A
+PASS: Paired multiplayer input sends no repeated held-button Dodge
+PASS: Paired multiplayer input sends Guard after movement release
+PASS: Paired multiplayer input sends Dodge without Guard: D
+PASS: Paired multiplayer input sends no repeated held-button Dodge
+PASS: Paired multiplayer input sends Guard after movement release
+PASS: Paired multiplayer input sends Dodge without Guard: W
+PASS: Paired multiplayer input sends no repeated held-button Dodge
+PASS: Paired multiplayer input sends Guard after movement release
+PASS: Paired multiplayer input sends Dodge without Guard: S
+PASS: Paired multiplayer input sends no repeated held-button Dodge
+PASS: Paired multiplayer input sends Guard after movement release
+PASS: Controller multiplayer command preserves directional Dodge and priority across serialization
+PASS: Controller multiplayer input does not repeat a held Dodge
+PASS: Controller multiplayer input Guards after releasing the stick

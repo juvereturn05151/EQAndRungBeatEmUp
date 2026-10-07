@@ -16,6 +16,9 @@ MonoBehaviour:
   characters:
   - {fileID: 11400000, guid: b655dba35256d104abe43db870fa78d0, type: 2}
   - {fileID: 11400000, guid: eaee95b1a9ed74749ad9db715a87308d, type: 2}
+  selectionCharacters:
+  - {fileID: 11400000, guid: e10dc06057d480e478cd6271cffe449c, type: 2}
+  - {fileID: 11400000, guid: fc0046cad30e360449e6f40bfb690acb, type: 2}
   level: {fileID: 11400000, guid: 96845822bedfce14cb1571f0a512cce3, type: 2}
   sprites:
   - {fileID: 21300000, guid: 63593fec13abc87af7a79a7671f24968, type: 3}
@@ -988,6 +991,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bb437f6a27166a940a048023ec598b64, type: 3}
   - {fileID: 21300000, guid: 9ccbd7d28eca45b49a496b5cfd5129a8, type: 3}
   - {fileID: 21300000, guid: fd3018043e1487e40b5dffad03e7493e, type: 3}
+  - {fileID: 21300000, guid: 814313f4dec681246be09f1dc94197d1, type: 3}
   - {fileID: 21300000, guid: 3b9c65eccfd517e44bb9e3003691a5a2, type: 3}
   - {fileID: 21300000, guid: b5053a7b28cbea545ad4e18b601d4730, type: 3}
   - {fileID: 21300000, guid: 1c184eec63495c2409c2b57c740de49d, type: 3}
@@ -1248,4 +1252,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d3f987f74bec891498a5b95de6036571, type: 2}
   menuBackground: {fileID: -1160340735777781435, guid: 854da9651aa5440419daebcdf074938c, type: 3}
   gameplayScene: PlayerHub
-  contentHash: CFE3201363C407787A3DFFFFC8896E36E9AF4AAFFE446F0DD43AFC8CB661B167
+  contentHash: D82FD48B313DABA3B6C1E60EF6D2228ABE8665E317200E1FCE9F8E59FF54645E

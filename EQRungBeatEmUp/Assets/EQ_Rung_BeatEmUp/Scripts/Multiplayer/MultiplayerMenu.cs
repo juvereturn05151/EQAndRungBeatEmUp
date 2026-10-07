@@ -8,11 +8,13 @@ using UnityEngine.UI;
 
 namespace BeatEmUp
 {
-    public sealed class MultiplayerMenu : MonoBehaviour
+    [DefaultExecutionOrder(-80)]
+    public sealed partial class MultiplayerMenu : MonoBehaviour
     {
         MultiplayerSession session;
         Canvas canvas;
         GameObject page;
+        CharacterSelectManager characterSelect;
         string screen="main", joinCode="", address="127.0.0.1";
         Text status;
         float refreshAt;
@@ -33,16 +35,19 @@ namespace BeatEmUp
             var scaler=root.GetComponent<CanvasScaler>(); scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize; scaler.referenceResolution=new Vector2(1920,1080); scaler.matchWidthOrHeight=.5f;
             var events=new GameObject("Multiplayer UI input",typeof(EventSystem),typeof(InputSystemUIInputModule)); events.transform.SetParent(transform);
             events.GetComponent<InputSystemUIInputModule>().AssignDefaultActions();
+            InitializeNavigation();
         }
         void Start() { session.Changed+=Refresh; Refresh(); }
-        void OnDestroy() { if(session) session.Changed-=Refresh; }
+        void OnDestroy() { if(session) session.Changed-=Refresh; DisposeNavigation(); }
         void Update()
         {
+            UpdateNavigation();
             if(UnityEngine.InputSystem.Keyboard.current!=null && UnityEngine.InputSystem.Keyboard.current.f10Key.wasPressedThisFrame && (Application.isEditor || Debug.isDebugBuild)) debugVisible=!debugVisible;
             if(session.InLobby && Time.unscaledTime>=refreshAt) { refreshAt=Time.unscaledTime+.3f; Refresh(); }
             if(session.InGame && Time.unscaledTime>=refreshAt) { refreshAt=Time.unscaledTime+.1f; Refresh(); }
             var module=GetComponentInChildren<InputSystemUIInputModule>();
-            if(module && module.submit!=null) { if(session.InLobby) module.submit.action.Disable(); else if(!module.submit.action.enabled) module.submit.action.Enable(); }
+            if(module && module.submit!=null) module.submit.action.Disable();
+            if(module && module.move!=null) module.move.action.Disable();
             if(session.InGame && session.Latest!=null)
             {
                 var camera=Camera.main;
@@ -94,7 +99,8 @@ namespace BeatEmUp
         }
         public void Refresh()
         {
-            string signature=screen+"/"+session.InGame+"/"+session.InLobby+"/"+session.Status+"/"+session.PreferredCharacter;
+            if(session.InLobby && characterSelect && characterSelect.isActiveAndEnabled) { characterSelect.Render(); return; }
+            string signature=screen+"/"+session.InGame+"/"+session.InLobby+"/"+session.Status+"/"+session.PreferredCharacter+"/"+session.LocalMenuOpen+"/"+joinCode;
             if(session.InLobby) signature+=JsonUtility.ToJson(session.Lobby);
             if(session.InGame && session.Latest!=null)
             {
@@ -103,11 +109,17 @@ namespace BeatEmUp
                 foreach(var boss in w.entities.Where(e=>e.kind=="Boss")) signature+="/boss:"+boss.hp+":"+boss.phase+":"+boss.invulnerable+":"+boss.vulnerabilityFrames+":"+boss.dead;
             }
             if(signature==lastSignature) return; lastSignature=signature;
+            RememberFocus(); rewardButtons.Clear();
             tags.Clear(); comboLabels.Clear();
             if(page) { page.SetActive(false); Destroy(page); }
             page=new GameObject("Menu page",typeof(RectTransform)); Rect(page,canvas.transform,new Rect(0,0,1920,1080));
             // Every page replaces its selectable tree. Give navigation a valid selection after construction.
-            if(session.InGame) { Gameplay(); return; }
+            if(session.InGame) { Gameplay(); if(session.LocalMenuOpen) GameMenu(); FinishNavigation(); return; }
+            if(session.InLobby)
+            {
+                var prefab=Resources.Load<CharacterSelectManager>("CharacterSelect/CharacterSelectCanvas");
+                if(prefab) { characterSelect=Instantiate(prefab,page.transform); characterSelect.Bind(session); return; }
+            }
             if(session.catalog && session.catalog.menuBackground)
             {
                 // Use the existing complete hub texture; its background/floor sprite slices remain unchanged.
@@ -119,17 +131,18 @@ namespace BeatEmUp
             Label("Fight together against the spirits",new Rect(82,178,780,55),30,new Color(1,.82f,.6f));
             status=Label(session.Status,new Rect(80,950,1760,110),25,new Color(.85f,.9f,1));
             if(session.InLobby) Lobby(); else MenuPage();
-            var first=page.GetComponentsInChildren<Button>().FirstOrDefault(b=>b.interactable);
-            if(first && EventSystem.current) EventSystem.current.SetSelectedGameObject(first.gameObject);
+            FinishNavigation();
         }
         void MenuPage()
         {
+            if(screen=="code") { CodeEntry(); return; }
             if(screen=="main")
             {
                 Button("PLAY",new Rect(100,300,520,90),()=>Show("modes"),red);
                 Button("HOW TO PLAY",new Rect(100,420,520,80),()=>Show("help"));
                 Button("OPTIONS",new Rect(100,530,520,80),()=>Show("options"));
                 Button("QUIT",new Rect(100,640,520,80),()=>Application.Quit());
+                Label("Arrows / WASD / stick / D-pad: move\nEnter / A: confirm    Escape / B: back",new Rect(100,800,950,100),26);
                 Label("A 2D BEAT 'EM UP\n\nSingle Player • Local Co-op • Online Co-op\n\nUp to 4 players",new Rect(850,350,850,330),36,new Color(1,.84f,.65f));
             }
             else if(screen=="modes")
@@ -137,8 +150,6 @@ namespace BeatEmUp
                 Button("SINGLE PLAYER",new Rect(100,300,620,90),()=>session.BeginLocal(true),red);
                 Button("LOCAL CO-OP",new Rect(100,420,620,90),()=>session.BeginLocal());
                 Button("ONLINE CO-OP",new Rect(100,540,620,90),()=>Show("online"));
-                if(session.catalog.characters.Length>0) Button("CHARACTER: "+session.catalog.CharacterAt(session.PreferredCharacter)?.displayName,new Rect(850,700,650,70),()=>
-                { session.PreferredCharacter=(session.PreferredCharacter+1)%session.catalog.characters.Length; Refresh(); });
                 Button("BACK",new Rect(100,760,300,70),()=>Show("main"));
                 Label("Local: one keyboard plus up to three gamepads,\nor up to four gamepads.\n\nOnline: one player per machine.\nCreate a room and share its Relay code.",new Rect(850,340,850,340),34);
             }
@@ -148,14 +159,15 @@ namespace BeatEmUp
                 { session.PreferredOnlineDevice=session.PreferredOnlineDevice is UnityEngine.InputSystem.Gamepad ? (UnityEngine.InputSystem.InputDevice)UnityEngine.InputSystem.Keyboard.current : UnityEngine.InputSystem.Gamepad.current; lastSignature=null; Refresh(); });
                 Button("CREATE LOBBY",new Rect(100,310,560,85),async()=>await session.HostRelay(),red,!session.Busy);
                 Label("Room code",new Rect(100,430,600,45));
-                Field(joinCode,new Rect(100,485,560,70),s=>joinCode=s);
-                Button("JOIN BY CODE",new Rect(100,590,560,85),async()=>await session.JoinRelay(joinCode),enabled:!session.Busy);
+            var codeField=Field(joinCode,new Rect(100,485,560,70),s=>joinCode=s); codeField.gameObject.name="Room code";
+            Button("ENTER CODE WITH BUTTONS",new Rect(100,565,560,65),()=>Show("code"));
+                Button("JOIN BY CODE",new Rect(100,650,560,85),async()=>await session.JoinRelay(joinCode),enabled:!session.Busy);
                 Button("BACK",new Rect(100,760,300,70),()=>{session.CancelConnection(); Show("modes");});
                 Label("Internet co-op uses Unity Relay.\n\nUse the same game build as your friends.\nThe host controls the run and starts when everyone is ready.",new Rect(850,340,850,340),34);
             }
             else if(screen=="help")
             {
-                Label("KEYBOARD\nMove: WASD / arrows\nPunch: J     Launcher / air dive: K\nJump: Space     Dodge: Left Alt     Guard / parry: L\nSkill: I (1 bar)     Interact: E     Upgrade choices: 1 / 2 / 3\n\nGAMEPAD\nMove: left stick     Punch: X\nLauncher / dive: Y     Jump: A\nDodge: right shoulder     Guard: left shoulder\nSkill: right trigger (1 bar)     Interact: Select     Blessing: D-pad left / up / right\n\nLobby: Enter / A to join or toggle ready. Space / Start to begin.",new Rect(100,290,1640,560),31);
+                Label("KEYBOARD\nMove: WASD / arrows\nPunch: J     Launcher / air dive: K\nJump: Space     Guard / parry: L (no movement)\nDodge: direction + L\nSkill: I (1 bar)     Interact: E     Upgrade choices: 1 / 2 / 3\n\nGAMEPAD\nMove: left stick     Punch: X\nLauncher / dive: Y     Jump: A\nGuard: left shoulder (no movement)\nDodge: stick direction + left shoulder\nSkill: right trigger (1 bar)     Interact: Select     Blessing: D-pad + A; B to close\n\nLobby: Enter / A to join or toggle ready. Space / Start to begin.",new Rect(100,290,1640,560),31);
                 Button("BACK",new Rect(100,850,300,65),()=>Show("main"));
             }
             else
@@ -168,7 +180,7 @@ namespace BeatEmUp
                 Button("BACK",new Rect(100,760,300,70),()=>Show("main"));
             }
         }
-        void Show(string name) { screen=name; lastSignature=null; Refresh(); }
+        void Show(string name) { screen=name; focusName=null; lastSignature=null; Refresh(); }
         void Lobby()
         {
             Label("LOBBY / MATCH SETUP",new Rect(830,90,1000,90),47,new Color(1,.85f,.64f));
@@ -232,9 +244,11 @@ namespace BeatEmUp
                     {
                         int index=choice;
                         var button=Button((choice+1)+". "+p.choices[choice],new Rect(x+12,684+choice*112,width-24,104),()=>session.ChooseLocal(slot,index));
+                        if(!rewardButtons.TryGetValue(slot,out var choices)) rewardButtons[slot]=choices=new List<Button>(); choices.Add(button);
                         var title=button.GetComponentInChildren<Text>(); title.fontSize=22; title.alignment=TextAnchor.UpperCenter; title.rectTransform.sizeDelta=new Vector2(width-48,32);
                         if(choice<p.descriptions.Length) Label(p.descriptions[choice],new Rect(12,42,width-48,60),18,parent:button.transform);
                     }
+                    rewardButtons[slot].Add(Button("BACK  /  ESC / B",new Rect(x+12,1020,width-24,45),()=>session.ChooseLocal(slot,-2)));
                 }
             }
             string stage=world.stage>=0 && world.stage<session.catalog.level.stages.Count ? session.catalog.level.stages[world.stage].stageName : "Loading";
@@ -256,6 +270,7 @@ namespace BeatEmUp
                 if(session.IsAuthority) Button("RETURN TO HUB",new Rect(650,470,620,80),()=>session.Retry(),red);
                 Button("MAIN MENU",new Rect(650,570,620,65),()=>{screen="main";session.LeaveToMenu();});
             }
+            if(session.LocalMenuOpen) return;
             if(!string.IsNullOrEmpty(world.status)) Label(world.status,new Rect(300,300,1300,150),30,Color.red);
             if(!world.gameOver && !world.completed && !world.players.Any(p=>p.choosing && session.IsLocalOwner(p.owner)))
             {
@@ -266,21 +281,23 @@ namespace BeatEmUp
         void OnGUI()
         {
             if(!debugVisible || !Application.isEditor && !Debug.isDebugBuild) return;
+            debugNavigation.Begin();
             GUILayout.BeginArea(new Rect(12,240,320,420),GUI.skin.box);
             GUILayout.Label("Multiplayer debug (F10)"); address=GUILayout.TextField(address);
             if(!session.InGame)
             {
-                if(GUILayout.Button("Direct host :7777")) session.DirectHost();
-                if(GUILayout.Button("Direct join :7777")) session.DirectJoin(address);
-                if(GUILayout.Button("Local lobby")) session.BeginLocal();
-                if(GUILayout.Button("Force ready (authority)")) foreach(var slot in session.Lobby.slots.Where(s=>session.IsLocalOwner(s.owner))) if(!slot.ready) session.Ready(slot.slot);
+                if(debugNavigation.Button("Direct host :7777")) session.DirectHost();
+                if(debugNavigation.Button("Direct join :7777")) session.DirectJoin(address);
+                if(debugNavigation.Button("Local lobby")) session.BeginLocal();
+                if(debugNavigation.Button("Force ready (authority)")) foreach(var slot in session.Lobby.slots.Where(s=>session.IsLocalOwner(s.owner))) if(!slot.ready) session.Ready(slot.slot);
             }
             else if(session.IsAuthority && session.Flow)
             {
-                for(int i=0;i<session.catalog.level.stages.Count;i++) { int stage=i; if(GUILayout.Button("Stage "+(i+1))) session.Flow.EnterStage(stage); }
-                if(GUILayout.Button("Complete event")) session.Flow.CompleteStageEvent();
+                for(int i=0;i<session.catalog.level.stages.Count;i++) { int stage=i; if(debugNavigation.Button("Stage "+(i+1))) session.Flow.EnterStage(stage); }
+                if(debugNavigation.Button("Complete event")) session.Flow.CompleteStageEvent();
             }
             GUILayout.EndArea();
+            debugNavigation.End();
         }
     }
 }

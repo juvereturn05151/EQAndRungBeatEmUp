@@ -54,6 +54,8 @@ namespace BeatEmUp
             if(!player.GetComponent<RunBuildState>().Acquire(s.choices[index])) return false;
             s.done=true; CheckComplete(); return true;
         }
+        public void CloseChoice(PlayerIdentity player)
+        { var selection=selections.Find(s=>s.player==player); if(selection!=null && !selection.done) selection.opened=false; }
         public void CheckComplete()
         {
             if(!Pending || selections.Any(s=>s.player && s.player.Living && !s.done)) return;

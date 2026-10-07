@@ -23,20 +23,24 @@ namespace BeatEmUp
                 remoteWarnings.Remove(sourceId);
                 if (signal == "StopArea") return;
             }
-            var clip=signal=="Telegraph" ? data.telegraphSound : signal=="Scream" ? data.screamSound : impact ? data.impactSound : data.swingSound;
+            bool diveStart = signal == "DiveWhoosh", landing = signal == "DiveLanding";
+            var clip=landing ? data.landingSound : signal=="Telegraph" ? data.telegraphSound : signal=="Scream" ? data.screamSound : impact ? data.impactSound : data.swingSound;
             if(clip)
             {
                 var sound=new GameObject("Network combat sound"); sound.transform.position=point;
-                var source=sound.AddComponent<AudioSource>(); source.spatialBlend=0; source.volume=!string.IsNullOrEmpty(signal) && signal!="Swing" ? data.areaVolume : impact ? data.impactVolume : data.swingVolume;
+                var source=sound.AddComponent<AudioSource>(); source.spatialBlend=0; source.volume=landing ? data.landingVolume : diveStart ? data.swingVolume : !string.IsNullOrEmpty(signal) && signal!="Swing" ? data.areaVolume : impact ? data.impactVolume : data.swingVolume;
                 source.clip=clip; source.Play(); Destroy(sound,clip.length+.1f);
                 if (signal == "Telegraph") remoteWarnings[sourceId] = source;
             }
-            if(!impact || !data.impactPrefab) return;
+            var prefab = landing ? data.landingPrefab : diveStart ? data.diveStartPrefab : impact ? data.impactPrefab : null;
+            if (!prefab) return;
+            float scale = landing ? data.landingScale : diveStart ? data.diveStartScale : data.impactScale;
+            float lifetime = landing ? data.landingLifetime : diveStart ? data.diveStartLifetime : data.impactLifetime;
             var container=new GameObject("Network combat impact"); container.SetActive(false); container.transform.position=point;
             container.AddComponent<NetworkFeedbackVisual>();
-            var effect=Instantiate(data.impactPrefab,container.transform);
-            effect.transform.localPosition=Vector3.zero; effect.transform.localScale*=data.impactScale;
-            effect.transform.localRotation=Quaternion.Euler(0,0,data.impactRotateWithFacing && facing<0 ? 180 : 0);
+            var effect=Instantiate(prefab,container.transform);
+            effect.transform.localPosition=Vector3.zero; effect.transform.localScale*=scale;
+            effect.transform.localRotation=Quaternion.Euler(0,0,!landing && data.impactRotateWithFacing && facing<0 ? 180 : 0);
             foreach(var cfx in effect.GetComponentsInChildren<CartoonFX.CFXR_Effect>(true))
             { if(cfx.cameraShake!=null) cfx.cameraShake.enabled=false; cfx.animatedLights=new CartoonFX.CFXR_Effect.AnimatedLight[0]; }
             foreach(var light in effect.GetComponentsInChildren<Light>(true)) light.enabled=false;
@@ -45,13 +49,16 @@ namespace BeatEmUp
                 var main=particles.main; main.loop=false; main.scalingMode=ParticleSystemScalingMode.Hierarchy;
                 var renderer=particles.GetComponent<ParticleSystemRenderer>(); if(renderer) renderer.sortingOrder=Mathf.RoundToInt(-point.y*100)+2;
             }
-            container.SetActive(true); Destroy(container,data.impactLifetime);
+            container.SetActive(true); Destroy(container,lifetime);
         }
         AttackPlayer player;
         AttackHitbox hitbox;
         ComboController defender;
         AttackData lastAttack;
         int lastSwingFrame = -1, lastImpactFrame = -1;
+        public int DiveStartCount { get; private set; }
+        public int LandingCount { get; private set; }
+        int lastDiveStartFrame = -1, lastLandingFrame = -1;
         public int SwingCount { get; private set; }
         public int ImpactCount { get; private set; }
         public GameObject LastImpact { get; private set; }
@@ -178,7 +185,7 @@ namespace BeatEmUp
             var color = attack.feedback.warningColor; color.a *= .7f + .3f * Mathf.Sin(player.CurrentFrame * Mathf.PI / 8);
             WarningVisual.color = color; WarningVisual.sortingOrder = (player.motor.sprite ? player.motor.sprite.sortingOrder : 0) + 1;
         }
-        void ResetHistory() { lastAttack = null; lastSwingFrame = lastImpactFrame = -1; }
+        void ResetHistory() { lastAttack = null; lastSwingFrame = lastImpactFrame = lastDiveStartFrame = lastLandingFrame = -1; }
         void Prepare()
         {
             // Started resets repeated assets; this also handles an explicitly rewound timeline.
@@ -193,6 +200,22 @@ namespace BeatEmUp
                 if (area == null) return;
                 if (signal == "Telegraph") { TelegraphCount++; PlaySound(area.telegraphSound, area.areaVolume, player.motor.transform.position); warningSound = area.telegraphSound ? LastSound : null; }
                 else { ClearWarningSound(); ScreamCount++; PlaySound(area.screamSound, area.areaVolume, player.motor.transform.position); }
+                return;
+            }
+            if ((signal == "DiveWhoosh" || signal == "DiveLanding") && player.CurrentAttack && !CombatClock.IsPaused)
+            {
+                Prepare();
+                bool landing = signal == "DiveLanding";
+                if ((landing ? lastLandingFrame : lastDiveStartFrame) == player.CurrentFrame) return;
+                var cue = player.CurrentAttack.feedback;
+                if (cue == null) return;
+                if (landing) { lastLandingFrame = player.CurrentFrame; LandingCount++; }
+                else { lastDiveStartFrame = player.CurrentFrame; DiveStartCount++; }
+                var point = (Vector2)player.motor.transform.position + new Vector2(0, landing ? 0 : player.motor.Height + .3f);
+                PlaySound(landing ? cue.landingSound : cue.swingSound, landing ? cue.landingVolume : cue.swingVolume, point);
+                SpawnImpact(point, landing ? cue.landingPrefab : cue.diveStartPrefab,
+                    landing ? cue.landingScale : cue.diveStartScale, landing ? cue.landingLifetime : cue.diveStartLifetime,
+                    !landing && cue.impactRotateWithFacing);
                 return;
             }
             if (signal != "Swing" || !player.CurrentAttack || CombatClock.IsPaused) return;
@@ -224,14 +247,16 @@ namespace BeatEmUp
             PlaySound(data.impactSound, data.impactVolume, point); SpawnImpact(data, point);
         }
         void SpawnImpact(AttackFeedbackData data, Vector2 point)
+            => SpawnImpact(point, data.impactPrefab, data.impactScale, data.impactLifetime, data.impactRotateWithFacing);
+        void SpawnImpact(Vector2 point, GameObject prefab, float scale, float lifetime, bool rotate)
         {
-            if (!data.impactPrefab) return;
+            if (!prefab) return;
             var container = new GameObject("Combat impact (temporary)"); container.SetActive(false);
             container.transform.position = new Vector3(point.x, point.y, -.1f);
-            var effect = Instantiate(data.impactPrefab, container.transform);
+            var effect = Instantiate(prefab, container.transform);
             effect.transform.localPosition = Vector3.zero;
-            effect.transform.localRotation = Quaternion.Euler(0, 0, data.impactRotateWithFacing && player.motor.Facing < 0 ? 180 : 0);
-            effect.transform.localScale *= data.impactScale;
+            effect.transform.localRotation = Quaternion.Euler(0, 0, rotate && player.motor.Facing < 0 ? 180 : 0);
+            effect.transform.localScale *= scale;
             // Configure before activation; disable library camera shake and scene lights per instance.
             foreach (var cfx in effect.GetComponentsInChildren<CartoonFX.CFXR_Effect>(true))
             {
@@ -250,7 +275,7 @@ namespace BeatEmUp
                 }
             }
             LastImpact = container; container.SetActive(true);
-            Destroy(container, data.impactLifetime);
+            Destroy(container, lifetime);
         }
         void PlaySound(AudioClip clip, float volume, Vector3 point)
         {

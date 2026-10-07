@@ -23,20 +23,20 @@ MonoBehaviour:
     and bounce flags copied from AirHeadbuttDive. Tune independently in the Frame
     Attack Editor.
   feedback:
-    areaWarning: 0
-    directionalWaveWarning: 0
-    areaRingSprite: {fileID: 0}
-    areaWaveSprites: []
-    warningColor: {r: 1, g: 0.35, b: 0.1, a: 0.8}
-    waveColor: {r: 1, g: 0.2, b: 0.3, a: 0.9}
-    telegraphSound: {fileID: 0}
-    screamSound: {fileID: 0}
-    areaVolume: 0.6
-    swingSound: {fileID: 0}
-    impactSound: {fileID: 0}
-    swingVolume: 0.35
+    swingSound: {fileID: 8300000, guid: a65d792d6907f744490c9b15bb70edfe, type: 3}
+    impactSound: {fileID: 8300000, guid: d0f166575306db84091dc03fce0eff69, type: 3}
+    swingVolume: 0.5
     impactVolume: 0.55
-    impactPrefab: {fileID: 0}
+    diveStartPrefab: {fileID: 1429954232896169633, guid: 83036083a4ebcd34f98131bd3cf6f4d2, type: 3}
+    diveStartScale: 0.2
+    diveStartLifetime: 0.35
+    landingPrefab: {fileID: 3432958286849152088, guid: 87ee7299dd44ed747af24dbb91bcd33b, type: 3}
+    landingSound: {fileID: 8300000, guid: 2a295373a10441545bcaf619b61bea94, type: 3}
+    landingVolume: 0.65
+    landingScale: 0.25
+    landingLifetime: 0.7
+    impactPrefab: {fileID: 8525990746615576120, guid: b85d21f3b8fed714bacf0c4fd50fa512, type: 3}
+    impactRotateWithFacing: 0
     impactScale: 0.15
     impactLifetime: 0.45
   frames:

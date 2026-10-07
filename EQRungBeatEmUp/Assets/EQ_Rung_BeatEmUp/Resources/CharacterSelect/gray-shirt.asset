@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24dc36680f7b2764c815b0a0bb55dc33, type: 3}
+  m_Name: gray-shirt
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.CharacterDefinition
+  GameplayCharacter: {fileID: 11400000, guid: eaee95b1a9ed74749ad9db715a87308d, type: 2}
+  CharacterId: gray-shirt
+  DisplayName: GRAY SHIRT GUY
+  CharacterPrefab: {fileID: 4994252911329430528, guid: 835631e21f6777d4b91bf0137b1f5700, type: 3}
+  PortraitSprite: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+  LargePreviewSprite: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+  Power: 2
+  Speed: 4
+  Defense: 3
+  Technique: 5
+  Archetype: TECHNICAL
+  IsUnlocked: 1
+  Description: 'Keep your distance. Break the curse.
+
+    Wand barriers and quick
+    strikes.'
+  CharacterSelectVoice: {fileID: 0}
+  ConfirmVoice: {fileID: 0}
+  ThemeColor: {r: 1, g: 1, b: 1, a: 1}
+  CharacterSelectAnimation: []

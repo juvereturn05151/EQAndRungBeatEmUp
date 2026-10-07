@@ -16,12 +16,16 @@ namespace BeatEmUp
         public string LastAction { get; private set; } = "None";
         
         private PlayerInput playerInput;
+        private RunUpgradeController runMenu;
         
-        private InputAction move, attack, launcher, jump, guard, dodge, skill;
-        private bool HubMenuOpen => GetComponent<MetaProgress>()?.OpenStation>=0;
+        private InputAction move, attack, launcher, jump, guard, skill;
+        // Match the existing directional dodge threshold; the motor normalizes diagonals.
+        public static bool HasDefenseDirection(Vector2 direction) => direction.sqrMagnitude > .01f;
+        private bool HubMenuOpen => GetComponent<MetaProgress>()?.OpenStation>=0 || runMenu && runMenu.enabled && runMenu.MenuOpen;
         
         private void Start() 
         { 
+            runMenu=FindFirstObjectByType<RunUpgradeController>();
             Bind(); 
         }
 
@@ -44,7 +48,6 @@ namespace BeatEmUp
             launcher = map.FindAction("Launcher", true); 
             jump = map.FindAction("Jump", true);
             guard = map.FindAction("Guard", true);
-            dodge = map.FindAction("Dodge", true);
             skill = map.FindAction("Skill", true);
 
             move.performed += OnMove; 
@@ -52,9 +55,6 @@ namespace BeatEmUp
             attack.performed += OnAttack; 
             launcher.performed += OnLauncher; 
             jump.performed += OnJump;
-            guard.performed += OnGuard;
-            guard.canceled += OnGuardReleased;
-            dodge.performed += OnDodge;
             skill.performed += OnSkill;
             // PlayerInput owns map enabling, device pairing and per-player action copies.
         }
@@ -67,12 +67,19 @@ namespace BeatEmUp
         private void Update()
         {
             // Preserve intended movement after a recovery clears motor input.
-            // Buttons remain edge-triggered through action callbacks.
-            if (move != null && motor) motor.MoveInput = CombatClock.IsPaused || HubMenuOpen ? Vector2.zero : move.ReadValue<Vector2>();
+            // Offensive buttons use callbacks; defense resolves the action's press/hold state below.
+            if(move==null || !motor || guard==null) return;
+            // Resolve after the Input System has processed all movement/button events.
+            // A directional press must never enter Guard first, regardless of event order.
+            var direction=move.ReadValue<Vector2>();
+            bool blocked=CombatClock.IsPaused || HubMenuOpen;
+            motor.MoveInput=blocked ? Vector2.zero : direction;
+            bool directional=HasDefenseDirection(direction);
+            combat.RequestGuard(!blocked && guard.IsPressed() && !directional);
+            if(!blocked && guard.WasPressedThisFrame() && directional)
+            { LastAction="Dodge"; combat.RequestDodge(); }
+            else if(!blocked && guard.IsPressed() && !directional) LastAction="Guard / Parry";
         }
-        private void OnGuard(InputAction.CallbackContext context) { if(HubMenuOpen) return; LastAction = "Guard / Parry"; combat.RequestGuard(true); }
-        private void OnGuardReleased(InputAction.CallbackContext context) { combat.RequestGuard(false); }
-        private void OnDodge(InputAction.CallbackContext context) { if(HubMenuOpen) return; LastAction = "Dodge"; combat.RequestDodge(); }
         private void OnSkill(InputAction.CallbackContext context) { if(HubMenuOpen) return; LastAction = "Skill"; combat.GetComponent<PlayerSkillController>()?.RequestSkill(); }
         
         private void OnAttack(InputAction.CallbackContext context) 
@@ -118,8 +125,6 @@ namespace BeatEmUp
             if (attack != null) attack.performed -= OnAttack;
             if (launcher != null) launcher.performed -= OnLauncher;
             if (jump != null) jump.performed -= OnJump;
-            if (guard != null) { guard.performed -= OnGuard; guard.canceled -= OnGuardReleased; }
-            if (dodge != null) dodge.performed -= OnDodge;
             if (skill != null) skill.performed -= OnSkill;
         }
     }

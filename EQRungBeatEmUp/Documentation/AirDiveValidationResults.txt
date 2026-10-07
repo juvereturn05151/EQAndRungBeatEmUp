@@ -1,3 +1,39 @@
+PASS: Assets/EQ_Rung_BeatEmUp/Attacks/AirHeadbuttDive.asset: all dive VFX/SFX assigned
+PASS: Dive start emits one visual/whoosh before landing, facing -1
+PASS: Dive burst follows airborne visual height
+PASS: Held airborne frame does not repeat effects or land early
+PASS: Whiff still emits one landing visual/thud
+PASS: Landing effect stays upright at floor
+PASS: Recovery does not repeat dive cues
+PASS: Interrupted dive has no false landing cue
+PASS: Client dive cues reconstruct temporary VFX
+PASS: Assets/EQ_Rung_BeatEmUp/Attacks/AirHeadbuttDive.asset: all dive VFX/SFX assigned
+PASS: Dive start emits one visual/whoosh before landing, facing 1
+PASS: Dive burst follows airborne visual height
+PASS: Held airborne frame does not repeat effects or land early
+PASS: Whiff still emits one landing visual/thud
+PASS: Landing effect stays upright at floor
+PASS: Recovery does not repeat dive cues
+PASS: Interrupted dive has no false landing cue
+PASS: Client dive cues reconstruct temporary VFX
+PASS: Assets/EQ_Rung_BeatEmUp/Characters/Character2/Character2_AirDive.asset: all dive VFX/SFX assigned
+PASS: Dive start emits one visual/whoosh before landing, facing -1
+PASS: Dive burst follows airborne visual height
+PASS: Held airborne frame does not repeat effects or land early
+PASS: Whiff still emits one landing visual/thud
+PASS: Landing effect stays upright at floor
+PASS: Recovery does not repeat dive cues
+PASS: Interrupted dive has no false landing cue
+PASS: Client dive cues reconstruct temporary VFX
+PASS: Assets/EQ_Rung_BeatEmUp/Characters/Character2/Character2_AirDive.asset: all dive VFX/SFX assigned
+PASS: Dive start emits one visual/whoosh before landing, facing 1
+PASS: Dive burst follows airborne visual height
+PASS: Held airborne frame does not repeat effects or land early
+PASS: Whiff still emits one landing visual/thud
+PASS: Landing effect stays upright at floor
+PASS: Recovery does not repeat dive cues
+PASS: Interrupted dive has no false landing cue
+PASS: Client dive cues reconstruct temporary VFX
 PASS: Authored24-frame attack with seven active frames
 PASS: TEST5: direct grounded Play cannot activate airborne-only dive
 PASS: Grounded Launcher keeps existing launcher behavior
@@ -11,6 +47,7 @@ PASS: Recovery ends in neutral with normal physics restored
 PASS: Landing replenishes per-airborne-sequence dive use
 PASS: Normal jump is airborne
 PASS: TEST2: grounded enemy takes one14-damage head hit with hitstop
+PASS: Accepted enemy hit emits one configured hit visual/sound during hitstop
 PASS: Ground contact enters grounded impact/recovery at the landing frame
 PASS: Landing recovery rejects attack, launcher and jump cancels
 PASS: Recovery ends in neutral with normal physics restored

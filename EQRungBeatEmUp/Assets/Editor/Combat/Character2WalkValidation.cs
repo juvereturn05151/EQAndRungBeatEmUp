@@ -69,7 +69,7 @@ public static class Character2WalkValidation
             {
                 animator.Play("Base Layer.Walk",0,(i*.05f+.025f)/animator.GetCurrentAnimatorStateInfo(0).length); animator.Update(0);
                 Check(motor.sprite.sprite==keys[i].value && motor.sprite.transform.lossyScale==scale,"Repeated loop "+loop+" pose "+(i+1)+" at identical renderer scale (actual="+motor.sprite.sprite.name+")");
-                if(loop==0 && (i==0 || i==4 || i==5)) Capture(motor,"Walk_"+(i+1).ToString("00"));
+                if(loop==0 && (i==0 || i==4 || i==5 || i==11)) Capture(motor,"Walk_"+(i+1).ToString("00"));
             }
             player.animationDriver.Play("Walk",true); animator.Update(0);
             int previousPose=0,changes=0; var seen=new HashSet<int>();

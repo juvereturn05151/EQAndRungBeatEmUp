@@ -25,6 +25,16 @@ public sealed class AttackDataEditorWindow : EditorWindow
     public int CurrentFrame => currentFrame;
     [MenuItem("Tools/Combat/Attack Data Editor")]
     public static void Open() => Open(Selection.activeObject as AttackData);
+    [MenuItem("Beat Em Up/Enemies/Edit Rusher slash frames")]
+    public static void OpenRusherSlash()
+    {
+        var data=AssetDatabase.LoadAssetAtPath<AttackData>("Assets/EQ_Rung_BeatEmUp/Levels/HauntedHouse/AI/Rusher_SlashCombo.asset");
+        Open(data);
+        var window=GetWindow<AttackDataEditorWindow>();
+        window.previewCharacter=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/EQ_Rung_BeatEmUp/Levels/HauntedHouse/Prefabs/Rusher.prefab");
+        window.SelectFrame(data.FirstActiveFrame);
+        Selection.activeObject=data;
+    }
     public static void Open(AttackData data)
     {
         var window = GetWindow<AttackDataEditorWindow>("Attack Data Editor");

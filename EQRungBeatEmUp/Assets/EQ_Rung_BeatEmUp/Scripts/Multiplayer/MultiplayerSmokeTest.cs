@@ -73,6 +73,7 @@ namespace BeatEmUp
                 foreach(var slot in session.Lobby.slots) if(!slot.ready) session.Ready(slot.slot);
                 Check(session.CanStart,"Local joined players all ready"); session.StartGame();
             }
+            else { session.Ready(0); session.StartGame(); }
             yield return WaitFor(()=>session.InGame && session.Flow && PlayerRoster.Players.Count()==count);
             if(Finished) yield break;
             Check(PlayerRoster.Players.Count()==count,"Independent player instances: "+count);
@@ -150,7 +151,7 @@ namespace BeatEmUp
                     if(session.IsLocalOwner(world.validationOwner))
                     {
                         if(world.validationPhase=="Guard" || world.validationPhase=="Block") state=state.WithButton(GamepadButton.LeftShoulder);
-                        if(world.validationPhase=="Dodge") state=state.WithButton(GamepadButton.RightShoulder);
+                        if(world.validationPhase=="Dodge") { state.leftStick=Vector2.right; state=state.WithButton(GamepadButton.LeftShoulder); }
                     }
                     InputSystem.QueueStateEvent(pad,state);
                     var local=world.players.FirstOrDefault(p=>session.IsLocalOwner(p.owner));

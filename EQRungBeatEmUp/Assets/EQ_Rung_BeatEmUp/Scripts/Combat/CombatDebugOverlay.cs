@@ -22,7 +22,7 @@ namespace BeatEmUp
                 $"Recoil X: {enemy.motor.HorizontalRecoil:F2} | height velocity: {enemy.motor.VerticalVelocity:F2} | last reaction: {enemy.LastHitReaction}\n" +
                 $"HP: player {player.health.Current:F0} | enemy {enemy.health.Current:F0}\n" +
                 "Move WASD / stick | Attack Enter / West | Launcher K / North | Jump Space / South\n" +
-                "Guard / Parry L / Left shoulder | Dodge Left Alt / Right shoulder");
+                "Guard / Parry L / Left shoulder | Dodge: direction + same button");
         }
     }
 }

@@ -19,6 +19,8 @@ public static class ParryResponseValidation
     public static void Run(){if(EditorApplication.isCompiling||EditorApplication.isPlayingOrWillChangePlaymode)return;SessionState.SetBool(Pending,true);EditorApplication.EnterPlaymode();}
     static void Poll()
     {
+        if(!EditorApplication.isCompiling && !EditorApplication.isPlayingOrWillChangePlaymode && File.Exists("Temp/RusherSlash.open-request"))
+        { File.Delete("Temp/RusherSlash.open-request"); AttackDataEditorWindow.OpenRusherSlash(); }
         if(!EditorApplication.isCompiling&&!EditorApplication.isPlayingOrWillChangePlaymode&&File.Exists(Request)){File.Delete(Request);Run();return;}
         if(!SessionState.GetBool(Pending,false)||!EditorApplication.isPlaying||EditorApplication.isCompiling)return;
         SessionState.SetBool(Pending,false);results.Clear();
@@ -26,8 +28,11 @@ public static class ParryResponseValidation
         {
             foreach(var flow in Object.FindObjectsByType<StageFlowController>(FindObjectsSortMode.None))flow.enabled=false;
             foreach(var actor in Object.FindObjectsByType<CharacterMotor>(FindObjectsSortMode.None))actor.gameObject.SetActive(false);
-            clock=Object.FindFirstObjectByType<CombatClock>();clock.enabled=false;
+            clock=Object.FindFirstObjectByType<CombatClock>();
+            if(!clock) clock=new GameObject("Parry validation clock").AddComponent<CombatClock>();
+            clock.enabled=false;
             foreach(var name in new[]{"Rusher","Thrower","Screamer","GrapplerBruiser","Ambusher","Prefect"})Melee(name);
+            RusherSlashTiming();
             Boss();Grab("GrapplerBruiser");Grab("Ambusher");Push();Projectiles();ActualThrower();Status();
             results.Add("PASS: All parry response checks completed");
         }
@@ -56,6 +61,33 @@ public static class ParryResponseValidation
     {
         var attack=Keep(ScriptableObject.CreateInstance<AttackData>());
         for(int i=0;i<120;i++)attack.frames.Add(new AttackFrameData{sprite=enemy.motor.sprite.sprite,movementInputScale=0});return attack;
+    }
+    static void RusherSlashTiming()
+    {
+        foreach(var path in new[]{"Attacks/Rusher_Attack_Slash1.asset","AI/Rusher_SlashCombo.asset"})
+        {
+            var attack=AssetDatabase.LoadAssetAtPath<AttackData>(ParryResponseSetup.Root+"/"+path);
+            int swings=path.Contains("Combo") ? 2 : 1;
+            Check(attack.TotalFrames==48*swings && attack.FirstActiveFrame==24,"Rusher slash has a 24-frame readable wind-up: "+attack.name);
+            for(int i=0;i<attack.TotalFrames;i++)
+            {
+                bool active=i%48>=24 && i%48<=27;
+                Check((attack.frames[i].hitboxes.Count>0)==active,"Rusher slash active-frame alignment "+attack.name+" / "+i);
+                if(active) Check(attack.frames[i].sprite.name.Contains("Slash1_04") && attack.frames[i].hitboxes.All(h=>h.canBeParried && !h.unblockable && h.damage==4),"Extended blade pose carries the original parryable hit: "+i);
+            }
+            foreach(int facing in new[]{1,-1})
+            {
+                Fixture(facing:facing); enemy.attackPlayer.Play(attack); float hp=player.health.Current;
+                Step(14); Check(player.health.Current==hp && enemy.attackPlayer.CurrentFrame<24,"Original frame14 impact is now a harmless telegraph");
+                player.RequestGuard(true); Step(11);
+                Check(player.health.Current==hp && PlayerBox.LastHitOutcome==CombatHitOutcome.Parry && enemy.reaction.State==EnemyReaction.Stunned && !enemy.attackPlayer.CurrentAttack,"Guard on the wind-up parries the real slash hitbox in facing "+facing);
+                Fixture(facing:facing); player.RequestGuard(true); enemy.attackPlayer.Play(attack); Step(25);
+                Check(player.health.Current==200 && PlayerBox.LastHitOutcome==CombatHitOutcome.Block,"Guard held from slash start becomes normal block at impact");
+                Fixture(facing:facing); enemy.attackPlayer.Play(attack); hp=player.health.Current;
+                Step(23); Check(player.health.Current==hp,"No slash hit lands before frame24");
+                Step(); Check(player.health.Current==hp-4 && PlayerBox.LastHitOutcome==CombatHitOutcome.Hit,"Unguarded slash lands the unchanged four damage at frame24");
+            }
+        }
     }
     static void Melee(string name)
     {
@@ -118,7 +150,7 @@ public static class ParryResponseValidation
             float hp=enemy.reaction.health.Current;for(int i=0;i<40&&shot&&shot.isActiveAndEnabled;i++)Step();
             Check(enemy.reaction.health.Current==hp-shot.hit.damage&&enemy.reaction.State==EnemyReaction.GroundHit&&player.health.Current==200,"Notebook "+facing+": reflected damage hits original Thrower with normal reaction and never hits parrier");
         }
-        Fixture("Thrower");player.RequestGuard(true);Step(8);var blocked=Shot();Step();Check(blocked.Resolved&&PlayerBox.LastHitOutcome==CombatHitOutcome.Block&&blocked.DeflectionCount==0,"Outside active window projectile blocks instead of deflecting");
+        Fixture("Thrower");player.RequestGuard(true);Step(player.EffectiveParryWindow);var blocked=Shot();Step();Check(blocked.Resolved&&PlayerBox.LastHitOutcome==CombatHitOutcome.Block&&blocked.DeflectionCount==0,"Outside active window projectile blocks instead of deflecting");
         Fixture("Thrower");player.RequestGuard(true);var optedOut=Shot();optedOut.hit=optedOut.hit.RuntimeCopy();optedOut.hit.canBeParried=false;Step();Check(optedOut.DeflectionCount==0&&PlayerBox.LastHitOutcome==CombatHitOutcome.Block,"Projectile parry opt-out retains normal Guard behavior");
         Fixture("Thrower");player.RequestGuard(true);var notReflectable=Shot();notReflectable.canBeDeflected=false;Step();Check(notReflectable.Resolved&&notReflectable.DeflectionCount==0&&enemy.reaction.State==EnemyReaction.Normal,"Parryable non-deflectable projectile is neutralized without stunning shooter");
         Fixture("Thrower");player.RequestGuard(true);var tuned=Shot();tuned.deflectDamageMultiplier=2;tuned.deflectHitstunFrames=27;tuned.deflectKnockback=0;Step();float before=enemy.reaction.health.Current;for(int i=0;i<40&&tuned&&tuned.isActiveAndEnabled;i++)Step();Check(enemy.reaction.health.Current==before-tuned.hit.damage*2&&enemy.reaction.RecoveryFrames>=26,"Reflected damage/hitstun tunables reach normal accepted-hit path");

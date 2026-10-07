@@ -1,5 +1,7 @@
 # GrayShirtGuy walk correction
 
+This records the gait repair. The subsequent appearance-only pass is documented in `Character2WalkModelConsistency.md`; the current review images show that latest identity polish.
+
 The walk artwork now alternates light foreground/left contact → darker far/right contact → foreground/left contact. Gameplay code, movement speed, combat data, input, physics, Idle, snake attack and barrier super are unchanged.
 
 ## Work preserved on continuation

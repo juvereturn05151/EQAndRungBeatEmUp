@@ -1,0 +1,15 @@
+PASS: Buddha Sanctuary imported at 1672x1672; ground -0.8, canopy 7.3; point filtering.
+PASS: Character Wardrobe imported at 1672x1672; ground -0.8, canopy 7.3; point filtering.
+PASS: Training Blessing Pavilion imported at 1672x1672; ground -0.8, canopy 7.3; point filtering.
+PASS: Skill Shrine imported at 1672x1672; ground -0.8, canopy 7.3; point filtering.
+PASS: World 1 Entrance imported at 1672x1672; ground -0.8, canopy 7.3; point filtering.
+PASS: Enlarged jump view 0 at x=-12.83111 has no exposed clear background, including seams/edges.
+PASS: Enlarged jump view 1 at x=-11.4 has no exposed clear background, including seams/edges.
+PASS: Enlarged jump view 2 at x=-7.6 has no exposed clear background, including seams/edges.
+PASS: Enlarged jump view 3 at x=-3.8 has no exposed clear background, including seams/edges.
+PASS: Enlarged jump view 4 at x=0 has no exposed clear background, including seams/edges.
+PASS: Enlarged jump view 5 at x=3.8 has no exposed clear background, including seams/edges.
+PASS: Enlarged jump view 6 at x=7.6 has no exposed clear background, including seams/edges.
+PASS: Enlarged jump view 7 at x=11.4 has no exposed clear background, including seams/edges.
+PASS: Enlarged jump view 8 at x=12.83111 has no exposed clear background, including seams/edges.
+ALL HUB SKY COVERAGE CHECKS PASSED

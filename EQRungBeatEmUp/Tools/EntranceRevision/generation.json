@@ -1,0 +1,16 @@
+{
+  "builtInImagegen": true,
+  "background": "C:\\Users\\drago\\.codex\\generated_images\\01a12107-b465-7f20-85f7-b9b603840192\\exec-10834182-0739-40be-982d-807bf1d018f0.png",
+  "floor": "C:\\Users\\drago\\.codex\\generated_images\\01a12107-b465-7f20-85f7-b9b603840192\\exec-3cfd3b11-27c8-4756-9277-25cd257f87b1.png",
+  "fence": "C:\\Users\\drago\\.codex\\generated_images\\01a12107-b465-7f20-85f7-b9b603840192\\exec-3d8b506e-7842-44e0-aa96-2d7de7ab3c50.png",
+  "motorcycle": "C:\\Users\\drago\\.codex\\generated_images\\01a12107-b465-7f20-85f7-b9b603840192\\exec-943b0f38-e3e2-40e4-9f0a-fbab5fced591.png",
+  "backgroundSize": [
+    720,
+    320
+  ],
+  "floorSize": [
+    720,
+    480
+  ],
+  "originalFloorPixelsPreserved": true
+}

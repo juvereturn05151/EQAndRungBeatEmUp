@@ -28,6 +28,36 @@ PASS: Respawn removes previous debris
 PASS: Existing ground movement is blocked by prop footprint
 PASS: Destroyed prop permits movement
 PASS: Debris expires after configured lifetime
+PASS: Intact EntranceFence starts with 3 hit points
+PASS: EntranceFence SFX, reused VFX and debris references exist
+PASS: EntranceFence uses character pixel density and point filtering
+PASS: Existing AttackPlayer accepts prop test attack
+PASS: Overlapping samples deal one HP and change EntranceFence to damaged
+PASS: Prop hit applies small hitstop without cancelling attack timeline
+PASS: Damaged prop still blocks floor movement
+PASS: Attack from right damages EntranceFence
+PASS: Destruction commits once and disables both colliders
+PASS: Break scatters configured number of fragments
+PASS: Respawn restores intact appearance, HP and blocker
+PASS: Respawn removes previous debris
+PASS: Existing ground movement is blocked by prop footprint
+PASS: Destroyed prop permits movement
+PASS: Debris expires after configured lifetime
+PASS: Intact EntranceMotorcycle starts with 6 hit points
+PASS: EntranceMotorcycle SFX, reused VFX and debris references exist
+PASS: EntranceMotorcycle uses character pixel density and point filtering
+PASS: Existing AttackPlayer accepts prop test attack
+PASS: Overlapping samples deal one HP and change EntranceMotorcycle to damaged
+PASS: Prop hit applies small hitstop without cancelling attack timeline
+PASS: Damaged prop still blocks floor movement
+PASS: Attack from right damages EntranceMotorcycle
+PASS: Destruction commits once and disables both colliders
+PASS: Break scatters configured number of fragments
+PASS: Respawn restores intact appearance, HP and blocker
+PASS: Respawn removes previous debris
+PASS: Existing ground movement is blocked by prop footprint
+PASS: Destroyed prop permits movement
+PASS: Debris expires after configured lifetime
 PASS: Authored Punch1 hits stationary prop through existing hitbox
 PASS: Launcher/air response never launches the prop
 PASS: Authored Punch2 hits stationary prop through existing hitbox
@@ -48,7 +78,6 @@ PASS: Legacy damage-based totems preserve health semantics
 PASS: One swing hits both prop and enemy without suppressing enemy combat
 PASS: Reentrant and repeated damage produce one event and one optional reward
 PASS: Prop reset removes spawned optional reward
-PASS: Stage 1 spawns all four samples through LevelDefinition
+PASS: Stage 1 spawns authored samples, six fences and one motorcycle through LevelDefinition
 PASS: All sample ground pivots lie inside Stage 1 walkable lanes
 PASS: Restarting Stage 1 restores all sample props
-PASS: Final workspace prefab asset GUID references resolve (including imported sprites, scripts, SFX, and VFX).

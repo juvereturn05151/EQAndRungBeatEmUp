@@ -1,0 +1,75 @@
+{
+  "builtInImagegen": true,
+  "panels": [
+    {
+      "panel": 0,
+      "generated": "C:\\Users\\drago\\.codex\\generated_images\\01a12107-b465-7f20-85f7-b9b603840192\\exec-13a3a8a9-1b27-460c-b9d4-05879d0c9987.png",
+      "dimensions": [
+        1672,
+        1672
+      ],
+      "addedTopPixels": 731,
+      "unchangedLowerPixels": true,
+      "original": "Tools\\HubSkyExtension\\Originals\\HubPanel0.png",
+      "pivotY": 0.2813995215311005,
+      "worldBottom": -0.8,
+      "worldTop": 7.3
+    },
+    {
+      "panel": 1,
+      "generated": "C:\\Users\\drago\\.codex\\generated_images\\01a12107-b465-7f20-85f7-b9b603840192\\exec-d3325bf5-b0e1-46d1-883b-c36030d4e623.png",
+      "dimensions": [
+        1672,
+        1672
+      ],
+      "addedTopPixels": 731,
+      "unchangedLowerPixels": true,
+      "original": "Tools\\HubSkyExtension\\Originals\\HubPanel1.png",
+      "pivotY": 0.2813995215311005,
+      "worldBottom": -0.8,
+      "worldTop": 7.3
+    },
+    {
+      "panel": 2,
+      "generated": "C:\\Users\\drago\\.codex\\generated_images\\01a12107-b465-7f20-85f7-b9b603840192\\exec-90dcffe6-3265-4264-83cc-16dbdd60e08d.png",
+      "dimensions": [
+        1672,
+        1672
+      ],
+      "addedTopPixels": 731,
+      "unchangedLowerPixels": true,
+      "original": "Tools\\HubSkyExtension\\Originals\\HubPanel2.png",
+      "pivotY": 0.2813995215311005,
+      "worldBottom": -0.8,
+      "worldTop": 7.3
+    },
+    {
+      "panel": 3,
+      "generated": "C:\\Users\\drago\\.codex\\generated_images\\01a12107-b465-7f20-85f7-b9b603840192\\exec-721606c0-43fc-4b7d-87c5-9e4a44b60094.png",
+      "dimensions": [
+        1672,
+        1672
+      ],
+      "addedTopPixels": 731,
+      "unchangedLowerPixels": true,
+      "original": "Tools\\HubSkyExtension\\Originals\\HubPanel3.png",
+      "pivotY": 0.2813995215311005,
+      "worldBottom": -0.8,
+      "worldTop": 7.3
+    },
+    {
+      "panel": 4,
+      "generated": "C:\\Users\\drago\\.codex\\generated_images\\01a12107-b465-7f20-85f7-b9b603840192\\exec-1631fc00-8dfc-4094-8b5b-724afc8a6f4e.png",
+      "dimensions": [
+        1672,
+        1672
+      ],
+      "addedTopPixels": 731,
+      "unchangedLowerPixels": true,
+      "original": "Tools\\HubSkyExtension\\Originals\\HubPanel4.png",
+      "pivotY": 0.2813995215311005,
+      "worldBottom": -0.8,
+      "worldTop": 7.3
+    }
+  ]
+}

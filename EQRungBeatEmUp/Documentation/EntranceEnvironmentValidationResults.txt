@@ -1,0 +1,13 @@
+PASS: Background covers up to 7.327868; floor down to -2.738006; original width remains 12.8.
+PASS: Entrance breakable: Fence -5.45 has intact/damaged/broken art, debris, SFX, attack trigger, ground blocker and multiplayer sprite entries.
+PASS: Entrance breakable: Fence -3.8 has intact/damaged/broken art, debris, SFX, attack trigger, ground blocker and multiplayer sprite entries.
+PASS: Entrance breakable: Fence -2.15 has intact/damaged/broken art, debris, SFX, attack trigger, ground blocker and multiplayer sprite entries.
+PASS: Entrance breakable: Fence 2.15 has intact/damaged/broken art, debris, SFX, attack trigger, ground blocker and multiplayer sprite entries.
+PASS: Entrance breakable: Fence 3.8 has intact/damaged/broken art, debris, SFX, attack trigger, ground blocker and multiplayer sprite entries.
+PASS: Entrance breakable: Fence 5.45 has intact/damaged/broken art, debris, SFX, attack trigger, ground blocker and multiplayer sprite entries.
+PASS: Entrance breakable: Parked motorcycle has intact/damaged/broken art, debris, SFX, attack trigger, ground blocker and multiplayer sprite entries.
+PASS: Ground preview captured without exposed clear background.
+PASS: Jump preview captured without exposed clear background.
+PASS: FullArt preview captured.
+PASS: CleanBackground preview captured without exposed clear background.
+ALL ENTRANCE ART AND PROP AUTHORING CHECKS PASSED

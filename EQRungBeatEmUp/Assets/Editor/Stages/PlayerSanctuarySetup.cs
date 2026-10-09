@@ -8,7 +8,7 @@ using UnityEngine;
 public static class PlayerSanctuarySetup
 {
     public const string Root="Assets/EQ_Rung_BeatEmUp/Hub";
-    public const string Art="Assets/ArtAssets/Environments/PlayerSanctuary";
+    public const string Art="Assets/EQ_Rung_BeatEmUp/ArtAssets/Environments/PlayerSanctuary";
     public const string ScenePath="Assets/EQ_Rung_BeatEmUp/Scenes/PlayerHub.unity";
     public const string DefinitionPath=Root+"/PlayerHub.asset";
     public const string EnvironmentPath=Root+"/SanctuaryEnvironment.prefab";
@@ -34,7 +34,7 @@ public static class PlayerSanctuarySetup
                 var renderer=go.AddComponent<SpriteRenderer>(); renderer.sprite=definition.panels[i]; renderer.sortingOrder=-900+i;
                 if(i>0) renderer.sharedMaterial=material;
                 float scale=(definition.width/5+.5f)/renderer.sprite.bounds.size.x; go.transform.localScale=new Vector3(scale,scale,1);
-                go.transform.position=new Vector3(-definition.width*.5f+(i+.5f)*definition.width/5,-.8f+renderer.sprite.bounds.size.y*scale*.5f,0);
+                go.transform.position=new Vector3(-definition.width*.5f+(i+.5f)*definition.width/5,-.8f+(renderer.sprite.bounds.size.y*.5f-renderer.sprite.bounds.center.y)*scale,0);
             }
             var spawn=new GameObject("HubPlayerSpawnPoint"); spawn.transform.SetParent(root.transform); spawn.transform.position=definition.spawn;
             PrefabUtility.SaveAsPrefabAsset(root,EnvironmentPath);
@@ -62,6 +62,12 @@ public static class PlayerSanctuarySetup
         var importer=(TextureImporter)AssetImporter.GetAtPath(path); if(!importer) throw new Exception("Missing panel: "+path);
         importer.textureType=TextureImporterType.Sprite; importer.spriteImportMode=SpriteImportMode.Single; importer.spritePixelsPerUnit=100;
         importer.filterMode=FilterMode.Point; importer.textureCompression=TextureImporterCompression.Uncompressed; importer.mipmapEnabled=false; importer.maxTextureSize=4096;
+        // Keep the original 941-pixel gameplay plate anchored beneath the new canopy.
+        importer.GetSourceTextureWidthAndHeight(out int width,out int height);
+        var settings=new TextureImporterSettings(); importer.ReadTextureSettings(settings);
+        settings.spriteAlignment=(int)SpriteAlignment.Custom;
+        settings.spritePivot=new Vector2(.5f,(941f/1672f)*width/(2f*height));
+        importer.SetTextureSettings(settings);
         importer.SaveAndReimport(); return AssetDatabase.LoadAssetAtPath<Sprite>(path);
     }
     static void ConfigureScene(LevelDefinition level,PlayerHubDefinition definition)

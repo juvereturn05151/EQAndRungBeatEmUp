@@ -31,7 +31,8 @@ public static class DestructiblePropSetup
             importer.alphaIsTransparency = true; importer.textureCompression = TextureImporterCompression.Uncompressed;
             var settings = new TextureImporterSettings(); importer.ReadTextureSettings(settings);
             settings.spriteAlignment = (int)SpriteAlignment.Custom;
-            settings.spritePivot = path.Contains("Debris") ? new Vector2(.5f,.5f) : new Vector2(.5f,8f/96);
+            importer.GetSourceTextureWidthAndHeight(out int sourceWidth,out int sourceHeight);
+            settings.spritePivot = path.Contains("Debris") ? new Vector2(.5f,.5f) : new Vector2(.5f,8f/sourceHeight);
             importer.SetTextureSettings(settings); importer.SaveAndReimport();
         }
         Directory.CreateDirectory(Prefabs);

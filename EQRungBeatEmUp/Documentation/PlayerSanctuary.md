@@ -18,6 +18,8 @@ Five separate pixel-art plates are saved at `Assets/ArtAssets/Environments/Playe
 
 `Assets/EQ_Rung_BeatEmUp/Hub/SanctuaryEnvironment.prefab` contains the modular artwork and named `HubPlayerSpawnPoint`. The Buddha is calm sanctuary imagery above the spawn: there are no hurtboxes, destructible components or enemy components on the environment. Existing Safe-stage protection rejects combat and direct damage. The Hub has no normal encounters, destructibles, combat camera lock or run-upgrade reward choices.
 
+The five current panels at `Assets/EQ_Rung_BeatEmUp/ArtAssets/Environments/PlayerSanctuary/HubPanel0.png` through `HubPanel4.png` now include 731 additional rows of canopy and sunset sky above their original 941 rows. Each canvas is 1672×1672. The original lower RGB pixels are preserved exactly; custom sprite pivots retain the existing ground anchor and station alignment. Artwork covers world Y -0.8 through 7.3. Unity preview checks at nine horizontal positions, including overlaps and both ends, found no exposed camera background with the view expanded up to Y 6.3. Results and renders are in `HubSkyExtensionValidationResults.txt` and `HubSkyExtensionPreview/`. Built-in ImageGen prompts, source output paths, original backups and the repeatable packaging script are in `Tools/HubSkyExtension/`. Run **Beat Em Up → Hub → Validate upward art coverage** to repeat the import/bounds/render check without changing the open scene.
+
 The existing StageFraming camera follows the player horizontally and clamps to [-19, 19]. Walkable lanes remain [-0.4, 0.65], with horizontal movement bounds [-18.5, 18.5]. Character scale and movement retain the shared player prefab settings.
 
 ## Interaction and character changes

@@ -27,6 +27,11 @@ public static class DestructiblePropValidation
     static void Poll()
     {
         if(EditorApplication.isCompiling) return;
+        const string request="Tools/EntranceRevision/combat.request";
+        if(File.Exists(request) && !EditorApplication.isPlayingOrWillChangePlaymode && !EditorApplication.isUpdating)
+        {
+            File.Delete(request); Run(); return;
+        }
         if(tests==null)
         {
             if(!SessionState.GetBool(Pending,false)||!EditorApplication.isPlaying) return;
@@ -61,15 +66,17 @@ public static class DestructiblePropValidation
         var actor=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/EQ_Rung_BeatEmUp/Prefabs/BlueShirtGuy.prefab"),root.transform);
         actor.GetComponent<PlayerCombatInput>().enabled=false;
         var motor=actor.GetComponent<CharacterMotor>(); var sampler=actor.GetComponent<AttackHitbox>(); var player=actor.GetComponent<AttackPlayer>();
-        var clock=UnityEngine.Object.FindFirstObjectByType<CombatClock>(); clock.enabled=false;
+        var clock=UnityEngine.Object.FindFirstObjectByType<CombatClock>(FindObjectsInactive.Include);
+        if(!clock) clock=root.AddComponent<CombatClock>();
+        clock.enabled=false;
         motor.ResetForStage(Vector2.zero);
         var data=ScriptableObject.CreateInstance<AttackData>();
         var hit=new AttackHitboxData { damage=100,offset=new Vector2(.7f,.3f),size=new Vector2(.9f,.7f),laneTolerance=.5f,hitId=0 };
         data.frames.Add(new AttackFrameData { hitboxes=new List<AttackHitboxData>{hit} });
-        foreach(var name in new[]{"CardboardBox","CeramicDragonJar"})
+        foreach(var name in new[]{"CardboardBox","CeramicDragonJar",EntranceEnvironmentSetup.Fence,EntranceEnvironmentSetup.Motorcycle})
         {
             player.Stop();for(int i=0;i<10;i++){player.PrepareFrame();player.EndClockFrame();}motor.ResetForStage(Vector2.zero);
-            var prop=Prop(name,new Vector2(.7f,0)); int hp=name=="CardboardBox"?2:3;
+            var prop=Prop(name,new Vector2(.7f,0)); int hp=(int)prop.maximumHealth;
             Check(prop.Current==hp && prop.visual.sprite==prop.intactSprite,"Intact "+name+" starts with "+hp+" hit points");
             Check(prop.hitSfx && prop.destructionSfx && prop.hitVfx && prop.debrisSprites.All(s=>s),name+" SFX, reused VFX and debris references exist");
             Check(prop.intactSprite.pixelsPerUnit==100 && prop.intactSprite.texture.filterMode==FilterMode.Point,name+" uses character pixel density and point filtering");
@@ -82,7 +89,7 @@ public static class DestructiblePropValidation
             sampler.End(); motor.ResetForStage(new Vector2(1.4f,0)); motor.Face(-1);
             sampler.Begin(data);sampler.SetFrame(data.frames[0],0,-1);sampler.Sample();
             Check(prop.Current==hp-2,"Attack from right damages "+name);
-            if(hp==3) { sampler.Begin(data); sampler.SetFrame(data.frames[0],0,-1); sampler.Sample(); }
+            while(!prop.IsBroken) { sampler.Begin(data); sampler.SetFrame(data.frames[0],0,-1); sampler.Sample(); }
             sampler.Begin(data);sampler.SetFrame(data.frames[0],0,-1);sampler.Sample();
             Check(prop.IsBroken && breaks==1 && !prop.GetComponent<BoxCollider2D>().enabled && !prop.movementBlocker.enabled,"Destruction commits once and disables both colliders");
             Check(root.GetComponentsInChildren<PropDebris>().Length==prop.debrisCount,"Break scatters configured number of fragments");
@@ -90,10 +97,11 @@ public static class DestructiblePropValidation
             Check(!prop.IsBroken && prop.Current==hp && prop.visual.sprite==prop.intactSprite && prop.movementBlocker.enabled,"Respawn restores intact appearance, HP and blocker");
             Check(!root.GetComponentsInChildren<PropDebris>().Any(d=>d.gameObject.activeSelf),"Respawn removes previous debris");
             // Existing motor probe must stop at the footprint, then pass after destruction.
-            motor.ResetForStage(Vector2.zero);Physics2D.SyncTransforms();
-            Check(motor.ProbeGroundMove(Vector2.right*1.4f).x<.7f,"Existing ground movement is blocked by prop footprint");
+            // Start outside every footprint, including the wider fence and motorcycle.
+            prop.transform.position=new Vector2(2,0);motor.ResetForStage(Vector2.zero);Physics2D.SyncTransforms();
+            Check(motor.ProbeGroundMove(Vector2.right*3).x<2,"Existing ground movement is blocked by prop footprint");
             while(!prop.IsBroken)prop.Receive(hit,1,motor);
-            Physics2D.SyncTransforms();Check(motor.ProbeGroundMove(Vector2.right*1.4f).x>1.3f,"Destroyed prop permits movement");
+            Physics2D.SyncTransforms();Check(motor.ProbeGroundMove(Vector2.right*3).x>2.9f,"Destroyed prop permits movement");
             foreach(var debris in root.GetComponentsInChildren<PropDebris>())debris.Simulate(4);
             yield return new WaitForSecondsRealtime(.1f);
             Check(root.GetComponentsInChildren<PropDebris>().Length==0,"Debris expires after configured lifetime");
@@ -138,7 +146,8 @@ public static class DestructiblePropValidation
         var flow=flowObject.AddComponent<StageFlowController>();flow.level=AssetDatabase.LoadAssetAtPath<LevelDefinition>(HauntedLevelBuilder.LevelPath);flow.player=motor;
         int index=flow.level.stages.FindIndex(s=>s.stageId=="Stage01_EntranceGate");flow.EnterStage(index);
         var samples=flow.Destructibles.Where(p=>p.useHitPoints).ToArray();
-        Check(samples.Length==4,"Stage 1 spawns all four samples through LevelDefinition");
+        int expected=flow.CurrentStage.destructibles.Count(p=>p.prefab && p.prefab.GetComponent<DestructibleObject>().useHitPoints);
+        Check(samples.Length==expected && samples.Count(p=>p.name.StartsWith(EntranceEnvironmentSetup.Fence))==6 && samples.Count(p=>p.name.StartsWith(EntranceEnvironmentSetup.Motorcycle))==1,"Stage 1 spawns authored samples, six fences and one motorcycle through LevelDefinition");
         Check(samples.All(p=>p.transform.position.y>=flow.CurrentStage.movementMin.y && p.transform.position.y<=flow.CurrentStage.movementMax.y),"All sample ground pivots lie inside Stage 1 walkable lanes");
         foreach(var prop in samples){motor.ResetForStage(prop.transform.position);while(!prop.IsBroken)prop.Receive(hit,1,motor);}
         flow.RestartAt(index);

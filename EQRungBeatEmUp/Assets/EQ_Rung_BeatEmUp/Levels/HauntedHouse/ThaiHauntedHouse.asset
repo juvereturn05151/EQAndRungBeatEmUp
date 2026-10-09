@@ -27,8 +27,8 @@ MonoBehaviour:
     backgroundCenterY: 2.56
     floorHeight: 2.4
     floorCenterY: 0.0765
-    movementMin: {x: -18.5, y: -0.4}
-    movementMax: {x: 18.5, y: 0.65}
+    movementMin: {x: -18.5, y: -0.83}
+    movementMax: {x: 18.5, y: 0.88}
     playerEntryPoint: {x: -15.2, y: 0}
     playerExitPoint: {x: 15.2, y: 0}
     exitRadius: 0.35
@@ -61,10 +61,10 @@ MonoBehaviour:
     backgroundSprite: {fileID: 21300000, guid: bea7167b9e70234a60b3c3388d3f5813, type: 3}
     floorSprite: {fileID: 21300000, guid: 4b27a12ff4262b81dc54735db15187e9, type: 3}
     artWidth: 12.8
-    backgroundHeight: 3.2
-    backgroundCenterY: 2.5418
-    floorHeight: 1.8379375
-    floorCenterY: 0.0189
+    backgroundHeight: 6.4
+    backgroundCenterY: 4.1278687
+    floorHeight: 3.675875
+    floorCenterY: -0.90006876
     movementMin: {x: -6.11, y: -0.6}
     movementMax: {x: 5.73, y: 0.8}
     playerEntryPoint: {x: -5, y: 0.35}
@@ -79,32 +79,6 @@ MonoBehaviour:
     rewardHealFraction: 0.5
     nextStageIndex: -1
     nextAreaMarkers:
-    - markerId: Entrance approach
-      enabled: 1
-      markerPrefab: {fileID: 1315491544210570986, guid: 83d2123bf40c9524a8c5da9daf727c2f, type: 3}
-      target: 1
-      targetEncounterId: Encounter 01
-      useTransitionPosition: 1
-      exitPosition: {x: 0, y: 0, z: 0}
-      markerOffset: {x: 0, y: -0.4, z: 0}
-      showAfter: 0
-      afterEncounterId: 
-      showEdgeArrow: 1
-      markerPreview: 1
-      nearDistance: 1.5
-    - markerId: After first fight
-      enabled: 1
-      markerPrefab: {fileID: 1315491544210570986, guid: 83d2123bf40c9524a8c5da9daf727c2f, type: 3}
-      target: 1
-      targetEncounterId: Encounter 02
-      useTransitionPosition: 1
-      exitPosition: {x: 0, y: 0, z: 0}
-      markerOffset: {x: 0, y: 0, z: 0}
-      showAfter: 1
-      afterEncounterId: Encounter 01
-      showEdgeArrow: 1
-      markerPreview: 1
-      nearDistance: 1.5
     - markerId: Stage 1 exit
       enabled: 1
       markerPrefab: {fileID: 1315491544210570986, guid: 83d2123bf40c9524a8c5da9daf727c2f, type: 3}
@@ -344,6 +318,90 @@ MonoBehaviour:
       health: 3
       hitboxSize: {x: 0.7, y: 0.65}
       hitboxOffset: {x: 0, y: 0.32}
+      kind: 0
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
+    - label: 'Entrance breakable: Fence -5.45'
+      prefab: {fileID: 4831027710003178538, guid: cba15fe9cb6547a47b4709ed8c2ce5d1, type: 3}
+      intactSprite: {fileID: 0}
+      damagedSprite: {fileID: 0}
+      brokenSprite: {fileID: 0}
+      position: {x: -5.45, y: 0.6}
+      health: 3
+      hitboxSize: {x: 1.5, y: 0.95}
+      hitboxOffset: {x: 0, y: 0.475}
+      kind: 0
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
+    - label: 'Entrance breakable: Fence -3.8'
+      prefab: {fileID: 4831027710003178538, guid: cba15fe9cb6547a47b4709ed8c2ce5d1, type: 3}
+      intactSprite: {fileID: 0}
+      damagedSprite: {fileID: 0}
+      brokenSprite: {fileID: 0}
+      position: {x: -3.8, y: 0.6}
+      health: 3
+      hitboxSize: {x: 1.5, y: 0.95}
+      hitboxOffset: {x: 0, y: 0.475}
+      kind: 0
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
+    - label: 'Entrance breakable: Fence -2.15'
+      prefab: {fileID: 4831027710003178538, guid: cba15fe9cb6547a47b4709ed8c2ce5d1, type: 3}
+      intactSprite: {fileID: 0}
+      damagedSprite: {fileID: 0}
+      brokenSprite: {fileID: 0}
+      position: {x: -2.15, y: 0.6}
+      health: 3
+      hitboxSize: {x: 1.5, y: 0.95}
+      hitboxOffset: {x: 0, y: 0.475}
+      kind: 0
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
+    - label: 'Entrance breakable: Fence 2.15'
+      prefab: {fileID: 4831027710003178538, guid: cba15fe9cb6547a47b4709ed8c2ce5d1, type: 3}
+      intactSprite: {fileID: 0}
+      damagedSprite: {fileID: 0}
+      brokenSprite: {fileID: 0}
+      position: {x: 2.15, y: 0.6}
+      health: 3
+      hitboxSize: {x: 1.5, y: 0.95}
+      hitboxOffset: {x: 0, y: 0.475}
+      kind: 0
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
+    - label: 'Entrance breakable: Fence 3.8'
+      prefab: {fileID: 4831027710003178538, guid: cba15fe9cb6547a47b4709ed8c2ce5d1, type: 3}
+      intactSprite: {fileID: 0}
+      damagedSprite: {fileID: 0}
+      brokenSprite: {fileID: 0}
+      position: {x: 3.8, y: 0.6}
+      health: 3
+      hitboxSize: {x: 1.5, y: 0.95}
+      hitboxOffset: {x: 0, y: 0.475}
+      kind: 0
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
+    - label: 'Entrance breakable: Fence 5.45'
+      prefab: {fileID: 4831027710003178538, guid: cba15fe9cb6547a47b4709ed8c2ce5d1, type: 3}
+      intactSprite: {fileID: 0}
+      damagedSprite: {fileID: 0}
+      brokenSprite: {fileID: 0}
+      position: {x: 5.45, y: 0.6}
+      health: 3
+      hitboxSize: {x: 1.5, y: 0.95}
+      hitboxOffset: {x: 0, y: 0.475}
+      kind: 0
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
+    - label: 'Entrance breakable: Parked motorcycle'
+      prefab: {fileID: 8858190280599495671, guid: 73ac0e6cb9768804c941eb72f8ad5d71, type: 3}
+      intactSprite: {fileID: 0}
+      damagedSprite: {fileID: 0}
+      brokenSprite: {fileID: 0}
+      position: {x: 4.65, y: -0.05}
+      health: 6
+      hitboxSize: {x: 1.8, y: 1.12}
+      hitboxOffset: {x: 0, y: 0.56}
       kind: 0
       totemBreakRadius: 0
       dropPrefab: {fileID: 0}

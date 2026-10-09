@@ -46,6 +46,18 @@ namespace BeatEmUp
         private Camera view;
         private float followVelocity;
         private bool ownsViewport;
+        private Vector3 impactShakeOffset;
+        private Vector3 impactShakePosition;
+        private float impactShakeRemaining, impactShakeDuration, impactShakeStrength;
+        public bool ImpactShakeActive => impactShakeRemaining > 0;
+        public int ImpactShakeCount { get; private set; }
+        public void AddImpactShake(float strength, float duration)
+        {
+            if (!Application.isPlaying || !isActiveAndEnabled || strength <= 0 || duration <= 0) return;
+            impactShakeStrength = Mathf.Max(impactShakeStrength, strength);
+            impactShakeDuration = impactShakeRemaining = Mathf.Max(impactShakeRemaining, duration);
+            ImpactShakeCount++; ApplyFraming(0);
+        }
         public Rect? EncounterBounds { get; private set; }
         public void SetEncounterBounds(Rect? bounds) => EncounterBounds = bounds;
         private readonly List<CharacterMotor> actors = new List<CharacterMotor>();
@@ -59,6 +71,8 @@ namespace BeatEmUp
         }
         private void OnDisable()
         {
+            RemoveImpactShakeOffset();
+            impactShakeRemaining = impactShakeStrength = 0;
             if (Active == this) Active = null;
             if (ownsViewport && view) { view.rect = new Rect(0, 0, 1, 1); view.ResetAspect(); ownsViewport = false; }
             followVelocity = 0;
@@ -94,6 +108,10 @@ namespace BeatEmUp
         {
             if (!view) view = GetComponent<Camera>();
             if (!view) return;
+            // Remove the last cosmetic offset before follow/bounds calculations, so it
+            // cannot accumulate drift or feed into player/camera movement logic.
+            RemoveImpactShakeOffset();
+            if (reset) impactShakeRemaining = impactShakeStrength = 0;
             view.orthographic = true;
             // Unity's aspect-constrained Game view can disagree with Screen.width/height during
             // startup or resizing. Measure this camera's full output before applying pillarboxes.
@@ -173,6 +191,25 @@ namespace BeatEmUp
                 floor.transform.position = new Vector3(0, (BackgroundBoundary + BaseBottom) * .5f, floor.transform.position.z);
                 floor.transform.localScale = new Vector3(width / floor.sprite.bounds.size.x, height / floor.sprite.bounds.size.y, 1);
             }
+            if (impactShakeRemaining > 0)
+            {
+                impactShakeRemaining = Mathf.Max(0, impactShakeRemaining - Mathf.Max(0, seconds));
+                float envelope = impactShakeRemaining / Mathf.Max(.001f, impactShakeDuration);
+                float phase = (impactShakeDuration - impactShakeRemaining) * 70;
+                float shakeX = Mathf.Round(Mathf.Cos(phase) * impactShakeStrength * envelope * 100) / 100;
+                // Horizontal only: preserves floor composition and jump framing.
+                impactShakeOffset = new Vector3(ClampHorizontal(x + shakeX, halfWidth) - x, 0, 0);
+                transform.position += impactShakeOffset;
+                impactShakePosition = transform.position;
+                if (impactShakeRemaining <= 0) impactShakeStrength = 0;
+            }
+        }
+        private void RemoveImpactShakeOffset()
+        {
+            // Stage entry may teleport the camera before resetting framing. Only
+            // remove our offset while the camera still occupies our rendered pose.
+            if (transform.position == impactShakePosition) transform.position -= impactShakeOffset;
+            impactShakeOffset = Vector3.zero;
         }
         private float ClampHorizontal(float x, float halfWidth)
         {

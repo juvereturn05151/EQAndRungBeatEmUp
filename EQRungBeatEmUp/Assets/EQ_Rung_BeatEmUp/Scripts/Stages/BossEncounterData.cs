@@ -3,7 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace BeatEmUp
 {
-    public enum BossAction { Book, Swipe, SummonRusher, CurseWave, SummonStrongGhosts }
+    public enum BossAction { Book, Swipe, SummonRusher, CurseWave, SummonStrongGhosts, TelegraphMelee, Teleport }
+    [Flags] public enum BossInterruptHitTypes { Normal = 1, Launcher = 2, AirFinisher = 4, KnockDown = 8, Stun = 16, All = 31 }
+    [Serializable] public sealed class BossMeleeInterruptData
+    {
+        [Tooltip("Zero-based inclusive attack frames. Defaults represent displayed frames 1–30.")]
+        [Min(0)] public int firstFrame = 0, lastFrame = 29;
+        [Min(1)] public int hitStaggerFrames = 30, parryStaggerFrames = 60;
+        [Min(0)] public int interruptImmunityFrames = 180;
+        [Min(0)] public float minimumDamage = 1;
+        public BossInterruptHitTypes hitTypes = BossInterruptHitTypes.All;
+        public bool allowProjectileHits = true;
+        [Min(0), Tooltip("Tracking stops at this zero-based frame, or the first active frame if earlier.")]
+        public int facingLockFrame = 12;
+        public AttackData hitReaction, parryReaction, interruptFeedback;
+    }
     public enum AdditionalTotemWave { Ignore, RefreshTimer }
     public enum BossTotemMode { OneShot, Respawn }
     public enum StrongGhostPriority { Random, GrapplerFirst, ThrowerFirst }
@@ -12,7 +26,9 @@ namespace BeatEmUp
     {
         public BossAction action; public bool enabled = true;
         public AttackCoordinationData coordination=new AttackCoordinationData{ignoreCoordinator=true};
-        [Min(0)] public float weight = 1; public AttackData attack;
+        [Min(0), Tooltip("Far-range weight; also the legacy/default weight.")] public float weight = 1;
+        [Min(-1), Tooltip("Close-range weight. -1 inherits Weight.")] public float closeRangeWeight = -1;
+        public AttackData attack;
     }
     [CreateAssetMenu(menuName = "Beat Em Up/Boss Encounter")]
     public sealed class BossEncounterData : ScriptableObject
@@ -29,6 +45,12 @@ namespace BeatEmUp
         [Range(.01f, 1)] public float phase2HealthThreshold = .5f;
         [Min(1)] public int phaseTransitionFrames = 45;
         public List<BossActionChoice> phase1 = new List<BossActionChoice>(), phase2 = new List<BossActionChoice>();
+        [Header("Distance preference (ground plane; no player pursuit)")]
+        public bool useDistanceWeights = true;
+        [Min(.1f)] public float closeRange = 1.4f;
+        [Min(.01f)] public float meleeLaneTolerance = .55f;
+        [Min(0)] public int teleportCooldownFrames = 180;
+        public BossMeleeInterruptData meleeInterrupt = new BossMeleeInterruptData();
         public CombatProjectile bookProjectile, curseWaveProjectile;
         public Vector2 bookSpawnOffset = new Vector2(.45f, .78f), curseSpawnOffset = new Vector2(.65f, .65f);
         [Header("Totems / vulnerability overlay")]

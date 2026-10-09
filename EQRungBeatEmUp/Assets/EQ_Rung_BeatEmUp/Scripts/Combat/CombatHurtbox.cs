@@ -43,7 +43,9 @@ namespace BeatEmUp
             var armor = enemy ? enemy.GetComponent<HitCountArmor>() : null;
             bool armored = armor && armor.isActiveAndEnabled && !health.IsDead && armor.Absorb(hit);
             if (armored) { LastHitOutcome = armor.LastOutcome; LastHitstopFrames = armor.hitstopFrames; }
-            if (!armored && (frame == null || !frame.superArmor || health.IsDead))
+            var boss = enemy ? enemy.GetComponent<TotemBossController>() : null;
+            bool bossPhysicalHit = !armored && boss && boss.HandlePhysicalHit(hit, attacker, projectile);
+            if (!armored && !bossPhysicalHit && (frame == null || !frame.superArmor || health.IsDead))
             {
                 if (enemy) enemy.Receive(hit, facing);
                 if (player) player.ReceiveHit(hit, facing);

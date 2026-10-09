@@ -1,0 +1,53 @@
+PASS: Current PlayerHub spawns four separate foreground station objects
+PASS: Station 0 hides nearby indicator out of range
+PASS: Station 0 rejects interaction outside range
+PASS: Station 0 highlights and shows icon on approach
+PASS: Station 0 trigger matches existing interaction radius
+PASS: Station 0 separate sprite matches character pixel density
+PASS: Station 0 has supported dedicated pixel-outline material
+PASS: Station 0 renders in foreground above painted panels with grounded pivot
+PASS: Station 0 interaction point remains naturally approachable
+PASS: Station 0 opens existing hub menu through PlayerHubController
+PASS: Station 0 hides prompt indicator while menu is open
+PASS: Station 0 rejects interaction while airborne
+PASS: Station 1 hides nearby indicator out of range
+PASS: Station 1 rejects interaction outside range
+PASS: Station 1 highlights and shows icon on approach
+PASS: Station 1 trigger matches existing interaction radius
+PASS: Station 1 separate sprite matches character pixel density
+PASS: Station 1 has supported dedicated pixel-outline material
+PASS: Station 1 renders in foreground above painted panels with grounded pivot
+PASS: Station 1 interaction point remains naturally approachable
+PASS: Station 1 opens existing hub menu through PlayerHubController
+PASS: Station 1 hides prompt indicator while menu is open
+PASS: Station 1 rejects interaction while airborne
+PASS: Station 2 hides nearby indicator out of range
+PASS: Station 2 rejects interaction outside range
+PASS: Station 2 highlights and shows icon on approach
+PASS: Station 2 trigger matches existing interaction radius
+PASS: Station 2 separate sprite matches character pixel density
+PASS: Station 2 has supported dedicated pixel-outline material
+PASS: Station 2 renders in foreground above painted panels with grounded pivot
+PASS: Station 2 interaction point remains naturally approachable
+PASS: Station 2 opens existing hub menu through PlayerHubController
+PASS: Station 2 hides prompt indicator while menu is open
+PASS: Station 2 rejects interaction while airborne
+PASS: Station 3 hides nearby indicator out of range
+PASS: Station 3 rejects interaction outside range
+PASS: Station 3 highlights and shows icon on approach
+PASS: Station 3 trigger matches existing interaction radius
+PASS: Station 3 separate sprite matches character pixel density
+PASS: Station 3 has supported dedicated pixel-outline material
+PASS: Station 3 renders in foreground above painted panels with grounded pivot
+PASS: Station 3 interaction point remains naturally approachable
+PASS: Station 3 opens existing hub menu through PlayerHubController
+PASS: Station 3 hides prompt indicator while menu is open
+PASS: Station 3 rejects interaction while airborne
+PASS: Existing E and controller shoulder interaction bindings remain intact
+PASS: Existing StageFlow interaction route opens foreground base-stat station
+PASS: Gong still applies existing base-stat upgrade
+PASS: Flame shrine still upgrades equipped skill
+PASS: Readable entrance still starts World 1 through existing hub function
+PASS: Hub restart restores four separate stations without duplicate gameplay objects
+PASS: Final workspace foreground/environment prefab GUID references resolve.
+VISUAL REVIEW: Four actual Unity editor renders reviewed for foreground separation, grounded scale, and placement; screenshots in Documentation/HubReadabilityPreview. Hardware/controller input and live multiplayer were not playtested.

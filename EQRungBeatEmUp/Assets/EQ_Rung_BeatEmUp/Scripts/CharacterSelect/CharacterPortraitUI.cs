@@ -4,7 +4,7 @@ namespace BeatEmUp
 {
     public sealed class CharacterPortraitUI : MonoBehaviour
     {
-        public static readonly Color[] PlayerColors = { new Color(1,.17f,.24f), new Color(.18f,.56f,1), new Color(1,.78f,.16f), new Color(.23f,.9f,.28f) };
+        public static Color[] PlayerColors => PlayerGroundIndicatorStyle.SharedPlayerColors;
         public Image PortraitImage, SelectionBorder;
         public Text PlayerMarker, ReadyIndicator;
         public GameObject LockedOverlay;

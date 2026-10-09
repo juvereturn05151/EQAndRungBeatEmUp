@@ -1,0 +1,103 @@
+PASS: BlueShirtGuy loads its own eight run poses through existing loadout
+PASS: BlueShirtGuy run sprites use current pixel density and point filtering
+PASS: BlueShirtGuy existing locomotion Animator includes Run clip for preview
+PASS: BlueShirtGuy standing Guard stays guard/parry
+PASS: BlueShirtGuy first enters existing dash animation/state
+PASS: BlueShirtGuy remains in Dash before transition frame
+PASS: BlueShirtGuy Run begins at tuned frame with no guard or dash invulnerability
+PASS: BlueShirtGuy first Run pose takes over through existing frame-driven sprite control
+PASS: BlueShirtGuy releasing Guard immediately returns to walk
+PASS: BlueShirtGuy run distance is clearly faster than walk through same motor
+PASS: Held direction and Guard complete dash-to-run transition
+PASS: BlueShirtGuy left Dash and Run mirror/facing correctly
+PASS: BlueShirtGuy direction reversal changes facing without restarting Dash
+PASS: BlueShirtGuy two complete run loops follow combat clock without pose resets or flicker
+PASS: BlueShirtGuy hitstop freezes run movement and animation together
+PASS: BlueShirtGuy run resumes exact phase after hitstop
+PASS: BlueShirtGuy combat pause freezes Run
+PASS: BlueShirtGuy releasing direction while holding Guard exits into guard
+PASS: BlueShirtGuy releasing both returns to Idle
+PASS: Held direction and Guard complete dash-to-run transition
+PASS: BlueShirtGuy attack immediately exits Run into existing Punch1 timeline
+PASS: BlueShirtGuy existing Punch1 has an authored combo cancel window
+PASS: BlueShirtGuy existing buffered Punch1-to-Punch2 combo still cancels after Run
+PASS: Held direction and Guard complete dash-to-run transition
+PASS: BlueShirtGuy jumping exits Run into existing jump movement
+PASS: Held direction and Guard complete dash-to-run transition
+PASS: BlueShirtGuy taking damage exits Run without stale speed
+PASS: Held direction and Guard complete dash-to-run transition
+PASS: BlueShirtGuy stage reset clears run input and speed
+PASS: BlueShirtGuy releasing during Dash prevents transition and preserves original dash recovery
+PASS: Held direction and Guard complete dash-to-run transition
+PASS: BlueShirtGuy Run respects existing swept wall collision
+PASS: BlueShirtGuy Run respects stage horizontal boundary
+PASS: BlueShirtGuy Run supports lane movement with preserved facing and bounds
+PASS: Held direction and Guard complete dash-to-run transition
+PASS: BlueShirtGuy existing camera follows Run while preserving vertical composition
+PASS: BlueShirtGuy all run poses resolve in multiplayer sprite catalog
+PASS: Character 1 keyboard Guard alone never runs
+PASS: Character 1 Guard-then-direction keyboard order starts Dash
+PASS: Character 1 actual held keyboard action transitions Dash into Run
+PASS: Character 1 actual keyboard Guard release exits Run
+PASS: Character 1 direction-then-Guard keyboard order runs left
+PASS: Character 1 actual direction release becomes stationary Guard
+PASS: Character 1 gamepad stick plus Guard transitions into Run
+PASS: Character 1 gamepad Guard release exits Run
+PASS: Character 1 multiplayer input transmits held directional Guard as Run
+PASS: Multiplayer Run hold persists without a second pressed event
+PASS: Multiplayer Guard release clears Run command
+PASS: Character2 loads its own eight run poses through existing loadout
+PASS: Character2 run sprites use current pixel density and point filtering
+PASS: Character2 existing locomotion Animator includes Run clip for preview
+PASS: Character2 standing Guard stays guard/parry
+PASS: Character2 first enters existing dash animation/state
+PASS: Character2 remains in Dash before transition frame
+PASS: Character2 Run begins at tuned frame with no guard or dash invulnerability
+PASS: Character2 first Run pose takes over through existing frame-driven sprite control
+PASS: Character2 releasing Guard immediately returns to walk
+PASS: Character2 run distance is clearly faster than walk through same motor
+PASS: Held direction and Guard complete dash-to-run transition
+PASS: Character2 left Dash and Run mirror/facing correctly
+PASS: Character2 direction reversal changes facing without restarting Dash
+PASS: Character2 two complete run loops follow combat clock without pose resets or flicker
+PASS: Character2 hitstop freezes run movement and animation together
+PASS: Character2 run resumes exact phase after hitstop
+PASS: Character2 combat pause freezes Run
+PASS: Character2 releasing direction while holding Guard exits into guard
+PASS: Character2 releasing both returns to Idle
+PASS: Held direction and Guard complete dash-to-run transition
+PASS: Character2 attack immediately exits Run into existing Punch1 timeline
+PASS: Character2 existing Punch1 has an authored combo cancel window
+PASS: Character2 existing buffered Punch1-to-Punch2 combo still cancels after Run
+PASS: Held direction and Guard complete dash-to-run transition
+PASS: Character2 jumping exits Run into existing jump movement
+PASS: Held direction and Guard complete dash-to-run transition
+PASS: Character2 taking damage exits Run without stale speed
+PASS: Held direction and Guard complete dash-to-run transition
+PASS: Character2 stage reset clears run input and speed
+PASS: Character2 releasing during Dash prevents transition and preserves original dash recovery
+PASS: Held direction and Guard complete dash-to-run transition
+PASS: Character2 Run respects existing swept wall collision
+PASS: Character2 Run respects stage horizontal boundary
+PASS: Character2 Run supports lane movement with preserved facing and bounds
+PASS: Held direction and Guard complete dash-to-run transition
+PASS: Character2 existing camera follows Run while preserving vertical composition
+PASS: Character2 all run poses resolve in multiplayer sprite catalog
+PASS: Character 2 keyboard Guard alone never runs
+PASS: Character 2 Guard-then-direction keyboard order starts Dash
+PASS: Character 2 actual held keyboard action transitions Dash into Run
+PASS: Character 2 actual keyboard Guard release exits Run
+PASS: Character 2 direction-then-Guard keyboard order runs left
+PASS: Character 2 actual direction release becomes stationary Guard
+PASS: Character 2 gamepad stick plus Guard transitions into Run
+PASS: Character 2 gamepad Guard release exits Run
+PASS: Character 2 multiplayer input transmits held directional Guard as Run
+PASS: Multiplayer Run hold persists without a second pressed event
+PASS: Multiplayer Guard release clears Run command
+PASS: Existing defense regression Dodge passes unchanged
+PASS: Existing defense regression GuardParry passes unchanged
+PASS: Existing defense regression ParryBoundariesAndRearm passes unchanged
+PASS: Existing defense regression ParryCompatibilityAndCounter passes unchanged
+PASS: Existing defense regression Knockdown passes unchanged
+PASS: Existing defense regression Death passes unchanged
+PASS: Existing defense regression RealEnemyAttacks passes unchanged

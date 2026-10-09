@@ -24,6 +24,7 @@ MonoBehaviour:
     or cancels. Dragon animation and collision live in the shared CombatProjectile."
   feedback:
     areaWarning: 0
+    directionalWaveWarning: 0
     areaRingSprite: {fileID: 0}
     areaWaveSprites: []
     warningColor: {r: 1, g: 0.35, b: 0.1, a: 0.8}
@@ -32,15 +33,34 @@ MonoBehaviour:
     screamSound: {fileID: 0}
     areaVolume: 0.6
     swingSound: {fileID: 8300000, guid: 0e9bca6dd55d7e541a865752da6415f5, type: 3}
-    impactSound: {fileID: 8300000, guid: e5ecc98ff40556543b77c8c2aa090822, type: 3}
+    impactSound: {fileID: 8300000, guid: 3516c279da18eaa40b97de96d4d0356d, type: 3}
     swingVolume: 0.65
-    impactVolume: 0.8
+    impactVolume: 0.9
+    swingPrefab: {fileID: 0}
+    swingOffset: {x: 0, y: 0}
+    swingRotation: 0
+    swingMirrorWithFacing: 1
+    swingScale: 0.15
+    swingLifetime: 0.35
+    diveStartPrefab: {fileID: 0}
+    landingPrefab: {fileID: 0}
+    landingSound: {fileID: 0}
+    landingVolume: 0.65
+    diveStartScale: 0.2
+    landingScale: 0.25
+    diveStartLifetime: 0.3
+    landingLifetime: 0.6
     impactPrefab: {fileID: 8525990746615576120, guid: b85d21f3b8fed714bacf0c4fd50fa512, type: 3}
-    impactScale: 0.32
-    impactLifetime: 0.6
+    impactRotateWithFacing: 1
+    impactScale: 0.42
+    impactLifetime: 0.45
+    impactShakeStrength: 0.05
+    impactShakeDuration: 0.14
   frames:
   - sprite: {fileID: 21300000, guid: ab2d2ba21f298e745bb69ec2b0b9d194, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -58,6 +78,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: ab2d2ba21f298e745bb69ec2b0b9d194, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -75,6 +97,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: ab2d2ba21f298e745bb69ec2b0b9d194, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -92,6 +116,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: ab2d2ba21f298e745bb69ec2b0b9d194, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -109,6 +135,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: ab2d2ba21f298e745bb69ec2b0b9d194, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -126,6 +154,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: ab2d2ba21f298e745bb69ec2b0b9d194, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -143,6 +173,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 41918b8f1667c094a86048533d618a07, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -160,6 +192,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 41918b8f1667c094a86048533d618a07, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -177,6 +211,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 41918b8f1667c094a86048533d618a07, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -194,6 +230,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 41918b8f1667c094a86048533d618a07, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -211,6 +249,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 41918b8f1667c094a86048533d618a07, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -228,6 +268,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 41918b8f1667c094a86048533d618a07, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -245,6 +287,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 7b8acb45910a00f42a1b38fa0d47cf07, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -264,6 +308,8 @@ MonoBehaviour:
     - SpawnDragon
   - sprite: {fileID: 21300000, guid: 7b8acb45910a00f42a1b38fa0d47cf07, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -281,6 +327,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 7b8acb45910a00f42a1b38fa0d47cf07, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -298,6 +346,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 7b8acb45910a00f42a1b38fa0d47cf07, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -315,6 +365,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 7b8acb45910a00f42a1b38fa0d47cf07, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -332,6 +384,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 7b8acb45910a00f42a1b38fa0d47cf07, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -349,6 +403,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 7b8acb45910a00f42a1b38fa0d47cf07, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -366,6 +422,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 7b8acb45910a00f42a1b38fa0d47cf07, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -383,6 +441,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: b6677babbd5a31647abf5e152ea4db19, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -400,6 +460,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: b6677babbd5a31647abf5e152ea4db19, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -417,6 +479,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: b6677babbd5a31647abf5e152ea4db19, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -434,6 +498,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: b6677babbd5a31647abf5e152ea4db19, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -451,6 +517,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: b6677babbd5a31647abf5e152ea4db19, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -468,6 +536,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: b6677babbd5a31647abf5e152ea4db19, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -485,6 +555,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: b6677babbd5a31647abf5e152ea4db19, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -502,6 +574,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: b6677babbd5a31647abf5e152ea4db19, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -519,6 +593,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: b6677babbd5a31647abf5e152ea4db19, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -536,6 +612,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: b6677babbd5a31647abf5e152ea4db19, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -553,6 +631,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: b6677babbd5a31647abf5e152ea4db19, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -570,6 +650,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: b6677babbd5a31647abf5e152ea4db19, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 0
@@ -585,3 +667,6 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
+  activeEvent: 
+  eventActiveFrames: 0
+  cooldownOnInterrupt: 0

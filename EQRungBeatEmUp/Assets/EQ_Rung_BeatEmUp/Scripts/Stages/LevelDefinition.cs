@@ -58,6 +58,8 @@ namespace BeatEmUp
         public float rewardHealFraction = .5f;
         [Tooltip("-1 uses the next ordered stage. A value equal to stage count ends the level.")]
         public int nextStageIndex = -1;
+        [Header("Next Area Markers (presentation only, ordered by route)")]
+        public List<NextAreaMarkerDefinition> nextAreaMarkers = new List<NextAreaMarkerDefinition>();
         public List<EncounterDefinition> encounters = new List<EncounterDefinition>();
         public List<DestructiblePlacement> destructibles = new List<DestructiblePlacement>();
         public List<StagePropPlacement> decorativeProps = new List<StagePropPlacement>();

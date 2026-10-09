@@ -1,0 +1,48 @@
+PASS: Tested asset copied byte-for-byte: Assets/EQ_Rung_BeatEmUp/Skills/ShadowDragon/ShadowDragonProjectile.prefab
+PASS: Tested asset copied byte-for-byte: Assets/EQ_Rung_BeatEmUp/Skills/ShadowDragon/ShadowDragonCast.asset
+PASS: Tested asset copied byte-for-byte: Assets/EQ_Rung_BeatEmUp/Skills/ShadowDragon/ShadowDragon.asset
+PASS: Tested asset copied byte-for-byte: Assets/EQ_Rung_BeatEmUp/Resources/MultiplayerCatalog.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Attacks\AirHeadbuttDive.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Attacks\AirPunch1.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Attacks\AirPunch2.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Attacks\AirPunch3.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Attacks\EnemyPunch.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Attacks\Launcher.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Attacks\Punch1.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Attacks\Punch2.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Attacks\Punch3.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\BarrierPulseFeedback.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_AirDive.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_AirPunch1.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_AirPunch2.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_AirPunch3.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_Defense.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_Launcher.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_Punch1.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_Punch2.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_Punch3.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_Run.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_WandBarrierCast.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\WandBarrier.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Characters\Character2\WandBarrierFeedback.asset
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\Ambusher.prefab
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\BossBookProjectile.prefab
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\BossCurseWaveFeedback.prefab
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\BossCurseWaveProjectile.prefab
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\BossStunBurstFeedback.prefab
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\BossSummonSealFeedback.prefab
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\GrapplerBruiser.prefab
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\NotebookProjectile.prefab
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\Prefect.prefab
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\Rusher.prefab
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\Screamer.prefab
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\ScreamWaveProjectile.prefab
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\Thrower.prefab
+PASS: Unchanged baseline asset: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\WhiteGhostBoss.prefab
+PASS: Final source equals Unity-tested source: Assets/EQ_Rung_BeatEmUp/Scripts/Combat/AttackData.cs
+PASS: Final source equals Unity-tested source: Assets/EQ_Rung_BeatEmUp/Scripts/Combat/EnemyHitReaction.cs
+PASS: Final source equals Unity-tested source: Assets/EQ_Rung_BeatEmUp/Scripts/Combat/AttackFeedback.cs
+PASS: Final source equals Unity-tested source: Assets/EQ_Rung_BeatEmUp/Scripts/Combat/StageFraming.cs
+PASS: Final source equals Unity-tested source: Assets/Editor/Combat/BlackDragonFistSetup.cs
+PASS: Final source equals Unity-tested source: Assets/Editor/Combat/BlackDragonFistValidation.cs

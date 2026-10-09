@@ -1,0 +1,66 @@
+PASS: Scene marker preview is render-only, with no gameplay scripts or triggers
+PASS: All three Stage 1 route markers preview as separate sprites
+PASS: Preview and clear preserve authored stage data
+PASS: Stage 1 has initial approach, between-encounter and final exit markers
+PASS: Marker prefab cannot block movement or create a new transition
+PASS: Route selects Entrance approach
+PASS: Exactly the relevant world marker is visible
+PASS: First encounter active: world marker, NEXT and edge guidance are hidden
+PASS: Existing progression rejects advance during first fight
+PASS: Original first arena movement lock is retained
+PASS: Route selects After first fight
+PASS: Exactly the relevant world marker is visible
+PASS: Between-fight marker matches the actual second encounter trigger center
+PASS: First clear unlocks traversal, while second encounter still gates final exit
+PASS: Off-screen target to the right produces a right-pointing screen-edge arrow
+PASS: Edge guidance remains within the letterboxed camera viewport
+PASS: Off-screen target to the left produces a left-pointing arrow
+PASS: Edge arrow disappears once the world marker is visible
+PASS: Approaching the next encounter increases marker brightness/pulse proximity
+PASS: Rendered actual Stage 1 world marker: BetweenEncounters
+PASS: Second encounter active: world marker, NEXT and edge guidance are hidden
+PASS: Second encounter keeps its authored enemy groups
+PASS: Route selects Stage 1 exit
+PASS: Exactly the relevant world marker is visible
+PASS: Final marker identifies the actual stage transition radius center
+PASS: Combat clear does not teleport or automatically advance the player
+PASS: Rendered actual Stage 1 world marker: StageExit
+PASS: Existing ReachExit reward flow begins on physical exit entry
+PASS: World reward pending: world marker, NEXT and edge guidance are hidden
+PASS: Player approaches and interacts with the existing reward chapel
+PASS: Reward choosing: world marker, NEXT and edge guidance are hidden
+PASS: Player approaches and selects an existing world upgrade
+PASS: Route selects Stage 1 exit
+PASS: Exactly the relevant world marker is visible
+PASS: Physically reaching exit continues to the original next stage
+PASS: Transition immediately disables all old marker visuals
+PASS: Stage 1 guidance does not leak into the next stage
+PASS: Route selects Entrance approach
+PASS: Exactly the relevant world marker is visible
+PASS: Restart recreates marker route and original encounter state
+PASS: Marker art resolves in multiplayer world sprite catalog
+PASS: Authority guidance snapshot preserves target and HUD sprite references
+PASS: Delayed next wave queued: world marker, NEXT and edge guidance are hidden
+PASS: Next wave delay still pending: world marker, NEXT and edge guidance are hidden
+PASS: Second enemy spawn still queued: world marker, NEXT and edge guidance are hidden
+PASS: Route selects After first fight
+PASS: Exactly the relevant world marker is visible
+PASS: Manual encounter clear not signalled: world marker, NEXT and edge guidance are hidden
+PASS: Route selects After first fight
+PASS: Exactly the relevant world marker is visible
+PASS: Next trigger entry latched during delay: world marker, NEXT and edge guidance are hidden
+PASS: Combat paused: world marker, NEXT and edge guidance are hidden
+PASS: Route selects Entrance approach
+PASS: Exactly the relevant world marker is visible
+PASS: Defeat fixture accounts for any existing lethal-save upgrade
+PASS: All players defeated: world marker, NEXT and edge guidance are hidden
+PASS: Script-controlled marker defaults hidden: world marker, NEXT and edge guidance are hidden
+PASS: Route selects Entrance approach
+PASS: Exactly the relevant world marker is visible
+PASS: Script-visible marker cannot override active arena: world marker, NEXT and edge guidance are hidden
+PASS: Route selects Stage 1 exit
+PASS: Exactly the relevant world marker is visible
+PASS: No-combat area shows immediate marker while using existing exit eligibility
+PASS: Linked marker offset preserves transition position
+PASS: Independent marker position is editable without moving gameplay trigger
+PASS: Disabling stage flow immediately hides markers

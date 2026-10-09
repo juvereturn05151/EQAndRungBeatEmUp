@@ -48,7 +48,8 @@ namespace BeatEmUp
             yield return KeyPress(Key.DownArrow);
             Check(Focus=="HOW TO PLAY","Keyboard arrows navigate buttons");
             yield return KeyPress(Key.Enter);
-            Check(Focus=="BACK","Enter opens help without a mouse");
+            Check(Focus=="BACK","Enter opens help without a mouse (focus: "+Focus+")");
+            Check(FindObjectsByType<Text>(FindObjectsSortMode.None).Any(t=>t.text.Contains("Interact: L1 / LB")),"How to Play displays L1 / LB for controller interaction");
             yield return KeyPress(Key.Escape);
             Check(Focus=="PLAY","Escape returns to the main menu");
             yield return PadPress(GamepadButton.DpadDown); yield return PadPress(GamepadButton.DpadDown);
@@ -88,6 +89,37 @@ namespace BeatEmUp
             Check(session && session.catalog.characters.Length>=2,"Existing persistent session and two real character prefabs available");
             if(!session || session.catalog.characters.Length<2) { Finish(); yield break; }
             yield return ValidateMenu();
+            // Reproduce the reported path: controller activates PLAY and SINGLE PLAYER with a keyboard present.
+            yield return PadPress(GamepadButton.South); yield return PadPress(GamepadButton.South);
+            yield return null; yield return null;
+            var solo=FindFirstObjectByType<CharacterSelectManager>();
+            Check(solo && session.Mode==SessionMode.Single && session.Lobby.slots.Count==1 && session.Lobby.slots[0].device==pad,
+                "Controller opening SINGLE PLAYER owns P1 even with a keyboard connected");
+            Check(!session.Lobby.slots[0].ready,"Opening controller press does not also confirm the character");
+            int soloCharacter=session.Lobby.slots[0].character;
+            yield return PadPress(GamepadButton.DpadRight);
+            Check(session.Lobby.slots[0].character!=soloCharacter,"Single-player controller D-pad selects a character");
+            soloCharacter=session.Lobby.slots[0].character;
+            InputSystem.QueueStateEvent(pad,new GamepadState {leftStick=Vector2.left}); yield return null; yield return null;
+            InputSystem.QueueStateEvent(pad,new GamepadState()); yield return null; yield return null;
+            Check(session.Lobby.slots[0].character!=soloCharacter,"Single-player controller stick selects a character");
+            yield return PadPress(GamepadButton.South); Check(session.Lobby.slots[0].ready,"Controller A confirms single-player selection");
+            yield return PadPress(GamepadButton.East); Check(!session.Lobby.slots[0].ready,"Controller B unlocks single-player selection");
+            session.UseSingleSelectionDevice(keyboard); yield return null; yield return null;
+            yield return PadPress(GamepadButton.DpadRight);
+            Check(session.Lobby.slots.Count==1 && session.Lobby.slots[0].device==pad,"Unpaired controller navigation takes over P1 without creating P2");
+            session.UseSingleSelectionDevice(keyboard); yield return null; yield return null;
+            yield return PadPress(GamepadButton.South);
+            Check(session.Lobby.slots.Count==1 && session.Lobby.slots[0].device==pad && !session.Lobby.slots[0].ready,
+                "Controller join claims a keyboard-owned single slot without confirming on the same press");
+            yield return PadPress(GamepadButton.South);
+            Check(session.Lobby.slots[0].ready && session.CanStart,"Claimed controller can confirm and enable Start");
+            yield return PadPress(GamepadButton.Start);
+            yield return WaitFor(()=>session.InGame && PlayerRoster.Players.Count()==1);
+            Check(session.LocalInput(0)?.Device==pad,"Controller Start launches the selected solo character with the same paired controller");
+            session.LeaveToMenu(); yield return WaitFor(()=>!session.InGame && UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="MainMenu");
+            // The remainder intentionally exercises keyboard P1 plus controller P2.
+            session.PreferredLocalDevice=keyboard;
             session.BeginLocal(); yield return null; yield return null;
             var ui=FindFirstObjectByType<CharacterSelectManager>();
             Check(ui,"Open Character Select from existing local mode");
@@ -170,6 +202,8 @@ namespace BeatEmUp
             Check(defense.GuardActive,"Authority enters Guard for stationary shared-button input");
             session.ApplyCommand(players[0].slot,new PlayerCommand());
             var menu=FindFirstObjectByType<MultiplayerMenu>();
+            yield return PadPress(GamepadButton.East);
+            Check(!menu.MenuOpen && !CombatClock.IsPaused,"Controller B during gameplay does not open the pause menu or pause combat");
             yield return KeyPress(Key.Escape);
             Check(menu.MenuOpen && CombatClock.IsPaused && Focus=="RESUME","Escape opens gameplay menu and pauses local combat");
             yield return PadPress(GamepadButton.South);
@@ -196,7 +230,14 @@ namespace BeatEmUp
             yield return PadPress(GamepadButton.South);
             Check(meta.OpenStation==-1,"P2 navigates to hub Close and confirms with A");
             players[1].Motor.ResetForStage(hub.definition.stations[0]);
-            meta.OpenStation=0; yield return new WaitForSecondsRealtime(.2f);
+            yield return PadPress(GamepadButton.Select);
+            Check(meta.OpenStation==-1,"Select no longer interacts with a nearby hub station");
+            yield return PadPress(GamepadButton.LeftShoulder);
+            Check(meta.OpenStation==0 && !menu.MenuOpen,"L1 / LB opens the paired player's hub station without pausing");
+            yield return PadPress(GamepadButton.LeftShoulder);
+            Check(meta.OpenStation==-1,"A new L1 / LB press closes the hub station");
+            yield return PadPress(GamepadButton.LeftShoulder);
+            yield return new WaitForSecondsRealtime(.2f);
             yield return PadPress(GamepadButton.East);
             Check(meta.OpenStation==-1 && !menu.MenuOpen,"Controller B closes a hub panel without opening the gameplay menu");
             var rewards=session.Flow.CoopRewards;
@@ -212,7 +253,8 @@ namespace BeatEmUp
                 Check(!first.done && !second.done,"D-pad changes focus without immediately purchasing a blessing");
                 yield return PadPress(GamepadButton.East);
                 Check(first.opened && !second.opened && !second.done,"P2 cancel closes only P2's blessing menu and retains the reward");
-                rewards.Interact(players[1]); yield return new WaitForSecondsRealtime(.2f);
+                yield return PadPress(GamepadButton.LeftShoulder); yield return new WaitForSecondsRealtime(.2f);
+                Check(second.opened && !second.done,"L1 / LB reopens the paired player's blessing menu");
                 var expectedBlessing=second.choices[Mathf.Min(1,second.choices.Count-1)];
                 yield return PadPress(GamepadButton.South);
                 Check(second.done && !first.done && players[1].GetComponent<RunBuildState>().Stacks(expectedBlessing)>0,"P2 A selects the focused blessing without changing P1");
@@ -242,6 +284,7 @@ namespace BeatEmUp
             upgrades.enabled=false;
             session.enabled=true; menu.enabled=true;
             session.LeaveToMenu(); yield return WaitFor(()=>UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="MainMenu");
+            session.PreferredLocalDevice=keyboard;
             session.BeginLocal(); yield return null; yield return null;
             Check(session.Lobby.slots.Count==1 && !session.Lobby.slots[0].ready,"Re-entry clears previous party and ready state");
             original=session.Lobby.slots[0].character;

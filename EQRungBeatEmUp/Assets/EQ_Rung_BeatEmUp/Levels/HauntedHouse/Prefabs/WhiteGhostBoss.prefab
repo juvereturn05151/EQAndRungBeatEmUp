@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf00405fba87e54eb9f954012ea682b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.CharacterHealth
-  maximumHealth: 120
+  maximumHealth: 500
 --- !u!114 &7455638769860428839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +360,14 @@ MonoBehaviour:
   target: {fileID: 0}
   attack: {fileID: 11400000, guid: 7d17ea6626576ac4faf3f1cf6de6da45, type: 2}
   aiProfile: {fileID: 0}
+  coordinator: {fileID: 0}
+  legacyCoordination:
+    requiresMeleeSlot: 1
+    requiresRangedSlot: 0
+    requiresCrowdControlSlot: 0
+    requiresSupportSlot: 0
+    priorityModifier: 0
+    ignoreCoordinator: 0
   passiveTrainingDummy: 0
   attackRange: 0.85
   minimumAttackRange: 0

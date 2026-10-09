@@ -37,6 +37,12 @@ namespace BeatEmUp
                 var collider = hurtbox.GetComponent<Collider2D>();
                 if (collider && collider.enabled && (hurtboxLayers.value & (1 << collider.gameObject.layer)) != 0) colliders.Add(collider);
             }
+            foreach (var prop in FindObjectsByType<DestructibleObject>(FindObjectsSortMode.None))
+            {
+                if (!prop.isActiveAndEnabled || prop.IsBroken || !InGroundArea(box, Center(box), prop.transform.position)) continue;
+                var collider = prop.GetComponent<BoxCollider2D>();
+                if (collider && collider.enabled && (hurtboxLayers.value & (1 << collider.gameObject.layer)) != 0) colliders.Add(collider);
+            }
             return colliders.ToArray();
         }
         public void Sample()
@@ -61,7 +67,7 @@ namespace BeatEmUp
                         {
                             propHistory[prop] = frameNumber;
                             HitConfirmed?.Invoke(Center(box), CombatHitOutcome.Hit);
-                            if (owner) owner.Freeze(propHit.hitstopFrames);
+                            if (owner) owner.Freeze(prop.LastHitstopFrames);
                         }
                         continue;
                     }

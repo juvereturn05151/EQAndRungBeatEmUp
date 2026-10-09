@@ -78,6 +78,13 @@ public sealed class LevelDefinitionEditor : Editor
             var bounds = new Rect(stage.movementMin, stage.movementMax - stage.movementMin);
             if (!bounds.Contains(stage.playerEntryPoint) || !bounds.Contains(stage.playerExitPoint)) EditorGUILayout.HelpBox($"Stage {i + 1}: entry/exit must be inside movement bounds.", MessageType.Warning);
             if (stage.nextStageIndex == i || stage.nextStageIndex < -1 || stage.nextStageIndex > level.stages.Count) EditorGUILayout.HelpBox($"Stage {i + 1}: invalid next-stage index.", MessageType.Error);
+            foreach (var marker in stage.nextAreaMarkers)
+            {
+                if (!marker.enabled) continue;
+                if (!marker.markerPrefab || !marker.markerPrefab.GetComponent<StageExitMarker>()) EditorGUILayout.HelpBox($"Stage {i + 1}: {marker.markerId} needs a StageExitMarker prefab.", MessageType.Warning);
+                if (!marker.TryTransitionPosition(stage, out _)) EditorGUILayout.HelpBox($"Stage {i + 1}: {marker.markerId} needs an enabled PlayerZone target encounter.", MessageType.Warning);
+                if (marker.showAfter == NextAreaShowAfter.EncounterComplete && !stage.encounters.Exists(e => e.encounterId == marker.afterEncounterId)) EditorGUILayout.HelpBox($"Stage {i + 1}: {marker.markerId} has no matching source encounter ID.", MessageType.Warning);
+            }
             if (stage.safeRoom && stage.encounters.Count > 0) EditorGUILayout.HelpBox($"Stage {i + 1}: safe room contains encounters.", MessageType.Warning);
             for (int e = 0; e < stage.encounters.Count; e++)
             {

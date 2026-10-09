@@ -14,7 +14,7 @@ namespace BeatEmUp
         public int ParryRearmRemaining { get; private set; }
         public int CounterAdvantageFrames => defenseData ? Mathf.Max(0, defenseData.parryAttackerStunFrames + Mathf.RoundToInt(Build?.Value(RunModifier.ParryStunBonus) ?? 0) - defenseData.parryRecoveryFrames) : 0;
         public bool IsKnockdownState => State == CombatState.KnockDown || State == CombatState.Downed || State == CombatState.GetUp;
-        public bool IsDefenseState => (int)State >= (int)CombatState.Dodge;
+        public bool IsDefenseState => State != CombatState.Run && (int)State >= (int)CombatState.Dodge;
         public bool DodgeInvulnerable => defenseData && State == CombatState.Dodge && DefenseFrame >= defenseData.dodgeInvulnerableFirstFrame && DefenseFrame <= defenseData.dodgeInvulnerableLastFrame;
         public event Action<DefenseFeedback> DefenseImpact;
         private bool guardHeld, parryArmed;
@@ -96,6 +96,7 @@ namespace BeatEmUp
 
         private void ClearDefenseControl()
         {
+            if (motor) motor.GroundSpeedOverride = 0;
             DetachGrabOwner();
             if (stunVisual) stunVisual.enabled = false;
             if (motor) motor.DefenseVelocity = Vector2.zero;
@@ -123,7 +124,8 @@ namespace BeatEmUp
             if (State != CombatState.Downed && State != CombatState.Die || DefenseFrame < StateDuration()) DefenseFrame++;
             if (blockstun > 0) blockstun--;
             if (State == CombatState.GuardEnter && DefenseFrame >= EffectiveParryWindow) { State = CombatState.GuardHold; parryArmed = false; }
-            if (State == CombatState.Dodge && DefenseFrame >= EffectiveDodgeFrames) EndDefense();
+            if (State == CombatState.Dodge && CanDashIntoRun && DefenseFrame >= EffectiveDashToRunFrame) BeginRun();
+            else if (State == CombatState.Dodge && DefenseFrame >= EffectiveDodgeFrames) EndDefense();
         }
         public CombatHitOutcome TryDefense(AttackHitboxData hit, int facing, CharacterMotor attacker, CombatProjectile projectile = null)
         {
@@ -140,7 +142,9 @@ namespace BeatEmUp
                 {
                     var reaction = attacker.GetComponent<EnemyHitReaction>();
                     int punish = defenseData.parryAttackerStunFrames + Mathf.RoundToInt(Build?.Value(RunModifier.ParryStunBonus) ?? 0);
-                    if (reaction) reaction.InterruptFromParry(punish);
+                    var boss = attacker.GetComponent<TotemBossController>();
+                    if (boss) boss.InterruptPhysicalFromParry();
+                    else if (reaction) reaction.InterruptFromParry(punish);
                     else { var otherPlayer = attacker.GetComponent<ComboController>(); if (otherPlayer) otherPlayer.Interrupt(punish); }
                 }
                 Build?.OnParry();

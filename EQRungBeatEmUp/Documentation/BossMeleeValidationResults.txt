@@ -1,0 +1,183 @@
+PASS: New frame timeline is 60 startup / 10 active / 42 recovery
+PASS: Existing swipe, curse wave and strong-ghost abilities remain authored
+PASS: Close weights prioritize new melee while all existing ability families remain selectable
+PASS: Far eligible weights normalize to 55 projectile / 30 summon / 15 teleport
+PASS: Phase 2 retains both ranged/summon variants and shared distance proportions
+PASS: Remaining available weights renormalize to 100 percent
+PASS: No eligible action returns neutral recovery instead of forcing unavailable ability
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Melee consumes its editable AttackData cooldown on commitment
+PASS: Pause does not consume action cooldown
+PASS: Hitstop does not consume action cooldown
+PASS: Wrong walking lane excludes physical attacks
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Character 1 receives no startup damage
+PASS: Startup displays existing ground-area telegraph and assigned cue
+PASS: Character 1 accepted startup hit cancels attack into 30-frame punish window
+PASS: Interrupted pose comes from authored existing-art reaction timeline
+PASS: Repeated hits deal damage without restarting stagger
+PASS: Hit stagger retains exact configured duration
+PASS: Hit stagger exits cleanly through existing boss recovery
+PASS: Expected boss transition completes within 180 frames
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Interrupt lockout prevents repeated startup stunlock while still accepting damage
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Startup outside configured interrupt window is committed
+PASS: Active attack takes legitimate damage but normal hits cannot cancel it
+PASS: Recovery remains damageable without being reset by normal hits
+PASS: Expected boss transition completes within 100 frames
+PASS: Committed attack finishes without stuck active/recovery state
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Inspector interrupt hit-type conditions reject disallowed normal hits
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Expected boss transition completes within 30 frames
+PASS: Character 1 real combo hitbox interrupts telegraph without cancelling player attack
+PASS: Expected boss transition completes within 80 frames
+PASS: Punish recovery returns naturally to weighted action selection
+PASS: Boss resumes an eligible ability rather than becoming stuck in recovery
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Character 1 perfect parry negates damage and cancels into 60-frame boss stagger
+PASS: Perfect parry reuses existing VFX/SFX and feedback event
+PASS: Both attacker and defender receive existing perfect-parry hitstop
+PASS: Perfect-parry freeze preserves full punish duration
+PASS: Parry punish timer cannot expire early
+PASS: Parry stagger exits through normal boss recovery
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Character 1 ordinary guard blocks without interrupting boss
+PASS: Original swipe stays available at close range
+PASS: Perfect parry also cancels original physical swipe
+PASS: Physical-parry hook cannot cancel supernatural projectile cast
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Character 1 crossing behind after facing-lock cannot rotate committed swing
+PASS: Expected boss transition completes within 80 frames
+PASS: Retreat out of melee range avoids damage while boss completes commitment
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Existing dodge accepts retreat input before its four-frame invulnerability startup
+PASS: Character 1 existing dodge avoids committed physical hit
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Expected boss transition completes within 60 frames
+PASS: Ignoring telegraph causes powerful physical hit and clear existing hit reaction
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Character 1 side 1: full one-second telegraph is harmless and has no early impact effect/shake
+PASS: Sweep deals 36 damage and spawns shared pixel burst exactly on connection
+PASS: Shared animated impact burst is raised to torso height for physical swipe readability
+PASS: Heavy impact sound starts on confirmed hit
+PASS: Small camera shake occurs on confirmed hit
+PASS: Ten-frame impact freeze and strong recoil apply to both facing directions
+PASS: Hitstop holds displacement until impact freeze ends
+PASS: Strong push moves player more than 0.9 units after freeze while preserving stage bounds
+PASS: Ten active frames preserve one damage/impact event per swing
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Character 1 side -1: full one-second telegraph is harmless and has no early impact effect/shake
+PASS: Sweep deals 36 damage and spawns shared pixel burst exactly on connection
+PASS: Shared animated impact burst is raised to torso height for physical swipe readability
+PASS: Heavy impact sound starts on confirmed hit
+PASS: Small camera shake occurs on confirmed hit
+PASS: Ten-frame impact freeze and strong recoil apply to both facing directions
+PASS: Hitstop holds displacement until impact freeze ends
+PASS: Strong push moves player more than 0.9 units after freeze while preserving stage bounds
+PASS: Ten active frames preserve one damage/impact event per swing
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Character 2 receives no startup damage
+PASS: Startup displays existing ground-area telegraph and assigned cue
+PASS: Character 2 accepted startup hit cancels attack into 30-frame punish window
+PASS: Interrupted pose comes from authored existing-art reaction timeline
+PASS: Repeated hits deal damage without restarting stagger
+PASS: Hit stagger retains exact configured duration
+PASS: Hit stagger exits cleanly through existing boss recovery
+PASS: Expected boss transition completes within 180 frames
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Interrupt lockout prevents repeated startup stunlock while still accepting damage
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Startup outside configured interrupt window is committed
+PASS: Active attack takes legitimate damage but normal hits cannot cancel it
+PASS: Recovery remains damageable without being reset by normal hits
+PASS: Expected boss transition completes within 100 frames
+PASS: Committed attack finishes without stuck active/recovery state
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Inspector interrupt hit-type conditions reject disallowed normal hits
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Expected boss transition completes within 30 frames
+PASS: Character 2 real combo hitbox interrupts telegraph without cancelling player attack
+PASS: Expected boss transition completes within 80 frames
+PASS: Punish recovery returns naturally to weighted action selection
+PASS: Boss resumes an eligible ability rather than becoming stuck in recovery
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Character 2 perfect parry negates damage and cancels into 60-frame boss stagger
+PASS: Perfect parry reuses existing VFX/SFX and feedback event
+PASS: Both attacker and defender receive existing perfect-parry hitstop
+PASS: Perfect-parry freeze preserves full punish duration
+PASS: Parry punish timer cannot expire early
+PASS: Parry stagger exits through normal boss recovery
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Character 2 ordinary guard blocks without interrupting boss
+PASS: Original swipe stays available at close range
+PASS: Perfect parry also cancels original physical swipe
+PASS: Physical-parry hook cannot cancel supernatural projectile cast
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Character 2 crossing behind after facing-lock cannot rotate committed swing
+PASS: Expected boss transition completes within 80 frames
+PASS: Retreat out of melee range avoids damage while boss completes commitment
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Existing dodge accepts retreat input before its four-frame invulnerability startup
+PASS: Character 2 existing dodge avoids committed physical hit
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Expected boss transition completes within 60 frames
+PASS: Ignoring telegraph causes powerful physical hit and clear existing hit reaction
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Character 2 side 1: full one-second telegraph is harmless and has no early impact effect/shake
+PASS: Sweep deals 36 damage and spawns shared pixel burst exactly on connection
+PASS: Shared animated impact burst is raised to torso height for physical swipe readability
+PASS: Heavy impact sound starts on confirmed hit
+PASS: Small camera shake occurs on confirmed hit
+PASS: Ten-frame impact freeze and strong recoil apply to both facing directions
+PASS: Hitstop holds displacement until impact freeze ends
+PASS: Strong push moves player more than 0.9 units after freeze while preserving stage bounds
+PASS: Ten active frames preserve one damage/impact event per swing
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Character 2 side -1: full one-second telegraph is harmless and has no early impact effect/shake
+PASS: Sweep deals 36 damage and spawns shared pixel burst exactly on connection
+PASS: Shared animated impact burst is raised to torso height for physical swipe readability
+PASS: Heavy impact sound starts on confirmed hit
+PASS: Small camera shake occurs on confirmed hit
+PASS: Ten-frame impact freeze and strong recoil apply to both facing directions
+PASS: Hitstop holds displacement until impact freeze ends
+PASS: Strong push moves player more than 0.9 units after freeze while preserving stage bounds
+PASS: Ten active frames preserve one damage/impact event per swing
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Totem shield still rejects hit-based startup interruption and damage
+PASS: Shielded physical parry cancels swing without opening damage gate or changing phase
+PASS: Parry alone cannot advance boss phase
+PASS: Totem break retains its expanding-front delay
+PASS: Expected boss transition completes within 60 frames
+PASS: Existing radial totem front opens original configurable vulnerability duration
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Legitimate health threshold queues existing phase transition without discarding punish window
+PASS: Phase transition begins after interrupted physical punish finishes
+PASS: Existing phase transition completes exactly once
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Death cancels new melee and retains existing cleanup
+PASS: Existing Book projectile remains usable at range
+PASS: Expected boss transition completes within 360 frames
+PASS: Existing projectile spawning path creates actual book projectile
+PASS: Existing phase-2 Curse Wave remains usable
+PASS: Expected boss transition completes within 360 frames
+PASS: Existing curse wave keeps ground-wave projectile behavior
+PASS: Existing Rusher summon remains usable
+PASS: Expected boss transition completes within 360 frames
+PASS: Existing minion spawning is tracked and respects shared summoning cooldown
+PASS: Boss minion cap still excludes summoning after cooldown expires
+PASS: Existing phase-2 strong-ghost summon remains usable
+PASS: Expected boss transition completes within 360 frames
+PASS: Original strong-ghost summoning still creates Grappler and Thrower through stage spawning
+PASS: Weighted teleport invokes existing warp behavior
+PASS: Expected boss transition completes within 360 frames
+PASS: Warp avoids previous point, respects arena and consumes teleport cooldown
+PASS: Expected boss transition completes within 60 frames
+PASS: Boss reappears through original warp-in sequence
+PASS: Multiplayer boss targets nearest living player using existing roster
+PASS: Close-range telegraph can start through existing boss action execution
+PASS: Second playable character/player can interrupt authoritative telegraph
+PASS: Melee and interrupt feedback have stable network catalog indices
+PASS: Existing sprite snapshots carry reused boss reaction pose and position
+PASS: Existing entity snapshots represent new boss stagger without separate client AI

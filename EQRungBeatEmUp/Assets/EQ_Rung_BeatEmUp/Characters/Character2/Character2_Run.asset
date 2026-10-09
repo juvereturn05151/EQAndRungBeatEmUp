@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e163334091e6afb498fa23ed9b83f2c3, type: 3}
+  m_Name: Character2_Run
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.PlayerRunData
+  runSpeed: 3.6
+  dashToRunFrame: 11
+  poses:
+  - sprite: {fileID: 21300000, guid: 43aaaf7fa9ba9a445869c623a60917a4, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: bfcbe254d8883104f8d970ee08f8fea7, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: 16f221881123d93408ec6014aa129459, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: 13cd69c56dd763440a621f4cbc6df86a, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: 0bc5114681f60fe45b1666e294deaf43, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: 447125b48ec5aa242a55633500b3420c, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: 1995623c48b7e7a48b6bcbd711e7fe19, type: 3}
+    frames: 3
+  - sprite: {fileID: 21300000, guid: b09b5c331a419924fb19766aaf577c0c, type: 3}
+    frames: 3

@@ -17,6 +17,7 @@ namespace BeatEmUp
         public static void PlayRemoteFeedback(AttackFeedbackData data, Vector2 point, int facing, bool impact, string signal = null, int sourceId = 0)
         {
             if(data==null) return;
+            if (impact) StageFraming.Active?.AddImpactShake(data.impactShakeStrength, data.impactShakeDuration);
             if (signal == "StopArea" || signal == "Scream" || signal == "Telegraph")
             {
                 if (remoteWarnings.TryGetValue(sourceId, out var warning) && warning) { warning.Stop(); Destroy(warning.gameObject); }
@@ -246,6 +247,7 @@ namespace BeatEmUp
             var data = player.CurrentAttack.feedback;
             if (data == null) return;
             ImpactCount++; PlaySound(data.impactSound, data.impactVolume, point);
+            StageFraming.Active?.AddImpactShake(data.impactShakeStrength, data.impactShakeDuration);
             SpawnImpact(data, point);
         }
         void DefenseImpact(DefenseFeedback feedback)

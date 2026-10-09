@@ -1,0 +1,265 @@
+PASS: Rusher: melee parry negates damage
+PASS: Rusher: same Stunned state interrupts attack for90f
+PASS: Rusher: own sprite timeline and overhead VFX replace Walk/Attack
+PASS: Rusher: offensive playback cannot restart during stun
+PASS: Rusher: successful melee parry gives existing significant meter gain
+PASS: Rusher: cannot move and remains stunned through89 frames
+PASS: Rusher: recovers exactly at90f and hides VFX
+PASS: Thrower: melee parry negates damage
+PASS: Thrower: same Stunned state interrupts attack for90f
+PASS: Thrower: own sprite timeline and overhead VFX replace Walk/Attack
+PASS: Thrower: offensive playback cannot restart during stun
+PASS: Thrower: successful melee parry gives existing significant meter gain
+PASS: Thrower: cannot move and remains stunned through89 frames
+PASS: Thrower: recovers exactly at90f and hides VFX
+PASS: Screamer: melee parry negates damage
+PASS: Screamer: same Stunned state interrupts attack for90f
+PASS: Screamer: own sprite timeline and overhead VFX replace Walk/Attack
+PASS: Screamer: offensive playback cannot restart during stun
+PASS: Screamer: successful melee parry gives existing significant meter gain
+PASS: Screamer: cannot move and remains stunned through89 frames
+PASS: Screamer: recovers exactly at90f and hides VFX
+PASS: GrapplerBruiser: melee parry negates damage
+PASS: GrapplerBruiser: same Stunned state interrupts attack for90f
+PASS: GrapplerBruiser: own sprite timeline and overhead VFX replace Walk/Attack
+PASS: GrapplerBruiser: offensive playback cannot restart during stun
+PASS: GrapplerBruiser: successful melee parry gives existing significant meter gain
+PASS: GrapplerBruiser: parry bypasses armor without consuming six-hit resource
+PASS: GrapplerBruiser: punish damage works while armor is suspended during stun
+PASS: GrapplerBruiser: cannot move and remains stunned through89 frames
+PASS: GrapplerBruiser: recovers exactly at90f and hides VFX
+PASS: GrapplerBruiser: armor count preserved after stun
+PASS: Ambusher: melee parry negates damage
+PASS: Ambusher: same Stunned state interrupts attack for90f
+PASS: Ambusher: own sprite timeline and overhead VFX replace Walk/Attack
+PASS: Ambusher: offensive playback cannot restart during stun
+PASS: Ambusher: successful melee parry gives existing significant meter gain
+PASS: Ambusher: cannot move and remains stunned through89 frames
+PASS: Ambusher: recovers exactly at90f and hides VFX
+PASS: Prefect: melee parry negates damage
+PASS: Prefect: same Stunned state interrupts attack for90f
+PASS: Prefect: own sprite timeline and overhead VFX replace Walk/Attack
+PASS: Prefect: offensive playback cannot restart during stun
+PASS: Prefect: successful melee parry gives existing significant meter gain
+PASS: Prefect: cannot move and remains stunned through89 frames
+PASS: Prefect: recovers exactly at90f and hides VFX
+PASS: Rusher slash has a 24-frame readable wind-up: Rusher_Attack_Slash1
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 0
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 1
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 2
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 3
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 4
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 5
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 6
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 7
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 8
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 9
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 10
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 11
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 12
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 13
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 14
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 15
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 16
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 17
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 18
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 19
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 20
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 21
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 22
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 23
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 24
+PASS: Extended blade pose carries the original parryable hit: 24
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 25
+PASS: Extended blade pose carries the original parryable hit: 25
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 26
+PASS: Extended blade pose carries the original parryable hit: 26
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 27
+PASS: Extended blade pose carries the original parryable hit: 27
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 28
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 29
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 30
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 31
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 32
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 33
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 34
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 35
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 36
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 37
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 38
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 39
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 40
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 41
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 42
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 43
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 44
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 45
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 46
+PASS: Rusher slash active-frame alignment Rusher_Attack_Slash1 / 47
+PASS: Original frame14 impact is now a harmless telegraph
+PASS: Guard on the wind-up parries the real slash hitbox in facing 1
+PASS: Guard held from slash start becomes normal block at impact
+PASS: No slash hit lands before frame24
+PASS: Unguarded slash lands the unchanged four damage at frame24
+PASS: Original frame14 impact is now a harmless telegraph
+PASS: Guard on the wind-up parries the real slash hitbox in facing -1
+PASS: Guard held from slash start becomes normal block at impact
+PASS: No slash hit lands before frame24
+PASS: Unguarded slash lands the unchanged four damage at frame24
+PASS: Rusher slash has a 24-frame readable wind-up: Rusher_SlashCombo
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 0
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 1
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 2
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 3
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 4
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 5
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 6
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 7
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 8
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 9
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 10
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 11
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 12
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 13
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 14
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 15
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 16
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 17
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 18
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 19
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 20
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 21
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 22
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 23
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 24
+PASS: Extended blade pose carries the original parryable hit: 24
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 25
+PASS: Extended blade pose carries the original parryable hit: 25
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 26
+PASS: Extended blade pose carries the original parryable hit: 26
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 27
+PASS: Extended blade pose carries the original parryable hit: 27
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 28
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 29
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 30
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 31
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 32
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 33
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 34
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 35
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 36
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 37
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 38
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 39
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 40
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 41
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 42
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 43
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 44
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 45
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 46
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 47
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 48
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 49
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 50
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 51
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 52
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 53
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 54
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 55
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 56
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 57
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 58
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 59
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 60
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 61
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 62
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 63
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 64
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 65
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 66
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 67
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 68
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 69
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 70
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 71
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 72
+PASS: Extended blade pose carries the original parryable hit: 72
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 73
+PASS: Extended blade pose carries the original parryable hit: 73
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 74
+PASS: Extended blade pose carries the original parryable hit: 74
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 75
+PASS: Extended blade pose carries the original parryable hit: 75
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 76
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 77
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 78
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 79
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 80
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 81
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 82
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 83
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 84
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 85
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 86
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 87
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 88
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 89
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 90
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 91
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 92
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 93
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 94
+PASS: Rusher slash active-frame alignment Rusher_SlashCombo / 95
+PASS: Original frame14 impact is now a harmless telegraph
+PASS: Guard on the wind-up parries the real slash hitbox in facing 1
+PASS: Guard held from slash start becomes normal block at impact
+PASS: No slash hit lands before frame24
+PASS: Unguarded slash lands the unchanged four damage at frame24
+PASS: Original frame14 impact is now a harmless telegraph
+PASS: Guard on the wind-up parries the real slash hitbox in facing -1
+PASS: Guard held from slash start becomes normal block at impact
+PASS: No slash hit lands before frame24
+PASS: Unguarded slash lands the unchanged four damage at frame24
+PASS: Boss: parryable attack still gives damage-free successful parry
+PASS: Boss: classified controller prevents generic stun and attack interruption
+PASS: Boss: parry feedback and meter remain intact
+PASS: GrapplerBruiser: real active grab is parried after readable telegraph
+PASS: GrapplerBruiser: lunge/leap/hitbox/attachment are all cleaned up
+PASS: GrapplerBruiser: cancelled grab motion does not drift during stun
+PASS: Ambusher: real active grab is parried after readable telegraph
+PASS: Ambusher: lunge/leap/hitbox/attachment are all cleaned up
+PASS: Ambusher: cancelled grab motion does not drift during stun
+PASS: Prefect: actual frame6 Push is parried and cancelled
+PASS: Notebook 1: swept active parry reflects without damage
+PASS: Notebook 1: ownership/team, velocity and visual orientation reverse
+PASS: Notebook 1: shooter is neither stunned, cancelled nor hitstopped by remote parry
+PASS: Notebook 1: preserves age/lifetime and rejects second deflection
+PASS: Notebook 1: projectile deflection gives successful-parry meter once
+PASS: Notebook 1: reflected damage hits original Thrower with normal reaction and never hits parrier
+PASS: Notebook -1: swept active parry reflects without damage
+PASS: Notebook -1: ownership/team, velocity and visual orientation reverse
+PASS: Notebook -1: shooter is neither stunned, cancelled nor hitstopped by remote parry
+PASS: Notebook -1: preserves age/lifetime and rejects second deflection
+PASS: Notebook -1: projectile deflection gives successful-parry meter once
+PASS: Notebook -1: reflected damage hits original Thrower with normal reaction and never hits parrier
+PASS: Outside active window projectile blocks instead of deflecting
+PASS: Projectile parry opt-out retains normal Guard behavior
+PASS: Parryable non-deflectable projectile is neutralized without stunning shooter
+PASS: Reflected damage/hitstun tunables reach normal accepted-hit path
+PASS: Reflected projectile expires with finite original lifetime
+PASS: Screamer forward wave explicitly opts out of parry and reflection
+PASS: Multiplayer catalog contains deflection cue and shared stun sprites
+PASS: Real Thrower AI/frame event releases an enemy-owned notebook
+PASS: Real released notebook reflects during fresh guard without stunning Thrower
+PASS: Real reflected Thrower notebook returns to hit its original owner
+PASS: Reflected player faction skips another local player and damages enemy beyond them
+PASS: Explicit original-owner immunity prevents reflected self-hit
+PASS: Combat hitstop freezes stun duration
+PASS: Optional recovery remains action-locked after status expires
+PASS: Optional recovery returns to normal after configured frames
+PASS: Death overrides stun and removes indicator
+PASS: Health restore clears status lock
+PASS: AI exposes Stunned and clears incompatible pending action
+PASS: Existing AI resumes its normal graph after stun
+PASS: All parry response checks completed

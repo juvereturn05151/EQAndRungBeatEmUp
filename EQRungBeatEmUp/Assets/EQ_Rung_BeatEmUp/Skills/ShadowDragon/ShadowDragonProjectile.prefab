@@ -51,6 +51,11 @@ MonoBehaviour:
   collisionLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+  groundPlaneFlight: 0
+  groundWave: 0
+  waveSize: {x: 1.2, y: 1.2}
+  maximumTravelDistance: 0
+  trailVisuals: []
   hit:
     hitId: 0
     repeatAfterFrames: 0
@@ -60,10 +65,12 @@ MonoBehaviour:
     laneTolerance: 0.55
     damage: 32
     hitstunFrames: 32
-    hitstopFrames: 7
-    knockback: 4
-    launchVelocity: {x: 1.5, y: -7}
+    hitstopFrames: 11
+    knockback: 5
+    outwardGroundKnockback: 0
+    launchVelocity: {x: 5, y: 2.6}
     hitType: 3
+    stunDurationFrames: 90
     knockdownDurationFrames: -1
     forceAirborneTargetDownward: 1
     groundBounce: 0
@@ -83,6 +90,16 @@ MonoBehaviour:
     blockDamage: 0
     blockstunFrames: 10
   visual: {fileID: 3360566918928852138}
+  canBeDeflected: 0
+  maxDeflections: 1
+  canHitOriginalOwner: 1
+  deflectDamageMultiplier: 1
+  deflectSpeedMultiplier: 1.2
+  deflectHitstunFrames: 18
+  deflectKnockback: 1
+  deflectFeedback: {fileID: 0}
+  debugDraw: 0
+  skillSource: {fileID: 0}
   flightSprites:
   - {fileID: 21300000, guid: cd0d06225ebab7d499cd00c118e9ce7c, type: 3}
   - {fileID: 21300000, guid: ed1af9c417f0bd64aa7d4cea9da67ba7, type: 3}

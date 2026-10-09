@@ -1,7 +1,8 @@
 PASS: Existing persistent session and two real character prefabs available
 PASS: Main menu starts with visible PLAY focus
 PASS: Keyboard arrows navigate buttons
-PASS: Enter opens help without a mouse
+PASS: Enter opens help without a mouse (focus: BACK)
+PASS: How to Play displays L1 / LB for controller interaction
 PASS: Escape returns to the main menu
 PASS: Controller D-pad navigates the main menu
 PASS: Controller A opens options
@@ -13,6 +14,18 @@ PASS: Room-code keypad starts on A
 PASS: A enters a room-code character and retains focus
 PASS: Analog stick navigates keypad
 PASS: Back traverses keypad, online and modes to main
+PASS: Controller opening SINGLE PLAYER owns P1 even with a keyboard connected
+PASS: Opening controller press does not also confirm the character
+PASS: Single-player controller D-pad selects a character
+PASS: Single-player controller stick selects a character
+PASS: Controller A confirms single-player selection
+PASS: Controller B unlocks single-player selection
+PASS: Unpaired controller navigation takes over P1 without creating P2
+PASS: Controller join claims a keyboard-owned single slot without confirming on the same press
+PASS: Claimed controller can confirm and enable Start
+PASS: Scene load completed within timeout
+PASS: Controller Start launches the selected solo character with the same paired controller
+PASS: Scene load completed within timeout
 PASS: Open Character Select from existing local mode
 PASS: Canvas preview has visible size and lies inside the game screen
 PASS: P1 joins selecting; not auto-confirmed
@@ -53,6 +66,7 @@ PASS: Authority uses the command's current movement direction: (0.00, 1.00)
 PASS: Authority prioritizes directional Dodge over Guard: (0.00, -1.00)
 PASS: Authority uses the command's current movement direction: (0.00, -1.00)
 PASS: Authority enters Guard for stationary shared-button input
+PASS: Controller B during gameplay does not open the pause menu or pause combat
 PASS: Escape opens gameplay menu and pauses local combat
 PASS: P2 confirm cannot activate P1's gameplay menu
 PASS: Enter resumes local play
@@ -62,11 +76,15 @@ PASS: Escape closes gameplay menu
 PASS: P2 can open the gameplay menu with controller Start
 PASS: The controller that opened the gameplay menu can close it with B
 PASS: P2 navigates to hub Close and confirms with A
+PASS: Select no longer interacts with a nearby hub station
+PASS: L1 / LB opens the paired player's hub station without pausing
+PASS: A new L1 / LB press closes the hub station
 PASS: Controller B closes a hub panel without opening the gameplay menu
 PASS: Co-op blessing reward available for navigation checks
 PASS: Both players open independent blessing menus
 PASS: D-pad changes focus without immediately purchasing a blessing
 PASS: P2 cancel closes only P2's blessing menu and retains the reward
+PASS: L1 / LB reopens the paired player's blessing menu
 PASS: P2 A selects the focused blessing without changing P1
 PASS: Standalone upgrade-card menu opens
 PASS: Standalone controller navigation chooses the focused upgrade card

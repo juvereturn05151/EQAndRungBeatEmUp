@@ -54,7 +54,8 @@ MonoBehaviour:
       requiresSupportSlot: 0
       priorityModifier: 0
       ignoreCoordinator: 1
-    weight: 1
+    weight: 55
+    closeRangeWeight: 15
     attack: {fileID: 11400000, guid: 25a7a4c9bd43b2f4d9790898c6fc1e8c, type: 2}
   - action: 1
     enabled: 1
@@ -65,7 +66,8 @@ MonoBehaviour:
       requiresSupportSlot: 0
       priorityModifier: 0
       ignoreCoordinator: 1
-    weight: 1
+    weight: 0
+    closeRangeWeight: 3
     attack: {fileID: 11400000, guid: f3cee0aa736da2a49af8157fe7fabf3f, type: 2}
   - action: 2
     enabled: 1
@@ -76,8 +78,33 @@ MonoBehaviour:
       requiresSupportSlot: 1
       priorityModifier: 0
       ignoreCoordinator: 1
-    weight: 1
+    weight: 30
+    closeRangeWeight: 10
     attack: {fileID: 11400000, guid: 7f89127cb7f42eb47a0ddb4ace220562, type: 2}
+  - action: 5
+    enabled: 1
+    coordination:
+      requiresMeleeSlot: 1
+      requiresRangedSlot: 0
+      requiresCrowdControlSlot: 0
+      requiresSupportSlot: 0
+      priorityModifier: 0
+      ignoreCoordinator: 1
+    weight: 0
+    closeRangeWeight: 65
+    attack: {fileID: 11400000, guid: 83772ab4c6fd97e468215d0c520ec466, type: 2}
+  - action: 6
+    enabled: 1
+    coordination:
+      requiresMeleeSlot: 1
+      requiresRangedSlot: 0
+      requiresCrowdControlSlot: 0
+      requiresSupportSlot: 0
+      priorityModifier: 0
+      ignoreCoordinator: 1
+    weight: 15
+    closeRangeWeight: 10
+    attack: {fileID: 0}
   phase2:
   - action: 0
     enabled: 1
@@ -88,7 +115,8 @@ MonoBehaviour:
       requiresSupportSlot: 0
       priorityModifier: 0
       ignoreCoordinator: 1
-    weight: 1
+    weight: 35
+    closeRangeWeight: 10
     attack: {fileID: 11400000, guid: 25a7a4c9bd43b2f4d9790898c6fc1e8c, type: 2}
   - action: 1
     enabled: 1
@@ -99,7 +127,8 @@ MonoBehaviour:
       requiresSupportSlot: 0
       priorityModifier: 0
       ignoreCoordinator: 1
-    weight: 1
+    weight: 0
+    closeRangeWeight: 3
     attack: {fileID: 11400000, guid: f3cee0aa736da2a49af8157fe7fabf3f, type: 2}
   - action: 2
     enabled: 1
@@ -110,7 +139,8 @@ MonoBehaviour:
       requiresSupportSlot: 1
       priorityModifier: 0
       ignoreCoordinator: 1
-    weight: 1
+    weight: 10
+    closeRangeWeight: 4
     attack: {fileID: 11400000, guid: 7f89127cb7f42eb47a0ddb4ace220562, type: 2}
   - action: 3
     enabled: 1
@@ -121,7 +151,8 @@ MonoBehaviour:
       requiresSupportSlot: 0
       priorityModifier: 0
       ignoreCoordinator: 1
-    weight: 1
+    weight: 20
+    closeRangeWeight: 5
     attack: {fileID: 11400000, guid: 26722971832f55e4a99f2c4f621acbd8, type: 2}
   - action: 4
     enabled: 1
@@ -132,8 +163,50 @@ MonoBehaviour:
       requiresSupportSlot: 1
       priorityModifier: 0
       ignoreCoordinator: 1
-    weight: 1
+    weight: 20
+    closeRangeWeight: 6
     attack: {fileID: 11400000, guid: 7f89127cb7f42eb47a0ddb4ace220562, type: 2}
+  - action: 5
+    enabled: 1
+    coordination:
+      requiresMeleeSlot: 1
+      requiresRangedSlot: 0
+      requiresCrowdControlSlot: 0
+      requiresSupportSlot: 0
+      priorityModifier: 0
+      ignoreCoordinator: 1
+    weight: 0
+    closeRangeWeight: 65
+    attack: {fileID: 11400000, guid: 83772ab4c6fd97e468215d0c520ec466, type: 2}
+  - action: 6
+    enabled: 1
+    coordination:
+      requiresMeleeSlot: 1
+      requiresRangedSlot: 0
+      requiresCrowdControlSlot: 0
+      requiresSupportSlot: 0
+      priorityModifier: 0
+      ignoreCoordinator: 1
+    weight: 15
+    closeRangeWeight: 10
+    attack: {fileID: 0}
+  useDistanceWeights: 1
+  closeRange: 1.4
+  meleeLaneTolerance: 0.55
+  teleportCooldownFrames: 180
+  meleeInterrupt:
+    firstFrame: 0
+    lastFrame: 53
+    hitStaggerFrames: 30
+    parryStaggerFrames: 60
+    interruptImmunityFrames: 180
+    minimumDamage: 1
+    hitTypes: 31
+    allowProjectileHits: 1
+    facingLockFrame: 12
+    hitReaction: {fileID: 11400000, guid: 74d40b2420203ab4596b987c9cea15f7, type: 2}
+    parryReaction: {fileID: 11400000, guid: ce71a8a07800d824db9bd0484e1cc277, type: 2}
+    interruptFeedback: {fileID: 11400000, guid: cf0fa625d83a50f4b91debbb2c97f3d5, type: 2}
   bookProjectile: {fileID: 6510233896294541721, guid: 06ebd1bbc3469d346a7cc157709079c5, type: 3}
   curseWaveProjectile: {fileID: 9220306110554779904, guid: 50b1cbd20f95ef746802b6de7c6496e2, type: 3}
   bookSpawnOffset: {x: 0.45, y: 0.78}

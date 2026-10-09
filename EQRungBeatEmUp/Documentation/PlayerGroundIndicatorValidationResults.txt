@@ -1,0 +1,224 @@
+PASS: P1 uses the existing selected-prefab spawner
+PASS: P2 uses the existing selected-prefab spawner
+PASS: P3 uses the existing selected-prefab spawner
+PASS: P4 uses the existing selected-prefab spawner
+PASS: Four distinct blue/red/green/yellow slot colors are configured
+PASS: Player slot color order matches requested palette
+PASS: P1 has exactly one reusable indicator
+PASS: Indicator is outside the airborne visual subtree and has no collision components
+PASS: P1 color comes from PlayerIdentity.slot
+PASS: Character selection uses the same P1 palette
+PASS: Session HUD uses the same slot palette
+PASS: P1 shadow/ring share ground anchor during idle
+PASS: P1 retains body/shadow/ring/floor hierarchy during idle
+PASS: P1 shadow/ring share ground anchor during walking
+PASS: P1 retains body/shadow/ring/floor hierarchy during walking
+PASS: Existing jump still accepts P1
+PASS: P1 shadow/ring share ground anchor during jump
+PASS: P1 retains body/shadow/ring/floor hierarchy during jump
+PASS: P1 body rises while indicator stays on floor
+PASS: P1 existing aerial attack still enters normally
+PASS: P1 shadow/ring share ground anchor during air attack
+PASS: P1 retains body/shadow/ring/floor hierarchy during air attack
+PASS: P1 shadow/ring share ground anchor during launch/recoil
+PASS: P1 retains body/shadow/ring/floor hierarchy during launch/recoil
+PASS: P1 shadow/ring share ground anchor during left facing
+PASS: P1 retains body/shadow/ring/floor hierarchy during left facing
+PASS: Facing does not flip or shift symmetric ground art
+PASS: P1 shadow/ring share ground anchor during stage reset
+PASS: P1 retains body/shadow/ring/floor hierarchy during stage reset
+PASS: Changing selected character preserves player slot color
+PASS: P2 has exactly one reusable indicator
+PASS: Indicator is outside the airborne visual subtree and has no collision components
+PASS: P2 color comes from PlayerIdentity.slot
+PASS: Character selection uses the same P2 palette
+PASS: Session HUD uses the same slot palette
+PASS: P2 shadow/ring share ground anchor during idle
+PASS: P2 retains body/shadow/ring/floor hierarchy during idle
+PASS: P2 shadow/ring share ground anchor during walking
+PASS: P2 retains body/shadow/ring/floor hierarchy during walking
+PASS: Existing jump still accepts P2
+PASS: P2 shadow/ring share ground anchor during jump
+PASS: P2 retains body/shadow/ring/floor hierarchy during jump
+PASS: P2 body rises while indicator stays on floor
+PASS: P2 existing aerial attack still enters normally
+PASS: P2 shadow/ring share ground anchor during air attack
+PASS: P2 retains body/shadow/ring/floor hierarchy during air attack
+PASS: P2 shadow/ring share ground anchor during launch/recoil
+PASS: P2 retains body/shadow/ring/floor hierarchy during launch/recoil
+PASS: P2 shadow/ring share ground anchor during left facing
+PASS: P2 retains body/shadow/ring/floor hierarchy during left facing
+PASS: Facing does not flip or shift symmetric ground art
+PASS: P2 shadow/ring share ground anchor during stage reset
+PASS: P2 retains body/shadow/ring/floor hierarchy during stage reset
+PASS: Changing selected character preserves player slot color
+PASS: P3 has exactly one reusable indicator
+PASS: Indicator is outside the airborne visual subtree and has no collision components
+PASS: P3 color comes from PlayerIdentity.slot
+PASS: Character selection uses the same P3 palette
+PASS: Session HUD uses the same slot palette
+PASS: P3 shadow/ring share ground anchor during idle
+PASS: P3 retains body/shadow/ring/floor hierarchy during idle
+PASS: P3 shadow/ring share ground anchor during walking
+PASS: P3 retains body/shadow/ring/floor hierarchy during walking
+PASS: Existing jump still accepts P3
+PASS: P3 shadow/ring share ground anchor during jump
+PASS: P3 retains body/shadow/ring/floor hierarchy during jump
+PASS: P3 body rises while indicator stays on floor
+PASS: P3 existing aerial attack still enters normally
+PASS: P3 shadow/ring share ground anchor during air attack
+PASS: P3 retains body/shadow/ring/floor hierarchy during air attack
+PASS: P3 shadow/ring share ground anchor during launch/recoil
+PASS: P3 retains body/shadow/ring/floor hierarchy during launch/recoil
+PASS: P3 shadow/ring share ground anchor during left facing
+PASS: P3 retains body/shadow/ring/floor hierarchy during left facing
+PASS: Facing does not flip or shift symmetric ground art
+PASS: P3 shadow/ring share ground anchor during stage reset
+PASS: P3 retains body/shadow/ring/floor hierarchy during stage reset
+PASS: Changing selected character preserves player slot color
+PASS: P4 has exactly one reusable indicator
+PASS: Indicator is outside the airborne visual subtree and has no collision components
+PASS: P4 color comes from PlayerIdentity.slot
+PASS: Character selection uses the same P4 palette
+PASS: Session HUD uses the same slot palette
+PASS: P4 shadow/ring share ground anchor during idle
+PASS: P4 retains body/shadow/ring/floor hierarchy during idle
+PASS: P4 shadow/ring share ground anchor during walking
+PASS: P4 retains body/shadow/ring/floor hierarchy during walking
+PASS: Existing jump still accepts P4
+PASS: P4 shadow/ring share ground anchor during jump
+PASS: P4 retains body/shadow/ring/floor hierarchy during jump
+PASS: P4 body rises while indicator stays on floor
+PASS: P4 existing aerial attack still enters normally
+PASS: P4 shadow/ring share ground anchor during air attack
+PASS: P4 retains body/shadow/ring/floor hierarchy during air attack
+PASS: P4 shadow/ring share ground anchor during launch/recoil
+PASS: P4 retains body/shadow/ring/floor hierarchy during launch/recoil
+PASS: P4 shadow/ring share ground anchor during left facing
+PASS: P4 retains body/shadow/ring/floor hierarchy during left facing
+PASS: Facing does not flip or shift symmetric ground art
+PASS: P4 shadow/ring share ground anchor during stage reset
+PASS: P4 retains body/shadow/ring/floor hierarchy during stage reset
+PASS: Changing selected character preserves player slot color
+PASS: Inspector ring thickness 1 selects a prebuilt sprite
+PASS: Inspector ring thickness 2 selects a prebuilt sprite
+PASS: Inspector ring thickness 3 selects a prebuilt sprite
+PASS: Inspector ring thickness 4 selects a prebuilt sprite
+PASS: Inspector size, opacity and palette update the shared visual
+PASS: 600 visual refreshes reuse the same objects, material, renderers and texture
+PASS: Visual refresh cannot mutate movement or combat state
+PASS: Disabling indicator hides both renderers
+PASS: P1 shadow/ring share ground anchor during reenable
+PASS: P1 retains body/shadow/ring/floor hierarchy during reenable
+PASS: P1 shadow/ring share ground anchor during Player Hub entry
+PASS: P1 retains body/shadow/ring/floor hierarchy during Player Hub entry
+PASS: P2 shadow/ring share ground anchor during Player Hub entry
+PASS: P2 retains body/shadow/ring/floor hierarchy during Player Hub entry
+PASS: P3 shadow/ring share ground anchor during Player Hub entry
+PASS: P3 retains body/shadow/ring/floor hierarchy during Player Hub entry
+PASS: P4 shadow/ring share ground anchor during Player Hub entry
+PASS: P4 retains body/shadow/ring/floor hierarchy during Player Hub entry
+PASS: Existing stage entry and art load successfully for Player Hub
+PASS: Indicators remain visible and above floor in Player Hub
+PASS: P1 shadow/ring share ground anchor during Entrance Gate entry
+PASS: P1 retains body/shadow/ring/floor hierarchy during Entrance Gate entry
+PASS: P2 shadow/ring share ground anchor during Entrance Gate entry
+PASS: P2 retains body/shadow/ring/floor hierarchy during Entrance Gate entry
+PASS: P3 shadow/ring share ground anchor during Entrance Gate entry
+PASS: P3 retains body/shadow/ring/floor hierarchy during Entrance Gate entry
+PASS: P4 shadow/ring share ground anchor during Entrance Gate entry
+PASS: P4 retains body/shadow/ring/floor hierarchy during Entrance Gate entry
+PASS: Existing stage entry and art load successfully for Entrance Gate
+PASS: Indicators remain visible and above floor in Entrance Gate
+PASS: P1 shadow/ring share ground anchor during Blood Sheet Corridoor entry
+PASS: P1 retains body/shadow/ring/floor hierarchy during Blood Sheet Corridoor entry
+PASS: P2 shadow/ring share ground anchor during Blood Sheet Corridoor entry
+PASS: P2 retains body/shadow/ring/floor hierarchy during Blood Sheet Corridoor entry
+PASS: P3 shadow/ring share ground anchor during Blood Sheet Corridoor entry
+PASS: P3 retains body/shadow/ring/floor hierarchy during Blood Sheet Corridoor entry
+PASS: P4 shadow/ring share ground anchor during Blood Sheet Corridoor entry
+PASS: P4 retains body/shadow/ring/floor hierarchy during Blood Sheet Corridoor entry
+PASS: Existing stage entry and art load successfully for Blood Sheet Corridoor
+PASS: Indicators remain visible and above floor in Blood Sheet Corridoor
+PASS: P1 shadow/ring share ground anchor during Fake Morgue entry
+PASS: P1 retains body/shadow/ring/floor hierarchy during Fake Morgue entry
+PASS: P2 shadow/ring share ground anchor during Fake Morgue entry
+PASS: P2 retains body/shadow/ring/floor hierarchy during Fake Morgue entry
+PASS: P3 shadow/ring share ground anchor during Fake Morgue entry
+PASS: P3 retains body/shadow/ring/floor hierarchy during Fake Morgue entry
+PASS: P4 shadow/ring share ground anchor during Fake Morgue entry
+PASS: P4 retains body/shadow/ring/floor hierarchy during Fake Morgue entry
+PASS: Existing stage entry and art load successfully for Fake Morgue
+PASS: Indicators remain visible and above floor in Fake Morgue
+PASS: P1 shadow/ring share ground anchor during Service Corridor & Stair entry
+PASS: P1 retains body/shadow/ring/floor hierarchy during Service Corridor & Stair entry
+PASS: P2 shadow/ring share ground anchor during Service Corridor & Stair entry
+PASS: P2 retains body/shadow/ring/floor hierarchy during Service Corridor & Stair entry
+PASS: P3 shadow/ring share ground anchor during Service Corridor & Stair entry
+PASS: P3 retains body/shadow/ring/floor hierarchy during Service Corridor & Stair entry
+PASS: P4 shadow/ring share ground anchor during Service Corridor & Stair entry
+PASS: P4 retains body/shadow/ring/floor hierarchy during Service Corridor & Stair entry
+PASS: Existing stage entry and art load successfully for Service Corridor & Stair
+PASS: Indicators remain visible and above floor in Service Corridor & Stair
+PASS: P1 shadow/ring share ground anchor during Haunted Maze entry
+PASS: P1 retains body/shadow/ring/floor hierarchy during Haunted Maze entry
+PASS: P2 shadow/ring share ground anchor during Haunted Maze entry
+PASS: P2 retains body/shadow/ring/floor hierarchy during Haunted Maze entry
+PASS: P3 shadow/ring share ground anchor during Haunted Maze entry
+PASS: P3 retains body/shadow/ring/floor hierarchy during Haunted Maze entry
+PASS: P4 shadow/ring share ground anchor during Haunted Maze entry
+PASS: P4 retains body/shadow/ring/floor hierarchy during Haunted Maze entry
+PASS: Existing stage entry and art load successfully for Haunted Maze
+PASS: Indicators remain visible and above floor in Haunted Maze
+PASS: P1 shadow/ring share ground anchor during Recovery Shrine / Safe Room entry
+PASS: P1 retains body/shadow/ring/floor hierarchy during Recovery Shrine / Safe Room entry
+PASS: P2 shadow/ring share ground anchor during Recovery Shrine / Safe Room entry
+PASS: P2 retains body/shadow/ring/floor hierarchy during Recovery Shrine / Safe Room entry
+PASS: P3 shadow/ring share ground anchor during Recovery Shrine / Safe Room entry
+PASS: P3 retains body/shadow/ring/floor hierarchy during Recovery Shrine / Safe Room entry
+PASS: P4 shadow/ring share ground anchor during Recovery Shrine / Safe Room entry
+PASS: P4 retains body/shadow/ring/floor hierarchy during Recovery Shrine / Safe Room entry
+PASS: Existing stage entry and art load successfully for Recovery Shrine / Safe Room
+PASS: Indicators remain visible and above floor in Recovery Shrine / Safe Room
+PASS: P1 shadow/ring share ground anchor during Escape Lane (Exit) entry
+PASS: P1 retains body/shadow/ring/floor hierarchy during Escape Lane (Exit) entry
+PASS: P2 shadow/ring share ground anchor during Escape Lane (Exit) entry
+PASS: P2 retains body/shadow/ring/floor hierarchy during Escape Lane (Exit) entry
+PASS: P3 shadow/ring share ground anchor during Escape Lane (Exit) entry
+PASS: P3 retains body/shadow/ring/floor hierarchy during Escape Lane (Exit) entry
+PASS: P4 shadow/ring share ground anchor during Escape Lane (Exit) entry
+PASS: P4 retains body/shadow/ring/floor hierarchy during Escape Lane (Exit) entry
+PASS: Existing stage entry and art load successfully for Escape Lane (Exit)
+PASS: Indicators remain visible and above floor in Escape Lane (Exit)
+PASS: P1 shadow/ring share ground anchor during White Ghost Boss Chamber entry
+PASS: P1 retains body/shadow/ring/floor hierarchy during White Ghost Boss Chamber entry
+PASS: P2 shadow/ring share ground anchor during White Ghost Boss Chamber entry
+PASS: P2 retains body/shadow/ring/floor hierarchy during White Ghost Boss Chamber entry
+PASS: P3 shadow/ring share ground anchor during White Ghost Boss Chamber entry
+PASS: P3 retains body/shadow/ring/floor hierarchy during White Ghost Boss Chamber entry
+PASS: P4 shadow/ring share ground anchor during White Ghost Boss Chamber entry
+PASS: P4 retains body/shadow/ring/floor hierarchy during White Ghost Boss Chamber entry
+PASS: Existing stage entry and art load successfully for White Ghost Boss Chamber
+PASS: Indicators remain visible and above floor in White Ghost Boss Chamber
+PASS: Host snapshot captures indexed grounded Blob Shadow for P1
+PASS: Host snapshot captures indexed grounded Player Color Ring for P1
+PASS: Host snapshot captures indexed grounded Blob Shadow for P2
+PASS: Host snapshot captures indexed grounded Player Color Ring for P2
+PASS: Host snapshot captures indexed grounded Blob Shadow for P3
+PASS: Host snapshot captures indexed grounded Player Color Ring for P3
+PASS: Host snapshot captures indexed grounded Blob Shadow for P4
+PASS: Host snapshot captures indexed grounded Player Color Ring for P4
+PASS: Real client snapshot application preserves P1 Blob Shadow color, ground position and hierarchy
+PASS: Real client snapshot application preserves P1 Player Color Ring color, ground position and hierarchy
+PASS: Client body and indicator use independent airborne and ground positions
+PASS: Real client snapshot application preserves P2 Blob Shadow color, ground position and hierarchy
+PASS: Real client snapshot application preserves P2 Player Color Ring color, ground position and hierarchy
+PASS: Client body and indicator use independent airborne and ground positions
+PASS: Real client snapshot application preserves P3 Blob Shadow color, ground position and hierarchy
+PASS: Real client snapshot application preserves P3 Player Color Ring color, ground position and hierarchy
+PASS: Client body and indicator use independent airborne and ground positions
+PASS: Real client snapshot application preserves P4 Blob Shadow color, ground position and hierarchy
+PASS: Real client snapshot application preserves P4 Player Color Ring color, ground position and hierarchy
+PASS: Client body and indicator use independent airborne and ground positions
+PASS: Repeated network snapshot reuses existing indicator replicas
+PASS: Existing replica cleanup removes departed ground visuals

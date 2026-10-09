@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 namespace BeatEmUp
 {
-    public enum BossEncounterState { Inactive, WarpOut, Warping, WarpIn, Arrival, SelectAction, Acting, Recovery, SmallMove, PhaseTransition, Dead }
+    public enum BossEncounterState { Inactive, WarpOut, Warping, WarpIn, Arrival, SelectAction, Acting, Recovery, SmallMove, PhaseTransition, Dead, Stagger }
     [RequireComponent(typeof(EnemyCombat))]
-    public sealed class TotemBossController : MonoBehaviour, ICombatFrameListener
+    public sealed partial class TotemBossController : MonoBehaviour, ICombatFrameListener
     {
         public StageFlowController flow;
         public BossEncounterData data;
@@ -42,6 +42,7 @@ namespace BeatEmUp
             CombatClock.Register(this);
             if (health) { health.Died += Die; health.Damaged += CheckPhase; }
             if (combat.attackPlayer) combat.attackPlayer.FrameEvent += Signal;
+            if (combat.attackPlayer) combat.attackPlayer.FrameApplied += TrackMeleeFacing;
             ApplyGate();
         }
         void OnDisable()
@@ -49,6 +50,8 @@ namespace BeatEmUp
             CombatClock.Unregister(this);
             if (health) { health.Died -= Die; health.Damaged -= CheckPhase; health.BossDamageProtection = false; }
             if (combat && combat.attackPlayer) { combat.attackPlayer.FrameEvent -= Signal; combat.attackPlayer.Stop(); }
+            if (combat && combat.attackPlayer) combat.attackPlayer.FrameApplied -= TrackMeleeFacing;
+            ResetMeleeRuntime();
             if (hurtbox) hurtbox.externalInvulnerable = false;
             CleanupAttacks();
         }
@@ -91,6 +94,7 @@ namespace BeatEmUp
         {
             if(next==BossEncounterState.PhaseTransition || next==BossEncounterState.WarpOut) { combat.ReleaseCoordination("Boss transition"); Selected=null; }
             State = next; remaining = Mathf.Max(0, frames); combat.motor.MoveInput = Vector2.zero; combat.motor.MovementLocked = true;
+            if (next == BossEncounterState.SelectAction || next == BossEncounterState.WarpOut || next == BossEncounterState.PhaseTransition) physicalRecovery = false;
             if (next == BossEncounterState.WarpOut) { Feedback(data.warpOutFeedback); combat.animationDriver.Play("Warp_Start", true); }
             if (next == BossEncounterState.WarpIn) { Show(true); Feedback(data.warpInFeedback); combat.animationDriver.Play("Warp_Appear", true); }
             if (next == BossEncounterState.PhaseTransition) { Feedback(data.phaseFeedback); combat.animationDriver.Play("Attack_Summon", true); }
@@ -118,7 +122,10 @@ namespace BeatEmUp
         }
         public bool ActionAvailable(BossActionChoice choice)
         {
-            if (choice == null || !choice.enabled || choice.weight <= 0 || !choice.attack || choice.attack.TotalFrames == 0 || !combat.target) return false;
+            if (choice == null || !choice.enabled || EffectiveWeight(choice) <= 0 || !combat.target || CooldownRemaining(choice) > 0) return false;
+            if (choice.action == BossAction.Teleport) return data.warpPoints.Any(p => p != null && p.enabled && ClearPoint(ClampPoint(p.position)));
+            if (!choice.attack || choice.attack.TotalFrames == 0) return false;
+            if (IsPhysical(choice) && (TargetDistance > data.closeRange || Mathf.Abs(combat.target.position.y - transform.position.y) > data.meleeLaneTolerance)) return false;
             switch (choice.action)
             {
                 case BossAction.Book: return ranged && data.bookProjectile;
@@ -132,16 +139,18 @@ namespace BeatEmUp
         public BossActionChoice ChooseAction(float unitRoll)
         {
             var pool = (Phase2 ? data.phase2 : data.phase1).Where(ActionAvailable).ToList();
-            float roll = Mathf.Clamp01(unitRoll) * pool.Sum(p => p.weight);
-            foreach (var choice in pool) { roll -= choice.weight; if (roll < 0) return choice; }
+            float roll = Mathf.Clamp01(unitRoll) * pool.Sum(EffectiveWeight);
+            foreach (var choice in pool) { roll -= EffectiveWeight(choice); if (roll < 0) return choice; }
             return pool.LastOrDefault();
         }
         int Slots => flow ? Mathf.Max(0, Mathf.Min(data.maxBossMinions - ActiveMinions, flow.ReinforcementSlots(combat))) : 0;
         bool BeginAction(BossActionChoice choice)
         {
             if (!ActionAvailable(choice)) return false;
+            if (choice.action == BossAction.Teleport) { ConsumeCooldown(choice); PreviousAction = choice; SmallMove(); return true; }
             if(!combat.RequestCoordination(choice.attack,choice.coordination,20)) return false;
             Selected = choice; summonReleased = false; combat.motor.Face(combat.target.position.x - transform.position.x);
+            physicalRecovery = IsPhysical(choice); facingLocked = false;
             combat.motor.StopGroundedMotion();
             if (ranged)
             {
@@ -152,7 +161,7 @@ namespace BeatEmUp
                 ranged.lockAimAtAttackStart = true;
             }
             Enter(BossEncounterState.Acting);
-            if (combat.attackPlayer.Play(choice.attack)) { combat.ConfirmCoordination(); return true; }
+            if (combat.attackPlayer.Play(choice.attack)) { ConsumeCooldown(choice); combat.ConfirmCoordination(); return true; }
             combat.ReleaseCoordination("Boss play failed");
             Enter(BossEncounterState.Recovery, data.warpCooldownFrames); return false;
         }
@@ -190,9 +199,10 @@ namespace BeatEmUp
             shieldFlash = Mathf.Max(0, shieldFlash - 1);
             CheckPhase(); var target = PlayerRoster.Nearest(transform.position); if (target) combat.target = target.transform;
             if (combat.attackPlayer.IsFrozen || !combat.reaction.CanAct) return;
+            TickActionCooldowns();
             combat.motor.MovementLocked = true; combat.motor.MoveInput = Vector2.zero;
             if (!combat.target || combat.target.GetComponent<CharacterHealth>()?.IsDead == true) { combat.motor.MoveInput = Vector2.zero; return; }
-            if (pendingPhase && State != BossEncounterState.Acting && State != BossEncounterState.WarpOut && State != BossEncounterState.Warping && State != BossEncounterState.WarpIn)
+            if (pendingPhase && State != BossEncounterState.Acting && State != BossEncounterState.Stagger && State != BossEncounterState.WarpOut && State != BossEncounterState.Warping && State != BossEncounterState.WarpIn)
             { pendingPhase = false; Show(true); Enter(BossEncounterState.PhaseTransition, data.phaseTransitionFrames); return; }
             switch (State)
             {
@@ -207,7 +217,8 @@ namespace BeatEmUp
                     else BeginAction(candidate);
                     break;
                 case BossEncounterState.Acting: if (!combat.attackPlayer.CurrentAttack) { PreviousAction = Selected; Selected = null; Enter(BossEncounterState.Recovery, data.warpCooldownFrames); combat.animationDriver.Play("Recovery_Rise", true); } break;
-                case BossEncounterState.Recovery: if (--remaining <= 0) { combat.ReleaseCoordination("Boss recovery finished"); SmallMove(); } break;
+                case BossEncounterState.Recovery: if (--remaining <= 0) { combat.ReleaseCoordination("Boss recovery finished"); if (data.useDistanceWeights) Enter(BossEncounterState.SelectAction); else SmallMove(); } break;
+                case BossEncounterState.Stagger: TickPhysicalStagger(); break;
                 case BossEncounterState.SmallMove:
                     var next = Vector2.MoveTowards(transform.position, moveTarget, data.moveSpeed * CombatClock.FrameSeconds);
                     if (ClearPoint(next)) combat.motor.SnapGrabToGround(next);

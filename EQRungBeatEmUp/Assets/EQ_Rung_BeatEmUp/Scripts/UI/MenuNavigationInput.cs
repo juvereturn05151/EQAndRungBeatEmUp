@@ -15,6 +15,7 @@ namespace BeatEmUp
         readonly InputActionAsset actions;
         readonly InputActionMap map;
         readonly bool ownsAsset;
+        public InputDevice LastDevice { get; private set; }
         Vector2 direction;
         bool moved, confirm, cancel, start;
         float repeatAt;
@@ -39,12 +40,13 @@ namespace BeatEmUp
             if(value.magnitude<.55f) { direction=Vector2.zero; return; }
             var next=Mathf.Abs(value.x)>=Mathf.Abs(value.y) ? new Vector2(Mathf.Sign(value.x),0) : new Vector2(0,Mathf.Sign(value.y));
             if(next==direction) return;
+            LastDevice=context.control.device;
             direction=next; moved=true; repeatAt=Time.unscaledTime+.28f;
         }
         void Stop(InputAction.CallbackContext context) => direction=Vector2.zero;
-        void Confirm(InputAction.CallbackContext context) { if(Time.frameCount>createdFrame) confirm=true; }
-        void Cancel(InputAction.CallbackContext context) { if(Time.frameCount>createdFrame) cancel=true; }
-        void Start(InputAction.CallbackContext context) { if(Time.frameCount>createdFrame) start=true; }
+        void Confirm(InputAction.CallbackContext context) { if(Time.frameCount>createdFrame) { LastDevice=context.control.device; confirm=true; } }
+        void Cancel(InputAction.CallbackContext context) { if(Time.frameCount>createdFrame) { LastDevice=context.control.device; cancel=true; } }
+        void Start(InputAction.CallbackContext context) { if(Time.frameCount>createdFrame) { LastDevice=context.control.device; start=true; } }
         public MenuNavigationState Read()
         {
             if(readFrame==Time.frameCount) return cached;

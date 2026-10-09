@@ -437,6 +437,10 @@ PrefabInstance:
       value: Hub Editor Preview
       objectReference: {fileID: 0}
     - target: {fileID: 3726383542495818450, guid: 01b573a3aee6db7429eb2f918a226ccc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726383542495818450, guid: 01b573a3aee6db7429eb2f918a226ccc, type: 3}
       propertyPath: m_TagString
       value: EditorOnly
       objectReference: {fileID: 0}

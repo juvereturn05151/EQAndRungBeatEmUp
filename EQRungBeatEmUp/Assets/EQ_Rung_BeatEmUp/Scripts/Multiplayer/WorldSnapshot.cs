@@ -71,6 +71,13 @@ namespace BeatEmUp
         public Vector3 position;
         public float radius, maximumRadius;
     }
+    [Serializable] public sealed class NextAreaMarkerState
+    {
+        public string id;
+        public Vector3 position;
+        public bool showEdgeArrow;
+        public int arrowSprite, labelSprite;
+    }
     [Serializable] public sealed class WorldSnapshot
     {
         public long tick;
@@ -80,6 +87,7 @@ namespace BeatEmUp
         public bool cameraLocked;
         public Rect encounterCameraBounds;
         public string encounter;
+        public NextAreaMarkerState nextAreaMarker;
         public string validationPhase;
         public ulong validationOwner;
         public List<SpriteState> sprites=new List<SpriteState>();

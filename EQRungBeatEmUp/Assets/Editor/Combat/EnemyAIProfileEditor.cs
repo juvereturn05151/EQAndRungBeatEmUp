@@ -201,7 +201,17 @@ public sealed class EnemyAIEditorWindow : EditorWindow
             string path=EditorUtility.SaveFilePanelInProject("Create AI profile","NewEnemyAI","asset","Choose a profile asset path");
             if(!string.IsNullOrEmpty(path)) { profile=CreateInstance<EnemyAIProfile>(); profile.states.Add(new EnemyAIState()); AssetDatabase.CreateAsset(profile,path); }
         }
-        if(!profile) { EditorGUILayout.HelpBox("Select an Enemy AI Profile asset, or an enemy with a profile. New profiles also appear under Create → Beat Em Up → Enemy AI Profile.",MessageType.Info); return; }
+        var boss = brain ? brain.GetComponent<TotemBossController>() : null;
+        var bossData = boss ? boss.data : Selection.activeObject as BossEncounterData;
+        if(bossData)
+        {
+            scroll=EditorGUILayout.BeginScrollView(scroll);
+            BossMeleeAuthoring.Settings(bossData);
+            EditorGUILayout.LabelField("PHASE 1",EditorStyles.boldLabel); BossMeleeAuthoring.Phase(bossData,"phase1");
+            EditorGUILayout.LabelField("PHASE 2",EditorStyles.boldLabel); BossMeleeAuthoring.Phase(bossData,"phase2");
+            BossMeleeAuthoring.Live(boss); EditorGUILayout.EndScrollView(); return;
+        }
+        if(!profile) { EditorGUILayout.HelpBox("Select an Enemy AI Profile asset, a boss configuration, or an enemy. New profiles also appear under Create → Beat Em Up → Enemy AI Profile.",MessageType.Info); return; }
         if(brain && !Application.isPlaying && GUILayout.Button("Assign profile to selected enemy")) { Undo.RecordObject(brain,"Assign Enemy AI Profile"); brain.aiProfile=profile; PrefabUtility.RecordPrefabInstancePropertyModifications(brain); EditorUtility.SetDirty(brain); }
         scroll=EditorGUILayout.BeginScrollView(scroll);
         if(brain)EnemyCombatAIEditor.SupportTuning(brain);

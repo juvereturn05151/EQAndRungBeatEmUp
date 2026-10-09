@@ -36,7 +36,7 @@ public static class CharacterSelectValidation
         if(File.Exists("Temp/CharacterSelect.validate-request") && !EditorApplication.isPlaying && !EditorApplication.isPlayingOrWillChangePlaymode)
         { File.Delete("Temp/CharacterSelect.validate-request"); Run(); }
         if(EditorApplication.isPlaying && SessionState.GetBool(Pending,false) && MultiplayerSession.Active)
-        { SessionState.SetBool(Pending,false); running=true; new UnityEngine.GameObject("Character Select integration validation").AddComponent<CharacterSelectValidationRun>(); }
+        { SessionState.SetBool(Pending,false); CharacterSelectValidationRun.Finished=false; CharacterSelectValidationRun.Passed=false; running=true; new UnityEngine.GameObject("Character Select integration validation").AddComponent<CharacterSelectValidationRun>(); }
         if(running && CharacterSelectValidationRun.Finished)
         { running=false; EditorApplication.ExitPlaymode(); }
     }

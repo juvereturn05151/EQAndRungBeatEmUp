@@ -35,6 +35,12 @@ public static class EncounterScenePreview
             Plate("Floor", stage.floorSprite, stage.artWidth, stage.floorHeight, stage.floorCenterY, -900);
             foreach (var prop in stage.decorativeProps)
                 if (prop.prefab) Visual(prop.prefab, prop.position, prop.prefab.name);
+            foreach (var marker in stage.nextAreaMarkers)
+                if (marker.enabled && marker.markerPreview && marker.markerPrefab && marker.TryTransitionPosition(stage, out _))
+                {
+                    var visual = Visual(marker.markerPrefab, marker.Position(stage), "Next area preview — " + marker.markerId);
+                    foreach (var renderer in visual.GetComponentsInChildren<SpriteRenderer>(true)) { renderer.enabled = true; renderer.sortingOrder = 600; }
+                }
             foreach (var prop in stage.IsSafeStage ? Enumerable.Empty<DestructiblePlacement>() : stage.destructibles)
             {
                 if (prop.prefab) Visual(prop.prefab, prop.position, prop.label);
@@ -80,12 +86,13 @@ public static class EncounterScenePreview
         var renderer = go.AddComponent<SpriteRenderer>(); renderer.sprite = sprite; renderer.sortingOrder = order;
     }
 
-    static void Visual(GameObject source, Vector2 position, string name)
+    static GameObject Visual(GameObject source, Vector3 position, string name)
     {
         var go = CopyVisual(source.transform, root.transform);
         go.name = name; go.transform.position = position; go.transform.rotation = Quaternion.identity;
         foreach (var renderer in go.GetComponentsInChildren<SpriteRenderer>(true))
             renderer.sortingOrder = Mathf.RoundToInt(-position.y * 100);
+        return go;
     }
 
     static GameObject CopyVisual(Transform source, Transform parent)

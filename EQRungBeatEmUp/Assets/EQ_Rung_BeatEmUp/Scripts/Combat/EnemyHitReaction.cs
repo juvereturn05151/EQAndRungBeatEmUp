@@ -47,6 +47,7 @@ namespace BeatEmUp
         private AttackHitboxData bounceHit;
         private int bounceFacing, bounceRecoveryDelayFrames;
         private bool bouncedAirborne;
+        private int knockdownDurationOverride = -1;
         private void Awake() { attackPlayer = GetComponent<AttackPlayer>(); }
         private void OnEnable()
         {
@@ -79,7 +80,24 @@ namespace BeatEmUp
             animationDriver.ReleaseReactionControl();
             ClearBounceEligibility();
             recovery = Mathf.Max(recovery, hit.hitType == HitType.Stun ? hit.stunDurationFrames : hit.hitstunFrames);
-            if (hit.hitType == HitType.Launcher && motor.IsGrounded && !health.IsDead)
+            if (hit.hitType == HitType.KnockDown && !GetComponent<TotemBossController>())
+            {
+                // Reuse the same airborne fall and landing recovery phases as finishers.
+                // Boss encounter owners retain their previous reaction and shield rules.
+                knockdownDurationOverride = hit.knockdownDurationFrames;
+                if (motor.IsGrounded)
+                {
+                    motor.Launch(Mathf.Max(.1f, hit.launchVelocity.y), facing * hit.knockback);
+                    CloseJuggle(false);
+                }
+                else
+                {
+                    motor.AddKnockback(facing * hit.knockback); CloseJuggle(true);
+                    if (hit.launchVelocity.y < 0) motor.Fall(-hit.launchVelocity.y);
+                }
+                State = EnemyReaction.Falling;
+            }
+            else if (hit.hitType == HitType.Launcher && motor.IsGrounded && !health.IsDead)
             {
                 JuggleHits = 0; juggleFrames = 0; juggleClosed = false;
                 motor.Launch(hit.launchVelocity.y, facing * hit.launchVelocity.x);
@@ -202,6 +220,7 @@ namespace BeatEmUp
         {
             ClearBounceEligibility(); GroundBouncesUsed = WallBouncesUsed = 0;
             bouncedAirborne = false; bounceRecoveryDelayFrames = 0;
+            knockdownDurationOverride = -1;
         }
         private void LockMotion()
         {
@@ -258,7 +277,7 @@ namespace BeatEmUp
                 ShowReaction();
                 if (phaseFrames == 0)
                 {
-                    if (State == EnemyReaction.Knockdown) BeginPhase(EnemyReaction.Downed, Mathf.Max(0, bouncedAirborne ? bounceRecoveryDelayFrames : knockdownRecoveryDelayFrames));
+                    if (State == EnemyReaction.Knockdown) BeginPhase(EnemyReaction.Downed, Mathf.Max(0, knockdownDurationOverride >= 0 ? knockdownDurationOverride : bouncedAirborne ? bounceRecoveryDelayFrames : knockdownRecoveryDelayFrames));
                     else if (State == EnemyReaction.Downed) BeginPhase(EnemyReaction.GetUp, GetUpFrames);
                     else
                     {

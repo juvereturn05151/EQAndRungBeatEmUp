@@ -12,10 +12,12 @@ namespace BeatEmUp
             if (!definition) return;
             character = definition;
             var combat = GetComponent<ComboController>();
+            combat.ResetRunInput();
             combat.groundCombo = (AttackData[])definition.groundCombo.Clone();
             combat.airCombo = (AttackData[])definition.airCombo.Clone();
             combat.launcher = definition.launcher; combat.airDive = definition.airDive;
             combat.defenseData = definition.defense;
+            combat.runData = definition.run;
             var skills = GetComponent<PlayerSkillController>(); if (skills) skills.equippedSkill = definition.skill;
             if (combat.animationDriver && combat.animationDriver.animator && definition.locomotion)
                 combat.animationDriver.animator.runtimeAnimatorController = definition.locomotion;

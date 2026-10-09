@@ -15,6 +15,7 @@ namespace BeatEmUp
         readonly System.Collections.Generic.Dictionary<int,int> uiChoices=new System.Collections.Generic.Dictionary<int,int>();
         MenuNavigationInput standaloneMenu;
         int visibleMenuSlot;
+        GUIStyle stationPromptStyle;
         void OnDestroy() { standaloneMenu?.Dispose(); }
         readonly string[] names={"Change Character","Upgrade Base Stats","Upgrade Skill","Enter World 1"};
         public bool InHub=>flow && flow.CurrentStage!=null && flow.CurrentStage.hub;
@@ -32,7 +33,11 @@ namespace BeatEmUp
         public int Nearby(Vector2 position)
         {
             if(!definition) return -1;
-            for(int i=0;i<definition.stations.Length;i++) if(Vector2.Distance(position,definition.stations[i])<=definition.interactionRadius) return i;
+            for(int i=0;i<definition.stations.Length;i++)
+            {
+                var station=HubInteractionStation.Find(definition,i);
+                if(station ? station.Contains(position) : Vector2.Distance(position,definition.stations[i])<=definition.interactionRadius) return i;
+            }
             return -1;
         }
         public bool Interact(CharacterMotor actor)
@@ -147,7 +152,11 @@ namespace BeatEmUp
             var local=session ? session.Latest.players.Where(p=>session.IsLocalOwner(p.owner)).ToArray() : new[]{new PlayerState{slot=0,position=flow.player.transform.position,character=0,meta=flow.player.GetComponent<MetaProgress>()?.profile,hubStation=flow.player.GetComponent<MetaProgress>()?.OpenStation ?? -1}};
             foreach(var p in local.OrderByDescending(p=>p.slot==visibleMenuSlot))
             {
-                int near=Nearby(p.position); if(p.hubStation<0) { if(near>=0) GUI.Box(new Rect(270,440+24*p.slot,420,28),"P"+(p.slot+1)+"  [E / Select] "+names[near]); continue; }
+                int near=Nearby(p.position); if(p.hubStation<0)
+                {
+                    if(near>=0) DrawStationPrompt(near,p.slot);
+                    continue;
+                }
                 var catalog=session ? session.catalog : Resources.Load<MultiplayerCatalog>("MultiplayerCatalog"); var selected=session ? catalog.CharacterAt(p.character) : catalog.characters.FirstOrDefault(c=>c.characterId==p.meta?.characterId);
                 GUI.Box(new Rect(210,90,540,350),names[p.hubStation]+"  ·  P"+(p.slot+1)+"  ·  Essence "+(p.meta?.essence ?? 0));
                 int cursor=uiChoices.TryGetValue(p.slot,out int cursorValue) ? cursorValue : 0;
@@ -179,10 +188,24 @@ namespace BeatEmUp
                     GUI.enabled=!session || session.IsAuthority;
                     if(GUI.Button(new Rect(260,265,440,45),(cursor==0 ? "► " : "")+"Begin Run (host starts the party)")) Command(p.slot,HubAction.EnterWorld); GUI.enabled=true;
                 }
-                if(GUI.Button(new Rect(260,385,440,35),(cursor==actionCount ? "► " : "")+"Close [E / Select / Esc / B]")) Command(p.slot,HubAction.Close);
+                if(GUI.Button(new Rect(260,385,440,35),(cursor==actionCount ? "► " : "")+"Close [E / L1 / LB / Esc / B]")) Command(p.slot,HubAction.Close);
                 break;
             }
             GUI.matrix=old;
+        }
+        void DrawStationPrompt(int index,int slot)
+        {
+            var station=HubInteractionStation.Find(definition,index);
+            if(!station || !Camera.main)
+            { GUI.Box(new Rect(270,440+24*slot,420,28),"P"+(slot+1)+"  [E / L1 / LB] "+names[index]); return; }
+            if(!station.HasNearbyPlayer) return;
+            var point=Camera.main.WorldToScreenPoint((Vector3)station.GroundPosition+Vector3.up*(station.indicatorHeight+.25f));
+            if(point.z<=0) return;
+            var rect=new Rect(Mathf.Clamp(point.x*960/Screen.width-150,8,652),Mathf.Clamp((Screen.height-point.y)*540/Screen.height-42-slot*46,8,482),300,42);
+            var color=GUI.color;GUI.color=new Color(.25f,.9f,.85f,.9f);GUI.DrawTexture(new Rect(rect.x-2,rect.y-2,rect.width+4,rect.height+4),Texture2D.whiteTexture);
+            GUI.color=new Color(.035f,.045f,.07f,.95f);GUI.DrawTexture(rect,Texture2D.whiteTexture);GUI.color=Color.white;
+            if(stationPromptStyle==null) stationPromptStyle=new GUIStyle(GUI.skin.label){alignment=TextAnchor.MiddleCenter,fontSize=14,fontStyle=FontStyle.Bold};
+            GUI.Label(rect,station.displayName+"\nP"+(slot+1)+"  [E / L1 / LB] Interact",stationPromptStyle);GUI.color=color;
         }
     }
 }

@@ -69,6 +69,7 @@ namespace BeatEmUp
         
         private void OnDisable()
         {
+            ResetRunInput();
             CombatClock.Unregister(this);
 
             if (motor) 
@@ -143,6 +144,7 @@ namespace BeatEmUp
         }
         public void ResetCombo()
         {
+            EndRun();
             skillPlaying = false;
             if (attackPlayer) 
             { 
@@ -233,7 +235,7 @@ namespace BeatEmUp
                 ComboIndex = 0; 
             }
 
-            TryJump(); 
+            TryJump();
             TryConsume();
 
             if (bufferFrames > 0) 
@@ -247,6 +249,8 @@ namespace BeatEmUp
             }
 
             motor.MovementLocked = IsAirDiving || (CurrentAttack && motor.IsGrounded);
+
+            if (UpdateRun()) return;
 
             if (!CurrentAttack)
             {
@@ -362,10 +366,12 @@ namespace BeatEmUp
                 if (index >= 0 && index < route.Length) attack = route[index];
             }
 
-            if (!attack || (attack.domain == AttackDomain.Air) != air || !attackPlayer.Play(attack)) 
+            if (!attack || (attack.domain == AttackDomain.Air) != air || !attackPlayer.Play(attack))
             { 
-                return; 
+                return;
             }
+
+            EndRun();
 
             buffered = CombatInput.None; bufferFrames = 0;
             ComboIndex = index + 1; 

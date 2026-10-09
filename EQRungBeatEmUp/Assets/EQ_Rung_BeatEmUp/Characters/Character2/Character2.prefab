@@ -57,6 +57,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b96001e03c1fa4b4dbf339cfe3807938, type: 2}
     - target: {fileID: 3702797543408599627, guid: 66db763612fdab144adcefca08e19b27, type: 3}
+      propertyPath: runData
+      value: 
+      objectReference: {fileID: 11400000, guid: 47b6c815e51739e43a8359afebec756c, type: 2}
+    - target: {fileID: 3702797543408599627, guid: 66db763612fdab144adcefca08e19b27, type: 3}
       propertyPath: launcher
       value: 
       objectReference: {fileID: 11400000, guid: 8472a258d656d4940bab87a2ce7acfec, type: 2}

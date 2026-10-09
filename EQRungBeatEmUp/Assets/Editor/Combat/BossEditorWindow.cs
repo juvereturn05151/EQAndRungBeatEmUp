@@ -55,6 +55,7 @@ public sealed class BossEditorWindow : EditorWindow
         EditorGUILayout.LabelField($"Vulnerability: {data.vulnerabilityFrames}f / {data.vulnerabilityFrames / 60f:0.00}s at 60 FPS", EditorStyles.boldLabel);
         EditorGUILayout.LabelField("PHASE 1", EditorStyles.boldLabel); Phase("phase1");
         EditorGUILayout.LabelField("PHASE 2", EditorStyles.boldLabel); Phase("phase2");
+        BossMeleeAuthoring.Settings(data); BossMeleeAuthoring.Live(Boss);
         if (GUILayout.Button("Add Warp Point")) { Undo.RecordObject(data, "Add warp point"); data.warpPoints.Add(new BossWarpPoint { label = "Warp " + (data.warpPoints.Count + 1), position = Vector2.zero }); EditorUtility.SetDirty(data); }
         using (new EditorGUI.DisabledScope(data.warpPoints.Count == 0))
             if (GUILayout.Button("Remove Last Warp Point")) { Undo.RecordObject(data, "Remove warp point"); data.warpPoints.RemoveAt(data.warpPoints.Count - 1); EditorUtility.SetDirty(data); }
@@ -73,20 +74,7 @@ public sealed class BossEditorWindow : EditorWindow
     }
     void Phase(string field)
     {
-        var serialized = new SerializedObject(data); serialized.Update(); var list = serialized.FindProperty(field);
-        for (int i = 0; i < list.arraySize; i++)
-        {
-            var row = list.GetArrayElementAtIndex(i);
-            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-            EditorGUILayout.PropertyField(row.FindPropertyRelative("action"));
-            EditorGUILayout.PropertyField(row.FindPropertyRelative("enabled"));
-            EditorGUILayout.PropertyField(row.FindPropertyRelative("weight"));
-            EditorGUILayout.PropertyField(row.FindPropertyRelative("attack"));
-            var attack = row.FindPropertyRelative("attack").objectReferenceValue as AttackData;
-            if (attack && GUILayout.Button("Open frame timeline / hitboxes")) { Selection.activeObject = attack; EditorApplication.ExecuteMenuItem("Tools/Combat/Attack Data Editor"); }
-            EditorGUILayout.EndVertical();
-        }
-        if (serialized.ApplyModifiedProperties()) Changed();
+        BossMeleeAuthoring.Phase(data, field);
     }
     void TotemFields()
     {

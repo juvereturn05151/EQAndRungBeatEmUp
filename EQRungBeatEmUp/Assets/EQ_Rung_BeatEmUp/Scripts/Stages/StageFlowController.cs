@@ -59,7 +59,7 @@ namespace BeatEmUp
         private bool rewardStarted;
         private string RewardKey => string.IsNullOrEmpty(CurrentStage.stageId) ? StageIndex.ToString() : CurrentStage.stageId;
         private void OnEnable() => CombatClock.Register(this);
-        private void OnDisable() { CombatClock.Unregister(this); foreach(var encounter in encounters) encounter.coordinator?.Clear(); RestoreActiveEncounterObjects(); foreach(var actor in Players) if(actor) actor.GetComponent<CharacterHealth>().SafeStageProtection = false; }
+        private void OnDisable() { HideExitMarkers(); CombatClock.Unregister(this); foreach(var encounter in encounters) encounter.coordinator?.Clear(); RestoreActiveEncounterObjects(); foreach(var actor in Players) if(actor) actor.GetComponent<CharacterHealth>().SafeStageProtection = false; }
         private void Start() 
         { if(StageIndex>=0) return; if (level && player) Restart(true); else Failure = "Assign a LevelDefinition and player."; }
         // Stage asset edits during Play update the artwork without restarting encounters.
@@ -79,6 +79,7 @@ namespace BeatEmUp
                 return;
             }
             
+            HideExitMarkers();
             if (room) 
             { 
                 room.SetActive(false); 
@@ -169,6 +170,7 @@ namespace BeatEmUp
             }
             transitionFlash = .2f;
             previousPlayerPositions.Clear(); foreach (var actor in Players) previousPlayerPositions[actor] = actor.transform.position;
+            CreateExitMarkers();
         }
         public void ApplyStageArt(StageSegmentDefinition stage)
         {
@@ -304,6 +306,7 @@ namespace BeatEmUp
             bool atExit = LivingPlayers.Any(p=>p.IsGrounded && !p.attackPlayer.CurrentAttack && !p.MovementLocked && Vector2.Distance(p.transform.position, CurrentStage.playerExitPoint) <= CurrentStage.exitRadius);
             if (CompletionSatisfied && (CurrentStage.completionMode != StageCompletion.ReachExit || atExit)) GrantStageReward();
             if (ExitUnlocked && atExit) TryAdvance();
+            RefreshExitMarkers();
         }
         private void Spawn(Plan plan, WaveState wave, EncounterState encounter)
         {
@@ -406,6 +409,7 @@ namespace BeatEmUp
             { 
                 return false; 
             }
+            HideExitMarkers();
 
             int next = CurrentStage.nextStageIndex < 0 ? StageIndex + 1 : CurrentStage.nextStageIndex;
 
@@ -486,21 +490,21 @@ namespace BeatEmUp
             debugInput?.Read();
             if (Keyboard.current != null)
             {
-                if (Keyboard.current.eKey.wasPressedThisFrame) Interact();
                 if ((Keyboard.current.rKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame) && (LevelCompleted || player && player.GetComponent<CharacterHealth>().IsDead))
                 { var hub=GetComponent<PlayerHubController>(); if(hub) hub.ReturnToHub(); else Restart(LevelCompleted); }
             }
-            if (Gamepad.current != null && Gamepad.current.selectButton.wasPressedThisFrame) Interact();
+            if (player && player.GetComponent<PlayerInput>().actions.FindAction("Player/Interact",true).WasPressedThisFrame()) Interact();
             if(Gamepad.current?.buttonSouth.wasPressedThisFrame==true && (LevelCompleted || player && player.GetComponent<CharacterHealth>().IsDead))
             { var hub=GetComponent<PlayerHubController>(); if(hub) hub.ReturnToHub(); else Restart(LevelCompleted); }
         }
         public bool Interact() => CurrentStage!=null && CurrentStage.hub ? GetComponent<PlayerHubController>().Interact(player) : WorldRewards && WorldRewards.IsPending ? WorldRewards.Interact() : Recover();
         private void OnGUI()
         {
+            DrawNextAreaEdgeArrow();
             if (!showHud || CurrentStage == null) return;
-            string status = WorldRewards && WorldRewards.IsPending ? WorldRewards.State == WorldRewardState.RewardPending ? "Stage clear — approach the chapel and press E / Select" : "Walk to a blessing and press E / Select to choose" : RunUpgrades && RunUpgrades.IsChoosing ? "Choose an upgrade" : LevelCompleted ? "You escaped! R / Enter / A: restart level" : player.GetComponent<CharacterHealth>().IsDead ? "Defeated — R / Enter / A: retry room" : !string.IsNullOrEmpty(Failure) ? Failure : ExitUnlocked ? "Exit open — walk to the right-hand exit" : "Exit locked — finish the encounter";
+            string status = WorldRewards && WorldRewards.IsPending ? WorldRewards.State == WorldRewardState.RewardPending ? "Stage clear — approach the chapel and press E / L1 / LB" : "Walk to a blessing and press E / L1 / LB to choose" : RunUpgrades && RunUpgrades.IsChoosing ? "Choose an upgrade" : LevelCompleted ? "You escaped! R / Enter / A: restart level" : player.GetComponent<CharacterHealth>().IsDead ? "Defeated — R / Enter / A: retry room" : !string.IsNullOrEmpty(Failure) ? Failure : ExitUnlocked ? "Exit open — walk to the right-hand exit" : "Exit locked — finish the encounter";
             GUI.Box(new Rect(12, 12, 470, 80), $"{StageIndex + 1}/{level.stages.Count}  {CurrentStage.stageName}\nHP {player.GetComponent<CharacterHealth>().Current:0}  Enemies {LivingEnemies.Count()}  Totems {RemainingTotems}\n{status}");
-            if (CurrentStage.safeRoom) GUI.Box(new Rect(12, 98, 470, 30), "Stand near the shrine: E / gamepad Select to recover");
+            if (CurrentStage.safeRoom) GUI.Box(new Rect(12, 98, 470, 30), "Stand near the shrine: E / L1 / LB to recover");
             if (debugVisible)
             {
                 debugNavigation.Begin();

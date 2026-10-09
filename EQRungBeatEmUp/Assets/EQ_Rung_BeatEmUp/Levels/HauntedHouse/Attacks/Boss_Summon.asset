@@ -15,7 +15,7 @@ MonoBehaviour:
   attackName: Boss Summon
   domain: 0
   isLauncher: 0
-  cooldownFrames: 0
+  cooldownFrames: 270
   requiresAirborne: 0
   landingFrame: -1
   airborneHoldFrame: -1
@@ -35,9 +35,26 @@ MonoBehaviour:
     impactSound: {fileID: 0}
     swingVolume: 0.35
     impactVolume: 0.55
+    swingPrefab: {fileID: 0}
+    swingOffset: {x: 0, y: 0}
+    swingRotation: 0
+    swingMirrorWithFacing: 1
+    swingScale: 0.15
+    swingLifetime: 0.35
+    diveStartPrefab: {fileID: 0}
+    landingPrefab: {fileID: 0}
+    landingSound: {fileID: 0}
+    landingVolume: 0.65
+    diveStartScale: 0.2
+    landingScale: 0.25
+    diveStartLifetime: 0.3
+    landingLifetime: 0.6
     impactPrefab: {fileID: 0}
+    impactRotateWithFacing: 1
     impactScale: 0.15
     impactLifetime: 0.45
+    impactShakeStrength: 0
+    impactShakeDuration: 0
   frames:
   - sprite: {fileID: 21300000, guid: 2df0c6c85a25068d3710b981989fc634, type: 3}
     hitboxes: []

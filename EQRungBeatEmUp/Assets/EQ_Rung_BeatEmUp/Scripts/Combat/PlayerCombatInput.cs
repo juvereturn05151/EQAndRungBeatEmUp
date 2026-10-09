@@ -75,9 +75,10 @@ namespace BeatEmUp
             bool blocked=CombatClock.IsPaused || HubMenuOpen;
             motor.MoveInput=blocked ? Vector2.zero : direction;
             bool directional=HasDefenseDirection(direction);
+            combat.RequestRun(!blocked && guard.IsPressed() && directional,direction);
             combat.RequestGuard(!blocked && guard.IsPressed() && !directional);
             if(!blocked && guard.WasPressedThisFrame() && directional)
-            { LastAction="Dodge"; combat.RequestDodge(); }
+            { LastAction="Dash / Run"; }
             else if(!blocked && guard.IsPressed() && !directional) LastAction="Guard / Parry";
         }
         private void OnSkill(InputAction.CallbackContext context) { if(HubMenuOpen) return; LastAction = "Skill"; combat.GetComponent<PlayerSkillController>()?.RequestSkill(); }
@@ -106,6 +107,7 @@ namespace BeatEmUp
         private void OnDisable() 
         { 
             Unbind();
+            if (combat) combat.ResetRunInput();
             if (combat) combat.RequestGuard(false);
 
             if (motor)

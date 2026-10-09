@@ -30,4 +30,5 @@ MonoBehaviour:
   launcher: {fileID: 11400000, guid: fe61615f0b7122d4bb118837743387cf, type: 2}
   airDive: {fileID: 11400000, guid: 8f30728f5c2515e43a4106869845eb97, type: 2}
   defense: {fileID: 11400000, guid: 538d475d1eb06a443914598c91305c2c, type: 2}
+  run: {fileID: 11400000, guid: 51ddda9cab194c34c9010d8d3ef6b192, type: 2}
   skill: {fileID: 11400000, guid: 3709bb42cc6cc9b4baf5b3e1e0b6dc55, type: 2}

@@ -1,0 +1,3 @@
+PASS: 1418 serialized GUID references resolve in transferred run assets.
+PASS: All 11 wired assets match the Unity-validated project copy.
+PASS: Both eight-frame sprite sets have 160 x 144 canvases and crisp binary alpha; all match validated sprites.

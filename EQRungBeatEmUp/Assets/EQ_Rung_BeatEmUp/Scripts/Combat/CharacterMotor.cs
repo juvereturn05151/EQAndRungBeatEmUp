@@ -36,6 +36,7 @@ namespace BeatEmUp
         public bool SuspendFalling { get; set; }
         public float AttackHorizontalVelocity { get; set; }
         public Vector2 DefenseVelocity { get; set; }
+        public float GroundSpeedOverride { get; set; }
         public int FrameOrder => 50;
         public event Action Landed;
         public event Action<CombatWall, Vector2, float> WallContact;
@@ -44,6 +45,7 @@ namespace BeatEmUp
         private Vector2 recoil;
         public void ResetForStage(Vector2 position)
         {
+            GetComponent<ComboController>()?.ResetRunInput();
             GetComponent<ComboTracker>()?.ResetTracking();
             if (attackPlayer) attackPlayer.Stop();
             Height = VerticalVelocity = airControlUsed = 0; recoil = MoveInput = DefenseVelocity = Vector2.zero;
@@ -60,6 +62,7 @@ namespace BeatEmUp
         // Capture alignment without the stage-reset side effects on combo statistics.
         public void SnapGrabToGround(Vector2 position)
         {
+            GetComponent<ComboController>()?.ResetRunInput();
             Height=VerticalVelocity=airControlUsed=0; recoil=DefenseVelocity=Vector2.zero;
             AttackHorizontalVelocity=GravityOverride=0; FrameGravityScale=1; AirAttackControl=SuspendFalling=false;
             transform.position=new Vector3(position.x,position.y,0);
@@ -83,6 +86,7 @@ namespace BeatEmUp
         public void StopGroundedMotion()
         {
             if (!IsGrounded) return;
+            GroundSpeedOverride = 0;
             recoil = Vector2.zero; MoveInput = Vector2.zero;
             AttackHorizontalVelocity = 0; VerticalVelocity = 0;
         }
@@ -119,7 +123,8 @@ namespace BeatEmUp
             var frame = attackPlayer ? attackPlayer.Frame : null;
             if (frame != null) movement *= Mathf.Clamp01(frame.movementInputScale);
             if (movement.x != 0 && (!attackPlayer || !attackPlayer.CurrentAttack)) Face(movement.x);
-            Vector3 position = transform.position + (Vector3)((movement * moveSpeed + recoil + new Vector2(AttackHorizontalVelocity, 0) + DefenseVelocity) * dt);
+            float speed = GroundSpeedOverride > 0 && IsGrounded ? GroundSpeedOverride : moveSpeed;
+            Vector3 position = transform.position + (Vector3)((movement * speed + recoil + new Vector2(AttackHorizontalVelocity, 0) + DefenseVelocity) * dt);
             position.x = Mathf.Clamp(position.x, arenaMin.x, arenaMax.x);
             position.y = Mathf.Clamp(position.y, arenaMin.y, arenaMax.y);
             recoil = Vector2.MoveTowards(recoil, Vector2.zero, 6 * dt);

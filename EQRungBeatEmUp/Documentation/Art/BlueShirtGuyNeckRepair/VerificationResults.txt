@@ -1,0 +1,1 @@
+PASS: 37 checks. All 12 runtime/artwork PNGs and native cels agree; changes are confined to recorded transparent seam pixels; GIF frame count and delays unchanged.

@@ -33,6 +33,7 @@ namespace BeatEmUp
         public NetworkManager Network => network;
         public StageFlowController Flow { get; private set; }
         public InputDevice PreferredOnlineDevice { get; set; }
+        public InputDevice PreferredLocalDevice { get; set; }
         public int PreferredCharacter { get; set; }
         public SessionInput LocalInput(int slot) => sources.TryGetValue(slot,out var input) ? input : null;
         public string ValidationPhase { get; set; }
@@ -137,15 +138,30 @@ namespace BeatEmUp
         {
             ClearSession(); Busy=false; Mode=single ? SessionMode.Single : SessionMode.Local;
             InLobby=true; Lobby=new LobbyState{contentHash=catalog.contentHash};
-            if(Keyboard.current!=null) JoinDevice(Keyboard.current);
-            else if(Gamepad.current!=null) JoinDevice(Gamepad.current);
+            var device=PreferredLocalDevice!=null && PreferredLocalDevice.added ? PreferredLocalDevice : (InputDevice)Keyboard.current ?? Gamepad.current;
+            if(device!=null) JoinDevice(device);
             Status="Choose a character. Enter / A confirms; Escape / B cancels."; Changed?.Invoke();
         }
         public bool JoinDevice(InputDevice device)
         {
             if(!InLobby || Mode==SessionMode.Online || Lobby.slots.Count>=4 || device==null || Lobby.slots.Any(s=>s.device==device)) return false;
+            if(Mode==SessionMode.Single && Lobby.slots.Count>0) return UseSingleSelectionDevice(device);
             int slot=Enumerable.Range(0,4).First(i=>Lobby.slots.All(s=>s.slot!=i));
             Lobby.slots.Add(new LobbySlot{slot=slot,owner=(ulong)slot,name="Player "+(slot+1),device=device,character=AvailableCharacter(PreferredCharacter)});
+            Changed?.Invoke(); return true;
+        }
+        void OnGUI()
+        {
+            // Session HUD owns guidance when the standalone Stage Flow HUD is disabled,
+            // including clients whose Stage Flow simulation remains disabled.
+            if (InGame && Flow) Flow.DrawNextAreaEdgeArrow(false);
+        }
+        public bool UseSingleSelectionDevice(InputDevice device)
+        {
+            if(!InLobby || Mode!=SessionMode.Single || device==null || !device.added) return false;
+            var slot=Lobby.slots.FirstOrDefault();
+            if(slot==null || slot.device==device) return false;
+            slot.device=device; slot.ready=false; PreferredLocalDevice=device;
             Changed?.Invoke(); return true;
         }
         public void Ready(int slot)
@@ -412,11 +428,12 @@ namespace BeatEmUp
             if(float.IsNaN(command.move.x) || float.IsNaN(command.move.y) || float.IsInfinity(command.move.x) || float.IsInfinity(command.move.y)) return;
             var combat=player.GetComponent<ComboController>();
             if(player.GetComponent<MetaProgress>()?.OpenStation>=0)
-            { player.Motor.MoveInput=Vector2.zero; combat.RequestGuard(false); if(((PlayerButtons)command.buttons&PlayerButtons.Interact)!=0) Flow.GetComponent<PlayerHubController>().Execute(player.Motor,HubAction.Close,0); return; }
+            { player.Motor.MoveInput=Vector2.zero; combat.RequestRun(false,Vector2.zero); combat.RequestGuard(false); if(((PlayerButtons)command.buttons&PlayerButtons.Interact)!=0) Flow.GetComponent<PlayerHubController>().Execute(player.Motor,HubAction.Close,0); return; }
             var choice=Flow.CoopRewards ? Flow.CoopRewards.selections.Find(s=>s.player==player) : null;
             bool choosing=choice!=null && choice.opened && !choice.done;
             if(choosing && command.choice==-2) { Flow.CoopRewards.CloseChoice(player); return; }
             player.Motor.MoveInput=choosing || CombatClock.IsPaused ? Vector2.zero : Vector2.ClampMagnitude(command.move,1);
+            combat.RequestRun(!choosing && !CombatClock.IsPaused && command.run,player.Motor.MoveInput);
             if(command.choice>=0 && choosing) { Flow.CoopRewards.Choose(player,command.choice); return; }
             combat.RequestGuard(!choosing && (command.buttons & (int)PlayerButtons.Dodge)==0 && command.guard);
             if(choosing) return;
@@ -424,7 +441,7 @@ namespace BeatEmUp
             if((buttons&PlayerButtons.Attack)!=0) combat.RequestAttack();
             if((buttons&PlayerButtons.Launcher)!=0) combat.RequestLauncher();
             if((buttons&PlayerButtons.Jump)!=0) combat.RequestJump();
-            if((buttons&PlayerButtons.Dodge)!=0) combat.RequestDodge();
+            if((buttons&PlayerButtons.Dodge)!=0 && !command.run) combat.RequestDodge();
             if((buttons&PlayerButtons.Skill)!=0) combat.GetComponent<PlayerSkillController>()?.RequestSkill();
             if((buttons&PlayerButtons.Interact)!=0)
             {
@@ -461,11 +478,20 @@ namespace BeatEmUp
             }
             foreach(var input in sources)
             {
-                if(input.Value.Device!=null && !input.Value.Device.added) { if(IsAuthority && characters.TryGetValue(input.Key,out var p)) p.Motor.MoveInput=Vector2.zero; continue; }
+                if(input.Value.Device!=null && !input.Value.Device.added)
+                {
+                    if(IsAuthority && characters.TryGetValue(input.Key,out var p))
+                    {
+                        p.Motor.MoveInput=Vector2.zero;
+                        p.GetComponent<ComboController>().RequestRun(false,Vector2.zero);
+                        p.GetComponent<ComboController>().RequestGuard(false);
+                    }
+                    continue;
+                }
                 var command=input.Value.Read();
                 var menuState=input.Value.Menu.Read();
-                if(LocalMenuOpen || Latest?.gameOver==true || Latest?.completed==true || (menuState.Start && input.Value.Device is Gamepad) || menuState.Cancel)
-                { command.move=Vector2.zero; command.buttons=0; command.guard=false; command.choice=-1; }
+                if(LocalMenuOpen || Latest?.gameOver==true || Latest?.completed==true || (menuState.Start && input.Value.Device is Gamepad) || (menuState.Cancel && input.Value.Device is Keyboard))
+                { command.move=Vector2.zero; command.buttons=0; command.guard=false; command.run=false; command.choice=-1; }
                 if(IsAuthority) ApplyCommand(input.Key,command);
                 else if(command.buttons!=0 || command.choice>=0 || Time.unscaledTime>=nextInputTime)
                 { Send(0,"input",JsonUtility.ToJson(command)); nextInputTime=Time.unscaledTime+1f/30; }
@@ -473,7 +499,7 @@ namespace BeatEmUp
             if(IsAuthority)
             {
                 foreach(var pair in lastInput) if(Time.unscaledTime-pair.Value>.5f)
-                { var s=Lobby.slots.Find(p=>p.owner==pair.Key); if(s!=null && characters.TryGetValue(s.slot,out var p)) { p.Motor.MoveInput=Vector2.zero; p.GetComponent<ComboController>().RequestGuard(false); } }
+                { var s=Lobby.slots.Find(p=>p.owner==pair.Key); if(s!=null && characters.TryGetValue(s.slot,out var p)) { p.Motor.MoveInput=Vector2.zero; p.GetComponent<ComboController>().RequestRun(false,Vector2.zero); p.GetComponent<ComboController>().RequestGuard(false); } }
                 var leader=PlayerRoster.Living.FirstOrDefault(); if(leader) Flow.player=leader.Motor;
                 if(Mode==SessionMode.Online && Flow.framing)
                 {
@@ -499,6 +525,11 @@ namespace BeatEmUp
             result.cameraLocked=Flow.ActiveCameraBounds.HasValue;
             result.encounterCameraBounds=Flow.ActiveCameraBounds ?? default;
             result.encounter=Flow.ActiveEncounterName;
+            Flow.RefreshExitMarkers();
+            result.nextAreaMarker=Flow.CaptureNextAreaMarker();
+            // Capture the latest ground anchor and authoritative slot tint, even if
+            // this snapshot precedes the cosmetic LateUpdate for the current frame.
+            foreach(var p in PlayerRoster.Players) p.GetComponentInChildren<PlayerGroundIndicator>()?.Refresh();
             foreach(var r in FindObjectsByType<SpriteRenderer>(FindObjectsSortMode.None))
             {
                 if(!r.enabled || !r.gameObject.activeInHierarchy || !r.sprite || r==Flow.background || r==Flow.floor) continue;

@@ -1,0 +1,108 @@
+PASS: Five sprites appended; all existing sprite identifiers preserved
+PASS: Network attack identifiers unchanged
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\AttackCoordinationData.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\AttackData.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\AttackFeedback.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\AttackHitbox.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\AttackPlayer.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\CharacterAnimation.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\CharacterHealth.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\CharacterMotor.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\CombatClock.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\CombatDebugOverlay.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\CombatGrabController.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\CombatGrabController.Leap.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\CombatHurtbox.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\CombatProjectile.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\CombatProjectile.Deflection.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\CombatWall.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\ComboController.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\ComboController.Defense.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\ComboController.Grab.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\ComboController.Run.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\ComboController.Skill.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\ComboController.Stun.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\ComboTracker.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\ComboUIController.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\EnemyAIController.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\EnemyAIProfile.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\EnemyAttackCoordinator.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\EnemyCombat.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\EnemyHitReaction.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\EnemyHitReaction.Stun.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\EnemyProjectileAttack.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\HitBlinkEffect.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\HitCountArmor.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\MeterUIWidget.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\PlayableCharacterData.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\PlayerCharacterLoadout.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\PlayerCombatInput.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\PlayerDefenseData.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\PlayerGroundIndicator.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\PlayerGroundIndicatorStyle.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\PlayerMeter.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\PlayerRunData.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\PlayerSkillController.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\PlayerSkillData.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\PrefectSupport.cs
+PASS: Main combat source matches validated source: Assets\EQ_Rung_BeatEmUp\Scripts\Combat\StageFraming.cs
+PASS: Tested file transferred/verified: Assets/EQ_Rung_BeatEmUp/Resources/PlayerGroundIndicatorStyle.asset
+PASS: Tested file transferred/verified: Assets/EQ_Rung_BeatEmUp/Prefabs/PlayerGroundIndicator.prefab
+PASS: Tested file transferred/verified: Assets/EQ_Rung_BeatEmUp/Prefabs/BlueShirtGuy.prefab
+PASS: Tested file transferred/verified: Assets/EQ_Rung_BeatEmUp/Resources/MultiplayerCatalog.asset
+PASS: Tested file transferred/verified: Assets/EQ_Rung_BeatEmUp/Scripts/Combat/PlayerGroundIndicator.cs
+PASS: Tested file transferred/verified: Assets/EQ_Rung_BeatEmUp/Scripts/Combat/PlayerGroundIndicatorStyle.cs
+PASS: Tested file transferred/verified: Assets/Editor/Combat/PlayerGroundIndicatorSetup.cs
+PASS: Tested file transferred/verified: Assets/Editor/Combat/PlayerGroundIndicatorValidation.cs
+PASS: Final source/art equals validated copy: Assets/EQ_Rung_BeatEmUp/Scripts/CharacterSelect/CharacterPortraitUI.cs
+PASS: Final source/art equals validated copy: Assets/EQ_Rung_BeatEmUp/Scripts/Multiplayer/MultiplayerMenu.cs
+PASS: Final source/art equals validated copy: Assets/EQ_Rung_BeatEmUp/Scripts/Multiplayer/MultiplayerSession.cs
+PASS: Final source/art equals validated copy: Assets\EQ_Rung_BeatEmUp\ArtAssets\UI\PlayerGroundIndicators\BlobShadow.png
+PASS: Final source/art equals validated copy: Assets\EQ_Rung_BeatEmUp\ArtAssets\UI\PlayerGroundIndicators\BlobShadow.png.meta
+PASS: Final source/art equals validated copy: Assets\EQ_Rung_BeatEmUp\ArtAssets\UI\PlayerGroundIndicators\PlayerRing1.png
+PASS: Final source/art equals validated copy: Assets\EQ_Rung_BeatEmUp\ArtAssets\UI\PlayerGroundIndicators\PlayerRing1.png.meta
+PASS: Final source/art equals validated copy: Assets\EQ_Rung_BeatEmUp\ArtAssets\UI\PlayerGroundIndicators\PlayerRing2.png
+PASS: Final source/art equals validated copy: Assets\EQ_Rung_BeatEmUp\ArtAssets\UI\PlayerGroundIndicators\PlayerRing2.png.meta
+PASS: Final source/art equals validated copy: Assets\EQ_Rung_BeatEmUp\ArtAssets\UI\PlayerGroundIndicators\PlayerRing3.png
+PASS: Final source/art equals validated copy: Assets\EQ_Rung_BeatEmUp\ArtAssets\UI\PlayerGroundIndicators\PlayerRing3.png.meta
+PASS: Final source/art equals validated copy: Assets\EQ_Rung_BeatEmUp\ArtAssets\UI\PlayerGroundIndicators\PlayerRing4.png
+PASS: Final source/art equals validated copy: Assets\EQ_Rung_BeatEmUp\ArtAssets\UI\PlayerGroundIndicators\PlayerRing4.png.meta
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Attacks\AirHeadbuttDive.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Attacks\AirPunch1.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Attacks\AirPunch2.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Attacks\AirPunch3.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Attacks\EnemyPunch.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Attacks\Launcher.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Attacks\Punch1.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Attacks\Punch2.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Attacks\Punch3.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\BarrierPulseFeedback.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_AirDive.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_AirPunch1.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_AirPunch2.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_AirPunch3.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_Defense.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_Launcher.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_Punch1.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_Punch2.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_Punch3.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_Run.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2_WandBarrierCast.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\Character2.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\WandBarrier.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Characters\Character2\WandBarrierFeedback.asset
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\Ambusher.prefab
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\BossBookProjectile.prefab
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\BossCurseWaveFeedback.prefab
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\BossCurseWaveProjectile.prefab
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\BossStunBurstFeedback.prefab
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\BossSummonSealFeedback.prefab
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\GrapplerBruiser.prefab
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\NotebookProjectile.prefab
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\Prefect.prefab
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\Rusher.prefab
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\Screamer.prefab
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\ScreamWaveProjectile.prefab
+PASS: Existing combat/enemy asset unchanged by indicator build: Assets\EQ_Rung_BeatEmUp\Levels\HauntedHouse\Prefabs\Thrower.prefab
+PASS: Main-only WhiteGhostBoss HP/coordination edits preserved; no enemy prefab transferred
+PASS: Final catalog compatibility hash refreshed against current main stage/boss definitions; only hash changed

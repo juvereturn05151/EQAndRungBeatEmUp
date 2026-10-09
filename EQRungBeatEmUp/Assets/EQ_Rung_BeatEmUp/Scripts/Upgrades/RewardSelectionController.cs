@@ -137,7 +137,7 @@ namespace BeatEmUp
             if (!IsPending || !flow || !flow.player.IsGrounded) return;
             bool near = State == WorldRewardState.RewardPending ? Chapel && Vector2.Distance(flow.player.transform.position, Chapel.transform.position) <= flow.CurrentStage.rewardInteractRadius : NearestChoice() >= 0;
             if (!near) return;
-            GUI.Box(new Rect(Screen.width * .5f - 210, Screen.height - 64, 420, 44), State == WorldRewardState.RewardPending ? "E / gamepad Select: receive blessing" : "E / gamepad Select: choose this upgrade");
+            GUI.Box(new Rect(Screen.width * .5f - 210, Screen.height - 64, 420, 44), State == WorldRewardState.RewardPending ? "E / L1 / LB: receive blessing" : "E / L1 / LB: choose this upgrade");
         }
     }
 }

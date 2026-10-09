@@ -340,6 +340,7 @@ public static class EncounterPreview
         Handles.zTest = UnityEngine.Rendering.CompareFunction.Always;
         DrawRect(new Rect(stage.movementMin, stage.movementMax - stage.movementMin), Color.green);
         DrawStageMarkers(stage);
+        StageExitMarkerAuthoring.Draw(previewLevel, stage);
         if (stageMode || showAllBounds)
         {
             var stacked = new Dictionary<Vector2, int>();

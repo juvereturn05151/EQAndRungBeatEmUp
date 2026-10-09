@@ -11,6 +11,7 @@ namespace BeatEmUp
         public Vector2 move;
         public int buttons;
         public bool guard;
+        public bool run;
         public int choice=-1;
     }
     // Each source has a private action copy restricted to explicitly assigned devices.
@@ -47,9 +48,8 @@ namespace BeatEmUp
             bool directional=PlayerCombatInput.HasDefenseDirection(direction);
             if(guard.WasPressedThisFrame() && directional) pressed|=PlayerButtons.Dodge;
             if(skill.WasPressedThisFrame()) pressed|=PlayerButtons.Skill;
-            // The asset maps gamepad Y to both launcher and interact; co-op uses Select for interaction.
-            if(Device is Keyboard && interact.WasPressedThisFrame()) pressed|=PlayerButtons.Interact;
-            var command=new PlayerCommand{sequence=++sequence,move=direction,buttons=(int)pressed,guard=guard.IsPressed() && !directional};
+            if(interact.WasPressedThisFrame()) pressed|=PlayerButtons.Interact;
+            var command=new PlayerCommand{sequence=++sequence,move=direction,buttons=(int)pressed,guard=guard.IsPressed() && !directional,run=guard.IsPressed() && directional};
             if(Device is Keyboard key)
             {
                 if(key.digit1Key.wasPressedThisFrame) command.choice=0;
@@ -57,10 +57,6 @@ namespace BeatEmUp
                 if(key.digit3Key.wasPressedThisFrame) command.choice=2;
                 // Preserve the established world-reward interaction key as well as the input asset binding.
                 if(key.eKey.wasPressedThisFrame) command.buttons|=(int)PlayerButtons.Interact;
-            }
-            if(Device is Gamepad pad)
-            {
-                if(pad.selectButton.wasPressedThisFrame) command.buttons|=(int)PlayerButtons.Interact;
             }
             return command;
         }

@@ -1,0 +1,3 @@
+const sharp=require('C:/Users/drago/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
+const names=['CardboardBox','CeramicDragonJar'];const states=['Intact','Damaged','Destroyed','Debris1','Debris2','Debris3'];
+(async()=>{const composites=[];for(let y=0;y<2;y++)for(let x=0;x<6;x++){const path='Assets/EQ_Rung_BeatEmUp/ArtAssets/Props/Destructibles/'+names[y]+'_'+states[x]+'.png';composites.push({input:await sharp(path).resize(192,192,{kernel:'nearest'}).png().toBuffer(),left:x*192,top:y*192});}await sharp({create:{width:1152,height:384,channels:4,background:'#343840'}}).composite(composites).png().toFile('Tools/Destructibles/Preview.png');})();

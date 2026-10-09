@@ -4,7 +4,7 @@ namespace BeatEmUp
     {
         bool skillPlaying;
         public bool CanStartSkill => isActiveAndEnabled && !CombatClock.IsPaused && health && !health.IsDead &&
-            motor && motor.IsGrounded && State == CombatState.Idle && !CurrentAttack && !IsDefenseState &&
+            motor && motor.IsGrounded && (State == CombatState.Idle || State == CombatState.Run) && !CurrentAttack && !IsDefenseState &&
             stun == 0 && cooldown == 0 && !attackPlayer.IsFrozen;
         public bool StartSkill(AttackData cast)
         {
@@ -12,6 +12,7 @@ namespace BeatEmUp
             buffered = CombatInput.None; bufferFrames = jumpBuffer = 0; ComboIndex = nextIndex = 0;
             routeAir = false; bufferedAirDive = false;
             if (!attackPlayer.Play(cast)) return false;
+            EndRun();
             skillPlaying = true;
             State = CombatState.GroundAttack; motor.MovementLocked = true; return true;
         }

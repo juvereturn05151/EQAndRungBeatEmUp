@@ -40,6 +40,7 @@ MonoBehaviour:
     rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
+    nextAreaMarkers: []
     encounters: []
     destructibles: []
     decorativeProps:
@@ -77,8 +78,66 @@ MonoBehaviour:
     rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
+    nextAreaMarkers:
+    - markerId: Entrance approach
+      enabled: 1
+      markerPrefab: {fileID: 1315491544210570986, guid: 83d2123bf40c9524a8c5da9daf727c2f, type: 3}
+      target: 1
+      targetEncounterId: Encounter 01
+      useTransitionPosition: 1
+      exitPosition: {x: 0, y: 0, z: 0}
+      markerOffset: {x: 0, y: -0.4, z: 0}
+      showAfter: 0
+      afterEncounterId: 
+      showEdgeArrow: 1
+      markerPreview: 1
+      nearDistance: 1.5
+    - markerId: After first fight
+      enabled: 1
+      markerPrefab: {fileID: 1315491544210570986, guid: 83d2123bf40c9524a8c5da9daf727c2f, type: 3}
+      target: 1
+      targetEncounterId: Encounter 02
+      useTransitionPosition: 1
+      exitPosition: {x: 0, y: 0, z: 0}
+      markerOffset: {x: 0, y: 0, z: 0}
+      showAfter: 1
+      afterEncounterId: Encounter 01
+      showEdgeArrow: 1
+      markerPreview: 1
+      nearDistance: 1.5
+    - markerId: Stage 1 exit
+      enabled: 1
+      markerPrefab: {fileID: 1315491544210570986, guid: 83d2123bf40c9524a8c5da9daf727c2f, type: 3}
+      target: 0
+      targetEncounterId: 
+      useTransitionPosition: 1
+      exitPosition: {x: 0, y: 0, z: 0}
+      markerOffset: {x: 0, y: 0, z: 0}
+      showAfter: 2
+      afterEncounterId: 
+      showEdgeArrow: 1
+      markerPreview: 1
+      nearDistance: 1.5
     encounters:
-    - enabled: 1
+    - attackCoordination:
+        useAttackCoordination: 1
+        maxMeleeAttackers: 1
+        maxRangedAttackers: 1
+        maxCrowdControlAttackers: 1
+        maxSupportAttackers: 1
+        minimumGlobalAttackGapFrames: 20
+        crowdControlRecoveryGraceFrames: 45
+        pauseNewCrowdControlWhilePlayerDisabled: 1
+        pauseAllAttacksWhilePlayerDisabled: 0
+        allowBossToIgnoreCoordinator: 1
+        maximumTokenHoldFrames: 900
+        waitingPriorityBonus: 0.1
+        recentAttackPenalty: 25
+        recentAttackPenaltyFrames: 180
+        randomPriorityVariation: 2
+        showDebug: 0
+        verboseDebug: 0
+      enabled: 1
       disabledBlocksProgression: 0
       restoreSceneObjectsOnEncounterEnd: 0
       sceneObjectStates: []
@@ -113,7 +172,26 @@ MonoBehaviour:
       clearCondition: 0
       oneShot: 1
       waves:
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave 1
         trigger: 0
@@ -127,7 +205,25 @@ MonoBehaviour:
           interval: 0.25
           spawnDelay: 0
           isBoss: 0
-    - enabled: 1
+    - attackCoordination:
+        useAttackCoordination: 1
+        maxMeleeAttackers: 1
+        maxRangedAttackers: 1
+        maxCrowdControlAttackers: 1
+        maxSupportAttackers: 1
+        minimumGlobalAttackGapFrames: 20
+        crowdControlRecoveryGraceFrames: 45
+        pauseNewCrowdControlWhilePlayerDisabled: 1
+        pauseAllAttacksWhilePlayerDisabled: 0
+        allowBossToIgnoreCoordinator: 1
+        maximumTokenHoldFrames: 900
+        waitingPriorityBonus: 0.1
+        recentAttackPenalty: 25
+        recentAttackPenaltyFrames: 180
+        randomPriorityVariation: 2
+        showDebug: 0
+        verboseDebug: 0
+      enabled: 1
       disabledBlocksProgression: 0
       restoreSceneObjectsOnEncounterEnd: 0
       sceneObjectStates: []
@@ -162,7 +258,26 @@ MonoBehaviour:
       clearCondition: 0
       oneShot: 1
       waves:
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave 1
         trigger: 0
@@ -183,7 +298,55 @@ MonoBehaviour:
           interval: 0
           spawnDelay: 0
           isBoss: 0
-    destructibles: []
+    destructibles:
+    - label: 'Destructible sample: Box near entry'
+      prefab: {fileID: 2675550784172080338, guid: 286452ae476eaba4ba0c007f76725bdc, type: 3}
+      intactSprite: {fileID: 21300000, guid: 846a50d2c92080345a25868eb3ef3a74, type: 3}
+      damagedSprite: {fileID: 21300000, guid: ebf9367bb6be6f149ba9044140b1e1e7, type: 3}
+      brokenSprite: {fileID: 21300000, guid: 88385e9f882fd364096bb64c87b99072, type: 3}
+      position: {x: -3.9, y: 0.35}
+      health: 2
+      hitboxSize: {x: 0.7, y: 0.65}
+      hitboxOffset: {x: 0, y: 0.32}
+      kind: 0
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
+    - label: 'Destructible sample: Jar lower lane'
+      prefab: {fileID: 8866303152821250404, guid: 6885bd3c7013f8b41b06dea94bab6bd7, type: 3}
+      intactSprite: {fileID: 21300000, guid: 2d2745bb156d0bf4ea2723ca1dd51c23, type: 3}
+      damagedSprite: {fileID: 21300000, guid: cb8bcc5cc5dca2949b52c82d2fe38736, type: 3}
+      brokenSprite: {fileID: 21300000, guid: 62e38592be68a3947872ef6d7525828a, type: 3}
+      position: {x: -1.6, y: -0.35}
+      health: 3
+      hitboxSize: {x: 0.7, y: 0.65}
+      hitboxOffset: {x: 0, y: 0.32}
+      kind: 0
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
+    - label: 'Destructible sample: Box upper lane'
+      prefab: {fileID: 2675550784172080338, guid: 286452ae476eaba4ba0c007f76725bdc, type: 3}
+      intactSprite: {fileID: 21300000, guid: 846a50d2c92080345a25868eb3ef3a74, type: 3}
+      damagedSprite: {fileID: 21300000, guid: ebf9367bb6be6f149ba9044140b1e1e7, type: 3}
+      brokenSprite: {fileID: 21300000, guid: 88385e9f882fd364096bb64c87b99072, type: 3}
+      position: {x: 0.9, y: 0.6}
+      health: 2
+      hitboxSize: {x: 0.7, y: 0.65}
+      hitboxOffset: {x: 0, y: 0.32}
+      kind: 0
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
+    - label: 'Destructible sample: Jar near exit'
+      prefab: {fileID: 8866303152821250404, guid: 6885bd3c7013f8b41b06dea94bab6bd7, type: 3}
+      intactSprite: {fileID: 21300000, guid: 2d2745bb156d0bf4ea2723ca1dd51c23, type: 3}
+      damagedSprite: {fileID: 21300000, guid: cb8bcc5cc5dca2949b52c82d2fe38736, type: 3}
+      brokenSprite: {fileID: 21300000, guid: 62e38592be68a3947872ef6d7525828a, type: 3}
+      position: {x: 3.4, y: -0.25}
+      health: 3
+      hitboxSize: {x: 0.7, y: 0.65}
+      hitboxOffset: {x: 0, y: 0.32}
+      kind: 0
+      totemBreakRadius: 0
+      dropPrefab: {fileID: 0}
     decorativeProps: []
     safeRoom: 0
     recoveryPoint: {x: 0, y: 0.1}
@@ -215,8 +378,27 @@ MonoBehaviour:
     rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
+    nextAreaMarkers: []
     encounters:
-    - enabled: 1
+    - attackCoordination:
+        useAttackCoordination: 1
+        maxMeleeAttackers: 1
+        maxRangedAttackers: 1
+        maxCrowdControlAttackers: 1
+        maxSupportAttackers: 1
+        minimumGlobalAttackGapFrames: 20
+        crowdControlRecoveryGraceFrames: 45
+        pauseNewCrowdControlWhilePlayerDisabled: 1
+        pauseAllAttacksWhilePlayerDisabled: 0
+        allowBossToIgnoreCoordinator: 1
+        maximumTokenHoldFrames: 900
+        waitingPriorityBonus: 0.1
+        recentAttackPenalty: 25
+        recentAttackPenaltyFrames: 180
+        randomPriorityVariation: 2
+        showDebug: 0
+        verboseDebug: 0
+      enabled: 1
       disabledBlocksProgression: 0
       restoreSceneObjectsOnEncounterEnd: 0
       sceneObjectStates: []
@@ -251,7 +433,26 @@ MonoBehaviour:
       clearCondition: 0
       oneShot: 1
       waves:
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave1
         trigger: 0
@@ -275,7 +476,26 @@ MonoBehaviour:
           interval: 0.25
           spawnDelay: 0
           isBoss: 0
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave2
         trigger: 2
@@ -288,7 +508,26 @@ MonoBehaviour:
           interval: 0.25
           spawnDelay: 0
           isBoss: 0
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave3
         trigger: 2
@@ -301,7 +540,25 @@ MonoBehaviour:
           interval: 0.25
           spawnDelay: 0
           isBoss: 0
-    - enabled: 1
+    - attackCoordination:
+        useAttackCoordination: 1
+        maxMeleeAttackers: 1
+        maxRangedAttackers: 1
+        maxCrowdControlAttackers: 1
+        maxSupportAttackers: 1
+        minimumGlobalAttackGapFrames: 20
+        crowdControlRecoveryGraceFrames: 45
+        pauseNewCrowdControlWhilePlayerDisabled: 1
+        pauseAllAttacksWhilePlayerDisabled: 0
+        allowBossToIgnoreCoordinator: 1
+        maximumTokenHoldFrames: 900
+        waitingPriorityBonus: 0.1
+        recentAttackPenalty: 25
+        recentAttackPenaltyFrames: 180
+        randomPriorityVariation: 2
+        showDebug: 0
+        verboseDebug: 0
+      enabled: 1
       disabledBlocksProgression: 0
       restoreSceneObjectsOnEncounterEnd: 0
       sceneObjectStates: []
@@ -336,7 +593,26 @@ MonoBehaviour:
       clearCondition: 0
       oneShot: 1
       waves:
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave1
         trigger: 0
@@ -351,7 +627,26 @@ MonoBehaviour:
           interval: 0.25
           spawnDelay: 0
           isBoss: 0
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave2
         trigger: 2
@@ -371,7 +666,26 @@ MonoBehaviour:
           interval: 0.25
           spawnDelay: 0
           isBoss: 0
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave3
         trigger: 2
@@ -416,8 +730,27 @@ MonoBehaviour:
     rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
+    nextAreaMarkers: []
     encounters:
-    - enabled: 1
+    - attackCoordination:
+        useAttackCoordination: 1
+        maxMeleeAttackers: 1
+        maxRangedAttackers: 1
+        maxCrowdControlAttackers: 1
+        maxSupportAttackers: 1
+        minimumGlobalAttackGapFrames: 20
+        crowdControlRecoveryGraceFrames: 45
+        pauseNewCrowdControlWhilePlayerDisabled: 1
+        pauseAllAttacksWhilePlayerDisabled: 0
+        allowBossToIgnoreCoordinator: 1
+        maximumTokenHoldFrames: 900
+        waitingPriorityBonus: 0.1
+        recentAttackPenalty: 25
+        recentAttackPenaltyFrames: 180
+        randomPriorityVariation: 2
+        showDebug: 0
+        verboseDebug: 0
+      enabled: 1
       disabledBlocksProgression: 0
       restoreSceneObjectsOnEncounterEnd: 0
       sceneObjectStates: []
@@ -452,7 +785,26 @@ MonoBehaviour:
       clearCondition: 0
       oneShot: 1
       waves:
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave1
         trigger: 0
@@ -467,7 +819,26 @@ MonoBehaviour:
           interval: 0.25
           spawnDelay: 2
           isBoss: 0
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave2
         trigger: 2
@@ -481,7 +852,25 @@ MonoBehaviour:
           interval: 0.25
           spawnDelay: 0
           isBoss: 0
-    - enabled: 1
+    - attackCoordination:
+        useAttackCoordination: 1
+        maxMeleeAttackers: 1
+        maxRangedAttackers: 1
+        maxCrowdControlAttackers: 1
+        maxSupportAttackers: 1
+        minimumGlobalAttackGapFrames: 20
+        crowdControlRecoveryGraceFrames: 45
+        pauseNewCrowdControlWhilePlayerDisabled: 1
+        pauseAllAttacksWhilePlayerDisabled: 0
+        allowBossToIgnoreCoordinator: 1
+        maximumTokenHoldFrames: 900
+        waitingPriorityBonus: 0.1
+        recentAttackPenalty: 25
+        recentAttackPenaltyFrames: 180
+        randomPriorityVariation: 2
+        showDebug: 0
+        verboseDebug: 0
+      enabled: 1
       disabledBlocksProgression: 0
       restoreSceneObjectsOnEncounterEnd: 0
       sceneObjectStates: []
@@ -516,7 +905,26 @@ MonoBehaviour:
       clearCondition: 0
       oneShot: 1
       waves:
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave1
         trigger: 0
@@ -538,7 +946,26 @@ MonoBehaviour:
           interval: 0.25
           spawnDelay: 0
           isBoss: 0
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave2
         trigger: 2
@@ -590,8 +1017,27 @@ MonoBehaviour:
     rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
+    nextAreaMarkers: []
     encounters:
-    - enabled: 1
+    - attackCoordination:
+        useAttackCoordination: 1
+        maxMeleeAttackers: 1
+        maxRangedAttackers: 1
+        maxCrowdControlAttackers: 1
+        maxSupportAttackers: 1
+        minimumGlobalAttackGapFrames: 20
+        crowdControlRecoveryGraceFrames: 45
+        pauseNewCrowdControlWhilePlayerDisabled: 1
+        pauseAllAttacksWhilePlayerDisabled: 0
+        allowBossToIgnoreCoordinator: 1
+        maximumTokenHoldFrames: 900
+        waitingPriorityBonus: 0.1
+        recentAttackPenalty: 25
+        recentAttackPenaltyFrames: 180
+        randomPriorityVariation: 2
+        showDebug: 0
+        verboseDebug: 0
+      enabled: 1
       disabledBlocksProgression: 0
       restoreSceneObjectsOnEncounterEnd: 0
       sceneObjectStates: []
@@ -626,7 +1072,26 @@ MonoBehaviour:
       clearCondition: 0
       oneShot: 1
       waves:
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave1
         trigger: 0
@@ -644,7 +1109,26 @@ MonoBehaviour:
           interval: 1
           spawnDelay: 0.5
           isBoss: 0
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave2
         trigger: 2
@@ -658,7 +1142,25 @@ MonoBehaviour:
           interval: 0.25
           spawnDelay: 0
           isBoss: 0
-    - enabled: 1
+    - attackCoordination:
+        useAttackCoordination: 1
+        maxMeleeAttackers: 1
+        maxRangedAttackers: 1
+        maxCrowdControlAttackers: 1
+        maxSupportAttackers: 1
+        minimumGlobalAttackGapFrames: 20
+        crowdControlRecoveryGraceFrames: 45
+        pauseNewCrowdControlWhilePlayerDisabled: 1
+        pauseAllAttacksWhilePlayerDisabled: 0
+        allowBossToIgnoreCoordinator: 1
+        maximumTokenHoldFrames: 900
+        waitingPriorityBonus: 0.1
+        recentAttackPenalty: 25
+        recentAttackPenaltyFrames: 180
+        randomPriorityVariation: 2
+        showDebug: 0
+        verboseDebug: 0
+      enabled: 1
       disabledBlocksProgression: 0
       restoreSceneObjectsOnEncounterEnd: 0
       sceneObjectStates: []
@@ -693,7 +1195,26 @@ MonoBehaviour:
       clearCondition: 0
       oneShot: 1
       waves:
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave1
         trigger: 0
@@ -715,7 +1236,26 @@ MonoBehaviour:
           interval: 0.25
           spawnDelay: 0
           isBoss: 0
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave2
         trigger: 2
@@ -767,8 +1307,27 @@ MonoBehaviour:
     rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
+    nextAreaMarkers: []
     encounters:
-    - enabled: 1
+    - attackCoordination:
+        useAttackCoordination: 1
+        maxMeleeAttackers: 1
+        maxRangedAttackers: 1
+        maxCrowdControlAttackers: 1
+        maxSupportAttackers: 1
+        minimumGlobalAttackGapFrames: 20
+        crowdControlRecoveryGraceFrames: 45
+        pauseNewCrowdControlWhilePlayerDisabled: 1
+        pauseAllAttacksWhilePlayerDisabled: 0
+        allowBossToIgnoreCoordinator: 1
+        maximumTokenHoldFrames: 900
+        waitingPriorityBonus: 0.1
+        recentAttackPenalty: 25
+        recentAttackPenaltyFrames: 180
+        randomPriorityVariation: 2
+        showDebug: 0
+        verboseDebug: 0
+      enabled: 1
       disabledBlocksProgression: 0
       restoreSceneObjectsOnEncounterEnd: 0
       sceneObjectStates: []
@@ -803,7 +1362,26 @@ MonoBehaviour:
       clearCondition: 0
       oneShot: 1
       waves:
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave1
         trigger: 0
@@ -817,7 +1395,26 @@ MonoBehaviour:
           interval: 1
           spawnDelay: 0.5
           isBoss: 0
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave2
         trigger: 2
@@ -831,7 +1428,25 @@ MonoBehaviour:
           interval: 0.25
           spawnDelay: 0
           isBoss: 0
-    - enabled: 1
+    - attackCoordination:
+        useAttackCoordination: 1
+        maxMeleeAttackers: 1
+        maxRangedAttackers: 1
+        maxCrowdControlAttackers: 1
+        maxSupportAttackers: 1
+        minimumGlobalAttackGapFrames: 20
+        crowdControlRecoveryGraceFrames: 45
+        pauseNewCrowdControlWhilePlayerDisabled: 1
+        pauseAllAttacksWhilePlayerDisabled: 0
+        allowBossToIgnoreCoordinator: 1
+        maximumTokenHoldFrames: 900
+        waitingPriorityBonus: 0.1
+        recentAttackPenalty: 25
+        recentAttackPenaltyFrames: 180
+        randomPriorityVariation: 2
+        showDebug: 0
+        verboseDebug: 0
+      enabled: 1
       disabledBlocksProgression: 0
       restoreSceneObjectsOnEncounterEnd: 0
       sceneObjectStates: []
@@ -866,7 +1481,26 @@ MonoBehaviour:
       clearCondition: 0
       oneShot: 1
       waves:
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave1
         trigger: 0
@@ -888,7 +1522,26 @@ MonoBehaviour:
           interval: 0.25
           spawnDelay: 0
           isBoss: 0
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave2
         trigger: 2
@@ -908,7 +1561,26 @@ MonoBehaviour:
           interval: 0.25
           spawnDelay: 0
           isBoss: 0
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave3
         trigger: 2
@@ -953,6 +1625,7 @@ MonoBehaviour:
     rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
+    nextAreaMarkers: []
     encounters: []
     destructibles: []
     decorativeProps: []
@@ -987,6 +1660,7 @@ MonoBehaviour:
     rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
+    nextAreaMarkers: []
     encounters: []
     destructibles: []
     decorativeProps: []
@@ -1007,8 +1681,8 @@ MonoBehaviour:
     backgroundCenterY: 2.56
     floorHeight: 2.4
     floorCenterY: 0.56
-    movementMin: {x: -3.05, y: -0.4}
-    movementMax: {x: 3.05, y: 0.65}
+    movementMin: {x: -3.47, y: -0.4}
+    movementMax: {x: 3.49, y: 1.71}
     playerEntryPoint: {x: -2.5, y: 0}
     playerExitPoint: {x: 2.7, y: 0}
     exitRadius: 0.35
@@ -1020,8 +1694,27 @@ MonoBehaviour:
     rewardInteractRadius: 0.65
     rewardHealFraction: 0.5
     nextStageIndex: -1
+    nextAreaMarkers: []
     encounters:
-    - enabled: 1
+    - attackCoordination:
+        useAttackCoordination: 1
+        maxMeleeAttackers: 1
+        maxRangedAttackers: 1
+        maxCrowdControlAttackers: 1
+        maxSupportAttackers: 1
+        minimumGlobalAttackGapFrames: 20
+        crowdControlRecoveryGraceFrames: 45
+        pauseNewCrowdControlWhilePlayerDisabled: 1
+        pauseAllAttacksWhilePlayerDisabled: 0
+        allowBossToIgnoreCoordinator: 1
+        maximumTokenHoldFrames: 900
+        waitingPriorityBonus: 0.1
+        recentAttackPenalty: 25
+        recentAttackPenaltyFrames: 180
+        randomPriorityVariation: 2
+        showDebug: 0
+        verboseDebug: 0
+      enabled: 1
       disabledBlocksProgression: 0
       restoreSceneObjectsOnEncounterEnd: 0
       sceneObjectStates: []
@@ -1056,7 +1749,26 @@ MonoBehaviour:
       clearCondition: 0
       oneShot: 1
       waves:
-      - enabled: 1
+      - overrideAttackCoordination: 0
+        attackCoordination:
+          useAttackCoordination: 1
+          maxMeleeAttackers: 1
+          maxRangedAttackers: 1
+          maxCrowdControlAttackers: 1
+          maxSupportAttackers: 1
+          minimumGlobalAttackGapFrames: 20
+          crowdControlRecoveryGraceFrames: 45
+          pauseNewCrowdControlWhilePlayerDisabled: 1
+          pauseAllAttacksWhilePlayerDisabled: 0
+          allowBossToIgnoreCoordinator: 1
+          maximumTokenHoldFrames: 900
+          waitingPriorityBonus: 0.1
+          recentAttackPenalty: 25
+          recentAttackPenaltyFrames: 180
+          randomPriorityVariation: 2
+          showDebug: 0
+          verboseDebug: 0
+        enabled: 1
         sceneObjectStates: []
         waveId: Wave1
         trigger: 0

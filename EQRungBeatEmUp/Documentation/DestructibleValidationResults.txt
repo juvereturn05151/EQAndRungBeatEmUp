@@ -1,0 +1,54 @@
+PASS: Intact CardboardBox starts with 2 hit points
+PASS: CardboardBox SFX, reused VFX and debris references exist
+PASS: CardboardBox uses character pixel density and point filtering
+PASS: Existing AttackPlayer accepts prop test attack
+PASS: Overlapping samples deal one HP and change CardboardBox to damaged
+PASS: Prop hit applies small hitstop without cancelling attack timeline
+PASS: Damaged prop still blocks floor movement
+PASS: Attack from right damages CardboardBox
+PASS: Destruction commits once and disables both colliders
+PASS: Break scatters configured number of fragments
+PASS: Respawn restores intact appearance, HP and blocker
+PASS: Respawn removes previous debris
+PASS: Existing ground movement is blocked by prop footprint
+PASS: Destroyed prop permits movement
+PASS: Debris expires after configured lifetime
+PASS: Intact CeramicDragonJar starts with 3 hit points
+PASS: CeramicDragonJar SFX, reused VFX and debris references exist
+PASS: CeramicDragonJar uses character pixel density and point filtering
+PASS: Existing AttackPlayer accepts prop test attack
+PASS: Overlapping samples deal one HP and change CeramicDragonJar to damaged
+PASS: Prop hit applies small hitstop without cancelling attack timeline
+PASS: Damaged prop still blocks floor movement
+PASS: Attack from right damages CeramicDragonJar
+PASS: Destruction commits once and disables both colliders
+PASS: Break scatters configured number of fragments
+PASS: Respawn restores intact appearance, HP and blocker
+PASS: Respawn removes previous debris
+PASS: Existing ground movement is blocked by prop footprint
+PASS: Destroyed prop permits movement
+PASS: Debris expires after configured lifetime
+PASS: Authored Punch1 hits stationary prop through existing hitbox
+PASS: Launcher/air response never launches the prop
+PASS: Authored Punch2 hits stationary prop through existing hitbox
+PASS: Launcher/air response never launches the prop
+PASS: Authored Punch3 hits stationary prop through existing hitbox
+PASS: Launcher/air response never launches the prop
+PASS: Authored Launcher hits stationary prop through existing hitbox
+PASS: Launcher/air response never launches the prop
+PASS: Authored AirPunch1 hits stationary prop through existing hitbox
+PASS: Launcher/air response never launches the prop
+PASS: Authored AirPunch2 hits stationary prop through existing hitbox
+PASS: Launcher/air response never launches the prop
+PASS: Authored AirPunch3 hits stationary prop through existing hitbox
+PASS: Launcher/air response never launches the prop
+PASS: Ground-area attacks include props and deduplicate repeated samples
+PASS: Other walking lanes cannot hit prop
+PASS: Legacy damage-based totems preserve health semantics
+PASS: One swing hits both prop and enemy without suppressing enemy combat
+PASS: Reentrant and repeated damage produce one event and one optional reward
+PASS: Prop reset removes spawned optional reward
+PASS: Stage 1 spawns all four samples through LevelDefinition
+PASS: All sample ground pivots lie inside Stage 1 walkable lanes
+PASS: Restarting Stage 1 restores all sample props
+PASS: Final workspace prefab asset GUID references resolve (including imported sprites, scripts, SFX, and VFX).

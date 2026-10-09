@@ -1,0 +1,8 @@
+PASS: Boss_Book complete frame timeline and notes unchanged; only cooldown/default serialization updated.
+PASS: Boss_Swipe complete frame timeline and notes unchanged; only cooldown/default serialization updated.
+PASS: Boss_Summon complete frame timeline and notes unchanged; only cooldown/default serialization updated.
+PASS: Boss_CurseWave complete frame timeline and notes unchanged; only cooldown/default serialization updated.
+Preserved source asset Assets/EQ_Rung_BeatEmUp/Levels/HauntedHouse/ThaiHauntedHouse.asset; validation-copy content identical: True
+Preserved source asset Assets/EQ_Rung_BeatEmUp/Levels/HauntedHouse/Prefabs/WhiteGhostBoss.prefab; validation-copy content identical: True
+PASS: Multiplayer sprite IDs preserved and existing attack IDs retained as prefix; four new attack assets appended.
+PASS: Follow-up sweep tuning preserves all four original boss attack assets byte-for-byte. Only new sweep timing/impact, its cosmetic impact prefab, and the interrupt window were tuned; catalog compatibility hash refreshed.

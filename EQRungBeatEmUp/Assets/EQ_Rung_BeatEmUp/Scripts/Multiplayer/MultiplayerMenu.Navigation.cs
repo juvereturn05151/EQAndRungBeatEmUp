@@ -103,6 +103,8 @@ namespace BeatEmUp
             if(session.InLobby) return; // Device-owned character cursors handle their own screen.
             if(!session.InGame)
             {
+                if(input.Navigate!=Vector2.zero || input.Confirm || input.Start || input.Cancel)
+                    session.PreferredLocalDevice=menuInput.LastDevice;
                 CombatClock.SetPaused(this,false);
                 if(EventSystem.current?.currentSelectedGameObject?.GetComponent<InputField>()?.isFocused==true)
                 {
@@ -135,7 +137,7 @@ namespace BeatEmUp
                 {
                     var source=session.LocalInput(player.slot);
                     var request=source?.Menu.Read() ?? default;
-                    if((request.Start && source?.Device is Gamepad) || request.Cancel) { SetGameMenu(true,player.slot); return; }
+                    if((request.Start && source?.Device is Gamepad) || (request.Cancel && source?.Device is Keyboard)) { SetGameMenu(true,player.slot); return; }
                 }
                 if(!world.gameOver && !world.completed) { DrawFocus(); return; }
             }

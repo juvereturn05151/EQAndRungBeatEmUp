@@ -62,13 +62,20 @@ namespace BeatEmUp
             var map = joinActions.FindActionMap("CharacterSelect",true);
             var join = map.FindAction("Join",true); join.performed += Join;
             join.Enable();
+            // An unpaired controller may claim the single-player slot using its stick/D-pad.
+            var navigate=map.FindAction("Navigate",true); navigate.performed+=ClaimSingleDevice; navigate.Enable();
             InputSystem.onDeviceChange += DeviceChanged;
             Render();
         }
         void Join(InputAction.CallbackContext context)
         {
-            if(!session || !session.InLobby || session.Mode != SessionMode.Local) return;
+            if(!session || !session.InLobby || session.Mode == SessionMode.Online) return;
             session.JoinDevice(context.control.device);
+        }
+        void ClaimSingleDevice(InputAction.CallbackContext context)
+        {
+            if(session && context.ReadValue<Vector2>().magnitude>=.55f)
+                session.UseSingleSelectionDevice(context.control.device);
         }
         void DeviceChanged(InputDevice device, InputDeviceChange change)
         {

@@ -1,0 +1,4 @@
+PASS: 1347 serialized marker/level/catalog GUID references resolve.
+PASS: Marker definitions, prefab and catalog match the Unity-validated copy.
+PASS: All pre-existing level fields are unchanged; only nextAreaMarkers sections were added.
+PASS: All five pixel-art PNGs have transparency.

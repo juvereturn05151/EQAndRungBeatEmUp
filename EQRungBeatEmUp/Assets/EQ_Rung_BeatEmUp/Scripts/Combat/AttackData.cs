@@ -5,7 +5,7 @@ using UnityEngine;
 namespace BeatEmUp
 {
     public enum AttackDomain { Ground, Air }
-    public enum CombatState { Idle, GroundAttack, Launcher, Jumping, AirAttack, Hitstun, Dodge, GuardEnter, GuardHold, Parry, KnockDown, Downed, GetUp, Die, Stunned, Grabbed }
+    public enum CombatState { Idle, GroundAttack, Launcher, Jumping, AirAttack, Hitstun, Dodge, GuardEnter, GuardHold, Parry, KnockDown, Downed, GetUp, Die, Stunned, Grabbed, Run }
     public enum CombatInput { None, Attack, Launcher, Jump }
     public enum HitType { Normal, Launcher, AirFinisher, KnockDown, Stun }
 
@@ -32,7 +32,7 @@ namespace BeatEmUp
         public HitType hitType;
         [Min(1), Tooltip("Stun status duration in combat frames. Separate from normal Hitstun Frames; used when Hit Type is Stun.")]
         public int stunDurationFrames = 90;
-        [Min(-1), Tooltip("Player downed hold after landing / knockdown animation. -1 uses Player Defense Data.")]
+        [Min(-1), Tooltip("Downed hold after landing / knockdown animation. -1 uses the target's existing defense/reaction duration.")]
         public int knockdownDurationFrames = -1;
         [Header("Downward slam (airborne targets)")]
         public bool forceAirborneTargetDownward;
@@ -95,6 +95,9 @@ namespace BeatEmUp
         public bool impactRotateWithFacing = true;
         [Min(.01f)] public float impactScale = .15f;
         [Min(.05f)] public float impactLifetime = .45f;
+        [Header("Confirmed impact camera feedback (zero leaves existing attacks unchanged)")]
+        [Min(0)] public float impactShakeStrength;
+        [Min(0)] public float impactShakeDuration;
     }
 
     [Serializable]

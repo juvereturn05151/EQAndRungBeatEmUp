@@ -12,6 +12,7 @@ namespace BeatEmUp
         public AttackData[] groundCombo = new AttackData[3], airCombo = new AttackData[3];
         public AttackData launcher, airDive;
         public PlayerDefenseData defense;
+        public PlayerRunData run;
         public PlayerSkillData skill;
     }
 }

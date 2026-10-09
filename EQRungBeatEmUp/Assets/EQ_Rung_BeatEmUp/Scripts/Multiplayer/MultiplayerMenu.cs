@@ -20,7 +20,7 @@ namespace BeatEmUp
         float refreshAt;
         GUIStyle debugStyle;
         readonly Color red=new Color(.8f,.16f,.05f), blue=new Color(.06f,.2f,.34f), dark=new Color(.035f,.05f,.075f,.94f);
-        readonly Color[] colors={new Color(.15f,.65f,1),new Color(1,.3f,.22f),new Color(.6f,.8f,.3f),new Color(.8f,.45f,1)};
+        Color[] colors => PlayerGroundIndicatorStyle.SharedPlayerColors;
         readonly Dictionary<int,float> comboEndTime=new Dictionary<int,float>();
         readonly Dictionary<int,bool> comboWasActive=new Dictionary<int,bool>();
         bool debugVisible;
@@ -34,7 +34,11 @@ namespace BeatEmUp
             canvas=root.GetComponent<Canvas>(); canvas.renderMode=RenderMode.ScreenSpaceOverlay; canvas.sortingOrder=100;
             var scaler=root.GetComponent<CanvasScaler>(); scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize; scaler.referenceResolution=new Vector2(1920,1080); scaler.matchWidthOrHeight=.5f;
             var events=new GameObject("Multiplayer UI input",typeof(EventSystem),typeof(InputSystemUIInputModule)); events.transform.SetParent(transform);
-            events.GetComponent<InputSystemUIInputModule>().AssignDefaultActions();
+            var uiInput=events.GetComponent<InputSystemUIInputModule>();
+            uiInput.AssignDefaultActions();
+            // Custom menu actions own submit/move; disable defaults before the first input update,
+            // rather than allowing one press to activate the new page's focused button as well.
+            uiInput.submit.action.Disable(); uiInput.move.action.Disable();
             InitializeNavigation();
         }
         void Start() { session.Changed+=Refresh; Refresh(); }
@@ -167,7 +171,7 @@ namespace BeatEmUp
             }
             else if(screen=="help")
             {
-                Label("KEYBOARD\nMove: WASD / arrows\nPunch: J     Launcher / air dive: K\nJump: Space     Guard / parry: L (no movement)\nDodge: direction + L\nSkill: I (1 bar)     Interact: E     Upgrade choices: 1 / 2 / 3\n\nGAMEPAD\nMove: left stick     Punch: X\nLauncher / dive: Y     Jump: A\nGuard: left shoulder (no movement)\nDodge: stick direction + left shoulder\nSkill: right trigger (1 bar)     Interact: Select     Blessing: D-pad + A; B to close\n\nLobby: Enter / A to join or toggle ready. Space / Start to begin.",new Rect(100,290,1640,560),31);
+                Label("KEYBOARD\nMove: WASD / arrows\nPunch: J     Launcher / air dive: K\nJump: Space     Guard / parry: L (no movement)\nDodge: direction + L\nSkill: I (1 bar)     Interact: E     Upgrade choices: 1 / 2 / 3\n\nGAMEPAD\nMove: left stick     Punch: X\nLauncher / dive: Y     Jump: A\nGuard: left shoulder (no movement)\nDodge: stick direction + left shoulder\nSkill: right trigger (1 bar)     Interact: L1 / LB     Blessing: D-pad + A; B to close\n\nLobby: Enter / A to join or toggle ready. Space / Start to begin.",new Rect(100,290,1640,560),31);
                 Button("BACK",new Rect(100,850,300,65),()=>Show("main"));
             }
             else
@@ -252,7 +256,7 @@ namespace BeatEmUp
                 }
             }
             string stage=world.stage>=0 && world.stage<session.catalog.level.stages.Count ? session.catalog.level.stages[world.stage].stageName : "Loading";
-            Label(stage+"  •  "+(world.rewardPending ? "Visit the chapel: E / Select. Each player chooses a blessing." : world.exitOpen ? "Exit open" : "Clear the encounter"),new Rect(20,202,1850,48),25,new Color(1,.83f,.64f));
+            Label(stage+"  •  "+(world.rewardPending ? "Visit the chapel: E / L1 / LB. Each player chooses a blessing." : world.exitOpen ? "Exit open" : "Clear the encounter"),new Rect(20,202,1850,48),25,new Color(1,.83f,.64f));
             if(world.rewardPending) Label(string.Join("   ",world.players.Where(p=>!p.dead).Select(p=>"P"+(p.slot+1)+": "+(p.rewardDone ? "✓" : p.choosing ? "choosing" : "visit chapel"))),new Rect(20,244,1850,44),25);
             var boss=world.entities.Find(e=>e.kind=="Boss" && !e.dead);
             if(boss!=null)

@@ -1,0 +1,145 @@
+PASS: Rusher accepts Character 1 skill cast
+PASS: Original release frame 12 remains unchanged
+PASS: Release/miss has no heavy impact shake or sound
+PASS: Rusher receives one real projectile collision, facing 1
+PASS: Existing hit blink starts on confirmed damage
+PASS: Rusher enters committed falling reaction with no juggle window
+PASS: Attacker and target freeze for 11 frames exactly on collision
+PASS: One small camera impulse begins on accepted impact
+PASS: Assigned heavy finisher sound plays at impact volume
+PASS: Existing impact VFX spawns at stronger skill-specific scale
+PASS: Impact freeze preserves target position, height and fall pose for all 11 frames
+PASS: Short lift and strong backward push begin after impact freeze
+PASS: Landing enters existing Knockdown animation
+PASS: Enemy receives noticeable backward displacement without leaving lane
+PASS: Knockdown finishes into the enemy's normal configurable downed duration
+PASS: Existing lying-down sprite is held on the floor
+PASS: Enemy cannot stand or act before normal downed hold finishes
+PASS: Existing GetUp clip begins at the normal recovery boundary
+PASS: Enemy returns to normal only after existing GetUp completes
+PASS: One projectile never repeats damage, knockdown or impact feedback on same target
+PASS: Shake expires without camera drift or vertical composition changes
+PASS: Thrower accepts Character 1 skill cast
+PASS: Original release frame 12 remains unchanged
+PASS: Release/miss has no heavy impact shake or sound
+PASS: Thrower receives one real projectile collision, facing 1
+PASS: Existing hit blink starts on confirmed damage
+PASS: Thrower enters committed falling reaction with no juggle window
+PASS: Attacker and target freeze for 11 frames exactly on collision
+PASS: One small camera impulse begins on accepted impact
+PASS: Assigned heavy finisher sound plays at impact volume
+PASS: Existing impact VFX spawns at stronger skill-specific scale
+PASS: Impact freeze preserves target position, height and fall pose for all 11 frames
+PASS: Short lift and strong backward push begin after impact freeze
+PASS: Landing enters existing Knockdown animation
+PASS: Enemy receives noticeable backward displacement without leaving lane
+PASS: Knockdown finishes into the enemy's normal configurable downed duration
+PASS: Existing lying-down sprite is held on the floor
+PASS: Enemy cannot stand or act before normal downed hold finishes
+PASS: Existing GetUp clip begins at the normal recovery boundary
+PASS: Enemy returns to normal only after existing GetUp completes
+PASS: One projectile never repeats damage, knockdown or impact feedback on same target
+PASS: Shake expires without camera drift or vertical composition changes
+PASS: Screamer accepts Character 1 skill cast
+PASS: Original release frame 12 remains unchanged
+PASS: Release/miss has no heavy impact shake or sound
+PASS: Screamer receives one real projectile collision, facing 1
+PASS: Existing hit blink starts on confirmed damage
+PASS: Screamer enters committed falling reaction with no juggle window
+PASS: Attacker and target freeze for 11 frames exactly on collision
+PASS: One small camera impulse begins on accepted impact
+PASS: Assigned heavy finisher sound plays at impact volume
+PASS: Existing impact VFX spawns at stronger skill-specific scale
+PASS: Impact freeze preserves target position, height and fall pose for all 11 frames
+PASS: Short lift and strong backward push begin after impact freeze
+PASS: Landing enters existing Knockdown animation
+PASS: Enemy receives noticeable backward displacement without leaving lane
+PASS: Knockdown finishes into the enemy's normal configurable downed duration
+PASS: Existing lying-down sprite is held on the floor
+PASS: Enemy cannot stand or act before normal downed hold finishes
+PASS: Existing GetUp clip begins at the normal recovery boundary
+PASS: Enemy returns to normal only after existing GetUp completes
+PASS: One projectile never repeats damage, knockdown or impact feedback on same target
+PASS: Shake expires without camera drift or vertical composition changes
+PASS: Ambusher accepts Character 1 skill cast
+PASS: Original release frame 12 remains unchanged
+PASS: Release/miss has no heavy impact shake or sound
+PASS: Ambusher receives one real projectile collision, facing 1
+PASS: Existing hit blink starts on confirmed damage
+PASS: Ambusher enters committed falling reaction with no juggle window
+PASS: Attacker and target freeze for 11 frames exactly on collision
+PASS: One small camera impulse begins on accepted impact
+PASS: Assigned heavy finisher sound plays at impact volume
+PASS: Existing impact VFX spawns at stronger skill-specific scale
+PASS: Impact freeze preserves target position, height and fall pose for all 11 frames
+PASS: Short lift and strong backward push begin after impact freeze
+PASS: Landing enters existing Knockdown animation
+PASS: Enemy receives noticeable backward displacement without leaving lane
+PASS: Knockdown finishes into the enemy's normal configurable downed duration
+PASS: Existing lying-down sprite is held on the floor
+PASS: Enemy cannot stand or act before normal downed hold finishes
+PASS: Existing GetUp clip begins at the normal recovery boundary
+PASS: Enemy returns to normal only after existing GetUp completes
+PASS: One projectile never repeats damage, knockdown or impact feedback on same target
+PASS: Shake expires without camera drift or vertical composition changes
+PASS: Prefect accepts Character 1 skill cast
+PASS: Original release frame 12 remains unchanged
+PASS: Release/miss has no heavy impact shake or sound
+PASS: Prefect receives one real projectile collision, facing 1
+PASS: Existing hit blink starts on confirmed damage
+PASS: Prefect enters committed falling reaction with no juggle window
+PASS: Attacker and target freeze for 11 frames exactly on collision
+PASS: One small camera impulse begins on accepted impact
+PASS: Assigned heavy finisher sound plays at impact volume
+PASS: Existing impact VFX spawns at stronger skill-specific scale
+PASS: Impact freeze preserves target position, height and fall pose for all 11 frames
+PASS: Short lift and strong backward push begin after impact freeze
+PASS: Landing enters existing Knockdown animation
+PASS: Enemy receives noticeable backward displacement without leaving lane
+PASS: Knockdown finishes into the enemy's normal configurable downed duration
+PASS: Existing lying-down sprite is held on the floor
+PASS: Enemy cannot stand or act before normal downed hold finishes
+PASS: Existing GetUp clip begins at the normal recovery boundary
+PASS: Enemy returns to normal only after existing GetUp completes
+PASS: One projectile never repeats damage, knockdown or impact feedback on same target
+PASS: Shake expires without camera drift or vertical composition changes
+PASS: Rusher accepts Character 1 skill cast
+PASS: Original release frame 12 remains unchanged
+PASS: Release/miss has no heavy impact shake or sound
+PASS: Rusher receives one real projectile collision, facing -1
+PASS: Existing hit blink starts on confirmed damage
+PASS: Rusher enters committed falling reaction with no juggle window
+PASS: Attacker and target freeze for 11 frames exactly on collision
+PASS: One small camera impulse begins on accepted impact
+PASS: Assigned heavy finisher sound plays at impact volume
+PASS: Existing impact VFX spawns at stronger skill-specific scale
+PASS: Impact freeze preserves target position, height and fall pose for all 11 frames
+PASS: Short lift and strong backward push begin after impact freeze
+PASS: Landing enters existing Knockdown animation
+PASS: Enemy receives noticeable backward displacement without leaving lane
+PASS: Knockdown finishes into the enemy's normal configurable downed duration
+PASS: Existing lying-down sprite is held on the floor
+PASS: Enemy cannot stand or act before normal downed hold finishes
+PASS: Existing GetUp clip begins at the normal recovery boundary
+PASS: Enemy returns to normal only after existing GetUp completes
+PASS: One projectile never repeats damage, knockdown or impact feedback on same target
+PASS: Shake expires without camera drift or vertical composition changes
+PASS: Existing Grappler Bruiser armor absorbs skill reaction
+PASS: Armor retains its own reaction and hitstop rules
+PASS: Existing boss shield rejects damage and knockdown
+PASS: Vulnerable boss keeps previous short hit reaction instead of forced knockdown
+PASS: Existing super-armor frame suppresses knockdown
+PASS: Existing hit-data knockdown duration supports an optional per-hit override
+PASS: Follow-up damage cannot replace downed recovery or instantly stand enemy
+PASS: Override still uses normal GetUp behavior
+PASS: Already-airborne enemy is driven downward into existing landing recovery
+PASS: Normal Punch1 retains ordinary grounded hit reaction
+PASS: Normal punch keeps low hitstop and no camera shake
+PASS: Skill impact clearly exceeds normal punch's hitstop and VFX scale
+PASS: Lethal skill damage retains existing defeat flow and never makes dead enemies GetUp
+PASS: Punch 1 retains its authored reaction (including existing wall bounce) and no camera shake
+PASS: Punch 2 retains its authored reaction (including existing wall bounce) and no camera shake
+PASS: Punch 3 retains its authored reaction (including existing wall bounce) and no camera shake
+PASS: Existing launcher still opens its normal airborne juggle
+PASS: Framing reset cancels shake without retaining its offset
+PASS: Stage-entry camera teleport is preserved when an impact shake resets

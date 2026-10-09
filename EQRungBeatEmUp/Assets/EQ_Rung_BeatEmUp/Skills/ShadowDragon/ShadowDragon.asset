@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df1632dedb75be4cad6ae866172d1ee, type: 3}
   m_Name: ShadowDragon
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.PlayerSkillData
-  displayName: Shadow Dragon
+  displayName: Black Dragon Fist
   meterCost: 1
   cast: {fileID: 11400000, guid: d3f987f74bec891498a5b95de6036571, type: 2}
   releaseEvent: SpawnDragon
   projectilePrefab: {fileID: 6458115715528684897, guid: 9135a776d1788ec4c9a3313093646187, type: 3}
+  delivery: 0
+  guardianEvent: SummonGuardian
+  guardianFeedback: {fileID: 0}
+  releaseFeedback: {fileID: 0}
   spawnOffset: {x: 0.8, y: 0.75}

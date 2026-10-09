@@ -94,7 +94,7 @@ PASS: Landing effect stays upright at floor
 PASS: Recovery does not repeat dive cues
 PASS: Interrupted dive has no false landing cue
 PASS: Client dive cues reconstruct temporary VFX
-PASS: Authored24-frame attack with seven active frames
+PASS: Authored 28-frame dive with eight active frames
 PASS: TEST5: direct grounded Play cannot activate airborne-only dive
 PASS: Grounded Launcher keeps existing launcher behavior
 PASS: Normal jump is airborne
@@ -134,6 +134,7 @@ PASS: Manual jump out of grounded Launcher can choose the airborne headbutt
 PASS: Ground contact enters grounded impact/recovery at the landing frame
 PASS: Landing recovery rejects attack, launcher and jump cancels
 PASS: Recovery ends in neutral with normal physics restored
+PASS: TEST8: compact active box stays on low front/head, not trailing legs
 PASS: TEST8: compact active box stays on low front/head, not trailing legs
 PASS: TEST8: compact active box stays on low front/head, not trailing legs
 PASS: TEST8: compact active box stays on low front/head, not trailing legs

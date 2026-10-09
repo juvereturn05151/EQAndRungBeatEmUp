@@ -1,0 +1,26 @@
+PASS: Area pulse cue stays subtle alongside the dome
+PASS: Surrounding barrier feedback stays upright independently of facing
+PASS: Presentation cast starts facing 1
+PASS: Only barrier shell and pulse spawn for one cast
+PASS: Wand magic follows ground depth
+PASS: Magic stays translucent and behind caster at depth -2
+PASS: Magic stays translucent and behind caster at depth 0
+PASS: Magic stays translucent and behind caster at depth 2
+PASS: Wand magic follows ground depth
+PASS: Magic stays translucent and behind caster at depth -2
+PASS: Magic stays translucent and behind caster at depth 0
+PASS: Magic stays translucent and behind caster at depth 2
+PASS: Both effects originate at caster and remain upright facing 1
+PASS: Presentation cast starts facing -1
+PASS: Only barrier shell and pulse spawn for one cast
+PASS: Wand magic follows ground depth
+PASS: Magic stays translucent and behind caster at depth -2
+PASS: Magic stays translucent and behind caster at depth 0
+PASS: Magic stays translucent and behind caster at depth 2
+PASS: Wand magic follows ground depth
+PASS: Magic stays translucent and behind caster at depth -2
+PASS: Magic stays translucent and behind caster at depth 0
+PASS: Magic stays translucent and behind caster at depth 2
+PASS: Both effects originate at caster and remain upright facing -1
+PASS: Barrier shell and pulse effects expire without leaked objects (remaining=0, timeScale=1, scaledTime=1.207983)
+ALL WAND BARRIER PRESENTATION CHECKS PASSED

@@ -17,6 +17,7 @@ public static class AirPunchPlaytestValidation
     private static EnemyHitReaction enemy;
     private static CombatClock clock;
     private static AttackData[] air;
+    private static bool characterTwo;
 
     static AirPunchPlaytestValidation() { EditorApplication.update += Poll; }
     [MenuItem("Beat Em Up/Validate air punch playtest (Play Mode)")]
@@ -37,10 +38,15 @@ public static class AirPunchPlaytestValidation
         try
         {
             foreach (var actor in UnityEngine.Object.FindObjectsByType<CharacterMotor>(FindObjectsSortMode.None)) actor.gameObject.SetActive(false);
+            foreach (var flow in UnityEngine.Object.FindObjectsByType<StageFlowController>(FindObjectsSortMode.None)) flow.enabled = false;
             foreach (var existing in UnityEngine.Object.FindObjectsByType<CombatClock>(FindObjectsSortMode.None)) existing.enabled = false;
-            air = Enumerable.Range(1, 3).Select(i => AssetDatabase.LoadAssetAtPath<AttackData>(Output + "/Attacks/AirPunch" + i + ".asset")).ToArray();
-            Check(air.All(a => a), "All three existing air assets load");
-            Data(); RecoveryAndLanding(); Cancels(); FullRoute(1, false); FullRoute(-1, false); FullRoute(1, true); Impacts(); Authoring();
+            foreach (bool second in new[] { false, true })
+            {
+                characterTwo = second;
+                air = Enumerable.Range(1, 3).Select(i => AssetDatabase.LoadAssetAtPath<AttackData>(Output + (second ? "/Characters/Character2/Character2_" : "/Attacks/") + "AirPunch" + i + ".asset")).ToArray();
+                Check(air.All(a => a), "Character " + (second ? 2 : 1) + ": all three existing air assets load");
+                Data(); RecoveryAndLanding(); Cancels(); FullRoute(1, false); FullRoute(-1, false); FullRoute(1, true); Impacts(); Authoring();
+            }
             passed = true;
         }
         catch (Exception exception) { results.Add("FAIL: " + exception); Debug.LogException(exception); }
@@ -59,7 +65,7 @@ public static class AirPunchPlaytestValidation
     private static void Fixture(bool contact = false, int facing = 1)
     {
         DestroyFixture();
-        playerObject = UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(Output + "/Prefabs/BlueShirtGuy.prefab"));
+        playerObject = UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(Output + (characterTwo ? "/Characters/Character2/Character2.prefab" : "/Prefabs/BlueShirtGuy.prefab")));
         enemyObject = UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(Output + "/Prefabs/BadGuy.prefab"));
         player = playerObject.GetComponent<ComboController>(); enemy = enemyObject.GetComponent<EnemyHitReaction>();
         enemyObject.GetComponent<EnemyCombat>().enabled = false;
@@ -78,7 +84,7 @@ public static class AirPunchPlaytestValidation
     }
     private static void Data()
     {
-        int[] total = { 23, 24, 36 }, first = { 6, 6, 10 }, last = { 10, 10, 17 }, stop = { 3, 4, 6 }, stun = { 17, 19, 24 };
+        int[] total = { 27, 28, 42 }, first = { 7, 7, 12 }, last = { 12, 12, 20 }, stop = { 3, 4, 6 }, stun = { 17, 19, 24 };
         float[] damage = { 7, 8, 13 };
         for (int p = 0; p < 3; p++)
         {
@@ -88,7 +94,7 @@ public static class AirPunchPlaytestValidation
             {
                 var frame = data.frames[i]; bool active = i >= first[p] && i <= last[p];
                 Check(frame.sprite && frame.hitboxes.Count == (active ? 1 : 0), data.name + " frame " + i + " sprite and active-only hitbox");
-                Check(frame.canCancelIntoAttack == (p < 2 && i >= 10 && i <= (p == 0 ? 19 : 20)) && !frame.canCancelIntoLauncher && !frame.canCancelIntoJump, data.name + " frame " + i + " cancel permissions");
+                Check(frame.canCancelIntoAttack == (p < 2 && i >= 12 && i <= (p == 0 ? 22 : 24)) && !frame.canCancelIntoLauncher && !frame.canCancelIntoJump, data.name + " frame " + i + " cancel permissions");
                 Check(frame.gravityScale == (p < 2 ? .85f : 1) && frame.movementInputScale == .3f && !frame.suspendFalling && !frame.setHorizontalVelocity && !frame.setVerticalVelocity, data.name + " frame " + i + " preserves momentum and permits gravity");
                 if (active)
                 {
@@ -120,16 +126,16 @@ public static class AirPunchPlaytestValidation
     }
     private static void Cancels()
     {
-        Fixture(); player.RequestJump(); player.RequestAttack(); Step(7); player.RequestAttack(); Step(2);
+        Fixture(); player.RequestJump(); player.RequestAttack(); Step(9); player.RequestAttack(); Step(2);
         Check(player.CurrentAttack == air[0] && player.BufferedInput == CombatInput.Attack, "Early air input uses the existing six-frame buffer"); Step(1);
-        Check(player.CurrentAttack == air[1] && player.attackPlayer.CurrentFrame == 0, "AirPunch1 cancels directly into AirPunch2 on final active frame 10");
-        Step(10); player.RequestAttack(); Check(player.CurrentAttack == air[2], "AirPunch2 cancels directly into AirPunch3 on frame 10");
-        Step(36); player.RequestAttack(); Step(2);
+        Check(player.CurrentAttack == air[1] && player.attackPlayer.CurrentFrame == 0, "AirPunch1 cancels directly into AirPunch2 on final active frame 12");
+        Step(12); player.RequestAttack(); Check(player.CurrentAttack == air[2], "AirPunch2 cancels directly into AirPunch3 on frame 12");
+        Step(air[2].TotalFrames); player.RequestAttack(); Step(2);
         Check(!player.CurrentAttack && !player.motor.IsGrounded, "Finisher cannot restart AirPunch1 during the same jump");
         foreach (int p in new[] { 0, 1 })
         {
-            Fixture(); player.RequestJump(); player.RequestAttack(); if (p == 1) { Step(10); player.RequestAttack(); }
-            Step(p == 0 ? 19 : 20); player.RequestAttack();
+            Fixture(); player.RequestJump(); player.RequestAttack(); if (p == 1) { Step(12); player.RequestAttack(); }
+            Step(p == 0 ? 22 : 24); player.RequestAttack();
             Check(player.CurrentAttack == air[p + 1], air[p].name + " cancel includes its final legal frame");
         }
     }
@@ -175,9 +181,17 @@ public static class AirPunchPlaytestValidation
             var data = air[p]; var hit = data.frames[data.FirstActiveFrame].hitboxes[0]; player.attackPlayer.Play(data);
             Step(data.FirstActiveFrame - 1); Check(enemy.health.Current == 500, data.name + " startup has no hitbox"); Step(1);
             Check(enemy.health.Current == 500 - hit.damage && enemy.RecoveryFrames == hit.hitstunFrames && player.attackPlayer.HitstopRemaining == hit.hitstopFrames, data.name + " applies correct first-active damage, hitstun and hitstop");
+            var feedback = player.GetComponent<AttackFeedback>();
+            Check(feedback && feedback.ImpactCount == 1 && feedback.LastImpact, data.name + " accepted hit displays its impact VFX");
+            if (p == 2)
+                Check(data.feedback.impactScale == .24f && feedback.LastImpact.GetComponentsInChildren<ParticleSystem>().Length > 0,
+                    data.name + " finisher uses the larger particle burst");
             float height = enemy.motor.Height; int frame = player.attackPlayer.CurrentFrame; Step(hit.hitstopFrames);
             Check(enemy.motor.Height == height && player.attackPlayer.CurrentFrame == frame && enemy.RecoveryFrames == hit.hitstunFrames, data.name + " hitstop preserves airborne height, timeline and hitstun");
             Step(40); Check(enemy.health.Current == 500 - hit.damage, data.name + " shared Hit ID prevents duplicate damage");
+            Fixture(); player.RequestJump(); player.attackPlayer.Play(data); Step(data.FirstActiveFrame);
+            Check(player.GetComponent<AttackFeedback>().ImpactCount == 0 && !player.GetComponent<AttackFeedback>().LastImpact,
+                data.name + " miss does not display a false impact");
         }
         Fixture(); enemy.motor.Launch(1, 0); var finisher = AttackFrameAuthoring.CloneBox(air[2].frames[air[2].FirstActiveFrame].hitboxes[0]); finisher.launchVelocity.y = -11;
         enemy.Receive(finisher, 1); Check(enemy.motor.VerticalVelocity == -11, "Editing finisher Launch Velocity Y directly changes downward enemy speed");

@@ -1,6 +1,3 @@
-PASS: Scene marker preview is render-only, with no gameplay scripts or triggers
-PASS: All three Stage 1 route markers preview as separate sprites
-PASS: Preview and clear preserve authored stage data
 PASS: Stage 1 has initial approach, between-encounter and final exit markers
 PASS: Marker prefab cannot block movement or create a new transition
 PASS: Route selects Entrance approach
@@ -20,18 +17,20 @@ PASS: Approaching the next encounter increases marker brightness/pulse proximity
 PASS: Rendered actual Stage 1 world marker: BetweenEncounters
 PASS: Second encounter active: world marker, NEXT and edge guidance are hidden
 PASS: Second encounter keeps its authored enemy groups
-PASS: Route selects Stage 1 exit
-PASS: Exactly the relevant world marker is visible
-PASS: Final marker identifies the actual stage transition radius center
+PASS: Final enemy defeat immediately spawns the chapel before visiting the exit
+PASS: Chapel appears while the player remains away from the exit
+PASS: Final fight cleared, chapel pending: world marker, NEXT and edge guidance are hidden
+PASS: Exit stays locked until the chapel reward is resolved
 PASS: Combat clear does not teleport or automatically advance the player
-PASS: Rendered actual Stage 1 world marker: StageExit
-PASS: Existing ReachExit reward flow begins on physical exit entry
-PASS: World reward pending: world marker, NEXT and edge guidance are hidden
+PASS: Waiting after combat does not duplicate the chapel
 PASS: Player approaches and interacts with the existing reward chapel
 PASS: Reward choosing: world marker, NEXT and edge guidance are hidden
 PASS: Player approaches and selects an existing world upgrade
 PASS: Route selects Stage 1 exit
 PASS: Exactly the relevant world marker is visible
+PASS: After the reward, the final marker identifies the actual stage transition radius center
+PASS: Rendered actual Stage 1 world marker: StageExit
+PASS: Breakable route obstacles cleared before testing the exit transition
 PASS: Physically reaching exit continues to the original next stage
 PASS: Transition immediately disables all old marker visuals
 PASS: Stage 1 guidance does not leak into the next stage

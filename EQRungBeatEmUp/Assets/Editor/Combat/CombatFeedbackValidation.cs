@@ -45,17 +45,21 @@ public static class CombatFeedbackValidation
     }
     static void Poll()
     {
+        const string request="Temp/CombatFeedbackValidation.request";
+        if(File.Exists(request)&&!EditorApplication.isPlayingOrWillChangePlaymode&&!EditorApplication.isCompiling&&!EditorApplication.isUpdating)
+        { File.Delete(request); Run(); return; }
         if(!SessionState.GetBool(Pending,false) || !EditorApplication.isPlaying || EditorApplication.isCompiling) return;
         SessionState.SetBool(Pending,false); results.Clear(); bool passed=false;
         try
         {
             foreach(var actor in UnityEngine.Object.FindObjectsByType<CharacterMotor>(FindObjectsSortMode.None)) actor.gameObject.SetActive(false);
+            foreach(var flow in UnityEngine.Object.FindObjectsByType<StageFlowController>(FindObjectsSortMode.None)) flow.enabled=false;
             clock=UnityEngine.Object.FindFirstObjectByType<CombatClock>();
             if(!clock) clock=new GameObject("Feedback validation clock").AddComponent<CombatClock>();
             clock.enabled=false;
-            foreach(string name in new[]{"Punch1","Punch2","Punch3","AirPunch1","AirPunch2","AirPunch3"})
+            foreach(string name in new[]{"Punch1","Punch2","Punch3","AirPunch1","AirPunch2","AirPunch3","Character2_AirPunch3"})
             {
-                var attack=AssetDatabase.LoadAssetAtPath<AttackData>(Root+"Attacks/"+name+".asset"); var data=attack.feedback;
+                var attack=AssetDatabase.LoadAssetAtPath<AttackData>(Root+(name.StartsWith("Character2_")?"Characters/Character2/":"Attacks/")+name+".asset"); var data=attack.feedback;
                 Check(data!=null && data.swingSound && data.impactSound && data.impactPrefab,name+" resolves both library sounds and VFX prefab");
                 Check(attack.frames.SelectMany(f=>f.events).Count(e=>e=="Swing")==1 && attack.frames[attack.FirstActiveFrame].events.Contains("Swing"),name+" swing is authored exactly once on first active frame");
                 foreach(int facing in new[]{1,-1})
@@ -108,8 +112,12 @@ public static class CombatFeedbackValidation
     }
     static void Capture(string name,GameObject effect)
     {
+        var transforms=player.GetComponentsInChildren<Transform>(true).Concat(enemy.GetComponentsInChildren<Transform>(true)).Concat(effect.GetComponentsInChildren<Transform>(true)).ToArray();
+        var layers=transforms.Select(t=>t.gameObject.layer).ToArray();
+        foreach(var t in transforms)t.gameObject.layer=31;
         foreach(var p in effect.GetComponentsInChildren<ParticleSystem>()) p.Simulate(.06f,false,true);
         var cameraObject=new GameObject("Feedback validation camera"); var camera=cameraObject.AddComponent<Camera>();
+        camera.cullingMask=1<<31;
         camera.orthographic=true; camera.orthographicSize=1.25f; camera.clearFlags=CameraClearFlags.SolidColor; camera.backgroundColor=new Color(.07f,.09f,.13f);
         camera.transform.position=new Vector3(.45f,player.GetComponent<CharacterMotor>().Height+.45f,-10);
         var target=new RenderTexture(720,480,24); var previous=RenderTexture.active;
@@ -122,6 +130,6 @@ public static class CombatFeedbackValidation
             foreach(var renderer in effect.GetComponentsInChildren<ParticleSystemRenderer>()) bounds.Encapsulate(renderer.bounds);
             results.Add("INFO: "+name+" sampled VFX bounds: "+bounds.size);
         }
-        finally { RenderTexture.active=previous; camera.targetTexture=null; target.Release(); UnityEngine.Object.DestroyImmediate(target); UnityEngine.Object.DestroyImmediate(cameraObject); }
+        finally { for(int i=0;i<transforms.Length;i++)transforms[i].gameObject.layer=layers[i]; RenderTexture.active=previous; camera.targetTexture=null; target.Release(); UnityEngine.Object.DestroyImmediate(target); UnityEngine.Object.DestroyImmediate(cameraObject); }
     }
 }

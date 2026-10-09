@@ -133,11 +133,11 @@ public static class Character2Setup
     {
         string path=Root+"/Character2/"+name+".prefab";
         var controller=Controller(Root+"/Character2/"+name+".controller"); State(controller,"Idle",Clip(name,sprites,hold,false));
-        var go=new GameObject(name); GameObject prefab;
+        var go=new GameObject(name); go.AddComponent<GroundSortedEffect>(); GameObject prefab;
         try
         {
             var visual=new GameObject("Visual"); visual.transform.SetParent(go.transform,false);
-            var renderer=visual.AddComponent<SpriteRenderer>(); renderer.sprite=sprites[0]; renderer.sortingOrder=order; renderer.color=new Color(1,1,1,name=="WandBarrier" ? .7f : .8f);
+            var renderer=visual.AddComponent<SpriteRenderer>(); renderer.sprite=sprites[0]; renderer.sortingOrder=order; renderer.color=new Color(1,1,1,name=="WandBarrier" ? .42f : .45f);
             visual.transform.localPosition=position; visual.transform.localScale=scale;
             visual.AddComponent<Animator>().runtimeAnimatorController=controller;
             prefab=PrefabUtility.SaveAsPrefabAsset(go,path);
@@ -160,12 +160,12 @@ public static class Character2Setup
             if(frame>=24 && frame<=27) data.hitboxes.Add(new AttackHitboxData{hitId=901,repeatAfterFrames=0,groundArea=true,offset=Vector2.zero,size=new Vector2(4.5f,2.4f),laneTolerance=1.2f,damage=32,hitstunFrames=32,hitstopFrames=7,knockback=5,outwardGroundKnockback=true,hitType=HitType.Normal,canHitGrounded=true,canHitAirborne=true});
             cast.frames.Add(data);
         }
-        cast.feedback=new AttackFeedbackData{areaWarning=true,areaRingSprite=null,warningColor=new Color(.5f,.9f,1,.6f),waveColor=new Color(.7f,1,1,.85f),swingSound=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Deadly Kombat Free version/punch_long_whoosh_21.wav"),swingVolume=.65f};
+        cast.feedback=new AttackFeedbackData{areaWarning=true,areaRingSprite=null,warningColor=new Color(.35f,.8f,1,.3f),waveColor=new Color(.6f,1,1,.22f),swingSound=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Deadly Kombat Free version/punch_long_whoosh_21.wav"),swingVolume=.65f};
         cast.artworkNotes="Original Wand Barrier: 48 logical frames. Guardian event on zero-based frame 16; area hitboxes active 24–27 with one shared hit ID; recovery 28–47. Uses existing ground-area and outward recoil, not a projectile or a separate damage system.";
         var skill=Asset<PlayerSkillData>(SkillPath); skill.displayName="Wand Barrier"; skill.meterCost=1; skill.cast=cast;
         skill.delivery=PlayerSkillDelivery.Area; skill.projectilePrefab=null; skill.releaseEvent="BarrierPulse"; skill.guardianEvent="RaiseBarrier";
-        skill.guardianFeedback=Effect("WandBarrier",Sprites("Barrier",8),5,.68f,-20,new Vector3(0,.8f,0),new Vector3(1.84f,.8f,1));
-        skill.releaseFeedback=Effect("BarrierPulse",Sprites("Pulse",4),5,.4f,150,Vector3.zero,new Vector3(1.84f,.9f,1));
+        skill.guardianFeedback=Effect("WandBarrier",Sprites("Barrier",8),5,.68f,-20,new Vector3(0,.95f,0),new Vector3(1.2f,1.05f,1));
+        skill.releaseFeedback=Effect("BarrierPulse",Sprites("Pulse",4),5,.4f,-10,Vector3.zero,new Vector3(1.4f,.9f,1));
         EditorUtility.SetDirty(cast); EditorUtility.SetDirty(skill); return skill;
     }
 }

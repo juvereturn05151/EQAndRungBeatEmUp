@@ -19,9 +19,9 @@ MonoBehaviour:
   requiresAirborne: 0
   landingFrame: -1
   airborneHoldFrame: -1
-  artworkNotes: Character 2 sprites; gameplay frame values, hitboxes, movement, cancels
-    and bounce flags copied from AirPunch3. Tune independently in the Frame Attack
-    Editor.
+  artworkNotes: 'Air timing polish: 15% longer: 36 -> 42 combat frames. Frame-entry
+    cues occur once; damage, hitstop, gravity, impulses and hit IDs retained. Dive
+    landing/hold indices remapped. Timings editable in Frame Attack Editor.'
   feedback:
     areaWarning: 0
     directionalWaveWarning: 0
@@ -36,9 +36,26 @@ MonoBehaviour:
     impactSound: {fileID: 8300000, guid: 05d0536a3eefc80438f95f9662331f52, type: 3}
     swingVolume: 0.42
     impactVolume: 0.65
-    impactPrefab: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
-    impactScale: 0.18
-    impactLifetime: 0.5
+    swingPrefab: {fileID: 0}
+    swingOffset: {x: 0, y: 0}
+    swingRotation: 0
+    swingMirrorWithFacing: 1
+    swingScale: 0.15
+    swingLifetime: 0.35
+    diveStartPrefab: {fileID: 0}
+    landingPrefab: {fileID: 0}
+    landingSound: {fileID: 0}
+    landingVolume: 0.65
+    diveStartScale: 0.2
+    landingScale: 0.25
+    diveStartLifetime: 0.3
+    landingLifetime: 0.6
+    impactPrefab: {fileID: 5880797563127281583, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+    impactRotateWithFacing: 0
+    impactScale: 0.24
+    impactLifetime: 0.6
+    impactShakeStrength: 0
+    impactShakeDuration: 0
   frames:
   - sprite: {fileID: 21300000, guid: 808616bafd838484e8afd467916bb252, type: 3}
     hitboxes: []
@@ -117,6 +134,44 @@ MonoBehaviour:
     superArmor: 0
     events: []
   - sprite: {fileID: 21300000, guid: 808616bafd838484e8afd467916bb252, type: 3}
+    hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
+    movement: {x: 0, y: 0}
+    movementInputScale: 0.3
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 808616bafd838484e8afd467916bb252, type: 3}
+    hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
+    movement: {x: 0, y: 0}
+    movementInputScale: 0.3
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 11a16e58b99baa2449a60dd459678322, type: 3}
     hitboxes: []
     grabHitboxes: []
     grabLungeMovementScale: 0
@@ -622,6 +677,114 @@ MonoBehaviour:
       canBeParried: 1
       blockDamage: 0
       blockstunFrames: 10
+    grabHitboxes: []
+    grabLungeMovementScale: 0
+    movement: {x: 0, y: 0}
+    movementInputScale: 0.3
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 5da864db06f4260428e7b49ab6ebc166, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.48, y: 0.48}
+      size: {x: 0.82, y: 0.86}
+      groundArea: 0
+      laneTolerance: 0.55
+      damage: 13
+      hitstunFrames: 24
+      hitstopFrames: 6
+      knockback: 1
+      outwardGroundKnockback: 0
+      launchVelocity: {x: 0, y: -8}
+      hitType: 2
+      stunDurationFrames: 90
+      knockdownDurationFrames: -1
+      forceAirborneTargetDownward: 1
+      groundBounce: 1
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
+      canHitGrounded: 0
+      canHitAirborne: 1
+      unblockable: 0
+      canBeParried: 1
+      blockDamage: 0
+      blockstunFrames: 10
+    grabHitboxes: []
+    grabLungeMovementScale: 0
+    movement: {x: 0, y: 0}
+    movementInputScale: 0.3
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 5f1aaf6a39ea9194b89d242f4aa97b71, type: 3}
+    hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
+    movement: {x: 0, y: 0}
+    movementInputScale: 0.3
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 5f1aaf6a39ea9194b89d242f4aa97b71, type: 3}
+    hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
+    movement: {x: 0, y: 0}
+    movementInputScale: 0.3
+    setHorizontalVelocity: 0
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 5f1aaf6a39ea9194b89d242f4aa97b71, type: 3}
+    hitboxes: []
     grabHitboxes: []
     grabLungeMovementScale: 0
     movement: {x: 0, y: 0}

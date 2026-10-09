@@ -71,10 +71,10 @@ public static class Character2PolishSetup
             for(int e=0;e<events.Count;e++) { if(events[e]=="SummonGuardian") events[e]=skill.guardianEvent; if(events[e]=="SpiritBlast") events[e]=skill.releaseEvent; }
         }
         cast.feedback.areaRingSprite=null; // Shared crisp pixel ring maps exactly to the damage ellipse.
-        cast.feedback.warningColor=new Color(.35f,.8f,1,.55f); cast.feedback.waveColor=new Color(.6f,1,1,.85f);
+        cast.feedback.warningColor=new Color(.35f,.8f,1,.3f); cast.feedback.waveColor=new Color(.6f,1,1,.22f);
         cast.artworkNotes="Wand drawn in startup, protective barrier appears at frame 16, surrounding pulse hits at frames 24–27, recovery through 47. Existing shared one-bar area skill and recoil. No guardian summon.";
-        Effect(skill.guardianFeedback,"WandBarrier","Barrier",8,5,.68f,-20,new Vector3(0,.8f,0),new Vector3(1.84f,.8f,1));
-        Effect(skill.releaseFeedback,"BarrierPulse","Pulse",4,5,.4f,150,Vector3.zero,new Vector3(1.84f,.9f,1));
+        Effect(skill.guardianFeedback,"WandBarrier","Barrier",8,5,.68f,-20,new Vector3(0,.95f,0),new Vector3(1.2f,1.05f,1));
+        Effect(skill.releaseFeedback,"BarrierPulse","Pulse",4,5,.4f,-10,Vector3.zero,new Vector3(1.4f,.9f,1));
         EditorUtility.SetDirty(cast); EditorUtility.SetDirty(skill);
         ArchiveLegacyEffects(); AssetDatabase.SaveAssets(); MultiplayerSetup.Build();
     }
@@ -99,8 +99,8 @@ public static class Character2PolishSetup
         var go=PrefabUtility.LoadPrefabContents(AssetDatabase.GetAssetPath(prefab));
         try
         {
-            go.name=name; var renderer=go.GetComponentInChildren<SpriteRenderer>();
-            renderer.sprite=Sprite(sprites+"_01"); renderer.sortingOrder=order; renderer.color=new Color(1,1,1,name=="WandBarrier" ? .7f : .8f); renderer.transform.localPosition=position; renderer.transform.localScale=scale;
+            go.name=name; if(!go.GetComponent<GroundSortedEffect>()) go.AddComponent<GroundSortedEffect>(); var renderer=go.GetComponentInChildren<SpriteRenderer>();
+            renderer.sprite=Sprite(sprites+"_01"); renderer.sortingOrder=order; renderer.color=new Color(1,1,1,name=="WandBarrier" ? .42f : .45f); renderer.transform.localPosition=position; renderer.transform.localScale=scale;
             var animator=go.GetComponentInChildren<Animator>();
             var clip=animator.runtimeAnimatorController.animationClips.Single(); clip.name="Character2_"+name;
             var binding=AnimationUtility.GetObjectReferenceCurveBindings(clip).Single();

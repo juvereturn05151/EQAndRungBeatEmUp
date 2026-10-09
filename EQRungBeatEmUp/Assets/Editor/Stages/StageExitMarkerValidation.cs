@@ -17,6 +17,11 @@ public static class StageExitMarkerValidation
     static int entrance;
     static StageSegmentDefinition stage;
     static StageExitMarkerValidation(){EditorApplication.update+=Poll;}
+    [MenuItem("Beat Em Up/Stages/Validate existing next-area reward order (Play Mode)")]
+    public static void Run()
+    {
+        SessionState.SetString(Pending+".preview","");SessionState.SetBool(Pending,true);EditorApplication.EnterPlaymode();
+    }
     [MenuItem("Beat Em Up/Stages/Validate Stage 1 next-area guidance (Play Mode)")]
     public static void BuildAndValidate()
     {
@@ -62,6 +67,9 @@ public static class StageExitMarkerValidation
     }
     static void Poll()
     {
+        const string request="Temp/StageRewardOrderValidation.request";
+        if(File.Exists(request)&&!EditorApplication.isPlayingOrWillChangePlaymode&&!EditorApplication.isCompiling&&!EditorApplication.isUpdating)
+        {File.Delete(request);Run();return;}
         if(!SessionState.GetBool(Pending,false)||!EditorApplication.isPlaying||EditorApplication.isCompiling)return;
         SessionState.SetBool(Pending,false);results.Clear();results.AddRange(SessionState.GetString(Pending+".preview","").Split(new[]{'\n'},StringSplitOptions.RemoveEmptyEntries));bool passed=false;
         try
@@ -69,6 +77,14 @@ public static class StageExitMarkerValidation
             flow=Object.FindFirstObjectByType<StageFlowController>();Object.FindFirstObjectByType<CombatClock>().enabled=false;
             flow.player.GetComponent<PlayerCombatInput>().enabled=false;flow.level=Object.Instantiate(flow.level);
             entrance=flow.level.stages.FindIndex(s=>s.stageId=="Stage01_EntranceGate");stage=flow.level.stages[entrance];
+            // Exercise every guidance state on the runtime clone, preserving the authored route.
+            var prefab=AssetDatabase.LoadAssetAtPath<GameObject>(StageExitMarkerSetup.Prefab);
+            stage.nextAreaMarkers=new List<NextAreaMarkerDefinition>
+            {
+                new NextAreaMarkerDefinition{markerId="Entrance approach",markerPrefab=prefab,target=NextAreaTarget.EncounterEntry,targetEncounterId=stage.encounters[0].encounterId,showAfter=NextAreaShowAfter.Immediately},
+                new NextAreaMarkerDefinition{markerId="After first fight",markerPrefab=prefab,target=NextAreaTarget.EncounterEntry,targetEncounterId=stage.encounters[1].encounterId,showAfter=NextAreaShowAfter.EncounterComplete,afterEncounterId=stage.encounters[0].encounterId},
+                new NextAreaMarkerDefinition{markerId="Stage 1 exit",markerPrefab=prefab,target=NextAreaTarget.StageExit,showAfter=NextAreaShowAfter.SequenceComplete}
+            };
             FullRoute();AdditionalConditions();passed=true;
         }
         catch(Exception e){results.Add("FAIL: "+e);Debug.LogException(e);}
@@ -108,20 +124,27 @@ public static class StageExitMarkerValidation
         Render("BetweenEncounters",marker);
         Walk(second.triggerZone.center,()=>flow.ActiveEncounterName==second.encounterId);Tick(2);
         Hidden("Second encounter active");Check(flow.LivingEnemies.Count()==second.waves.SelectMany(w=>w.enemySpawns).Sum(s=>s.count),"Second encounter keeps its authored enemy groups");
-        Defeat();Visible("Stage 1 exit");marker=flow.ExitMarkers.Single(m=>m.Visible);
-        Check((marker.transform.position-(Vector3)stage.playerExitPoint).sqrMagnitude<.0001f,"Final marker identifies the actual stage transition radius center");
+        Defeat();
+        Check(flow.WorldRewards&&flow.WorldRewards.IsPending&&flow.WorldRewards.Chapel,"Final enemy defeat immediately spawns the chapel before visiting the exit");
+        Check(Vector2.Distance(flow.player.transform.position,stage.playerExitPoint)>stage.exitRadius,"Chapel appears while the player remains away from the exit");
+        Hidden("Final fight cleared, chapel pending");
+        Check(!flow.ExitUnlocked&&!flow.TryAdvance(),"Exit stays locked until the chapel reward is resolved");
         Check(flow.StageIndex==entrance,"Combat clear does not teleport or automatically advance the player");
-        Render("StageExit",marker);
-        Walk(new Vector2(2,flow.player.transform.position.y));
-        Walk(new Vector2(flow.player.transform.position.x,.55f));
-        Walk(new Vector2(stage.playerExitPoint.x,.55f));
-        Walk(stage.playerExitPoint,()=>flow.WorldRewards&&flow.WorldRewards.IsPending);
-        Check(flow.StageIndex==entrance&&flow.WorldRewards.IsPending,"Existing ReachExit reward flow begins on physical exit entry");Hidden("World reward pending");
+        var chapel=flow.WorldRewards.Chapel;Tick();Tick();
+        Check(flow.WorldRewards.Chapel==chapel,"Waiting after combat does not duplicate the chapel");
         flow.player.ResetForStage(flow.WorldRewards.Chapel.transform.position);Check(flow.WorldRewards.Interact(),"Player approaches and interacts with the existing reward chapel");Tick();Hidden("Reward choosing");
         var choice=flow.WorldRewards.ChoiceObjects.First();flow.player.ResetForStage(choice.transform.position);
         Check(flow.WorldRewards.Interact(),"Player approaches and selects an existing world upgrade");Tick();
         Visible("Stage 1 exit");
+        marker=flow.ExitMarkers.Single(m=>m.Visible);
+        Check((marker.transform.position-(Vector3)stage.playerExitPoint).sqrMagnitude<.0001f,"After the reward, the final marker identifies the actual stage transition radius center");
+        Render("StageExit",marker);
         var oldMarkers=flow.ExitMarkers.ToArray();
+        // Clear breakable route obstacles so this checks progression independently of prop layout.
+        var propHit=new AttackHitboxData{damage=100000,laneTolerance=100};
+        foreach(var prop in flow.Destructibles)
+            for(int hit=0;hit<1000&&!prop.IsBroken;hit++)prop.Receive(propHit,1,flow.player);
+        Check(flow.Destructibles.All(p=>p.IsBroken),"Breakable route obstacles cleared before testing the exit transition");
         Walk(new Vector2(flow.player.transform.position.x,.15f));
         Walk(new Vector2(stage.playerExitPoint.x,.15f),()=>flow.StageIndex!=entrance);
         Check(flow.StageIndex==entrance+1,"Physically reaching exit continues to the original next stage");

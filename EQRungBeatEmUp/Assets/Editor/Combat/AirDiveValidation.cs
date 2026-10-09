@@ -29,6 +29,12 @@ public static class AirDiveValidation
         if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
         EditorSceneManager.OpenScene(CombatDemoBuilder.ScenePath); SessionState.SetBool(Pending, true); EditorApplication.EnterPlaymode();
     }
+    [MenuItem("Beat Em Up/Combat/Validate air dive in current scene (Play Mode)")]
+    public static void RunExisting()
+    {
+        if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling) return;
+        SessionState.SetBool(Pending, true); EditorApplication.EnterPlaymode();
+    }
     static void Check(bool pass, string label) { if (!pass) throw new Exception(label); results.Add("PASS: " + label); }
     static void Step(int frames) { for (int i = 0; i < frames; i++) clock.StepFrame(); }
     static void Fixture()
@@ -60,7 +66,8 @@ public static class AirDiveValidation
             Fixture(); player.airDive = AssetDatabase.LoadAssetAtPath<AttackData>(path);
             var cue = player.airDive.feedback;
             Check(cue.swingSound && cue.impactSound && cue.landingSound && cue.diveStartPrefab && cue.impactPrefab && cue.landingPrefab, path + ": all dive VFX/SFX assigned");
-            player.motor.Face(facing); player.motor.Launch(24, 0); Step(25); player.RequestLauncher(); Step(5);
+            player.motor.Face(facing); player.motor.Launch(24, 0); Step(25); player.RequestLauncher();
+            Step(player.airDive.frames.FindIndex(f => f.events.Contains("DiveWhoosh")));
             var fx = player.GetComponent<AttackFeedback>();
             Check(fx && fx.DiveStartCount == 1 && fx.LandingCount == 0 && fx.LastSound.clip == cue.swingSound && fx.LastImpact,
                 "Dive start emits one visual/whoosh before landing, facing " + facing);
@@ -204,6 +211,8 @@ public static class AirDiveValidation
     }
     static void Poll()
     {
+        if (!EditorApplication.isCompiling && !EditorApplication.isUpdating && !EditorApplication.isPlayingOrWillChangePlaymode && File.Exists("Temp/AirDiveExistingValidation.request"))
+        { File.Delete("Temp/AirDiveExistingValidation.request"); RunExisting(); return; }
         if (!EditorApplication.isCompiling && !EditorApplication.isPlayingOrWillChangePlaymode && File.Exists("Temp/AirDiveValidation.request"))
         { File.Delete("Temp/AirDiveValidation.request"); Run(); return; }
         if (!SessionState.GetBool(Pending, false) || !EditorApplication.isPlaying || EditorApplication.isCompiling) return;
@@ -213,12 +222,13 @@ public static class AirDiveValidation
         try
         {
             foreach (var motor in UnityEngine.Object.FindObjectsByType<CharacterMotor>(FindObjectsSortMode.None)) motor.gameObject.SetActive(false);
+            foreach (var flow in UnityEngine.Object.FindObjectsByType<StageFlowController>(FindObjectsSortMode.None)) flow.enabled = false;
             foreach (var framing in UnityEngine.Object.FindObjectsByType<StageFraming>(FindObjectsSortMode.None)) framing.enabled = false;
             foreach (var wall in UnityEngine.Object.FindObjectsByType<CombatWall>(FindObjectsSortMode.None)) wall.gameObject.SetActive(false);
             clock = UnityEngine.Object.FindFirstObjectByType<CombatClock>(); clock.enabled = false;
             InputSystem.settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus; InputSystem.settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView; keyboard = InputSystem.AddDevice<Keyboard>(); gamepad = InputSystem.AddDevice<Gamepad>();
             GroundedLauncherChecks(); LauncherFeedbackChecks(); DiveFeedbackChecks();
-            Fixture(); Check(player.airDive && player.airDive.TotalFrames == 24 && player.airDive.FirstActiveFrame == 7 && player.airDive.LastActiveFrame == 13, "Authored24-frame attack with seven active frames");
+            Fixture(); Check(player.airDive && player.airDive.TotalFrames == 28 && player.airDive.FirstActiveFrame == 9 && player.airDive.LastActiveFrame == 16, "Authored 28-frame dive with eight active frames");
             Check(!player.attackPlayer.Play(player.airDive), "TEST5: direct grounded Play cannot activate airborne-only dive");
             player.RequestLauncher(); Check(player.CurrentAttack == player.launcher && !player.IsAirDiving, "Grounded Launcher keeps existing launcher behavior");
             Fixture(); Jump(); float x = player.transform.position.x, h = player.motor.Height; player.RequestLauncher();
@@ -238,7 +248,7 @@ public static class AirDiveValidation
             Fixture(); player.motor.Face(-1); Jump(); x = player.transform.position.x; player.RequestLauncher(); Step(9);
             Check(player.transform.position.x < x && player.motor.sprite.flipX, "Facing left mirrors diagonal travel and pose"); FinishDive();
             Fixture(); player.motor.Launch(24, 0); Step(25); player.RequestLauncher(); Step(20);
-            Check(!player.motor.IsGrounded && player.attackPlayer.CurrentFrame == 13 && player.IsAirDiving, "High dive holds active travel pose instead of showing midair impact/recovery"); FinishDive();
+            Check(!player.motor.IsGrounded && player.attackPlayer.CurrentFrame == player.airDive.airborneHoldFrame && player.IsAirDiving, "High dive holds active travel pose instead of showing midair impact/recovery"); FinishDive();
             Fixture(); Jump(); player.RequestLauncher(); Step(6); player.Interrupt(10);
             Check(!player.CurrentAttack && player.AirDiveUsed && player.motor.FrameGravityScale == 1 && player.motor.AttackHorizontalVelocity == 0, "Interruption clears dive physics but does not refresh airborne use");
             Step(12); player.RequestLauncher(); Check(!player.IsAirDiving, "Interrupted dive cannot repeat before floor contact");
@@ -247,7 +257,7 @@ public static class AirDiveValidation
             Fixture(); player.RequestLauncher(); Step(player.launcher.frames.FindIndex(f => f.canCancelIntoJump)); player.RequestJump(); Step(12); player.RequestLauncher();
             Check(player.IsAirDiving, "Manual jump out of grounded Launcher can choose the airborne headbutt"); FinishDive();
             var dive = player.airDive;
-            foreach (var frame in dive.frames.Skip(7).Take(7)) Check(frame.hitboxes.Count == 1 && frame.hitboxes[0].offset.x > .3f && frame.hitboxes[0].offset.y < .4f && frame.hitboxes[0].size.x <= .5f, "TEST8: compact active box stays on low front/head, not trailing legs");
+            foreach (var frame in dive.frames.Skip(dive.FirstActiveFrame).Take(dive.ActiveFrames)) Check(frame.hitboxes.Count == 1 && frame.hitboxes[0].offset.x > .3f && frame.hitboxes[0].offset.y < .4f && frame.hitboxes[0].size.x <= .5f, "TEST8: compact active box stays on low front/head, not trailing legs");
             foreach (var sprite in dive.frames.Select(f => f.sprite).Distinct()) Check(sprite && sprite.rect.width == 160 && sprite.rect.height == 128 && sprite.pixelsPerUnit == 100 && sprite.pivot == new Vector2(80, 8), "TEST9: pose canvas, scale and ground pivot match existing sprites");
             mouse = InputSystem.AddDevice<Mouse>();
             Fixture(); po.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Keyboard&Mouse", keyboard, mouse); po.GetComponent<PlayerCombatInput>().enabled = true; po.GetComponent<PlayerCombatInput>().SendMessage("Start"); Step(1);

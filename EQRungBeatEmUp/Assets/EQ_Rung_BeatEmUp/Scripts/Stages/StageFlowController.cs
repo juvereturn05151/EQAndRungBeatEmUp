@@ -35,7 +35,9 @@ namespace BeatEmUp
         public string ActiveEncounterName => encounters.FirstOrDefault(e => e.definition.enabled && e.started && !e.completed)?.definition.encounterId;
         public Rect? ActiveCameraBounds => encounters.FirstOrDefault(e => e.definition.enabled && e.started && !e.completed && e.definition.useCombatBounds && e.definition.lockCamera)?.definition.cameraBounds;
         private bool HasAuthority => !MultiplayerSession.Active || MultiplayerSession.Active.IsAuthority;
-        public bool ExitUnlocked => CompletionSatisfied && !(RunUpgrades && RunUpgrades.IsChoosing) && !(WorldRewards && WorldRewards.IsPending) && !(CoopRewards && CoopRewards.Pending);
+        public bool ExitUnlocked => CompletionSatisfied &&
+            (CurrentStage.rewardAfterClear != StageReward.UpgradeChoice || rewardedStages.Contains(RewardKey)) &&
+            !(RunUpgrades && RunUpgrades.IsChoosing) && !(WorldRewards && WorldRewards.IsPending) && !(CoopRewards && CoopRewards.Pending);
         public bool CompletionSatisfied => CurrentStage != null && !LevelCompleted && string.IsNullOrEmpty(Failure) &&
             !encounters.Any(e => e.definition.enabled && e.started && !e.completed && e.definition.lockStageUntilClear) &&
             (CurrentStage.completionMode == StageCompletion.ReachExit && EncountersComplete ||
@@ -304,7 +306,9 @@ namespace BeatEmUp
             ApplyEncounterLocks();
             foreach (var actor in Players) previousPlayerPositions[actor] = actor.transform.position;
             bool atExit = LivingPlayers.Any(p=>p.IsGrounded && !p.attackPlayer.CurrentAttack && !p.MovementLocked && Vector2.Distance(p.transform.position, CurrentStage.playerExitPoint) <= CurrentStage.exitRadius);
-            if (CompletionSatisfied && (CurrentStage.completionMode != StageCompletion.ReachExit || atExit)) GrantStageReward();
+            // The chapel follows encounter completion, before any exit guidance or travel.
+            if (CompletionSatisfied && (CurrentStage.rewardAfterClear == StageReward.UpgradeChoice ||
+                CurrentStage.completionMode != StageCompletion.ReachExit || atExit)) GrantStageReward();
             if (ExitUnlocked && atExit) TryAdvance();
             RefreshExitMarkers();
         }
@@ -400,12 +404,12 @@ namespace BeatEmUp
         public bool TryAdvance()
         {
             if (!HasAuthority) return false;
-            if (!ExitUnlocked || !player || !LivingPlayers.Any())
+            if (!CompletionSatisfied || !player || !LivingPlayers.Any())
             { 
                 return false; 
             }
             
-            if (!GrantStageReward()) 
+            if (!GrantStageReward() || !ExitUnlocked)
             { 
                 return false; 
             }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6966557953793206750}
+  - component: {fileID: 365126028877776553}
   m_Layer: 0
   m_Name: WandBarrier
   m_TagString: Untagged
@@ -32,6 +33,18 @@ Transform:
   - {fileID: 4505336960709212367}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &365126028877776553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065978068052983851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17971650f3ba11743ada315b59770b5b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.GroundSortedEffect
 --- !u!1 &3264303964707206195
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,8 +72,8 @@ Transform:
   m_GameObject: {fileID: 3264303964707206195}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
-  m_LocalScale: {x: 1.84, y: 0.8, z: 1}
+  m_LocalPosition: {x: 0, y: 0.95, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6966557953793206750}
@@ -115,7 +128,7 @@ SpriteRenderer:
   m_SortingOrder: -20
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 06b5b34ccbf60ef4d8a6a92838945f41, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.42}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

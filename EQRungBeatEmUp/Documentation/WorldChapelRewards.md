@@ -2,7 +2,7 @@
 
 Open HauntedHouse.unity after Unity recompiles. Clear a stage whose **Reward After Clear** is **UpgradeChoice**:
 
-1. Stage clear spawns one blessing chapel. No upgrade popup appears and gameplay is not paused.
+1. Defeating the final required wave spawns one blessing chapel immediately, including in ReachExit stages. The player does not need to visit the exit first, and NEXT guidance remains hidden until the reward is resolved. No upgrade popup appears and gameplay is not paused.
 2. Walk into range and press **E / gamepad Select**. Merely standing nearby does nothing.
 3. The chapel gives way to three floating world cards on pedestals. Each displays its upgrade name, short description, rarity color/label, and build tag.
 4. Walk to one card and press **E / gamepad Select** again. Only that upgrade is acquired through the existing RunBuildState.

@@ -17,32 +17,50 @@ MonoBehaviour:
   isLauncher: 0
   cooldownFrames: 0
   requiresAirborne: 1
-  landingFrame: 14
-  airborneHoldFrame: 13
-  artworkNotes: 'Head-first special. 0-4 startup, 5-6 travel, 7-13 active (13 holds
-    until landing), 14-16 impact, 17-23 recovery. Velocity5: forward6/down8; compact
-    head hitbox. Ground contact branches directly to14. Events: DiveWindup, DiveWhoosh,
-    DiveLanding. Edit all timings/physics/hits here.'
+  landingFrame: 17
+  airborneHoldFrame: 16
+  artworkNotes: 'Air timing polish: 15% longer: 24 -> 28 combat frames. Frame-entry
+    cues occur once; damage, hitstop, gravity, impulses and hit IDs retained. Dive
+    landing/hold indices remapped. Timings editable in Frame Attack Editor.'
   feedback:
+    areaWarning: 0
+    directionalWaveWarning: 0
+    areaRingSprite: {fileID: 0}
+    areaWaveSprites: []
+    warningColor: {r: 1, g: 0.35, b: 0.1, a: 0.8}
+    waveColor: {r: 1, g: 0.2, b: 0.3, a: 0.9}
+    telegraphSound: {fileID: 0}
+    screamSound: {fileID: 0}
+    areaVolume: 0.6
     swingSound: {fileID: 8300000, guid: a65d792d6907f744490c9b15bb70edfe, type: 3}
     impactSound: {fileID: 8300000, guid: d0f166575306db84091dc03fce0eff69, type: 3}
     swingVolume: 0.5
     impactVolume: 0.55
+    swingPrefab: {fileID: 0}
+    swingOffset: {x: 0, y: 0}
+    swingRotation: 0
+    swingMirrorWithFacing: 1
+    swingScale: 0.15
+    swingLifetime: 0.35
     diveStartPrefab: {fileID: 1429954232896169633, guid: 83036083a4ebcd34f98131bd3cf6f4d2, type: 3}
-    diveStartScale: 0.2
-    diveStartLifetime: 0.35
     landingPrefab: {fileID: 3432958286849152088, guid: 87ee7299dd44ed747af24dbb91bcd33b, type: 3}
     landingSound: {fileID: 8300000, guid: 2a295373a10441545bcaf619b61bea94, type: 3}
     landingVolume: 0.65
+    diveStartScale: 0.2
     landingScale: 0.25
+    diveStartLifetime: 0.35
     landingLifetime: 0.7
     impactPrefab: {fileID: 8525990746615576120, guid: b85d21f3b8fed714bacf0c4fd50fa512, type: 3}
     impactRotateWithFacing: 0
     impactScale: 0.15
     impactLifetime: 0.45
+    impactShakeStrength: 0
+    impactShakeDuration: 0
   frames:
   - sprite: {fileID: 21300000, guid: 326cc7d5937b51e40f52cbd892dcd65c, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -61,6 +79,27 @@ MonoBehaviour:
     - DiveWindup
   - sprite: {fileID: 21300000, guid: 326cc7d5937b51e40f52cbd892dcd65c, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 1
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 0
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 326cc7d5937b51e40f52cbd892dcd65c, type: 3}
+    hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -78,6 +117,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 756714cccdcfc2099582b48da3525a83, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -95,6 +136,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 756714cccdcfc2099582b48da3525a83, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -112,6 +155,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 756714cccdcfc2099582b48da3525a83, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -129,6 +174,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 9aa7860cc45607ad3df03edbd23aa8d0, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -147,6 +194,27 @@ MonoBehaviour:
     - DiveWhoosh
   - sprite: {fileID: 21300000, guid: 9aa7860cc45607ad3df03edbd23aa8d0, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 1
+    horizontalVelocity: 6
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 0.35
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: 9aa7860cc45607ad3df03edbd23aa8d0, type: 3}
+    hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -168,13 +236,17 @@ MonoBehaviour:
       repeatAfterFrames: 0
       offset: {x: 0.48, y: 0.2}
       size: {x: 0.42, y: 0.42}
+      groundArea: 0
       laneTolerance: 0.4
       damage: 14
       hitstunFrames: 22
       hitstopFrames: 6
       knockback: 1.2
+      outwardGroundKnockback: 0
       launchVelocity: {x: 0, y: -5}
       hitType: 2
+      stunDurationFrames: 90
+      knockdownDurationFrames: -1
       forceAirborneTargetDownward: 0
       groundBounce: 0
       groundBounceForce: {x: 0.6, y: 4.5}
@@ -189,8 +261,11 @@ MonoBehaviour:
       canHitGrounded: 1
       canHitAirborne: 1
       unblockable: 0
+      canBeParried: 1
       blockDamage: 0
       blockstunFrames: 10
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -212,13 +287,17 @@ MonoBehaviour:
       repeatAfterFrames: 0
       offset: {x: 0.48, y: 0.2}
       size: {x: 0.42, y: 0.42}
+      groundArea: 0
       laneTolerance: 0.4
       damage: 14
       hitstunFrames: 22
       hitstopFrames: 6
       knockback: 1.2
+      outwardGroundKnockback: 0
       launchVelocity: {x: 0, y: -5}
       hitType: 2
+      stunDurationFrames: 90
+      knockdownDurationFrames: -1
       forceAirborneTargetDownward: 0
       groundBounce: 0
       groundBounceForce: {x: 0.6, y: 4.5}
@@ -233,8 +312,11 @@ MonoBehaviour:
       canHitGrounded: 1
       canHitAirborne: 1
       unblockable: 0
+      canBeParried: 1
       blockDamage: 0
       blockstunFrames: 10
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -256,13 +338,17 @@ MonoBehaviour:
       repeatAfterFrames: 0
       offset: {x: 0.48, y: 0.2}
       size: {x: 0.42, y: 0.42}
+      groundArea: 0
       laneTolerance: 0.4
       damage: 14
       hitstunFrames: 22
       hitstopFrames: 6
       knockback: 1.2
+      outwardGroundKnockback: 0
       launchVelocity: {x: 0, y: -5}
       hitType: 2
+      stunDurationFrames: 90
+      knockdownDurationFrames: -1
       forceAirborneTargetDownward: 0
       groundBounce: 0
       groundBounceForce: {x: 0.6, y: 4.5}
@@ -277,8 +363,11 @@ MonoBehaviour:
       canHitGrounded: 1
       canHitAirborne: 1
       unblockable: 0
+      canBeParried: 1
       blockDamage: 0
       blockstunFrames: 10
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -300,13 +389,17 @@ MonoBehaviour:
       repeatAfterFrames: 0
       offset: {x: 0.48, y: 0.2}
       size: {x: 0.42, y: 0.42}
+      groundArea: 0
       laneTolerance: 0.4
       damage: 14
       hitstunFrames: 22
       hitstopFrames: 6
       knockback: 1.2
+      outwardGroundKnockback: 0
       launchVelocity: {x: 0, y: -5}
       hitType: 2
+      stunDurationFrames: 90
+      knockdownDurationFrames: -1
       forceAirborneTargetDownward: 0
       groundBounce: 0
       groundBounceForce: {x: 0.6, y: 4.5}
@@ -321,8 +414,11 @@ MonoBehaviour:
       canHitGrounded: 1
       canHitAirborne: 1
       unblockable: 0
+      canBeParried: 1
       blockDamage: 0
       blockstunFrames: 10
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -344,13 +440,17 @@ MonoBehaviour:
       repeatAfterFrames: 0
       offset: {x: 0.48, y: 0.2}
       size: {x: 0.42, y: 0.42}
+      groundArea: 0
       laneTolerance: 0.4
       damage: 14
       hitstunFrames: 22
       hitstopFrames: 6
       knockback: 1.2
+      outwardGroundKnockback: 0
       launchVelocity: {x: 0, y: -5}
       hitType: 2
+      stunDurationFrames: 90
+      knockdownDurationFrames: -1
       forceAirborneTargetDownward: 0
       groundBounce: 0
       groundBounceForce: {x: 0.6, y: 4.5}
@@ -365,8 +465,11 @@ MonoBehaviour:
       canHitGrounded: 1
       canHitAirborne: 1
       unblockable: 0
+      canBeParried: 1
       blockDamage: 0
       blockstunFrames: 10
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -388,13 +491,17 @@ MonoBehaviour:
       repeatAfterFrames: 0
       offset: {x: 0.48, y: 0.2}
       size: {x: 0.42, y: 0.42}
+      groundArea: 0
       laneTolerance: 0.4
       damage: 14
       hitstunFrames: 22
       hitstopFrames: 6
       knockback: 1.2
+      outwardGroundKnockback: 0
       launchVelocity: {x: 0, y: -5}
       hitType: 2
+      stunDurationFrames: 90
+      knockdownDurationFrames: -1
       forceAirborneTargetDownward: 0
       groundBounce: 0
       groundBounceForce: {x: 0.6, y: 4.5}
@@ -409,8 +516,11 @@ MonoBehaviour:
       canHitGrounded: 1
       canHitAirborne: 1
       unblockable: 0
+      canBeParried: 1
       blockDamage: 0
       blockstunFrames: 10
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -432,13 +542,17 @@ MonoBehaviour:
       repeatAfterFrames: 0
       offset: {x: 0.48, y: 0.2}
       size: {x: 0.42, y: 0.42}
+      groundArea: 0
       laneTolerance: 0.4
       damage: 14
       hitstunFrames: 22
       hitstopFrames: 6
       knockback: 1.2
+      outwardGroundKnockback: 0
       launchVelocity: {x: 0, y: -5}
       hitType: 2
+      stunDurationFrames: 90
+      knockdownDurationFrames: -1
       forceAirborneTargetDownward: 0
       groundBounce: 0
       groundBounceForce: {x: 0.6, y: 4.5}
@@ -453,8 +567,62 @@ MonoBehaviour:
       canHitGrounded: 1
       canHitAirborne: 1
       unblockable: 0
+      canBeParried: 1
       blockDamage: 0
       blockstunFrames: 10
+    grabHitboxes: []
+    grabLungeMovementScale: 0
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 1
+    horizontalVelocity: 6
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 0.35
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  - sprite: {fileID: 21300000, guid: c2611be3fbeb1ec590e000f61364c3b3, type: 3}
+    hitboxes:
+    - hitId: 0
+      repeatAfterFrames: 0
+      offset: {x: 0.48, y: 0.2}
+      size: {x: 0.42, y: 0.42}
+      groundArea: 0
+      laneTolerance: 0.4
+      damage: 14
+      hitstunFrames: 22
+      hitstopFrames: 6
+      knockback: 1.2
+      outwardGroundKnockback: 0
+      launchVelocity: {x: 0, y: -5}
+      hitType: 2
+      stunDurationFrames: 90
+      knockdownDurationFrames: -1
+      forceAirborneTargetDownward: 0
+      groundBounce: 0
+      groundBounceForce: {x: 0.6, y: 4.5}
+      groundBounceGravity: 18
+      groundBounceRecoveryFrames: 21
+      maximumGroundBounces: 1
+      wallBounce: 0
+      wallBounceHorizontalForce: 4
+      wallBounceVerticalForce: 4
+      wallBounceHitstunFrames: 24
+      maximumWallBounces: 1
+      canHitGrounded: 1
+      canHitAirborne: 1
+      unblockable: 0
+      canBeParried: 1
+      blockDamage: 0
+      blockstunFrames: 10
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -472,6 +640,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: f49a99b82b2f263c846f3b80fba44b14, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -490,6 +660,8 @@ MonoBehaviour:
     - DiveLanding
   - sprite: {fileID: 21300000, guid: f49a99b82b2f263c846f3b80fba44b14, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -507,6 +679,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: f49a99b82b2f263c846f3b80fba44b14, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -524,6 +698,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 451051c66600725e1db429bdb3746ee7, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -541,6 +717,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 451051c66600725e1db429bdb3746ee7, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -558,6 +736,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 451051c66600725e1db429bdb3746ee7, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -575,6 +755,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 451051c66600725e1db429bdb3746ee7, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -592,6 +774,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 451051c66600725e1db429bdb3746ee7, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -609,6 +793,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 451051c66600725e1db429bdb3746ee7, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -626,6 +812,8 @@ MonoBehaviour:
     events: []
   - sprite: {fileID: 21300000, guid: 451051c66600725e1db429bdb3746ee7, type: 3}
     hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
     movement: {x: 0, y: 0}
     movementInputScale: 0
     setHorizontalVelocity: 1
@@ -641,3 +829,25 @@ MonoBehaviour:
     invulnerable: 0
     superArmor: 0
     events: []
+  - sprite: {fileID: 21300000, guid: 451051c66600725e1db429bdb3746ee7, type: 3}
+    hitboxes: []
+    grabHitboxes: []
+    grabLungeMovementScale: 0
+    movement: {x: 0, y: 0}
+    movementInputScale: 0
+    setHorizontalVelocity: 1
+    horizontalVelocity: 0
+    setVerticalVelocity: 0
+    verticalVelocity: 0
+    verticalVelocityModifier: 0
+    gravityScale: 1
+    suspendFalling: 0
+    canCancelIntoAttack: 0
+    canCancelIntoLauncher: 0
+    canCancelIntoJump: 0
+    invulnerable: 0
+    superArmor: 0
+    events: []
+  activeEvent:
+  eventActiveFrames: 0
+  cooldownOnInterrupt: 0

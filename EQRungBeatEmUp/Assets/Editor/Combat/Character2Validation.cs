@@ -18,12 +18,19 @@ public static class Character2Validation
     static ComboController player;
     static CombatClock clock;
     static PlayableCharacterData character,blue;
-    static bool cleaning,cleanupReady,failed;
+    static bool cleaning,cleanupReady,failed,presentationOnly;
     static Character2Validation() { EditorApplication.update+=Poll; }
+    public static void RunPresentation()
+    {
+        if(EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling) return;
+        SessionState.SetBool("Character2.PresentationOnly",true);
+        SessionState.SetBool(Pending,true); EditorApplication.EnterPlaymode();
+    }
     [MenuItem("Beat Em Up/Characters/Validate Character 2 (Play Mode)")]
     public static void Run()
     {
         if(EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling) return;
+        SessionState.SetBool("Character2.PresentationOnly",false);
         EditorSceneManager.OpenScene("Assets/EQ_Rung_BeatEmUp/Scenes/HauntedHouse.unity");
         SessionState.SetBool(Pending,true); EditorApplication.EnterPlaymode();
     }
@@ -56,7 +63,10 @@ public static class Character2Validation
             clock=Object.FindFirstObjectByType<CombatClock>();
             character=AssetDatabase.LoadAssetAtPath<PlayableCharacterData>(Character2Setup.DefinitionPath);
             blue=AssetDatabase.LoadAssetAtPath<PlayableCharacterData>(Character2Setup.Root+"/BlueShirtGuy.asset");
-            Assets(); Routes(); Bounces(); Defense(); BlueSkill(); Area(); BossGate(); Presentation();
+            presentationOnly=SessionState.GetBool("Character2.PresentationOnly",false);
+            SessionState.SetBool("Character2.PresentationOnly",false);
+            if(!presentationOnly) { Assets(); Routes(); Bounces(); Defense(); BlueSkill(); Area(); BossGate(); }
+            Presentation();
             cleaning=true; cleanupReady=false;
             clock.StartCoroutine(WaitForEffects());
         }
@@ -71,8 +81,8 @@ public static class Character2Validation
     static void Finish()
     {
         foreach(var go in fixtures) if(go) Object.DestroyImmediate(go); fixtures.Clear();
-        results.Add(failed ? "CHARACTER 2 VALIDATION FAILED" : "ALL CHARACTER 2 CHECKS PASSED");
-        Directory.CreateDirectory("Documentation"); File.WriteAllLines("Documentation/Character2ValidationResults.txt",results);
+        results.Add(failed ? "CHARACTER 2 VALIDATION FAILED" : presentationOnly ? "ALL WAND BARRIER PRESENTATION CHECKS PASSED" : "ALL CHARACTER 2 CHECKS PASSED");
+        Directory.CreateDirectory("Documentation"); File.WriteAllLines(presentationOnly ? "Documentation/WandBarrierPresentationValidationResults.txt" : "Documentation/Character2ValidationResults.txt",results);
         Debug.Log(string.Join("\n",results));
         SessionState.SetInt("Character2.ExitCode",failed ? 1 : 0); SessionState.SetBool("Character2.Finished",true);
         EditorApplication.ExitPlaymode();
@@ -80,6 +90,7 @@ public static class Character2Validation
     static void Step(int frames=1) { for(int i=0;i<frames;i++) { Physics2D.SyncTransforms(); clock.StepFrame(); } }
     static void Presentation()
     {
+        Check(character.skill.cast.feedback.waveColor.a<=.22f,"Area pulse cue stays subtle alongside the dome");
         Fixture(); var skill=player.GetComponent<PlayerSkillController>();
         Check(!character.skill.guardianFeedback.feedback.impactRotateWithFacing && !character.skill.releaseFeedback.feedback.impactRotateWithFacing,"Surrounding barrier feedback stays upright independently of facing");
         foreach(int facing in new[]{1,-1})
@@ -90,11 +101,23 @@ public static class Character2Validation
             Step(24);
             var effects=Object.FindObjectsByType<NetworkFeedbackVisual>(FindObjectsSortMode.None);
             Check(effects.Length==2,"Only barrier shell and pulse spawn for one cast");
+            foreach(var visual in effects)
+            {
+                var sorted=visual.GetComponentInChildren<GroundSortedEffect>();
+                Check(sorted,"Wand magic follows ground depth");
+                foreach(float y in new[]{-2f,0f,2f})
+                {
+                    visual.transform.position=new Vector3(0,y,0); sorted.RefreshSorting();
+                    Check(visual.GetComponentsInChildren<SpriteRenderer>().All(r=>r.sortingOrder<Mathf.RoundToInt(-y*100) && r.color.a<=.45f),"Magic stays translucent and behind caster at depth "+y);
+                }
+                visual.transform.position=player.transform.position; sorted.RefreshSorting();
+            }
             Check(effects.All(v=>v.transform.position==player.transform.position && v.transform.GetChild(0).localRotation==Quaternion.identity),"Both effects originate at caster and remain upright facing "+facing);
             foreach(var visual in effects) foreach(var animator in visual.GetComponentsInChildren<Animator>()) animator.Update(.25f);
             Capture("WandBarrier_"+(facing>0 ? "Right" : "Left"));
         }
         foreach(var visual in Object.FindObjectsByType<NetworkFeedbackVisual>(FindObjectsSortMode.None)) Object.DestroyImmediate(visual.gameObject);
+        if(presentationOnly) return;
         Fixture(); player.attackPlayer.Play(character.groundCombo[2]); Step(character.groundCombo[2].FirstActiveFrame);
         Capture("HeadSnake_Impact");
     }

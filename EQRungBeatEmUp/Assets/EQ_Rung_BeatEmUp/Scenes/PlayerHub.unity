@@ -388,6 +388,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1378155543644668072, guid: 01b573a3aee6db7429eb2f918a226ccc, type: 3}
+      propertyPath: m_SortingOrder
+      value: -88
+      objectReference: {fileID: 0}
     - target: {fileID: 1528424646621883336, guid: 01b573a3aee6db7429eb2f918a226ccc, type: 3}
       propertyPath: editorPreview
       value: 1
@@ -432,6 +436,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3178853442652163388, guid: 01b573a3aee6db7429eb2f918a226ccc, type: 3}
+      propertyPath: m_SortingOrder
+      value: -97
+      objectReference: {fileID: 0}
     - target: {fileID: 3726383542495818450, guid: 01b573a3aee6db7429eb2f918a226ccc, type: 3}
       propertyPath: m_Name
       value: Hub Editor Preview
@@ -439,6 +447,14 @@ PrefabInstance:
     - target: {fileID: 3726383542495818450, guid: 01b573a3aee6db7429eb2f918a226ccc, type: 3}
       propertyPath: m_TagString
       value: EditorOnly
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750592991751404333, guid: 01b573a3aee6db7429eb2f918a226ccc, type: 3}
+      propertyPath: m_SortingOrder
+      value: -99
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392642058776358000, guid: 01b573a3aee6db7429eb2f918a226ccc, type: 3}
+      propertyPath: m_SortingOrder
+      value: -102
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -459,6 +475,7 @@ GameObject:
   - component: {fileID: 1345293991}
   - component: {fileID: 1345293992}
   - component: {fileID: 1345293993}
+  - component: {fileID: 1345293994}
   m_Layer: 0
   m_Name: Haunted House Stage Flow
   m_TagString: Untagged
@@ -643,6 +660,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.PlayerHubController
   definition: {fileID: 11400000, guid: 7134b791933de5f4ead73d9e1c3998af, type: 2}
+--- !u!114 &1345293994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345293987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbf8e3e705f9ce40ba3e686e66706b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.Story.PrologueDirector
+  Definition: {fileID: 11400000, guid: 665b7c4878df8a84793b3ca96dc4582b, type: 2}
+  ValidationMode: 0
+  StorySignal:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1758400826
 GameObject:
   m_ObjectHideFlags: 0

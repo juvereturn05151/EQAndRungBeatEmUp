@@ -273,54 +273,6 @@ MonoBehaviour:
           spawnDelay: 0
           isBoss: 0
     destructibles:
-    - label: 'Destructible sample: Box near entry'
-      prefab: {fileID: 2675550784172080338, guid: 286452ae476eaba4ba0c007f76725bdc, type: 3}
-      intactSprite: {fileID: 21300000, guid: 846a50d2c92080345a25868eb3ef3a74, type: 3}
-      damagedSprite: {fileID: 21300000, guid: ebf9367bb6be6f149ba9044140b1e1e7, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 88385e9f882fd364096bb64c87b99072, type: 3}
-      position: {x: -3.9, y: 0.35}
-      health: 2
-      hitboxSize: {x: 0.7, y: 0.65}
-      hitboxOffset: {x: 0, y: 0.32}
-      kind: 0
-      totemBreakRadius: 0
-      dropPrefab: {fileID: 0}
-    - label: 'Destructible sample: Jar lower lane'
-      prefab: {fileID: 8866303152821250404, guid: 6885bd3c7013f8b41b06dea94bab6bd7, type: 3}
-      intactSprite: {fileID: 21300000, guid: 2d2745bb156d0bf4ea2723ca1dd51c23, type: 3}
-      damagedSprite: {fileID: 21300000, guid: cb8bcc5cc5dca2949b52c82d2fe38736, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 62e38592be68a3947872ef6d7525828a, type: 3}
-      position: {x: -1.6, y: -0.35}
-      health: 3
-      hitboxSize: {x: 0.7, y: 0.65}
-      hitboxOffset: {x: 0, y: 0.32}
-      kind: 0
-      totemBreakRadius: 0
-      dropPrefab: {fileID: 0}
-    - label: 'Destructible sample: Box upper lane'
-      prefab: {fileID: 2675550784172080338, guid: 286452ae476eaba4ba0c007f76725bdc, type: 3}
-      intactSprite: {fileID: 21300000, guid: 846a50d2c92080345a25868eb3ef3a74, type: 3}
-      damagedSprite: {fileID: 21300000, guid: ebf9367bb6be6f149ba9044140b1e1e7, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 88385e9f882fd364096bb64c87b99072, type: 3}
-      position: {x: 0.9, y: 0.6}
-      health: 2
-      hitboxSize: {x: 0.7, y: 0.65}
-      hitboxOffset: {x: 0, y: 0.32}
-      kind: 0
-      totemBreakRadius: 0
-      dropPrefab: {fileID: 0}
-    - label: 'Destructible sample: Jar near exit'
-      prefab: {fileID: 8866303152821250404, guid: 6885bd3c7013f8b41b06dea94bab6bd7, type: 3}
-      intactSprite: {fileID: 21300000, guid: 2d2745bb156d0bf4ea2723ca1dd51c23, type: 3}
-      damagedSprite: {fileID: 21300000, guid: cb8bcc5cc5dca2949b52c82d2fe38736, type: 3}
-      brokenSprite: {fileID: 21300000, guid: 62e38592be68a3947872ef6d7525828a, type: 3}
-      position: {x: 3.4, y: -0.25}
-      health: 3
-      hitboxSize: {x: 0.7, y: 0.65}
-      hitboxOffset: {x: 0, y: 0.32}
-      kind: 0
-      totemBreakRadius: 0
-      dropPrefab: {fileID: 0}
     - label: 'Entrance breakable: Fence -5.45'
       prefab: {fileID: 4831027710003178538, guid: cba15fe9cb6547a47b4709ed8c2ce5d1, type: 3}
       intactSprite: {fileID: 0}

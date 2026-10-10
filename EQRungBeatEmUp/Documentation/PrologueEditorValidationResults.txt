@@ -1,0 +1,28 @@
+PASS: Parallel block waits for its longest event
+PASS: Dialogue estimates and nonconsecutive parallel groups schedule correctly
+PASS: Scrubbing interpolates both simultaneous movements
+PASS: Approaching actors face each other
+PASS: Preview respects authored movement easing
+PASS: Scrubbing selects the correct dialogue line
+PASS: Finish / skip preview applies final events instantly
+PASS: Final events can be excluded from reconstruction
+PASS: Event position edits support Undo
+PASS: Serialized event reordering persists
+PASS: Both existing hero controllers provide preview walk sprites
+PASS: Backward scrubbing reconstructs deterministic positions
+PASS: Preview preserves story save and open scenes
+PASS: Authored festival width and lane values supply the runtime arena bounds
+PASS: Instant opening tool changes only leading placement events
+PASS: Runtime dispatches zero-duration placement in one synchronous batch
+PASS: Instant batching preserves dialogue input waits
+PASS: Tutorial bounds normalize reversed corners
+PASS: Tutorial preview clamps the three-enemy wave to authored bounds
+PASS: Tutorial step preview shows the appropriate opponents
+PASS: Runtime tutorial player bounds and placement match the preview
+PASS: Runtime second player uses the authored partner spawn
+PASS: Tutorial movement goal remains reachable inside the walking area
+PASS: Tutorial walking area supports Undo
+PASS: Festival stores have sprites and editable memory sequences
+PASS: Store dialogue includes both requested memories in the shared database
+PASS: Memory preview displays both stores and focuses the selected stall
+ALL PROLOGUE EDITOR CHECKS PASSED

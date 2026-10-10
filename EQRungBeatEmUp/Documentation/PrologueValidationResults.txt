@@ -1,0 +1,33 @@
+PASS: All story environment and NPC assets assigned
+PASS: Good student variants and possessed Rusher prefab assigned
+PASS: Female Rusher has separate combat assets with Rusher behavior
+PASS: Female attacks preserve Rusher timing and use female sprites throughout
+PASS: Female locomotion and reaction animations keep female artwork
+PASS: Opening fair uses good students, alternating boy and girl
+PASS: Student activity frames and escape concept art are assigned
+PASS: Canon school-fair recognition line is exact
+PASS: Heroes do not recognize Chanai
+PASS: Prapot describes intentional memory erasure
+PASS: Prapot identifies Chanai only after the flashback
+PASS: Flashback's first spoken lines match the requested opening
+PASS: Powers are locked before the awakening
+PASS: Existing stage and hub simulation suspend during story
+PASS: New story starts with reunion
+PASS: Both heroes walk simultaneously during their reunion approach
+PASS: EQ and Rung both move toward each other
+PASS: Reunion approach keeps both heroes face-to-face in the same lane
+PASS: Reunion approach uses a relaxed walk cycle
+PASS: Reunion dialogue waits until both heroes have arrived
+PASS: Both heroes stop at a comfortable conversation distance
+PASS: Ice-cream student changes activity pose before possession
+PASS: Cutscene pause freezes combat and dialogue presentation
+PASS: Skipping reunion reaches playable fair walk
+PASS: Locking the intro resets both heroes from walking to idle immediately
+PASS: Festival has a wide bidirectional exploration area
+PASS: Both interactable festival stores use their authored sprites
+PASS: Reaching the old festival destination cannot bypass the two store memories
+FAIL: System.Exception: Store interaction rejects players outside the talk radius
+  at PrologueValidation.Check (System.Boolean condition, System.String message) [0x0002f] in E:\EQRungBeatEmUp\EQAndRungBeatEmUp\EQRungBeatEmUp\Assets\Editor\Story\PrologueValidation.cs:33 
+  at PrologueValidation+<Exercise>d__19.MoveNext () [0x00d87] in E:\EQRungBeatEmUp\EQAndRungBeatEmUp\EQRungBeatEmUp\Assets\Editor\Story\PrologueValidation.cs:142 
+  at PrologueValidation.Poll () [0x00167] in E:\EQRungBeatEmUp\EQAndRungBeatEmUp\EQRungBeatEmUp\Assets\Editor\Story\PrologueValidation.cs:50 
+PROLOGUE VALIDATION FAILED

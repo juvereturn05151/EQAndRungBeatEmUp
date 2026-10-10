@@ -1,0 +1,1 @@
+PASS: All 21 animation states use Thai artwork. Airborne, downed, knockdown, get-up, and stun references use Thai assets. No Rusher artwork dependencies remain.

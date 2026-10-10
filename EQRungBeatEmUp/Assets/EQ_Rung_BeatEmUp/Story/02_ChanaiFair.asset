@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bdb1eab3ecc8644a9fc136b6ace278d, type: 3}
+  m_Name: 02_ChanaiFair
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.Story.CutsceneSequence
+  id: 02_ChanaiFair
+  playsOnce: 1
+  events:
+  - action: 5
+    target: 
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0.8
+    amount: 0.35
+    color: {r: 0.08, g: 0, b: 0.16, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 8
+    target: Chanai
+    value: 
+    position: {x: 2, y: 0.2, z: 0}
+    duration: 0.5
+    amount: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 10
+    target: Chanai
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 1
+    amount: 1
+    color: {r: 0.7, g: 0.2, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 1
+    target: 
+    value: chanai-fair
+    position: {x: 0, y: 0, z: 0}
+    duration: 0.5
+    amount: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 13
+    target: 
+    value: Possess
+    position: {x: 0, y: 0, z: 0}
+    duration: 0.5
+    amount: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 10
+    target: 
+    value: 
+    position: {x: 0, y: 0.7, z: 0}
+    duration: 0.5
+    amount: 1
+    color: {r: 0, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  finalEvents:
+  - action: 12
+    target: 
+    value: ChanaiRecognizesHeroes
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 5
+    target: 
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0.5
+    amount: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 13
+    target: 
+    value: Possess
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0

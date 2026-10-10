@@ -80,6 +80,7 @@ namespace BeatEmUp
     }
     [Serializable] public sealed class WorldSnapshot
     {
+        public BeatEmUp.Story.StorySnapshot story;
         public long tick;
         public int stage;
         public bool exitOpen, completed, gameOver, rewardPending;

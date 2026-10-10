@@ -1,0 +1,490 @@
+{
+  "conversations": [
+    {
+      "id": "festival-chicken-memory",
+      "lines": [
+        {"speaker": "EQ", "thai": "เฮ้ย ร้านไก่ป๊อปยังอยู่! จำได้ไหม เมื่อก่อนเราโดดเรียนมาร้านนี้กันประจำ", "english": "Hey, the Chicken Pop stall is still here! Remember how we used to ditch school to come here all the time?", "charactersPerSecond": 35, "choices": []},
+        {"speaker": "Rung", "thai": "จำได้ดิ! พอใกล้พักเที่ยงก็ชวนกันหนีออกมาแล้ว ซื้อไก่ป๊อปมาแบ่งกันกิน", "english": "Of course! We'd sneak out before lunch and split a cup of popcorn chicken.", "charactersPerSecond": 35, "choices": []},
+        {"speaker": "EQ", "thai": "ผ่านมาตั้งนาน แค่ได้กลิ่นก็เหมือนกลับไปเป็นเด็กอีกครั้งเลยว่ะ", "english": "It's been so long, but that smell takes me right back to being a kid.", "charactersPerSecond": 35, "choices": []}
+      ]
+    },
+    {
+      "id": "festival-pepsi-memory",
+      "lines": [
+        {"speaker": "EQ", "thai": "เมื่อก่อน Pepsi ร้านนี้แก้วละแค่ 3 บาทเองนะ ตอนนี้ 10 บาทแล้ว!", "english": "Pepsi here used to be only 3 baht a cup. Now it's 10 baht!", "charactersPerSecond": 35, "choices": []},
+        {"speaker": "Rung", "thai": "เออ จำได้ กินไก่ป๊อปเสร็จก็ต้องมาต่อ Pepsi ที่ร้านนี้ทุกที", "english": "Yeah, I remember. We'd always stop here for a Pepsi after the popcorn chicken.", "charactersPerSecond": 35, "choices": []},
+        {"speaker": "EQ", "thai": "ราคาขึ้น แต่ความทรงจำยังเหมือนเดิมเนอะ", "english": "The price has gone up, but the memories are still the same.", "charactersPerSecond": 35, "choices": []}
+      ]
+    },
+    {
+      "id": "reunion",
+      "lines": [
+        {
+          "speaker": "EQ",
+          "thai": "เฮ้ย! รุ่ง! นั่นมึงจริง ๆ เหรอวะ?",
+          "english": "Hey! Rung! Is that really you?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "ไอ้อีคิว! ไม่เจอกันตั้ง 16 ปี!",
+          "english": "EQ! Sixteen years since we last met!",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "EQ",
+          "thai": "โห แก่ขึ้นเยอะเลยนะมึง!",
+          "english": "You look a lot older!",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "มึงก็ไม่ต่างกันหรอก!",
+          "english": "So do you!",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "EQ",
+          "thai": "ไปเดินงานกันเถอะเพื่อน!",
+          "english": "Let’s walk around the fair, my friend!",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "เออ ไปดิ!",
+          "english": "Yeah, let’s go!",
+          "charactersPerSecond": 35,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": "chanai-fair",
+      "lines": [
+        {
+          "speaker": "Rung",
+          "thai": "เฮ้ย... ทำไมทุกคนยืนนิ่งกันหมดวะ?",
+          "english": "Hey… why is everyone standing still?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "EQ",
+          "thai": "กูว่ามีอะไรแปลก ๆ แล้วว่ะ",
+          "english": "Something is wrong here.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Chanai",
+          "thai": "ผ่านมาตั้ง 16 ปี... พวกเจ้ายังมีชีวิตอยู่อีกหรือ?",
+          "english": "Sixteen years have passed… you two are still alive?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "EQ",
+          "thai": "มึงเป็นใครวะ!?",
+          "english": "Who the hell are you!?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Chanai",
+          "thai": "หึ... จำข้าไม่ได้จริง ๆ สินะ",
+          "english": "Heh… you really don’t remember me.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "กูไม่รู้จักมึง! ทำอะไรกับพวกเด็กวะ!?",
+          "english": "We don’t know you! What did you do to the students!?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Chanai",
+          "thai": "น่าสนใจ... ทำไมพวกเจ้าถึงยังมีสติ?",
+          "english": "Interesting… why are your minds still intact?",
+          "charactersPerSecond": 35,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": "cornered",
+      "lines": [
+        {
+          "speaker": "EQ",
+          "thai": "ซวยแล้ว! ทางตัน!",
+          "english": "Damn! A dead end!",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "จะให้สู้กับเด็กทั้งโรงเรียนเลยหรือไงวะ!",
+          "english": "Are we supposed to fight the whole school!?",
+          "charactersPerSecond": 35,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": "sanctuary-seal",
+      "lines": [
+        {
+          "speaker": "Prapot",
+          "thai": "ในที่สุด... พวกเธอสองคนก็มาถึง",
+          "english": "At last… you two have arrived.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "EQ",
+          "thai": "อาจารย์ประพจน์!?",
+          "english": "Professor Prapot!?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "อาจารย์มาอยู่ที่นี่ได้ไงครับ!?",
+          "english": "How did you get here, professor!?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Prapot",
+          "thai": "พวกเธอจำเรื่องเมื่อ 16 ปีก่อนไม่ได้สินะ",
+          "english": "You don’t remember what happened sixteen years ago, do you?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "EQ",
+          "thai": "เรื่องอะไรครับ?",
+          "english": "What happened?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Prapot",
+          "thai": "เรื่องของครีม... และพลังที่พวกเธอเคยได้รับ",
+          "english": "Cream… and the powers you once received.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "พลัง? พวกผมเนี่ยนะ?",
+          "english": "Powers? Us?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Prapot",
+          "thai": "ความทรงจำของพวกเธอไม่ได้หายไปเอง...",
+          "english": "Your memories did not disappear on their own…",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Prapot",
+          "thai": "มีใครบางคนจงใจลบมันออกไป",
+          "english": "Someone deliberately erased them.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Prapot",
+          "thai": "เวทมนตร์อันทรงพลังผนึกความทรงจำเหล่านั้นไว้",
+          "english": "Powerful magic sealed those memories away.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Prapot",
+          "thai": "ถึงเวลาที่พวกเธอต้องจำอดีตของตัวเองแล้ว",
+          "english": "It is time for you to remember your past.",
+          "charactersPerSecond": 35,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": "flashback-go",
+      "lines": [
+        {
+          "speaker": "EQ",
+          "thai": "ไปกันเถอะเพื่อน!",
+          "english": "Let’s go, my friend!",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "เออ!",
+          "english": "Yeah!",
+          "charactersPerSecond": 35,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": "defeat",
+      "lines": [
+        {
+          "speaker": "EQ",
+          "thai": "เชี่ย... ทำไมมันเก่งขนาดนี้วะ...",
+          "english": "Damn… how is he this strong…",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "ลุกไม่ไหวแล้วว่ะ...",
+          "english": "I can’t get up…",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Thrower Boss",
+          "thai": "หมดฤทธิ์แล้วเหรอ?",
+          "english": "Out of strength already?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "EQ",
+          "thai": "ครีม... พี่ยังช่วยไม่ได้เลย...",
+          "english": "Cream… I haven’t saved you yet…",
+          "charactersPerSecond": 35,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": "awakening",
+      "lines": [
+        {
+          "speaker": "Mysterious Voice",
+          "thai": "จงตื่นขึ้น... ผู้สืบทอดทั้งสอง",
+          "english": "Awaken… both heirs.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "EQ",
+          "thai": "นี่มัน... พลังอะไรวะ!?",
+          "english": "What… what is this power!?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "เฮ้ย! แล้วไม้ในมือกูมาจากไหนเนี่ย!?",
+          "english": "Hey! Where did this wand come from!?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "EQ",
+          "thai": "เอาไว้ถามทีหลัง! ไปช่วยครีมก่อน!",
+          "english": "Questions later! Let’s save Cream first!",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "จัดไป!",
+          "english": "Let’s do it!",
+          "charactersPerSecond": 35,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": "rescue",
+      "lines": [
+        {
+          "speaker": "EQ",
+          "thai": "ครีม!",
+          "english": "Cream!",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Cream",
+          "thai": "พี่อีคิว!",
+          "english": "EQ!",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "EQ",
+          "thai": "เป็นอะไรไหม!?",
+          "english": "Are you hurt!?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Cream",
+          "thai": "ไม่เป็นไร... หนูกลัวมากเลย",
+          "english": "I’m okay… I was so scared.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "ปลอดภัยแล้ว กลับบ้านกันเถอะ",
+          "english": "You’re safe now. Let’s go home.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Cream",
+          "thai": "ขอบคุณนะพี่รุ่ง",
+          "english": "Thank you, Rung.",
+          "charactersPerSecond": 35,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": "return-present",
+      "lines": [
+        {
+          "speaker": "EQ",
+          "thai": "ผมจำได้แล้ว... เรื่องครีม...",
+          "english": "I remember… what happened to Cream…",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "แต่เงาคนนั้น... มันกำลังทำอะไรกับพวกผมครับ?",
+          "english": "But that shadow… what was he doing to us?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Prapot",
+          "thai": "นั่นคือเวทมนตร์ที่ลบความทรงจำของพวกเธอเมื่อ 16 ปีก่อน",
+          "english": "That was the magic used to erase your memories sixteen years ago.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "EQ",
+          "thai": "ใครครับอาจารย์?",
+          "english": "Who was it, professor?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Prapot",
+          "thai": "ชัยนัย... คนที่พวกเธอเพิ่งเจอที่โรงเรียน",
+          "english": "Chanai… the man you just met at the school.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "แล้วมันทำไปทำไมครับ?",
+          "english": "Why did he do it?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Prapot",
+          "thai": "เหตุผลของเขายังเป็นปริศนา... เราต้องค้นหาความจริงต่อไป",
+          "english": "His reason remains a mystery… we must keep searching for the truth.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Prapot",
+          "thai": "พลังที่พวกเธอเคยได้รับในอดีต กำลังกลับมา",
+          "english": "The powers you received in the past are returning.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "EQ",
+          "thai": "แล้วครีมอยู่ที่ไหนตอนนี้ครับ?",
+          "english": "Where is Cream now?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Prapot",
+          "thai": "คำตอบนั้น... พวกเธอต้องค้นหาด้วยตัวเอง",
+          "english": "That answer… you must discover for yourselves.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "แล้วพวกเด็กที่กลายเป็นผีล่ะครับ?",
+          "english": "What about the students who became ghosts?",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Prapot",
+          "thai": "พวกเขายังมีโอกาสกลับมาเป็นเหมือนเดิม",
+          "english": "There is still a chance to restore them.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Prapot",
+          "thai": "จงใช้พลังของพวกเธอช่วยเด็กเหล่านั้น ก่อนที่ทุกอย่างจะสายเกินไป",
+          "english": "Use your powers to save those students before it is too late.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "EQ",
+          "thai": "เข้าใจแล้วครับอาจารย์",
+          "english": "Understood, professor.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Rung",
+          "thai": "งั้นก็ลุยกันอีกรอบ!",
+          "english": "Then let’s go again!",
+          "charactersPerSecond": 35,
+          "choices": []
+        }
+      ]
+    },
+    {
+      "id": "hub-mystery",
+      "lines": [
+        {
+          "speaker": "Prapot",
+          "thai": "ชัยนัยจงใจลบความทรงจำของพวกเธอ แต่เหตุผลยังไม่กระจ่าง",
+          "english": "Chanai deliberately erased your memories, but his reason is still unknown.",
+          "charactersPerSecond": 35,
+          "choices": []
+        },
+        {
+          "speaker": "Prapot",
+          "thai": "ช่วยเหล่านักเรียน แล้วตามหาร่องรอยของเวทมนตร์นั้น",
+          "english": "Save the students, and look for traces of that magic.",
+          "charactersPerSecond": 35,
+          "choices": []
+        }
+      ]
+    }
+  ]
+}

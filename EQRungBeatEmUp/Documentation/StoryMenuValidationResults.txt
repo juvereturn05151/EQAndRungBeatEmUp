@@ -1,0 +1,8 @@
+PASS: New Game available; Continue disabled without a story save
+PASS: Continue enabled after saving story progress
+PASS: Continue preserves the existing save
+PASS: Continue enters the existing single-player character flow
+PASS: Continue retains saved story flags
+PASS: Selecting New Game defers reset until gameplay starts
+PASS: Backing out of New Game keeps the old save
+PASS: New Game resets only the story and consumes the restart request

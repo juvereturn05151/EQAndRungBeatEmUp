@@ -1,0 +1,21 @@
+PASS: Cream has approach, grab reaction, struggle/hold and escort animations.
+PASS: Cream has complete sprite references.
+PASS: Captor1 has approach, grab reaction, struggle/hold and escort animations.
+PASS: Captor1 has complete sprite references.
+PASS: Captor2 has approach, grab reaction, struggle/hold and escort animations.
+PASS: Captor2 has complete sprite references.
+PASS: All three actors escort together while preserving inward facing.
+PASS: Captors keep facing inward at 2.50s.
+PASS: Cream's capture remains visible with heroes absent.
+PASS: Captors keep facing inward at 3.45s.
+PASS: Cream's capture remains visible with heroes absent.
+PASS: Captors keep facing inward at 4.75s.
+PASS: Cream's capture remains visible with heroes absent.
+PASS: Capture starts immediately at its first frame.
+PASS: Capture advances at authored frame rate.
+PASS: One-shot grabbing holds its final frame.
+PASS: Switching animations resets their clocks.
+PASS: Escort and struggle animations loop.
+PASS: Stopping capture restores Cream's original pose for rescue/replay.
+PASS: Completion/skip final events remove Cream and both captors.
+RESULT: PASS

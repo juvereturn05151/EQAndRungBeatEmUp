@@ -1,0 +1,976 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bdb1eab3ecc8644a9fc136b6ace278d, type: 3}
+  m_Name: 05_CreamKidnapped
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.Story.CutsceneSequence
+  id: 05_CreamKidnapped
+  playsOnce: 1
+  events:
+  - action: 13
+    target: 
+    value: HideHeroes
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 6
+    target: 
+    value: 
+    position: {x: 0.3, y: 1.1, z: -10}
+    duration: 0
+    amount: 2.1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 8
+    target: Cream
+    value: 
+    position: {x: 0.3, y: 0.12, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 21300000, guid: 52ca934a71d12964d9696eb84c5f0c7d, type: 3}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 3
+    target: Cream
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 4
+    target: Cream
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames:
+    - {fileID: 4780334319562675858, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: -1065079145661002261, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: -2574156180851449814, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: -2903222712585049919, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: 3638364497870988996, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: -8766104427278335085, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    framesPerSecond: 6
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 0
+    target: 
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0.8
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 8
+    target: Captor1
+    value: 
+    position: {x: -3.1, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 21300000, guid: 84063e16df221720bb163639b0ba5052, type: 3}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 8
+    target: Captor2
+    value: 
+    position: {x: 3.1, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 21300000, guid: 84063e16df221720bb163639b0ba5052, type: 3}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 4
+    target: Captor1
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames:
+    - {fileID: 21300000, guid: 68f84af165f13189468d66bed2fa663c, type: 3}
+    - {fileID: 21300000, guid: aba48bfa9fccc3b4346c0c386bde791a, type: 3}
+    - {fileID: 21300000, guid: cba4cf213d73e99834fc57cc2b664c67, type: 3}
+    - {fileID: 21300000, guid: 1cad276ee642c4fc9d7199fb4ce4d59c, type: 3}
+    - {fileID: 21300000, guid: 844e5748c4a1059c6614bc09f2fd5d6b, type: 3}
+    - {fileID: 21300000, guid: 6199efdc5287de8abae06b440f76a7c4, type: 3}
+    - {fileID: 21300000, guid: 6fb1f42087915e7d3b18235707a4de35, type: 3}
+    - {fileID: 21300000, guid: 4b90bf366f694d1b0ee38a4a3f5980cc, type: 3}
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 4
+    target: Captor2
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames:
+    - {fileID: 21300000, guid: 68f84af165f13189468d66bed2fa663c, type: 3}
+    - {fileID: 21300000, guid: aba48bfa9fccc3b4346c0c386bde791a, type: 3}
+    - {fileID: 21300000, guid: cba4cf213d73e99834fc57cc2b664c67, type: 3}
+    - {fileID: 21300000, guid: 1cad276ee642c4fc9d7199fb4ce4d59c, type: 3}
+    - {fileID: 21300000, guid: 844e5748c4a1059c6614bc09f2fd5d6b, type: 3}
+    - {fileID: 21300000, guid: 6199efdc5287de8abae06b440f76a7c4, type: 3}
+    - {fileID: 21300000, guid: 6fb1f42087915e7d3b18235707a4de35, type: 3}
+    - {fileID: 21300000, guid: 4b90bf366f694d1b0ee38a4a3f5980cc, type: 3}
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 2
+    target: Captor1
+    value: 
+    position: {x: -0.54, y: 0, z: 0}
+    duration: 1.2
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 1
+  - action: 2
+    target: Captor2
+    value: 
+    position: {x: 1.21, y: 0, z: 0}
+    duration: 1.2
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 1
+  - action: 3
+    target: Captor1
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 3
+    target: Captor2
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: -1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 4
+    target: Cream
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames:
+    - {fileID: 2289354689301660603, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: -4054433571896796952, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: 293889647944059333, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: -7320741051703384956, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: 1603065312628007884, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: 1944502672186754328, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    framesPerSecond: 10
+    holdLastFrame: 1
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 4
+    target: Captor1
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames:
+    - {fileID: 6030852510055188563, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: 2533273396779508783, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -9175721502933264917, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: 7490710758897654788, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: 6134483331240979114, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -2645833000625703155, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    framesPerSecond: 10
+    holdLastFrame: 1
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 4
+    target: Captor2
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames:
+    - {fileID: 6030852510055188563, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: 2533273396779508783, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -9175721502933264917, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: 7490710758897654788, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: 6134483331240979114, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -2645833000625703155, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    framesPerSecond: 10
+    holdLastFrame: 1
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 0
+    target: 
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0.6
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 4
+    target: Cream
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames:
+    - {fileID: -8573757923948497646, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: -7210767521107782357, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: -1497225058242972418, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: -3236794525781841812, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: -5066268183477230348, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: -7501267806180973822, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    framesPerSecond: 8
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 4
+    target: Captor1
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames:
+    - {fileID: -1521192935401171293, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: 1181410009339909751, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -6693350770652491960, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -3457309584508530417, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -5469625454878174409, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -1888615625879325755, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    framesPerSecond: 8
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 4
+    target: Captor2
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames:
+    - {fileID: -1521192935401171293, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: 1181410009339909751, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -6693350770652491960, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -3457309584508530417, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -5469625454878174409, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -1888615625879325755, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    framesPerSecond: 8
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 0
+    target: 
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0.75
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 4
+    target: Cream
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames:
+    - {fileID: -4567565017709459273, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: -312991784750717681, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: 7522211009722862834, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: -2627619007588263697, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: 7195957470521798146, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    - {fileID: 7792076794263863695, guid: 89e949912b1d88945911eaa883b38ef6, type: 3}
+    framesPerSecond: 8
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 4
+    target: Captor1
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames:
+    - {fileID: -637108298627912783, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: 5116210927724614999, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: 2866013497962437008, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: 9171490679281654566, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -4278341571358518044, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: 8924640973334502244, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    framesPerSecond: 8
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 4
+    target: Captor2
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames:
+    - {fileID: -2838143648634888401, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -3179419435996686521, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -4069184892363628271, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -1703023129093207991, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -1406848476102691326, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    - {fileID: -3391694951421191783, guid: 7cc76346c4ea5b14ebdb8a2e7f7cc5e5, type: 3}
+    framesPerSecond: 8
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 2
+    target: Captor1
+    value: 
+    position: {x: 4.96, y: 0, z: 0}
+    duration: 2.8
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 2
+  - action: 2
+    target: Cream
+    value: 
+    position: {x: 5.8, y: 0.12, z: 0}
+    duration: 2.8
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 2
+  - action: 2
+    target: Captor2
+    value: 
+    position: {x: 6.71, y: 0, z: 0}
+    duration: 2.8
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 2
+  - action: 9
+    target: Cream
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 9
+    target: Captor1
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 9
+    target: Captor2
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 0
+    target: 
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0.35
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 6
+    target: 
+    value: 
+    position: {x: 0, y: 1.15, z: -10}
+    duration: 0
+    amount: 2.35
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 8
+    target: EQ
+    value: 
+    position: {x: -5.2, y: 0, z: 0}
+    duration: 0.5
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 8
+    target: Rung
+    value: 
+    position: {x: -4.6, y: 0, z: 0}
+    duration: 0.5
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 13
+    target: 
+    value: ShowHeroes
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 2
+    target: EQ
+    value: 
+    position: {x: -0.7, y: 0, z: 0}
+    duration: 1.4
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 3
+  - action: 2
+    target: Rung
+    value: 
+    position: {x: 0.55, y: 0, z: 0}
+    duration: 1.4
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 3
+  - action: 1
+    target: 
+    value: flashback-go
+    position: {x: 0, y: 0, z: 0}
+    duration: 0.5
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  finalEvents:
+  - action: 12
+    target: 
+    value: FlashbackStarted
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 9
+    target: Cream
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0.5
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 9
+    target: Captor1
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0.5
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 9
+    target: Captor2
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0.5
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 8
+    target: EQ
+    value: 
+    position: {x: -0.7, y: 0, z: 0}
+    duration: 0.5
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 8
+    target: Rung
+    value: 
+    position: {x: 0.55, y: 0, z: 0}
+    duration: 0.5
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 13
+    target: 
+    value: ShowHeroes
+    position: {x: 0, y: 0, z: 0}
+    duration: 0
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 3
+    target: EQ
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0.5
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 3
+    target: Rung
+    value: 
+    position: {x: 0, y: 0, z: 0}
+    duration: 0.5
+    amount: 1
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0
+  - action: 6
+    target: 
+    value: 
+    position: {x: 0, y: 1.15, z: -10}
+    duration: 0.5
+    amount: 2.35
+    easeMovement: 0
+    walkPlaybackSpeed: 1
+    preserveFacing: 0
+    color: {r: 1, g: 1, b: 1, a: 1}
+    sprite: {fileID: 0}
+    frames: []
+    framesPerSecond: 12
+    holdLastFrame: 0
+    sound: {fileID: 0}
+    animation: {fileID: 0}
+    prefab: {fileID: 0}
+    parallelGroup: 0

@@ -360,8 +360,8 @@ MonoBehaviour:
   aiProfile: {fileID: 0}
   passiveTrainingDummy: 1
   attackRange: 1
-  minimumAttackRange: 0
-  laneRange: 0.55
+  minimumAttackRange: 0.45
+  laneRange: 0.12
   attackCooldownFrames: 60
 --- !u!114 &901000000000000002
 MonoBehaviour:

@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93be15a6ec899724c8f28f8eaeee7e00, type: 3}
+  m_Name: Prologue
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.Story.PrologueDefinition
+  dialogue: {fileID: 11400000, guid: 4a70ddc25759814469f7c2b51ecd5bbe, type: 2}
+  font: {fileID: 11400000, guid: b9f223fa34307994c82a43b72a51732c, type: 2}
+  schoolFair: {fileID: 21300000, guid: 711b143caf60bf14b8f3d26db88b8894, type: 3}
+  hideout: {fileID: 21300000, guid: 0294fa0e3410e0c40af819d93f5b196e, type: 3}
+  sanctuary: {fileID: 21300000, guid: d4ed3d52d58dfee4faad449573152147, type: 3}
+  prapot: {fileID: 21300000, guid: 533f49265178c0347b2e61ec76e9f06a, type: 3}
+  cream: {fileID: 21300000, guid: 52ca934a71d12964d9696eb84c5f0c7d, type: 3}
+  chanai: {fileID: 21300000, guid: 921e014a414f3e749b82ec9b8f63837c, type: 3}
+  student: {fileID: 21300000, guid: 6c99fcffc531445496468263fa6958b5, type: 3}
+  studentGirl: {fileID: 21300000, guid: 52a8669117c94e2495161e4f14f1eae9, type: 3}
+  festivalWidth: 26
+  festivalDestination: 9.5
+  festivalLaneMin: -1.2
+  festivalLaneMax: -0.2
+  festivalChickenStore: {fileID: 21300000, guid: e92d4b1c562dd3d4ea01957f2cfe5890, type: 3}
+  festivalPepsiStore: {fileID: 21300000, guid: 1704a2133f4e91c48beb909f3d632392, type: 3}
+  festivalChickenPosition: {x: -10.26, y: -0.37}
+  festivalPepsiPosition: {x: 10.34, y: -0.34}
+  festivalStoreWidth: 2.7
+  festivalStoreInteractRadius: 1.1
+  festivalChickenMemory: {fileID: 11400000, guid: fcacd18b3c4d35646b3213cf0ffd02ab, type: 2}
+  festivalPepsiMemory: {fileID: 11400000, guid: c9c50721aa0a9ef48a253cbdc033d237, type: 2}
+  studentIceCream:
+  - {fileID: 21300000, guid: ebc053ba45a541240a64055a4116b86f, type: 3}
+  - {fileID: 21300000, guid: 4596f58610d13d848b5e3316e23065c2, type: 3}
+  studentDrink:
+  - {fileID: 21300000, guid: 6e61528463c02a14cab82dbba0ef1f4a, type: 3}
+  - {fileID: 21300000, guid: 2773d29ab516d774bbb074db1eb0c8a1, type: 3}
+  studentPhone:
+  - {fileID: 21300000, guid: e468183b90b50ab4b9039f469a6b59a3, type: 3}
+  - {fileID: 21300000, guid: e3ec5214eb8164f45bfe86160bdd9954, type: 3}
+  studentWave:
+  - {fileID: 21300000, guid: 3bdc554fa2ec6694091d31dd0372893a, type: 3}
+  - {fileID: 21300000, guid: 312c8561c31a03e46b0e8a6fc74e1e2c, type: 3}
+  escapeConceptArt: {fileID: 21300000, guid: 30daba9b7709b624eb6133f14c825686, type: 3}
+  tutorialAreaMin: {x: -4.74, y: -1.36}
+  tutorialAreaMax: {x: 5.36, y: 0.62}
+  tutorialPlayerStart: {x: -2.31, y: -0.7}
+  tutorialPartnerStart: {x: -3.79, y: -0.7}
+  tutorialEnemyStart: {x: 3.36, y: -0.7}
+  tutorialEnemySpacing: {x: 0.5, y: 0.25}
+  tutorialGoalX: 1.8
+  tutorialCamera: {x: 0, y: 1.15, z: -10}
+  tutorialZoom: 2.35
+  destinationArrow: {fileID: 21300000, guid: 0fecece749b77494385dad7ee1804750, type: 3}
+  eq: {fileID: 11400000, guid: b655dba35256d104abe43db870fa78d0, type: 2}
+  rung: {fileID: 11400000, guid: eaee95b1a9ed74749ad9db715a87308d, type: 2}
+  delinquentPrefab: {fileID: 614104087487619197, guid: d6e30bb1c3f60ce4c93b995e9b77bbe4, type: 3}
+  throwerPrefab: {fileID: 2142759624489998195, guid: 6879b04b886d722429f99e6ffc4ba54c, type: 3}
+  possessedStudentPrefab: {fileID: 7086870730480313756, guid: 2d86a68acb0a00645a8ea0f345a8ff5e, type: 3}
+  possessedSchoolgirlPrefab: {fileID: 8774820610137689924, guid: c527925d2de7e8048910c1e6c480a761, type: 3}
+  reunion: {fileID: 11400000, guid: f1bdf807deee81542be721e24fcad6e1, type: 2}
+  attack: {fileID: 11400000, guid: a53aa4cef75bac54298b33b4684d1413, type: 2}
+  cornered: {fileID: 11400000, guid: b2919e926315a5c499c48789c9cc686d, type: 2}
+  sanctuaryIntro: {fileID: 11400000, guid: 319398790c1746c4086d2c03e908752c, type: 2}
+  kidnapping: {fileID: 11400000, guid: ea70ec5b84a24924eade3e135fa8c66e, type: 2}
+  defeat: {fileID: 11400000, guid: e0c07f0a56e25014195b22c577a47d00, type: 2}
+  awakening: {fileID: 11400000, guid: f91fcf6b68eba474c8bd8cc557fb1451, type: 2}
+  rescue: {fileID: 11400000, guid: 49ba488c9da35da46a711b239b88ff95, type: 2}
+  memorySpell: {fileID: 11400000, guid: 6c185c64e3c4bdd4e82f108037bc3b28, type: 2}
+  returnPresent: {fileID: 11400000, guid: c0bffa10c3be7a842ab4d6b3cff7a118, type: 2}
+  escape: {fileID: 11400000, guid: 38fb84d7e2efd2646bed48c4d8ff9dfe, type: 2}

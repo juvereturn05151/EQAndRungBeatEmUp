@@ -56,7 +56,8 @@ namespace BeatEmUp
             var origin = (Vector2)source.transform.position + Vector2.right * (casting.spawnOffset.x * facing);
             // Stage-owned parent allows existing room cleanup; no projectile simulation on clients.
             var flow = FindFirstObjectByType<StageFlowController>();
-            LastProjectile = Instantiate(casting.projectilePrefab, flow && flow.isActiveAndEnabled ? flow.SpawnedAttackRoot : transform.parent);
+            var story=BeatEmUp.Story.PrologueDirector.Active;
+            LastProjectile = Instantiate(casting.projectilePrefab, story && story.ActiveStory ? story.AttackRoot : flow && flow.isActiveAndEnabled ? flow.SpawnedAttackRoot : transform.parent);
             LastProjectile.skillSource=casting;
             LastProjectile.InitializeForward(source, combat.hitbox.team, origin, source.Height + casting.spawnOffset.y, facing);
             ProjectilesReleased++;

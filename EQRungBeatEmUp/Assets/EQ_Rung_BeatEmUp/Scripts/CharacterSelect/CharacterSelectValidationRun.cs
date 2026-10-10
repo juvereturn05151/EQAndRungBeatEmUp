@@ -44,15 +44,15 @@ namespace BeatEmUp
         IEnumerator ValidateMenu()
         {
             yield return null; yield return null;
-            Check(Focus=="PLAY","Main menu starts with visible PLAY focus");
+            Check(Focus=="NEW GAME","Main menu starts with visible New Game focus");
             yield return KeyPress(Key.DownArrow);
             Check(Focus=="HOW TO PLAY","Keyboard arrows navigate buttons");
             yield return KeyPress(Key.Enter);
             Check(Focus=="BACK","Enter opens help without a mouse (focus: "+Focus+")");
             Check(FindObjectsByType<Text>(FindObjectsSortMode.None).Any(t=>t.text.Contains("Interact: L1 / LB")),"How to Play displays L1 / LB for controller interaction");
             yield return KeyPress(Key.Escape);
-            Check(Focus=="PLAY","Escape returns to the main menu");
-            yield return PadPress(GamepadButton.DpadDown); yield return PadPress(GamepadButton.DpadDown);
+            Check(Focus=="NEW GAME","Escape returns to the main menu");
+            yield return PadPress(GamepadButton.DpadDown); if(Focus=="CONTINUE GAME")yield return PadPress(GamepadButton.DpadDown); yield return PadPress(GamepadButton.DpadDown);
             Check(Focus=="OPTIONS","Controller D-pad navigates the main menu");
             yield return PadPress(GamepadButton.South);
             Check(Focus=="−","Controller A opens options");
@@ -61,7 +61,7 @@ namespace BeatEmUp
             Check(Focus=="−" && AudioListener.volume<=volume,"Focus survives options rebuilding after activation");
             AudioListener.volume=volume;
             yield return PadPress(GamepadButton.East);
-            Check(Focus=="PLAY","Controller B returns to the main menu");
+            Check(Focus=="NEW GAME","Controller B returns to the main menu");
             yield return KeyPress(Key.Enter); yield return KeyPress(Key.DownArrow); yield return KeyPress(Key.DownArrow); yield return KeyPress(Key.Enter);
             Check(Focus=="CREATE LOBBY","Online page navigable without connecting");
             // Select the keypad through a real button, then exercise all-device action navigation.
@@ -75,7 +75,7 @@ namespace BeatEmUp
             InputSystem.QueueStateEvent(pad,new GamepadState()); yield return null; yield return null;
             Check(Focus=="B","Analog stick navigates keypad");
             yield return PadPress(GamepadButton.East); yield return PadPress(GamepadButton.East); yield return PadPress(GamepadButton.East);
-            Check(Focus=="PLAY","Back traverses keypad, online and modes to main");
+            Check(Focus=="NEW GAME","Back traverses keypad, online and modes to main");
         }
         IEnumerator Start()
         {
@@ -89,13 +89,18 @@ namespace BeatEmUp
             Check(session && session.catalog.characters.Length>=2,"Existing persistent session and two real character prefabs available");
             if(!session || session.catalog.characters.Length<2) { Finish(); yield break; }
             yield return ValidateMenu();
-            // Reproduce the reported path: controller activates PLAY and SINGLE PLAYER with a keyboard present.
+            // Controller activates New Game and Offline Play with a keyboard present.
             yield return PadPress(GamepadButton.South); yield return PadPress(GamepadButton.South);
             yield return null; yield return null;
             var solo=FindFirstObjectByType<CharacterSelectManager>();
-            Check(solo && session.Mode==SessionMode.Single && session.Lobby.slots.Count==1 && session.Lobby.slots[0].device==pad,
-                "Controller opening SINGLE PLAYER owns P1 even with a keyboard connected");
+            Check(solo && session.Mode==SessionMode.Local && session.Lobby.slots.Count==1 && session.Lobby.slots[0].device==pad,
+                "Controller opening OFFLINE PLAY owns P1 even with a keyboard connected");
             Check(!session.Lobby.slots[0].ready,"Opening controller press does not also confirm the character");
+            // Preserve coverage of the internal single-slot device handoff without a menu entry.
+            session.LeaveToMenu(); yield return null;
+            session.PreferredLocalDevice=pad; session.BeginLocal(true); yield return null; yield return null;
+            // Story restart is covered by StoryMenuValidation; these checks exercise selection and combat.
+            session.NewGameRequested=false;
             int soloCharacter=session.Lobby.slots[0].character;
             yield return PadPress(GamepadButton.DpadRight);
             Check(session.Lobby.slots[0].character!=soloCharacter,"Single-player controller D-pad selects a character");

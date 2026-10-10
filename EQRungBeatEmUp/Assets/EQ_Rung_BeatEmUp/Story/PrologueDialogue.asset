@@ -1,0 +1,661 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408e08892bbb4224993bf24228ace653, type: 3}
+  m_Name: PrologueDialogue
+  m_EditorClassIdentifier: Assembly-CSharp::BeatEmUp.Story.DialogueDatabase
+  conversations:
+  - id: reunion
+    lines:
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E40\u0E2E\u0E49\u0E22! \u0E23\u0E38\u0E48\u0E07! \u0E19\u0E31\u0E48\u0E19\u0E21\u0E36\u0E07\u0E08\u0E23\u0E34\u0E07
+        \u0E46 \u0E40\u0E2B\u0E23\u0E2D\u0E27\u0E30?"
+      english: Hey! Rung! Is that really you?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E44\u0E2D\u0E49\u0E2D\u0E35\u0E04\u0E34\u0E27! \u0E44\u0E21\u0E48\u0E40\u0E08\u0E2D\u0E01\u0E31\u0E19\u0E15\u0E31\u0E49\u0E07
+        16 \u0E1B\u0E35!"
+      english: EQ! Sixteen years since we last met!
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E42\u0E2B \u0E41\u0E01\u0E48\u0E02\u0E36\u0E49\u0E19\u0E40\u0E22\u0E2D\u0E30\u0E40\u0E25\u0E22\u0E19\u0E30\u0E21\u0E36\u0E07!"
+      english: You look a lot older!
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E21\u0E36\u0E07\u0E01\u0E47\u0E44\u0E21\u0E48\u0E15\u0E48\u0E32\u0E07\u0E01\u0E31\u0E19\u0E2B\u0E23\u0E2D\u0E01!"
+      english: So do you!
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E44\u0E1B\u0E40\u0E14\u0E34\u0E19\u0E07\u0E32\u0E19\u0E01\u0E31\u0E19\u0E40\u0E16\u0E2D\u0E30\u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E19!"
+      english: "Let\u2019s walk around the fair, my friend!"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E40\u0E2D\u0E2D \u0E44\u0E1B\u0E14\u0E34!"
+      english: "Yeah, let\u2019s go!"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+  - id: chanai-fair
+    lines:
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E40\u0E2E\u0E49\u0E22... \u0E17\u0E33\u0E44\u0E21\u0E17\u0E38\u0E01\u0E04\u0E19\u0E22\u0E37\u0E19\u0E19\u0E34\u0E48\u0E07\u0E01\u0E31\u0E19\u0E2B\u0E21\u0E14\u0E27\u0E30?"
+      english: "Hey\u2026 why is everyone standing still?"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E01\u0E39\u0E27\u0E48\u0E32\u0E21\u0E35\u0E2D\u0E30\u0E44\u0E23\u0E41\u0E1B\u0E25\u0E01
+        \u0E46 \u0E41\u0E25\u0E49\u0E27\u0E27\u0E48\u0E30"
+      english: Something is wrong here.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Chanai
+      portrait: {fileID: 21300000, guid: ff76006df7bbbcc42a5f8e793160e6ce, type: 3}
+      thai: "\u0E1C\u0E48\u0E32\u0E19\u0E21\u0E32\u0E15\u0E31\u0E49\u0E07 16 \u0E1B\u0E35...
+        \u0E1E\u0E27\u0E01\u0E40\u0E08\u0E49\u0E32\u0E22\u0E31\u0E07\u0E21\u0E35\u0E0A\u0E35\u0E27\u0E34\u0E15\u0E2D\u0E22\u0E39\u0E48\u0E2D\u0E35\u0E01\u0E2B\u0E23\u0E37\u0E2D?"
+      english: "Sixteen years have passed\u2026 you two are still alive?"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E21\u0E36\u0E07\u0E40\u0E1B\u0E47\u0E19\u0E43\u0E04\u0E23\u0E27\u0E30!?"
+      english: Who the hell are you!?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Chanai
+      portrait: {fileID: 21300000, guid: ff76006df7bbbcc42a5f8e793160e6ce, type: 3}
+      thai: "\u0E2B\u0E36... \u0E08\u0E33\u0E02\u0E49\u0E32\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E08\u0E23\u0E34\u0E07
+        \u0E46 \u0E2A\u0E34\u0E19\u0E30"
+      english: "Heh\u2026 you really don\u2019t remember me."
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E01\u0E39\u0E44\u0E21\u0E48\u0E23\u0E39\u0E49\u0E08\u0E31\u0E01\u0E21\u0E36\u0E07!
+        \u0E17\u0E33\u0E2D\u0E30\u0E44\u0E23\u0E01\u0E31\u0E1A\u0E1E\u0E27\u0E01\u0E40\u0E14\u0E47\u0E01\u0E27\u0E30!?"
+      english: "We don\u2019t know you! What did you do to the students!?"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Chanai
+      portrait: {fileID: 21300000, guid: ff76006df7bbbcc42a5f8e793160e6ce, type: 3}
+      thai: "\u0E19\u0E48\u0E32\u0E2A\u0E19\u0E43\u0E08... \u0E17\u0E33\u0E44\u0E21\u0E1E\u0E27\u0E01\u0E40\u0E08\u0E49\u0E32\u0E16\u0E36\u0E07\u0E22\u0E31\u0E07\u0E21\u0E35\u0E2A\u0E15\u0E34?"
+      english: "Interesting\u2026 why are your minds still intact?"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+  - id: cornered
+    lines:
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E0B\u0E27\u0E22\u0E41\u0E25\u0E49\u0E27! \u0E17\u0E32\u0E07\u0E15\u0E31\u0E19!"
+      english: Damn! A dead end!
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E08\u0E30\u0E43\u0E2B\u0E49\u0E2A\u0E39\u0E49\u0E01\u0E31\u0E1A\u0E40\u0E14\u0E47\u0E01\u0E17\u0E31\u0E49\u0E07\u0E42\u0E23\u0E07\u0E40\u0E23\u0E35\u0E22\u0E19\u0E40\u0E25\u0E22\u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E07\u0E27\u0E30!"
+      english: Are we supposed to fight the whole school!?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+  - id: sanctuary-seal
+    lines:
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E43\u0E19\u0E17\u0E35\u0E48\u0E2A\u0E38\u0E14... \u0E1E\u0E27\u0E01\u0E40\u0E18\u0E2D\u0E2A\u0E2D\u0E07\u0E04\u0E19\u0E01\u0E47\u0E21\u0E32\u0E16\u0E36\u0E07"
+      english: "At last\u2026 you two have arrived."
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E2D\u0E32\u0E08\u0E32\u0E23\u0E22\u0E4C\u0E1B\u0E23\u0E30\u0E1E\u0E08\u0E19\u0E4C!?"
+      english: Professor Prapot!?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E2D\u0E32\u0E08\u0E32\u0E23\u0E22\u0E4C\u0E21\u0E32\u0E2D\u0E22\u0E39\u0E48\u0E17\u0E35\u0E48\u0E19\u0E35\u0E48\u0E44\u0E14\u0E49\u0E44\u0E07\u0E04\u0E23\u0E31\u0E1A!?"
+      english: How did you get here, professor!?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E1E\u0E27\u0E01\u0E40\u0E18\u0E2D\u0E08\u0E33\u0E40\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E40\u0E21\u0E37\u0E48\u0E2D
+        16 \u0E1B\u0E35\u0E01\u0E48\u0E2D\u0E19\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E2A\u0E34\u0E19\u0E30"
+      english: "You don\u2019t remember what happened sixteen years ago, do you?"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E40\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E2D\u0E30\u0E44\u0E23\u0E04\u0E23\u0E31\u0E1A?"
+      english: What happened?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E40\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E02\u0E2D\u0E07\u0E04\u0E23\u0E35\u0E21...
+        \u0E41\u0E25\u0E30\u0E1E\u0E25\u0E31\u0E07\u0E17\u0E35\u0E48\u0E1E\u0E27\u0E01\u0E40\u0E18\u0E2D\u0E40\u0E04\u0E22\u0E44\u0E14\u0E49\u0E23\u0E31\u0E1A"
+      english: "Cream\u2026 and the powers you once received."
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E1E\u0E25\u0E31\u0E07? \u0E1E\u0E27\u0E01\u0E1C\u0E21\u0E40\u0E19\u0E35\u0E48\u0E22\u0E19\u0E30?"
+      english: Powers? Us?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E04\u0E27\u0E32\u0E21\u0E17\u0E23\u0E07\u0E08\u0E33\u0E02\u0E2D\u0E07\u0E1E\u0E27\u0E01\u0E40\u0E18\u0E2D\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E2B\u0E32\u0E22\u0E44\u0E1B\u0E40\u0E2D\u0E07..."
+      english: "Your memories did not disappear on their own\u2026"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E21\u0E35\u0E43\u0E04\u0E23\u0E1A\u0E32\u0E07\u0E04\u0E19\u0E08\u0E07\u0E43\u0E08\u0E25\u0E1A\u0E21\u0E31\u0E19\u0E2D\u0E2D\u0E01\u0E44\u0E1B"
+      english: Someone deliberately erased them.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E40\u0E27\u0E17\u0E21\u0E19\u0E15\u0E23\u0E4C\u0E2D\u0E31\u0E19\u0E17\u0E23\u0E07\u0E1E\u0E25\u0E31\u0E07\u0E1C\u0E19\u0E36\u0E01\u0E04\u0E27\u0E32\u0E21\u0E17\u0E23\u0E07\u0E08\u0E33\u0E40\u0E2B\u0E25\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19\u0E44\u0E27\u0E49"
+      english: Powerful magic sealed those memories away.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E16\u0E36\u0E07\u0E40\u0E27\u0E25\u0E32\u0E17\u0E35\u0E48\u0E1E\u0E27\u0E01\u0E40\u0E18\u0E2D\u0E15\u0E49\u0E2D\u0E07\u0E08\u0E33\u0E2D\u0E14\u0E35\u0E15\u0E02\u0E2D\u0E07\u0E15\u0E31\u0E27\u0E40\u0E2D\u0E07\u0E41\u0E25\u0E49\u0E27"
+      english: It is time for you to remember your past.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+  - id: flashback-go
+    lines:
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E44\u0E1B\u0E01\u0E31\u0E19\u0E40\u0E16\u0E2D\u0E30\u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E19!"
+      english: "Let\u2019s go, my friend!"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E40\u0E2D\u0E2D!"
+      english: Yeah!
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+  - id: defeat
+    lines:
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E40\u0E0A\u0E35\u0E48\u0E22... \u0E17\u0E33\u0E44\u0E21\u0E21\u0E31\u0E19\u0E40\u0E01\u0E48\u0E07\u0E02\u0E19\u0E32\u0E14\u0E19\u0E35\u0E49\u0E27\u0E30..."
+      english: "Damn\u2026 how is he this strong\u2026"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E25\u0E38\u0E01\u0E44\u0E21\u0E48\u0E44\u0E2B\u0E27\u0E41\u0E25\u0E49\u0E27\u0E27\u0E48\u0E30..."
+      english: "I can\u2019t get up\u2026"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Thrower Boss
+      portrait: {fileID: 0}
+      thai: "\u0E2B\u0E21\u0E14\u0E24\u0E17\u0E18\u0E34\u0E4C\u0E41\u0E25\u0E49\u0E27\u0E40\u0E2B\u0E23\u0E2D?"
+      english: Out of strength already?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E04\u0E23\u0E35\u0E21... \u0E1E\u0E35\u0E48\u0E22\u0E31\u0E07\u0E0A\u0E48\u0E27\u0E22\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E40\u0E25\u0E22..."
+      english: "Cream\u2026 I haven\u2019t saved you yet\u2026"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+  - id: awakening
+    lines:
+    - speaker: Mysterious Voice
+      portrait: {fileID: 0}
+      thai: "\u0E08\u0E07\u0E15\u0E37\u0E48\u0E19\u0E02\u0E36\u0E49\u0E19... \u0E1C\u0E39\u0E49\u0E2A\u0E37\u0E1A\u0E17\u0E2D\u0E14\u0E17\u0E31\u0E49\u0E07\u0E2A\u0E2D\u0E07"
+      english: "Awaken\u2026 both heirs."
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E19\u0E35\u0E48\u0E21\u0E31\u0E19... \u0E1E\u0E25\u0E31\u0E07\u0E2D\u0E30\u0E44\u0E23\u0E27\u0E30!?"
+      english: "What\u2026 what is this power!?"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E40\u0E2E\u0E49\u0E22! \u0E41\u0E25\u0E49\u0E27\u0E44\u0E21\u0E49\u0E43\u0E19\u0E21\u0E37\u0E2D\u0E01\u0E39\u0E21\u0E32\u0E08\u0E32\u0E01\u0E44\u0E2B\u0E19\u0E40\u0E19\u0E35\u0E48\u0E22!?"
+      english: Hey! Where did this wand come from!?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E40\u0E2D\u0E32\u0E44\u0E27\u0E49\u0E16\u0E32\u0E21\u0E17\u0E35\u0E2B\u0E25\u0E31\u0E07!
+        \u0E44\u0E1B\u0E0A\u0E48\u0E27\u0E22\u0E04\u0E23\u0E35\u0E21\u0E01\u0E48\u0E2D\u0E19!"
+      english: "Questions later! Let\u2019s save Cream first!"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E08\u0E31\u0E14\u0E44\u0E1B!"
+      english: "Let\u2019s do it!"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+  - id: rescue
+    lines:
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E04\u0E23\u0E35\u0E21!"
+      english: Cream!
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Cream
+      portrait: {fileID: 21300000, guid: 1269afa96fdddbf4eb394496f05533e1, type: 3}
+      thai: "\u0E1E\u0E35\u0E48\u0E2D\u0E35\u0E04\u0E34\u0E27!"
+      english: EQ!
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E40\u0E1B\u0E47\u0E19\u0E2D\u0E30\u0E44\u0E23\u0E44\u0E2B\u0E21!?"
+      english: Are you hurt!?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Cream
+      portrait: {fileID: 21300000, guid: 1269afa96fdddbf4eb394496f05533e1, type: 3}
+      thai: "\u0E44\u0E21\u0E48\u0E40\u0E1B\u0E47\u0E19\u0E44\u0E23... \u0E2B\u0E19\u0E39\u0E01\u0E25\u0E31\u0E27\u0E21\u0E32\u0E01\u0E40\u0E25\u0E22"
+      english: "I\u2019m okay\u2026 I was so scared."
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E1B\u0E25\u0E2D\u0E14\u0E20\u0E31\u0E22\u0E41\u0E25\u0E49\u0E27 \u0E01\u0E25\u0E31\u0E1A\u0E1A\u0E49\u0E32\u0E19\u0E01\u0E31\u0E19\u0E40\u0E16\u0E2D\u0E30"
+      english: "You\u2019re safe now. Let\u2019s go home."
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Cream
+      portrait: {fileID: 21300000, guid: 1269afa96fdddbf4eb394496f05533e1, type: 3}
+      thai: "\u0E02\u0E2D\u0E1A\u0E04\u0E38\u0E13\u0E19\u0E30\u0E1E\u0E35\u0E48\u0E23\u0E38\u0E48\u0E07"
+      english: Thank you, Rung.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+  - id: return-present
+    lines:
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E1C\u0E21\u0E08\u0E33\u0E44\u0E14\u0E49\u0E41\u0E25\u0E49\u0E27...
+        \u0E40\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E04\u0E23\u0E35\u0E21..."
+      english: "I remember\u2026 what happened to Cream\u2026"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E41\u0E15\u0E48\u0E40\u0E07\u0E32\u0E04\u0E19\u0E19\u0E31\u0E49\u0E19...
+        \u0E21\u0E31\u0E19\u0E01\u0E33\u0E25\u0E31\u0E07\u0E17\u0E33\u0E2D\u0E30\u0E44\u0E23\u0E01\u0E31\u0E1A\u0E1E\u0E27\u0E01\u0E1C\u0E21\u0E04\u0E23\u0E31\u0E1A?"
+      english: "But that shadow\u2026 what was he doing to us?"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E19\u0E31\u0E48\u0E19\u0E04\u0E37\u0E2D\u0E40\u0E27\u0E17\u0E21\u0E19\u0E15\u0E23\u0E4C\u0E17\u0E35\u0E48\u0E25\u0E1A\u0E04\u0E27\u0E32\u0E21\u0E17\u0E23\u0E07\u0E08\u0E33\u0E02\u0E2D\u0E07\u0E1E\u0E27\u0E01\u0E40\u0E18\u0E2D\u0E40\u0E21\u0E37\u0E48\u0E2D
+        16 \u0E1B\u0E35\u0E01\u0E48\u0E2D\u0E19"
+      english: That was the magic used to erase your memories sixteen years ago.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E43\u0E04\u0E23\u0E04\u0E23\u0E31\u0E1A\u0E2D\u0E32\u0E08\u0E32\u0E23\u0E22\u0E4C?"
+      english: Who was it, professor?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E0A\u0E31\u0E22\u0E19\u0E31\u0E22... \u0E04\u0E19\u0E17\u0E35\u0E48\u0E1E\u0E27\u0E01\u0E40\u0E18\u0E2D\u0E40\u0E1E\u0E34\u0E48\u0E07\u0E40\u0E08\u0E2D\u0E17\u0E35\u0E48\u0E42\u0E23\u0E07\u0E40\u0E23\u0E35\u0E22\u0E19"
+      english: "Chanai\u2026 the man you just met at the school."
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E41\u0E25\u0E49\u0E27\u0E21\u0E31\u0E19\u0E17\u0E33\u0E44\u0E1B\u0E17\u0E33\u0E44\u0E21\u0E04\u0E23\u0E31\u0E1A?"
+      english: Why did he do it?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E40\u0E2B\u0E15\u0E38\u0E1C\u0E25\u0E02\u0E2D\u0E07\u0E40\u0E02\u0E32\u0E22\u0E31\u0E07\u0E40\u0E1B\u0E47\u0E19\u0E1B\u0E23\u0E34\u0E28\u0E19\u0E32...
+        \u0E40\u0E23\u0E32\u0E15\u0E49\u0E2D\u0E07\u0E04\u0E49\u0E19\u0E2B\u0E32\u0E04\u0E27\u0E32\u0E21\u0E08\u0E23\u0E34\u0E07\u0E15\u0E48\u0E2D\u0E44\u0E1B"
+      english: "His reason remains a mystery\u2026 we must keep searching for the
+        truth."
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E1E\u0E25\u0E31\u0E07\u0E17\u0E35\u0E48\u0E1E\u0E27\u0E01\u0E40\u0E18\u0E2D\u0E40\u0E04\u0E22\u0E44\u0E14\u0E49\u0E23\u0E31\u0E1A\u0E43\u0E19\u0E2D\u0E14\u0E35\u0E15
+        \u0E01\u0E33\u0E25\u0E31\u0E07\u0E01\u0E25\u0E31\u0E1A\u0E21\u0E32"
+      english: The powers you received in the past are returning.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E41\u0E25\u0E49\u0E27\u0E04\u0E23\u0E35\u0E21\u0E2D\u0E22\u0E39\u0E48\u0E17\u0E35\u0E48\u0E44\u0E2B\u0E19\u0E15\u0E2D\u0E19\u0E19\u0E35\u0E49\u0E04\u0E23\u0E31\u0E1A?"
+      english: Where is Cream now?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E04\u0E33\u0E15\u0E2D\u0E1A\u0E19\u0E31\u0E49\u0E19... \u0E1E\u0E27\u0E01\u0E40\u0E18\u0E2D\u0E15\u0E49\u0E2D\u0E07\u0E04\u0E49\u0E19\u0E2B\u0E32\u0E14\u0E49\u0E27\u0E22\u0E15\u0E31\u0E27\u0E40\u0E2D\u0E07"
+      english: "That answer\u2026 you must discover for yourselves."
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E41\u0E25\u0E49\u0E27\u0E1E\u0E27\u0E01\u0E40\u0E14\u0E47\u0E01\u0E17\u0E35\u0E48\u0E01\u0E25\u0E32\u0E22\u0E40\u0E1B\u0E47\u0E19\u0E1C\u0E35\u0E25\u0E48\u0E30\u0E04\u0E23\u0E31\u0E1A?"
+      english: What about the students who became ghosts?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E1E\u0E27\u0E01\u0E40\u0E02\u0E32\u0E22\u0E31\u0E07\u0E21\u0E35\u0E42\u0E2D\u0E01\u0E32\u0E2A\u0E01\u0E25\u0E31\u0E1A\u0E21\u0E32\u0E40\u0E1B\u0E47\u0E19\u0E40\u0E2B\u0E21\u0E37\u0E2D\u0E19\u0E40\u0E14\u0E34\u0E21"
+      english: There is still a chance to restore them.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E08\u0E07\u0E43\u0E0A\u0E49\u0E1E\u0E25\u0E31\u0E07\u0E02\u0E2D\u0E07\u0E1E\u0E27\u0E01\u0E40\u0E18\u0E2D\u0E0A\u0E48\u0E27\u0E22\u0E40\u0E14\u0E47\u0E01\u0E40\u0E2B\u0E25\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19
+        \u0E01\u0E48\u0E2D\u0E19\u0E17\u0E35\u0E48\u0E17\u0E38\u0E01\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E08\u0E30\u0E2A\u0E32\u0E22\u0E40\u0E01\u0E34\u0E19\u0E44\u0E1B"
+      english: Use your powers to save those students before it is too late.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E40\u0E02\u0E49\u0E32\u0E43\u0E08\u0E41\u0E25\u0E49\u0E27\u0E04\u0E23\u0E31\u0E1A\u0E2D\u0E32\u0E08\u0E32\u0E23\u0E22\u0E4C"
+      english: Understood, professor.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E07\u0E31\u0E49\u0E19\u0E01\u0E47\u0E25\u0E38\u0E22\u0E01\u0E31\u0E19\u0E2D\u0E35\u0E01\u0E23\u0E2D\u0E1A!"
+      english: "Then let\u2019s go again!"
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+  - id: hub-mystery
+    lines:
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E0A\u0E31\u0E22\u0E19\u0E31\u0E22\u0E08\u0E07\u0E43\u0E08\u0E25\u0E1A\u0E04\u0E27\u0E32\u0E21\u0E17\u0E23\u0E07\u0E08\u0E33\u0E02\u0E2D\u0E07\u0E1E\u0E27\u0E01\u0E40\u0E18\u0E2D
+        \u0E41\u0E15\u0E48\u0E40\u0E2B\u0E15\u0E38\u0E1C\u0E25\u0E22\u0E31\u0E07\u0E44\u0E21\u0E48\u0E01\u0E23\u0E30\u0E08\u0E48\u0E32\u0E07"
+      english: Chanai deliberately erased your memories, but his reason is still
+        unknown.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Prapot
+      portrait: {fileID: 21300000, guid: 728f5d3cff3e21b4b9587d75bdabe965, type: 3}
+      thai: "\u0E0A\u0E48\u0E27\u0E22\u0E40\u0E2B\u0E25\u0E48\u0E32\u0E19\u0E31\u0E01\u0E40\u0E23\u0E35\u0E22\u0E19
+        \u0E41\u0E25\u0E49\u0E27\u0E15\u0E32\u0E21\u0E2B\u0E32\u0E23\u0E48\u0E2D\u0E07\u0E23\u0E2D\u0E22\u0E02\u0E2D\u0E07\u0E40\u0E27\u0E17\u0E21\u0E19\u0E15\u0E23\u0E4C\u0E19\u0E31\u0E49\u0E19"
+      english: Save the students, and look for traces of that magic.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+  - id: festival-chicken-memory
+    lines:
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E40\u0E2E\u0E49\u0E22 \u0E23\u0E49\u0E32\u0E19\u0E44\u0E01\u0E48\u0E1B\u0E4A\u0E2D\u0E1B\u0E22\u0E31\u0E07\u0E2D\u0E22\u0E39\u0E48!
+        \u0E08\u0E33\u0E44\u0E14\u0E49\u0E44\u0E2B\u0E21 \u0E40\u0E21\u0E37\u0E48\u0E2D\u0E01\u0E48\u0E2D\u0E19\u0E40\u0E23\u0E32\u0E42\u0E14\u0E14\u0E40\u0E23\u0E35\u0E22\u0E19\u0E21\u0E32\u0E23\u0E49\u0E32\u0E19\u0E19\u0E35\u0E49\u0E01\u0E31\u0E19\u0E1B\u0E23\u0E30\u0E08\u0E33"
+      english: Hey, the Chicken Pop stall is still here! Remember how we used to
+        ditch school to come here all the time?
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E08\u0E33\u0E44\u0E14\u0E49\u0E14\u0E34! \u0E1E\u0E2D\u0E43\u0E01\u0E25\u0E49\u0E1E\u0E31\u0E01\u0E40\u0E17\u0E35\u0E48\u0E22\u0E07\u0E01\u0E47\u0E0A\u0E27\u0E19\u0E01\u0E31\u0E19\u0E2B\u0E19\u0E35\u0E2D\u0E2D\u0E01\u0E21\u0E32\u0E41\u0E25\u0E49\u0E27
+        \u0E0B\u0E37\u0E49\u0E2D\u0E44\u0E01\u0E48\u0E1B\u0E4A\u0E2D\u0E1B\u0E21\u0E32\u0E41\u0E1A\u0E48\u0E07\u0E01\u0E31\u0E19\u0E01\u0E34\u0E19"
+      english: Of course! We'd sneak out before lunch and split a cup of popcorn
+        chicken.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E1C\u0E48\u0E32\u0E19\u0E21\u0E32\u0E15\u0E31\u0E49\u0E07\u0E19\u0E32\u0E19
+        \u0E41\u0E04\u0E48\u0E44\u0E14\u0E49\u0E01\u0E25\u0E34\u0E48\u0E19\u0E01\u0E47\u0E40\u0E2B\u0E21\u0E37\u0E2D\u0E19\u0E01\u0E25\u0E31\u0E1A\u0E44\u0E1B\u0E40\u0E1B\u0E47\u0E19\u0E40\u0E14\u0E47\u0E01\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07\u0E40\u0E25\u0E22\u0E27\u0E48\u0E30"
+      english: It's been so long, but that smell takes me right back to being a kid.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+  - id: festival-pepsi-memory
+    lines:
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E40\u0E21\u0E37\u0E48\u0E2D\u0E01\u0E48\u0E2D\u0E19 Pepsi \u0E23\u0E49\u0E32\u0E19\u0E19\u0E35\u0E49\u0E41\u0E01\u0E49\u0E27\u0E25\u0E30\u0E41\u0E04\u0E48
+        3 \u0E1A\u0E32\u0E17\u0E40\u0E2D\u0E07\u0E19\u0E30 \u0E15\u0E2D\u0E19\u0E19\u0E35\u0E49
+        10 \u0E1A\u0E32\u0E17\u0E41\u0E25\u0E49\u0E27!"
+      english: Pepsi here used to be only 3 baht a cup. Now it's 10 baht!
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: Rung
+      portrait: {fileID: 21300000, guid: ca4186f45ad81724a9e39172ed78e4df, type: 3}
+      thai: "\u0E40\u0E2D\u0E2D \u0E08\u0E33\u0E44\u0E14\u0E49 \u0E01\u0E34\u0E19\u0E44\u0E01\u0E48\u0E1B\u0E4A\u0E2D\u0E1B\u0E40\u0E2A\u0E23\u0E47\u0E08\u0E01\u0E47\u0E15\u0E49\u0E2D\u0E07\u0E21\u0E32\u0E15\u0E48\u0E2D
+        Pepsi \u0E17\u0E35\u0E48\u0E23\u0E49\u0E32\u0E19\u0E19\u0E35\u0E49\u0E17\u0E38\u0E01\u0E17\u0E35"
+      english: Yeah, I remember. We'd always stop here for a Pepsi after the popcorn
+        chicken.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []
+    - speaker: EQ
+      portrait: {fileID: 21300000, guid: b8fb4c4345c96094683953e019cd92c7, type: 3}
+      thai: "\u0E23\u0E32\u0E04\u0E32\u0E02\u0E36\u0E49\u0E19 \u0E41\u0E15\u0E48\u0E04\u0E27\u0E32\u0E21\u0E17\u0E23\u0E07\u0E08\u0E33\u0E22\u0E31\u0E07\u0E40\u0E2B\u0E21\u0E37\u0E2D\u0E19\u0E40\u0E14\u0E34\u0E21\u0E40\u0E19\u0E2D\u0E30"
+      english: The price has gone up, but the memories are still the same.
+      charactersPerSecond: 35
+      autoAdvanceSeconds: 0
+      voiceBlip: {fileID: 0}
+      callback: 
+      choices: []

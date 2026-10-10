@@ -12,6 +12,8 @@ namespace BeatEmUp
         // Set by the stage owner at entry; covers combat and direct hazard damage.
         public bool SafeStageProtection { get; set; }
         public bool BossDamageProtection { get; set; }
+        // Prologue's short first boss encounter must never become a false victory.
+        public float StoryMinimumHealth { get; set; }
         public event Action Damaged;
         public event Action Died;
         public event Action Restored;
@@ -20,7 +22,7 @@ namespace BeatEmUp
         {
             if (IsDead || SafeStageProtection || BossDamageProtection) return false;
             float previous = Current;
-            Current = Mathf.Max(0, Current - Mathf.Max(0, amount)*(1-(GetComponent<MetaProgress>()?.DamageReduction ?? 0)));
+            Current = Mathf.Max(Mathf.Clamp(StoryMinimumHealth,0,Current), Current - Mathf.Max(0, amount)*(1-(GetComponent<MetaProgress>()?.DamageReduction ?? 0)));
             if (Current <= 0 && GetComponent<RunBuildState>()?.TrySaveLethalHit() == true) Current = 1;
             if (Current < previous) Damaged?.Invoke();
             if (IsDead) Died?.Invoke();

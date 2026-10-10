@@ -501,7 +501,12 @@ namespace BeatEmUp
             if(Gamepad.current?.buttonSouth.wasPressedThisFrame==true && (LevelCompleted || player && player.GetComponent<CharacterHealth>().IsDead))
             { var hub=GetComponent<PlayerHubController>(); if(hub) hub.ReturnToHub(); else Restart(LevelCompleted); }
         }
-        public bool Interact() => CurrentStage!=null && CurrentStage.hub ? GetComponent<PlayerHubController>().Interact(player) : WorldRewards && WorldRewards.IsPending ? WorldRewards.Interact() : Recover();
+        public bool Interact()
+        {
+            var story=GetComponent<BeatEmUp.Story.PrologueDirector>();
+            if(story && story.ActiveStory)return story.TryInteractFestivalStore(player);
+            return BeatEmUp.Story.StoryNpcConversation.TryInteract(player) || (CurrentStage!=null && CurrentStage.hub ? GetComponent<PlayerHubController>().Interact(player) : WorldRewards && WorldRewards.IsPending ? WorldRewards.Interact() : Recover());
+        }
         private void OnGUI()
         {
             DrawNextAreaEdgeArrow();

@@ -78,7 +78,14 @@ namespace BeatEmUp
             motor.Face(delta.x);
             if (Mathf.Abs(delta.x) < minimumAttackRange)
             {
-                motor.MoveInput = new Vector2(-Mathf.Sign(delta.x), 0);
+                // Create room beside the target while also correcting the walking lane.
+                motor.MoveInput = new Vector2(-motor.Facing, Mathf.Abs(delta.y) >= laneRange ? Mathf.Sign(delta.y) : 0).normalized;
+                animationDriver.Play("Walk"); return;
+            }
+            if (Mathf.Abs(delta.x) <= attackRange && Mathf.Abs(delta.y) >= laneRange)
+            {
+                // Once horizontally in reach, line up instead of walking underneath the target.
+                motor.MoveInput = new Vector2(0, Mathf.Sign(delta.y));
                 animationDriver.Play("Walk"); return;
             }
             if (Mathf.Abs(delta.x) <= attackRange && Mathf.Abs(delta.y) < laneRange)
@@ -86,7 +93,7 @@ namespace BeatEmUp
                 motor.MoveInput = Vector2.zero;
                 if (cooldown <= 0 && RequestCoordination(attack,legacyCoordination,10))
                 { if(attackPlayer.Play(attack)) { motor.MovementLocked=true; ConfirmCoordination(); } else ReleaseCoordination("Play failed"); }
-                else { motor.MoveInput=new Vector2(0,transform.position.y<target.position.y ? -.35f : .35f); animationDriver.Play("Walk"); }
+                else { animationDriver.Play("Idle"); }
             }
             else { motor.MoveInput = delta.normalized; animationDriver.Play("Walk"); }
         }

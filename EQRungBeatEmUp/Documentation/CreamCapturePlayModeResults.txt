@@ -1,0 +1,22 @@
+PASS: Kidnapping checkpoint starts its actual timeline
+PASS: Cream and both captors reach the grabbing animation
+PASS: Both Thai captors play grabbing frames together
+PASS: Heroes remain hidden during capture
+PASS: Cream resists while both captors hold her
+PASS: Captors hold during Cream's struggle
+PASS: All actors switch to escort animation
+PASS: Captors use forward and backward escort animation
+PASS: Pause freezes all capture animation and movement
+PASS: Escort resumes and moves Cream right
+PASS: All three animations advance after resume
+PASS: Escort keeps both hand-contact distances
+PASS: Front captor keeps facing Cream while walking backwards
+PASS: Heroes' dialogue begins after capture
+PASS: Capture completion clears all actors and animation loops
+PASS: Cream's original pose is restored before rescue
+PASS: Capture finishes and returns control to tutorial
+PASS: Replaying capture restarts fresh grabbing frames
+PASS: Skipping during grabbing completes the timeline
+PASS: Early skip removes captors and clears Cream's animation
+PASS: Cream respawns in her normal pose for rescue
+ALL PROLOGUE CHECKS PASSED

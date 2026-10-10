@@ -1,0 +1,129 @@
+PASS: ThaiDelinquent(Clone) approaches from (0.00, -0.40) and punches beside the target on the same lane (gap (0.45, 0.10))
+PASS: Attack finishes within its authored timeline
+PASS: Enemy holds its aligned position during attack cooldown
+PASS: Enemy follows a lane change without closing the horizontal punching gap
+PASS: Thai enemy uses its own animator controller
+PASS: Idle displays the Thai character at runtime
+PASS: Walk displays the Thai character at runtime
+PASS: Sprint displays the Thai character at runtime
+PASS: Hurt_Heavy displays the Thai character at runtime
+PASS: Hurt_Light displays the Thai character at runtime
+PASS: GroundHit displays the Thai character at runtime
+PASS: Landing displays the Thai character at runtime
+PASS: Knockdown displays the Thai character at runtime
+PASS: GetUp displays the Thai character at runtime
+PASS: Falling displays the Thai character at runtime
+PASS: Launched displays the Thai character at runtime
+PASS: AirHit displays the Thai character at runtime
+PASS: Air_Hit displays the Thai character at runtime
+PASS: Downed displays the Thai character at runtime
+PASS: Defeated displays the Thai character at runtime
+PASS: Stunned displays the Thai character at runtime
+PASS: StunRecovery displays the Thai character at runtime
+PASS: Recovery displays the Thai character at runtime
+PASS: Attack_Lunge displays the Thai character at runtime
+PASS: Attack_Slash2 displays the Thai character at runtime
+PASS: Attack_Slash1 displays the Thai character at runtime
+PASS: Thai enemy enters its parry-stun reaction
+PASS: Parry stun displays the newly drawn Thai sprites instead of Rusher
+PASS: ThaiDelinquent(Clone) approaches from (0.00, 0.40) and punches beside the target on the same lane (gap (0.45, -0.10))
+PASS: Attack finishes within its authored timeline
+PASS: Enemy holds its aligned position during attack cooldown
+PASS: Enemy follows a lane change without closing the horizontal punching gap
+PASS: Thai enemy uses its own animator controller
+PASS: Idle displays the Thai character at runtime
+PASS: Walk displays the Thai character at runtime
+PASS: Sprint displays the Thai character at runtime
+PASS: Hurt_Heavy displays the Thai character at runtime
+PASS: Hurt_Light displays the Thai character at runtime
+PASS: GroundHit displays the Thai character at runtime
+PASS: Landing displays the Thai character at runtime
+PASS: Knockdown displays the Thai character at runtime
+PASS: GetUp displays the Thai character at runtime
+PASS: Falling displays the Thai character at runtime
+PASS: Launched displays the Thai character at runtime
+PASS: AirHit displays the Thai character at runtime
+PASS: Air_Hit displays the Thai character at runtime
+PASS: Downed displays the Thai character at runtime
+PASS: Defeated displays the Thai character at runtime
+PASS: Stunned displays the Thai character at runtime
+PASS: StunRecovery displays the Thai character at runtime
+PASS: Recovery displays the Thai character at runtime
+PASS: Attack_Lunge displays the Thai character at runtime
+PASS: Attack_Slash2 displays the Thai character at runtime
+PASS: Attack_Slash1 displays the Thai character at runtime
+PASS: Thai enemy enters its parry-stun reaction
+PASS: Parry stun displays the newly drawn Thai sprites instead of Rusher
+PASS: ThaiDelinquent(Clone) approaches from (-2.00, -0.40) and punches beside the target on the same lane (gap (0.83, 0.09))
+PASS: Attack finishes within its authored timeline
+PASS: Enemy holds its aligned position during attack cooldown
+PASS: Enemy follows a lane change without closing the horizontal punching gap
+PASS: Thai enemy uses its own animator controller
+PASS: Idle displays the Thai character at runtime
+PASS: Walk displays the Thai character at runtime
+PASS: Sprint displays the Thai character at runtime
+PASS: Hurt_Heavy displays the Thai character at runtime
+PASS: Hurt_Light displays the Thai character at runtime
+PASS: GroundHit displays the Thai character at runtime
+PASS: Landing displays the Thai character at runtime
+PASS: Knockdown displays the Thai character at runtime
+PASS: GetUp displays the Thai character at runtime
+PASS: Falling displays the Thai character at runtime
+PASS: Launched displays the Thai character at runtime
+PASS: AirHit displays the Thai character at runtime
+PASS: Air_Hit displays the Thai character at runtime
+PASS: Downed displays the Thai character at runtime
+PASS: Defeated displays the Thai character at runtime
+PASS: Stunned displays the Thai character at runtime
+PASS: StunRecovery displays the Thai character at runtime
+PASS: Recovery displays the Thai character at runtime
+PASS: Attack_Lunge displays the Thai character at runtime
+PASS: Attack_Slash2 displays the Thai character at runtime
+PASS: Attack_Slash1 displays the Thai character at runtime
+PASS: Thai enemy enters its parry-stun reaction
+PASS: Parry stun displays the newly drawn Thai sprites instead of Rusher
+PASS: ThaiDelinquent(Clone) approaches from (2.00, 0.40) and punches beside the target on the same lane (gap (-0.83, -0.09))
+PASS: Attack finishes within its authored timeline
+PASS: Enemy holds its aligned position during attack cooldown
+PASS: Enemy follows a lane change without closing the horizontal punching gap
+PASS: Thai enemy uses its own animator controller
+PASS: Idle displays the Thai character at runtime
+PASS: Walk displays the Thai character at runtime
+PASS: Sprint displays the Thai character at runtime
+PASS: Hurt_Heavy displays the Thai character at runtime
+PASS: Hurt_Light displays the Thai character at runtime
+PASS: GroundHit displays the Thai character at runtime
+PASS: Landing displays the Thai character at runtime
+PASS: Knockdown displays the Thai character at runtime
+PASS: GetUp displays the Thai character at runtime
+PASS: Falling displays the Thai character at runtime
+PASS: Launched displays the Thai character at runtime
+PASS: AirHit displays the Thai character at runtime
+PASS: Air_Hit displays the Thai character at runtime
+PASS: Downed displays the Thai character at runtime
+PASS: Defeated displays the Thai character at runtime
+PASS: Stunned displays the Thai character at runtime
+PASS: StunRecovery displays the Thai character at runtime
+PASS: Recovery displays the Thai character at runtime
+PASS: Attack_Lunge displays the Thai character at runtime
+PASS: Attack_Slash2 displays the Thai character at runtime
+PASS: Attack_Slash1 displays the Thai character at runtime
+PASS: Thai enemy enters its parry-stun reaction
+PASS: Parry stun displays the newly drawn Thai sprites instead of Rusher
+PASS: BadGuy(Clone) approaches from (0.00, -0.40) and punches beside the target on the same lane (gap (0.46, 0.11))
+PASS: Attack finishes within its authored timeline
+PASS: Enemy holds its aligned position during attack cooldown
+PASS: Enemy follows a lane change without closing the horizontal punching gap
+PASS: BadGuy(Clone) approaches from (0.00, 0.40) and punches beside the target on the same lane (gap (0.46, -0.11))
+PASS: Attack finishes within its authored timeline
+PASS: Enemy holds its aligned position during attack cooldown
+PASS: Enemy follows a lane change without closing the horizontal punching gap
+PASS: BadGuy(Clone) approaches from (-2.00, -0.40) and punches beside the target on the same lane (gap (0.97, 0.08))
+PASS: Attack finishes within its authored timeline
+PASS: Enemy holds its aligned position during attack cooldown
+PASS: Enemy follows a lane change without closing the horizontal punching gap
+PASS: BadGuy(Clone) approaches from (2.00, 0.40) and punches beside the target on the same lane (gap (-0.97, -0.08))
+PASS: Attack finishes within its authored timeline
+PASS: Enemy holds its aligned position during attack cooldown
+PASS: Enemy follows a lane change without closing the horizontal punching gap
+RESULT: PASS

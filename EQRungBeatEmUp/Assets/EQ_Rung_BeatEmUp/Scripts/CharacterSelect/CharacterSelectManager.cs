@@ -45,6 +45,7 @@ namespace BeatEmUp
             if(Characters == null || Characters.Length == 0) Characters = session.catalog.selectionCharacters;
             session.ConfigureSelection(RequiredPlayerCount, AllowDuplicateCharacters, GameplayScene);
             if(BackgroundSprite) Background.sprite = BackgroundSprite;
+            if(session.Mode == SessionMode.Local) ConfigureCoopLayout();
             var grid = RosterContainer.GetComponent<GridLayoutGroup>();
             grid.constraintCount = Mathf.Max(1, Mathf.Min(6, Mathf.CeilToInt(Mathf.Sqrt(Characters.Length * 1.8f))));
             for(int i = 0; i < Characters.Length; i++)
@@ -71,6 +72,38 @@ namespace BeatEmUp
         {
             if(!session || !session.InLobby || session.Mode == SessionMode.Online) return;
             session.JoinDevice(context.control.device);
+        }
+        void ConfigureCoopLayout()
+        {
+            // The local party uses four independent cards instead of one shared preview.
+            var previewElements = new Component[] { LargePreview, CharacterName, ArchetypeText, DescriptionText,
+                PowerBar, SpeedBar, DefenseBar, TechniqueBar };
+            foreach(var element in previewElements) element.gameObject.SetActive(false);
+            string[] decorations = { "Preview shadow", "Preview corners", "Name slash 0", "Name slash 1",
+                "Name slash 2", "Name slash 3", "POWER", "SPEED", "DEFENSE", "TECHNIQUE" };
+            foreach(string name in decorations)
+            {
+                var element = transform.Find(name); if(element) element.gameObject.SetActive(false);
+            }
+            MoveElement("GHOST FAIR", new Rect(60, 25, 600, 52));
+            MoveElement("CHOOSE YOUR FIGHTER", new Rect(60, 80, 1500, 78));
+            MoveElement("THE SCHOOL GATES ARE OPEN.", new Rect(62, 155, 900, 32));
+            CharacterSelectPlayerSlot.SetRect(RoomText.rectTransform, new Rect(60, 195, 1805, 35));
+            MoveElement("Roster shadow", new Rect(0, 795, 1920, 285));
+            CharacterSelectPlayerSlot.SetRect((RectTransform)RosterContainer.parent, new Rect(60, 805, 1805, 156));
+            CharacterSelectPlayerSlot.SetRect(RosterContainer, new Rect(10, 0, 1785, 156));
+            var slots = new[] { Player1Slot, Player2Slot, Player3Slot, Player4Slot };
+            for(int i = 0; i < slots.Length; i++) slots[i].ConfigureCoopCard(i);
+            MoveElement("ENTER / A: JOIN + CONFIRM     ESC / B: CANCEL", new Rect(60, 965, 1805, 34));
+            CharacterSelectPlayerSlot.SetRect(ConfirmPrompt.GetComponent<RectTransform>(), new Rect(60, 1012, 365, 52));
+            CharacterSelectPlayerSlot.SetRect(CancelPrompt.GetComponent<RectTransform>(), new Rect(440, 1012, 300, 52));
+            CharacterSelectPlayerSlot.SetRect(StartPrompt.GetComponent<RectTransform>(), new Rect(1390, 1012, 475, 52));
+        }
+        void MoveElement(string name, Rect area)
+        {
+            // Some UI object names contain '/', which Transform.Find treats as a hierarchy path.
+            var element = transform.Cast<Transform>().FirstOrDefault(child => child.name == name);
+            if(element) CharacterSelectPlayerSlot.SetRect((RectTransform)element, area);
         }
         void ClaimSingleDevice(InputAction.CallbackContext context)
         {
@@ -169,7 +202,21 @@ namespace BeatEmUp
                 if(device != null && !cursors.ContainsKey(slot.slot)) cursors.Add(slot.slot,new CharacterSelectPlayerCursor(session.catalog.playerPrefab.GetComponent<PlayerInput>().actions,device,slot.slot,this));
             }
             var slots = new[] { Player1Slot, Player2Slot, Player3Slot, Player4Slot };
-            for(int i = 0; i < 4; i++) slots[i].Render(i,session.Lobby.slots.Find(s => s.slot == i));
+            for(int i = 0; i < slots.Length; i++)
+            {
+                bool visible = session.Mode != SessionMode.Single || i == 0;
+                slots[i].gameObject.SetActive(visible);
+                if(visible)
+                {
+                    var slot = session.Lobby.slots.Find(s => s.slot == i);
+                    slots[i].Render(i,slot);
+                    if(session.Mode == SessionMode.Local)
+                    {
+                        int roster = slot == null ? -1 : lockedHover.TryGetValue(i,out int hover) ? hover : RosterIndex(slot.character);
+                        slots[i].RenderCharacter(slot, roster >= 0 && roster < Characters.Length ? Characters[roster] : null);
+                    }
+                }
+            }
             var displaySlots = session.Lobby.slots.Select(s => new LobbySlot { slot=s.slot, ready=s.ready,
                 character=lockedHover.TryGetValue(s.slot,out int hover) ? hover : RosterIndex(s.character) }).ToList();
             for(int i = 0; i < portraits.Count; i++) portraits[i].Render(displaySlots,i);
@@ -188,7 +235,7 @@ namespace BeatEmUp
             StartPrompt.GetComponentInChildren<Text>().text = session.IsAuthority ? session.CanStart ? "START  /  SPACE" : "WAITING FOR READY" : "WAITING FOR HOST";
             var p1 = session.Lobby.slots.Find(s => s.slot == OwnedPlayer && session.IsLocalOwner(s.owner));
             ConfirmPrompt.interactable = p1 != null && !p1.ready && !lockedHover.ContainsKey(p1.slot) && session.CanConfirm(p1);
-            RoomText.text = session.Mode == SessionMode.Online ? "ONLINE  /  ROOM " + session.Lobby.code : "LOCAL  /  " + session.Lobby.slots.Count + " PLAYERS  /  NEED " + session.Lobby.requiredPlayerCount;
+            RoomText.text = session.Mode == SessionMode.Online ? "ONLINE  /  ROOM " + session.Lobby.code : "OFFLINE  /  " + session.Lobby.slots.Count + " PLAYERS  /  NEED " + session.Lobby.requiredPlayerCount;
         }
         void ShowPreview(int index)
         {

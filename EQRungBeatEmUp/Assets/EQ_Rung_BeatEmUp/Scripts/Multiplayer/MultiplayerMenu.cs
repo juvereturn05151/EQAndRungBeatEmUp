@@ -45,6 +45,9 @@ namespace BeatEmUp
         void OnDestroy() { if(session) session.Changed-=Refresh; DisposeNavigation(); }
         void Update()
         {
+            bool cinematic=BeatEmUp.Story.PrologueDirector.Active && BeatEmUp.Story.PrologueDirector.Active.InputLocked;
+            canvas.enabled=!cinematic;
+            if(cinematic)return;
             UpdateNavigation();
             if(UnityEngine.InputSystem.Keyboard.current!=null && UnityEngine.InputSystem.Keyboard.current.f10Key.wasPressedThisFrame && (Application.isEditor || Debug.isDebugBuild)) debugVisible=!debugVisible;
             if(session.InLobby && Time.unscaledTime>=refreshAt) { refreshAt=Time.unscaledTime+.3f; Refresh(); }
@@ -105,6 +108,7 @@ namespace BeatEmUp
         {
             if(session.InLobby && characterSelect && characterSelect.isActiveAndEnabled) { characterSelect.Render(); return; }
             string signature=screen+"/"+session.InGame+"/"+session.InLobby+"/"+session.Status+"/"+session.PreferredCharacter+"/"+session.LocalMenuOpen+"/"+joinCode;
+            if(screen=="main")signature+="/"+BeatEmUp.Story.StoryProgress.HasSave;
             if(session.InLobby) signature+=JsonUtility.ToJson(session.Lobby);
             if(session.InGame && session.Latest!=null)
             {
@@ -142,20 +146,21 @@ namespace BeatEmUp
             if(screen=="code") { CodeEntry(); return; }
             if(screen=="main")
             {
-                Button("PLAY",new Rect(100,300,520,90),()=>Show("modes"),red);
-                Button("HOW TO PLAY",new Rect(100,420,520,80),()=>Show("help"));
-                Button("OPTIONS",new Rect(100,530,520,80),()=>Show("options"));
-                Button("QUIT",new Rect(100,640,520,80),()=>Application.Quit());
-                Label("Arrows / WASD / stick / D-pad: move\nEnter / A: confirm    Escape / B: back",new Rect(100,800,950,100),26);
-                Label("A 2D BEAT 'EM UP\n\nSingle Player • Local Co-op • Online Co-op\n\nUp to 4 players",new Rect(850,350,850,330),36,new Color(1,.84f,.65f));
+                Button("NEW GAME",new Rect(100,300,520,90),()=>{session.NewGameRequested=true;Show("modes");},red);
+                Button("CONTINUE GAME",new Rect(100,410,520,90),()=>{session.NewGameRequested=false;Show("modes");},enabled:BeatEmUp.Story.StoryProgress.HasSave);
+                Button("HOW TO PLAY",new Rect(100,520,520,80),()=>Show("help"));
+                Button("OPTIONS",new Rect(100,620,520,80),()=>Show("options"));
+                Button("QUIT",new Rect(100,720,520,80),()=>Application.Quit());
+                Label("Arrows / WASD / stick / D-pad: move\nEnter / A: confirm    Escape / B: back",new Rect(100,845,950,85),26);
+                Label(BeatEmUp.Story.StoryProgress.HasSave ? "Continue resumes your saved story checkpoint.\nNew Game starts from the opening cutscene.\nPermanent upgrades and currency are kept." : "Start a New Game to see the opening story.\nContinue unlocks when your story is saved.",new Rect(850,720,850,150),27,new Color(1,.84f,.65f));
+                Label("A 2D BEAT 'EM UP\n\nOffline Play • Online Co-op\n\nUp to 4 players",new Rect(850,350,850,330),36,new Color(1,.84f,.65f));
             }
             else if(screen=="modes")
             {
-                Button("SINGLE PLAYER",new Rect(100,300,620,90),()=>session.BeginLocal(true),red);
-                Button("LOCAL CO-OP",new Rect(100,420,620,90),()=>session.BeginLocal());
-                Button("ONLINE CO-OP",new Rect(100,540,620,90),()=>Show("online"));
+                Button("OFFLINE PLAY",new Rect(100,300,620,90),()=>session.BeginLocal(),red);
+                Button("ONLINE CO-OP",new Rect(100,420,620,90),()=>Show("online"));
                 Button("BACK",new Rect(100,760,300,70),()=>Show("main"));
-                Label("Local: one keyboard plus up to three gamepads,\nor up to four gamepads.\n\nOnline: one player per machine.\nCreate a room and share its Relay code.",new Rect(850,340,850,340),34);
+                Label("Offline: one keyboard plus up to three gamepads,\nor up to four gamepads.\n\nOnline: one player per machine.\nCreate a room and share its Relay code.",new Rect(850,340,850,340),34);
             }
             else if(screen=="online")
             {
@@ -184,11 +189,12 @@ namespace BeatEmUp
                 Button("BACK",new Rect(100,760,300,70),()=>Show("main"));
             }
         }
+        public void ReturnToMainMenu() { Show("main"); }
         void Show(string name) { screen=name; focusName=null; lastSignature=null; Refresh(); }
         void Lobby()
         {
             Label("LOBBY / MATCH SETUP",new Rect(830,90,1000,90),47,new Color(1,.85f,.64f));
-            Label(session.Mode==SessionMode.Online ? "ONLINE CO-OP" : "LOCAL CO-OP",new Rect(100,280,720,60),38);
+            Label(session.Mode==SessionMode.Online ? "ONLINE CO-OP" : "OFFLINE PLAY",new Rect(100,280,720,60),38);
             for(int i=0;i<4;i++)
             {
                 int slotId=i; var slot=session.Lobby.slots.Find(s=>s.slot==i);
@@ -256,7 +262,7 @@ namespace BeatEmUp
                 }
             }
             string stage=world.stage>=0 && world.stage<session.catalog.level.stages.Count ? session.catalog.level.stages[world.stage].stageName : "Loading";
-            Label(stage+"  •  "+(world.rewardPending ? "Visit the chapel: E / L1 / LB. Each player chooses a blessing." : world.exitOpen ? "Exit open" : "Clear the encounter"),new Rect(20,202,1850,48),25,new Color(1,.83f,.64f));
+            if(world.story?.active!=true)Label(stage+"  •  "+(world.rewardPending ? "Visit the chapel: E / L1 / LB. Each player chooses a blessing." : world.exitOpen ? "Exit open" : "Clear the encounter"),new Rect(20,202,1850,48),25,new Color(1,.83f,.64f));
             if(world.rewardPending) Label(string.Join("   ",world.players.Where(p=>!p.dead).Select(p=>"P"+(p.slot+1)+": "+(p.rewardDone ? "✓" : p.choosing ? "choosing" : "visit chapel"))),new Rect(20,244,1850,44),25);
             var boss=world.entities.Find(e=>e.kind=="Boss" && !e.dead);
             if(boss!=null)

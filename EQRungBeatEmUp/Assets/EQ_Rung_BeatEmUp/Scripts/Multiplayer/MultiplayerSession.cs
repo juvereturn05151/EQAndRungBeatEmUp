@@ -35,6 +35,7 @@ namespace BeatEmUp
         public InputDevice PreferredOnlineDevice { get; set; }
         public InputDevice PreferredLocalDevice { get; set; }
         public int PreferredCharacter { get; set; }
+        public bool NewGameRequested { get; set; }
         public SessionInput LocalInput(int slot) => sources.TryGetValue(slot,out var input) ? input : null;
         public string ValidationPhase { get; set; }
         public ulong ValidationOwner { get; set; }
@@ -111,7 +112,7 @@ namespace BeatEmUp
         bool sceneReady, leaving;
         int generation;
         float connectionDeadline;
-        const string Protocol="GhostFair/5/";
+        const string Protocol="GhostFair/6/";
         const int MaxMessageBytes=512*1024;
         void Awake()
         {
@@ -259,6 +260,7 @@ namespace BeatEmUp
         void RegisterMessages()
         {
             RegisterHubMessages();
+            RegisterStoryMessages();
             network.CustomMessagingManager.RegisterNamedMessageHandler(Protocol+"lobby",(sender,reader)=>
             {
                 if(IsAuthority || sender!=NetworkManager.ServerClientId) return;
@@ -338,6 +340,8 @@ namespace BeatEmUp
         public void StartGame()
         {
             if(!CanStart) return;
+            if(NewGameRequested) BeatEmUp.Story.StoryProgress.Reset();
+            NewGameRequested=false;
             Lobby.running=true; InLobby=false; InGame=true; loaded.Clear(); sceneReady=false;
             BroadcastLobby();
             if(Mode==SessionMode.Online) foreach(var s in Lobby.slots) if(s.owner!=network.LocalClientId) Send(s.owner,"load",catalog.gameplayScene);
@@ -390,9 +394,10 @@ namespace BeatEmUp
         {
             if(!IsAuthority || !InGame || !sceneReady) return;
             if(Mode==SessionMode.Online && Lobby.slots.Any(s=>!loaded.Contains(s.owner))) { Status="Waiting for players to load…"; return; }
-            Flow.enabled=true;
+            Flow.enabled=!(Flow.GetComponent<BeatEmUp.Story.PrologueDirector>()?.ActiveStory ?? false);
             foreach(var clock in FindObjectsByType<CombatClock>(FindObjectsSortMode.None)) clock.enabled=true;
             Status="Run started";
+            Flow.GetComponent<BeatEmUp.Story.PrologueDirector>()?.Ready();
         }
         void SpawnPlayer(LobbySlot slot)
         {
@@ -425,6 +430,8 @@ namespace BeatEmUp
         public void ApplyCommand(int slot,PlayerCommand command)
         {
             if(!IsAuthority || !characters.TryGetValue(slot,out var player) || !player || !player.Living) return;
+            var story=Flow.GetComponent<BeatEmUp.Story.PrologueDirector>();
+            if(story && story.InputLocked) { player.Motor.MoveInput=Vector2.zero;return; }
             if(float.IsNaN(command.move.x) || float.IsNaN(command.move.y) || float.IsInfinity(command.move.x) || float.IsInfinity(command.move.y)) return;
             var combat=player.GetComponent<ComboController>();
             if(player.GetComponent<MetaProgress>()?.OpenStation>=0)
@@ -522,6 +529,8 @@ namespace BeatEmUp
         public WorldSnapshot CaptureSnapshot()
         {
             var result=new WorldSnapshot{validationPhase=ValidationPhase,validationOwner=ValidationOwner,tick=CombatClock.CurrentTick,stage=Flow.StageIndex,exitOpen=Flow.ExitUnlocked,completed=Flow.LevelCompleted,gameOver=!PlayerRoster.Living.Any(),rewardPending=Flow.CoopRewards && Flow.CoopRewards.Pending || Flow.WorldRewards && Flow.WorldRewards.IsPending,status=Flow.Failure};
+            result.story=Flow.GetComponent<BeatEmUp.Story.PrologueDirector>()?.Snapshot();
+            if(result.story?.active==true) { result.gameOver=false;result.exitOpen=false; }
             result.cameraLocked=Flow.ActiveCameraBounds.HasValue;
             result.encounterCameraBounds=Flow.ActiveCameraBounds ?? default;
             result.encounter=Flow.ActiveEncounterName;
@@ -561,8 +570,9 @@ namespace BeatEmUp
             bool stageChanged=Latest==null || Latest.stage!=snapshot.stage;
             Latest=snapshot;
             SaveClientMeta(snapshot);
+            Flow.GetComponent<BeatEmUp.Story.PrologueDirector>()?.ApplySnapshot(snapshot.story);
             if(Flow.framing) Flow.framing.SetEncounterBounds(snapshot.cameraLocked ? snapshot.encounterCameraBounds : (Rect?)null);
-            if(snapshot.stage>=0 && snapshot.stage<catalog.level.stages.Count) Flow.ApplyStageArt(catalog.level.stages[snapshot.stage]);
+            if(snapshot.story?.active!=true && snapshot.stage>=0 && snapshot.stage<catalog.level.stages.Count) Flow.ApplyStageArt(catalog.level.stages[snapshot.stage]);
             var alive=new HashSet<int>();
             foreach(var state in snapshot.sprites)
             {
@@ -656,7 +666,8 @@ namespace BeatEmUp
         }
         public void LeaveToMenu()
         {
-            string message=Status; ClearSession(); Busy=false; SceneManager.LoadScene("MainMenu"); Status=message; Changed?.Invoke();
+            NewGameRequested=false;
+            string message=Status; ClearSession(); Busy=false; GetComponent<MultiplayerMenu>()?.ReturnToMainMenu(); SceneManager.LoadScene("MainMenu"); Status=message; Changed?.Invoke();
         }
         public void CancelConnection() { if(!Busy) return; ClearSession(); Busy=false; Status="Connection cancelled"; Changed?.Invoke(); }
         void StopNetwork()
